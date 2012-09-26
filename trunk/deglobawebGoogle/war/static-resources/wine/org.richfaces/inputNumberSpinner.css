@@ -1,0 +1,8 @@
+*.rf-insp{border-width:1px;border-style:solid;border-color:#B6AD84;display:inline-block;font-size:1px;white-space:nowrap;}
+input.rf-insp-inp[type="text"]{background-color:#fff;background-image:url(../org.richfaces.images/inputBackgroundImage-4.0.0.Final.png);background-position:1px 1px;background-repeat:no-repeat;border:0;color:#000;font-family:Arial,Verdana,sans-serif;font-size:11px;margin:0;padding:0;vertical-align:top;}
+*.rf-insp-btns{background-color:#5D7343;background-image:url(../org.richfaces.images/buttonBackgroundImage-4.0.0.Final.png);background-position:top left;background-repeat:repeat-x;border-left-width:1px;border-left-style:solid;border-left-color:#B6AD84;display:inline-block;vertical-align:top;}
+*.rf-insp-dec,*.rf-insp-inc,*.rf-insp-dec-dis,*.rf-insp-inc-dis{background-position:50% 40%;background-repeat:no-repeat;display:block;height:8px;width:15px;}
+*.rf-insp-dec{background-image:url(../org.richfaces.images/spinnerArrowBottom-4.0.0.Final.png);}
+*.rf-insp-inc{background-image:url(../org.richfaces.images/spinnerArrowTop-4.0.0.Final.png);}
+*.rf-insp-dec-dis{background-image:url(../org.richfaces.images/spinnerDisabledArrowBottom-4.0.0.Final.png);}
+*.rf-insp-inc-dis{background-image:url(../org.richfaces.images/spinnerDisabledArrowTop-4.0.0.Final.png);}
