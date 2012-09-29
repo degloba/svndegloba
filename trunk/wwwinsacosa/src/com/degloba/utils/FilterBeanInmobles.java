@@ -1,0 +1,242 @@
+package com.degloba.utils;
+
+  
+import com.degloba.interfaces.Inmoble_Impl;
+import com.degloba.vo.CiutatsForm;
+import com.degloba.vo.InmobleForm;
+import com.degloba.vo.ProvinciesForm;
+import com.degloba.HBM.Ciutats;
+import com.degloba.HBM.Provincies;
+
+import java.io.Serializable;   
+import java.util.Iterator;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean; 
+import javax.faces.bean.SessionScoped;   
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
+
+import org.richfaces.model.Filter;
+
+
+@ManagedBean
+@SessionScoped
+public class FilterBeanInmobles implements Serializable {     
+	/**      *       */    
+	
+	private static final long serialVersionUID = -5680001353441022183L;     
+
+
+private String nomFilter;
+private int habitacionsFilter;
+private int banysFilter;
+// combos 
+private int localitatFilter;
+private int provinciaFilter;
+private int tipusFilter;
+
+private int metresFilter;
+private int preuFilter;
+
+public String getNomFilter() {
+	return nomFilter;
+}
+public void setNomFilter(String nomFilter) {
+	this.nomFilter = nomFilter;
+}
+public int getLocalitatFilter() {
+	return localitatFilter;
+}
+public void setLocalitatFilter(int localitatFilter) {
+	this.localitatFilter = localitatFilter;
+}
+public int getProvinciaFilter() {
+	return provinciaFilter;
+}
+public void setProvinciaFilter(int provinciaFilter) {
+	this.provinciaFilter = provinciaFilter;
+}
+public int getTipusFilter() {
+	return tipusFilter;
+}
+public void setTipusFilter(int tipusFilter) {
+	this.tipusFilter = tipusFilter;
+}  
+
+
+/*
+public Filter<?> getHabitacionsFilterImpl() {    
+	
+	return new Filter<InmobleForm>() {             
+		public boolean accept(InmobleForm item) {                 
+			int habitacions = getHabitacionsFilter();                 
+			if (habitacions == 0 || habitacions >=item.getHabitacions())  {                    
+				return true;                 
+				}                 
+			return false;             
+	}         
+};     
+} 
+*/
+/*
+public Filter<?> getBanysFilterImpl() {    
+	
+	return new Filter<InmobleForm>() {             
+		public boolean accept(InmobleForm item) {                 
+			int banys = getBanysFilter();                 
+			if (banys == 0 || banys >=item.getBanys())  {                    
+				return true;                 
+				}                 
+			return false;             
+	}         
+};     
+} 
+*/
+
+ 
+public Filter<?> getMetresFilterImpl() {    
+	
+	return new Filter<InmobleForm>() {             
+		public boolean accept(InmobleForm item) {                 
+			int metres = getMetresFilter();                 
+			if (metres == 0 || metres >=item.getMetres())  {                    
+				return true;                 
+				}                 
+			return false;             
+	}         
+};     
+} 
+
+
+public Filter<?> getPreuFilterImpl() {    
+	
+	return new Filter<InmobleForm>() {             
+		public boolean accept(InmobleForm item) {                 
+			int preu = getPreuFilter();                 
+			if (preu == 0 || preu >=item.getPreu())  {                    
+				return true;                 
+				}                 
+			return false;             
+	}         
+};     
+} 
+/*
+public Filter<?> getFilterTipus() {  
+	
+	return new Filter<InventoryItem>() {             
+	public boolean accept(InventoryItem t) {                 
+		String tipus = getTipusFilter();                 
+		if (tipus == null || tipus.length() == 0 || tipus.equals(t.getTipus())) {                     
+			return true;                 
+		}                 
+		return false;             
+	}         
+	};     
+}
+*/
+
+public int getMetresFilter() {
+	return metresFilter;
+}
+public int getHabitacionsFilter() {
+	return habitacionsFilter;
+}
+public void setHabitacionsFilter(int habitacionsFilter) {
+	this.habitacionsFilter = habitacionsFilter;
+}
+public int getBanysFilter() {
+	return banysFilter;
+}
+public void setBanysFilter(int banysFilter) {
+	this.banysFilter = banysFilter;
+}
+public void setMetresFilter(int metresFilter) {
+	this.metresFilter = metresFilter;
+}
+public int getPreuFilter() {
+	return preuFilter;
+}
+public void setPreuFilter(int preuFilter) {
+	this.preuFilter = preuFilter;
+}
+
+
+/*
+ * Al cambiar el valor de la provincia construim la combo de les ciutats 
+ * de la provincia en questio
+ */
+public void cambiarProvincia(ValueChangeEvent event)
+{
+	
+	FacesContext context = FacesContext.getCurrentInstance(); 
+	CiutatsForm ciutatsForm = (CiutatsForm) context.getApplication().evaluateExpressionGet(context, "#{ciutats}", CiutatsForm.class);
+	ProvinciesForm provinciesForm = (ProvinciesForm) context.getApplication().evaluateExpressionGet(context, "#{provincies}", ProvinciesForm.class);
+	
+	List<SelectItem> novesCiutats = ciutatsForm.getCiutats();
+	novesCiutats.clear();
+	
+	Inmoble_Impl r = new Inmoble_Impl();
+	
+	 if (null != event.getNewValue()) 
+	 {             		
+		Provincies provincia = new Provincies();
+		
+		// Recuperem l'objecte Provincia que hem seleccionat
+		provincia = r.provinciaPerId(new Integer(event.getNewValue().toString()));
+		
+		// Actualitzem les ciutats de la provincia seleccionada		
+		Iterator<Ciutats> iter = r.ciutatsProvincia(provincia).iterator();
+		while (iter.hasNext())
+		{
+			Ciutats ciutatHBM = (Ciutats)(iter.next());  
+			
+			SelectItem item = new SelectItem(ciutatHBM.getId(), ciutatHBM.getName() , "", false, false);
+			                   
+			// hem de modificar també el combi de ciutats del formulari d'entrada
+			novesCiutats.add(item);
+			
+		}
+		
+
+		// Modifiquem la provincia  i localitat dels corresponents filtres 
+		setLocalitatFilter((Integer) novesCiutats.get(0).getValue());
+		setProvinciaFilter(provincia.getId());
+		
+		// actualitzem el necessari per actualitzar els combos de la ciutat i provincia del formulari d'entrada
+		//inmobleForm.setProvincia(provincia.getId());
+		///////inmobleForm.setProvinciaStr(provincia.getName());
+		provinciesForm.setValorActual(provincia.getId());
+		ciutatsForm.setValorActual((Integer) novesCiutats.get(0).getValue());
+		 
+      }
+	
+		
+}
+
+
+
+/*
+ * Al cambiar el valor de la provincia construim la combo de les ciutats 
+ * de la provincia en questio
+ */
+public void cambiarCiutat(ValueChangeEvent event)
+{
+	
+	FacesContext context = FacesContext.getCurrentInstance(); 
+	CiutatsForm ciutatsForm = (CiutatsForm) context.getApplication().evaluateExpressionGet(context, "#{ciutats}", CiutatsForm.class);
+	
+	Inmoble_Impl r = new Inmoble_Impl();
+	
+	 if (null != event.getNewValue()) 
+	 {             		
+		 ciutatsForm.setValorActual((Integer) event.getNewValue());
+		 
+      }
+		
+}
+
+
+
+} 
