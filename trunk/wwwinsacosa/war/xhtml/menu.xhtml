@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<h:form>
+
+	
+	<h:panelGrid width="180px" columns="2" border="0">
+	
+		<rich:panel header="#{missatge['titol.inmobles']}">
+		
+			<h:panelGrid columns="1">
+		         
+			
+				<h:commandLink value="Buscar" action="inmoblesUsuari" 
+				style="font-family:arial, verdana;font-size:12px;">
+					<f:setPropertyActionListener target="#{inmobleForm.cercable}" value="true" />
+					<f:setPropertyActionListener target="#{inmobleForm.nou}" value="true" />
+				</h:commandLink>
+				
+				<h:commandLink value="Filtre" action="filtre" 
+				style="font-family:arial, verdana;font-size:12px;"/>
+
+				<h:commandLink value="Caracteristicas x Tipo" execute="@this" action="caractTipus" 
+				style="font-family:arial, verdana;font-size:12px;"/>	
+				
+				<h:commandLink value="Solicituds - Usuaris" action="solicitudsUsuaris" 
+				style="font-family:arial, verdana;font-size:12px;"/>		
+			
+				<a4j:commandLink action="conectarPaypal">
+					<h:outputText escape="false"  value="Insaco/Paypal" />
+				</a4j:commandLink>
+				
+				<h:commandLink  border="0" execute="@this"  style="font-family:arial, verdana;font-size:12px;"        
+			    	  action="#{inmobleForm.afegirMoltsInmobles}">                     
+					<h:outputText escape="false"  value="Volum dades" />              
+			    </h:commandLink>
+			    
+			    <h:commandLink  border="0" execute="@this"  style="font-family:arial, verdana;font-size:12px;"        
+			    	  action="filtre2">                     
+					<h:outputText escape="false"  value="filtre" />              
+			    </h:commandLink>
+	
+			</h:panelGrid>
+					
+		</rich:panel>
+		
+	
+	</h:panelGrid>
+
+</h:form>
+
+<h:panelGrid width="180px" columns="2" border="0">
+
+	<rich:panel>         
+	
+		<b>Ventajas INSACO</b>
+		         
+		<p>Quiere vender, alquilar o comprar un inmueble ?<br/>   
+		</p>   
+		           
+		<ul>             
+			<li>buscar lo que quiera de forma rápida y sencilla </li>             
+			<li>sin costes de gestión</li>   
+			<li>contacto directo con los interesados</li> 
+			<li>publicación de inmuebles</li>            
+		</ul>
+		     
+	</rich:panel> 
+
+
+
+</h:panelGrid>
+		
+
+
+</ui:composition>
