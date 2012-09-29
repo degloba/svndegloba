@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/12/2011 09:53:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="HBM.Persona" table="persona" schema="dbo" catalog="INSACO">
+        <id name="idPersona" type="int">
+            <column name="id_persona" />
+            <generator class="assigned" />
+        </id>
+        <set name="personesAdreceses" table="personesAdreces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_persona_pa" />
+            </key>
+            <one-to-many class="HBM.PersonesAdreces" />
+        </set>
+    </class>
+</hibernate-mapping>
