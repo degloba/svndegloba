@@ -18,19 +18,25 @@ import java.util.List;
 //import org.hibernate.criterion.Projections;
 //import org.hibernate.criterion.Restrictions;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Transaction;
 import com.google.common.collect.Maps;
 
 import com.degloba.dataModels_JPA.InmobleCaract;
 import com.degloba.HBM.*;
-import com.degloba.utils.SessionFactoryUtil;
 
 
 public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
-
+	DatastoreService datastore;
+	
 	public Inmoble_Impl() {
 		super();
 		// TODO Auto-generated constructor stub
+		
+		datastore = DatastoreServiceFactory.getDatastoreService();
 	}
 	
 	
@@ -39,17 +45,18 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		Tipus ret = null;
-		
-		Transaction tx = null;    
+			
+		Transaction tx = datastore.beginTransaction();  
 
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-			tx = session.beginTransaction();
+		try { 
+		
 			
-			
-			Criteria criteria = session.createCriteria(Inmobles.class)
+/*			Criteria criteria = session.createCriteria(Inmobles.class)
 			.add(Expression.eq("id",idInmoble))
-			.setProjection(Projections.property("tipus"));
+			.setProjection(Projections.property("tipus"));*/
+			
+			Query q = new Query("tipus");
+			
 			
 			ret = (Tipus) criteria.uniqueResult();
 		
@@ -57,22 +64,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			tx.commit();  
 			
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 		
@@ -84,31 +81,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		Objecte objecte = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		
+		Transaction tx = datastore.beginTransaction();   
+  
 		try {      
-				tx = session.beginTransaction();      
+				     
 				objecte = (Objecte) session.get(Inmobles.class , id);
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		return objecte;  
 	}
 	
@@ -121,10 +109,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		Inmobles inmoble = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		
+		Transaction tx = datastore.beginTransaction(); 
+		
 		try {      
-				tx = session.beginTransaction();      
+				    
 				inmoble = (Inmobles) session.get(Inmobles.class , idInmoble);
 				
 				inmoble.getFotoses().size(); // will make hibernate initialize the collection for you instead of the proxy
@@ -137,23 +126,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		return inmoble;  
 	}
 	
@@ -163,14 +143,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Inmobles afegirInmoble(Inmobles inmoble) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		 
+		Transaction tx = datastore.beginTransaction();
 		
 		try {      
-				tx = session.beginTransaction();   
-				
+			
 				
 				// 1. Afegim abans totes les coleccions (que conté l'inmoble : caracteristiques,fotos)
 				// -----------------------------------------------------------------------------------
@@ -223,24 +200,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				tx.commit();
 				
 			} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
+		}
 		
 		return inmoble;
 	}
@@ -249,36 +215,20 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void modificarInmoble(Inmobles inmoble) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Transaction tx = datastore.beginTransaction(); 
 		
 		try {      
-				tx = session.beginTransaction();   
-
 
 				session.update(inmoble);      
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}  
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			} 
+		}
+		
 		
 	}
 
@@ -287,32 +237,18 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void eliminarInmoble(Inmobles inmoble) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction(); 
+				    
 		try {      
-				tx = session.beginTransaction();      
 				session.delete(inmoble);      
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well    
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
-		
-		
+		}
 	}
 	
 	
@@ -333,13 +269,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();   
+		    
 		try {      
-				tx = session.beginTransaction();
 				
-	
 				Criteria criteria;
 				ret = session.createCriteria(Inmobles.class)
 					.add(Restrictions.like("nom", "%" + condicioInmoble.getNom() + "%"))
@@ -368,22 +301,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 					
 				tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 	}
@@ -393,31 +316,20 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Caracteristiques caracteristicaCaractInmoble(Caractinmobles caractinmoble) {
 	
 	Caracteristiques c = null;
-	Transaction tx = null;    
-	Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+	
+	Transaction tx = datastore.beginTransaction(); 
+		    
 	try {      
-			tx = session.beginTransaction();      
 	
 			c = (Caracteristiques) session.get(Caracteristiques.class , caractinmoble.getId().getIdcaract());
 			
 			tx.commit(); 
 	}
-	catch (RuntimeException e) 
-	{      
+	finally {
 		if (tx != null && tx.isActive()) 
 		{        
-			try {
-				// Second try catch as the rollback could fail as well          
-				tx.rollback();        
-				} 
-			catch (HibernateException e1) 
-				{          
-					System.out.println("Error rolling back transaction");
-					//logger.debug("Error rolling back transaction");        
-				}
-				// throw again the first exception        
-				throw e;      
-		}    
+			tx.rollback();        
+		}  
 	}
 	
 	return c;
@@ -429,10 +341,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		Inmobles inmoble = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		
+		Transaction tx = datastore.beginTransaction();
+				    
 		try {      
-				tx = session.beginTransaction();      
+				     
 				inmoble = (Inmobles) session.get(Inmobles.class , idInmoble);
 				
 				inmoble.getFotoses().size(); // will make hibernate initialize the collection for you instead of the proxy
@@ -444,23 +357,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		return inmoble;  
 		
 	}
@@ -469,34 +372,19 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void solicitarInmobles(Solicituds solicitud) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Transaction tx = datastore.beginTransaction();  
 		
 		try {      
-				tx = session.beginTransaction();      
 				session.save(solicitud);      
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}  
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			} 
+		}
+		
 	}
 
 	@Override
@@ -506,12 +394,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();   
+		    
 		try {      
-			tx = session.beginTransaction();
-			
 			
 				Criteria criteria;
 				criteria = session.createCriteria(Inmobles.class)
@@ -522,23 +407,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();  
 			
-			} 
-		catch (RuntimeException e) {      
+		}		
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 		
@@ -552,12 +427,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-			tx = session.beginTransaction();
-			
+		Transaction tx = datastore.beginTransaction();    
+ 
+		try {      		
 			
 			Criteria criteria = session.createCriteria(Solicituds.class)
 				.setProjection(Projections.property("inmobles"))
@@ -585,22 +457,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			tx.commit();    
 			
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 		
@@ -613,12 +475,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
-			
 			
 				Criteria criteria;
 				criteria = session.createCriteria(Inmobles.class)
@@ -647,22 +506,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 		
@@ -675,11 +524,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			
 				Criteria criteria;
@@ -707,22 +554,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 		
@@ -738,35 +575,19 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void afegirFoto(Fotos foto) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
-		
+		Transaction tx = datastore.beginTransaction();  
+			
 		try {      
-				tx = session.beginTransaction();      
+    
 				session.save(foto);      
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
-		
+		}
 		
 	}
 
@@ -789,11 +610,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Fotos> ret = new ArrayList<Fotos>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+   
 		try {      
-			tx = session.beginTransaction();
+
 			Query query = session.createQuery("1");
 				
 			ret = session.createCriteria(Fotos.class)
@@ -803,22 +623,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 						
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 	}
@@ -833,11 +643,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Usuaris> nomsUsuaris = new ArrayList<Usuaris>();
 		List<Usuaris> ret = new ArrayList<Usuaris>();
 		
-		Transaction tx = null;    
+		Transaction tx = datastore.beginTransaction();    
 
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
 		try {      
-			tx = session.beginTransaction();
 			
 			//Noms Usuaris solicitants d'un determinat inmoble
 			String hql = "select usuaris.nomusuari from Solicituds where inmobles = :inmoble";
@@ -856,23 +664,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
-			}  
-		
+				tx.rollback();        
+			}
+		}
+				
 		return ret;
 		
 	}
@@ -884,11 +682,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria;
 			criteria = session.createCriteria(Caracteristiques.class)
@@ -899,22 +695,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 
@@ -931,11 +717,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria;
 			
@@ -959,22 +743,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
 		
 		return ret;
 
@@ -987,30 +761,20 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void eliminarSolicitud(Solicituds solicitud) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
+		Transaction tx = datastore.beginTransaction();    
+  
+		try {           
 				session.delete(solicitud);      
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well    
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
 		
 	}
 
@@ -1024,11 +788,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			if (condicio != "")
 			{
@@ -1050,23 +812,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-					
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 		
@@ -1078,31 +831,21 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		Provincies provincia = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
+		Transaction tx = datastore.beginTransaction();    
+   
+		try {         
 				provincia = (Provincies) session.get(Provincies.class , idProvincia);
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		
 		return provincia;  
 	}
 
@@ -1111,31 +854,21 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Ciutats ciutatPerId(int idCiutat) {
 		// TODO Auto-generated method stub
 		Ciutats ciutat = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
+		Transaction tx = datastore.beginTransaction();    
+  
+		try {          
 				ciutat = (Ciutats) session.get(Ciutats.class , idCiutat);
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		
 		return ciutat;  
 	}
 
@@ -1145,10 +878,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		List<Ciutats> ciutats = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+ 
 		try {      
-				tx = session.beginTransaction();  
 				
 				Criteria criteria = session.createCriteria(Ciutats.class)
 				.add(Expression.eq("idProv", provincia.getId()));
@@ -1157,23 +889,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		
 		return ciutats;  
 	}
 
@@ -1192,11 +915,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("id",idCaract))
@@ -1209,22 +930,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					///////////throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 
@@ -1237,11 +950,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("nom",nomCaract))
@@ -1254,22 +965,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					///////////throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 
@@ -1287,11 +990,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
+		Transaction tx = datastore.beginTransaction();    
 
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("id",idCaract))
@@ -1301,22 +1002,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 
@@ -1328,11 +1021,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+   
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("nom",nomCaract))
@@ -1342,22 +1033,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 
@@ -1369,10 +1052,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			ValuesCaracteristiques valorCaracteristica) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Transaction tx = datastore.beginTransaction();  
 		
 		try {      
 				tx = session.beginTransaction();   
@@ -1386,24 +1066,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				tx.commit();
 				
 			} 
-		catch (RuntimeException e) 
-			{     
+		finally {
 			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
 	}
 
 
@@ -1414,31 +1084,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		
 		Caracteristiques caracteristica = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-				tx = session.beginTransaction();      
+   
 				caracteristica = (Caracteristiques) session.get(Caracteristiques.class , idCaract);
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		
 		return caracteristica; 
 
 	}
@@ -1448,15 +1109,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public void afegirCaractInmoble(Caractinmobles caractinmoble) {
 		// TODO Auto-generated method stub
 			
-			Transaction tx = null;  
-			
-			SessionFactory sf = SessionFactoryUtil.getInstance();
-			Session session = sf.getCurrentSession();
+			Transaction tx = datastore.beginTransaction();  
 			
 			try {      
-					tx = session.beginTransaction();   
-					
-					
+						
 					// 2. Salvem a la BD l'inmoble
 					// ---------------------------
 					session.save(caractinmoble); 	
@@ -1465,24 +1121,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 					tx.commit();
 					
 				} 
-			catch (RuntimeException e) 
-				{     
+			finally {
 				
-					if (tx != null && tx.isActive()) 
-					{        
-						try {
-							// Second try catch as the rollback could fail as well          
-							tx.rollback();        
-							} 
-							catch (HibernateException e1) 
-							{       
-								System.out.println("Error rolling back transaction");
-								//logger.debug("Error rolling back transaction");        
-							}
-							// throw again the first exception        
-							throw e;      
-					}    
+			}
+				if (tx != null && tx.isActive()) 
+				{        
+					tx.rollback();        
 				}  
+			
 		
 	}
 
@@ -1493,17 +1139,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			Integer idInmoble) {
 		// TODO Auto-generated method stub
 		
-		
-		
+	
 		List<?> list = null;
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Transaction tx = datastore.beginTransaction();  
 		
 		try {      
-				tx = session.beginTransaction();   
-
+ 
 				Inmobles inmoble = new Inmobles();
 				inmoble.setId(idInmoble);
 				
@@ -1521,24 +1162,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				tx.commit();
 				
 			} 
-		catch (RuntimeException e) 
-			{     
+		finally {
 			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		
 		
 	
 		
@@ -1591,11 +1222,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+ 
 		try {      
-			tx = session.beginTransaction();
 			
 			Criteria criteria;
 			criteria = session.createCriteria(Caracteristiques.class);
@@ -1604,22 +1233,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+			
+		}
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		
 		
 		return ret;
 
@@ -1629,12 +1250,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void eliminarValorCaract(Long idCaracteristica, int idInmoble ) {
 		// TODO Auto-generated method stub
-		
-		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+				
+		Transaction tx = datastore.beginTransaction();    
+  
 		try {      
-				tx = session.beginTransaction();   
 	
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
 				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
@@ -1648,23 +1267,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well    
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
 		
 		
 	}
@@ -1675,10 +1285,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// TODO Auto-generated method stub
 		
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+ 
 		try {      
-				tx = session.beginTransaction();   
 
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
 				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
@@ -1693,32 +1302,18 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well    
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			
+		}
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
 		
 		
 	}
 
 
-
-
-
-
-	
 
 }
