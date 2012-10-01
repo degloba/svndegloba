@@ -10,79 +10,74 @@ import java.util.List;
 
 
 import com.degloba.HBM.*;
-
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.files.dev.Session;
+import com.degloba.HBM.*;
 
 public class Usuari_Impl implements Usuari_If {
 
-
+	DatastoreService datastore;
+	
 	public Usuari_Impl() {
 		super();
 		// TODO Auto-generated constructor stub
+		
+		datastore = DatastoreServiceFactory.getDatastoreService();
 	}
 
 
 	public void afegirUsuari(Usuaris usuari) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
+		Transaction tx = datastore.beginTransaction();
 		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Entity u;
 		
-		try {      
-				tx = session.beginTransaction();      
-				session.save(usuari);      
+		try {
+				try {
+					u = datastore.get(usuari.getKey());
+					datastore.put(u); 
+				} catch (EntityNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+     
 				tx.commit();    
-				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+			} 
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
 		
 	}
 
 
-	public void eliminarUsuari(String usuari) {
+	public void eliminarUsuari(Usuaris usuari) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();
+		
+		Entity u;
+		
 		try {      
-				tx = session.beginTransaction();      
-				session.delete(usuari);      
+				datastore.delete(usuari.getKey()); 
+							      
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well    
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
+		
 		
 	}
 
@@ -91,34 +86,21 @@ public class Usuari_Impl implements Usuari_If {
 		// TODO Auto-generated method stub
 		
 		Usuaris usuari = null;
-		Transaction tx = null;  
 		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
+		Transaction tx = datastore.beginTransaction();  	
 		
 		try {      
-				tx = session.beginTransaction();      
+	   
 				usuari = (Usuaris) session.get(Usuaris.class, nomUsuari);      
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
+		 
 		
 		return usuari;
 	}
@@ -128,31 +110,22 @@ public class Usuari_Impl implements Usuari_If {
 		// TODO Auto-generated method stub
 		
 		Usuaris usuari = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		
+		Transaction tx = datastore.beginTransaction();     
+
 		try {      
-				tx = session.beginTransaction();      
+    
 				usuari = (Usuaris) session.get(Usuaris.class , nomUsuari);  
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		return usuari;  
 		
 	}
@@ -160,14 +133,12 @@ public class Usuari_Impl implements Usuari_If {
 
 	public boolean usuariValid(Usuaris usuari) {
 		// TODO Auto-generated method stub
-		
-		Transaction tx = null;    
+		  
 		Boolean existeix = false;
 		
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();  
+		
 		try {      
-				tx = session.beginTransaction();      
-				
 				if ((Usuaris) session.get(Usuaris.class, usuari.getNomusuari()) != null)
 					existeix = true;
 				else
@@ -175,23 +146,13 @@ public class Usuari_Impl implements Usuari_If {
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		
 		return existeix;
 		
@@ -207,11 +168,9 @@ public class Usuari_Impl implements Usuari_If {
 		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+		
 		try {      
-			tx = session.beginTransaction();
 				
 			num = ((Long) session.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).longValue();
 				
@@ -222,23 +181,13 @@ public class Usuari_Impl implements Usuari_If {
 				
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-					
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
+		
 		
 		return existeix;
 
@@ -254,34 +203,22 @@ public class Usuari_Impl implements Usuari_If {
 		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();      
+		   
 		try {      
-			tx = session.beginTransaction();
 				
 			password = ((String) session.createQuery("select password from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).toString();
 			
 				
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-					
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
+		
 		
 		return password;
 
@@ -294,34 +231,28 @@ public class Usuari_Impl implements Usuari_If {
 		// TODO Auto-generated method stub
 		
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
-				
-				
-				session.update(usuari);      
+		Transaction tx = datastore.beginTransaction();     
+		
+		Entity p;
+		try {    
+				try {
+					p = datastore.get(usuari.getKey());
+					datastore.put(p); 
+				} catch (EntityNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+					     
 				tx.commit();    
 			} 
-			catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-					// throw again the first exception        
-					throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
 		
-			return null;
+		return null;
 	}
 
 
@@ -331,32 +262,19 @@ public class Usuari_Impl implements Usuari_If {
 	{
 		Usuaris usuari = null;
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
+		Transaction tx = datastore.beginTransaction();     
+		
+		try {        
 				usuari = (Usuaris) session.load(Usuaris.class, nomUsuari);      
 				tx.commit();    
 			} 
-			catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-					// throw again the first exception        
-					throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
-		
-		
+		}
+			
 		return usuari;
 	}
 
@@ -372,35 +290,37 @@ public class Usuari_Impl implements Usuari_If {
 	public String modificarUsuari(Usuaris usuari) {
 		// TODO Auto-generated method stub´
 		
-		Transaction tx = null;  
+		Transaction tx = datastore.beginTransaction();   
+			
 		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
-		
-		try {      
-				tx = session.beginTransaction();      
-				session.update(usuari);      
+		try {	  
+				Entity u;
+				try {
+					u = datastore.get(usuari.getKey());
+					datastore.put(u); 
+				} catch (EntityNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+     
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
+		
 		return null;
+	}
+
+
+	@Override
+	public void eliminarUsuari(String usuari) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

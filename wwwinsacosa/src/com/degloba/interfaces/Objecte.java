@@ -13,6 +13,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.degloba.HBM.*;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Transaction;
+
 
 /*
  * Classe que representa els objectes que tenen
@@ -23,7 +29,7 @@ public class Objecte implements Interfaces{
 	//final static Logger logger = LoggerFactory.getLogger(addressI.class);  
 	
 	private int id;
-	
+	DatastoreService datastore;
 	
 	/*
 	 * Llegeix un objecte a partir del Id 
@@ -31,31 +37,22 @@ public class Objecte implements Interfaces{
 	public Objecte read(Objecte objecte) {
 		
 		Objecte objecteRead = null;
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		
+		Transaction tx = datastore.beginTransaction();      
+  
 		try {      
-				tx = session.beginTransaction();      
+  
 				objecteRead = (Objecte) session.get(objecte.getClass(), objecte.getId());  
 				
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
-			}
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+		
 		return objecteRead;  
 		
 	}
@@ -66,12 +63,13 @@ public class Objecte implements Interfaces{
 	 */
 	public int retId(String taula, String classe)
 	{
-		Transaction tx = null;  
+		 
 		int ret = 0;
 		
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();  
+   
 		try {      
-			tx = session.beginTransaction();   
+		   
 			
 			Iterator results = session.createQuery(
 					"select max(" + taula + ".id)+1 from " + classe + " as " + taula
@@ -86,23 +84,13 @@ public class Objecte implements Interfaces{
 
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-					} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
-		
+		}
+				
 		return ret;
 		
 	}
@@ -113,36 +101,25 @@ public class Objecte implements Interfaces{
 	 */
 	public Objecte retDescripcio(Class entityName, int id)
 	{
-		
-		Transaction tx = null;
-		Objecte ret = null;
 
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Objecte ret = null;
+		
+		Transaction tx = datastore.beginTransaction();  
+  
 		try {      
-			tx = session.beginTransaction();
 			
 			ret = (Objecte)session.get(entityName , id);
 			
 			tx.commit();    
 		} 
-	catch (RuntimeException e) {      
-		if (tx != null && tx.isActive()) 
-		{        
-			try {
-					// Second try catch as the rollback could fail as well          
-					tx.rollback();        
-				} 
-			catch (HibernateException e1) 
-				{          
-					System.out.println("Error rolling back transaction");
-					//logger.debug("Error rolling back transaction");        
-				}
-				// throw again the first exception        
-				throw e;      
-				}    
-		}  
-	
-		
+		finally {
+
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
+			}  
+		}
+			
 	return ret;
 	
 	}
@@ -157,12 +134,10 @@ public class Objecte implements Interfaces{
 		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();    
+	 
 		try {      
-			tx = session.beginTransaction();
-			
+						
 			if (condicio != "")
 			{
 				
@@ -183,23 +158,14 @@ public class Objecte implements Interfaces{
 			
 			tx.commit();    
 			} 
-		catch (RuntimeException e) {      
+		finally {
+
 			if (tx != null && tx.isActive()) 
 			{        
-				try {
-					
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-				catch (HibernateException e1) 
-					{          
-						System.out.println("Error rolling back transaction");
-						//logger.debug("Error rolling back transaction");        
-					}
-					// throw again the first exception        
-					throw e;      
-					}    
+				tx.rollback();        
 			}  
+		}
+		
 		
 		return ret;
 		
@@ -213,30 +179,22 @@ public class Objecte implements Interfaces{
 	public void delete(Objecte objecte) {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
+		Transaction tx = datastore.beginTransaction();     
+		   
 		try {      
-				tx = session.beginTransaction();      
+				    
 				session.delete(objecte);      
 				tx.commit();    
 			} 
-		catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-							// Second try catch as the rollback could fail as well    
-							tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		
+		}
+		
 		
 	}
 	
@@ -248,35 +206,20 @@ public class Objecte implements Interfaces{
 	public void create() {
 		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
-		
-		SessionFactory sf = SessionFactoryUtil.getInstance();
-		Session session = sf.getCurrentSession();
-		
+		Transaction tx = datastore.beginTransaction();  
+				
 		try {      
-				tx = session.beginTransaction();      
+    
 				session.save(this);      
 				tx.commit();    
 				} 
-		catch (RuntimeException e) 
-			{     
-			
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-						catch (HibernateException e1) 
-						{       
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-						// throw again the first exception        
-						throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
-					
+		}
+			
 	}
 
 
@@ -286,32 +229,20 @@ public class Objecte implements Interfaces{
 	 */
 	public void update(Objecte objecte) {
 		// TODO Auto-generated method stub
-		
-		
-		Transaction tx = null;    
-		Session session = SessionFactoryUtil.getInstance().getCurrentSession();    
-		try {      
-				tx = session.beginTransaction();      
-				session.update(objecte);      
+				
+		Transaction tx = datastore.beginTransaction();      
+ 
+		try {     
+			
+				datastore.put(objecte);      
 				tx.commit();    
 			} 
-			catch (RuntimeException e) 
-			{      
-				if (tx != null && tx.isActive()) 
-				{        
-					try {
-						// Second try catch as the rollback could fail as well          
-						tx.rollback();        
-						} 
-					catch (HibernateException e1) 
-						{          
-							System.out.println("Error rolling back transaction");
-							//logger.debug("Error rolling back transaction");        
-						}
-					// throw again the first exception        
-					throw e;      
-				}    
+		finally {
+			if (tx != null && tx.isActive()) 
+			{        
+				tx.rollback();        
 			}  
+		}
 		
 	}
 
