@@ -3,6 +3,7 @@ package com.degloba.HBM;
 // Generated 14/11/2011 10:33:52 by Hibernate Tools 3.4.0.CR1
 
 import com.degloba.interfaces.Objecte;
+import com.google.appengine.api.datastore.Key;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,40 +25,43 @@ import javax.persistence.TemporalType;
 @Table(name = "PROVINCIES", schema = "dbo", catalog = "INSACO")
 public class Provincies extends Objecte implements java.io.Serializable {
 
-	private int id;
+
 	private Date tmstamp;
 	private String code;
 	private String name;
 	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	
+    @Id
+    @GeneratedValue
+    private Key key;
 
 	public Provincies() {
 	}
 
-	public Provincies(int id, Date tmstamp, String code, String name) {
-		this.id = id;
+	public Provincies(Key id, Date tmstamp, String code, String name) {
+		this.key = id;
 		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 	}
 
-	public Provincies(int id, Date tmstamp, String code, String name,
+	public Provincies(Key id, Date tmstamp, String code, String name,
 			Set<Inmobles> inmobleses) {
-		this.id = id;
+		this.key = id;
 		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 		this.inmobleses = inmobleses;
 	}
 
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+    // Accessors for the fields. JPA doesn't use these, but your application does.    
+    public Key getKey() {        
+    	return key;    
+    }
+    
+    public void setKey(Key key) {        
+    	this.key = key;    
+    }
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "tmstamp", nullable = false, length = 23)
