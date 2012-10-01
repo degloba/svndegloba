@@ -3,12 +3,14 @@ package com.degloba.HBM;
 // Generated 16/11/2011 13:01:35 by Hibernate Tools 3.4.0.CR1
 
 import com.degloba.interfaces.Objecte;
+import com.google.appengine.api.datastore.Key;
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,36 +22,39 @@ import javax.persistence.Table;
 @Table(name = "TIPUS", schema = "dbo", catalog = "INSACO")
 public class Tipus extends Objecte implements java.io.Serializable {
 
-	private int id;
+
 	private String nom;
 	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(
 			0);
+	
+    @Id
+    @GeneratedValue
+    private Key key;
 
 	public Tipus() {
 	}
 
-	public Tipus(int id) {
-		this.id = id;
+	public Tipus(Key id) {
+		this.key = id;
 	}
 
-	public Tipus(int id, String nom, Set<Inmobles> inmobleses,
+	public Tipus(Key id, String nom, Set<Inmobles> inmobleses,
 			Set<Caracteristiques> caracteristiqueses) {
-		this.id = id;
+		this.key = id;
 		this.nom = nom;
 		this.inmobleses = inmobleses;
 		this.caracteristiqueses = caracteristiqueses;
 	}
 
-	@Id
-	@Column(name = "ID", unique = true, nullable = false)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+    // Accessors for the fields. JPA doesn't use these, but your application does.    
+    public Key getKey() {        
+    	return key;    
+    }
+    
+    public void setKey(Key key) {        
+    	this.key = key;    
+    }
 
 	@Column(name = "NOM", length = 50)
 	public String getNom() {
