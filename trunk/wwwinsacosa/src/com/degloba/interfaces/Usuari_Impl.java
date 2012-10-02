@@ -14,6 +14,8 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.files.dev.Session;
 import com.degloba.HBM.*;
@@ -82,16 +84,20 @@ public class Usuari_Impl implements Usuari_If {
 	}
 
 
-	public Usuaris cercarUsuari(String nomUsuari) {
+	public Entity cercarUsuari(String nomUsuari) {
 		// TODO Auto-generated method stub
 		
-		Usuaris usuari = null;
+		Entity u ;
 		
 		Transaction tx = datastore.beginTransaction();  	
 		
 		try {      
-	   
-				usuari = (Usuaris) session.get(Usuaris.class, nomUsuari);      
+				Query q = new Query("Usuaris");
+				q.addFilter("nomusuari", Query.FilterOperator.EQUAL, nomUsuari);
+				PreparedQuery pq = datastore.prepare(q);
+				
+				u = pq.asSingleEntity();
+								     
 				tx.commit();    
 				} 
 		finally {
@@ -102,20 +108,23 @@ public class Usuari_Impl implements Usuari_If {
 		}
 		 
 		
-		return usuari;
+		return u;
 	}
 
 
-	public Usuaris editPerfil(String nomUsuari) {
+	public Entity editPerfil(String nomUsuari) {
 		// TODO Auto-generated method stub
 		
-		Usuaris usuari = null;
+		Entity u ;
 		
 		Transaction tx = datastore.beginTransaction();     
 
 		try {      
-    
-				usuari = (Usuaris) session.get(Usuaris.class , nomUsuari);  
+				Query q = new Query("Usuaris");
+				q.addFilter("nomusuari", Query.FilterOperator.EQUAL, nomUsuari);
+				PreparedQuery pq = datastore.prepare(q);
+				
+				u = pq.asSingleEntity();
 				
 				tx.commit();    
 			} 
@@ -126,7 +135,7 @@ public class Usuari_Impl implements Usuari_If {
 			}  
 		}
 		
-		return usuari;  
+		return u;  
 		
 	}
 
@@ -136,10 +145,19 @@ public class Usuari_Impl implements Usuari_If {
 		  
 		Boolean existeix = false;
 		
+		Entity u ;
+		
 		Transaction tx = datastore.beginTransaction();  
 		
 		try {      
-				if ((Usuaris) session.get(Usuaris.class, usuari.getNomusuari()) != null)
+			
+				Query q = new Query("Usuaris");
+				q.addFilter("nomusuari", Query.FilterOperator.EQUAL, usuari.getNomusuari());
+				PreparedQuery pq = datastore.prepare(q);
+				
+				u = pq.asSingleEntity();
+			
+				if (u != null)
 					existeix = true;
 				else
 					existeix = false;
@@ -163,23 +181,23 @@ public class Usuari_Impl implements Usuari_If {
 	public boolean emailValid(String email) {
 		// TODO Auto-generated method stub
 		
-		Long num = null;
+		Integer num = null;
 		Boolean existeix = false;
-		
-		List<Objecte> ret = null;
 		
 		Transaction tx = datastore.beginTransaction();    
 		
-		try {      
+		try {   
+				Query q = new Query("Usuaris");
+				q.addFilter("email", Query.FilterOperator.EQUAL, email);
+				PreparedQuery pq = datastore.prepare(q);
+				num = pq.asList(null).size();
 				
-			num = ((Long) session.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).longValue();
-				
-			if (num == 0)
-				existeix = false;
-			else
-				existeix = true;
-				
-			tx.commit();    
+				if (num == 0)
+					existeix = false;
+				else
+					existeix = true;
+					
+				tx.commit();    
 			} 
 		finally {
 			if (tx != null && tx.isActive()) 
@@ -199,18 +217,20 @@ public class Usuari_Impl implements Usuari_If {
 		// TODO Auto-generated method stub
 		
 		String password = null;
-		Boolean existeix = false;
-		
-		List<Objecte> ret = null;
 		
 		Transaction tx = datastore.beginTransaction();      
 		   
 		try {      
 				
-			password = ((String) session.createQuery("select password from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).toString();
-			
+				Query q = new Query("Usuaris");
+				q.addFilter("email", Query.FilterOperator.EQUAL, email);
+				PreparedQuery pq = datastore.prepare(q);
 				
-			tx.commit();    
+				Entity result = pq.asSingleEntity();
+				
+				password = (String) result.getProperty("password");
+								
+				tx.commit();    
 			} 
 		finally {
 			if (tx != null && tx.isActive()) 
@@ -218,7 +238,6 @@ public class Usuari_Impl implements Usuari_If {
 				tx.rollback();        
 			}  
 		}
-		
 		
 		return password;
 
@@ -258,14 +277,20 @@ public class Usuari_Impl implements Usuari_If {
 
 	
 
-	public Usuaris password(String nomUsuari)
+	public Entity password(String nomUsuari)
 	{
-		Usuaris usuari = null;
+	
+		Entity u;
 		
 		Transaction tx = datastore.beginTransaction();     
 		
 		try {        
-				usuari = (Usuaris) session.load(Usuaris.class, nomUsuari);      
+				Query q = new Query("Usuaris");
+				q.addFilter("nomusuari", Query.FilterOperator.EQUAL, nomUsuari);
+				PreparedQuery pq = datastore.prepare(q);
+			
+				u = pq.asSingleEntity();
+    
 				tx.commit();    
 			} 
 		finally {
@@ -275,7 +300,7 @@ public class Usuari_Impl implements Usuari_If {
 			}  
 		}
 			
-		return usuari;
+		return u;
 	}
 
 
@@ -316,13 +341,5 @@ public class Usuari_Impl implements Usuari_If {
 		return null;
 	}
 
-
-	@Override
-	public void eliminarUsuari(String usuari) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 
 }
