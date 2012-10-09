@@ -22,6 +22,9 @@ import com.degloba.HBM.Provincies;
 import com.degloba.HBM.Tipus;
 import com.degloba.HBM.Usuaris;
 import com.degloba.dragdrop.DragDropBean;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 
 public class FormHBM {
 
@@ -31,31 +34,30 @@ public class FormHBM {
 	static List<FotoForm> fotos = new ArrayList<FotoForm>();
 	
 	/*
-     * Passa d'un objecte Hibernate (HBM) a objecte de Formulari
+     * Passa d'una Entity Google DataStore a objecte de Formulari
      */
-    public static InmobleForm passarHBMtoForm(Inmobles inmoble)
+    public static InmobleForm passarHBMtoForm(Entity inmoble)
     {
     	InmobleForm inmobleForm = new InmobleForm();
     	
-    	inmobleForm.setId(inmoble.getId());
-		inmobleForm.setNom(inmoble.getNom());
-		inmobleForm.setAdreca(inmoble.getAdreca());
-	    
-		////////////inmobleForm.setProvincia(inmoble.getProvincies().getId());
-
+    	String k = KeyFactory.keyToString(inmoble.getKey());
+    	
+    	inmobleForm.setKey(k);
+		inmobleForm.setNom((String)inmoble.getProperty("Nom"));
+		inmobleForm.setAdreca((String)inmoble.getProperty("Adreca"));
+	
 		inmobleForm.setIdTipus(inmoble.getTipus().getId());
 		
-		//inmobleForm.setLloguer(inmoble.getLloguer());
-		inmobleForm.setNumero(inmoble.getNumero());
-		inmobleForm.setPlanta(inmoble.getPlanta());
-		inmobleForm.setPuerta(inmoble.getPuerta());
-		inmobleForm.setMetres(inmoble.getMetres());
-		inmobleForm.setPreu(inmoble.getPreu());
+		inmobleForm.setNumero((Short)inmoble.getProperty("Numero"));
+		inmobleForm.setPlanta((Short)inmoble.getProperty("Planta"));
+		inmobleForm.setPuerta((String)inmoble.getProperty("Puerta"));
+		inmobleForm.setMetres((Short)inmoble.getProperty("Metres"));
+		inmobleForm.setPreu((Long)inmoble.getProperty("Preu"));
 	    
 		// Objecte venedor
 		inmobleForm.setVenedor(inmoble.getUsuaris().getNomusuari());
 		
-		inmobleForm.setVisitat(inmoble.isVisitat());
+		inmobleForm.setVisitat((Boolean)inmoble.getProperty("isVisitat"));
 	    
 		// carreguem les fotos de l'inmoble
 		Set<Fotos> fotos = inmoble.getFotoses();
@@ -84,35 +86,32 @@ public class FormHBM {
     }
 	
     
-     public static Inmobles passarFormtoHBM(InmobleForm inmobleForm)
+     public static Inmobles passarFormtoEntity(InmobleForm inmobleForm)
     {
     
-    	Inmobles inmoble = new Inmobles();
+    	Entity inmoble = new Entity("Inmobles");
     	    	
-    	inmoble.setId(inmobleForm.getId()); 
-		inmoble.setNom(inmobleForm.getNom());
-		inmoble.setAdreca(inmobleForm.getAdreca());
+    	inmoble.setKey(KeyFactory.stringToKey(inmobleForm.getKey())); 
+		inmoble.setProperty("Nom", inmobleForm.getNom());
+		inmoble.setProperty("Adreca", inmobleForm.getAdreca());
 		
 		Ciutats ciutat = new Ciutats();
-		//////////ciutat.setId(inmobleForm.getLocalitat());
-		//////////ciutat.setIdProv(inmobleForm.getProvincia());
 		inmoble.setCiutats(ciutat);
-		
+	
 		
 		Provincies provincia = new Provincies();
-		///////////provincia.setId(inmobleForm.getProvincia());
+
 		inmoble.setProvincies(provincia);
 		
 		Tipus tipus = new Tipus();
 		tipus.setId(inmobleForm.getIdTipus());
 		inmoble.setTipus(tipus);
 
-		//inmoble.setLloguer(lloguer);
-		inmoble.setNumero(inmobleForm.getNumero());
-		inmoble.setPlanta(inmobleForm.getPlanta());
-		inmoble.setPuerta(inmobleForm.getPuerta());
-		inmoble.setMetres(inmobleForm.getMetres());
-		inmoble.setPreu(inmobleForm.getPreu());
+		inmoble.setProperty("Numero",inmobleForm.getNumero());
+		inmoble.setProperty("Planta",inmobleForm.getPlanta());
+		inmoble.setProperty("Puerta",inmobleForm.getPuerta());
+		inmoble.setProperty("Metres",inmobleForm.getMetres());
+		inmoble.setProperty("Preu",inmobleForm.getPreu());
 	
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
 		UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
