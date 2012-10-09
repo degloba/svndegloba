@@ -65,6 +65,9 @@ import com.degloba.utils.FormHBM;
 import com.degloba.utils.HtmlDinamic;
 import com.degloba.utils.Utils;
 
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.common.collect.Maps;
 
 import com.degloba.controladorMSG.ChatBean;
@@ -87,7 +90,10 @@ public class InmobleForm extends Objecte implements Serializable
 	//********************************
 	// Propietats Fixes Inmoble (VO)
 	//********************************
-	private int id;
+	private String key;  // Representacio String de la "key" (datastore Google App Engine)
+	
+	
+	
   	private String nom; // referencia
   	private String adreca;
 	private Integer idTipus = 1;  // PIS
@@ -108,7 +114,7 @@ public class InmobleForm extends Objecte implements Serializable
 	//*********************
 	// propietats auxiliars
 	//*********************
-  	private int currentInmobleIndex = 1; 
+  	private String currentInmobleIndex; 
   	private int page = 1; //paginacio
 
   	private boolean visitat = true; // per indicar que la informacio de l'inmoble ha modificat i encara no l'hem revisat
@@ -332,7 +338,7 @@ public class InmobleForm extends Objecte implements Serializable
 			Inmoble_Impl r = new Inmoble_Impl();
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setId(idTipus);
+		    tipus.setKey(idTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);
 		 
@@ -496,16 +502,17 @@ public class InmobleForm extends Objecte implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); 
 		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
 		
-		int idInmoble = inmobleForm.getId();
-
+		String keyInmoble = inmobleForm.getKey();
+				
 		Inmoble_Impl r = new Inmoble_Impl();
 
-		Inmobles inmoble = r.detallInmoble(idInmoble);
+		Entity inmoble = r.detallInmoble(KeyFactory.stringToKey(keyInmoble));
 		
 		// Assignem els valors del formulari (inmoble)
-		setId(inmoble.getId());
-	    setNom(inmoble.getNom());
-	    setAdreca(inmoble.getAdreca());
+			
+		setKey(KeyFactory.keyToString((Key)inmoble.getKey()));
+	    setNom((String)inmoble.getProperty("Nom"));
+	    setAdreca((String)inmoble.getProperty("Adreca"));
 	   
 	    Provincies prov = new Provincies();
 	    prov.setId(inmoble.getProvincies().getId()); 
@@ -639,13 +646,16 @@ public class InmobleForm extends Objecte implements Serializable
   	/*
   	 * 
   	 */
-	public InmobleForm getDetallInmoble(int idInmoble) {
+	public InmobleForm getDetallInmoble(String idInmoble) {
 		// TODO Auto-generated method stub
 		    
 		InmobleForm inmobleForm = new InmobleForm();
 		
 		Inmoble_Impl r = new Inmoble_Impl();
-		Inmobles inmoble = r.detallInmoble(id);
+		
+		Key k = KeyFactory.stringToKey(idInmoble);
+		
+		Entity inmoble = r.detallInmoble(k);
 	    
 		inmobleForm =  FormHBM.passarHBMtoForm(inmoble);
 		    
@@ -662,11 +672,13 @@ public class InmobleForm extends Objecte implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
 		UserForm compradorForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 		
-		int idInmoble = currentInmobleIndex;
+		////////int idInmoble = currentInmobleIndex;
+		Key idInmoble = KeyFactory.stringToKey(currentInmobleIndex);
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 		
-		Solicituds solicitud = new Solicituds();
+		///////Solicituds solicitud = new Solicituds();
+		Entity solicitud = new Entity("Solicituds");
 		
 		Inmoble_Impl r = new Inmoble_Impl();
 		
@@ -736,10 +748,11 @@ public class InmobleForm extends Objecte implements Serializable
 	public void esborrarInmobles()throws Exception 
 	{
 
-		int idInmoble = currentInmobleIndex;
+		Key idInmoble = KeyFactory.stringToKey(currentInmobleIndex);
 			
-		Inmobles inmoble = new Inmobles();
-		inmoble.setId(idInmoble);
+		///////Inmobles inmoble = new Inmobles();
+		Entity inmoble = new Entity("Inmobles");
+		///////inmoble.setId(idInmoble);
 		
 		Inmoble_Impl r = new Inmoble_Impl();
 		inmoble = r.inmoblePerId(idInmoble);
@@ -830,12 +843,12 @@ public class InmobleForm extends Objecte implements Serializable
 		context.addMessage("formulariDatatable:dyn_taulaInmoblesVenedor:3:inputText_column_it_9",message);
 		context.addMessage("formulariDatatable:dyn_taulaInmoblesVenedor:3:inputText_column_it_5",message);
 		*/
-		
-		
+			
 
 
 		
-		int idInmoble = currentInmobleIndex;
+		//////////int idInmoble = currentInmobleIndex;
+		Key idInmoble = KeyFactory.stringToKey(currentInmobleIndex);
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 					
@@ -1157,12 +1170,12 @@ public class InmobleForm extends Objecte implements Serializable
 		this.inmoblesSolicitatsPerComprador = inmoblesSolicitatsPerComprador;
 	}
 
-	public int getId() {
-		return id;
+	public String getKey() {
+		return key;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String key) {
+		this.key = key;
 	}
 
 	public String getNom() {
@@ -1288,11 +1301,11 @@ public class InmobleForm extends Objecte implements Serializable
 	}
 
 
-	public int getCurrentInmobleIndex() {
+	public String getCurrentInmobleIndex() {
 		return currentInmobleIndex;
 	}
 
-	public void setCurrentInmobleIndex(int currentInmobleIndex) {
+	public void setCurrentInmobleIndex(String currentInmobleIndex) {
 		this.currentInmobleIndex = currentInmobleIndex;
 	}
 

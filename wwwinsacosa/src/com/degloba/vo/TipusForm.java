@@ -120,7 +120,7 @@ public class TipusForm extends Objecte
 	    Tipus tipus = new Tipus();
 	    tipus.setId((Integer)event.getNewValue());
 	    
-	    List<Caracteristiques> lc = r.caractTipus(tipus,1);
+	    List<Caracteristiques> lc = r.caractTipus(tipus,1,false);
 		
 		if (inmobleForm.isCercable())
 		{
