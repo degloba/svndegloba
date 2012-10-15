@@ -6,6 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Root;
 
 import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
@@ -29,16 +34,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public Tipus tipusInmoble(Key keyInmoble) {
 		
-		
 		Tipus ret = null;
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
 
-			
+			tx.begin();
 			
 			Criteria criteria = session.createCriteria(Inmobles.class)
 			.add(Expression.eq("id",keyInmoble))
@@ -61,13 +64,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public Objecte objectePerKey(Key key) {
 		
-		
 		Objecte objecte = null;
-		Transaction tx = null;    
-   
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				objecte = em.find( Objecte.class, key);
 				
 				tx.commit();    
@@ -84,13 +88,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public Inmobles inmoblePerKey(Key keyInmoble) {
 		
-		
 		Inmobles inmoble = null;
-		Transaction tx = null;    
 		  
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				inmoble = em.find( Inmobles.class, keyInmoble);
 				
 				tx.commit();    
@@ -106,12 +111,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public Inmobles afegirInmoble(Inmobles inmoble) {
 		
-		
-		Transaction tx = null;  
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				// fotos
 				
 				Iterator it = inmoble.getFotoses().iterator();
@@ -139,12 +144,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void modificarInmoble(Inmobles inmoble) {
 		
-		
-		Transaction tx = null;  
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				em.persist(inmoble);
 				      
 				tx.commit();    
@@ -158,12 +163,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	@Override
 	public void eliminarInmoble(Inmobles inmoble) {
-		
-		Transaction tx = null;    
 		  
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				em.remove(inmoble);
 				      
 				tx.commit();    
@@ -192,15 +198,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;   
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 	
-				
+				tx.begin();
 	
-				Criteria criteria;
+				
 				ret = session.createCriteria(Inmobles.class)
 					.add(Restrictions.like("nom", "%" + condicioInmoble.getNom() + "%"))
 					.add(Restrictions.like("adreca", "%" + condicioInmoble.getAdreca() + "%"))
@@ -242,12 +247,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Caracteristiques caracteristicaCaractInmoble(Caractinmobles caractinmoble) {
 	
 	Caracteristiques c = null;
-	Transaction tx = null;  
 	
 	EntityManager em = EMF.get().createEntityManager();
+	EntityTransaction tx = em.getTransaction();
 	  
 	try {      
  
+			tx.begin();
+			
 			c = em.find(Caracteristiques.class, caractinmoble.getKey());
 			
 			tx.commit(); 
@@ -263,11 +270,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public Inmobles detallInmoble(Key keyInmoble) {
 		
-		
 		Inmobles inmoble = null;
-		Transaction tx = null;  
 		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 				inmoble = em.find( Inmobles.class, keyInmoble);
@@ -284,12 +290,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void solicitarInmobles(Solicituds solicitud) {
 		
-		
-		Transaction tx = null;  
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				em.persist(solicitud);
 				      
 				tx.commit();    
@@ -305,17 +311,17 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
-		try {      
-
-				Criteria criteria;
-				criteria = session.createCriteria(Inmobles.class)
-					.add(Expression.eq("usuaris",usuariVenedor));
+		try {   
+				tx.begin();
 				
-				ret = criteria.list();
+				CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+				CriteriaQuery<Inmobles> criteriaQuery = criteriaBuilder.createQuery(Inmobles.class);
+		        Root<Inmobles> inmobles = criteriaQuery.from(Inmobles.class);
+		        
+		        ret = (List<Inmobles>) criteriaQuery.gefrom(Inmobles.class).;
 		
 			
 			tx.commit();  
@@ -333,16 +339,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public List<Inmobles> inmoblesSolicitatsPerUsuari(Usuaris usuariComprador) {
 		
-		
-		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
-		
-		Transaction tx = null;    
 		  
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
-			
+				tx.begin();
 			
 			Criteria criteria = session.createCriteria(Solicituds.class)
 				.setProjection(Projections.property("inmobles"))
@@ -378,15 +381,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 
+				tx.begin();
 			
-			
-				Criteria criteria;
+				
 				criteria = session.createCriteria(Inmobles.class)
 					.add(Expression.eq("usuaris",usuari));
 				
@@ -420,15 +422,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public List<Inmobles> inmoblesVenedor(Usuaris usuari) {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
-		
-		Transaction tx = null;    
 		  
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
 			
-			
-				Criteria criteria;
+				
 				criteria = session.createCriteria(Inmobles.class)
 					.add(Expression.eq("usuaris",usuari));
 				
@@ -461,12 +462,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void afegirFoto(Fotos foto) {
 		
-		
-		Transaction tx = null;  
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
-		try {      
+		try {     
+				tx.begin();
+				
 				em.persist(foto);
 				      
 				tx.commit();    
@@ -494,11 +495,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Fotos> ret = new ArrayList<Fotos>();
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 	
+				tx.begin();
+				
 			Query query = session.createQuery("1");
 				
 			ret = session.createCriteria(Fotos.class)
@@ -524,10 +527,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Usuaris> nomsUsuaris = new ArrayList<Usuaris>();
 		List<Usuaris> ret = new ArrayList<Usuaris>();
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
+			
+			tx.begin();
 			
 			//Noms Usuaris solicitants d'un determinat inmoble
 			String hql = "select usuaris.nomusuari from Solicituds where inmobles = :inmoble";
@@ -559,13 +564,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 			
-			em.
-			Criteria criteria;
+			tx.begin();
+			
 			criteria = session.createCriteria(Caracteristiques.class)
 			.add(Expression.eq("tipus",tipus));
 			
@@ -589,15 +594,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public List<Caracteristiques> caractTipus(Tipus tipus, Integer control, Boolean inclouCaractComu) {
 		
-		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
 			
-			Criteria criteria;
+			tx.begin();
 			
 			if (inclouCaractComu)
 			{
@@ -632,11 +636,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void eliminarSolicitud(Solicituds solicitud) {
 		
-		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
-	    
+				tx.begin();
 				em.remove(solicitud);
 				      
 				tx.commit();    
@@ -653,14 +657,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	 */
 	public List<Objecte> llistaObjectes(Class classe, String ordre, String condicio) {
 		
-		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
-			
+			tx.begin();
 			if (condicio != "")
 			{
 				ret = em.createQuery(condicio).getResultList();
@@ -668,7 +671,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			}
 			else
 			{
-				Criteria criteria;
+				
 				criteria = session.createCriteria(classe)
 				.addOrder( Order.asc(ordre));  // class interfaces.Objecte
 				
@@ -689,10 +692,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Provincies provinciaPerKey(Key keyProvincia) {
 		
 		Provincies provincia = null;
-		Transaction tx = null;    
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
 				em.find(Provincies.class, keyProvincia);
 				
 				tx.commit();    
@@ -707,10 +712,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Ciutats ciutatPerKey(Key keyCiutat) {
 		
 		Ciutats ciutat = null;
-		Transaction tx = null;    
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
 				em.find(Ciutats.class, keyCiutat);
 				
 				tx.commit();    
@@ -726,11 +733,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		
 		List<Ciutats> ciutats = null;
-		Transaction tx = null;    
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
-
+				tx.begin();
 				
 				Criteria criteria = session.createCriteria(Ciutats.class)
 				.add(Expression.eq("idProv", provincia.getId()));
@@ -754,11 +762,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
-			
+			tx.begin();
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("id",keyCaract))
 			.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
@@ -783,11 +791,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 		String ret = null;
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
-			
+			tx.begin();
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("nom",nomCaract))
 			.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
@@ -817,11 +825,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
-			
+			tx.begin();
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("id",keyCaract))
 			.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
@@ -842,12 +850,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
 
-			
+			tx.begin();
 			Criteria criteria = session.createCriteria(Caracteristiques.class)
 			.add(Restrictions.eq("nom",nomCaract))
 			.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
@@ -867,11 +875,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void afegirValorCaract(ValuesCaracteristiques valorCaracteristica) {
 		
-		Transaction tx = null;  
-		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
-		try {      
+		try {    tx.begin();  
 				em.persist(valorCaracteristica);
 				
 				tx.commit();
@@ -887,10 +894,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	public Caracteristiques caractPerKey(Key keyCaract) {
 		
 		Caracteristiques caracteristica = null;
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
 		
-		try {      
+		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		try {    tx.begin();  
 				caracteristica = em.find( Caracteristiques.class, keyCaract);
 				
 				tx.commit();    
@@ -905,11 +913,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void afegirCaractInmoble(Caractinmobles caractinmoble) {
 			
-			Transaction tx = null;  
-			
 			EntityManager em = EMF.get().createEntityManager();
+			EntityTransaction tx = em.getTransaction();
 			
-			try {      
+			try {    tx.begin();  
 					em.persist(caractinmoble);
 					
 					tx.commit();
@@ -924,14 +931,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 	@Override
 	public InmobleCaract valorsCaracteristiquesInmoble(Key keyInmoble) {
-			
 		
 		List<?> list = null;
-		Transaction tx = null;  
 		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
-		try {   
+		try {   tx.begin();
 				Inmobles inmoble = new Inmobles();
 				inmoble.setId(keyInmoble);
 				
@@ -999,15 +1005,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public List<Caracteristiques> allCaract() {
 		
-		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		Transaction tx = null;    
-
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
+			tx.begin();
 			
-			Criteria criteria;
 			criteria = session.createCriteria(Caracteristiques.class);
 			
 			ret = criteria.list();
@@ -1025,10 +1030,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void eliminarValorCaract(Key keyCaracteristica, Key keyInmoble ) {
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
-		try {      
+		try {      tx.begin();
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
 				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
 				
@@ -1050,12 +1055,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	@Override
 	public void modificarValorCaract(Key idCaracteristica, Key keyInmoble, String value) {
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
 	   
-
+			tx.begin();
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
 				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
 				
