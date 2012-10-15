@@ -90,6 +90,7 @@ public interface Inmoble_If {
 	 * Exemple : metres --> ITXT, provincia --> SELT , ...
 	 */
 	String tipusControlUICaract(Key idCaract);
+	String tipusControlUICaract(String nomCaract);
 	
 	
 	

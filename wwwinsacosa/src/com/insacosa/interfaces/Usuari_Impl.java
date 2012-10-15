@@ -1,11 +1,12 @@
 package com.insacosa.interfaces;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
+
 import com.google.appengine.api.datastore.Transaction;
 import com.insacosa.entitats.*;
 
@@ -20,12 +21,13 @@ public class Usuari_Impl implements Usuari_If {
 
 
 	public void afegirUsuari(Usuaris usuari) {
-		// TODO Auto-generated method stub
 		
-		Transaction tx = null;  
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
+				tx.begin();
+				
 				em.persist(usuari);
 				      
 				tx.commit();    
@@ -38,10 +40,12 @@ public class Usuari_Impl implements Usuari_If {
 
 	public void eliminarUsuari(Key keyUsuari) {
 		
-		Transaction tx = null;    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {
+				tx.begin();
+				
 				Usuaris usuari = em.find(Usuaris.class, keyUsuari);
 				em.remove(usuari);
      
@@ -56,11 +60,14 @@ public class Usuari_Impl implements Usuari_If {
 	public Usuaris cercarUsuari(Key keyUsuari) {
 		
 		Usuaris usuari = null;
-		Transaction tx = null;  
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {      
-				em.find(Usuaris.class, keyUsuari);
+				tx.begin();
+			
+				usuari = em.find(Usuaris.class, keyUsuari);
      
 				tx.commit();    
 		} finally {        
@@ -74,10 +81,13 @@ public class Usuari_Impl implements Usuari_If {
 	public Usuaris editPerfil(Key keyUsuari) {
 		
 		Usuaris usuari = null;
-		Transaction tx = null;    
+		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
 		try {   
+				tx.begin();
+				
 				usuari = em.find( Usuaris.class, keyUsuari);
 				 
 				tx.commit();  
@@ -91,15 +101,19 @@ public class Usuari_Impl implements Usuari_If {
 
 
 	public boolean usuariValid(Usuaris usuari) {
-		// TODO Auto-generated method stub
 		
-		Transaction tx = null;    
 		Boolean existeix = false;
+		Usuaris existeixUsuari = null;
+		
 		EntityManager em = EMF.get().createEntityManager();
-		try {      
-	    
+		EntityTransaction tx = em.getTransaction();
+		
+		try {    
+				tx.begin();
 				
-				if ((Usuaris) session.get(Usuaris.class, usuari.getNomusuari()) != null)
+				existeixUsuari = em.find( Usuaris.class, usuari.getKey());
+				
+				if (existeixUsuari != null)
 					existeix = true;
 				else
 					existeix = false;
@@ -116,20 +130,20 @@ public class Usuari_Impl implements Usuari_If {
 
 
 	public boolean emailValid(String email) {
-		// TODO Auto-generated method stub
 		
 		Long num = null;
 		Boolean existeix = false;
-		
-		List<Objecte> ret = null;
-		
-		Transaction tx = null;    
+		    
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
 	
+			tx.begin();
+			
+			Query q = em.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'");
 				
-			num = ((Long) session.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).longValue();
-				
+			num = (Long)q.getSingleResult();
 			if (num == 0)
 				existeix = false;
 			else
@@ -147,22 +161,21 @@ public class Usuari_Impl implements Usuari_If {
 	
 
 	public String passwordEmail(String email) {
-		// TODO Auto-generated method stub
 		
 		String password = null;
-		Boolean existeix = false;
-		
-		List<Objecte> ret = null;
-		
-		Transaction tx = null;    
+		    
 		EntityManager em = EMF.get().createEntityManager();
-		try {      
-
+		EntityTransaction tx = em.getTransaction(); 
+		
+		try {   
+			 tx.begin();
 				
-			password = ((String) session.createQuery("select password from Usuaris as usuari where usuari.email = '" + email + "'").iterate().next() ).toString();
+			 Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
-				
-			tx.commit();    
+			 password = (String)q.getSingleResult();
+			 
+			 tx.commit();
+			
 		} finally {        
 			em.close();    
 		} 
@@ -175,10 +188,14 @@ public class Usuari_Impl implements Usuari_If {
 	
 
 	public String cambiaPassword(Usuaris usuari) {
-		
-		Transaction tx = null;    
+		   
 		EntityManager em = EMF.get().createEntityManager();
+		
+		EntityTransaction tx = em.getTransaction(); 
+		
 		try {      
+				tx.begin();
+				
 				em.persist(usuari);
 				      
 				tx.commit();    
@@ -190,24 +207,6 @@ public class Usuari_Impl implements Usuari_If {
 	}
 	
 
-	public Usuaris password(String nomUsuari)
-	{
-		Usuaris usuari = null;
-		
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
-		try {      
-    
-				usuari = (Usuaris) session.load(Usuaris.class, nomUsuari);      
-				tx.commit();    
-		} finally {        
-			em.close();    
-		}
-		
-		
-		return usuari;
-	}
-
 
 	@Override
 	public String cambiaPassword() {
@@ -218,12 +217,13 @@ public class Usuari_Impl implements Usuari_If {
 
 	@Override
 	public String modificarUsuari(Usuaris usuari) {
-		// TODO Auto-generated method stub´
-		
-		Transaction tx = null;  
 		
 		EntityManager em = EMF.get().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
 		try {      
+				tx.begin();
+				
 				em.persist(usuari);
 				      
 				tx.commit();    
