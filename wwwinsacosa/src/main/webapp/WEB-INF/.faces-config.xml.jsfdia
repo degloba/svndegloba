@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#xhtml#header.xhtml"
+  PATH="/xhtml/header.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#header.xhtml:0" NAME="item"
+   PATH="/xhtml/header.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="registreVenedor::#xhtml#registreVenedor.xhtml" NAME="output"
+    PATH="/xhtml/registreVenedor.xhtml"
+    TARGET="rules:#xhtml#registreVenedor.xhtml" TITLE="registreVenedor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loginVenedor::#xhtml#login_body.xhtml"
+    NAME="output1" PATH="/xhtml/login_body.xhtml"
+    TARGET="rules:#xhtml#login_body.xhtml" TITLE="loginVenedor" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#xhtml#menu.xhtml" PATH="/xhtml/menu.xhtml"
+  SHAPE="32,1073,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#menu.xhtml:0" NAME="item"
+   PATH="/xhtml/menu.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="buscarInmoble::#xhtml#buscarInmoble.xhtml"
+    NAME="output" PATH="/xhtml/buscarInmoble.xhtml"
+    TARGET="rules:#xhtml#buscarInmoble.xhtml" TITLE="buscarInmoble" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="conectarPaypal::#xhtml#tarjeta_credit.xhtml"
+    NAME="output1" PATH="/xhtml/tarjeta_credit.xhtml"
+    TARGET="rules:#xhtml#tarjeta_credit.xhtml" TITLE="conectarPaypal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="filtre::#xhtml#filtrarPerTipus.xhtml"
+    NAME="output2" PATH="/xhtml/filtrarPerTipus.xhtml"
+    TARGET="rules:#xhtml#filtrarPerTipus.xhtml" TITLE="filtre" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="filtre2::#xhtml#ss.xhtml" NAME="output3"
+    PATH="/xhtml/ss.xhtml" TARGET="rules:#xhtml#ss.xhtml"
+    TITLE="filtre2" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#xhtml#index.xhtml" PATH="/xhtml/index.xhtml"
+  SHAPE="560,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#index.xhtml:0" NAME="item"
+   PATH="/xhtml/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="registreVenedor::#xhtml#registreVenedor.xhtml" NAME="output"
+    PATH="/xhtml/registreVenedor.xhtml"
+    TARGET="rules:#xhtml#registreVenedor.xhtml" TITLE="registreVenedor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loginVenedor::#xhtml#loginVenedor.xhtml"
+    NAME="output1" PATH="/xhtml/loginVenedor.xhtml"
+    TARGET="rules:#xhtml#loginVenedor.xhtml" TITLE="loginVenedor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{LoginForm.validUser}:#xhtml#index.xhtml"
+    NAME="output2" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{LoginForm.validUser}:#xhtml#index.xhtml"
+    NAME="output3" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:failure" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="useraccount::#user#useraccount.xhtml"
+    NAME="output4" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml" TITLE="useraccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="forgotpassword::#user#forgotpassword.xhtml"
+    NAME="output5" PATH="/user/forgotpassword.xhtml"
+    TARGET="rules:#user#forgotpassword.xhtml" TITLE="forgotpassword" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editSuccess:#{userForm.editProfile}:#user#useraccount.xhtml"
+    NAME="output6" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml"
+    TITLE="#{userForm.editProfile}:editSuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="logoutsuccess:#{LoginForm.logout}:#xhtml#index.xhtml"
+    NAME="output7" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.logout}:logoutsuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="solicitudsUsuaris::#xhtml#solicitudsUsuaris.xhtml"
+    NAME="output8" PATH="/xhtml/solicitudsUsuaris.xhtml"
+    TARGET="rules:#xhtml#solicitudsUsuaris.xhtml"
+    TITLE="solicitudsUsuaris" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inmoblesUsuari::#xhtml#inmoblesVenedor.xhtml" NAME="output9"
+    PATH="/xhtml/inmoblesVenedor.xhtml"
+    TARGET="rules:#xhtml#inmoblesVenedor.xhtml" TITLE="inmoblesUsuari" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#login.xhtml" PATH="/user/login.xhtml"
+  SHAPE="288,433,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#user#login.xhtml:0" NAME="item"
+   PATH="/user/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{LoginForm.validUser}:#xhtml#index.xhtml" NAME="output"
+    PATH="/xhtml/index.xhtml" TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{LoginForm.validUser}:#xhtml#index.xhtml"
+    NAME="output1" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:failure" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="forgotpassword::#user#forgotpassword.xhtml"
+    NAME="output2" PATH="/user/forgotpassword.xhtml"
+    TARGET="rules:#user#forgotpassword.xhtml" TITLE="forgotpassword" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="useraccount::#user#useraccount.xhtml"
+    NAME="output3" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml" TITLE="useraccount" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#forgotpassword.xhtml"
+  PATH="/user/forgotpassword.xhtml" SHAPE="832,433,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#user#forgotpassword.xhtml:0" NAME="item"
+   PATH="/user/forgotpassword.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="passwordsendingsuccess:#{RetrievePasswordForm.check}:#user#successpwdsend.xhtml"
+    NAME="output" PATH="/user/successpwdsend.xhtml"
+    TARGET="rules:#user#successpwdsend.xhtml"
+    TITLE="#{RetrievePasswordForm.check}:passwordsendingsuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="passwordsendingfail:#{RetrievePasswordForm.check}:#user#forgotpassword.xhtml"
+    NAME="output1" PATH="/user/forgotpassword.xhtml"
+    TARGET="rules:#user#forgotpassword.xhtml"
+    TITLE="#{RetrievePasswordForm.check}:passwordsendingfail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#success.xhtml"
+  PATH="/user/success.xhtml" SHAPE="288,641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#user#success.xhtml:0" NAME="item"
+   PATH="/user/success.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="logoutsuccess:#{LoginForm.logout}:#xhtml#index.xhtml"
+    NAME="output" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.logout}:logoutsuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editSuccess:#{userForm.editProfile}:#user#useraccount.xhtml"
+    NAME="output1" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml"
+    TITLE="#{userForm.editProfile}:editSuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="changePassword::#user#changepassword.xhtml"
+    NAME="output2" PATH="/user/changepassword.xhtml"
+    TARGET="rules:#user#changepassword.xhtml" TITLE="changePassword" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#changepassword.xhtml"
+  PATH="/user/changepassword.xhtml" SHAPE="560,625,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#user#changepassword.xhtml:0" NAME="item"
+   PATH="/user/changepassword.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#user#changepasswordsuccess.xhtml"
+    NAME="output" PATH="/user/changepasswordsuccess.xhtml"
+    TARGET="rules:#user#changepasswordsuccess.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="failure::#user#changepassword.xhtml"
+    NAME="output1" PATH="/user/changepassword.xhtml"
+    TARGET="rules:#user#changepassword.xhtml" TITLE="failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,625,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="gotomain::#user#success.xhtml" NAME="output"
+    PATH="/user/success.xhtml" TARGET="rules:#user#success.xhtml"
+    TITLE="gotomain" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#useraccount.xhtml"
+  PATH="/user/useraccount.xhtml" SHAPE="832,641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#user#useraccount.xhtml:0" NAME="item"
+   PATH="/user/useraccount.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="successUserRegistration:#{userForm.saveUser}:#xhtml#index.xhtml"
+    NAME="output" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{userForm.saveUser}:successUserRegistration" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="successUserUpdate:#{userForm.saveUser}:#xhtml#index.xhtml"
+    NAME="output1" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{userForm.saveUser}:successUserUpdate" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="error:#{userForm.saveUser}:#user#useraccount.xhtml"
+    NAME="output2" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml"
+    TITLE="#{userForm.saveUser}:error" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#xhtml#inmoblesVenedor.xhtml"
+  PATH="/xhtml/inmoblesVenedor.xhtml" SHAPE="288,817,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#inmoblesVenedor.xhtml:0" NAME="item"
+   PATH="/xhtml/inmoblesVenedor.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID=":#{LoginForm.logout}:#xhtml#index.xhtml"
+    NAME="output" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml" TITLE="#{LoginForm.logout}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editSuccess:#{userForm.editProfile}:#user#useraccount.xhtml"
+    NAME="output1" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml"
+    TITLE="#{userForm.editProfile}:editSuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="changePassword::#user#changepassword.xhtml"
+    NAME="output2" PATH="/user/changepassword.xhtml"
+    TARGET="rules:#user#changepassword.xhtml" TITLE="changePassword" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="filtre::#xhtml#filtrarPerTipus.xhtml"
+    NAME="output3" PATH="/xhtml/filtrarPerTipus.xhtml"
+    TARGET="rules:#xhtml#filtrarPerTipus.xhtml" TITLE="filtre" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="filtre2::#xhtml#ss.xhtml" NAME="output4"
+    PATH="/xhtml/ss.xhtml" TARGET="rules:#xhtml#ss.xhtml"
+    TITLE="filtre2" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inmoblesUsuari::#xhtml#inmoblesVenedor.xhtml" NAME="output5"
+    PATH="/xhtml/inmoblesVenedor.xhtml"
+    TARGET="rules:#xhtml#inmoblesVenedor.xhtml" TITLE="inmoblesUsuari" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#xhtml#buscarInmoble.xhtml"
+  PATH="/xhtml/buscarInmoble.xhtml" SHAPE="288,1089,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#buscarInmoble.xhtml:0" NAME="item"
+   PATH="/xhtml/buscarInmoble.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="filtre::#xhtml#filtrarPerTipus.xhtml"
+    NAME="output" PATH="/xhtml/filtrarPerTipus.xhtml"
+    TARGET="rules:#xhtml#filtrarPerTipus.xhtml" TITLE="filtre" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="filtre2::#xhtml#ss.xhtml" NAME="output1"
+    PATH="/xhtml/ss.xhtml" TARGET="rules:#xhtml#ss.xhtml"
+    TITLE="filtre2" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="gVista::#xhtml#gVista.xhtml" NAME="output2"
+    PATH="/xhtml/gVista.xhtml" TARGET="rules:#xhtml#gVista.xhtml"
+    TITLE="gVista" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#xhtml#filtrarPerTipus.xhtml'"
+  PATH="/xhtml/filtrarPerTipus.xhtml'" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#xhtml#filtrarPerTipus.xhtml':0" NAME="item"
+   PATH="/xhtml/filtrarPerTipus.xhtml'" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="inmoblesUsuari::#xhtml#inmoblesVenedor.xhtml" NAME="output"
+    PATH="/xhtml/inmoblesVenedor.xhtml"
+    TARGET="rules:#xhtml#inmoblesVenedor.xhtml" TITLE="inmoblesUsuari" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user#successpwdsend.xhtml"
+  PATH="/user/successpwdsend.xhtml" SHAPE="1072,417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#registreVenedor.xhtml"
+  PATH="/xhtml/registreVenedor.xhtml" SHAPE="832,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#loginVenedor.xhtml"
+  PATH="/xhtml/loginVenedor.xhtml" SHAPE="832,1089,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#gVista.xhtml"
+  PATH="/xhtml/gVista.xhtml" SHAPE="560,1281,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#ss.xhtml" PATH="/xhtml/ss.xhtml"
+  SHAPE="560,1073,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#login_body.xhtml"
+  PATH="/xhtml/login_body.xhtml" SHAPE="288,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#user#changepasswordsuccess.xhtml"
+  PATH="/user/changepasswordsuccess.xhtml" SHAPE="832,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#solicitudsUsuaris.xhtml"
+  PATH="/xhtml/solicitudsUsuaris.xhtml" SHAPE="832,1297,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#filtrarPerTipus.xhtml"
+  PATH="/xhtml/filtrarPerTipus.xhtml" SHAPE="560,801,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#tarjeta_credit.xhtml"
+  PATH="/xhtml/tarjeta_credit.xhtml" SHAPE="288,1297,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

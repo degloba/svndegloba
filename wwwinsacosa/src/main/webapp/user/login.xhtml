@@ -1,0 +1,143 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	
+	<rich:popupPanel id="editarPerfil" autosized="true" modal="false" 
+		onmaskclick="#{rich:component('editarPerfil')}.hide()"> 
+  	   
+	   	<f:facet name="header">   
+	   		<h:panelGrid columns="2">          
+		   		<h:outputText value="Perfil de usuario" />  
+	   		</h:panelGrid>       
+	   	</f:facet> 
+	   	
+	   	<f:facet name="controls">
+	   		<h:graphicImage onclick="#{rich:component('editarPerfil')}.hide()" value="/images/16-em-cross.png"/> 
+	   	</f:facet>  
+	
+		<ui:include src="useraccount.xhtml"/>
+	
+		<a4j:commandLink onclick="#{rich:component('editarPerfil')}.hide()"  value="close"/>
+						   
+	</rich:popupPanel>  
+	
+	
+	<rich:popupPanel id="cambiaPassword" autosized="true" modal="false" 
+		onmaskclick="#{rich:component('cambiaPassword')}.hide()"> 
+  	   
+	   	<f:facet name="header">   
+	   		<h:panelGrid columns="2">          
+		   		<h:outputText value="Cambiar password" />  
+	   		</h:panelGrid>       
+	   	</f:facet>   
+	   	
+		<f:facet name="controls">
+	   		<h:graphicImage onclick="#{rich:component('editarPerfil')}.hide()" value="/images/16-em-cross.png"/> 
+	   	</f:facet> 
+	
+		<ui:include src="changepassword.xhtml"/>
+	
+		<a4j:commandLink onclick="#{rich:component('cambiaPassword')}.hide()"  value="close"/>
+						   
+	</rich:popupPanel> 
+	
+
+	<c:if test="#{not userForm.loginat}">
+		
+		<h:panelGrid width="180px" columns="2" border="0" styleClass="tdBorder">
+		
+			<rich:panel header="Login" style="background-color: #ebf3fd;">
+				<h:form id="LoginForm">
+					<h:outputText value="#{LoginForm.text}" />
+					<h:panelGrid id="lpg" columns="2" >
+						<h:outputText value="User Id"/> 
+						<h:inputText id="username" value="#{LoginForm.nomUsuari}" styleClass="inputbox">
+							<f:validateLength minimum="3" maximum="8"/>                     
+							<f:validateRequired />
+							<rich:validator /> 
+						</h:inputText>
+						<h:outputText value=""/>
+						<rich:message for="username" styleClass="errors"/> 
+						
+					
+
+						<h:outputText value="Password"/> 
+						<h:inputSecret id="password" value="#{LoginForm.password}" styleClass="inputbox"/>
+						<h:outputText value=""/>
+						<h:message for="password" styleClass="errors"/>
+					
+
+						<h:outputText value=""/>
+						<h:commandButton value="Login" action="#{LoginForm.validUser}" styleClass="submitButton"/>
+					</h:panelGrid>
+				</h:form>
+				
+				<h:form>
+						<h:panelGrid id="bottompg" columns="1" >
+							<h:outputText value="New User?" style="font-family:arial, verdana;font-size:10px;"/>
+							<h:commandLink value="Register Here" action="useraccount" style="font-family:arial, verdana;font-size:12px;"/>
+							<h:outputText value=""/>
+							<h:commandLink value="Forgot Password?" action="forgotpassword" style="font-family:arial, verdana;font-size:12px;"/>
+						</h:panelGrid>
+					</h:form>
+					
+					
+			</rich:panel>
+			
+		</h:panelGrid>
+					
+	</c:if>
+				
+	<c:if test="#{userForm.loginat}">
+		
+		<h:panelGrid width="180px" columns="2" border="0" styleClass="tdBorder">
+		
+			<rich:panel header="#{userForm.nomUsuari}" style="background-color: #ebf3fd;">
+			
+				<h:form>
+					
+					<h:panelGrid>
+					
+						<h:panelGroup>
+							<a4j:commandLink value="Edit User Profile" execute="@this"                  
+				 			 render="@none" oncomplete="#{rich:component('editarPerfil')}.show()">                     
+				    		</a4j:commandLink>    
+						</h:panelGroup>
+						
+						<h:panelGroup>
+							<a4j:commandLink value="Cambiar password" execute="@this"                  
+				 				 render="@none" oncomplete="#{rich:component('cambiaPassword')}.show()">                     
+				    		</a4j:commandLink> 
+						</h:panelGroup>
+						
+						<h:panelGroup>			
+							<h:commandLink value="Logout" action="#{LoginForm.logout}" style="font-family:arial, verdana;font-size:12px;"/>
+						</h:panelGroup>
+						
+						<h:panelGroup>	
+							<h:commandLink value="Tus inmuebles" action="inmoblesUsuari" style="font-family:arial, verdana;font-size:12px;">
+								<f:setPropertyActionListener target="#{inmobleForm.cercable}" value="false" />
+							</h:commandLink>
+						</h:panelGroup>
+						
+					</h:panelGrid>
+					
+				</h:form>
+				
+			</rich:panel>
+		</h:panelGrid>
+												
+	</c:if>
+	
+
+		
+		
+		
+</ui:composition>
+
+
