@@ -1,0 +1,161 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<!-- IMPORTANT : Formulari per entrar el numero de la tarjeta
+     de credit o debit (Mastercard,VISA,American Express) 
+     comprovant que siguin correctes a nivel dels digits
+     Card       Prefix Digits      Length
+	 Mastercard    51-55             16
+	 Visa            4            13 or 16
+	 AmEx         34, 37             15
+	 Discover      6011              16 
+-->
+
+<!--IMPORTANT :  http://www.weberdev.com/get_example-333.html 
+
+	A part de comprovar els digits segons la taula anterior
+	tambe incloim un checksum ,function cardCheck() 
+	
+	IDEA : aquest jsp evita enviar la informacio d'una tarjeta de credit/debit 
+	per Internet a per exemple PAYPAL (evidentment per https)  si la 
+	numeració ja no es correcte -->
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+function cardcheck (Num) {
+CardType=""
+mask = "2121212121212121"
+if (Num=="") {
+CardType="BLANK"
+return (CardType)
+} 
+if ( Num.length == 13 )
+Num = "000" + Num;
+else if ( Num.length == 14 )
+Num = "00" + Num;
+else if (Num.length == 15 )
+Num = "0" + Num;
+if (Num.length == 16)
+Num = Num;
+else
+CardType="INVALID" ;
+
+CheckSum = 0;
+for (count = 1; count<= 16; count++) {
+ProdVal = Num.charAt(count-1) * mask.charAt(count-1)
+if (ProdVal > 9) 
+ProdVal = ProdVal - 9
+CheckSum = CheckSum + ProdVal
+}
+CheckSum = CheckSum % 10
+if (CheckSum != 0) 
+CardType="INVALID"
+else
+CardType="VALID"
+return (CardType)
+}
+
+
+function stripNonNumbers(InString) {
+OutString="";
+
+for (Count=0; Count < InString.length; Count++) {
+TempChar=InString.substring (Count, Count+1);
+Strip = false;
+CharString="0123456789";
+for (Countx = 0; Countx < CharString.length; Countx++) {
+StripThis = CharString.substring(Countx, Countx+1)
+if (TempChar == StripThis) {
+Strip = true;
+break;
+}
+}
+if (Strip)
+OutString=OutString+TempChar;
+}
+
+return OutString;
+}
+
+
+function validatecard() {
+if (validatecardfunc() == true) 
+{
+Num = stripNonNumbers(document.validate.accountnumber.value);
+ret = cardcheck (Num)
+if (ret == "VALID")
+alert ("Credit card validated!")
+else
+alert ("Credit card not valid!")
+} 
+}
+
+function validatecardfunc() {
+validcard = false;
+ret = stripNonNumbers (document.validate.accountnumber.value);
+var item = document.validate.cardtypelist.selectedIndex;
+result = document.validate.cardtypelist.options[item].text;
+if (result == "Mastercard") {
+if (ret.length == 16) 
+validcard = true;
+if ((ret.substring (0, 2) >= "51") && 
+(ret.substring (0, 2) <= "55"))
+validcard = true;
+else
+validcard = false;
+}
+if (result == "Visa") {
+if ((ret.length == 16) || (ret.length ==13))
+validcard = true;
+if (ret.substring (0, 1) != "4")
+validcard = false;
+}
+if (result == "American Express") {
+if (ret.length == 15) 
+validcard = true;
+if ((ret.substring (0, 2) != "34") && 
+(ret.substring (0, 2) != "37"))
+validcard = false;
+}
+if (result == "Discover") {
+if (ret.length == 16) 
+validcard = true;
+if (ret.substring (0, 4) != "6011")
+validcard = false;
+}
+return (validcard);
+}
+
+
+</SCRIPT>
+
+
+
+<P>
+<FORM NAME="validate">Select card type:<BR>
+<SELECT NAME="cardtypelist" SIZE=1>
+<OPTION SELECTED VALUE=1>Mastercard
+<OPTION VALUE=2>Visa
+<OPTION VALUE=3>American Express
+<OPTION VALUE=4>Discover
+</SELECT>
+<P>Enter account number:<BR> 
+
+<INPUT TYPE="text" VALUE="" NAME="accountnumber"> <P>
+<INPUT TYPE="button" VALUE="Submit" onClick="validatecard();"> 
+<INPUT TYPE="Reset" VALUE="Reset"> 
+</FORM>
+</BODY>
+</HTML>
+
+

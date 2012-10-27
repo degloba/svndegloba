@@ -1,0 +1,14 @@
+*.rf-cp{background-color:#f1f1f1;color:#C0C0C0;border-width:1px;border-style:solid;padding:1px;}
+*.rf-cp-hdr{cursor:pointer;background-color:#005000;border-color:#005000;font-size:11px;color:#FFF;font-weight:bold;font-family:Arial,Verdana,sans-serif;padding:2px;border-width:1px;border-style:solid;background-position:top left;background-repeat:repeat-x;background-image:url(../org.richfaces.images/gradientA-4.0.0.Final.png);}
+*.rf-cp-b{font-size:11px;color:#000;font-family:Arial,Verdana,sans-serif;padding:10px;}
+*.rf-cp-gr{width:100%;}
+*.rf-cp-ico{width:16px;height:16px;}
+*.rf-cp-exp-ico{width:16px;height:16px;}
+*.rf-cp-hdr-exp *.rf-cp-ico-exp{display:block;}
+*.rf-cp-hdr-exp *.rf-cp-ico-colps{display:none;}
+*.rf-cp-hdr-exp *.rf-cp-lbl-exp{display:block;}
+*.rf-cp-hdr-exp *.rf-cp-lbl-colps{display:none;}
+*.rf-cp-hdr-colps *.rf-cp-ico-exp{display:none;}
+*.rf-cp-hdr-colps *.rf-cp-ico-colps{display:block;}
+*.rf-cp-hdr-colps *.rf-cp-lbl-exp{display:none;}
+*.rf-cp-hdr-colps *.rf-cp-lbl-colps{display:block;}
