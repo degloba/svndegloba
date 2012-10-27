@@ -25,7 +25,7 @@ import javax.faces.application.FacesMessage;
 
 import javax.faces.context.FacesContext;
 
-public class UserForm  {
+public class UserForm  implements java.io.Serializable {
 	
 
 	public UserForm(){

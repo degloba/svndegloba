@@ -1,0 +1,104 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<!-- FORMULARI HTML/JSP QUE HEM D'INCLOURE A LA WEB PER PASSAR-LI LA
+	 INFORMACIO NECESSARIA PERQUE PAYPAL PUGUI FER LA TRANSACCIO
+	 MIRAR EL PDF PORTATIL PP_WebsitePaymentStandard_IntegrationGuide.pdf pagina 27-->
+	 
+<!-- BUSINESS = adreça de correo associada a la meva compte PAYPAL per rebre pagaments 
+				Es un camp fixe ja que es el que es correspon al compte PayPal de la Web
+				que ven productes i serveis.En aquest cas estem a la web INSACO,per
+				tant seria l'adreça de correo associada al compte PayPal d'INSACO -->
+<!-- ITEM_NAME = nom del producte/servei que es ven -->
+<!-- AMOUNT = preu total de tots els articles de la compra -->
+
+
+<!-- NOTA : es veu que es https ja que logicament la connexio entre la Web
+			d'INSACO i la web de PAYPAL ha de ser totalment segura -->
+
+
+<table align=center border="0" width="70%">		
+			<caption class="titol"><h:outputText escape="false"  value="#{missatge['registre.venedor']}" /></caption>
+			<thead>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+			</thead>
+	
+			<tbody>
+				<tr>	
+					<td>
+							Para publicitar anuncios debe entrar la información de facturación.
+						    Para ello INSACO utiliza el método más seguro y más utilizado en Internet que es Paypal.
+						    Paypal es una empresa del grupo eBay líder mundial en compra/venta a través de Internet
+						    						    
+						    <a onMouseOut="document.getElementById('texte_Paypal').style.visibility='hidden';" onMouseOver="document.getElementById('texte_Paypal').style.visibility='visible';" >Que es PayPal ?</a>				
+						    
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+				</tr>				
+				<tr>				
+					<td>
+						<form action="https://www.paypal.com/es/cgi-bin/webscr" method="post"
+							target="top">
+							<input type="hidden" name="cmd" value="_xclick"> 
+							<input type="hidden" name="business" value="santasusanap@yahoo.es"> <input
+							type="hidden" name="item_name" value="Publicitat Inmoble a INSACO"> <input
+							type="hidden" name="currency_code" value="EUR"> <input type="hidden"
+							name="amount" value="18.00"> <input type="submit" src=""
+				name="submit"
+				alt="Realice pagos con PayPal: es rápido, gratis y seguro"
+				value="Entrar datos facturación" class="boton" onmouseover="this.style.backgroundColor = '#f7a747'"
+				onmouseout="this.style.backgroundColor = '#fcdeba'"></form>
+					</td>
+				</tr>	
+			</tbody>
+			</table>
+	
+<div id="texte_Paypal" class="PAYPAL">			
+<table width="65%" align="center" cellspacing="5">
+	<caption class="titol">Qué es PayPal</caption>
+
+	<thead>
+		<tr>
+				<td></td>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th scope="col"></th>
+		</tr>
+	</tfoot>
+
+	<tr>
+		<td>PayPal es un sistema que permite a cualquier persona que tenga una
+		dirección de e-mail <span style="color: #fd9213;font-weight:bold;">enviar o recibir dinero online</span> de manera
+		<span style="color: #fd9213;font-weight:bold;">totalmente segura, fácil, rápida y de coste totalmente gratuito para
+		el comprador</span></td>
+	</tr>
+	<tr>
+		<td>Las principales ventajas de este método de pago, son que es un
+		<span style="color: #fd9213;font-weight:bold;">método de pago instantáneo</span> y por tanto la Web que ofrece servicios/productos
+		a través de Internet procesará automáticamente y sin demoras los pedidos de nuevos clientes
+		que abonen el pago por este medio</td>
+	</tr>
+	<tr>
+		<td>Si aún no dispone de cuenta paypal no dude en abrirse una ahora
+		mismo y le valdrá además para el 95% de las Webs de venta online de
+		cualquier tipo de producto o servicio</td>
+	</tr>
+</table>
+</div>
+
+
+</ui:composition>
