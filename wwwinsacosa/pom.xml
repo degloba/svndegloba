@@ -380,13 +380,6 @@
     	<scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>com.google.appengine</groupId>
-    	<artifactId>appengine-jsr107cache</artifactId>
-    	<version>1.7.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
     	<groupId>org.apache.geronimo.specs</groupId>
     	<artifactId>geronimo-jta_1.1_spec</artifactId>
     	<version>1.1.1</version>
