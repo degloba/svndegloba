@@ -1,0 +1,91 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+
+
+<rich:panel name="header">
+	<h:outputText escape="false"  value="#{missatge['tarjeta_credit.entrar" />
+	
+	<h:panelGrid columns="3">
+	
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.numero" />
+		<h:inputText property="numero" size="16" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.tipus" />
+		
+		<h:selectOneMenu value="#{InmobleVO.provincia}"
+				valueChangeListener="#{prov.valorCambiat}" defaultLabel="start typing for select">
+				<f:selectItem itemValue="0" itemLabel="Visa" /> 
+				<f:selectItem itemValue="0" itemLabel="MasterCard" /> 
+				<a4j:ajax event="valueChange" render="localitats" execute="@this"/>	
+		</h:selectOneMenu>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.CVV2" />
+		 <h:inputText property="CVV2" size="4" onfocus="cambiar_color(this);"/>
+			Qué es CVV2 ?
+		
+	
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.mesExp" />
+		<h:inputText property="mesExp" size="2" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.anyExp" /> 
+		<h:inputText property="anyExp" size="4" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.pais" />
+		<h:inputText property="pais" size="4" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.provincia" /> 
+		<h:inputText property="provincia" size="10" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.ciutat" /> 
+		<h:inputText property="ciutat" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.adreca" /> 
+		<h:inputText property="adreca" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.codi_postal" /> 
+		<h:inputText property="codi_postal" size="5" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+		
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.nom" /> 
+		<h:inputText property="nom" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>
+			
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.cognoms" /> 
+		<h:inputText property="cognoms" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>	
+	
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.telefon" /> 
+		<h:inputText property="telefon" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>	
+
+		<h:outputText escape="false"  value="#{missatge['tarjeta_credit.email" /> 
+		<h:inputText property="email" onfocus="cambiar_color(this);"/>
+		<h:panelGroup/>	
+			
+		<a4j:commandLink styleClass="no-decor" border="0" execute="@form"
+				render="out8" actionListener="#{targetaCreditForm.pagamentTargeta}" >                     
+				<h:graphicImage value="/images/24-book-blue.png" alt="Dades tarjeta crèdit" style="align:left;border:0"/>                     
+   		</a4j:commandLink>
+		
+	</h:panelGrid>
+	
+	
+	</rich:panel>
+			
+
+</ui:composition>
