@@ -86,27 +86,8 @@ public class PersistenceService {
     
     @PostConstruct
     public void init() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("persistenceServiceSQLServer", new Properties());
-        //entityManagerFactory = Persistence.createEntityManagerFactory("persistenceServiceHSQLDB", new Properties());
-    	
-       /* EntityManager em = entityManagerFactory.createEntityManager();
-        
-        EntityTransaction transaction = em.getTransaction();
+        entityManagerFactory = Persistence.createEntityManagerFactory("transactions-optional", new Properties());
 
-        try {
-            transaction.begin();
-            
-            for (Person person: parseTestData()) {
-                em.persist(person);
-            }
-            
-            transaction.commit();
-        } catch (Exception e) {
-            transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            em.close();
-        }*/
     }
 
     private List<Person> parseTestData() throws Exception {
