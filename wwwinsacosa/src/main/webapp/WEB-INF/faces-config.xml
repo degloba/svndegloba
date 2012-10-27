@@ -295,6 +295,6 @@
   <validator-class>com.insacosa.validadors.PhoneNumberValidator</validator-class>
  </validator>
  <application>
-  <message-bundle>idioma_ca</message-bundle>
+  <message-bundle>idioma_es</message-bundle>
  </application>
 </faces-config>
