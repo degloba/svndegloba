@@ -1,9 +1,0 @@
-*.rf-msg,*.rf-msgs{font-family:Arial,Verdana,sans-serif;font-size:11px;height:18ex;}
-*.rf-msg-err,*.rf-msgs-err,*.rf-msg-ftl,*.rf-msgs-ftl,*.rf-msg-inf,*.rf-msgs-inf,*.rf-msg-wrn,*.rf-msgs-wrn,*.rf-msg-ok,*.rf-msgs-ok{display:block;padding-right:2px;padding-left:20px;vertical-align:middle;background-repeat:no-repeat;background-position:left center;}
-*.rf-msg-err,*.rf-msgs-err{background-image:url(../../org.richfaces/error.png);color:#F00;}
-*.rf-msg-ftl,*.rf-msgs-ftl{background-image:url(../../org.richfaces/fatal.png);color:#F00;}
-*.rf-msg-inf,*.rf-msgs-inf{background-image:url(../../org.richfaces/info.png);color:#000;}
-*.rf-msg-wrn,*.rf-msgs-wrn{background-image:url(../../org.richfaces/warning.png);color:#FFE6E6;}
-*.rf-msg-ok,*.rf-msgs-ok{background-image:url(../../org.richfaces/ok.png);color:#000;}
-*.rf-msg-sum,*.rf-msgs-sum{display:inline;}
-*.rf-msg-det,*.rf-msgs-det{display:inline;}
