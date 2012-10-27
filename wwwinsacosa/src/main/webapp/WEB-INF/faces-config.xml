@@ -294,4 +294,7 @@
   <validator-id>PhoneNumberValidator</validator-id>
   <validator-class>com.insacosa.validadors.PhoneNumberValidator</validator-class>
  </validator>
+ <application>
+  <message-bundle>idioma_ca</message-bundle>
+ </application>
 </faces-config>
