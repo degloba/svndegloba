@@ -12,7 +12,7 @@
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
-  <managed-bean-name>tipus</managed-bean-name>
+  <managed-bean-name>tipusForm</managed-bean-name>
   <managed-bean-class>com.insacosa.vo.TipusForm</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
@@ -46,13 +46,11 @@
   <managed-bean-class>com.insacosa.vo.TargetaCreditForm</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
- 
-  <managed-bean>
+ <managed-bean>
   <managed-bean-name>objecte</managed-bean-name>
   <managed-bean-class>com.insacosa.interfaces.Objecte</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
- 
  <!-- Login - Register -->
  <managed-bean>
   <managed-bean-name>LoginForm</managed-bean-name>
@@ -296,7 +294,4 @@
   <validator-id>PhoneNumberValidator</validator-id>
   <validator-class>com.insacosa.validadors.PhoneNumberValidator</validator-class>
  </validator>
- <application>
-  
- </application>
 </faces-config>
