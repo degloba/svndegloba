@@ -1,5 +1,6 @@
 package com.insacosa.interfaces;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -8,6 +9,7 @@ import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.Transaction;
+import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
 
@@ -105,22 +107,43 @@ public class Usuari_Impl implements Usuari_If {
 		Boolean existeix = false;
 		Usuaris existeixUsuari = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		
+		//La classe PersistenceService es "ApplicationScoped"
+		PersistenceService persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
+		// Recuperem l'EntityManager
+		// 2 Opcions :
+		// Opcio 1 --> Utilitzar classe PersistenceService
+		EntityManager em = persistenceService.getEntityManager();
+		// Opcio 2 --> Utilitzar classe EMF
+		em = EMF.get().createEntityManager();
+		
+		//EntityManager em = EMF.get().createEntityManager();
+		//EntityTransaction tx = em.getTransaction();
+		
+		
 		
 		try {    
-				tx.begin();
+				//tx.begin();
+			
+			Query q = em.createQuery("select count(usuari) from Usuaris usuari where usuari.nomusuari = '" + usuari.getNomusuari() + "'");
+			//q.setHint("datanucleus.query.resultSizeMethod", "count");
+			Long num = (Long)q.getSingleResult();
+				//existeixUsuari = em.find( Usuaris.class, usuari.getKey());
 				
-				existeixUsuari = em.find( Usuaris.class, usuari.getKey());
-				
-				if (existeixUsuari != null)
+				/*if (existeixUsuari != null)
 					existeix = true;
 				else
-					existeix = false;
-				
-				tx.commit();    
+					existeix = false;*/
+			if (num == 0)
+				existeix = false;
+			else
+				existeix = true;
+
+				//tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}
 		
 		return existeix;
