@@ -1,0 +1,132 @@
+<?xml version="1.0" standalone="no"?>
+ <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+
+	<!--[if IE]>
+	<script type="text/javascript" src="../js/excanvas.compiled.js"></script>
+	<script type="text/javascript" src="../js/excanvas.js"></script>
+	<script type="text/javascript" src="../js/canvasInmobles.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="../js/canvasInmobles.js"></script>
+	
+	
+	
+
+    <title><ui:define name="title">Inmobiliària Insaco</ui:define></title>
+    <meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
+     
+    	
+	<style>
+		canvas {
+			border:0px solid #444;
+		}
+	</style>
+    
+   
+    
+</h:head>
+
+<body> 
+<h:form>
+
+<canvas id="canvasInmobles" width="450" height="450"></canvas> 
+
+
+<script type="text/javascript">
+
+	var canvas = document.getElementById("canvasInmobles");
+		var ctx = canvas.getContext("2d");
+		var img = new Image();   // Create new img element  
+		img.onload = function(){  
+			  // execute drawImage statements here  
+				ctx.drawImage(img,0,0); 
+				}
+		img.onclick = function(){  
+			  // execute drawImage statements here  
+			   ctx.translate(img.width-1, img.height-1);
+		    ctx.rotate(Math.PI);
+		    ctx.drawImage(img, 0, 0, img.width, img.height);
+			 //Richfaces.showModalPanel('myModalPanel');
+			   // Richfaces.showModalPanel('myModalPanel',{width:400, top:200, 'nodeId':nodeId}); 
+				}
+		img.src = '../images/graf1.jpg'; // Set source path
+
+
+
+		var img2 = new Image();   // Create new img element  
+		img2.onload = function(){  
+			  // execute drawImage statements here  
+				ctx.drawImage(img2,100,100); 
+				}
+		img2.onclick = function(){  
+			alert("clcick 2");
+			  // execute drawImage statements here  
+			  RichFaces.$('j_idt6:myModalPanel').show();
+			 
+				}
+		img2.src = '../images/graf2.jpg'; // Set source path
+		
+		
+		canvas.onclick = function() {
+		    RichFaces.$('j_idt6:myModalPanel').show();
+		    //RichFaces.$('j_idt6:myModalPanel',{width:400, top:200, 'nodeId':nodeId}).show(); 
+		};
+	</script>
+
+
+
+<rich:popupPanel id="myModalPanel" autosized="true" modal="false"> 
+  	
+
+<f:facet name="header">New Picture</f:facet>
+                
+                        
+                                 this is workspace
+
+</rich:popupPanel>
+ 
+ 
+ #{rich:component('myModalPanel')}
+ 	<a4j:commandLink value="mostra" execute="@this"                  
+		  oncomplete="#{rich:component('myModalPanel')}.show()">                     
+			    		             
+	</a4j:commandLink>
+			   		
+</h:form> 
+     
+     
+     
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <circle cx="100" cy="50" r="40" stroke="black"
+   stroke-width="2" fill="red" />
+   
+   <rect width="100" height="100"
+   style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+   
+   
+   <defs>
+     <filter id="f1" x="200" y="0" width="200%" height="200%">
+       <feOffset result="offOut" in="SourceGraphic" dx="200" dy="20" />
+       <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+     </filter>
+   </defs>
+   <rect width="90" height="90" stroke="green" stroke-width="3"
+   fill="yellow" filter="url(#f1)" />
+ 
+ 
+</svg>
+ 
+     
+</body>
+
+</html>
