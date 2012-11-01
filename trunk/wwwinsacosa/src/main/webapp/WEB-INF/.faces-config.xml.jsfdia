@@ -247,4 +247,52 @@
   PATH="/xhtml/filtrarPerTipus.xhtml" SHAPE="560,801,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#xhtml#tarjeta_credit.xhtml"
   PATH="/xhtml/tarjeta_credit.xhtml" SHAPE="288,1297,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="832,657,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="registreVenedor::#xhtml#registreVenedor.xhtml" NAME="output"
+    PATH="/xhtml/registreVenedor.xhtml"
+    TARGET="rules:#xhtml#registreVenedor.xhtml" TITLE="registreVenedor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loginVenedor::#xhtml#loginVenedor.xhtml"
+    NAME="output1" PATH="/xhtml/loginVenedor.xhtml"
+    TARGET="rules:#xhtml#loginVenedor.xhtml" TITLE="loginVenedor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{LoginForm.validUser}:#xhtml#index.xhtml"
+    NAME="output2" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{LoginForm.validUser}:#xhtml#index.xhtml"
+    NAME="output3" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.validUser}:failure" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="useraccount::#user#useraccount.xhtml"
+    NAME="output4" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml" TITLE="useraccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="forgotpassword::#user#forgotpassword.xhtml"
+    NAME="output5" PATH="/user/forgotpassword.xhtml"
+    TARGET="rules:#user#forgotpassword.xhtml" TITLE="forgotpassword" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editSuccess:#{userForm.editProfile}:#user#useraccount.xhtml"
+    NAME="output6" PATH="/user/useraccount.xhtml"
+    TARGET="rules:#user#useraccount.xhtml"
+    TITLE="#{userForm.editProfile}:editSuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="logoutsuccess:#{LoginForm.logout}:#xhtml#index.xhtml"
+    NAME="output7" PATH="/xhtml/index.xhtml"
+    TARGET="rules:#xhtml#index.xhtml"
+    TITLE="#{LoginForm.logout}:logoutsuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="solicitudsUsuaris::#xhtml#solicitudsUsuaris.xhtml"
+    NAME="output8" PATH="/xhtml/solicitudsUsuaris.xhtml"
+    TARGET="rules:#xhtml#solicitudsUsuaris.xhtml"
+    TITLE="solicitudsUsuaris" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inmoblesUsuari::#xhtml#inmoblesVenedor.xhtml" NAME="output9"
+    PATH="/xhtml/inmoblesVenedor.xhtml"
+    TARGET="rules:#xhtml#inmoblesVenedor.xhtml" TITLE="inmoblesUsuari" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
