@@ -24,8 +24,10 @@
 	    <include path="/static-resources/**.*"/> 
 	    <include path="/*.ico"/> 
 	    <include path="/resources/**.*"/> 
-	    <exclude path="/templates/**.*"/> 
-	    <exclude path="/*.xhtml"/> 
+	    <include path="/js/*.js"/>
+	    <include path="/css/*.css"/>
+	    <include path="/templates/**.*"/> 
+	    <exclude path="/**.xhtml" />
     </static-files>
  
 </appengine-web-app>
