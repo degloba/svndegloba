@@ -16,12 +16,13 @@ import com.google.appengine.api.datastore.Key;
 
 
 @Entity
-public class Usuaris  {
+public class Usuaris implements java.io.Serializable {
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	private Key key;
 	
+	private String nomusuari;
 	private String nom;
 	private String cognoms;
 	private String adreca;
@@ -34,7 +35,7 @@ public class Usuaris  {
 	private String password;
 	private Boolean acord;
 	private Set<Solicituds> solicitudses = new HashSet<Solicituds>(0);
-	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	//private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 
 	
 	 // Accessors for the fields. JPA doesn't use these, but your application does.    
@@ -50,7 +51,9 @@ public class Usuaris  {
 	public Usuaris() {
 	}
 
-
+	public Usuaris(String nomusuari) {
+		this.nomusuari = nomusuari;
+	}
 	public Usuaris(Key key, String nom, String cognoms, String adreca,
 			String localitat, String codi, String provincia, String telefon,
 			String email, String email2, String password, Boolean acord,
@@ -68,10 +71,16 @@ public class Usuaris  {
 		this.password = password;
 		this.acord = acord;
 		this.solicitudses = solicitudses;
-		this.inmobleses = inmobleses;
+		//this.inmobleses = inmobleses;
 	}
 
+	public String getNomusuari() {
+		return this.nomusuari;
+	}
 
+	public void setNomusuari(String nomusuari) {
+		this.nomusuari = nomusuari;
+	}
 
 	@Column(name = "NOM", length = 20)
 	public String getNom() {
@@ -181,13 +190,13 @@ public class Usuaris  {
 		this.solicitudses = solicitudses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuaris")
+/*	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuaris")
 	public Set<Inmobles> getInmobleses() {
 		return this.inmobleses;
 	}
 
 	public void setInmobleses(Set<Inmobles> inmobleses) {
 		this.inmobleses = inmobleses;
-	}
+	}*/
 
 }
