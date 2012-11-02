@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import com.degloba.EMF;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.Transaction;
@@ -15,24 +16,50 @@ import com.insacosa.entitats.*;
 
 public class Usuari_Impl implements Usuari_If {
 
-
+	static PersistenceService persistenceService;
+	
 	public Usuari_Impl() {
 		super();
 		// TODO Auto-generated constructor stub
+		
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
 	}
 
 
 	public void afegirUsuari(Usuaris usuari) {
+			
+		// Recuperem l'EntityManager
+		// 2 Opcions :
+		// Opcio 1 --> Utilitzar classe PersistenceService
+		EntityManager em = persistenceService.getEntityManager();
+		// Opcio 2 --> Utilitzar classe EMF
+		//em = EMF.get().createEntityManager();
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		
+		Usuaris u = new Usuaris();
+
+		u.setNomusuari(usuari.getNomusuari());
+		u.setNom(usuari.getNom());
+		u.setCognoms(usuari.getCognoms());
+		u.setAdreca(usuari.getAdreca());
+		u.setCodi(usuari.getCodi());
+		u.setProvincia(usuari.getProvincia());
+		u.setTelefon(usuari.getTelefon());
+		u.setEmail(usuari.getEmail());
+		u.setEmail2(usuari.getEmail2());
+		u.setPassword(usuari.getPassword());
+		u.setAcord(usuari.getAcord());
 		
 		try {      
-				tx.begin();
+				//tx.begin();
 				
-				em.persist(usuari);
+				em.persist(u);
 				      
-				tx.commit();    
+				//tx.commit();    
 		} finally {        
 			em.close();    
 		} 
@@ -42,16 +69,16 @@ public class Usuari_Impl implements Usuari_If {
 
 	public void eliminarUsuari(Key keyUsuari) {
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		
+		EntityManager em = persistenceService.getEntityManager();
 		
 		try {
-				tx.begin();
+		//		tx.begin();
 				
 				Usuaris usuari = em.find(Usuaris.class, keyUsuari);
 				em.remove(usuari);
      
-				tx.commit();    
+			//	tx.commit();    
 		} finally {        
 			em.close();    
 		} 
@@ -63,36 +90,55 @@ public class Usuari_Impl implements Usuari_If {
 		
 		Usuaris usuari = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
 		
 		try {      
-				tx.begin();
+				//tx.begin();
 			
 				usuari = em.find(Usuaris.class, keyUsuari);
      
-				tx.commit();    
+				//tx.commit();    
 		} finally {        
 			em.close();    
 		} 
 		
 		return usuari;
 	}
+	
+	public Usuaris cercarUsuari(String nomUsuari) {
+		
+		Usuaris usuari = null;
+		
+		EntityManager em = persistenceService.getEntityManager();
+		
+		try {      
+				//tx.begin();
+			
+				Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+				q.setParameter("nomUsuari", nomUsuari);
+				
+				usuari = (Usuaris)q.getSingleResult();
+				//tx.commit();    
+		} finally {        
+			em.close();    
+		} 
+		
+		return usuari;
+	}	
 
 
 	public Usuaris editPerfil(Key keyUsuari) {
 		
 		Usuaris usuari = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
 		
 		try {   
-				tx.begin();
+				//tx.begin();
 				
 				usuari = em.find( Usuaris.class, keyUsuari);
 				 
-				tx.commit();  
+				//tx.commit();  
 				
 		} finally {        
 			em.close();    
@@ -102,34 +148,21 @@ public class Usuari_Impl implements Usuari_If {
 	}
 
 
+	
 	public boolean usuariValid(Usuaris usuari) {
 		
 		Boolean existeix = false;
 		Usuaris existeixUsuari = null;
 		
-		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		
-		//La classe PersistenceService es "ApplicationScoped"
-		PersistenceService persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
-		
-		// Recuperem l'EntityManager
-		// 2 Opcions :
-		// Opcio 1 --> Utilitzar classe PersistenceService
-		EntityManager em = persistenceService.getEntityManager();
-		// Opcio 2 --> Utilitzar classe EMF
-		em = EMF.get().createEntityManager();
-		
-		//EntityManager em = EMF.get().createEntityManager();
-		//EntityTransaction tx = em.getTransaction();
-		
-		
-		
+		EntityManager em = persistenceService.getEntityManager();		
+				
 		try {    
 				//tx.begin();
-			
-			Query q = em.createQuery("select count(usuari) from Usuaris usuari where usuari.nomusuari = '" + usuari.getNomusuari() + "'");
+					
+			Query q = em.createQuery("select count(u) from " + Usuaris.class.getName() + " u");
+		//	Query q = em.createQuery("select count(usuari) from Usuaris usuari where usuari.nomusuari = '" + usuari.getNomusuari() + "'");
 			//q.setHint("datanucleus.query.resultSizeMethod", "count");
-			Long num = (Long)q.getSingleResult();
+			Integer num = (Integer)q.getSingleResult();
 				//existeixUsuari = em.find( Usuaris.class, usuari.getKey());
 				
 				/*if (existeixUsuari != null)
@@ -157,12 +190,11 @@ public class Usuari_Impl implements Usuari_If {
 		Long num = null;
 		Boolean existeix = false;
 		    
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
 		
 		try {      
 	
-			tx.begin();
+			//tx.begin();
 			
 			Query q = em.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'");
 				
@@ -172,7 +204,7 @@ public class Usuari_Impl implements Usuari_If {
 			else
 				existeix = true;
 				
-			tx.commit();    
+			//tx.commit();    
 		} finally {        
 			em.close();    
 		}
@@ -187,17 +219,16 @@ public class Usuari_Impl implements Usuari_If {
 		
 		String password = null;
 		    
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction(); 
+		EntityManager em = persistenceService.getEntityManager(); 
 		
 		try {   
-			 tx.begin();
+			 //tx.begin();
 				
 			 Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
 			 password = (String)q.getSingleResult();
 			 
-			 tx.commit();
+			 //tx.commit();
 			
 		} finally {        
 			em.close();    
@@ -212,16 +243,14 @@ public class Usuari_Impl implements Usuari_If {
 
 	public String cambiaPassword(Usuaris usuari) {
 		   
-		EntityManager em = EMF.get().createEntityManager();
-		
-		EntityTransaction tx = em.getTransaction(); 
+		EntityManager em = persistenceService.getEntityManager(); 
 		
 		try {      
-				tx.begin();
+				//tx.begin();
 				
 				em.persist(usuari);
 				      
-				tx.commit();    
+				//tx.commit();    
 		} finally {        
 			em.close();    
 		} 
@@ -235,15 +264,14 @@ public class Usuari_Impl implements Usuari_If {
 
 	public String modificarUsuari(Usuaris usuari) {
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
 		
 		try {      
-				tx.begin();
+				//tx.begin();
 				
 				em.persist(usuari);
 				      
-				tx.commit();    
+				//tx.commit();    
 		} finally {        
 			em.close();    
 		}

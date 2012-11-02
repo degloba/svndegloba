@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -15,16 +16,24 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.common.collect.Maps;
 
 import com.insacosa.dataModels_JPA.InmobleCaract;
+import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
 
 
 public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
-
+	static PersistenceService persistenceService;
+	
 	public Inmoble_Impl() {
 		super();
 		// TODO Auto-generated constructor stub
+		
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+	
 	}
 	
 	
