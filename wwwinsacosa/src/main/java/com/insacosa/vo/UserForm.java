@@ -291,30 +291,28 @@ public class UserForm  implements java.io.Serializable {
 	}
 
 	public String  saveUser() throws Exception{
+		
 		if (validateData()){
-			FacesContext context = FacesContext.getCurrentInstance();
-			HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
-
-					
+								
 			// si no esta loginat es un nou registre
 			if(!loginat){
-				
-				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
+								
 				Usuari_Impl r = new Usuari_Impl();
 				
-				Usuaris usuariHib = new Usuaris();
+				Usuaris usuari = new Usuaris();
 				
-				usuariHib.setKey(this.getKey());
-				usuariHib.setAdreca(this.getAdreca());
+				usuari.setKey(this.getKey());
+				usuari.setNomusuari(this.getNomUsuari());
+				usuari.setAdreca(this.getAdreca());
 				//registreHib.setCountry(this.getContactNumber());
-				usuariHib.setEmail(this.getEmail());
-				usuariHib.setCognoms(this.getCognoms());
-				usuariHib.setNom(this.getNom());
-				usuariHib.setCognoms(this.getCognoms());
-				usuariHib.setPassword(this.getPassword());
+				usuari.setEmail(this.getEmail());
+				usuari.setCognoms(this.getCognoms());
+				usuari.setNom(this.getNom());
+				usuari.setCognoms(this.getCognoms());
+				usuari.setPassword(this.getPassword());
 				
 				
-				r.afegirUsuari(usuariHib);
+				r.afegirUsuari(usuari);
 				
 				sendMail(getEmail());
 				return "successUserRegistration";
@@ -324,17 +322,18 @@ public class UserForm  implements java.io.Serializable {
 				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
 				Usuari_Impl r = new Usuari_Impl();
 				
-				Usuaris usuariHib = new Usuaris();
+				Usuaris usuari = new Usuaris();
 				
-				usuariHib.setKey(this.key);
-				usuariHib.setAdreca(this.getAdreca());
-				usuariHib.setEmail(this.getEmail());
-				usuariHib.setCognoms(this.getCognoms());
-				usuariHib.setNom(this.getNom());				
-				usuariHib.setCognoms(this.getCognoms());
-				usuariHib.setPassword(this.password);
+				usuari.setKey(this.key);
+				usuari.setNomusuari(this.getNomUsuari());
+				usuari.setAdreca(this.getAdreca());
+				usuari.setEmail(this.getEmail());
+				usuari.setCognoms(this.getCognoms());
+				usuari.setNom(this.getNom());				
+				usuari.setCognoms(this.getCognoms());
+				usuari.setPassword(this.password);
 												
-				r.modificarUsuari(usuariHib);
+				r.modificarUsuari(usuari);
 
 				return "successUserUpdate";
 			}
