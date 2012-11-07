@@ -141,7 +141,7 @@ public class Usuari_Impl implements Usuari_If {
 				//tx.commit();  
 				
 		} finally {        
-			em.close();    
+			//em.close();    
 		}
 		return usuari;  
 		
@@ -152,35 +152,25 @@ public class Usuari_Impl implements Usuari_If {
 	public boolean usuariValid(Usuaris usuari) {
 		
 		Boolean existeix = false;
-		Usuaris existeixUsuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();		
 				
 		try {    
-				//tx.begin();
 					
-			Query q = em.createQuery("select count(u) from " + Usuaris.class.getName() + " u");
-		//	Query q = em.createQuery("select count(usuari) from Usuaris usuari where usuari.nomusuari = '" + usuari.getNomusuari() + "'");
-			//q.setHint("datanucleus.query.resultSizeMethod", "count");
+			Query q = em.createQuery("select count(u) from " + Usuaris.class.getName() + " u where u.nomusuari = '" + usuari.getNomusuari() + "'");
 			Integer num = (Integer)q.getSingleResult();
-				//existeixUsuari = em.find( Usuaris.class, usuari.getKey());
-				
-				/*if (existeixUsuari != null)
-					existeix = true;
-				else
-					existeix = false;*/
+		
 			if (num == 0)
 				existeix = false;
 			else
 				existeix = true;
 
-				//tx.commit();    
+			    
 		} finally {        
 			//em.close();    
 		}
 		
 		return existeix;
-		
 		
 	}
 
@@ -206,7 +196,7 @@ public class Usuari_Impl implements Usuari_If {
 				
 			//tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}
 		
 		return existeix;
