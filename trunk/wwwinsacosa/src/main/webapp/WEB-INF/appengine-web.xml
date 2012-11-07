@@ -20,7 +20,7 @@
     </resource-files>
     
     <static-files> 
-	    <include path="/images/**.*"/> 
+	    <exclude path="/images/**.*"/> 
 	    <include path="/static-resources/**.*"/> 
 	    <include path="/*.ico"/> 
 	    <include path="/resources/**.*"/> 
