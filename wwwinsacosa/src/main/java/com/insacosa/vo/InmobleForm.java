@@ -631,7 +631,7 @@ public class InmobleForm  implements Serializable
 		Inmobles inmoble = new Inmobles();
 		inmoble.setKey(keyInmoble);
 		
-		solicitud.setInmobles(inmoble);
+		///solicitud.setInmobles(inmoble);
 		solicitud.setUsuaris(usuari);
 		r.solicitarInmobles(solicitud);
 		
