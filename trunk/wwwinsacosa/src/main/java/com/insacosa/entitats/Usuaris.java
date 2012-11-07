@@ -74,6 +74,7 @@ public class Usuaris implements java.io.Serializable {
 		//this.inmobleses = inmobleses;
 	}
 
+	@Column(name = "NOMUSUARI", length = 20)
 	public String getNomusuari() {
 		return this.nomusuari;
 	}
