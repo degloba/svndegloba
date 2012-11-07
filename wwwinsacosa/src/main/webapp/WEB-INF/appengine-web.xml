@@ -20,7 +20,7 @@
     </resource-files>
     
     <static-files> 
-	    <exclude path="/images/**.*"/> 
+	    <include path="/images/**.*"/> 
 	    <include path="/static-resources/**.*"/> 
 	    <include path="/*.ico"/> 
 	    <include path="/resources/**.*"/> 
@@ -28,6 +28,7 @@
 	    <include path="/css/*.css"/>
 	    <include path="/templates/**.*"/> 
 	    <exclude path="/**.xhtml" />
+	    <exclude path="/xhtml/*.xhtml" />
     </static-files>
  
 </appengine-web-app>
