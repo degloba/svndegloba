@@ -43,30 +43,35 @@ public class LoginForm  {
 
 
 	public String validUser() throws Exception{
-		
-		//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
+				
 		Usuari_Impl r = new Usuari_Impl();
 		
 		Usuaris usuari = new Usuaris();
-		usuari.setKey(key);
+		usuari.setNomusuari(nomUsuari);
 		
-		if (r.usuariValid(usuari))
+		if (r.usuariValid(usuari))  // existeix l'usuari ?
 		{
 			FacesContext context = FacesContext.getCurrentInstance();
 			HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
-		
-			usuari = r.cercarUsuari(key);
+			
+			
+			usuari = r.cercarUsuari(nomUsuari);
 			
 			if (usuari.getPassword().equals(this.password))
 			{
 				session.setAttribute("key", usuari);  // Guardem el registre en sessio
-			
+				
 				// per
 				UserForm userForm = (UserForm) context.getApplication().evaluateExpressionGet(context, "#{userForm}", UserForm.class);
 				
 				userForm.setKey(usuari.getKey());
 				userForm.setAdreca(usuari.getAdreca());
 				userForm.setEmail(usuari.getEmail());
+				userForm.setCognoms(usuari.getCognoms());
+				userForm.setLocalitat(usuari.getLocalitat());
+				userForm.setProvincia(usuari.getProvincia());
+				userForm.setProvincia(usuari.getProvincia());
+				userForm.setTelefon(usuari.getTelefon());
 				// .........
 				
 				userForm.setLoginat(true);
