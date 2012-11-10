@@ -46,13 +46,16 @@
 						   
 	</rich:popupPanel> 
 	
+	<h:form>
 
 	<c:if test="#{not userForm.loginat}">
 		
-		<h:panelGrid width="180px" columns="2" border="0" styleClass="tdBorder">
+		<h:panelGrid width="200px"  border="0">
 		
-			<rich:panel header="Login" style="background-color: #ebf3fd;">
+			<rich:panel header="Login">
+			
 				<h:form id="LoginForm">
+				
 					<h:outputText value="#{LoginForm.text}" />
 					<h:panelGrid id="lpg" columns="2" >
 						<h:outputText value="User Id"/> 
@@ -79,10 +82,10 @@
 				
 				<h:form>
 						<h:panelGrid id="bottompg" columns="1" >
-							<h:outputText value="New User?" style="font-family:arial, verdana;font-size:10px;"/>
-							<h:commandLink value="Register Here" action="useraccount" style="font-family:arial, verdana;font-size:12px;"/>
+							<h:outputText value="New User?"/>
+							<h:commandLink value="Register Here" action="useraccount" />
 							<h:outputText value=""/>
-							<h:commandLink value="Forgot Password?" action="forgotpassword" style="font-family:arial, verdana;font-size:12px;"/>
+							<h:commandLink value="Forgot Password?" action="forgotpassword" />
 						</h:panelGrid>
 					</h:form>
 					
@@ -95,9 +98,9 @@
 				
 	<c:if test="#{userForm.loginat}">
 		
-		<h:panelGrid width="180px" columns="2" border="0" styleClass="tdBorder">
+		<h:panelGrid width="200px"  border="0">
 		
-			<rich:panel header="#{userForm.nomUsuari}" style="background-color: #ebf3fd;">
+			<rich:panel header="#{userForm.nom} #{userForm.cognoms}">
 			
 				<h:form>
 					
@@ -116,11 +119,11 @@
 						</h:panelGroup>
 						
 						<h:panelGroup>			
-							<h:commandLink value="Logout" action="#{LoginForm.logout}" style="font-family:arial, verdana;font-size:12px;"/>
+							<h:commandLink value="Logout" action="#{LoginForm.logout}"/>
 						</h:panelGroup>
 						
 						<h:panelGroup>	
-							<h:commandLink value="Tus inmuebles" action="inmoblesUsuari" style="font-family:arial, verdana;font-size:12px;">
+							<h:commandLink value="Tus inmuebles" action="inmoblesUsuari" >
 								<f:setPropertyActionListener target="#{inmobleForm.cercable}" value="false" />
 							</h:commandLink>
 						</h:panelGroup>
@@ -133,10 +136,8 @@
 		</h:panelGrid>
 												
 	</c:if>
-	
-
 		
-		
+</h:form>
 		
 </ui:composition>
 
