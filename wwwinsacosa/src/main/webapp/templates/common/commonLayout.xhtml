@@ -239,45 +239,30 @@ $j(document).ready(function() {
       	</rich:popupPanel>  
     
  
-	<div id="page">
- 
-	    <div id="header">
 		<ui:insert name="header" >
 			<ui:include src="/templates/common/commonHeader.xhtml" />
 		</ui:insert>
-	    </div>
- 
-	    <div id="body">
-		<h:panelGrid columns="2" style="vertical-align: top;" >
+	    
+		<h:panelGrid columns="2" >
 			
-			<h:panelGroup styleClass="tdBorder">
+			<h:panelGroup>
 				<ui:include src="/user/login.xhtml"/>
 				<ui:include src="/xhtml/menu.xhtml"/>
 			</h:panelGroup>
 			
   			<h:panelGroup>
-    			<ui:insert name="body">Default content</ui:insert>
+    			<ui:insert name="body"></ui:insert>
     		</h:panelGroup>
     		
     	</h:panelGrid>
-	    </div>
+	    
  
-	    <div id="footer">
-	    	<ui:insert name="footer" >
-	    		<ui:include src="/templates/common/commonFooter.xhtml" />
-	    	</ui:insert>
-    	    </div>
- 
-        </div>
-        
-   
-   		<ui:include src="/xhtml/copyright.xhtml"/>
-    		
-      		
+ 		<ui:insert name="footer" >
+			<ui:include src="/templates/common/commonFooter.xhtml" />
+		</ui:insert>
 	
  
     </h:body>
     
-
     
 </html>
