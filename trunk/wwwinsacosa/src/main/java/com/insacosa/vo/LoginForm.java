@@ -49,13 +49,15 @@ public class LoginForm  {
 		Usuaris usuari = new Usuaris();
 		usuari.setNomusuari(nomUsuari);
 		
-		if (r.usuariValid(usuari))  // existeix l'usuari ?
+		usuari = r.usuariValid(usuari);
+		
+		if (usuari != null)  // existeix l'usuari ?
 		{
 			FacesContext context = FacesContext.getCurrentInstance();
 			HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 			
 			
-			usuari = r.cercarUsuari(nomUsuari);
+			//usuari = r.cercarUsuari(nomUsuari);
 			
 			if (usuari.getPassword().equals(this.password))
 			{

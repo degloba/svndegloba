@@ -38,7 +38,8 @@ public class Usuari_Impl implements Usuari_If {
 		EntityManager em = persistenceService.getEntityManager();
 		// Opcio 2 --> Utilitzar classe EMF
 		//em = EMF.get().createEntityManager();
-		
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		Usuaris u = new Usuaris();
 
@@ -55,14 +56,18 @@ public class Usuari_Impl implements Usuari_If {
 		u.setAcord(usuari.getAcord());
 		
 		try {      
-				//tx.begin();
+				
 				
 				em.persist(u);
 				      
-				//tx.commit();    
-		} finally {        
-			em.close();    
-		} 
+				tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 	}
 
@@ -71,17 +76,22 @@ public class Usuari_Impl implements Usuari_If {
 		
 		
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {
-		//		tx.begin();
-				
+			
 				Usuaris usuari = em.find(Usuaris.class, keyUsuari);
 				em.remove(usuari);
      
-			//	tx.commit();    
-		} finally {        
-			em.close();    
-		} 
+				tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 	}
 
@@ -91,16 +101,21 @@ public class Usuari_Impl implements Usuari_If {
 		Usuaris usuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				//tx.begin();
 			
 				usuari = em.find(Usuaris.class, keyUsuari);
      
-				//tx.commit();    
-		} finally {        
-			em.close();    
-		} 
+				tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 		return usuari;
 	}
@@ -110,18 +125,24 @@ public class Usuari_Impl implements Usuari_If {
 		Usuaris usuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				//tx.begin();
 			
 				Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
 				q.setParameter("nomUsuari", nomUsuari);
 				
 				usuari = (Usuaris)q.getSingleResult();
-				//tx.commit();    
-		} finally {        
-			em.close();    
-		} 
+				tx.commit();  
+				
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 		return usuari;
 	}	
@@ -132,45 +153,53 @@ public class Usuari_Impl implements Usuari_If {
 		Usuaris usuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {   
-				//tx.begin();
-				
 				usuari = em.find( Usuaris.class, keyUsuari);
 				 
-				//tx.commit();  
+				tx.commit();  
 				
-		} finally {        
-			//em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+		    //em.close();
+		}   
+		
 		return usuari;  
 		
 	}
 
 
 	
-	public boolean usuariValid(Usuaris usuari) {
+	public Usuaris usuariValid(Usuaris usuari) {
 		
 		Boolean existeix = false;
 		
-		EntityManager em = persistenceService.getEntityManager();		
-				
-		try {    
-					
-			Query q = em.createQuery("select count(u) from " + Usuaris.class.getName() + " u where u.nomusuari = '" + usuari.getNomusuari() + "'");
-			Integer num = (Integer)q.getSingleResult();
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-			if (num == 0)
-				existeix = false;
-			else
-				existeix = true;
+		try {    
+			
+			Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+			q.setParameter("nomUsuari", usuari.getNomusuari());
+			
+			usuari = (Usuaris)q.getSingleResult();
 
 			    
-		} finally {        
-			//em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+		    //em.close();
+		}   
 		
-		return existeix;
+		return usuari;
 		
 	}
 
@@ -181,10 +210,10 @@ public class Usuari_Impl implements Usuari_If {
 		Boolean existeix = false;
 		    
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-	
-			//tx.begin();
 			
 			Query q = em.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'");
 				
@@ -194,10 +223,14 @@ public class Usuari_Impl implements Usuari_If {
 			else
 				existeix = true;
 				
-			//tx.commit();    
-		} finally {        
-			//em.close();    
+			tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+		    //em.close();
+		}   
 		
 		return existeix;
 
@@ -210,19 +243,24 @@ public class Usuari_Impl implements Usuari_If {
 		String password = null;
 		    
 		EntityManager em = persistenceService.getEntityManager(); 
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {   
-			 //tx.begin();
-				
+			
 			 Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
 			 password = (String)q.getSingleResult();
 			 
-			 //tx.commit();
+			 tx.commit();
 			
-		} finally {        
-			em.close();    
-		} 
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 		return password;
 
@@ -234,16 +272,21 @@ public class Usuari_Impl implements Usuari_If {
 	public String cambiaPassword(Usuaris usuari) {
 		   
 		EntityManager em = persistenceService.getEntityManager(); 
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				//tx.begin();
 				
 				em.persist(usuari);
 				      
-				//tx.commit();    
-		} finally {        
-			em.close();    
-		} 
+				tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}   
 		
 		return null;
 	}
@@ -255,16 +298,22 @@ public class Usuari_Impl implements Usuari_If {
 	public String modificarUsuari(Usuaris usuari) {
 		
 		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = null;
+		tx.begin();
 		
 		try {      
-				//tx.begin();
-				
+			
 				em.persist(usuari);
 				      
-				//tx.commit();    
-		} finally {        
-			em.close();    
+				tx.commit();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+		    //em.close();
+		}   
+		
 		return null;
 	}
 

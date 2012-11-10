@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 
 import com.degloba.EMF;
@@ -42,26 +43,34 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Tipus ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		
-		try {      
+		tx.begin();
 
-			tx.begin();
+		
+		try {  
 			
-			/*Criteria criteria = session.createCriteria(Inmobles.class)
-			.add(Expression.eq("id",keyInmoble))
-			.setProjection(Projections.property("tipus"));
+			try {
 			
-			
-			ret = (Tipus) criteria.uniqueResult();
-		*/
-			
-			tx.commit();  
+				/*Criteria criteria = session.createCriteria(Inmobles.class)
+				.add(Expression.eq("id",keyInmoble))
+				.setProjection(Projections.property("tipus"));
+				
+				
+				ret = (Tipus) criteria.uniqueResult();
+			*/
+				
+				tx.commit();  
 			 
-			} finally {        
-				em.close();    
+				}     
+				catch (Exception e) {
+					tx.rollback();
+				}
 			}
+		finally {
+		    //em.close();
+		}
+
 		
 		return ret;
 		
@@ -73,18 +82,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Objecte objecte = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
 				
 				objecte = em.find( Objecte.class, key);
 				
 				tx.commit();    
 			} 
-		finally {        
-			em.close();    
+		catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}   
 			
 		return objecte;  
@@ -97,19 +110,26 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Inmobles inmoble = null;
 		  
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
-				
+			
 				inmoble = em.find( Inmobles.class, keyInmoble);
 				
 				tx.commit();    
 			 
-			} finally {        
-				em.close();    
+			} 
+		catch (RuntimeException e) {
+			    if ( tx != null && tx.isActive() ) tx.rollback();
+			    throw e; // or display error message
+			
 		}
+		finally {
+			    //em.close();
+		}   
+	
 		return inmoble;  
 	}
 	
@@ -118,12 +138,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public Inmobles afegirInmoble(Inmobles inmoble) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
-				
+			
 				// fotos
 				
 				Iterator it = inmoble.getFotoses().iterator();
@@ -141,9 +161,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				tx.commit();
  
-	} finally {        
-		em.close();    
-	} 
+	} catch (RuntimeException e) {
+	    if ( tx != null && tx.isActive() ) tx.rollback();
+	    throw e; // or display error message
+	}
+	finally {
+	    //em.close();
+	}
 		
 		return inmoble;
 	}
@@ -151,18 +175,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void modificarInmoble(Inmobles inmoble) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
-				
+			
 				em.persist(inmoble);
 				      
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		
 	}
@@ -171,18 +199,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarInmoble(Inmobles inmoble) {
 		  
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
-				
+			
 				em.remove(inmoble);
 				      
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 
 	}
@@ -203,12 +235,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		*/
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
 		try {      
-	
-				tx.begin();
+
 	
 			/*	
 				ret = session.createCriteria(Inmobles.class)
@@ -238,8 +270,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				*/	
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		 
 			  
@@ -253,19 +289,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	Caracteristiques c = null;
 	
-	EntityManager em = EMF.get().createEntityManager();
+	EntityManager em = persistenceService.getEntityManager();
 	EntityTransaction tx = em.getTransaction();
+	tx.begin();
 	  
 	try {      
- 
-			tx.begin();
 			
 			c = em.find(Caracteristiques.class, caractinmoble.getKey());
 			
 			tx.commit(); 
 			 
-	} finally {        
-		em.close();    
+	} catch (RuntimeException e) {
+	    if ( tx != null && tx.isActive() ) tx.rollback();
+	    throw e; // or display error message
+	}
+	finally {
+	    //em.close();
 	}
 	
 	return c;
@@ -277,17 +316,23 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Inmobles inmoble = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
 		try {      
 				inmoble = em.find( Inmobles.class, keyInmoble);
 				
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+		    //em.close();
+		}
+		
 		return inmoble;  
 		
 	}
@@ -295,19 +340,23 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void solicitarInmobles(Solicituds solicitud) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
-				
+					
 				em.persist(solicitud);
 				      
 				tx.commit();    
-				 
-		} finally {        
-			em.close();    
+		}		 
+		catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
 		}
+		finally {
+			    //em.close();
+			}
 	}
 
 	
@@ -316,11 +365,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
 		try {   
-				tx.begin();
+	
 				/*	
 				CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 				CriteriaQuery<Inmobles> criteriaQuery = criteriaBuilder.createQuery(Inmobles.class);
@@ -332,8 +382,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			tx.commit();  
 			
 			 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		
 		return ret;
@@ -346,11 +400,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
+
 			/*
 			Criteria criteria = session.createCriteria(Solicituds.class)
 				.setProjection(Projections.property("inmobles"))
@@ -372,8 +427,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			tx.commit();    
 			
 			 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}	
 		return ret;
 		
@@ -386,12 +445,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
 		try {      
-
-				tx.begin();
 			
 				/*
 				criteria = session.createCriteria(Inmobles.class)
@@ -414,8 +472,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			*/
 			tx.commit();    
 			 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		return ret;
 		
@@ -428,11 +490,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+
 		
 		try {      
-				tx.begin();
+				
 			/*
 				
 				criteria = session.createCriteria(Inmobles.class)
@@ -451,9 +515,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 			tx.commit();    
 			 
-		} finally {        
-			em.close();    
-		}		
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}
+		
 		return ret;
 		
 	}
@@ -471,14 +540,18 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		EntityTransaction tx = em.getTransaction();
 		
 		try {     
-				tx.begin();
+				tx = em.getTransaction();
 				
 				em.persist(foto);
 				      
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}		
 		
 	}
@@ -505,7 +578,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		  
 		try {      
 	
-				tx.begin();
+				tx = em.getTransaction();
 				/*
 			Query query = session.createQuery("1");
 				
@@ -516,9 +589,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				*/		
 			tx.commit();    
 			 
-		} finally {        
-			em.close();    
-		}		
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}
+		
 		return ret;
 	}
 
@@ -537,7 +615,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		try {      
 			
-			tx.begin();
+			tx = em.getTransaction();
 			/*
 			//Noms Usuaris solicitants d'un determinat inmoble
 			String hql = "select usuaris.nomusuari from Solicituds where inmobles = :inmoble";
@@ -556,9 +634,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			*/
 			tx.commit();    
 			 
-		} finally {        
-			em.close();    
-		}		
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}
+		
 		return ret;
 		
 	}
@@ -574,7 +657,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		  
 		try {      
 			
-			tx.begin();
+			tx = em.getTransaction();
 			/*
 			criteria = session.createCriteria(Caracteristiques.class)
 			.add(Expression.eq("tipus",tipus));
@@ -584,53 +667,63 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			*/
 			tx.commit();    
 			 
-		} finally {        
-			em.close();    
-		}		
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}
+		
 		return ret;
 
 	}
-
-
-
-
-
 
 	
 	public List<Caracteristiques> caractTipus(Tipus tipus, Integer control, Boolean inclouCaractComu) {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
+			try {
 			
-			tx.begin();
-			/*
-			if (inclouCaractComu)
-			{
-				Tipus tipus99 = new Tipus();
-				tipus99.setId(99);
-				criteria = session.createCriteria(Caracteristiques.class)
-				.add(Restrictions.or(Expression.eq("tipus",tipus), Expression.eq("tipus",tipus99)))
-				.add(Restrictions.eq("control", control));
-			}
-			else
-			{
-				criteria = session.createCriteria(Caracteristiques.class)
-				.add(Expression.eq("tipus",tipus))
-				.add(Restrictions.eq("control", control));
-			}
-			
-			
-			ret = criteria.list();
-			*/
-			tx.commit();    
+
+				/*
+				if (inclouCaractComu)
+				{
+					Tipus tipus99 = new Tipus();
+					tipus99.setId(99);
+					criteria = session.createCriteria(Caracteristiques.class)
+					.add(Restrictions.or(Expression.eq("tipus",tipus), Expression.eq("tipus",tipus99)))
+					.add(Restrictions.eq("control", control));
+				}
+				else
+				{
+					criteria = session.createCriteria(Caracteristiques.class)
+					.add(Expression.eq("tipus",tipus))
+					.add(Restrictions.eq("control", control));
+				}
+				
+				
+				ret = criteria.list();
+				*/
+				
+				tx.commit();    
 			 
-		} finally {        
-			em.close();    
-		}		
+				} 
+		    catch (Exception e) {
+		        tx.rollback();
+		    }
+		}
+		finally {
+		    //em.close();
+		}
+
+		
 		return ret;
 
 	}
@@ -641,17 +734,24 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarSolicitud(Solicituds solicitud) {
 		
-		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = null;
 		
-		try {      
-				tx.begin();
+		try {  
+			try {
+				
+				tx = em.getTransaction();
 				em.remove(solicitud);
 				      
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+				} 		    
+			catch (Exception e) {
+				tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
 		}		
 	}
 
@@ -664,32 +764,37 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Objecte> ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-			tx.begin();
-			
-			/*
-			if (condicio != "")
-			{
-				ret = em.createQuery(condicio).getResultList();
-				
+			try {
+				/*
+				if (condicio != "")
+				{
+					ret = em.createQuery(condicio).getResultList();
+					
+				}
+				else
+				{
+					
+					criteria = session.createCriteria(classe)
+					.addOrder( Order.asc(ordre));  // class interfaces.Objecte
+					
+					ret = criteria.list();
+				}
+				*/
+				tx.commit();    
+				}
+			    catch (Exception e) {
+			    	tx.rollback();
+			    }
 			}
-			else
-			{
-				
-				criteria = session.createCriteria(classe)
-				.addOrder( Order.asc(ordre));  // class interfaces.Objecte
-				
-				ret = criteria.list();
-			}
-			*/
-			tx.commit();    
-			 
-		} finally {        
-			em.close();    
-		}		
+		finally {
+		    //em.close();
+		}
+		
 		return ret;
 		
 	}
@@ -700,18 +805,27 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Provincies provincia = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		try {      
-				tx.begin();
+		try {
+			try {
+				
 				em.find(Provincies.class, keyProvincia);
 				
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
-		}		return provincia;  
+				} 			    
+				catch (Exception e) {
+			    	tx.rollback();
+			    }
+			}
+		finally {
+				//em.close();
+			}	
+		
+		return provincia;  
 	}
 
 
@@ -720,18 +834,27 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Ciutats ciutat = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-				tx.begin();
+			try {
+				
 				em.find(Ciutats.class, keyCiutat);
 				
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
-		}		return ciutat;  
+				} 		
+			catch (Exception e) {
+				tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}		
+		
+		return ciutat;  
 	}
 
 
@@ -741,11 +864,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Ciutats> ciutats = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		try {      
-				tx.begin();
+		try {    
+			try {
 				/*
 				Criteria criteria = session.createCriteria(Ciutats.class)
 				.add(Expression.eq("idProv", provincia.getId()));
@@ -754,9 +878,16 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				*/
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
-		}		return ciutats;  
+				} 			    
+			catch (Exception e) {
+				tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}
+		
+		return ciutats;  
 	}
 
 	
@@ -769,26 +900,34 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
-		try {      
-			tx.begin();
-			/*
-			Criteria criteria = session.createCriteria(Caracteristiques.class)
-			.add(Restrictions.eq("id",keyCaract))
-			.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
-			
-			Object r = criteria.uniqueResult();
-			
-			if (r !=null)
-				ret = r.toString();
-*/
-			tx.commit();    
-			 
-		} finally {        
-			em.close();    
-		}		
+		try {
+			try {
+
+				/*
+				Criteria criteria = session.createCriteria(Caracteristiques.class)
+				.add(Restrictions.eq("id",keyCaract))
+				.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
+				
+				Object r = criteria.uniqueResult();
+				
+				if (r !=null)
+					ret = r.toString();
+	*/
+				tx.commit();    
+				 
+				} 			    
+			catch (Exception e) {
+				tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}
+		
 		return ret;
 
 	}
@@ -799,27 +938,34 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 		String ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
 		try {      
-			tx.begin();
+			try {
 			
-			/*
-			Criteria criteria = session.createCriteria(Caracteristiques.class)
-			.add(Restrictions.eq("nom",nomCaract))
-			.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
-			
-			Object r = criteria.uniqueResult();
-			
-			if (r !=null)
-				ret = r.toString();
-*/
-			tx.commit();    
-			 
-		} finally {        
-			em.close();    
-		}		
+				/*
+				Criteria criteria = session.createCriteria(Caracteristiques.class)
+				.add(Restrictions.eq("nom",nomCaract))
+				.setProjection(Projections.distinct(Projections.property("ttpbasic.ktpbasic"))); 
+				
+				Object r = criteria.uniqueResult();
+				
+				if (r !=null)
+					ret = r.toString();
+	*/
+				tx.commit();    
+				 
+				} 			    
+			catch (Exception e) {
+				tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}
+		
 		return ret;
 
 	}
@@ -835,24 +981,31 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
-		try {      
-			tx.begin();
+		try {
+			try {
 			
-			/*
-			Criteria criteria = session.createCriteria(Caracteristiques.class)
-			.add(Restrictions.eq("id",keyCaract))
-			.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
-			
-			ret = criteria.uniqueResult().toString();
-*/
-			tx.commit();    
-			 
-		} finally {        
-			em.close();    
-		}		
+				/*
+				Criteria criteria = session.createCriteria(Caracteristiques.class)
+				.add(Restrictions.eq("id",keyCaract))
+				.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
+				
+				ret = criteria.uniqueResult().toString();
+	*/
+				tx.commit();    
+				 
+				} 			    
+			catch (Exception e) {
+		    	tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}
+		
 		return ret;
 
 	}
@@ -862,23 +1015,29 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		  
-		try {      
+		try {
+			try {
 
-			tx.begin();
-			/*
-			Criteria criteria = session.createCriteria(Caracteristiques.class)
-			.add(Restrictions.eq("nom",nomCaract))
-			.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
-			
-			ret = criteria.uniqueResult().toString();
-*/
-			tx.commit();    
-		} finally {        
-			em.close();    
-		}
+				/*
+				Criteria criteria = session.createCriteria(Caracteristiques.class)
+				.add(Restrictions.eq("nom",nomCaract))
+				.setProjection(Projections.distinct(Projections.property("ttpcontrol.ktpcontrol"))); 
+				
+				ret = criteria.uniqueResult().toString();
+	*/
+				tx.commit();    
+				} 			    
+			catch (Exception e) {
+		    	tx.rollback();
+				}
+			}
+		finally {
+			//em.close();
+			}
 		
 		return ret;
 
@@ -888,35 +1047,42 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void afegirValorCaract(ValuesCaracteristiques valorCaracteristica) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		try {    tx.begin();  
+		try {  
+			try {
+				
 				em.persist(valorCaracteristica);
 				
 				tx.commit();
 				
-		} finally {        
-			em.close();    
-		}
+				} 		
+				catch (Exception e) {
+					tx.rollback();
+				}
+			}
+		finally {
+		    //em.close();
+			}
 	}
 
-
-	
 	
 	public Caracteristiques caractPerKey(Key keyCaract) {
 		
 		Caracteristiques caracteristica = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		try {    tx.begin();  
+		try {     
 				caracteristica = em.find( Caracteristiques.class, keyCaract);
 				
 				tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}
 		return caracteristica; 
 
@@ -926,17 +1092,25 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void afegirCaractInmoble(Caractinmobles caractinmoble) {
 			
-			EntityManager em = EMF.get().createEntityManager();
-			EntityTransaction tx = em.getTransaction();
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 			
-			try {    tx.begin();  
+			try {
+				try {
+					
 					em.persist(caractinmoble);
 					
 					tx.commit();
 					
-			} finally {        
-				em.close();    
-			}
+			} 			    
+			catch (Exception e) {
+		    	tx.rollback();
+		    }
+		}
+	finally {
+	    //em.close();
+	}
 		
 	}
 
@@ -947,11 +1121,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<?> list = null;
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {   
-				tx.begin();
+
 		/*
 				Inmobles inmoble = new Inmobles();
 				inmoble.setId(keyInmoble);
@@ -969,8 +1144,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				*/
 				tx.commit();
 				
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}		
 	
 		
@@ -1022,19 +1201,25 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
-			tx.begin();
-			/*
-			criteria = session.createCriteria(Caracteristiques.class);
+
 			
-			ret = criteria.list();
-			*/
-			tx.commit();    
-		} finally {        
-			em.close();    
+			Query q = em.createQuery("SELECT c FROM " + Caracteristiques.class.getName());
+			
+			
+			ret = (List<Caracteristiques>)q.getResultList();
+			
+			    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		
 		return ret;
@@ -1045,10 +1230,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarValorCaract(Key keyCaracteristica, Key keyInmoble ) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		try {      tx.begin();
+		try {      
 		/*
 		}
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
@@ -1061,8 +1247,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				em.remove(vc);
 				*/
 				tx.commit();    
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		
 		
@@ -1072,13 +1262,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void modificarValorCaract(Key idCaracteristica, Key keyInmoble, String value) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
 	   
-			tx.begin();
-			
 			/*
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
 				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
@@ -1092,8 +1281,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				*/
 				tx.commit();    
 				 
-		} finally {        
-			em.close();    
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
 		}
 		
 	}

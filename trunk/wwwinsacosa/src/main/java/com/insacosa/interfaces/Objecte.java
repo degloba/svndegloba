@@ -3,7 +3,10 @@ package com.insacosa.interfaces;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 
 import org.slf4j.Logger;
@@ -12,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
+import com.insacosa.dataModels_JPA.PersistenceService;
+import com.insacosa.entitats.Usuaris;
 
 
 
@@ -25,6 +30,18 @@ public class Objecte implements Interfaces{
 	
 	private int id;
 	
+	static PersistenceService persistenceService;
+	
+	public Objecte() {
+		
+		super();
+		
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+	
+	}
 	
 	/*
 	 * Llegeix un objecte a partir del Id 
@@ -32,15 +49,19 @@ public class Objecte implements Interfaces{
 	public Objecte read(Objecte objecte) {
 		
 		Objecte objecteRead = null;
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
-		try {     /* 
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		try {     
+			/* 
 				      
 				objecteRead = (Objecte) session.get(objecte.getClass(), objecte.getId());  
 				*/
 				tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		
 		return objecteRead;  
 		
@@ -52,9 +73,13 @@ public class Objecte implements Interfaces{
 	 */
 	public int retId(String taula, String classe)
 	{
-		Transaction tx = null;  
+
 		int ret = 0;
-		EntityManager em = EMF.get().createEntityManager();
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();
 		   
 		try {      
 			   
@@ -72,7 +97,7 @@ public class Objecte implements Interfaces{
 
 			tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		
 		
 		return ret;
@@ -85,10 +110,12 @@ public class Objecte implements Interfaces{
 	 */
 	public Objecte retDescripcio(Class entityName, Key id)
 	{
-		
-		Transaction tx = null;
+
 		Objecte ret = null;
-		EntityManager em = EMF.get().createEntityManager();
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		   
 		try {      
 			
@@ -97,7 +124,7 @@ public class Objecte implements Interfaces{
 			*/
 			tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		
 	
 		
@@ -112,39 +139,34 @@ public class Objecte implements Interfaces{
 	 */
 	public List<Objecte> llistaObjectes(Class classe, String ordre, String condicio) {
 		
-		
 		List<Objecte> ret = null;
 		
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
-		   
-		/*
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
 		try {      
-			
 			
 			if (condicio != "")
 			{
 				
-				Query criteria = session.createQuery(condicio);
+				Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
 				
-				ret = criteria.list();
-				
+				ret =  q.getResultList();
 				
 			}
 			else
 			{
-				Criteria criteria;
-				criteria = session.createCriteria(classe)
-				.addOrder( Order.asc(ordre));  // class interfaces.Objecte
+				Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
 				
-				ret = criteria.list();
+				ret =  q.getResultList();
 			}
 			
 			tx.commit();    
 		} finally {        
-			em.close();    
+			////em.close();    
 		}		
-		*/
+		
 		
 		return ret;
 		
@@ -157,16 +179,16 @@ public class Objecte implements Interfaces{
 	 */
 	public void delete(Objecte objecte) {
 		
-		
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {      
 				 /*     
 				session.delete(objecte);*/      
 				tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		
 		
 	}
@@ -178,10 +200,9 @@ public class Objecte implements Interfaces{
 	 */
 	public void create() {
 		
-		
-		Transaction tx = null;  
-		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
 		try {   /*   
 				      
@@ -189,7 +210,7 @@ public class Objecte implements Interfaces{
 				*/      
 				tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		
 					
 	}
@@ -201,17 +222,17 @@ public class Objecte implements Interfaces{
 	 */
 	public void update(Objecte objecte) {
 		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		
-		
-		Transaction tx = null;    
-		EntityManager em = EMF.get().createEntityManager();
 		try {      
 				    /*  
 				session.update(objecte);
 				*/      
 				tx.commit();    
 		} finally {        
-			em.close();    
+			//em.close();    
 		}		 
 		
 	}
