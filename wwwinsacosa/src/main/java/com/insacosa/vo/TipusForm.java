@@ -5,6 +5,7 @@ import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +28,7 @@ import com.insacosa.entitats.Tipus;
 @ManagedBean(name = "tipus")
 @SessionScoped
 public class TipusForm extends Objecte 
-	implements ValueChangeListener{
+	implements ValueChangeListener, Serializable{
 	
 	private Key key;  //PIS
 	private String nom;
@@ -98,7 +99,7 @@ public class TipusForm extends Objecte
 		
 		// 1.- construim els controls dinamics (dins la qual modifica la hashMap de columnes visibles)
 		// -------------------------------------------------------------------------------------------
-		inmobleForm.buildControlsDinamics(inmobleForm.getContainerControlsDinamics(),(Key) event.getNewValue());
+		inmobleForm.buildControlsDinamics(inmobleForm.getContainerControlsDinamics(),(Integer) event.getNewValue());
 		 
 		
 		// 2.- construim les llistes dragAndDrop de les caracteristiques booleanes

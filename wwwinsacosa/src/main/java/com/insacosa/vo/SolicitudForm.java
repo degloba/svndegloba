@@ -1,5 +1,6 @@
 package com.insacosa.vo;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,9 +9,8 @@ import javax.faces.context.FacesContext;
 import com.google.appengine.api.datastore.Key;
 
 
+public class SolicitudForm implements Serializable
 
-
-public class SolicitudForm 
 {
 	private Key keyInmoble;
   	private String nomInmoble;

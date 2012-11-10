@@ -11,7 +11,7 @@ public interface Usuari_If {
 	void eliminarUsuari(Key usuari);
 	Usuaris cercarUsuari(Key usuari);
 	Usuaris editPerfil(Key nomUsuari);
-	boolean usuariValid(Usuaris usuari);
+	Usuaris usuariValid(Usuaris usuari);
 	boolean emailValid(String email);
 	String cambiaPassword();
 	

@@ -93,6 +93,7 @@ public class InmobleForm  implements Serializable
   	private String nom; // referencia
   	private String adreca;
 	private Key keyTipus;  // PIS
+	private Integer idTipus = 1;  // PIS
 	
 	private Short numero,planta;	
 	private String puerta;
@@ -331,7 +332,8 @@ public class InmobleForm  implements Serializable
 			Inmoble_Impl r = new Inmoble_Impl();
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setKey(keyTipus);
+		    //tipus.setKey(keyTipus);
+		    tipus.setId(idTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);
 		 
@@ -404,7 +406,7 @@ public class InmobleForm  implements Serializable
 		// ha cap control dinamic i per tant el construim. Aquest depen del tipus d'inmboble
 		if (containerControlsDinamics.getChildren().isEmpty())   
 		{	
-			buildControlsDinamics(containerControlsDinamics, this.keyTipus); 
+			buildControlsDinamics(containerControlsDinamics, this.idTipus); 
 		}
 		
 		this.containerControlsDinamics = containerControlsDinamics;
@@ -632,7 +634,9 @@ public class InmobleForm  implements Serializable
 		inmoble.setKey(keyInmoble);
 		
 		///solicitud.setInmobles(inmoble);
-		solicitud.setUsuaris(usuari);
+		Set<Key> h = solicitud.getUsuaris();
+		h.add(usuari.getKey());
+		solicitud.setUsuaris(h);
 		r.solicitarInmobles(solicitud);
 		
 		
@@ -1420,7 +1424,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Reconstruim els controls dinamics en funcio del tipus d'inmoble
 	 */
-	public void buildControlsDinamics(HtmlPanelGroup containerControlsDinamics, Key keyTipus)
+	public void buildControlsDinamics(HtmlPanelGroup containerControlsDinamics, Integer idTipus)
 	{
 		
 		Map<Long, Boolean> valueMapTemp = new HashMap<Long, Boolean>();  // indica visibilitats de columnes de taula en funcio del que s'ha seleccionat
@@ -1434,7 +1438,8 @@ public class InmobleForm  implements Serializable
 		Inmoble_Impl r = new Inmoble_Impl();
 		
 		Tipus tipus = new Tipus();
-		tipus.setKey(keyTipus);
+		//tipus.setKey(keyTipus);
+		tipus.setId(idTipus);
 	
 		List<Caracteristiques> c = r.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
@@ -1532,8 +1537,8 @@ public class InmobleForm  implements Serializable
             
         	        	
             Tipus tipus = new Tipus();
-            tipus.setKey(keyTipus);
-            
+            //tipus.setKey(keyTipus);
+            tipus.setId(idTipus);
              
             
             /*QuerysJPA qJPA= new QuerysJPA(em, Inmobles.class);
@@ -1548,7 +1553,7 @@ public class InmobleForm  implements Serializable
             transaction.rollback();
             e.printStackTrace();
         } finally {
-           //////// em.close();
+           //////// //em.close();
         }
         
     }
@@ -1570,7 +1575,8 @@ public class InmobleForm  implements Serializable
 		Inmoble_Impl r = new Inmoble_Impl();
 		
 		Tipus tipus = new Tipus();
-		tipus.setKey(keyTipus);
+		//tipus.setKey(keyTipus);
+		tipus.setId(idTipus);
 		
 		Iterator<Caracteristiques> iter = r.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
