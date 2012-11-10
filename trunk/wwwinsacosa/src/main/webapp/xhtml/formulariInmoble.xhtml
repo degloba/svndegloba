@@ -34,7 +34,7 @@
 					 		
 				 		<h:selectOneMenu value="#{tipus.id}" id="selectTipus"            
 					 			valueChangeListener="#{tipus.processValueChange}">                 
-					 			<f:selectItems value="#{tipus.tipus}" /> 
+					 			<f:selectItems value="#{tipus.tipusInmoble}" /> 
 					 			<a4j:ajax execute="@this" event="valueChange" 
 					 				render="pnlGr_inmoblesVenedor,pnlGr_inmobles,dyn_taulaInmobles,dyn_taulaInmoblesVenedor,srcCaract,caracteristiquesTaula,grid,taulaInmobles"/>           
 					 		</h:selectOneMenu>
