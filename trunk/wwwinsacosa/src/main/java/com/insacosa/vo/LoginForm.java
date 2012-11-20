@@ -66,7 +66,7 @@ public class LoginForm  {
 				// per
 				UserForm userForm = (UserForm) context.getApplication().evaluateExpressionGet(context, "#{userForm}", UserForm.class);
 				
-				userForm.setKey(usuari.getKey());
+				/////userForm.set(usuari.getKey());
 				userForm.setAdreca(usuari.getAdreca());
 				userForm.setEmail(usuari.getEmail());
 				userForm.setCognoms(usuari.getCognoms());

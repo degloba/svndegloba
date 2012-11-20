@@ -27,7 +27,7 @@ import com.insacosa.entitats.Provincies;
 @ManagedBean(name = "ciutats")
 @SessionScoped
 public class CiutatsForm extends Objecte 
-	implements ValueChangeListener {
+	implements ValueChangeListener,java.io.Serializable {
 	
 	private List<CiutatsForm> llista;
 	

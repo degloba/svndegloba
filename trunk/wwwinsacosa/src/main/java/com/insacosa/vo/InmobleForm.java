@@ -71,7 +71,7 @@ import com.google.common.collect.Maps;
 
 import com.insacosa.controladorMSG.ChatBean;
 import com.insacosa.dataModels_JPA.InmobleCaract;
-//import com.insacosa.dataModels_JPA.JPADataModel;
+import com.insacosa.dataModels_JPA.JPADataModel;
 import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
@@ -191,7 +191,7 @@ public class InmobleForm  implements Serializable
 	}
 
 
-	/*	private static final class InmobleFormDataModel extends JPADataModel<InmobleCaract> {  
+		private static final class InmobleFormDataModel extends JPADataModel<InmobleCaract> {  
 	    	
 	    	public InmobleFormDataModel(EntityManager entityManager,
 					Class<InmobleCaract> entityClass) {
@@ -205,12 +205,12 @@ public class InmobleForm  implements Serializable
 					return t.getKeyInmoble();
 				}
 
-			private InmobleFormDataModel(EntityManager entityManager) {             
-	    		super(entityManager, Inmobles.class);         
+			/*private InmobleFormDataModel(EntityManager entityManager) {             
+	    		super(entityManager, Inmobles.class);        
 	    		}   
-	    	
+	    	*/ 
 	    
-        } */
+        } 
 	    
     private Map<String, SortOrder> sortOrders = Maps.newHashMapWithExpectedSize(1);
     
@@ -263,9 +263,9 @@ public class InmobleForm  implements Serializable
 	}
 
 
-	/*public Object getDataModel() {         
+	public Object getDataModel() {         
 		return new InmobleFormDataModel(lookupEntityManager(),null);     
-		}*/
+		}
 	
 	
 	public String getSortProperty() {
@@ -477,8 +477,8 @@ public class InmobleForm  implements Serializable
 	    setPuerta(inmoble.getPuerta());
 	    setMetres(inmoble.getMetres());
 	    setPreu(inmoble.getPreu());
-
-		setVenedor(inmoble.getUsuaris().getKey()); //
+		
+		setVenedor(inmoble.getUsuaris().getUsuariKey() ); //
 	    setVisitat(inmoble.isVisitat());
 	    
 	    
@@ -628,15 +628,16 @@ public class InmobleForm  implements Serializable
 		
 		// Construim objecte Usuari i objecte Inmoble
 		Usuaris usuari = new Usuaris();
-		usuari.setKey(compradorForm.getKey());
+		
+		usuari.setUsuariKey(compradorForm.getKey() );
 		
 		Inmobles inmoble = new Inmobles();
 		inmoble.setKey(keyInmoble);
 		
 		///solicitud.setInmobles(inmoble);
-		Set<Key> h = solicitud.getUsuaris();
-		h.add(usuari.getKey());
-		solicitud.setUsuaris(h);
+		//UsuariKey h = solicitud.getUsuari();
+		//h.add(usuari.getUsuariKey());
+		//licitud.setUsuariKey(h);
 		r.solicitarInmobles(solicitud);
 		
 		
@@ -963,7 +964,8 @@ public class InmobleForm  implements Serializable
 				Inmoble_Impl r = new Inmoble_Impl();
 				
 				Usuaris usuari = new Usuaris();
-				usuari.setKey(userForm.getKey());
+
+				usuari.setUsuariKey(userForm.getKey());
 				Iterator<?> it = r.inmoblesVenedor(usuari).iterator();
 				
 				List<Usuaris> solicitantsInmoble = new ArrayList<Usuaris>();
@@ -1212,7 +1214,8 @@ public class InmobleForm  implements Serializable
         		Inmoble_Impl r = new Inmoble_Impl();
         		
         		Usuaris usuari = new Usuaris();
-        		usuari.setKey(userForm.getKey());
+
+    			usuari.setUsuariKey(userForm.getKey());
         		
         		Iterator<?> it = r.inmoblesVenedor(usuari).iterator();
         		while (it.hasNext())
@@ -1235,8 +1238,9 @@ public class InmobleForm  implements Serializable
         			inmobleForm.setMetres(inmoble.getMetres());
         			inmobleForm.setPreu(inmoble.getPreu());
         		    
-        			// Objecte venedor
-        			inmobleForm.setVenedor(inmoble.getUsuaris().getKey());
+        			// Objecte venedor		
+        				
+        			inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
         				
         			inmobleForm.setVisitat(inmoble.isVisitat());
         		    

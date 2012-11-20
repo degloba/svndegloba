@@ -1,7 +1,7 @@
 package com.insacosa.vo;
 
 
-public class RegistreComprador 
+public class RegistreComprador implements java.io.Serializable
 {
 
   	private String nom = null;

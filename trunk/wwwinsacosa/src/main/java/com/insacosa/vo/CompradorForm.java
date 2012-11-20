@@ -5,7 +5,7 @@ import java.util.List;
 
 
 // Clase Value Object que implementa la vista del comprador.
-public class CompradorForm 
+public class CompradorForm implements java.io.Serializable
 {
 	// Datos del VO Comprador.
 	private String key;
