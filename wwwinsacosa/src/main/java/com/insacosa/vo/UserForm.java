@@ -231,7 +231,8 @@ public class UserForm  implements java.io.Serializable {
 				Usuari_Impl r = new Usuari_Impl();
 				
 				Usuaris usuari = new Usuaris();
-				usuari.setKey(this.getKey());
+				String k = KeyFactory.keyToString( (Key)this.getKey() );
+				usuari.setUsuariKey((Key)this.getKey());
 				usuari.setPassword(this.newPwd);
 				r.cambiaPassword(usuari);
 
@@ -278,7 +279,7 @@ public class UserForm  implements java.io.Serializable {
 		
 		Usuaris usuari = r.editPerfil(this.getKey());
 		
-		this.setKey(usuari.getKey());
+		this.setKey(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
 		this.setCognoms(usuari.getCognoms());
 		this.setPassword(usuari.getPassword());
@@ -301,7 +302,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				Usuaris usuari = new Usuaris();
 				
-				usuari.setKey(this.getKey());
+				usuari.setUsuariKey((Key)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				//registreHib.setCountry(this.getContactNumber());
@@ -324,7 +325,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				Usuaris usuari = new Usuaris();
 				
-				usuari.setKey(this.key);
+				usuari.setUsuariKey((Key)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				usuari.setEmail(this.getEmail());
