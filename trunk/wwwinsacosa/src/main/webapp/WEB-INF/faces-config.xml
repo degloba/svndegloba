@@ -96,6 +96,10 @@
    <from-outcome>filtre2</from-outcome>
    <to-view-id>/xhtml/ss.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>useraccount</from-outcome>
+   <to-view-id>/xhtml/useraccount.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/xhtml/index.xhtml</from-view-id>
@@ -119,16 +123,16 @@
   </navigation-case>
   <navigation-case>
    <from-outcome>useraccount</from-outcome>
-   <to-view-id>/user/useraccount.xhtml</to-view-id>
+   <to-view-id>/xhtml/useraccount.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>forgotpassword</from-outcome>
-   <to-view-id>/user/forgotpassword.xhtml</to-view-id>
+   <to-view-id>/xhtml/forgotpassword.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-action>#{userForm.editProfile}</from-action>
    <from-outcome>editSuccess</from-outcome>
-   <to-view-id>/user/useraccount.xhtml</to-view-id>
+   <to-view-id>/xhtml/useraccount.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-action>#{LoginForm.logout}</from-action>
@@ -143,10 +147,18 @@
    <from-outcome>inmoblesUsuari</from-outcome>
    <to-view-id>/xhtml/inmoblesVenedor.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>filtre</from-outcome>
+   <to-view-id>/xhtml/filtrarPerTipus.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>buscarInmoble</from-outcome>
+   <to-view-id>/xhtml/buscarInmoble.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <!-- Login - Register -->
  <navigation-rule>
-  <from-view-id>/user/login.xhtml</from-view-id>
+  <from-view-id>/xhtml/login.xhtml</from-view-id>
   <navigation-case>
    <from-action>#{LoginForm.validUser}</from-action>
    <from-outcome>success</from-outcome>
@@ -159,28 +171,28 @@
   </navigation-case>
   <navigation-case>
    <from-outcome>forgotpassword</from-outcome>
-   <to-view-id>/user/forgotpassword.xhtml</to-view-id>
+   <to-view-id>/xhtml/forgotpassword.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>useraccount</from-outcome>
-   <to-view-id>/user/useraccount.xhtml</to-view-id>
+   <to-view-id>/xhtml/useraccount.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/user/forgotpassword.xhtml</from-view-id>
+  <from-view-id>/xhtml/forgotpassword.xhtml</from-view-id>
   <navigation-case>
    <from-action>#{RetrievePasswordForm.check}</from-action>
    <from-outcome>passwordsendingsuccess</from-outcome>
-   <to-view-id>/user/successpwdsend.xhtml</to-view-id>
+   <to-view-id>/xhtml/successpwdsend.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-action>#{RetrievePasswordForm.check}</from-action>
    <from-outcome>passwordsendingfail</from-outcome>
-   <to-view-id>/user/forgotpassword.xhtml</to-view-id>
+   <to-view-id>/xhtml/forgotpassword.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/user/success.xhtml</from-view-id>
+  <from-view-id>/xhtml/success.xhtml</from-view-id>
   <navigation-case>
    <from-action>#{LoginForm.logout}</from-action>
    <from-outcome>logoutsuccess</from-outcome>
@@ -197,7 +209,7 @@
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/user/changepassword.xhtml</from-view-id>
+  <from-view-id>/xhtml/changepassword.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>success</from-outcome>
    <to-view-id>/user/changepasswordsuccess.xhtml</to-view-id>
@@ -215,7 +227,7 @@
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/user/useraccount.xhtml</from-view-id>
+  <from-view-id>/xhtml/useraccount.xhtml</from-view-id>
   <navigation-case>
    <from-action>#{userForm.saveUser}</from-action>
    <from-outcome>successUserRegistration</from-outcome>
@@ -229,7 +241,7 @@
   <navigation-case>
    <from-action>#{userForm.saveUser}</from-action>
    <from-outcome>error</from-outcome>
-   <to-view-id>/user/useraccount.xhtml</to-view-id>
+   <to-view-id>/xhtml/useraccount.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
@@ -276,7 +288,7 @@
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/xhtml/filtrarPerTipus.xhtml'</from-view-id>
+  <from-view-id>/xhtml/filtrarPerTipus.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>inmoblesUsuari</from-outcome>
    <to-view-id>/xhtml/inmoblesVenedor.xhtml</to-view-id>

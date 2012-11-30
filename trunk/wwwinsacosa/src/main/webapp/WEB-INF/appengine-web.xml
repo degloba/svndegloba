@@ -29,6 +29,7 @@
 	    <include path="/templates/**.*"/> 
 	    <exclude path="/**.xhtml" />
 	    <exclude path="/xhtml/*.xhtml" />
+	    <exclude path="/user/*.xhtml" />
     </static-files>
  
 </appengine-web-app>
