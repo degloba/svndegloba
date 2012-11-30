@@ -8,25 +8,23 @@
 
 
 <h:form>
-
 	
-	<h:panelGrid  width="200px"  columns="1" border="0">
-	
-		<rich:panel header="#{missatge['titol.inmobles']}">
+	<rich:panel header="#{missatge['titol.inmobles']}">
 		
-			<h:panelGrid columns="1">
-		         
+		<h:panelGrid columns="1">
 			
-				<h:commandLink value="Buscar" action="inmoblesUsuari">
+			<h:commandLink value="Registrase" action="useraccount" />
+			
+				<h:commandLink value="Buscar inmuebles" action="inmoblesUsuari">
 					<f:setPropertyActionListener target="#{inmobleForm.cercable}" value="true" />
 					<f:setPropertyActionListener target="#{inmobleForm.nou}" value="true" />
 				</h:commandLink>
 				
-				<h:commandLink value="Filtre" action="filtre"/>
+				<h:commandLink value="Filtrar" action="filtre"/>
 
 				<h:commandLink value="Caracteristicas x Tipo" execute="@this" action="caractTipus"/>	
 				
-				<h:commandLink value="Solicituds - Usuaris" action="solicitudsUsuaris"/>		
+				<h:commandLink value="Solicitudes por usuario" action="solicitudsUsuaris"/>		
 			
 				<a4j:commandLink action="conectarPaypal">
 					<h:outputText escape="false"  value="Insaco/Paypal" />
@@ -37,24 +35,11 @@
 					<h:outputText escape="false"  value="Volum dades" />              
 			    </h:commandLink>
 			    
-			    <h:commandLink  border="0" execute="@this"   
-			    	  action="filtre2">                     
+			    <h:commandLink  border="0" execute="@this"  action="filtre">                     
 					<h:outputText escape="false"  value="filtre" />              
 			    </h:commandLink>
-	
-			</h:panelGrid>
-					
-		</rich:panel>
-		
-	
-	</h:panelGrid>
-
-</h:form>
-
-<h:panelGrid width="200px"  border="0">
-
-	<rich:panel header="VENTAJAS">         
-		           
+			    
+			    
 		<ul>             
 			<li>Quiere vender, alquilar o comprar un inmueble</li>
 			<li>buscar lo que quiera de forma rápida y sencilla </li>             
@@ -62,13 +47,18 @@
 			<li>contacto directo con los interesados</li> 
 			<li>publicación de inmuebles</li>            
 		</ul>
-		     
-	</rich:panel> 
+	
+			</h:panelGrid>
+			
+			
+
+			
+					
+		</rich:panel>
 
 
 
-</h:panelGrid>
 		
-
+</h:form>
 
 </ui:composition>
