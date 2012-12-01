@@ -13,8 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.degloba.EMF;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.TransactionOptions;
 import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.Usuaris;
 
@@ -143,7 +146,11 @@ public class Objecte implements Interfaces{
 		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		tx.begin();
+		
+		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();    
+		TransactionOptions options = TransactionOptions.Builder.withXG(true);    
+		Transaction txn = datastore.beginTransaction(options);
 		
 		try {      
 			
@@ -162,7 +169,7 @@ public class Objecte implements Interfaces{
 				ret =  q.getResultList();
 			}
 			
-			tx.commit();    
+			txn.commit();    
 		} finally {        
 			////em.close();    
 		}		
