@@ -17,11 +17,14 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import org.richfaces.component.UIDataTable;
 
 import com.insacosa.utils.HtmlDinamic;
 
+import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.Caracteristiques;
 import com.insacosa.entitats.Tipus;
 
@@ -37,8 +40,56 @@ public class TipusForm extends Objecte
 	
 	private int valorActual = 1;
 	
+	static PersistenceService persistenceService;
 	
 	public List<SelectItem> getTipusInmoble() {
+		
+		/*
+		
+		// Crear Entitats
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		Tipus t = new Tipus();
+		t.setNom("Bajos");
+		
+		em.persist(t);
+		
+		t = new Tipus();
+		t.setNom("Piso");
+		
+		em.persist(t);
+		
+		t = new Tipus();
+		t.setNom("Loft");
+		
+		em.persist(t);
+		
+		t = new Tipus();
+		t.setNom("Parking");
+		
+		em.persist(t);
+		
+		t = new Tipus();
+		t.setNom("Terreno");
+		
+		em.persist(t);*/
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		List<SelectItem> list = new ArrayList<SelectItem>();
 		 
