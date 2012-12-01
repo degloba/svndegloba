@@ -410,5 +410,12 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
+    
+        <dependency>
+        	<groupId>org.atmosphere</groupId>
+        	<artifactId>atmosphere-runtime</artifactId>
+        	<version>0.9.7</version>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>
