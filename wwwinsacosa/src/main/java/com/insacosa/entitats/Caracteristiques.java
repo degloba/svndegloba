@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -25,19 +26,41 @@ public class Caracteristiques{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	private Key key;
 	
+	
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Tipus tipus;
+	
+	@Transient
 	private Ttpcontrol ttpcontrol;
+	
+	// Unowned relationship
+    private String ttpcontrolKey;
+	
+	@Transient
 	private Ttpbasic ttpbasic;
+	
+	// Unowned relationship
+    private String ttpbasicKey;
+
+	
+	
 	private String nom;
 	private Integer control;
 	private Integer tamanyControl;
 	private Boolean obligatori;
 	private boolean modificable;
 	private String icono;
+	
+	
 	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 	private Set<ValuesCaracteristiques> valuesCaracteristiqueses = new HashSet<ValuesCaracteristiques>(
 			0);
 
+	
+	
+	
 	public Caracteristiques() {
 	}
 
@@ -74,18 +97,8 @@ public class Caracteristiques{
 		this.key = key;
 	}    
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDTIPUS")
-	public Tipus getTipus() {
-		return this.tipus;
-	}
+	
 
-	public void setTipus(Tipus tipus) {
-		this.tipus = tipus;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "KTPCONTROL")
 	public Ttpcontrol getTtpcontrol() {
 		return this.ttpcontrol;
 	}
@@ -94,8 +107,6 @@ public class Caracteristiques{
 		this.ttpcontrol = ttpcontrol;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "KTPBASIC")
 	public Ttpbasic getTtpbasic() {
 		return this.ttpbasic;
 	}
@@ -158,8 +169,6 @@ public class Caracteristiques{
 		this.icono = icono;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "CARACTINMOBLES", schema = "dbo", catalog = "INSACO", joinColumns = { @JoinColumn(name = "IDCARACT", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "IDINMOBLE", nullable = false, updatable = false) })
 	public Set<Inmobles> getInmobleses() {
 		return this.inmobleses;
 	}
@@ -178,4 +187,30 @@ public class Caracteristiques{
 		this.valuesCaracteristiqueses = valuesCaracteristiqueses;
 	}
 
+	public Tipus getTipus() {
+		return tipus;
+	}
+
+	public void setTipus(Tipus tipus) {
+		this.tipus = tipus;
+	}
+
+	public String getTtpcontrolKey() {
+		return ttpcontrolKey;
+	}
+
+	public void setTtpcontrolKey(String ttpcontrolKey) {
+		this.ttpcontrolKey = ttpcontrolKey;
+	}
+
+	public String getTtpbasicKey() {
+		return ttpbasicKey;
+	}
+
+	public void setTtpbasicKey(String ttpbasicKey) {
+		this.ttpbasicKey = ttpbasicKey;
+	}
+
+	
+	
 }

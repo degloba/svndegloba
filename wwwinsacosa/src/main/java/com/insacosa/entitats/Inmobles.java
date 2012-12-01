@@ -39,6 +39,7 @@ public class Inmobles{
 	private long preu;
 	private byte[] imatge;
 	private boolean visitat;
+	
 	private Set<ValuesCaracteristiques> valuesCaracteristiqueses = new HashSet<ValuesCaracteristiques>(0);
 	
 	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(0);
@@ -244,7 +245,7 @@ public class Inmobles{
 		this.caracteristiqueses = caracteristiqueses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inmobles")
+	@OneToMany(fetch = FetchType.LAZY)
 	public Set<Solicituds> getSolicitudses() {
 		return this.solicitudses;
 	}

@@ -31,6 +31,7 @@ public class Fotos {
 		this.key = key;
 	}
 
+	
 	public Fotos(Key key, Inmobles inmobles, byte[] imatge, String descripcio) {
 		this.key = key;
 		this.inmobles = inmobles;

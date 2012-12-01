@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+
 @Entity
 public class Provincies extends Objecte  {
 
@@ -24,28 +26,26 @@ public class Provincies extends Objecte  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	private Key key;
 	
-	private Date tmstamp;
 	private String code;
 	private String name;
-	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	
+	//private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 
 	public Provincies() {
 	}
 
-	public Provincies(Key key, Date tmstamp, String code, String name) {
+	public Provincies(Key key, String code, String name) {
 		this.key = key;
-		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 	}
 
-	public Provincies(Key key, Date tmstamp, String code, String name,
+	public Provincies(Key key, String code, String name,
 			Set<Inmobles> inmobleses) {
 		this.key = key;
-		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
-		this.inmobleses = inmobleses;
+		//this.inmobleses = inmobleses;
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
@@ -55,16 +55,6 @@ public class Provincies extends Objecte  {
     
 	public void setKey(Key key) {
 		this.key = key;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "tmstamp", nullable = false, length = 23)
-	public Date getTmstamp() {
-		return this.tmstamp;
-	}
-
-	public void setTmstamp(Date tmstamp) {
-		this.tmstamp = tmstamp;
 	}
 
 	@Column(name = "code", nullable = false, length = 16)
@@ -84,7 +74,7 @@ public class Provincies extends Objecte  {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "provincies")
 	public Set<Inmobles> getInmobleses() {
 		return this.inmobleses;
@@ -93,5 +83,5 @@ public class Provincies extends Objecte  {
 	public void setInmobleses(Set<Inmobles> inmobleses) {
 		this.inmobleses = inmobleses;
 	}
-
+*/
 }

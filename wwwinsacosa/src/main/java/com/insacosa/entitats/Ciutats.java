@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 public class Ciutats extends Objecte {
 
@@ -28,6 +27,7 @@ public class Ciutats extends Objecte {
 	private String code;
 	private String name;
 	private Key keyProv;
+	
 	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 
 	public Ciutats() {

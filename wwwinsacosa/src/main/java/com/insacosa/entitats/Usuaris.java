@@ -4,6 +4,7 @@ package com.insacosa.entitats;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -20,7 +22,7 @@ public class Usuaris implements java.io.Serializable {
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
-	private Key key;
+	private Key usuariKey;
 	
 	private String nomusuari;
 	private String nom;
@@ -34,18 +36,27 @@ public class Usuaris implements java.io.Serializable {
 	private String email2;
 	private String password;
 	private Boolean acord;
-	private Set<Solicituds> solicitudses = new HashSet<Solicituds>(0);
+	
+	
+	@Transient
+	private Set<Solicituds> solicitudses;
 	//private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	
+	
+
+	@Basic(fetch = FetchType.EAGER)
+    private Set<String> solicitudsKeys = new HashSet<String>();
+
 
 	
 	 // Accessors for the fields. JPA doesn't use these, but your application does.    
-	public Key getKey() {        
-		return key;    
-		}
+	public Key getUsuariKey() {        
+		return usuariKey;  
+	}
 	
 	
-	public void setKey(Key key) {
-		this.key = key;
+	public void setUsuariKey(Key usuariKey) {
+		this.usuariKey = usuariKey;
 	}
 
 	public Usuaris() {
@@ -54,11 +65,11 @@ public class Usuaris implements java.io.Serializable {
 	public Usuaris(String nomusuari) {
 		this.nomusuari = nomusuari;
 	}
-	public Usuaris(Key key, String nom, String cognoms, String adreca,
+	public Usuaris(Key usuariKey, String nom, String cognoms, String adreca,
 			String localitat, String codi, String provincia, String telefon,
 			String email, String email2, String password, Boolean acord,
 			Set<Solicituds> solicitudses, Set<Inmobles> inmobleses) {
-		this.key = key;
+		this.usuariKey = usuariKey;
 		this.nom = nom;
 		this.cognoms = cognoms;
 		this.adreca = adreca;
@@ -182,13 +193,23 @@ public class Usuaris implements java.io.Serializable {
 		this.acord = acord;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuaris")
+	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuaris")
 	public Set<Solicituds> getSolicitudses() {
 		return this.solicitudses;
 	}
 
 	public void setSolicitudses(Set<Solicituds> solicitudses) {
 		this.solicitudses = solicitudses;
+	}
+
+
+	public Set<String> getSolicitudsKeys() {
+		return solicitudsKeys;
+	}
+
+
+	public void setSolicitudsKeys(Set<String> solicitudsKeys) {
+		this.solicitudsKeys = solicitudsKeys;
 	}
 
 /*	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuaris")
@@ -200,4 +221,7 @@ public class Usuaris implements java.io.Serializable {
 		this.inmobleses = inmobleses;
 	}*/
 
+	
+	
+	
 }
