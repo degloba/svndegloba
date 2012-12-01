@@ -4,14 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-   		 xmlns:a4j="http://richfaces.org/a4j"       
-       xmlns:rich="http://richfaces.org/rich"
-       xmlns:f="http://java.sun.com/jsf/core" >
- 
- 
+	  xmlns:a4j="http://richfaces.org/a4j"       
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core" >
+  
     <h:head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />	
+
 
 	<!--  Estils per defecte -->
 	<link rel="stylesheet" href="/css/style.css" type="text/css" media="print, projection, screen" />	
@@ -110,19 +110,12 @@ $j(document).ready(function() {
 		$j("#formulariDatatable\\:dyn_taulaInmoblesVenedor\\:column_" + indexCol).toggle('fast'); 
 
 
-
-
-
-
 		$j('#formulariDatatable\\:dyn_taulaInmobles tr').each(function(index2) {
 
        	 	 $j("#formulariDatatable\\:dyn_taulaInmobles\\:" + index2 + "\\:columnSortFilter_" + indexCol).toggle('fast'); 
 	        });
 		
 		$j("#formulariDatatable\\:dyn_taulaInmobles\\:columnSortFilter_" + indexCol).toggle('fast'); 
-       
-
-
         
 	        
     }); 
@@ -246,12 +239,18 @@ $j(document).ready(function() {
 		<h:panelGrid columns="2" >
 			
 			<h:panelGroup>
-				<ui:include src="/user/login.xhtml"/>
-				<ui:include src="/xhtml/menu.xhtml"/>
+				<ui:insert name="loginMenu" >
+					<ui:include src="/xhtml/login.xhtml"/>
+					<ui:include src="/xhtml/menu.xhtml"/>
+				</ui:insert>
 			</h:panelGroup>
 			
   			<h:panelGroup>
-    			<ui:insert name="body"></ui:insert>
+    			<ui:insert name="body">
+    			
+    				<ui:include src="/xhtml/presentacio.xhtml"/>	
+    			
+    			</ui:insert>
     		</h:panelGroup>
     		
     	</h:panelGrid>
