@@ -16,8 +16,11 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import com.insacosa.utils.FilterBeanInmobles;
+import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.Ciutats;
 import com.insacosa.entitats.Provincies;
 
@@ -106,12 +109,32 @@ public class ProvinciesForm extends Objecte
 		
 	}
 
-	
+	static PersistenceService persistenceService;
 	
 	/*
 	 * Pel combo de provincies
 	 */
 	public List<SelectItem> getProvincies() {
+		
+		/*		
+		// Crear Entitats
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		Provincies t = new Provincies();
+		t.setName("Barcelona");
+		
+		t.setCode("9");
+		em.persist(t);
+		
+		tx.commit();
+		*/
+		
 		
 		List<SelectItem> list;
 		
@@ -172,7 +195,7 @@ public class ProvinciesForm extends Objecte
 		
 		provincies.setCode(this.getCode());
 		provincies.setName(this.getName());
-		provincies.setTmstamp(this.getTmstamp());
+
 		provincies.create();
 				
 		// hem d'afegir a la llista
@@ -181,7 +204,7 @@ public class ProvinciesForm extends Objecte
 		prov.setId(provincies.getId());
 		prov.setName(provincies.getName());
 		prov.setCode(provincies.getCode());
-		prov.setTmstamp(provincies.getTmstamp());
+
 		
 		this.llista.add(prov);
 		
@@ -198,7 +221,6 @@ public class ProvinciesForm extends Objecte
 		provincies.setId(provincia.id);
 		provincies.setCode(provincia.code);
 		provincies.setName(provincia.name);
-		provincies.setTmstamp(provincia.tmstamp);
 
 	   	provincies.delete(provincies);  // esborrem de la BD
 	   	
@@ -215,7 +237,6 @@ public class ProvinciesForm extends Objecte
 		provincies.setId(this.getId());
 		provincies.setCode(this.getCode());
 		provincies.setName(this.getName());
-		provincies.setTmstamp(this.getTmstamp());
 		
 	   	this.update(provincies);
 	   	
@@ -224,8 +245,6 @@ public class ProvinciesForm extends Objecte
 
 		prov.setName(provincies.getName());
 		prov.setCode(provincies.getCode());
-		prov.setTmstamp(provincies.getTmstamp());
-
   
 	   } 	  
 	  
@@ -282,7 +301,6 @@ public class ProvinciesForm extends Objecte
 				provincia.setCode( provincies.getCode() );
 				provincia.setId( provincies.getId() );
 				provincia.setName( provincies.getName() );
-				provincia.setTmstamp( provincies.getTmstamp() );
 						
 				provList.add(provincia);
 				

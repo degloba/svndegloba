@@ -1,7 +1,11 @@
 package com.insacosa.vo;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.TransactionOptions;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
@@ -18,11 +22,17 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import com.insacosa.utils.FilterBeanInmobles;
 
+import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.Ciutats;
 import com.insacosa.entitats.Provincies;
+import com.insacosa.entitats.Tipus;
+
+import com.degloba.converters.KeyConverter;
 
 @ManagedBean(name = "ciutats")
 @SessionScoped
@@ -85,10 +95,55 @@ public class CiutatsForm extends Objecte
 	}
 	
 	
+	static PersistenceService persistenceService;
 	/*
 	 * Pel combo de provincies
 	 */
 	public List<SelectItem> getCiutats() {
+		
+		
+		// Crear Entitats
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
+		EntityManager em = persistenceService.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();    
+		TransactionOptions options = TransactionOptions.Builder.withXG(true);    
+		Transaction txn = datastore.beginTransaction(options);
+		
+		
+		
+		Ciutats t = new Ciutats();
+		t.setName("Manresa");
+		t.setCode("9");
+		Key k = KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIQCxIKUHJvdmluY2llcxgRDA");
+		t.setKeyProv(k);
+		
+		em.persist(t);
+		
+		t = new Ciutats();
+		t.setName("Sallent");
+		t.setCode("9");
+		t.setKeyProv(k);
+		
+		em.persist(t);
+		
+		t = new Ciutats();
+		t.setName("Artés");
+		t.setCode("9");
+		t.setKeyProv(k);
+		
+		
+		
+		
+		
+		txn.commit();
+		
+		
 		
 		List<SelectItem> list;
 		
