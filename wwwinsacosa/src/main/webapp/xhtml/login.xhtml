@@ -7,6 +7,43 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	
 	
+		<rich:popupPanel id="registrarte" autosized="true" modal="false"> 
+  	   
+	   	<f:facet name="header">   
+	   		<h:panelGrid columns="2">          
+		   		<h:outputText value="Registro usuario" />  
+	   		</h:panelGrid>       
+	   	</f:facet> 
+	   	
+	   	<f:facet name="controls">
+	   		 
+	   	</f:facet>  
+	
+		<ui:include src="useraccount.xhtml"/>
+	
+		<a4j:commandLink onclick="#{rich:component('registrarte')}.hide()"  value="cerrar"/>
+						   
+	</rich:popupPanel>  
+	
+	<rich:popupPanel id="olvidaste" autosized="true" modal="false"> 
+  	   
+	   	<f:facet name="header">   
+	   		<h:panelGrid columns="2">          
+		   		<h:outputText value="Olvidaste tu contraseña" />  
+	   		</h:panelGrid>       
+	   	</f:facet> 
+	   	
+	   	<f:facet name="controls">
+	   		 
+	   	</f:facet>  
+	
+		<ui:include src="forgotpassword.xhtml"/>
+	
+		<a4j:commandLink onclick="#{rich:component('olvidaste')}.hide()"  value="cerrar"/>
+						   
+	</rich:popupPanel>  
+	
+	
 	<rich:popupPanel id="editarPerfil" autosized="true" modal="false"> 
   	   
 	   	<f:facet name="header">   
@@ -16,7 +53,6 @@
 	   	</f:facet> 
 	   	
 	   	<f:facet name="controls">
-	   		<h:graphicImage onclick="#{rich:component('editarPerfil')}.hide()" value="/images/16-em-cross.png"/> 
 	   	</f:facet>  
 	
 		<ui:include src="useraccount.xhtml"/>
@@ -35,7 +71,7 @@
 	   	</f:facet>   
 	   	
 		<f:facet name="controls">
-	   		<h:graphicImage onclick="#{rich:component('editarPerfil')}.hide()" value="/images/16-em-cross.png"/> 
+	   		 
 	   	</f:facet> 
 	
 		<ui:include src="changepassword.xhtml"/>
@@ -48,11 +84,13 @@
 
 	<c:if test="#{not userForm.loginat}">
 		
-		<h:panelGrid  border="0">
+		<h:panelGrid  border="0" style="width:150px">
 		
 			<rich:panel header="Login">
 			
 				<h:form id="LoginForm">
+				
+					<h:graphicImage value="/images/usuari.jpg" border="0" style="width:60px;height:60px"/> 
 			
 					<h:outputText value="#{LoginForm.text}" />
 					
@@ -86,9 +124,21 @@
 					
 					<h:panelGrid id="bottompg" columns="1" >
 						<h:outputText value="Eres usuario nuevo?" style="COLOR: #004080;"/>
-						<h:commandLink value="Quieres registrarte" action="useraccount" />
+						
+						<h:panelGroup>
+							<a4j:commandLink value="Quieres registrarte" execute="@this"                  
+				 			 render="@none" oncomplete="#{rich:component('registrarte')}.show()">                     
+				    		</a4j:commandLink>    
+						</h:panelGroup>
+												
 						<h:outputText value=""/>
-						<h:commandLink value="Olvidaste tu password?" action="forgotpassword" />
+						
+						<h:panelGroup>
+							<a4j:commandLink value="Olvidaste tu contraseña?" execute="@this"                  
+				 			 render="@none" oncomplete="#{rich:component('olvidaste')}.show()">                     
+				    		</a4j:commandLink>    
+						</h:panelGroup>
+						
 					</h:panelGrid>
 					
 				</h:form>
@@ -101,13 +151,15 @@
 				
 	<c:if test="#{userForm.loginat}">
 	
-		<h:panelGrid  border="0">
+		<h:panelGrid  border="0" style="width:150px">
 			
 			<rich:panel header="#{userForm.nom} #{userForm.cognoms}">
 				
 				<h:form>	
 					
-					<h:panelGrid>
+					<h:graphicImage value="/images/usuari.jpg" border="0" style="width:60px;height:60px"/> 
+					
+					<h:panelGrid style="width:150px">
 					
 						<h:panelGroup>
 							<a4j:commandLink value="Editar tu perfil" execute="@this"                  
@@ -116,7 +168,7 @@
 						</h:panelGroup>
 						
 						<h:panelGroup>
-							<a4j:commandLink value="Cambiar password" execute="@this"                  
+							<a4j:commandLink value="Cambiar contraseña" execute="@this"                  
 				 				 render="@none" oncomplete="#{rich:component('cambiaPassword')}.show()">                     
 				    		</a4j:commandLink> 
 						</h:panelGroup>

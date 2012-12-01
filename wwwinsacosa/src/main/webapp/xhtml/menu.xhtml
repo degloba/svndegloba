@@ -11,7 +11,7 @@
 	
 	<rich:panel header="#{missatge['titol.inmobles']}">
 		
-		<h:panelGrid columns="1">
+		<h:panelGrid columns="1" style="width:200px">
 			
 				<h:commandLink value="Buscar inmuebles" action="inmoblesUsuari">
 					<f:setPropertyActionListener target="#{inmobleForm.cercable}" value="true" />
@@ -28,29 +28,39 @@
 					<h:outputText escape="false"  value="Insaco/Paypal" />
 				</a4j:commandLink>
 				
-				<h:commandLink  border="0" execute="@this"   
-			    	  action="#{inmobleForm.afegirMoltsInmobles}">                     
-					<h:outputText escape="false"  value="Volum dades" />              
-			    </h:commandLink>
 			    
 			    <h:commandLink  border="0" execute="@this"  action="filtre">                     
-					<h:outputText escape="false"  value="filtre" />              
+					<h:outputText escape="false"  value="Filtro rápido" />              
 			    </h:commandLink>
 			    
 			    
-		<ul>             
-			<li>Quiere vender, alquilar o comprar un inmueble</li>
-			<li>buscar lo que quiera de forma rápida y sencilla </li>             
-			<li>sin costes de gestión</li>   
-			<li>contacto directo con los interesados</li> 
-			<li>publicación de inmuebles</li>            
-		</ul>
+  <h:graphicImage value="/images/wait.gif" border="0"/>
+  
+  <h:panelGroup> 
+  <h:graphicImage value="/images/thumb_24-sidebar.png" border="0"/>
+  <h:outputText value="Quiere vender, alquilar o comprar un inmueble" style="color:#003853"/><br/>
+  </h:panelGroup>
+  <h:panelGroup> 
+  <h:graphicImage value="/images/thumb_24-tab.png" border="0"/>
+  <h:outputText value="Buscar lo que quiera de forma rápida y sencilla" style="color:#003853"/> <br/>
+  </h:panelGroup>
+  <h:panelGroup>              
+  <h:graphicImage value="/images/thumb_24-tab-open.png" border="0"/>
+  <h:outputText value="Sin costes de gestión" style="color:#003853"/>   <br/>
+  </h:panelGroup>
+  <h:panelGroup>  
+  <h:graphicImage value="/images/thumb_24-tab-close.png" border="0"/>
+  <h:outputText value="Contacto directo con los interesados" style="color:#003853"/> <br/>
+  </h:panelGroup>
+  <h:panelGroup> 
+  <h:graphicImage value="/images/thumb_24-tab-add.png" border="0"/>
+  <h:outputText value="Publicación de inmuebles" style="color:#003853"/>    <br/>
+  </h:panelGroup>        
 	
-			</h:panelGrid>
 			
 			
 
-			
+			</h:panelGrid>
 					
 		</rich:panel>
 
