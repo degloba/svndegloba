@@ -1,5 +1,8 @@
 package com.insacosa.utils;
 
+import com.degloba.converters.KeyConverter;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.insacosa.interfaces.Inmoble_Impl;
 
 import java.util.ArrayList;
@@ -43,7 +46,7 @@ public class FormHBM {
 	    
 		////////////inmobleForm.setProvincia(inmoble.getProvincies().getKey());
 
-		inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
+		inmobleForm.setKeyTipus(inmoble.getTipus().getTipusKey());
 		
 		//inmobleForm.setLloguer(inmoble.getLloguer());
 		inmobleForm.setNumero(inmoble.getNumero());
@@ -53,7 +56,8 @@ public class FormHBM {
 		inmobleForm.setPreu(inmoble.getPreu());
 	    
 		// Objecte venedor
-		inmobleForm.setVenedor(inmoble.getUsuaris().getKey());
+		  
+		inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
 		
 		inmobleForm.setVisitat(inmoble.isVisitat());
 	    
@@ -104,7 +108,7 @@ public class FormHBM {
 		inmoble.setProvincies(provincia);
 		
 		Tipus tipus = new Tipus();
-		tipus.setKey(inmobleForm.getKeyTipus());
+		tipus.setTipusKey(inmobleForm.getKeyTipus());
 		inmoble.setTipus(tipus);
 
 		//inmoble.setLloguer(lloguer);
@@ -117,7 +121,9 @@ public class FormHBM {
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
 		UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 		Usuaris venedor = new Usuaris();
-		venedor.setKey(userForm.getKey());
+		
+	
+		venedor.setUsuariKey(userForm.getKey());
 		inmoble.setUsuaris(venedor);
 
 		
@@ -184,8 +190,8 @@ public class FormHBM {
 			UserForm usuariForm = new UserForm();
 			
 			Usuaris usuari = (Usuaris)it.next();
-			
-			usuariForm.setKey(usuari.getKey());
+
+			usuariForm.setKey(usuari.getUsuariKey());
 			usuariForm.setAdreca(usuari.getAdreca());
 			usuariForm.setCognoms(usuari.getCognoms());
 			usuariForm.setEmail(usuari.getEmail());
@@ -205,7 +211,7 @@ public class FormHBM {
 
 		UserForm usuariForm = new UserForm();
 			
-		usuariForm.setKey(usuari.getKey());
+		usuariForm.setKey(usuari.getUsuariKey());
 		usuariForm.setAdreca(usuari.getAdreca());
 		usuariForm.setCognoms(usuari.getCognoms());
 		usuariForm.setEmail(usuari.getEmail());
@@ -220,8 +226,8 @@ public class FormHBM {
     {
 
 		Usuaris usuari = new Usuaris();
-			
-		usuari.setKey(usuariForm.getKey());
+		
+		usuari.setUsuariKey(usuariForm.getKey());
 		usuari.setAdreca(usuariForm.getAdreca());
 		usuari.setCognoms(usuariForm.getCognoms());
 		usuari.setEmail(usuariForm.getEmail());
@@ -245,7 +251,7 @@ public class FormHBM {
 			
 			caracteristicaForm.setKey(caract.getKey());
 			caracteristicaForm.setNom(caract.getNom());
-			caracteristicaForm.setKeyTipus(caract.getTipus().getKey());
+			caracteristicaForm.setKeyTipus(caract.getTipus().getTipusKey());
 			
 			caracteristiquesForm.add(caracteristicaForm);
 		}
