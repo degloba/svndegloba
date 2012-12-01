@@ -56,6 +56,37 @@
         <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
  </context-param>
     
+    
+<!-- defines whether the uploaded files are stored in temporary files or 
+  available in the listener directly as byte[] data (false for this example -->
+ <context-param>
+  <param-name>org.richfaces.fileUpload.createTempFiles</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <!-- max size in bytes of the uploaded files (1000000 for this example -->
+ <context-param>
+  <param-name>org.richfaces.fileUpload.maxRequestSize</param-name>
+  <param-value>100000</param-value>
+ </context-param>
+ 
+ <context-param>
+ <param-name>org.richfaces.queue.enabled</param-name>
+ <param-value>true</param-value> <!-- false = this is default value -->
+ </context-param>
+ 
+ 
+ <!-- configuracio de com Richfaces Push acce3deix als missatges enviats que ha de llegir 
+ (només té sentit utilitzar en push el Topic -->
+ <context-param>
+  <param-name>org.richfaces.push.jms.connectionFactory</param-name>
+  <param-value>/InVMConnectionFactory</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.push.jms.topicsNamespace</param-name>
+  <param-value>/topic</param-value>
+ </context-param>    
+    
+    
     <!-- 
        We need to set annotation lifecycyle provider manually as org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
        Other providers use some classes that are restricted on Google App Engine.   
@@ -87,6 +118,17 @@
         <param-name>org.richfaces.executeAWTInitializer</param-name>
         <param-value>false</param-value>
  </context-param>
+ 
+  <filter>
+  <filter-name>PushFilter</filter-name>
+  <filter-class>org.richfaces.webapp.PushFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>PushFilter</filter-name>
+  <url-pattern>*.jsf</url-pattern>
+ </filter-mapping>
+ 
+ 
  <servlet>
   <servlet-name>Faces Servlet</servlet-name>
   <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
