@@ -21,7 +21,7 @@
 				<legend class="llegenda"><b>Datos obligatorios - Inmueble</b></legend>	
 					
 		
-						<h:outputText value="NOMBRE: " />
+						<h:outputText value="Definición : " />
 
 						<h:inputText value="#{inmobleForm.nom}" id="nomInmoble" required="true" size="10"
 							requiredMessage="campo obligatorio">
@@ -32,9 +32,9 @@
 													 			
 				 		<h:outputText value="TIPO" /> 
 					 		
-				 		<h:selectOneMenu value="#{tipus.id}" id="selectTipus"            
-					 			valueChangeListener="#{tipus.processValueChange}">                 
-					 			<f:selectItems value="#{tipus.tipusInmoble}" /> 
+				 		<h:selectOneMenu value="#{tipusForm.id}" id="selectTipus"            
+					 			valueChangeListener="#{tipusForm.processValueChange}">                 
+					 			<f:selectItems value="#{tipusForm.tipusInmoble}" /> 
 					 			<a4j:ajax execute="@this" event="valueChange" 
 					 				render="pnlGr_inmoblesVenedor,pnlGr_inmobles,dyn_taulaInmobles,dyn_taulaInmoblesVenedor,srcCaract,caracteristiquesTaula,grid,taulaInmobles"/>           
 					 		</h:selectOneMenu>
