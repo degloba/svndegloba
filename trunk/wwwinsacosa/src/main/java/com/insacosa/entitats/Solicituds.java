@@ -1,12 +1,15 @@
 package com.insacosa.entitats;
 
+import java.util.Set;
+
+import javax.jdo.annotations.Persistent;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -16,45 +19,60 @@ public class Solicituds {
 	
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key key;
+	private String solicitudKey;
 	
-	private Inmobles inmobles;
-	private Usuaris usuaris;
+	
+	// problema a GAE
+	//http://thoughts.inphina.com/2010/08/07/managing-multiple-parent-persistence-problem-in-app-engine/
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    private Inmobles inmoble;
+
+	@Transient
+    private Usuaris usuari;
+	
+	// Unowned relationship
+	private String usuariKey;
+	
 
 	
 	 // Accessors for the fields. JPA doesn't use these, but your application does.    
-	public Key getKey() {        
-		return key;    
+	public String getSolicitudKey() {        
+		return solicitudKey;    
 		}
 	
 	public Solicituds() {
 	}
 
-	public Solicituds(Key key, Inmobles inmobles, Usuaris usuaris) {
-		this.key = key;
-		this.inmobles = inmobles;
-		this.usuaris = usuaris;
+
+	public Inmobles getInmoble() {
+		return inmoble;
+	}
+
+	public void setInmoble(Inmobles inmoble) {
+		this.inmoble = inmoble;
+	}
+
+	public Usuaris getUsuari() {
+		return usuari;
+	}
+
+	public void setUsuari(Usuaris usuari) {
+		this.usuari = usuari;
+	}
+
+	public String getUsuariKey() {
+		return usuariKey;
+	}
+
+	public void setUsuariKey(String usuariKey) {
+		this.usuariKey = usuariKey;
+	}
+
+	public void setSolicitudKey(String solicitudKey) {
+		this.solicitudKey = solicitudKey;
 	}
 
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDINMOBLE")
-	public Inmobles getInmobles() {
-		return this.inmobles;
-	}
-
-	public void setInmobles(Inmobles inmobles) {
-		this.inmobles = inmobles;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "COMPRADOR")
-	public Usuaris getUsuaris() {
-		return this.usuaris;
-	}
-
-	public void setUsuaris(Usuaris usuaris) {
-		this.usuaris = usuaris;
-	}
 
 }

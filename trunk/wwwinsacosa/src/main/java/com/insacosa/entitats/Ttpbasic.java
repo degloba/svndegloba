@@ -26,6 +26,7 @@ public class Ttpbasic {
 	public Ttpbasic() {
 	}
 
+	
 	public Ttpbasic(Key key) {
 		this.key = key;
 	}
