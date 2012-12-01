@@ -374,7 +374,7 @@ public class InmobleForm  implements Serializable
 			Inmoble_Impl r = new Inmoble_Impl();
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setKey(keyTipus);
+		    tipus.setTipusKey(keyTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
 		    
@@ -470,7 +470,7 @@ public class InmobleForm  implements Serializable
 	    Ciutats ciut = new Ciutats();
 	    ciut.setKey(inmoble.getCiutats().getKey());  
 	    
-	    setKeyTipus(inmoble.getTipus().getKey()); 
+	    setKeyTipus(inmoble.getTipus().getTipusKey()); 
 	    
 	    setNumero(inmoble.getNumero());
 	    setPlanta(inmoble.getPlanta());
@@ -538,7 +538,7 @@ public class InmobleForm  implements Serializable
 			
 			Caracteristiques caracteristicaInmoble = (Caracteristiques) it.next();
 			caracteristicaForm.setKey(caracteristicaInmoble.getKey());
-			caracteristicaForm.setKeyTipus(caracteristicaInmoble.getTipus().getKey());
+			caracteristicaForm.setKeyTipus(caracteristicaInmoble.getTipus().getTipusKey());
 			caracteristicaForm.setNom(caracteristicaInmoble.getNom());
 			
 			if (caracteristicaInmoble.getControl() == 0)  // NOMES LES CARACTERISTIQUES BOOLEANES
@@ -1230,7 +1230,7 @@ public class InmobleForm  implements Serializable
         		    
         		    inmobleForm.setProvincia(inmoble.getProvincies().getKey());
         			
-        			inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
+        			inmobleForm.setKeyTipus(inmoble.getTipus().getTipusKey());
 
         			inmobleForm.setNumero(inmoble.getNumero());
         			inmobleForm.setPlanta(inmoble.getPlanta());
@@ -1590,7 +1590,7 @@ public class InmobleForm  implements Serializable
 			CaracteristicaForm caract = new CaracteristicaForm();
 			
 			caract.setKey(caracteristicaHBM.getKey());
-			caract.setKeyTipus(caracteristicaHBM.getTipus().getKey());
+			caract.setKeyTipus(caracteristicaHBM.getTipus().getTipusKey());
 			caract.setNom(caracteristicaHBM.getNom());
 			                   
 			dragDropBean.getSource().add(caracteristicaHBM);

@@ -315,7 +315,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				r.afegirUsuari(usuari);
 				
-				sendMail(getEmail());
+				/////////////sendMail(getEmail());
 				return "successUserRegistration";
 			}
 			else{
