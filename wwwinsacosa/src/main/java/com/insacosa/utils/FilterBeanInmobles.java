@@ -37,7 +37,7 @@ private int banysFilter;
 // combos 
 private int localitatFilter;
 private int provinciaFilter;
-private Key tipusFilter;
+private String tipusFilter;
 
 private int metresFilter;
 private int preuFilter;
@@ -60,10 +60,10 @@ public int getProvinciaFilter() {
 public void setProvinciaFilter(int provinciaFilter) {
 	this.provinciaFilter = provinciaFilter;
 }
-public Key getTipusFilter() {
+public String getTipusFilter() {
 	return tipusFilter;
 }
-public void setTipusFilter(Key tipusFilter) {
+public void setTipusFilter(String tipusFilter) {
 	this.tipusFilter = tipusFilter;
 }  
 
