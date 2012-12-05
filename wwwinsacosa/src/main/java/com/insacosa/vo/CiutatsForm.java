@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -23,7 +24,13 @@ import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import com.insacosa.utils.FilterBeanInmobles;
 
@@ -46,7 +53,7 @@ public class CiutatsForm extends Objecte
 	private int page = 1; 
 	
 	// Columnes de taula
-	private Key key;
+	private String key;
 	private Date tmstamp;
 	private String code;
 	private String name;
@@ -96,11 +103,22 @@ public class CiutatsForm extends Objecte
 	
 	
 	static PersistenceService persistenceService;
+	//static EntityManagerFactory emfInstance =  Persistence.createEntityManagerFactory("persistenceServiceSQLServer", new Properties());
+	
 	/*
 	 * Pel combo de provincies
 	 */
 	public List<SelectItem> getCiutats() {
 		
+		//EntityManager emHibernateSQL = emfInstance.createEntityManager();
+		
+		//CriteriaBuilder criteriaBuilder = emHibernateSQL.getCriteriaBuilder();
+        //CriteriaQuery<Ciutats> criteriaQuery = criteriaBuilder.createQuery(Ciutats.class);
+        //Root<Ciutats> from = criteriaQuery.from(Ciutats.class);
+		//CriteriaQuery<Ciutats> select = criteriaQuery.select(from); 
+		//TypedQuery<Ciutats> typedQuery = emHibernateSQL.createQuery(select); 
+		//List<Ciutats> resultList = typedQuery.getResultList(); 
+        
 		
 		// Crear Entitats
 		FacesContext facesContext = FacesContext.getCurrentInstance(); 
@@ -232,7 +250,7 @@ public class CiutatsForm extends Objecte
 		// Construim l'objecte Hibernate
     	Ciutats ciutat = new Ciutats();  // clase Hibernate
 		
-    	ciutat.setKey(ciutatForm.getKey());
+    	ciutat.setCiutatKey(ciutatForm.getKey());
     	ciutat.setCode(ciutatForm.code);
     	ciutat.setName(ciutatForm.name);
     	ciutat.setTmstamp(ciutatForm.tmstamp);
@@ -271,11 +289,11 @@ public class CiutatsForm extends Objecte
 	  
 	  
 	// getters/setters
-	public Key getKey() {
+	public String getKey() {
 		return key;
 	}
 
-	public void setKey(Key key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 

@@ -89,10 +89,10 @@ public class InmobleForm  implements Serializable
 	//********************************
 	// Propietats Fixes Inmoble (VO)
 	//********************************
-	private Key key;
+	private String key;
   	private String nom; // referencia
   	private String adreca;
-	private Key keyTipus;  // PIS
+	private String keyTipus;  // PIS
 	private Integer idTipus = 1;  // PIS
 	
 	private Short numero,planta;	
@@ -103,7 +103,7 @@ public class InmobleForm  implements Serializable
 
 	private String smallImageURL;
 
-	private Key venedor;  
+	private String venedor;  
 	private List<FotoForm> fotos = new ArrayList<FotoForm>();
 	private int numSol;  // numero solicituds de l'inmoble
 
@@ -111,7 +111,7 @@ public class InmobleForm  implements Serializable
 	//*********************
 	// propietats auxiliars
 	//*********************
-  	private Key currentInmobleIndex; 
+  	private String currentInmobleIndex; 
   	private int page = 1; //paginacio
 
   	private boolean visitat = true; // per indicar que la informacio de l'inmoble ha modificat i encara no l'hem revisat
@@ -164,11 +164,11 @@ public class InmobleForm  implements Serializable
 							 
 	// indica la operacio numerica (<= , = , >,...) sobre la columna
 	// <idCaracteristica,operacio>
-	private Map<Key, String> columnesOperacions = new HashMap<Key, String>();  
+	private Map<String, String> columnesOperacions = new HashMap<String, String>();  
 	
 	// Valors de les caracteristiques dels controls UI d'entrada
 	// <idCaracteristica,valor>
-	private Map<Key, Object> valorsCaracts = Maps.newHashMap();
+	private Map<String, Object> valorsCaracts = Maps.newHashMap();
 
 	// l'objecte InmobleCaract (row de la taula) seleccionat
 	private InmobleCaract currentInmobleCaract;
@@ -308,11 +308,11 @@ public class InmobleForm  implements Serializable
 	}
 
 
-	public Map<Key, String> getColumnesOperacions() {
+	public Map<String, String> getColumnesOperacions() {
 		return columnesOperacions;
 	}
 
-	public void setColumnesOperacions(Map<Key, String> columnesOperacions) {
+	public void setColumnesOperacions(Map<String, String> columnesOperacions) {
 		this.columnesOperacions = columnesOperacions;
 	}
 
@@ -453,22 +453,22 @@ public class InmobleForm  implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); 
 		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
 		
-		Key keyInmoble = inmobleForm.getKey();
+		String keyInmoble = inmobleForm.getKey();
 
 		Inmoble_Impl r = new Inmoble_Impl();
 
 		Inmobles inmoble = r.detallInmoble(keyInmoble);
 		
 		// Assignem els valors del formulari (inmoble)
-		setKey(inmoble.getKey());
+		setKey(inmoble.getInmobleKey());
 	    setNom(inmoble.getNom());
 	    setAdreca(inmoble.getAdreca());
 	   
 	    Provincies prov = new Provincies();
-	    prov.setKey(inmoble.getProvincies().getKey()); 
+	    prov.setProvinciaKey(inmoble.getProvincies().getProvinciaKey()); 
 
 	    Ciutats ciut = new Ciutats();
-	    ciut.setKey(inmoble.getCiutats().getKey());  
+	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
 	    setKeyTipus(inmoble.getTipus().getTipusKey()); 
 	    
@@ -500,7 +500,7 @@ public class InmobleForm  implements Serializable
 			fotoForm.setKey(foto.getKey());
 			fotoForm.setImatge(foto.getImatge());
 			fotoForm.setDescripcio(foto.getDescripcio());
-			fotoForm.setKeyInmoble(foto.getInmobles().getKey());
+			fotoForm.setKeyInmoble(foto.getInmobles().getInmobleKey());
 			
 			fotosForm.add(fotoForm);
 			
@@ -537,7 +537,7 @@ public class InmobleForm  implements Serializable
 			CaracteristicaForm caracteristicaForm = new CaracteristicaForm();
 			
 			Caracteristiques caracteristicaInmoble = (Caracteristiques) it.next();
-			caracteristicaForm.setKey(caracteristicaInmoble.getKey());
+			caracteristicaForm.setKey(caracteristicaInmoble.getCaracteristicaKey());
 			caracteristicaForm.setKeyTipus(caracteristicaInmoble.getTipus().getTipusKey());
 			caracteristicaForm.setNom(caracteristicaInmoble.getNom());
 			
@@ -596,7 +596,7 @@ public class InmobleForm  implements Serializable
   	/*
   	 * 
   	 */
-	public InmobleForm getDetallInmoble(Key keyInmoble) {
+	public InmobleForm getDetallInmoble(String keyInmoble) {
 		    
 		InmobleForm inmobleForm = new InmobleForm();
 		
@@ -618,7 +618,7 @@ public class InmobleForm  implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
 		UserForm compradorForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 		
-		Key keyInmoble = currentInmobleIndex;
+		String keyInmoble = currentInmobleIndex;
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 		
@@ -632,7 +632,7 @@ public class InmobleForm  implements Serializable
 		usuari.setUsuariKey(compradorForm.getKey() );
 		
 		Inmobles inmoble = new Inmobles();
-		inmoble.setKey(keyInmoble);
+		inmoble.setInmobleKey(keyInmoble);
 		
 		///solicitud.setInmobles(inmoble);
 		//UsuariKey h = solicitud.getUsuari();
@@ -665,7 +665,7 @@ public class InmobleForm  implements Serializable
 				{	
 					Inmobles inmoble = new Inmobles();
 					
-					inmoble.setKey(getKey());
+					inmoble.setInmobleKey(getKey());
 					
 					Inmoble_Impl r = new Inmoble_Impl();
 					
@@ -695,10 +695,10 @@ public class InmobleForm  implements Serializable
 	public void esborrarInmobles()throws Exception 
 	{
 
-		Key keyInmoble = currentInmobleIndex;
+		String keyInmoble = currentInmobleIndex;
 			
 		Inmobles inmoble = new Inmobles();
-		inmoble.setKey(keyInmoble);
+		inmoble.setInmobleKey(keyInmoble);
 		
 		Inmoble_Impl r = new Inmoble_Impl();
 		inmoble = r.inmoblePerKey(keyInmoble);
@@ -780,7 +780,7 @@ public class InmobleForm  implements Serializable
 	public void modificarInmobles()throws Exception 
 	{
 		
-		Key keyInmoble = currentInmobleIndex;
+		String keyInmoble = currentInmobleIndex;
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 					
@@ -847,13 +847,13 @@ public class InmobleForm  implements Serializable
 		r.afegirInmoble(inmoble);
 		
 		
-		Set<Entry<Key, Object>> keysValors = valorsCaracts.entrySet();
+		Set<Entry<String, Object>> keysValors = valorsCaracts.entrySet();
 		
 		Iterator it = keysValors.iterator();
 		
 		while (it.hasNext())
 		{
-			Entry<Key,Object> cv = (Entry<Key, Object>) it.next();
+			Entry<String,Object> cv = (Entry<String, Object>) it.next();
 		
 			ValuesCaracteristiques vc = new ValuesCaracteristiques();
 			
@@ -861,7 +861,7 @@ public class InmobleForm  implements Serializable
 			vc.setValue(String.valueOf(cv.getValue()));  // 2 convertim un Objecte (Integer, String,..) a String
 			
 			Caracteristiques c = new Caracteristiques();
-			c.setKey(cv.getKey());
+			c.setCaracteristicaKey(cv.getKey());
 			
 			vc.setCaracteristiques(c);  // 3
 			/*	
@@ -926,9 +926,9 @@ public class InmobleForm  implements Serializable
 				    {
 						Inmobles inmoble = inmoblesVenedorIt.next();
 							
-						InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getKey());
+						InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
 						
-						valorsCaract.setKeyInmoble(inmoble.getKey());
+						valorsCaract.setKeyInmoble(inmoble.getInmobleKey());
 						
 						listDataRow.add(valorsCaract);
 				    }
@@ -1053,11 +1053,11 @@ public class InmobleForm  implements Serializable
 		this.inmoblesSolicitatsPerComprador = inmoblesSolicitatsPerComprador;
 	}
 
-	public Key getKey() {
+	public String getKey() {
 		return key;
 	}
 
-	public void setKey(Key id) {
+	public void setKey(String id) {
 		this.key = key;
 	}
 
@@ -1089,11 +1089,11 @@ public class InmobleForm  implements Serializable
   	}
 
   	
-  	public Key getKeyTipus() {
+  	public String getKeyTipus() {
 		return keyTipus;
 	}
 
-	public void setKeyTipus(Key keyTipus) {
+	public void setKeyTipus(String keyTipus) {
 		this.keyTipus = keyTipus;
 		
 		facesContext = FacesContext.getCurrentInstance(); 
@@ -1148,12 +1148,12 @@ public class InmobleForm  implements Serializable
 	    preu = newPreu;
   	}
   	
-  	public Key getVenedor() 
+  	public String getVenedor() 
   	{
 	    return venedor;
   	}
 	
-  	public void setVenedor(Key venedor) 
+  	public void setVenedor(String venedor) 
   	{
 	    this.venedor = venedor;
   	}
@@ -1184,11 +1184,11 @@ public class InmobleForm  implements Serializable
 	}
 
 
-	public Key getCurrentInmobleIndex() {
+	public String getCurrentInmobleIndex() {
 		return currentInmobleIndex;
 	}
 
-	public void setCurrentInmobleIndex(Key currentInmobleIndex) {
+	public void setCurrentInmobleIndex(String currentInmobleIndex) {
 		this.currentInmobleIndex = currentInmobleIndex;
 	}
 
@@ -1223,12 +1223,12 @@ public class InmobleForm  implements Serializable
         			InventoryItem inmobleForm = new InventoryItem();
         			Inmobles inmoble = (Inmobles)it.next();
           			
-        			inmobleForm.setKey(inmoble.getKey());
+        			inmobleForm.setKey(inmoble.getInmobleKey());
         			inmobleForm.setNom(inmoble.getNom());
         			inmobleForm.setAdreca(inmoble.getAdreca());
-        		    inmobleForm.setLocalitat(inmoble.getCiutats().getKey());
+        		    inmobleForm.setLocalitat(inmoble.getCiutats().getCiutatKey());
         		    
-        		    inmobleForm.setProvincia(inmoble.getProvincies().getKey());
+        		    inmobleForm.setProvincia(inmoble.getProvincies().getProvinciaKey());
         			
         			inmobleForm.setKeyTipus(inmoble.getTipus().getTipusKey());
 
@@ -1417,11 +1417,11 @@ public class InmobleForm  implements Serializable
 	}
 	
 		
-	public Map<Key, Object> getValorsCaracts() {
+	public Map<String, Object> getValorsCaracts() {
 		return valorsCaracts;
 	}
 
-	public void setValorsCaracts(Map<Key, Object> valorsCaracts) {
+	public void setValorsCaracts(Map<String, Object> valorsCaracts) {
 		this.valorsCaracts = valorsCaracts;
 	}
 
@@ -1459,12 +1459,12 @@ public class InmobleForm  implements Serializable
 				// construim outputText
 		       	containerControlsDinamics.getChildren().add(HtmlDinamic.buildOutputText(
 					Cadenes.primeraLletraMajuscula(cc.getNom())
-					,(ValueExpression) Utils.resolveExpression(cc.getNom() + " " + cc.getKey())));
+					,(ValueExpression) Utils.resolveExpression(cc.getNom() + " " + cc.getCaracteristicaKey())));
 			        		
 		   		// construim inputText
 						        		
 			   	HtmlInputText inputText = new HtmlInputText();    
-				ValueExpression v = (ValueExpression) Utils.resolveExpression("#{inmobleForm.valorsCaracts[" + cc.getKey() + "]}");
+				ValueExpression v = (ValueExpression) Utils.resolveExpression("#{inmobleForm.valorsCaracts[" + cc.getCaracteristicaKey() + "]}");
 			    Utils.processProperty(inputText, v,  "value");
 			        		
 			   	containerControlsDinamics.getChildren().add(HtmlDinamic.buildInputText(
@@ -1489,10 +1489,10 @@ public class InmobleForm  implements Serializable
 			        		
 			    // construim checkbox
 			       	
-			    ValueExpression v2 = (ValueExpression) Utils.resolveExpression("#{inmobleForm.columnesVisibles[" + cc.getKey() + "]}");
+			    ValueExpression v2 = (ValueExpression) Utils.resolveExpression("#{inmobleForm.columnesVisibles[" + cc.getCaracteristicaKey() + "]}");
 			        		
 			    containerControlsDinamics.getChildren().add(HtmlDinamic.buildCheckbox(
-			       	KeyFactory.keyToString(cc.getKey()),  // idCaracteristica
+			       	cc.getCaracteristicaKey(),  // idCaracteristica
 			       	v2,
 			       	new ArrayList<String>(){{add("@this");add("dyn_taulaInmobles");add("dyn_taulaInmoblesVenedor");}},
 			       	new ArrayList<String>(){{add("@this");}}));
@@ -1568,7 +1568,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Cambia la llista de caracteristiques no seleccionades en funcio del tipus d'inmoble
 	 */
-	private void cambiaCaracteristiquesNoSel(Key keyTipus)
+	private void cambiaCaracteristiquesNoSel(String keyTipus)
 	{
 			
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
@@ -1585,15 +1585,15 @@ public class InmobleForm  implements Serializable
 		Iterator<Caracteristiques> iter = r.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
 		{
-			Caracteristiques caracteristicaHBM = (Caracteristiques)(iter.next());
+			Caracteristiques caracteristica = (Caracteristiques)(iter.next());
 			
 			CaracteristicaForm caract = new CaracteristicaForm();
 			
-			caract.setKey(caracteristicaHBM.getKey());
-			caract.setKeyTipus(caracteristicaHBM.getTipus().getTipusKey());
-			caract.setNom(caracteristicaHBM.getNom());
+			caract.setKey(caracteristica.getCaracteristicaKey());
+			caract.setKeyTipus(caracteristica.getTipus().getTipusKey());
+			caract.setNom(caracteristica.getNom());
 			                   
-			dragDropBean.getSource().add(caracteristicaHBM);
+			dragDropBean.getSource().add(caracteristica);
 			
 		}
 	}

@@ -1,19 +1,26 @@
 package com.insacosa.vo;
 
+import javax.persistence.Transient;
+
 import com.google.appengine.api.datastore.Key;
+import com.insacosa.entitats.Inmobles;
 
 
 // Clase Value Object de la que todas las vistas deber?an descender.
 public class FotoForm implements java.io.Serializable 
 {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private Key key;
 	private byte[] imatge;
   	private String descripcio;
-  	private Key keyInmoble;
+  	
+
+  	@Transient
+    private Inmobles inmoble;
+
+    // Unowned relationship
+  	private String keyInmoble;
 
 
 	// Constructor por defecto.
@@ -46,12 +53,20 @@ public class FotoForm implements java.io.Serializable
 		this.descripcio = descripcio;
 	}
 
-	public Key getKeyInmoble() {
+	public String getKeyInmoble() {
 		return keyInmoble;
 	}
 
-	public void setKeyInmoble(Key keyInmoble) {
+	public void setKeyInmoble(String keyInmoble) {
 		this.keyInmoble = keyInmoble;
+	}
+
+	public Inmobles getInmoble() {
+		return inmoble;
+	}
+
+	public void setInmoble(Inmobles inmoble) {
+		this.inmoble = inmoble;
 	}
 
 	

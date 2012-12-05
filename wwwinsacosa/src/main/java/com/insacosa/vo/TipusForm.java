@@ -146,7 +146,7 @@ public class TipusForm extends Objecte
 		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
 	
 		inmobleForm.setCambiDades(true); 
-		inmobleForm.setKeyTipus((Key)event.getNewValue());
+		inmobleForm.setKeyTipus((String)event.getNewValue());
 		
 		// 1.- construim els controls dinamics (dins la qual modifica la hashMap de columnes visibles)
 		// -------------------------------------------------------------------------------------------

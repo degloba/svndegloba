@@ -32,7 +32,7 @@ public class UserForm  implements java.io.Serializable {
 		
 	}
 
-	private Key key;	
+	private String key;	
   	private String nomUsuari = null;
   	private String nom = null;
   	private String cognoms = null;
@@ -66,10 +66,10 @@ public class UserForm  implements java.io.Serializable {
 	private Session session;
         
 
-	public Key getKey() {
+	public String getKey() {
 		return key;
 	}
-	public void setKey(Key key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 	public String getNomUsuari() {
@@ -231,8 +231,8 @@ public class UserForm  implements java.io.Serializable {
 				Usuari_Impl r = new Usuari_Impl();
 				
 				Usuaris usuari = new Usuaris();
-				String k = KeyFactory.keyToString( (Key)this.getKey() );
-				usuari.setUsuariKey((Key)this.getKey());
+				String k = this.getKey() ;
+				usuari.setUsuariKey((String)this.getKey());
 				usuari.setPassword(this.newPwd);
 				r.cambiaPassword(usuari);
 
@@ -302,7 +302,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				Usuaris usuari = new Usuaris();
 				
-				usuari.setUsuariKey((Key)this.getKey());
+				usuari.setUsuariKey((String)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				//registreHib.setCountry(this.getContactNumber());
@@ -325,7 +325,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				Usuaris usuari = new Usuaris();
 				
-				usuari.setUsuariKey((Key)this.getKey());
+				usuari.setUsuariKey((String)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				usuari.setEmail(this.getEmail());
