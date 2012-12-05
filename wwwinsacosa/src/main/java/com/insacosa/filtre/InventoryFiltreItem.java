@@ -10,16 +10,16 @@ public class InventoryFiltreItem implements Serializable {
 	
     private static final long serialVersionUID = -5424674835711375626L;
     
-    private Key key;
+    private String key;
   	private String nom;
   	private String adreca;
-	private Key localitat;
+	private String localitat;
 
-	private Key provincia;
+	private String provincia;
 
 	private String smallImageURL;
 	
-	private Key keyTipus;
+	private String keyTipus;
 	private String tipusStr;
 
 	private Short numero,planta;	
@@ -28,16 +28,16 @@ public class InventoryFiltreItem implements Serializable {
 	private Short metres;	
 	private long preu;
 	private InputStream imatge;	
-	private Key venedor;  // nomUusari 
+	private String venedor;  // nomUusari 
 
 
 	
 	private boolean visitat = true;
 	
-	public Key getKey() {
+	public String getKey() {
 		return key;
 	}
-	public void setKey(Key key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 	public String getNom() {
@@ -52,17 +52,17 @@ public class InventoryFiltreItem implements Serializable {
 	public void setAdreca(String adreca) {
 		this.adreca = adreca;
 	}
-	public Key getLocalitat() {
+	public String getLocalitat() {
 		return localitat;
 	}
-	public void setLocalitat(Key localitat) {
+	public void setLocalitat(String localitat) {
 		this.localitat = localitat;
 	}
 	
-	public Key getProvincia() {
+	public String getProvincia() {
 		return provincia;
 	}
-	public void setProvincia(Key provincia) {
+	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
 	public String getSmallImageURL() {
@@ -71,10 +71,10 @@ public class InventoryFiltreItem implements Serializable {
 	public void setSmallImageURL(String smallImageURL) {
 		this.smallImageURL = smallImageURL;
 	}
-	public Key getKeyTipus() {
+	public String getKeyTipus() {
 		return keyTipus;
 	}
-	public void setKeyTipus(Key keyTipus) {
+	public void setKeyTipus(String keyTipus) {
 		this.keyTipus = keyTipus;
 	}
 	public String getTipusStr() {
@@ -119,10 +119,10 @@ public class InventoryFiltreItem implements Serializable {
 	public void setImatge(InputStream imatge) {
 		this.imatge = imatge;
 	}
-	public Key getVenedor() {
+	public String getVenedor() {
 		return venedor;
 	}
-	public void setVenedor(Key venedor) {
+	public void setVenedor(String venedor) {
 		this.venedor = venedor;
 	}
 	

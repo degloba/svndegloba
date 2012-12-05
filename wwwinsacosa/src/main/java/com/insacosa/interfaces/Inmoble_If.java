@@ -14,12 +14,12 @@ public interface Inmoble_If {
 	// ****************************
 	// Operacions inmobles
 	// ****************************
-	Inmobles inmoblePerKey(Key keyInmoble);
+	Inmobles inmoblePerKey(String keyInmoble);
 	Inmobles afegirInmoble(Inmobles idInmoble);
 	void modificarInmoble(Inmobles inmoble);
 	void eliminarInmoble(Inmobles idInmoble);
 	
-	Tipus tipusInmoble(Key keyInmoble);
+	Tipus tipusInmoble(String keyInmoble);
 	
 	// llista tots els inmobles cercats segons filtre
 	List<Inmobles> buscarInmobles(Inmobles condicioInmoble);
@@ -35,7 +35,7 @@ public interface Inmoble_If {
 	List<Inmobles> inmoblesVenedorRang(Usuaris usuari, int firstResult, int maxResults);
 	
 	// retorna un inmoble amb tota la informacio (detall)
-	Inmobles detallInmoble(Key id);
+	Inmobles detallInmoble(String id);
 	
 	// un comprador (sessio) que "marca" un inmoble com solicitat
 	void solicitarInmobles(Solicituds solicitud);
@@ -70,7 +70,7 @@ public interface Inmoble_If {
 	// caracteristiques d'un tipus d'inmoble amb i sense una condicio
 	List<Caracteristiques> caractTipus(Tipus tipus);
 	List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio, Boolean inclouCaractComu);
-	Caracteristiques caractPerKey(Key idCaract);
+	Caracteristiques caractPerKey(String idCaract);
 	List<Caracteristiques> allCaract();
 	
 	
@@ -139,9 +139,9 @@ public interface Inmoble_If {
 	// Valors caracteristiques
 	// ****************************
 	void afegirValorCaract(ValuesCaracteristiques valorCaracteristica);
-	void eliminarValorCaract(Key idCaracteristica, Key idInmoble);
-	void modificarValorCaract(Key idCaracteristica, Key idInmoble, String value);
-	InmobleCaract valorsCaracteristiquesInmoble(Key idInmoble);
+	void eliminarValorCaract(Key idCaracteristica, String idInmoble);
+	void modificarValorCaract(Key idCaracteristica, String idInmoble, String value);
+	InmobleCaract valorsCaracteristiquesInmoble(String idInmoble);
 	
 	
 
