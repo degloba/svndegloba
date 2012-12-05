@@ -8,9 +8,10 @@ public class CaracteristicaForm implements java.io.Serializable ,Comparable<Obje
 {
 
 	private static final long serialVersionUID = 1L;
-	private Key key;
+	private String key;
 	private String nom;
-	private Key keyTipus;
+	
+	private String keyTipus;
   	
 	// Constructor por defecto.
   	public CaracteristicaForm() 
@@ -19,11 +20,11 @@ public class CaracteristicaForm implements java.io.Serializable ,Comparable<Obje
 	    
   	}
 
-	public Key getKey() {
+	public String getKey() {
 		return key;
 	}
 
-	public void setKey(Key key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 
@@ -35,11 +36,11 @@ public class CaracteristicaForm implements java.io.Serializable ,Comparable<Obje
 		this.nom = nom;
 	}
 
-	public Key getKeyTipus() {
+	public String getKeyTipus() {
 		return keyTipus;
 	}
 
-	public void setKeyTipus(Key keyTipus) {
+	public void setKeyTipus(String keyTipus) {
 		this.keyTipus = keyTipus;
 	}
 
