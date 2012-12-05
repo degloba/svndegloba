@@ -10,14 +10,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.datanucleus.jpa.annotations.Extension;
+
 import com.google.appengine.api.datastore.Key;
 
 @Entity
 public class Ttpbasic {
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key key;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
+	
+	private String key;
 	
 	private String bdtype;
 	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(
@@ -27,11 +32,11 @@ public class Ttpbasic {
 	}
 
 	
-	public Ttpbasic(Key key) {
+	public Ttpbasic(String key) {
 		this.key = key;
 	}
 
-	public Ttpbasic(Key key, String bdtype,
+	public Ttpbasic(String key, String bdtype,
 			Set<Caracteristiques> caracteristiqueses) {
 		this.key = key;
 		this.bdtype = bdtype;
@@ -39,7 +44,7 @@ public class Ttpbasic {
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
-    public Key getKey() {        
+    public String getKey() {        
     	return key;    
     	}
 
@@ -61,4 +66,11 @@ public class Ttpbasic {
 		this.caracteristiqueses = caracteristiqueses;
 	}
 
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	
+	
 }

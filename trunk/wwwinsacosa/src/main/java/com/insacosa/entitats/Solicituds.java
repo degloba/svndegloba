@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import org.datanucleus.jpa.annotations.Extension;
+
 import com.google.appengine.api.datastore.Key;
 
 
@@ -18,7 +20,10 @@ import com.google.appengine.api.datastore.Key;
 public class Solicituds {
 	
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
+	private String id;
+	
 	private String solicitudKey;
 	
 	

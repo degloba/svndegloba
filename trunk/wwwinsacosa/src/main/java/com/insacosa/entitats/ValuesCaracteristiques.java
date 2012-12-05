@@ -8,8 +8,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.datanucleus.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -18,35 +20,47 @@ public class ValuesCaracteristiques {
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key key;
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
 	
-	private Caracteristiques caracteristiques;
+	private String valueCaracteristicaKey;
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Inmobles inmobles;
+	
+	@Transient
+	private Caracteristiques caracteristiques;
+	
+
+	 // Unowned relationship
+    private String caracteristicaKey;
+
+	
 	private String value;
 
 	public ValuesCaracteristiques() {
 	}
 
-	public ValuesCaracteristiques(Key key,Caracteristiques caracteristiques, Inmobles inmobles) {
-		this.key = key;
+	public ValuesCaracteristiques(String valueCaracteristicaKey,Caracteristiques caracteristiques, Inmobles inmobles) {
+		this.valueCaracteristicaKey = valueCaracteristicaKey;
 		this.caracteristiques = caracteristiques;
 		this.inmobles = inmobles;
 	}
 
-	public ValuesCaracteristiques(Key key,Caracteristiques caracteristiques, Inmobles inmobles, String value) {
-		this.key = key;
+	public ValuesCaracteristiques(String valueCaracteristicaKey,Caracteristiques caracteristiques, Inmobles inmobles, String value) {
+		this.valueCaracteristicaKey = valueCaracteristicaKey;
 		this.caracteristiques = caracteristiques;
 		this.inmobles = inmobles;
 		this.value = value;
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
-    public Key getKey() {        
-    	return key;    
+    public String getValueCaracteristicaKey() {        
+    	return valueCaracteristicaKey;    
     	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDCARACTERISTICA", nullable = false, insertable = false, updatable = false)
+	
 	public Caracteristiques getCaracteristiques() {
 		return this.caracteristiques;
 	}
@@ -55,8 +69,6 @@ public class ValuesCaracteristiques {
 		this.caracteristiques = caracteristiques;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDINMOBLE", nullable = false, insertable = false, updatable = false)
 	public Inmobles getInmobles() {
 		return this.inmobles;
 	}
@@ -73,5 +85,19 @@ public class ValuesCaracteristiques {
 	public void setValue(String value) {
 		this.value = value;
 	}
+
+	public String getCaracteristicaKey() {
+		return caracteristicaKey;
+	}
+
+	public void setCaracteristicaKey(String caracteristicaKey) {
+		this.caracteristicaKey = caracteristicaKey;
+	}
+
+	public void setValueCaracteristicaKey(String valueCaracteristicaKey) {
+		this.valueCaracteristicaKey = valueCaracteristicaKey;
+	}
+	
+	
 
 }

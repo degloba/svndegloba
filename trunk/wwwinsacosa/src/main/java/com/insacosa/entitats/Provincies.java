@@ -3,9 +3,10 @@ package com.insacosa.entitats;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,9 +14,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.datanucleus.jpa.annotations.Extension;
 
 
 
@@ -24,37 +28,45 @@ public class Provincies extends Objecte  {
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key key;
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
+	private String id;
+	
+	private String provinciaKey;
 	
 	private String code;
 	private String name;
 	
-	//private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	@Transient
+	private Set<Inmobles> inmobleses;
+	
+	@Basic(fetch = FetchType.EAGER)
+    private Set<String> inmoblesesKeys = new HashSet<String>();
+
 
 	public Provincies() {
 	}
 
-	public Provincies(Key key, String code, String name) {
-		this.key = key;
+	public Provincies(String provinciaKey, String code, String name) {
+		this.provinciaKey = provinciaKey;
 		this.code = code;
 		this.name = name;
 	}
 
-	public Provincies(Key key, String code, String name,
+	public Provincies(String provinciaKey, String code, String name,
 			Set<Inmobles> inmobleses) {
-		this.key = key;
+		this.provinciaKey = provinciaKey;
 		this.code = code;
 		this.name = name;
 		//this.inmobleses = inmobleses;
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
-    public Key getKey() {        
-    	return key;    
+    public String getProvinciaKey() {        
+    	return provinciaKey;    
     	}
     
-	public void setKey(Key key) {
-		this.key = key;
+	public void setProvinciaKey(String provinciaKey) {
+		this.provinciaKey = provinciaKey;
 	}
 
 	@Column(name = "code", nullable = false, length = 16)
@@ -74,6 +86,27 @@ public class Provincies extends Objecte  {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Set<Inmobles> getInmobleses() {
+		return inmobleses;
+	}
+
+	public void setInmobleses(Set<Inmobles> inmobleses) {
+		this.inmobleses = inmobleses;
+	}
+
+	public Set<String> getInmoblesesKeys() {
+		return inmoblesesKeys;
+	}
+
+	public void setInmoblesesKeys(Set<String> inmoblesesKeys) {
+		this.inmoblesesKeys = inmoblesesKeys;
+	}
+	
+	
+	
+	
+	
 /*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "provincies")
 	public Set<Inmobles> getInmobleses() {

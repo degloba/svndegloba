@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.datanucleus.jpa.annotations.Extension;
+
 import com.google.appengine.api.datastore.Key;
 
 
@@ -17,7 +19,10 @@ import com.google.appengine.api.datastore.Key;
 public class Fotos {
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)    
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
+	private String id;
+	
 	private Key key;
 	
 	private Inmobles inmobles;

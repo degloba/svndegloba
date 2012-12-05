@@ -1,11 +1,14 @@
 package com.insacosa.entitats;
 
+
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,35 +18,46 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.datanucleus.jpa.annotations.Extension;
 
 @Entity
 public class Ciutats extends Objecte {
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)    
-	private Key key;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
+	
+	private String ciutatKey;
 	
 	private Date tmstamp;
 	private String code;
 	private String name;
 	private Key keyProv;
 	
-	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
+	@Transient
+	private Set<Inmobles> inmobleses;
+	
+	@Basic(fetch = FetchType.EAGER)
+    private Set<String> inmoblesesKeys = new HashSet<String>();
 
+	
 	public Ciutats() {
 	}
 
-	public Ciutats(Key key, Date tmstamp, String code, String name, Key keyProv) {
-		this.key = key;
+	public Ciutats(String ciutatKey, Date tmstamp, String code, String name, Key keyProv) {
+		this.ciutatKey = ciutatKey;
 		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 		this.keyProv = keyProv;
 	}
 
-	public Ciutats(Key key, Date tmstamp, String code, String name, Key keyProv,
+	public Ciutats(String ciutatKey, Date tmstamp, String code, String name, Key keyProv,
 			Set<Inmobles> inmobleses) {
-		this.key = key;
+		this.ciutatKey = ciutatKey;
 		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
@@ -52,12 +66,12 @@ public class Ciutats extends Objecte {
 	}
 
 	 // Accessors for the fields. JPA doesn't use these, but your application does.    
-	public Key getKey() {        
-		return key;    
+	public String getCiutatKey() {        
+		return ciutatKey;    
 		}
 	
-	public void setKey(Key key) {
-		this.key = key;
+	public void setCiutatKey(String ciutatKey) {
+		this.ciutatKey = ciutatKey;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -97,13 +111,22 @@ public class Ciutats extends Objecte {
 		this.keyProv = keyProv;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciutats")
 	public Set<Inmobles> getInmobleses() {
-		return this.inmobleses;
+		return inmobleses;
 	}
 
 	public void setInmobleses(Set<Inmobles> inmobleses) {
 		this.inmobleses = inmobleses;
 	}
+
+	public Set<String> getInmoblesesKeys() {
+		return inmoblesesKeys;
+	}
+
+	public void setInmoblesesKeys(Set<String> inmoblesesKeys) {
+		this.inmoblesesKeys = inmoblesesKeys;
+	}
+
+
 
 }
