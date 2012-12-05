@@ -41,7 +41,7 @@ public class DragDropBeanCaract extends DragDropBean<Caracteristiques> implement
 	     getSource().remove(caracteristica);
 	     getTarget().add(caracteristica);
 	      	
-	     inmobleForm.getValorsCaracts().put(caracteristica.getKey(), true);
+	     inmobleForm.getValorsCaracts().put(caracteristica.getCaracteristicaKey(), true);
 	     
 	}
 	
