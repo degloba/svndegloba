@@ -40,7 +40,7 @@ public class FormHBM {
     {
     	InmobleForm inmobleForm = new InmobleForm();
     	
-    	inmobleForm.setKey(inmoble.getKey());
+    	inmobleForm.setKey(inmoble.getInmobleKey());
 		inmobleForm.setNom(inmoble.getNom());
 		inmobleForm.setAdreca(inmoble.getAdreca());
 	    
@@ -76,7 +76,7 @@ public class FormHBM {
 			fotoForm.setKey(foto.getKey());
 			fotoForm.setImatge(foto.getImatge());
 			fotoForm.setDescripcio(foto.getDescripcio());
-			fotoForm.setKeyInmoble(foto.getInmobles().getKey());
+			fotoForm.setKeyInmoble(foto.getInmobles().getInmobleKey());
 			
 			fotosForm.add(fotoForm);
 		}
@@ -93,7 +93,7 @@ public class FormHBM {
     
     	Inmobles inmoble = new Inmobles();
     	    	
-    	inmoble.setKey(inmobleForm.getKey()); 
+    	inmoble.setInmobleKey(inmobleForm.getKey()); 
 		inmoble.setNom(inmobleForm.getNom());
 		inmoble.setAdreca(inmobleForm.getAdreca());
 		
@@ -249,7 +249,7 @@ public class FormHBM {
 			
 			Caracteristiques caract = (Caracteristiques)it.next();
 			
-			caracteristicaForm.setKey(caract.getKey());
+			caracteristicaForm.setKey(caract.getCaracteristicaKey());
 			caracteristicaForm.setNom(caract.getNom());
 			caracteristicaForm.setKeyTipus(caract.getTipus().getTipusKey());
 			

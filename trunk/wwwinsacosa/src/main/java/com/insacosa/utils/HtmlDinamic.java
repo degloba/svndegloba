@@ -213,7 +213,7 @@ public abstract class HtmlDinamic implements Serializable {
  * Butonera d'operadors numerics (>,= ,<,...) amb el titol del camp i l'inputText	
 */
 	public static HtmlPanelGroup butoneraNumerica (
-			Key idColumna,
+			String idColumna,
 			String valueExpressionOperadors,
 			String valueExpressionFiltre,
 			String nomColumna,
@@ -719,7 +719,7 @@ public abstract class HtmlDinamic implements Serializable {
 	 * Butonera booleana 
 	 */
     public static UICommandLink butoneraBooleana(
-    		Key idColumna)
+    		String idColumna)
     {
     	
     	UICommandLink cl = buildCommandLinkRich(
@@ -825,8 +825,8 @@ public abstract class HtmlDinamic implements Serializable {
 	    	Caracteristiques caracteristica = (Caracteristiques) caracteristiquesIter.next();
 	    	
 	    	UIColumn columna = buildColumn(
-	    			caracteristica.getKey() ,
-	    			"#{item.caractInmobles[" + caracteristica.getKey() + "]}",
+	    			caracteristica.getCaracteristicaKey() ,
+	    			"#{item.caractInmobles[" + caracteristica.getCaracteristicaKey() + "]}",
 	    			"#{inmobleForm.columnesVisibles[" + caracteristica.getNom() + "]}",
 	    			caracteristica.getNom(), 
 	    			caracteristica.getTtpbasic().getBdtype(), 
@@ -948,8 +948,8 @@ public abstract class HtmlDinamic implements Serializable {
 	    	Caracteristiques caracteristica = (Caracteristiques) caracteristiquesIter.next();
 	    	
 	    	UIColumn columna = buildColumnSortFilter(
-	    			caracteristica.getKey() ,
-	    			"#{item.caractInmobles[" + caracteristica.getKey() + "]}",
+	    			caracteristica.getCaracteristicaKey() ,
+	    			"#{item.caractInmobles[" + caracteristica.getCaracteristicaKey() + "]}",
 	    			"#{inmobleForm.columnesVisibles[" + caracteristica.getNom() + "]}",
 	    			caracteristica.getNom(), "", 
 	    			caracteristica.getTtpbasic().getBdtype(), 
@@ -958,7 +958,7 @@ public abstract class HtmlDinamic implements Serializable {
 	    			caracteristica.getTamanyControl() == null ? 0 : caracteristica.getTamanyControl().intValue());  
 	    	
 	    	
-	    	System.out.println("ID/Caract : " + caracteristica.getKey() + "/" + caracteristica.getNom() + "\n");
+	    	System.out.println("ID/Caract : " + caracteristica.getCaracteristicaKey() + "/" + caracteristica.getNom() + "\n");
 	    	System.out.println("Tipus BD : " + caracteristica.getTtpbasic().getKey());
 	    	System.out.println("Tipus Control : " + caracteristica.getTtpcontrol().getKey());
 	    	
@@ -1126,7 +1126,7 @@ public abstract class HtmlDinamic implements Serializable {
 	 * <rich:column> Columna Richfaces SENSE suport Filtering/Sorting
 	 ------------------------------------------------------------------ */
 	public static UIColumn buildColumn(
-			Key idColumna,
+			String idColumna,
 			String valueExpression,
 			String valueExpressionRendered,  // en principi esta relacionat amb la "inmobleForm.columnesVisibles" 
 			String nomColumna,
@@ -1225,7 +1225,7 @@ public abstract class HtmlDinamic implements Serializable {
 	 construim els diferents elements
 	 ------------------------------------------------------------------ */
 	public static UIColumn afegirSortingFilteringColumn(
-			Key idColumna,
+			String idColumna,
 			String nomColumna,
 			UIColumn column,
 			String tipusColumna,
@@ -1425,7 +1425,7 @@ public abstract class HtmlDinamic implements Serializable {
 	 * <rich:column> Columna Richfaces amb suport Filtering/Sorting
 	 ------------------------------------------------------------------ */
 	public static UIColumn buildColumnSortFilter(
-			Key idColumna,
+			String idColumna,
 			String valueExpression,
 			String valueExpressionRendered,
 			String nomColumna,
