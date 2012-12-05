@@ -148,7 +148,7 @@ public class Usuari_Impl implements Usuari_If {
 	}	
 
 
-	public Usuaris editPerfil(Key keyUsuari) {
+	public Usuaris editPerfil(String keyUsuari) {
 		
 		Usuaris usuari = null;
 		

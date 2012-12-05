@@ -39,7 +39,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	
 
-	public Tipus tipusInmoble(Key keyInmoble) {
+	public Tipus tipusInmoble(String keyInmoble) {
 		
 		Tipus ret = null;
 		
@@ -106,7 +106,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 	
-	public Inmobles inmoblePerKey(Key keyInmoble) {
+	public Inmobles inmoblePerKey(String keyInmoble) {
 		
 		Inmobles inmoble = null;
 		  
@@ -312,7 +312,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 
 	
-	public Inmobles detallInmoble(Key keyInmoble) {
+	public Inmobles detallInmoble(String keyInmoble) {
 		
 		Inmobles inmoble = null;
 		
@@ -1069,7 +1069,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	}
 
 	
-	public Caracteristiques caractPerKey(Key keyCaract) {
+	public Caracteristiques caractPerKey(String keyCaract) {
 		
 		Caracteristiques caracteristica = null;
 		
@@ -1117,7 +1117,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 	
-	public InmobleCaract valorsCaracteristiquesInmoble(Key keyInmoble) {
+	public InmobleCaract valorsCaracteristiquesInmoble(String keyInmoble) {
 		
 		List<?> list = null;
 		
@@ -1228,7 +1228,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 	
-	public void eliminarValorCaract(Key keyCaracteristica, Key keyInmoble ) {
+	public void eliminarValorCaract(Key keyCaracteristica, String keyInmoble ) {
 		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -1260,7 +1260,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 	
-	public void modificarValorCaract(Key idCaracteristica, Key keyInmoble, String value) {
+	public void modificarValorCaract(Key idCaracteristica, String keyInmoble, String value) {
 		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
