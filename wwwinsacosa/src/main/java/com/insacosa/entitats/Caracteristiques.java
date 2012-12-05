@@ -3,18 +3,21 @@ package com.insacosa.entitats;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+
+import org.datanucleus.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -24,11 +27,12 @@ public class Caracteristiques{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key key;
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
 	
+	private String caracteristicaKey;
 	
-	
-	
+		
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Tipus tipus;
 	
@@ -44,8 +48,7 @@ public class Caracteristiques{
 	// Unowned relationship
     private String ttpbasicKey;
 
-	
-	
+		
 	private String nom;
 	private Integer control;
 	private Integer tamanyControl;
@@ -53,28 +56,34 @@ public class Caracteristiques{
 	private boolean modificable;
 	private String icono;
 	
-	
-	private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
-	private Set<ValuesCaracteristiques> valuesCaracteristiqueses = new HashSet<ValuesCaracteristiques>(
-			0);
 
+	@Transient
+	private Set<Inmobles> inmobles;
 	
+	@Basic(fetch = FetchType.EAGER)
+	private Set<String> inmoblesKeys = new HashSet<String>();
+
+	@Transient
+	private Set<ValuesCaracteristiques> valuesCaracteristiques;
+	
+	@Basic(fetch = FetchType.EAGER)
+	private Set<String> valuesCaracteristiquesKeys = new HashSet<String>();
 	
 	
 	public Caracteristiques() {
 	}
 
-	public Caracteristiques(Key key, boolean modificable) {
-		this.key = key;
+	public Caracteristiques(String caracteristicaKey, boolean modificable) {
+		this.caracteristicaKey = caracteristicaKey;
 		this.modificable = modificable;
 	}
 
-	public Caracteristiques(Key key, Tipus tipus, Ttpcontrol ttpcontrol,
+	public Caracteristiques(String caracteristicaKey, Tipus tipus, Ttpcontrol ttpcontrol,
 			Ttpbasic ttpbasic, String nom, Integer control,
 			Integer tamanyControl, Boolean obligatori, boolean modificable,
-			String icono, Set<Inmobles> inmobleses,
+			String icono, Set<Inmobles> inmobles,
 			Set<ValuesCaracteristiques> valuesCaracteristiqueses) {
-		this.key = key;
+		this.caracteristicaKey = caracteristicaKey;
 		this.tipus = tipus;
 		this.ttpcontrol = ttpcontrol;
 		this.ttpbasic = ttpbasic;
@@ -84,17 +93,17 @@ public class Caracteristiques{
 		this.obligatori = obligatori;
 		this.modificable = modificable;
 		this.icono = icono;
-		this.inmobleses = inmobleses;
-		this.valuesCaracteristiqueses = valuesCaracteristiqueses;
+		this.inmobles = inmobles;
+		this.valuesCaracteristiques = valuesCaracteristiqueses;
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
-    public Key getKey() {        
-    	return key;    
+    public String getCaracteristicaKey() {        
+    	return caracteristicaKey;    
     	}
     
-	public void setKey(Key key) {
-		this.key = key;
+	public void setCaracteristicaKey(String caracteristicaKey) {
+		this.caracteristicaKey = caracteristicaKey;
 	}    
 
 	
@@ -169,23 +178,41 @@ public class Caracteristiques{
 		this.icono = icono;
 	}
 
-	public Set<Inmobles> getInmobleses() {
-		return this.inmobleses;
+
+
+	public Set<Inmobles> getInmobles() {
+		return inmobles;
 	}
 
-	public void setInmobleses(Set<Inmobles> inmobleses) {
-		this.inmobleses = inmobleses;
+	public void setInmobles(Set<Inmobles> inmobles) {
+		this.inmobles = inmobles;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caracteristiques")
-	public Set<ValuesCaracteristiques> getValuesCaracteristiqueses() {
-		return this.valuesCaracteristiqueses;
+	public Set<String> getInmoblesKeys() {
+		return inmoblesKeys;
 	}
 
-	public void setValuesCaracteristiqueses(
-			Set<ValuesCaracteristiques> valuesCaracteristiqueses) {
-		this.valuesCaracteristiqueses = valuesCaracteristiqueses;
+	public void setInmoblesKeys(Set<String> inmoblesKeys) {
+		this.inmoblesKeys = inmoblesKeys;
 	}
+
+	public Set<ValuesCaracteristiques> getValuesCaracteristiques() {
+		return valuesCaracteristiques;
+	}
+
+	public void setValuesCaracteristiques(
+			Set<ValuesCaracteristiques> valuesCaracteristiques) {
+		this.valuesCaracteristiques = valuesCaracteristiques;
+	}
+
+	public Set<String> getValuesCaracteristiquesKeys() {
+		return valuesCaracteristiquesKeys;
+	}
+
+	public void setValuesCaracteristiquesKeys(Set<String> valuesCaracteristiquesKeys) {
+		this.valuesCaracteristiquesKeys = valuesCaracteristiquesKeys;
+	}
+
 
 	public Tipus getTipus() {
 		return tipus;

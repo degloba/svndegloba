@@ -16,19 +16,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.datanucleus.jpa.annotations.Extension;
+
 
 @Entity
 public class Tipus extends Objecte  {
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	private Key tipusKey;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
+	
+	private String tipusKey;
 	
 	private String nom;
 	//private Set<Inmobles> inmobleses = new HashSet<Inmobles>(0);
 	//private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(
 	//		0);
-	
+
 	
 	@Transient
 	private Set<Inmobles> inmobleses;
@@ -37,7 +42,7 @@ public class Tipus extends Objecte  {
     private Set<String> inmoblesesKeys = new HashSet<String>();
 	
 	@Transient
-	private Set<Inmobles> caracteristiqueses;
+	private Set<Caracteristiques> caracteristiqueses;
 		
 	@Basic(fetch = FetchType.EAGER)
     private Set<String> caracteristiquesesKeys = new HashSet<String>();
@@ -51,15 +56,15 @@ public class Tipus extends Objecte  {
 	public Tipus() {
 	}
 
-	public Tipus(Key tipusKey) {
+	public Tipus(String tipusKey) {
 		this.tipusKey = tipusKey;
 	}
 
-	public void setTipusKey(Key tipusKey) {
+	public void setTipusKey(String tipusKey) {
 		this.tipusKey = tipusKey;
 	}
 	
-	public Tipus(Key tipusKey, String nom, Set<Inmobles> inmobleses,
+	public Tipus(String tipusKey, String nom, Set<Inmobles> inmobleses,
 			Set<String> caracteristiquesesKeys) {
 		this.tipusKey = tipusKey;
 		this.nom = nom;
@@ -68,7 +73,7 @@ public class Tipus extends Objecte  {
 	}
 
     // Accessors for the fields. JPA doesn't use these, but your application does.    
-    public Key getTipusKey() {        
+    public String getTipusKey() {        
     	return tipusKey;    
     	}
 
@@ -114,11 +119,11 @@ public class Tipus extends Objecte  {
 		this.inmoblesesKeys = inmoblesesKeys;
 	}
 
-	public Set<Inmobles> getCaracteristiqueses() {
+	public Set<Caracteristiques> getCaracteristiqueses() {
 		return caracteristiqueses;
 	}
 
-	public void setCaracteristiqueses(Set<Inmobles> caracteristiqueses) {
+	public void setCaracteristiqueses(Set<Caracteristiques> caracteristiqueses) {
 		this.caracteristiqueses = caracteristiqueses;
 	}
 

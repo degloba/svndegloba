@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.datanucleus.jpa.annotations.Extension;
+
 
 import com.google.appengine.api.datastore.Key;
 
@@ -18,7 +20,10 @@ import com.google.appengine.api.datastore.Key;
 public class Ttpcontrol {
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
+	private String id;
+	
 	private Key key;
 	
 	private String tipus;
@@ -59,6 +64,10 @@ public class Ttpcontrol {
 
 	public void setTipus(String tipus) {
 		this.tipus = tipus;
+	}
+
+	public void setKey(Key key) {
+		this.key = key;
 	}
 	
 	

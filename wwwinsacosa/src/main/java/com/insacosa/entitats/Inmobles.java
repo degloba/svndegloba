@@ -3,6 +3,7 @@ package com.insacosa.entitats;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import org.datanucleus.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -22,13 +26,35 @@ import com.google.appengine.api.datastore.Key;
 public class Inmobles{
 
 	@Id    
-	@GeneratedValue(strategy = GenerationType.IDENTITY)    
-	private Key key;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
+	private String id;
+	
+	private String inmobleKey;
 
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Tipus tipus;
+	
+	@Transient
 	private Usuaris usuaris;
+
+	 // Unowned relationship
+    private String usuariKey;
+	
+	@Transient
 	private Provincies provincies;
+	
+	 // Unowned relationship
+    private String provinciaKey;
+
+	
+	@Transient
 	private Ciutats ciutats;
+	
+	 // Unowned relationship
+    private String ciutatKey;
+
+	
 	private String nom;
 	private String adreca;
 	private String smallimageurl;
@@ -40,31 +66,54 @@ public class Inmobles{
 	private byte[] imatge;
 	private boolean visitat;
 	
-	private Set<ValuesCaracteristiques> valuesCaracteristiqueses = new HashSet<ValuesCaracteristiques>(0);
 	
-	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(0);
-	
-	private Set<Solicituds> solicitudses = new HashSet<Solicituds>(0);
-	
-	private Set<Fotos> fotoses = new HashSet<Fotos>(0);
 
+   @Transient
+   private Set<ValuesCaracteristiques> valuesCaracteristiqueses;
+   
+   @Basic(fetch = FetchType.EAGER)
+   private Set<String> valuesCaracteristiquesesKeys = new HashSet<String>();
+
+   
+   @Transient
+   private Set<Caracteristiques> caracteristiqueses;
+   
+   @Basic(fetch = FetchType.EAGER)
+   private Set<String> caracteristiquesesKeys = new HashSet<String>();
+
+	
+   @Transient
+   private Set<Solicituds> solicitudses;
+   
+   @Basic(fetch = FetchType.EAGER)
+   private Set<String> solicitudsesKeys = new HashSet<String>();
+	
+   
+   @Transient
+   private Set<Fotos> fotoses;
+   
+   @Basic(fetch = FetchType.EAGER)
+   private Set<String> fotosesKeys = new HashSet<String>();
+	
+ 	
+	
 	public Inmobles() {
 	}
 
-	public Inmobles(Key key, long preu, boolean visitat) {
-		this.key = key;
+	public Inmobles(String inmobleKey, long preu, boolean visitat) {
+		this.inmobleKey = inmobleKey;
 		this.preu = preu;
 		this.visitat = visitat;
 	}
 
-	public Inmobles(Key key, Tipus tipus, Usuaris usuaris,
+	public Inmobles(String inmobleKey, Tipus tipus, Usuaris usuaris,
 			Provincies provincies, Ciutats ciutats, String nom, String adreca,
 			String smallimageurl, Short numero, Short planta, String puerta,
 			Short metres, long preu, byte[] imatge, boolean visitat,
 			Set<ValuesCaracteristiques> valuesCaracteristiqueses,
 			Set<Caracteristiques> caracteristiqueses,
 			Set<Solicituds> solicitudses, Set<Fotos> fotoses) {
-		this.key = key;
+		this.inmobleKey = inmobleKey;
 		this.tipus = tipus;
 		this.usuaris = usuaris;
 		this.provincies = provincies;
@@ -86,17 +135,15 @@ public class Inmobles{
 	}
 
 	 // Accessors for the fields. JPA doesn't use these, but your application does.    
-	public Key getKey() {        
-		return key;    
+	public String getInmobleKey() {        
+		return inmobleKey;    
 		}
 		
-	public void setKey(Key key) {
-		this.key = key;
+	public void setInmobleKey(String inmobleKey) {
+		this.inmobleKey = inmobleKey;
 	}
 
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDTIPUS")
+
 	public Tipus getTipus() {
 		return this.tipus;
 	}
@@ -105,8 +152,7 @@ public class Inmobles{
 		this.tipus = tipus;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "VENEDOR")
+
 	public Usuaris getUsuaris() {
 		return this.usuaris;
 	}
@@ -115,8 +161,7 @@ public class Inmobles{
 		this.usuaris = usuaris;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDPROVINCIA")
+
 	public Provincies getProvincies() {
 		return this.provincies;
 	}
@@ -125,8 +170,7 @@ public class Inmobles{
 		this.provincies = provincies;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDLOCALITAT")
+
 	public Ciutats getCiutats() {
 		return this.ciutats;
 	}
@@ -225,15 +269,7 @@ public class Inmobles{
 		this.visitat = visitat;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inmobles")
-	public Set<ValuesCaracteristiques> getValuesCaracteristiqueses() {
-		return this.valuesCaracteristiqueses;
-	}
-
-	public void setValuesCaracteristiqueses(
-			Set<ValuesCaracteristiques> valuesCaracteristiqueses) {
-		this.valuesCaracteristiqueses = valuesCaracteristiqueses;
-	}
+	
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "CARACTINMOBLES", schema = "dbo", catalog = "INSACO", joinColumns = { @JoinColumn(name = "IDINMOBLE", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "IDCARACT", nullable = false, updatable = false) })
@@ -245,22 +281,92 @@ public class Inmobles{
 		this.caracteristiqueses = caracteristiqueses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY)
+	
+
+	public String getUsuariKey() {
+		return usuariKey;
+	}
+
+	public void setUsuariKey(String usuariKey) {
+		this.usuariKey = usuariKey;
+	}
+
+	public String getProvinciaKey() {
+		return provinciaKey;
+	}
+
+	public void setProvinciaKey(String provinciaKey) {
+		this.provinciaKey = provinciaKey;
+	}
+
+	public String getCiutatKey() {
+		return ciutatKey;
+	}
+
+	public void setCiutatKey(String ciutatKey) {
+		this.ciutatKey = ciutatKey;
+	}
+
+	public Set<ValuesCaracteristiques> getValuesCaracteristiqueses() {
+		return valuesCaracteristiqueses;
+	}
+
+	public void setValuesCaracteristiqueses(
+			Set<ValuesCaracteristiques> valuesCaracteristiqueses) {
+		this.valuesCaracteristiqueses = valuesCaracteristiqueses;
+	}
+
+	public Set<String> getValuesCaracteristiquesesKeys() {
+		return valuesCaracteristiquesesKeys;
+	}
+
+	public void setValuesCaracteristiquesesKeys(
+			Set<String> valuesCaracteristiquesesKeys) {
+		this.valuesCaracteristiquesesKeys = valuesCaracteristiquesesKeys;
+	}
+
+	public Set<String> getCaracteristiquesesKeys() {
+		return caracteristiquesesKeys;
+	}
+
+	public void setCaracteristiquesesKeys(Set<String> caracteristiquesesKeys) {
+		this.caracteristiquesesKeys = caracteristiquesesKeys;
+	}
+
 	public Set<Solicituds> getSolicitudses() {
-		return this.solicitudses;
+		return solicitudses;
 	}
 
 	public void setSolicitudses(Set<Solicituds> solicitudses) {
 		this.solicitudses = solicitudses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inmobles")
+	public Set<String> getSolicitudsesKeys() {
+		return solicitudsesKeys;
+	}
+
+	public void setSolicitudsesKeys(Set<String> solicitudsesKeys) {
+		this.solicitudsesKeys = solicitudsesKeys;
+	}
+
 	public Set<Fotos> getFotoses() {
-		return this.fotoses;
+		return fotoses;
 	}
 
 	public void setFotoses(Set<Fotos> fotoses) {
 		this.fotoses = fotoses;
 	}
 
+	public Set<String> getFotosesKeys() {
+		return fotosesKeys;
+	}
+
+	public void setFotosesKeys(Set<String> fotosesKeys) {
+		this.fotosesKeys = fotosesKeys;
+	}
+
+	
+	
+	
+	
 }
