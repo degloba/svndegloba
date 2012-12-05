@@ -16,7 +16,7 @@ import com.google.appengine.api.datastore.Key;
 @SessionScoped
 public class InmobleCaract {
 	
-	private Key keyInmoble;
+	private String keyInmoble;
 	private Map<Key, String> caractInmobles;
 	
 	
@@ -25,10 +25,10 @@ public class InmobleCaract {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Key getKeyInmoble() {
+	public String getKeyInmoble() {
 		return keyInmoble;
 	}
-	public void setKeyInmoble(Key keyInmoble) {
+	public void setKeyInmoble(String keyInmoble) {
 		this.keyInmoble = keyInmoble;
 	}
 	public Map<Key, String> getCaractInmobles() {

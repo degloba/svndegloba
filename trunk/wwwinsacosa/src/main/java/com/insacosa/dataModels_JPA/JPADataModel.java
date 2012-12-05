@@ -431,7 +431,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
 			while (inmoblesCondicionsIt.hasNext())
 			    {
 					Inmobles inmoble = inmoblesCondicionsIt.next();
-					InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getKey());
+					InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
 					
 					listDataRow.add(valorsCaract);
 			    }
@@ -600,7 +600,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     	{
     		InmobleCaract inmoble = (InmobleCaract) it.next();
     		
-    		if (inmoble.getKeyInmoble() == (Key) rowKey)
+    		if (inmoble.getKeyInmoble() == (String) rowKey)
     			return (T) inmoble;
     	}
     	

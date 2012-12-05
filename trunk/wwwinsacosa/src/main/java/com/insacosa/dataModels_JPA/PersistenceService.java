@@ -28,6 +28,11 @@ import org.w3c.dom.Node;
 
 import com.insacosa.entitats.Person;
 
+import com.google.appengine.api.datastore.DatastoreConfig;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceConfig;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.common.collect.Lists;
 import com.google.common.io.Closeables;
 
@@ -57,7 +62,8 @@ public class PersistenceService {
         if (manager == null) {
             manager = entityManagerFactory.createEntityManager();
             attributes.put(PersistenceService.class, manager);
-            manager.getTransaction().begin();
+           // manager.getTransaction().begin();          
+
         }
         
         return manager;
