@@ -54,7 +54,6 @@ public class CiutatsForm extends Objecte
 	
 	// Columnes de taula
 	private String key;
-	private Date tmstamp;
 	private String code;
 	private String name;
 	private Key keyProv;
@@ -118,51 +117,7 @@ public class CiutatsForm extends Objecte
 		//CriteriaQuery<Ciutats> select = criteriaQuery.select(from); 
 		//TypedQuery<Ciutats> typedQuery = emHibernateSQL.createQuery(select); 
 		//List<Ciutats> resultList = typedQuery.getResultList(); 
-        
-		
-		// Crear Entitats
-		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		//La classe PersistenceService es "ApplicationScoped"
-		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
-		
-		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();    
-		TransactionOptions options = TransactionOptions.Builder.withXG(true);    
-		Transaction txn = datastore.beginTransaction(options);
-		
-		
-		
-		Ciutats t = new Ciutats();
-		t.setName("Manresa");
-		t.setCode("9");
-		Key k = KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIQCxIKUHJvdmluY2llcxgRDA");
-		t.setKeyProv(k);
-		
-		em.persist(t);
-		
-		t = new Ciutats();
-		t.setName("Sallent");
-		t.setCode("9");
-		t.setKeyProv(k);
-		
-		em.persist(t);
-		
-		t = new Ciutats();
-		t.setName("Artés");
-		t.setCode("9");
-		t.setKeyProv(k);
-		
-		
-		
-		
-		
-		txn.commit();
-		
-		
-		
+    	
 		List<SelectItem> list;
 		
 		if (ciutats.size() == 0)
@@ -211,7 +166,6 @@ public class CiutatsForm extends Objecte
 		
 		setName("");
 		setCode("");
-		setTmstamp(new Date());
 		setProvinciaDescripcio("");
 		
 		estaLlista = false;
@@ -225,7 +179,6 @@ public class CiutatsForm extends Objecte
 		
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
-		ciutatHib.setTmstamp(this.getTmstamp());
 		ciutatHib.setKeyProv(this.getKeyProv());
 		
 		
@@ -236,7 +189,6 @@ public class CiutatsForm extends Objecte
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
 		ciut.setKeyProv(ciutatHib.getKeyProv());
-		ciut.setTmstamp(ciutatHib.getTmstamp());
 		
 		llista.add(ciut);
 		
@@ -253,7 +205,6 @@ public class CiutatsForm extends Objecte
     	ciutat.setCiutatKey(ciutatForm.getKey());
     	ciutat.setCode(ciutatForm.code);
     	ciutat.setName(ciutatForm.name);
-    	ciutat.setTmstamp(ciutatForm.tmstamp);
     	ciutat.setKeyProv(ciutatForm.getKeyProv());
     	
     	////ciutat.delete(ciutatHib);  // esborrem de la BD
@@ -272,7 +223,6 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setId(this.getId());
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
-		ciutatHib.setTmstamp(this.getTmstamp());
 		ciutatHib.setKeyProv(this.getKeyProv());
 		
 		////	this.update(ciutatHib);
@@ -283,7 +233,6 @@ public class CiutatsForm extends Objecte
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
 		ciut.setKeyProv(ciutatHib.getKeyProv());
-		ciut.setTmstamp(ciutatHib.getTmstamp());
 		
 	   } 	  
 	  
@@ -295,14 +244,6 @@ public class CiutatsForm extends Objecte
 
 	public void setKey(String key) {
 		this.key = key;
-	}
-
-	public Date getTmstamp() {
-		return tmstamp;
-	}
-
-	public void setTmstamp(Date tmstamp) {
-		this.tmstamp = tmstamp;
 	}
 
 	public String getCode() {
@@ -339,7 +280,6 @@ public class CiutatsForm extends Objecte
 				ciutat.setId(ciutatHib.getId());
 				ciutat.setCode( ciutatHib.getCode() );
 				ciutat.setName( ciutatHib.getName() );
-				ciutat.setTmstamp( ciutatHib.getTmstamp() );
 				ciutat.setKeyProv(ciutatHib.getKeyProv());
 				
 				try

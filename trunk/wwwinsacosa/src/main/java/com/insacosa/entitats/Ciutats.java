@@ -32,7 +32,6 @@ public class Ciutats extends Objecte {
 	
 	private String ciutatKey;
 	
-	private Date tmstamp;
 	private String code;
 	private String name;
 	private Key keyProv;
@@ -47,18 +46,16 @@ public class Ciutats extends Objecte {
 	public Ciutats() {
 	}
 
-	public Ciutats(String ciutatKey, Date tmstamp, String code, String name, Key keyProv) {
+	public Ciutats(String ciutatKey, String code, String name, Key keyProv) {
 		this.ciutatKey = ciutatKey;
-		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 		this.keyProv = keyProv;
 	}
 
-	public Ciutats(String ciutatKey, Date tmstamp, String code, String name, Key keyProv,
+	public Ciutats(String ciutatKey, String code, String name, Key keyProv,
 			Set<Inmobles> inmobleses) {
 		this.ciutatKey = ciutatKey;
-		this.tmstamp = tmstamp;
 		this.code = code;
 		this.name = name;
 		this.keyProv = keyProv;
@@ -74,15 +71,6 @@ public class Ciutats extends Objecte {
 		this.ciutatKey = ciutatKey;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "tmstamp", nullable = false, length = 23)
-	public Date getTmstamp() {
-		return this.tmstamp;
-	}
-
-	public void setTmstamp(Date tmstamp) {
-		this.tmstamp = tmstamp;
-	}
 
 	@Column(name = "code", nullable = false, length = 16)
 	public String getCode() {

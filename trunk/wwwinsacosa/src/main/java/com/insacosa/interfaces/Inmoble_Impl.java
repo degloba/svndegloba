@@ -870,12 +870,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		try {    
 			try {
-				/*
-				Criteria criteria = session.createCriteria(Ciutats.class)
-				.add(Expression.eq("idProv", provincia.getId()));
 				
-				ciutats = criteria.list();
-				*/
+				Query q = em.createQuery("SELECT c FROM " + Ciutats.class.getSimpleName() + " c  where c.name='Pineda de Mar'");
+				
+				
+				ciutats = (List<Ciutats>)q.getResultList();
+
+				
 				tx.commit();    
 				 
 				} 			    

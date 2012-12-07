@@ -37,7 +37,6 @@ public class ProvinciesForm extends Objecte
 	
 	// Columnes de taula
 	private int id;
-	private Date tmstamp;
 	private String code;
 	private String name;
 	
@@ -65,8 +64,7 @@ public class ProvinciesForm extends Objecte
         	CiutatsForm ciutatsForm = (CiutatsForm) context.getApplication().evaluateExpressionGet(context, "#{ciutats}", CiutatsForm.class);
         	
         	
-        	List<SelectItem> novesCiutats = ciutatsForm.getCiutats();
-        	novesCiutats.clear();
+        	List<SelectItem> novesCiutats = new ArrayList<SelectItem>();
         	
             // Get the country name and populate the pin value.
         	Inmoble_Impl r = new Inmoble_Impl();
@@ -182,7 +180,6 @@ public class ProvinciesForm extends Objecte
 		
 		this.setName("");
 		this.setCode("");
-		this.setTmstamp(new Date());
 		
 		this.estaLlista = false;
 		
@@ -258,13 +255,6 @@ public class ProvinciesForm extends Objecte
 		this.id = id;
 	}
 
-	public Date getTmstamp() {
-		return tmstamp;
-	}
-
-	public void setTmstamp(Date tmstamp) {
-		this.tmstamp = tmstamp;
-	}
 
 	public String getCode() {
 		return code;
