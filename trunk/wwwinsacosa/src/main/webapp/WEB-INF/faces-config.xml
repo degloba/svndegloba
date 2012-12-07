@@ -7,11 +7,6 @@
   <converter-class>com.degloba.converters.DateConverter</converter-class>
  </converter>
  <managed-bean>
-  <managed-bean-name>ciutatForm</managed-bean-name>
-  <managed-bean-class>com.insacosa.vo.CiutatsForm</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
   <managed-bean-name>tipusForm</managed-bean-name>
   <managed-bean-class>com.insacosa.vo.TipusForm</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
