@@ -56,7 +56,7 @@ public class CiutatsForm extends Objecte
 	private String key;
 	private String code;
 	private String name;
-	private Key keyProv;
+	private String keyProv;
 	
 	
 	// DESCRIPCIONS
@@ -179,7 +179,11 @@ public class CiutatsForm extends Objecte
 		
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
-		ciutatHib.setKeyProv(this.getKeyProv());
+		
+		Inmoble_Impl r = new Inmoble_Impl();
+		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
+		
+		ciutatHib.setProvincia(p);
 		
 		
 		// hem d'afegir a la llista
@@ -188,7 +192,7 @@ public class CiutatsForm extends Objecte
 		ciut.setId(ciutatHib.getId());
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getKeyProv());
+		ciut.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
 		
 		llista.add(ciut);
 		
@@ -205,9 +209,9 @@ public class CiutatsForm extends Objecte
     	ciutat.setCiutatKey(ciutatForm.getKey());
     	ciutat.setCode(ciutatForm.code);
     	ciutat.setName(ciutatForm.name);
-    	ciutat.setKeyProv(ciutatForm.getKeyProv());
+    	//ciutat.setProvincia(ciutatForm.getKeyProv());
     	
-    	////ciutat.delete(ciutatHib);  // esborrem de la BD
+    	ciutat.delete(ciutat);  // esborrem de la BD
     	
     	
 		// cal eliminar també de la llista
@@ -223,7 +227,11 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setId(this.getId());
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
-		ciutatHib.setKeyProv(this.getKeyProv());
+		
+		Inmoble_Impl r = new Inmoble_Impl();
+		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
+		
+		ciutatHib.setProvincia(p);
 		
 		////	this.update(ciutatHib);
 	   	
@@ -232,7 +240,7 @@ public class CiutatsForm extends Objecte
 
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getKeyProv());
+		ciut.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
 		
 	   } 	  
 	  
@@ -280,13 +288,13 @@ public class CiutatsForm extends Objecte
 				ciutat.setId(ciutatHib.getId());
 				ciutat.setCode( ciutatHib.getCode() );
 				ciutat.setName( ciutatHib.getName() );
-				ciutat.setKeyProv(ciutatHib.getKeyProv());
+				ciutat.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
 				
 				try
 				{
 					// Calculem la descripcio de la provincia
 					String a = ((Ciutats)this.read(ciutatHib)).getName();
-					ciutat.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ciutatHib.getKeyProv())).getName());
+					ciutat.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ciutatHib.getProvincia().getProvinciaKey())).getName());
 				}
 				catch(Exception ex)  // pot ser que no trobi cap descripcio
 				{
@@ -338,12 +346,12 @@ public class CiutatsForm extends Objecte
 	   	}
 
 
-	public Key getKeyProv() {
+	public String getKeyProv() {
 		return keyProv;
 	}
 
 
-	public void setKeyProv(Key keyProv) {
+	public void setKeyProv(String keyProv) {
 		this.keyProv = keyProv;
 	}
 

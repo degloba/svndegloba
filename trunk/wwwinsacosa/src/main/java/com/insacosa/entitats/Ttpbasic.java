@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 
 import org.datanucleus.jpa.annotations.Extension;
 
-import com.google.appengine.api.datastore.Key;
 
 @Entity
 public class Ttpbasic {

@@ -1,10 +1,7 @@
 package com.insacosa.entitats;
 
-
-import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,7 +33,7 @@ public class Ciutats extends Objecte {
 	
 	private String code;
 	private String name;
-	private Key keyProv;
+	private Provincies provincia;
 	
 	@Transient
 	private Set<Inmobles> inmobleses;
@@ -46,19 +45,19 @@ public class Ciutats extends Objecte {
 	public Ciutats() {
 	}
 
-	public Ciutats(String ciutatKey, String code, String name, Key keyProv) {
+	public Ciutats(String ciutatKey, String code, String name, Provincies provincia) {
 		this.ciutatKey = ciutatKey;
 		this.code = code;
 		this.name = name;
-		this.keyProv = keyProv;
+		this.provincia = provincia;
 	}
 
-	public Ciutats(String ciutatKey, String code, String name, Key keyProv,
+	public Ciutats(String ciutatKey, String code, String name, Provincies provincia,
 			Set<Inmobles> inmobleses) {
 		this.ciutatKey = ciutatKey;
 		this.code = code;
 		this.name = name;
-		this.keyProv = keyProv;
+		this.provincia = provincia;
 		this.inmobleses = inmobleses;
 	}
 
@@ -90,13 +89,14 @@ public class Ciutats extends Objecte {
 		this.name = name;
 	}
 
-	@Column(name = "id_prov", nullable = false)
-	public Key getKeyProv() {
-		return this.keyProv;
+	@JoinColumn(name = "provinciaKey")
+	@ManyToOne(optional = false)
+	public Provincies getProvincia() {
+		return this.provincia;
 	}
 
-	public void setKeyProv(Key keyProv) {
-		this.keyProv = keyProv;
+	public void setProvincia(Provincies provincia) {
+		this.provincia = provincia;
 	}
 
 	public Set<Inmobles> getInmobleses() {
