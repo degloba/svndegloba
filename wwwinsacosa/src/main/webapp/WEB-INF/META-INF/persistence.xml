@@ -7,15 +7,11 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 	<persistence-unit name="transactions-optional">        
 	<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.insacosa.entitats.Usuaris</class>
-		<class>com.insacosa.entitats.Adreces</class>
 		<class>com.insacosa.entitats.Caracteristiques</class>
 		<class>com.insacosa.entitats.Caractinmobles</class>
 		<class>com.insacosa.entitats.Ciutats</class>
 		<class>com.insacosa.entitats.Fotos</class>
 		<class>com.insacosa.entitats.Inmobles</class>
-		<class>com.insacosa.entitats.Person</class>
-		<class>com.insacosa.entitats.Persona</class>
-		<class>com.insacosa.entitats.PersonesAdreces</class>
 		<class>com.insacosa.entitats.Provincies</class>
 		<class>com.insacosa.entitats.Solicituds</class>
 		<class>com.insacosa.entitats.Tipus</class>
