@@ -25,9 +25,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Node;
 
 
-
-import com.insacosa.entitats.Person;
-
 import com.google.appengine.api.datastore.DatastoreConfig;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceConfig;
@@ -95,7 +92,7 @@ public class PersistenceService {
         entityManagerFactory = Persistence.createEntityManagerFactory("transactions-optional", new Properties());
 
     }
-
+/*
     private List<Person> parseTestData() throws Exception {
         InputStream dataStream = null;
         try {
@@ -135,7 +132,7 @@ public class PersistenceService {
             Closeables.closeQuietly(dataStream);
         }
     }
-
+*/
     @PreDestroy
     public void destroy() {
         entityManagerFactory.close();
