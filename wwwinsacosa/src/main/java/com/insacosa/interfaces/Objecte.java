@@ -111,7 +111,7 @@ public class Objecte implements Interfaces{
 	/*
 	 * Retorna la descripcio corresponent a un ID 
 	 */
-	public Objecte retDescripcio(Class entityName, Key id)
+	public Objecte retDescripcio(Class entityName, String id)
 	{
 
 		Objecte ret = null;

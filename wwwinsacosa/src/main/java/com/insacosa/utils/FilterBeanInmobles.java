@@ -186,7 +186,7 @@ public void cambiarProvincia(ValueChangeEvent event)
 		Provincies provincia = new Provincies();
 		
 		// Recuperem l'objecte Provincia que hem seleccionat
-		provincia = r.provinciaPerKey((Key)event.getNewValue());
+		provincia = r.provinciaPerKey((String)event.getNewValue());
 		
 		// Actualitzem les ciutats de la provincia seleccionada		
 		Iterator<Ciutats> iter = r.ciutatsProvincia(provincia).iterator();

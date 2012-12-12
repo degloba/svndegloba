@@ -801,7 +801,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 	
-	public Provincies provinciaPerKey(Key keyProvincia) {
+	public Provincies provinciaPerKey(String keyProvincia) {
 		
 		Provincies provincia = null;
 		
@@ -1290,6 +1290,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		    //em.close();
 		}
 		
+	}
+
+
+
+	@Override
+	public Provincies provinciaPerKey(Key idProvincia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Objecte retDescripcio(Class entityName, String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

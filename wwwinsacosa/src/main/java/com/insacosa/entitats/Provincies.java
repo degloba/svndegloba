@@ -1,6 +1,5 @@
 package com.insacosa.entitats;
 
-import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
 import java.util.HashSet;

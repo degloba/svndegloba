@@ -122,7 +122,7 @@ public interface Inmoble_If {
 	int retId(String taula, String classe);
 	
 	// retorna la descripcio corresponent a un ID 
-	Objecte retDescripcio(Class entityName, Key id);
+	Objecte retDescripcio(Class entityName, String id);
 	
 	// esborra un objecte
 	void delete(Objecte objecte);

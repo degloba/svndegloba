@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.Key;
 @Entity
 public class Caractinmobles {
 
+	
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	private Key key;

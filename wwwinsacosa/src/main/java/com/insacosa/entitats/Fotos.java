@@ -1,6 +1,5 @@
 package com.insacosa.entitats;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

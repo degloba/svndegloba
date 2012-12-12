@@ -13,7 +13,6 @@ import javax.persistence.Transient;
 
 import org.datanucleus.jpa.annotations.Extension;
 
-import com.google.appengine.api.datastore.Key;
 
 @Entity
 public class ValuesCaracteristiques {
