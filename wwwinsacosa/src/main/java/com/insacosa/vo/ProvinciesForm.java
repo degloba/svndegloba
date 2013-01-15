@@ -1,5 +1,8 @@
 package com.insacosa.vo;
 
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
@@ -36,19 +39,19 @@ public class ProvinciesForm extends Objecte
 	private int page = 1; 
 	
 	// Columnes de taula
-	private int id;
+	private String idProvincia;
 	private String code;
 	private String name;
 	
 	private List<SelectItem> provincies = new ArrayList<SelectItem>();
 	//private List<SelectItem> ciutats = new ArrayList<SelectItem>(); 
 	
-	private int valorActual = 8;   // id provincia (Barcelona)
+	private String valorActual = "8";   // id provincia (Barcelona)
 	
 	
 	Boolean estaLlista = false;  // per saber si es pot updatar la llista per la modificacio d'una provincia
 		
-	
+	@Override
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
 		// TODO Auto-generated method stub
@@ -72,12 +75,21 @@ public class ProvinciesForm extends Objecte
         	// CAL ACTUALITZAR EL COMBO DE CIUTATS EN FUNCIO DE LA PROVINCIA SELECCIONADA
 			
     		Provincies provincia = new Provincies();
-    		provincia.setId(new Integer(event.getNewValue().toString()));
+    		provincia.setProvinciaKey(event.getNewValue().toString());
+    		provincia.setId(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
+    		provincia.setKey(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
+    		Key parentKey = KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw");
+    		
+    		Ciutats ciutatHBM = new Ciutats();
+    		ciutatHBM.setKeyProv(provincia);
+			ciutatHBM.setKey(KeyFactory.createKey(parentKey, "Ciutats", "keyProv"));
     		
     		Iterator<Ciutats> iter = r.ciutatsProvincia(provincia).iterator();
     		while (iter.hasNext())
     		{
-    			Ciutats ciutatHBM = (Ciutats)(iter.next());  
+    			
+    			ciutatHBM = (Ciutats)(iter.next());
+    			ciutatHBM.setKey(KeyFactory.createKey(parentKey, "Ciutats", "key"));
     			
     			SelectItem item = new SelectItem(ciutatHBM.getId(), ciutatHBM.getName() , "", false, false);
     			                   
@@ -89,10 +101,10 @@ public class ProvinciesForm extends Objecte
     		  
     		FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
 
-    		filterBeanInmobles.setProvinciaFilter(provincia.getId());
+    		filterBeanInmobles.setProvinciaFilter(provincia.getProvinciaKey());
     		
     		
-    		setValorActual(provincia.getId());
+    		setValorActual(provincia.getProvinciaKey());
     		//inmobleForm.setProvincia(provincia.getId());
     		
     		ciutatsForm.setCiutats(novesCiutats);
@@ -143,12 +155,12 @@ public class ProvinciesForm extends Objecte
 			 
 			SelectItem item;
 			 
-			Iterator<Objecte> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
+			Iterator<Entity> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
 			while (iter.hasNext())
 				{
-					Provincies provincies = (Provincies)(iter.next());  
+				Entity provincies = (Entity)(iter.next());  
 							
-					item = new SelectItem(provincies.getId(), provincies.getName() , "", false, false);
+					item = new SelectItem(provincies.getKey(), provincies.getProperty("name").toString() , "", false, false);
 					
 					list.add(item); 
 				}
@@ -215,7 +227,7 @@ public class ProvinciesForm extends Objecte
 		// Construim l'objecte Hibernate
 		Provincies provincies = new Provincies();  // clase Hibernate
 		
-		provincies.setId(provincia.id);
+		provincies.setProvinciaKey(provincia.idProvincia);
 		provincies.setCode(provincia.code);
 		provincies.setName(provincia.name);
 
@@ -231,7 +243,7 @@ public class ProvinciesForm extends Objecte
 		// Construim l'objecte Hibernate
 		Provincies provincies = new Provincies();  // clase Hibernate
 		
-		provincies.setId(this.getId());
+		provincies.setProvinciaKey(this.getIdProvincia());
 		provincies.setCode(this.getCode());
 		provincies.setName(this.getName());
 		
@@ -247,12 +259,12 @@ public class ProvinciesForm extends Objecte
 	  
 	  
 	// getters/setters
-	public int getId() {
-		return id;
+	public String getIdProvincia() {
+		return idProvincia;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdProvincia(String idProvincia) {
+		this.idProvincia = idProvincia;
 	}
 
 
@@ -280,19 +292,19 @@ public class ProvinciesForm extends Objecte
 		if (this.llista == null) {
 			
 			// apliquem un criteri/condicio.En aquest cas es sobre la property "name" de l'objecte Provincies
-			Iterator<Objecte> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
+			Iterator<Entity> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
 			while (iter.hasNext())
 			{
-				ProvinciesForm provincia = new ProvinciesForm();
+				ProvinciesForm provinciaForm = new ProvinciesForm();
 				
-				Provincies provincies = (Provincies)(iter.next());  // objecte Hibernate
+				Entity provincia = (Entity)(iter.next());  // objecte Hibernate
 					
-				provincia.setId(provincies.getId());
-				provincia.setCode( provincies.getCode() );
-				provincia.setId( provincies.getId() );
-				provincia.setName( provincies.getName() );
+				provinciaForm.setId(provincia.getKey());
+				provinciaForm.setCode( provincia.getProperty("Code").toString() );
+				//provinciaForm.setId( provincia.getId() );
+				provinciaForm.setName( provincia.getProperty("Name").toString() );
 						
-				provList.add(provincia);
+				provList.add(provinciaForm);
 				
 			}
 			
@@ -348,13 +360,13 @@ public class ProvinciesForm extends Objecte
 
 
 
-	public int getValorActual() {
+	public String getValorActual() {
 		return valorActual;
 	}
 
 
 
-	public void setValorActual(int valorActual) {
+	public void setValorActual(String valorActual) {
 		this.valorActual = valorActual;
 	} 
 

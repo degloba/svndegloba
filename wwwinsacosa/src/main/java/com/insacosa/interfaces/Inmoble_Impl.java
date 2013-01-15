@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
@@ -12,8 +13,14 @@ import javax.persistence.Query;
 
 
 import com.degloba.EMF;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.TransactionOptions;
 import com.google.common.collect.Maps;
 
 import com.insacosa.dataModels_JPA.InmobleCaract;
@@ -760,9 +767,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	 * Retorna la llista d'Objectes
 	 * Parametres : Classe , Ordre, condicio/criteri 
 	 */
-	public List<Objecte> llistaObjectes(Class classe, String ordre, String condicio) {
+	public QueryResultList<Entity> llistaObjectes(Class classe, String ordre, String condicio) {
 		
-		List<Objecte> ret = null;
+		QueryResultList<Entity> ret = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -868,16 +875,101 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
+		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();    
+		TransactionOptions options = TransactionOptions.Builder.withXG(true);    
+		Transaction txn = datastore.beginTransaction(options);
+		
+		
 		try {    
 			try {
 				
-				Query q = em.createQuery("SELECT c FROM " + Ciutats.class.getSimpleName() + " c  where c.name='Pineda de Mar'");
+				
+			/*	Book b = new Book();
+				b.setTitle("JPA 4eva");
+				
+				 Chapter c1 = new Chapter();
+				c1.setTitle("Intro");
+				 c1.setNumPages(10);
+				b.getChapters().add(c1);
+				Chapter c2 = new Chapter();
+				 c2.setTitle("Configuration");
+				c2.setNumPages(9);
+				 b.getChapters().add(c2);
+
+				//em.getTransaction().begin();
+				 try {
+				    em.persist(b);
+				    em.getTransaction().commit();
+				 } finally {
+				    if (em.getTransaction().isActive()) {
+				         em.getTransaction().rollback();
+				    }
+				}
+				
+				Book bb= em.find(Book.class,b.getId());*/
+				
+				
+				Entity b2 = new Entity("Book2");
+				//Book2 b2 = new Book2();
+				Key kb= KeyFactory.createKey("Book2", "Title");
+				b2.setProperty("Id",KeyFactory.keyToString(kb));
+				b2.setProperty("Title","JPA 4eva");
+				b2.setProperty("Chapters",  new ArrayList<String>());
+				
+				Entity c12 = new Entity("Chapter2");
+				 //Chapter2 c12 = new Chapter2();
+				 c12.setProperty("Id",KeyFactory.createKeyString(kb,"Chapter2", "Title"));
+				c12.setProperty("Title","Intro");
+				 c12.setProperty("NumPages",10);
+				 
+				List<String> ff =  (List<String>) b2.getProperty("Chapters");
+				((List<String>) b2.getProperty("Chapters")).add(c12.getProperty("Id").toString());
+				/*Chapter2 c22 = new Chapter2();
+				c22.setId(KeyFactory.createKeyString(kb,"Chapter2", "Title2"));
+				 c22.setTitle("Configuration");
+				c22.setNumPages(9);
+				 b2.getChapters().add(c22.getId());*/
+				
+				Entity c22 = new Entity("Chapter2");
+				 //Chapter2 c12 = new Chapter2();
+				 c22.setProperty("Id",KeyFactory.createKeyString(kb,"Chapter2", "Title2"));
+				c22.setProperty("Title","Intro2");
+				 c22.setProperty("NumPages",210);
+				 
+				List<String> ff2 =  (List<String>) b2.getProperty("Chapters");
+				((List<String>) b2.getProperty("Chapters")).add(c22.getProperty("Id").toString());
+
+				//em.getTransaction().begin();
+				 try {
+					 datastore.put(txn, b2);
+					 datastore.put(txn, c12);
+					 datastore.put(txn, c22);
+				    //em.persist(b2);
+				    //em.persist(c12);
+				    //em.getTransaction().commit();
+					 txn.commit();
+				 } finally {
+				   // if (em.getTransaction().isActive()) {
+				     //    em.getTransaction().rollback();
+				   // }
+				}
+				
+				//Book2 bb2= em.find(Book2.class,b2.getId());
+				
+		
+				/*
+				
+				Provincies p = em.find(Provincies.class, KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
+		List<Ciutats> c = provincia.getCiutats();
+				Query q = em.createQuery("SELECT c FROM " + Ciutats.class.getSimpleName() + " c  where c.keyProv= :provincia ");
+				q.setParameter(0, provincia.getId());
 				
 				
 				ciutats = (List<Ciutats>)q.getResultList();
 
 				
-				tx.commit();    
+				tx.commit();    */
 				 
 				} 			    
 			catch (Exception e) {

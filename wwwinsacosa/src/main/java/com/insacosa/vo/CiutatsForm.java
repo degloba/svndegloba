@@ -2,6 +2,7 @@ package com.insacosa.vo;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
@@ -41,6 +42,7 @@ import com.insacosa.entitats.Tipus;
 
 import com.degloba.converters.KeyConverter;
 
+
 @ManagedBean(name = "ciutats")
 @SessionScoped
 public class CiutatsForm extends Objecte 
@@ -66,7 +68,7 @@ public class CiutatsForm extends Objecte
 	
 	private List<SelectItem> ciutats = new ArrayList<SelectItem>();
 	
-	private int valorActual = 967;   // id ciutat (Manresa)
+	private String valorActual = "967";   // id ciutat (Manresa)
 	
 	
 
@@ -89,8 +91,8 @@ public class CiutatsForm extends Objecte
         	Ciutats ciutat = r.ciutatPerKey((Key)newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
-    		filterBeanInmobles.setLocalitatFilter(ciutat.getId());
-    		setValorActual(ciutat.getId());
+    		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
+    		setValorActual(ciutat.getCiutatKey());
     		
     		/*
     		inmobleForm.getFilterValues().put((long) 74, String.valueOf(newValue));
@@ -127,12 +129,12 @@ public class CiutatsForm extends Objecte
 			 
 			SelectItem item;
 			 
-			Iterator<Objecte> iter = this.llistaObjectes(Ciutats.class, "name", "").iterator();
+			Iterator<Entity> iter = this.llistaObjectes(Ciutats.class, "name", "").iterator();
 			while (iter.hasNext())
 				{
-					Ciutats ciutats = (Ciutats)(iter.next());  
+					Entity ciutats = (Entity)(iter.next());  
 							
-					item = new SelectItem(ciutats.getId(), ciutats.getName() , "", false, false);
+					item = new SelectItem(ciutats.getKey(), ciutats.getProperty("name").toString() , "", false, false);
 					
 					list.add(item); 
 				}
@@ -183,7 +185,7 @@ public class CiutatsForm extends Objecte
 		Inmoble_Impl r = new Inmoble_Impl();
 		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
 		
-		ciutatHib.setProvincia(p);
+		ciutatHib.setKeyProv(p);
 		
 		
 		// hem d'afegir a la llista
@@ -192,7 +194,7 @@ public class CiutatsForm extends Objecte
 		ciut.setId(ciutatHib.getId());
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
+		ciut.setKeyProv(ciutatHib.getKeyProv().getProvinciaKey());
 		
 		llista.add(ciut);
 		
@@ -231,7 +233,7 @@ public class CiutatsForm extends Objecte
 		Inmoble_Impl r = new Inmoble_Impl();
 		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
 		
-		ciutatHib.setProvincia(p);
+		ciutatHib.setKeyProv(p);
 		
 		////	this.update(ciutatHib);
 	   	
@@ -240,7 +242,7 @@ public class CiutatsForm extends Objecte
 
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
+		ciut.setKeyProv(ciutatHib.getKeyProv().getProvinciaKey());
 		
 	   } 	  
 	  
@@ -278,30 +280,30 @@ public class CiutatsForm extends Objecte
 		if (this.llista == null) {
 				
 			// apliquem un criteri/condicio.En aquest cas es sobre la property "name" de l'objecte ScrCiteis
-			Iterator<Objecte> iter = this.llistaObjectes(Ciutats.class, "name","").iterator();
+			Iterator<Entity> iter = this.llistaObjectes(Ciutats.class, "name","").iterator();
 			while (iter.hasNext())
 			{
-				CiutatsForm ciutat = new CiutatsForm();
+				CiutatsForm ciutatForm = new CiutatsForm();
 				
-				Ciutats ciutatHib = (Ciutats)(iter.next());  // objecte Hibernate
+				Entity ciutat = (Entity)(iter.next());  // objecte Hibernate
 						
-				ciutat.setId(ciutatHib.getId());
-				ciutat.setCode( ciutatHib.getCode() );
-				ciutat.setName( ciutatHib.getName() );
-				ciutat.setKeyProv(ciutatHib.getProvincia().getProvinciaKey());
+				//ciutatForm.setId(ciutat.getProperty("Id").toString());
+				ciutatForm.setCode( ciutat.getProperty("Code").toString() );
+				ciutatForm.setName( ciutat.getProperty("Name").toString() );
+				ciutatForm.setKeyProv(((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey());
 				
 				try
 				{
 					// Calculem la descripcio de la provincia
-					String a = ((Ciutats)this.read(ciutatHib)).getName();
-					ciutat.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ciutatHib.getProvincia().getProvinciaKey())).getName());
+					String a = ((Ciutats)this.read(ciutatForm)).getName();
+					ciutatForm.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey())).getName());
 				}
 				catch(Exception ex)  // pot ser que no trobi cap descripcio
 				{
 				
 				}
 						
-				ciutList.add(ciutat);
+				ciutList.add(ciutatForm);
 								
 			}
 			
@@ -374,12 +376,12 @@ public class CiutatsForm extends Objecte
 	}
 
 
-	public int getValorActual() {
+	public String getValorActual() {
 		return valorActual;
 	}
 
 
-	public void setValorActual(int valorActual) {
+	public void setValorActual(String valorActual) {
 		this.valorActual = valorActual;
 	}
 

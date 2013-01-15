@@ -1,6 +1,7 @@
 package com.insacosa.vo;
 
 
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
@@ -98,12 +99,12 @@ public class TipusForm extends Objecte
 		if (tipusInmoble == null) 
 		{
 			
-			Iterator<Objecte> iter = llistaObjectes(Tipus.class, "nom", "").iterator();
+			Iterator<Entity> iter = llistaObjectes(Tipus.class, "nom", "").iterator();
 			while (iter.hasNext())
 				{				
-					Tipus tipusHib = (Tipus)(iter.next());  // objecte Hibernate  
+				Entity tipus = (Entity)(iter.next());  // objecte Hibernate  
 							
-					item = new SelectItem(tipusHib.getId(), tipusHib.getNom() , "", false, false);
+					item = new SelectItem(tipus.getProperty("Id"), tipus.getProperty("Nom").toString() , "", false, false);
 					
 					list.add(item); 
 				}
@@ -150,7 +151,7 @@ public class TipusForm extends Objecte
 		
 		// 1.- construim els controls dinamics (dins la qual modifica la hashMap de columnes visibles)
 		// -------------------------------------------------------------------------------------------
-		inmobleForm.buildControlsDinamics(inmobleForm.getContainerControlsDinamics(),(Integer) event.getNewValue());
+		inmobleForm.buildControlsDinamics(inmobleForm.getContainerControlsDinamics(),(String) event.getNewValue());
 		 
 		
 		// 2.- construim les llistes dragAndDrop de les caracteristiques booleanes
@@ -170,7 +171,7 @@ public class TipusForm extends Objecte
 		Inmoble_Impl r = new Inmoble_Impl();
 		 
 	    Tipus tipus = new Tipus();
-	    tipus.setId((Integer)event.getNewValue());
+	    tipus.setTipusKey((String)event.getNewValue());
 	    
 	    List<Caracteristiques> lc = r.caractTipus(tipus,1, false);
 		
