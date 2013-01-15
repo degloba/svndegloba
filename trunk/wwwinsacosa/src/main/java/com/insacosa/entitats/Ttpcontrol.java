@@ -14,7 +14,6 @@ import org.datanucleus.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
-
 @Entity
 public class Ttpcontrol {
 

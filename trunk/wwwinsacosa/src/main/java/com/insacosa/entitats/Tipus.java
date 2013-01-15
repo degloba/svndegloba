@@ -17,7 +17,6 @@ import javax.persistence.Transient;
 
 import org.datanucleus.jpa.annotations.Extension;
 
-
 @Entity
 public class Tipus extends Objecte  {
 
