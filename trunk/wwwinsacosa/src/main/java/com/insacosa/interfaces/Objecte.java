@@ -15,10 +15,15 @@ import org.slf4j.LoggerFactory;
 import com.degloba.EMF;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 import com.insacosa.dataModels_JPA.PersistenceService;
+import com.insacosa.entitats.Ciutats;
 import com.insacosa.entitats.Usuaris;
 
 
@@ -31,7 +36,7 @@ public class Objecte implements Interfaces{
 	
 	//final static Logger logger = LoggerFactory.getLogger(addressI.class);  
 	
-	private int id;
+	private Key id;
 	
 	static PersistenceService persistenceService;
 	
@@ -140,9 +145,9 @@ public class Objecte implements Interfaces{
 	 * Retorna la llista d'Objectes
 	 * Parametres : Classe , Ordre, condicio/criteri 
 	 */
-	public List<Objecte> llistaObjectes(Class classe, String ordre, String condicio) {
+	public QueryResultList<Entity> llistaObjectes(Class classe, String ordre, String condicio) {
 		
-		List<Objecte> ret = null;
+		 QueryResultList<Entity> ret = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -156,17 +161,30 @@ public class Objecte implements Interfaces{
 			
 			if (condicio != "")
 			{
+				DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+				com.google.appengine.api.datastore.Query q = new com.google.appengine.api.datastore.Query(classe.getSimpleName());
+				PreparedQuery pq = ds.prepare(q);
+					
+				final FetchOptions fetch_options = FetchOptions.Builder.withPrefetchSize(100).chunkSize(100);
+				 ret = ds.prepare(q).asQueryResultList(fetch_options);
 				
-				Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
+				//Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
 				
-				ret =  q.getResultList();
+				//ret =  q.getResultList();
 				
 			}
 			else
 			{
-				Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
+				DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+				com.google.appengine.api.datastore.Query q = new com.google.appengine.api.datastore.Query(classe.getSimpleName());
+				PreparedQuery pq = ds.prepare(q);
+					
+				final FetchOptions fetch_options = FetchOptions.Builder.withPrefetchSize(100).chunkSize(100);
+				 ret = ds.prepare(q).asQueryResultList(fetch_options);
+				 
+				//Query q = em.createQuery("SELECT c FROM " + classe.getSimpleName() + " c");
 				
-				ret =  q.getResultList();
+			//	ret =  q.getResultList();
 			}
 			
 			txn.commit();    
@@ -251,11 +269,11 @@ public class Objecte implements Interfaces{
 	}
 
 	
-	public void setId(int id) {
+	public void setId(Key id) {
 		this.id = id;
 	}
 
-	public int getId() {
+	public Key getId() {
 		return id;
 	}
 

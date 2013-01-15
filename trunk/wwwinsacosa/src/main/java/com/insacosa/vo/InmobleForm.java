@@ -93,7 +93,7 @@ public class InmobleForm  implements Serializable
   	private String nom; // referencia
   	private String adreca;
 	private String keyTipus;  // PIS
-	private Integer idTipus = 1;  // PIS
+	private String idTipus = "1";  // PIS
 	
 	private Short numero,planta;	
 	private String puerta;
@@ -333,7 +333,7 @@ public class InmobleForm  implements Serializable
 			 
 		    Tipus tipus = new Tipus();
 		    //tipus.setKey(keyTipus);
-		    tipus.setId(idTipus);
+		    tipus.setTipusKey(idTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);
 		 
@@ -432,8 +432,8 @@ public class InmobleForm  implements Serializable
 		FilterBeanInmobles filtreBeanInmobles = (FilterBeanInmobles) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{filterBeanInmobles}", FilterBeanInmobles.class);
 		
 		// Modifiquem la provincia  i localitat dels corresponents filtres 
-		filtreBeanInmobles.setLocalitatFilter(967);
-		filtreBeanInmobles.setProvinciaFilter(8);
+		filtreBeanInmobles.setLocalitatFilter("967");
+		filtreBeanInmobles.setProvinciaFilter("8");
 		filtreBeanInmobles.setMetresFilter(0);
 		filtreBeanInmobles.setPreuFilter(0);
 		/*filtreBeanInmobles.setTipusFilter(1);*/
@@ -1428,7 +1428,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Reconstruim els controls dinamics en funcio del tipus d'inmoble
 	 */
-	public void buildControlsDinamics(HtmlPanelGroup containerControlsDinamics, Integer idTipus)
+	public void buildControlsDinamics(HtmlPanelGroup containerControlsDinamics, String idTipus)
 	{
 		
 		Map<Long, Boolean> valueMapTemp = new HashMap<Long, Boolean>();  // indica visibilitats de columnes de taula en funcio del que s'ha seleccionat
@@ -1443,7 +1443,7 @@ public class InmobleForm  implements Serializable
 		
 		Tipus tipus = new Tipus();
 		//tipus.setKey(keyTipus);
-		tipus.setId(idTipus);
+		tipus.setTipusKey(idTipus);
 	
 		List<Caracteristiques> c = r.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
@@ -1542,7 +1542,7 @@ public class InmobleForm  implements Serializable
         	        	
             Tipus tipus = new Tipus();
             //tipus.setKey(keyTipus);
-            tipus.setId(idTipus);
+            tipus.setTipusKey(idTipus);
              
             
             /*QuerysJPA qJPA= new QuerysJPA(em, Inmobles.class);
@@ -1580,7 +1580,7 @@ public class InmobleForm  implements Serializable
 		
 		Tipus tipus = new Tipus();
 		//tipus.setKey(keyTipus);
-		tipus.setId(idTipus);
+		tipus.setTipusKey(idTipus);
 		
 		Iterator<Caracteristiques> iter = r.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())

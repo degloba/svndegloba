@@ -2,7 +2,9 @@ package com.insacosa.interfaces;
 
 import java.util.List;
 
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.QueryResultList;
 import com.insacosa.dataModels_JPA.InmobleCaract;
 
 import com.insacosa.entitats.*;
@@ -112,7 +114,7 @@ public interface Inmoble_If {
 	// Objectes - Operacions comunes
 	// ****************************
 	// retorna la llista d'objectes d'una classe aplicant una condicio i ordre
-	List<Objecte> llistaObjectes(Class classe, String ordre, String condicio);
+	QueryResultList<Entity> llistaObjectes(Class classe, String ordre, String condicio);
 	
 	// retorna un objecte a partir del seu Id (objecte) 
 	Objecte read(Objecte objecte);
