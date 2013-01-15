@@ -16,7 +16,6 @@ import org.datanucleus.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
-
 @Entity
 public class Usuaris implements java.io.Serializable {
 

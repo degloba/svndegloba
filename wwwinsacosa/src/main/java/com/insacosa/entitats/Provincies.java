@@ -1,11 +1,16 @@
 package com.insacosa.entitats;
 
+
+import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,15 +25,14 @@ import javax.persistence.TemporalType;
 
 import org.datanucleus.jpa.annotations.Extension;
 
-
-
 @Entity
 public class Provincies extends Objecte  {
 
+	
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
-	private String id;
+	private Key key;
 	
 	private String provinciaKey;
 	
@@ -41,6 +45,10 @@ public class Provincies extends Objecte  {
 	@Basic(fetch = FetchType.EAGER)
     private Set<String> inmoblesesKeys = new HashSet<String>();
 
+	@OneToMany(mappedBy = "keyProv", cascade = CascadeType.ALL)
+    private List<Ciutats> ciutats = new ArrayList<Ciutats>();
+	
+	
 
 	public Provincies() {
 	}
@@ -101,9 +109,27 @@ public class Provincies extends Objecte  {
 	public void setInmoblesesKeys(Set<String> inmoblesesKeys) {
 		this.inmoblesesKeys = inmoblesesKeys;
 	}
-	
-	
-	
+
+	public List<Ciutats> getCiutats() {
+		return ciutats;
+	}
+
+	public void setCiutats(List<Ciutats> ciutats) {
+		this.ciutats = ciutats;
+	}
+
+	public Key getKey() {
+		return key;
+	}
+
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+
+
+
+		
 	
 	
 /*

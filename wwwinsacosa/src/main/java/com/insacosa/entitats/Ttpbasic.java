@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 
 import org.datanucleus.jpa.annotations.Extension;
 
-
 @Entity
 public class Ttpbasic {
 

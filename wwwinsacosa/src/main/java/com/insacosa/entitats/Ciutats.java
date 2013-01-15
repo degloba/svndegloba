@@ -1,5 +1,6 @@
 package com.insacosa.entitats;
 
+import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Objecte;
 
 import java.util.HashSet;
@@ -27,13 +28,16 @@ public class Ciutats extends Objecte {
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
-	private String id;
+	private Key key;
 	
 	private String ciutatKey;
 	
 	private String code;
 	private String name;
-	private Provincies provincia;
+	
+    @ManyToOne(fetch = FetchType.LAZY)
+	private Provincies keyProv;
+
 	
 	@Transient
 	private Set<Inmobles> inmobleses;
@@ -45,19 +49,19 @@ public class Ciutats extends Objecte {
 	public Ciutats() {
 	}
 
-	public Ciutats(String ciutatKey, String code, String name, Provincies provincia) {
+	public Ciutats(String ciutatKey, String code, String name, Provincies keyProv) {
 		this.ciutatKey = ciutatKey;
 		this.code = code;
 		this.name = name;
-		this.provincia = provincia;
+		this.keyProv = keyProv;
 	}
 
-	public Ciutats(String ciutatKey, String code, String name, Provincies provincia,
+	public Ciutats(String ciutatKey, String code, String name, Provincies keyProv,
 			Set<Inmobles> inmobleses) {
 		this.ciutatKey = ciutatKey;
 		this.code = code;
 		this.name = name;
-		this.provincia = provincia;
+		this.keyProv = keyProv;
 		this.inmobleses = inmobleses;
 	}
 
@@ -89,14 +93,13 @@ public class Ciutats extends Objecte {
 		this.name = name;
 	}
 
-	@JoinColumn(name = "provinciaKey")
-	@ManyToOne(optional = false)
-	public Provincies getProvincia() {
-		return this.provincia;
+	@Column(name = "keyProv", nullable = false)
+	public Provincies getKeyProv() {
+		return this.keyProv;
 	}
 
-	public void setProvincia(Provincies provincia) {
-		this.provincia = provincia;
+	public void setKeyProv(Provincies keyProv) {
+		this.keyProv = keyProv;
 	}
 
 	public Set<Inmobles> getInmobleses() {
@@ -114,6 +117,17 @@ public class Ciutats extends Objecte {
 	public void setInmoblesesKeys(Set<String> inmoblesesKeys) {
 		this.inmoblesesKeys = inmoblesesKeys;
 	}
+
+	public Key getKey() {
+		return key;
+	}
+
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+
+
 
 
 
