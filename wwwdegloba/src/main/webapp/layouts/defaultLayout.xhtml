@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich">
+
+    
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+<meta name="verify-v1" content="HdEoAqkFNfj7gLh85e9xCDJQE3lGpfyGEOrhx0AdCVs=" />
+
+<title><ui:insert name="title" /> - deGloba Consulting - </title>
+<link rel="stylesheet" type="text/css" media="all" href="css/degloba.css" />
+<link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
+
+<script type="text/javascript">
+	
+// http://ahoehma.wordpress.com/2009/07/22/fadein-and-fadeout-a-richfaces-modalpanel/ 
+function applyModalPanelEffect(panelId, effectFunc, params, hide) {
+	if (panelId)
+		if(effectFunc) {
+		 var modalPanel = document.getElementById(panelId);
+		
+		 if (modalPanel)
+			 {
+			
+			 if (modalPanel.component) {
+				
+			 var component = modalPanel.component;
+			 var div = component.getSizedElement();
+			 if (hide) {
+				
+				 Element.hide(div);
+			 }
+		 }
+		effectFunc.call(this, Object.extend( {targetId : div.id}, params || {}));}}
+}
+	 
+function showModalPanelWithEffect(panelId, showEffect, params) {
+	
+	applyModalPanelEffect(panelId, showEffect, params, true);
+	}
+	 
+function hideModalPanelWithEffect(panelId, hideEffect, params) {
+	
+	 var _params = params;
+	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
+	 applyModalPanelEffect(panelId, hideEffect, params, false);
+}
+
+
+ 
+function applyPanelEffect(panelId, effectFunc, params, hide) {
+	if (panelId)
+		if(effectFunc) {
+			 
+		 var panel = document.getElementById(panelId);
+		 
+		 
+		 if (hide) {
+				
+				 Element.hide(panel);
+			 }
+		alert("hol"); 
+		effectFunc.call(this, Object.extend( {targetId : 'pnlDegloba'}, params || {}));
+		}
+}
+	 
+function showPanelWithEffect(panelId, showEffect, params) {
+	 
+	applyPanelEffect(panelId, showEffect, params, true);
+	}
+	 
+function hidePanelWithEffect(panelId, hideEffect, params) {
+	
+	 var _params = params;
+	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
+	 applyPanelEffect(panelId, hideEffect, params, false);
+}
+
+	
+</script>
+
+
+</h:head>
+
+<h:body>
+
+
+<f:loadBundle var="missatge" basename="idioma"/>
+
+
+<table align="center" cellpadding="0" cellspacing="0" border="0" width="80%">
+<tr>
+<td>
+	<table border="0">
+
+		<tr>
+			<td colspan="2" >
+				<ui:insert name="header">
+					<ui:include src="/header.xhtml" />
+				</ui:insert>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<ui:insert name="content">
+					<ui:include src="/menu2.xhtml" />
+				</ui:insert>
+			</td>
+		</tr>
+		
+		<tr>
+			<td valign="top" rowspan="1"  height="150px">
+				<ui:insert name="seleccio">
+				<ui:include src="/seleccio.xhtml" />
+			</ui:insert></td>
+						
+			
+			<td valign="top"  rowspan="1" >
+ 				<ui:insert name="noticies">
+				<ui:include src="/noticies3.xhtml" />
+				</ui:insert>
+			</td>
+		</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td >
+	<table border="0" >
+	
+		<tr>
+			<td valign="top" colspan="1" width="330px">
+				<ui:insert name="panelBars">
+					<ui:include src="/panelBars.xhtml" />
+				</ui:insert>
+			</td>
+			<td valign="top"  rowspan="2" width="800px" height="100%">
+		
+				<ui:insert name="panelContingutBars">
+						<ui:include src="/contingutPanelBars.xhtml"/>
+				</ui:insert>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="1" valign="top">
+				<ui:insert name="panelNoticies">
+					<ui:include src="/noticies4.xhtml"/>
+				</ui:insert>
+					
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" >
+				<ui:insert name="footer">
+					<ui:include src="/footer.xhtml" />
+				</ui:insert>
+			</td>
+		</tr>
+			
+			<tr>
+				<td  colspan="2" >
+					<ui:insert name="mapa">
+					<ui:include src="/mapaWeb.xhtml" />
+				</ui:insert>
+				</td>
+			</tr>
+	
+		</table>
+</td>	
+</tr>
+
+</table>
+
+		
+			
+
+</h:body>
+
+</html>
+

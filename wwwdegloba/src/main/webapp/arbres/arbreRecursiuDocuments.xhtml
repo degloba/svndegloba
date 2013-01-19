@@ -1,0 +1,40 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">			
+
+<h:form>
+
+	<rich:tree toggleType="ajax" var="ObjecteNoda"  >
+			
+		<rich:treeModelRecursiveAdaptor roots="#{ObjecteBean.objectRoots[1]}" nodes="#{ObjecteNoda.nodes}">
+			   	
+			<rich:treeNode iconCollapsed="images/folderclosed.png" iconExpanded="http://img140.imageshack.us/img140/2198/folderopened.png">
+				<h:outputText styleClass="enllac" value="#{ObjecteNoda.descripcio}"  />
+			</rich:treeNode>
+		
+			<rich:treeModelAdaptor nodes="#{ObjecteNoda.fulles}">                     
+				<rich:treeNode iconLeaf="images/swimlanes_multiple.gif">
+					<a4j:commandLink id="cmlObjecte#{ObjecteNoda.idArbre}" actionListener="#{documents.processAction}" 
+						styleClass="enllac" render="contingutPanelBars,myDiv,queFem" >
+						<f:attribute name="titol" value="#{ObjecteNoda.abrev}" />
+						<f:attribute name="descripcio" value="#{ObjecteNoda.descripcio}" />
+							
+						<h:outputText value="#{ObjecteNoda.descripcio}" escape="false" styleClass="enllac"/>
+												
+					</a4j:commandLink>
+				
+				</rich:treeNode>    
+				             
+			</rich:treeModelAdaptor>  
+	
+		</rich:treeModelRecursiveAdaptor>
+		
+	</rich:tree>
+
+</h:form>
+
+</ui:composition>

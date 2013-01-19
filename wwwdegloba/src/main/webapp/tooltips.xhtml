@@ -1,0 +1,56 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j">
+
+
+	<rich:panel bodyClass="">
+
+		<table>
+			<tr>
+				<td valign="bottom" width="15px"><img src="images/quees.png" />
+				</td>
+				<td valign="top"><h:outputText value="Tooltips"
+					style="font-size:12px;font-weight:bold;" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+
+
+				</td>
+			</tr>
+
+		</table>
+
+	</rich:panel>
+
+
+	<!-- DEFINICIO DE TOTS ELS TOOLTIP DE LA WEB DEGLOBA INCLOSA DE LA PAGINA ACTUAL-->
+	<!-- DEFINICIO DE TOTS ELS TOOLTIP DE LA WEB DEGLOBA INCLOSA DE LA PAGINA ACTUAL-->
+
+
+	<rich:toolTip for="defBPEL" followMouse="false" >
+		<h:outputText value="#{missatge['definicio.BPEL']}" escape="false" />
+	</rich:toolTip>
+
+	<rich:toolTip for="defAxis2" followMouse="false">
+				<h:outputText value="#{missatge['definicio.AXIS2']}" escape="false" />
+		</rich:toolTip>
+		
+		<rich:toolTip for="defJTA" followMouse="false">
+				<h:outputText value="#{missatge['definicio.JTA']}" escape="false" />
+		</rich:toolTip>
+
+		<rich:toolTip for="defEntityManager" followMouse="false">
+				<h:outputText value="#{missatge['definicio.EntityManager']}" escape="false" />
+		</rich:toolTip>
+		
+		<rich:toolTip for="defMOM" followMouse="false">
+				<h:outputText value="#{missatge['definicio.MOM']}" escape="false" />
+		</rich:toolTip>		
+
+</ui:composition>
+
+

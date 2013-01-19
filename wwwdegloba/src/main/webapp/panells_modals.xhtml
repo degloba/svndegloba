@@ -1,0 +1,126 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:richx="http://degloba.com/richx">
+		
+
+<h:form>
+
+<script type="text/javascript">
+	
+// http://ahoehma.wordpress.com/2009/07/22/fadein-and-fadeout-a-richfaces-modalpanel/ 
+function applyModalPanelEffect(panelId, effectFunc, params, hide) {
+
+	if (panelId)
+
+		if(effectFunc) 
+			{
+			 var modalPanel = document.getElementById("j_idt9:"+panelId);
+	
+			 if (modalPanel)
+				 {
+					
+				// if (modalPanel.component) 
+				//{
+					 
+					 //var component = modalPanel.component;
+					 var component = modalPanel;
+					 //var div = component.getSizedElement();
+					 //alert(div);
+					 //if (hide) {
+						alert("si");
+						 Element.hide(div);
+					 //}
+			 	//}
+				effectFunc.call(this, Object.extend( {targetId : div.id}, params || {}));
+				}
+			}
+}
+	 
+function showModalPanelWithEffect(panelId, showEffect, params) {
+	alert("hola");
+	applyModalPanelEffect(panelId, showEffect, params, true);
+	}
+	 
+function hideModalPanelWithEffect(panelId, hideEffect, params) {
+
+	 var _params = params;
+
+	_params['afterFinish'] = function(){richfaces.component(panelId).hide()};
+	alert("hol2222226");
+	 applyModalPanelEffect(panelId, hideEffect, params, false);
+}
+
+
+ 
+function applyPanelEffect(panelId, effectFunc, params, hide) {
+	if (panelId)
+		if(effectFunc) {
+			 
+		 var panel = document.getElementById(panelId);
+		 
+		 
+		 if (hide) {
+				
+				 Element.hide(panel);
+			 }
+		alert("hol"); 
+		effectFunc.call(this, Object.extend( {targetId : 'pnlDegloba'}, params || {}));
+		}
+}
+	 
+function showPanelWithEffect(panelId, showEffect, params) {
+	 
+	applyPanelEffect(panelId, showEffect, params, true);
+	}
+	 
+function hidePanelWithEffect(panelId, hideEffect, params) {
+	
+	 var _params = params;
+	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
+	 applyPanelEffect(panelId, hideEffect, params, false);
+}
+
+
+</script>
+
+	<h:panelGrid id="bar" columns="12">
+	
+	
+		<c:forEach var="modalPanel" items="#{modalPanels.items}">
+				
+	
+			<img src='images/93.png' border='0'/>
+
+				
+			<h:commandLink value="#{modalPanel.titol} - " styleClass="enllac2">        
+ 				<rich:componentControl target="mp#{modalPanel.id}" operation="show" event="click"/>
+ 			</h:commandLink>
+ 						
+			<rich:popupPanel id="mp#{modalPanel.id}" modal="true" resizeable="false"  
+				minWidth="10" minHeight="10" onmaskclick="#{rich:component(richx:concat('mp',modalPanel.id))}.hide()" 
+				autosized="true" shadowDepth="20" width="700" keepVisualState="false" moveable="true"> 
+					
+				<h:panelGrid>
+					
+					<h:outputText value=" #{modalPanel.titol}" styleClass="titolModalPanel"></h:outputText>
+
+					<h:outputText value="#{modalPanel.definicio}" escape="false" />
+						
+					<ui:include src="closeModalPanel.xhtml"/>
+						
+				</h:panelGrid>
+						
+			</rich:popupPanel>
+			
+		</c:forEach>
+	
+	</h:panelGrid>
+	
+</h:form>
+		
+</ui:composition>
