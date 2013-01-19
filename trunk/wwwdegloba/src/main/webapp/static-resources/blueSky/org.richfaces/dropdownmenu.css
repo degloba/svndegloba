@@ -1,0 +1,22 @@
+*.rf-ddm-lbl,*.rf-ddm-lbl-dis{font-family:Arial,Verdana,sans-serif;font-size:11px;font-weight:bold;position:relative;white-space:nowrap;}
+*.rf-ddm-lbl{padding:2px 5px;}
+*.rf-ddm-unsel{border:1px solid transparent;}
+*.rf-ddm-sel{background-image:url(../org.richfaces.images/menu_item_bg.gif-4.0.0.Final.png);background-repeat:repeat-x;background-position:bottom left;background-color:#ECF4FE;border:1px solid;border-color:#BED6F8;cursor:pointer;}
+*.rf-ddm-pos{top:20px;left:0;position:absolute;}
+*.rf-ddm-dis{color:#8DB7F3;cursor:default;}
+*.rf-ddm-lbl-dec{font-weight:bold;cursor:pointer;}
+*.rf-ddm-lst{border:1px solid;border-color:#BED6F8;background-color:#ECF4FE;min-width:250px;position:absolute;z-index:10;outline:none;}
+*.rf-ddm-sublst{position:absolute;top:-8px;left:13px;}
+*.rf-ddm-lst-bg{border:1px solid;border-color:#ECF4FE;background-repeat:repeat-y;background-position:left;background-image:url(../org.richfaces.images/menu_list_bg.gif-4.0.0.Final.png);}
+*.rf-ddm-itm{padding:1px 35px 1px 1px;white-space:nowrap;font-family:Arial,Verdana,sans-serif;font-size:11px;position:relative;}
+*.rf-ddm-itm-unsel{border:1px solid transparent;padding:1px 36px 2px 2px;}
+*.rf-ddm-itm-sel{border:1px solid;border-color:#BED6F8;cursor:pointer;padding:1px 36px 2px 2px;background-color:#ECF4FE;background-repeat:repeat-x;background-position:bottom left;background-image:url(../org.richfaces.images/menu_item_bg.gif-4.0.0.Final.png);z-index:10;}
+*.rf-ddm-itm-dis{border:1px solid transparent;cursor:default;color:#8DB7F3;}
+*.rf-ddm-itm-ic{display:inline-block;margin:0 10px 0 0;vertical-align:middle;}
+*.rf-ddm-itm-lbl{color:#000;display:inline-block;text-decoration:none;vertical-align:middle;z-index:2;}
+*.rf-ddm-sep{font-size:0;border-top:1px solid;border-top-color:#BED6F8;margin:2px 0 2px 24px;}
+*.rf-ddm-nd{background-image:url(../org.richfaces.images/menuNodeImage-4.0.0.Final.gif);background-repeat:no-repeat;background-position:top;font-size:1px;width:7px;height:7px;top:7px;right:6px;position:absolute;}
+*.rf-ddm-itm-dis *.rf-ddm-nd{background-position:bottom;}
+*.rf-ddm-emptyIcon{width:16px;height:16px;line-height:16px;}
+*.rf-ddm-itm-ic input[type="checkbox"]{margin:0;width:16px;}
+*.rf-ddm-itm-lbl input[type="text"]{font-family:Arial Verdana sans-serif;font-size:11px;background-position:1px 1px;background-repeat:no-repeat;border-style:inset;border-width:1px;}

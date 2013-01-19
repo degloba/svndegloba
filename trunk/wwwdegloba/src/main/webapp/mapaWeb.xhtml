@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:c2="http://java.sun.com/jsp/jstl/core">
+
+
+<a4j:outputPanel id="mapaWeb">	
+
+<table width="100%"  cellpadding="10px" class="table.background" border="0" style="background: url('./images/fonts.png')">
+
+<tr valign="top">
+
+		<c2:forEach var="dropDownMenu" items="#{menuBar.dropDownMenus}"  >
+			<td>
+				
+				 <h:outputText value="#{dropDownMenu.nom}" styleClass="capcaleraMapaWeb"/>
+				 <br/><br/>
+				 
+				 
+			       <c2:forEach var="menuItem" items="#{dropDownMenu.menuItems}" >
+			       
+			       			
+			       			<a4j:commandLink value="#{menuItem.nom2}" action="#{menu.doAccio}" render="seleccio,seleccio2" styleClass="enllac">
+			       				<a4j:param name="opcio" value="#{menuItem.abrev2}" />
+			       			</a4j:commandLink>
+			       			<br/>
+			
+					</c2:forEach>
+					
+				</td>
+	
+		
+		</c2:forEach>
+				<td>
+		<img src="http://sflogo.sourceforge.net/sflogo.php?group_id=145027&amp;type=8" width="80" height="15" alt="Get degloba at SourceForge.net" />
+		</td>
+		
+		</tr>
+
+</table>
+
+
+</a4j:outputPanel>
+
+</ui:composition>
