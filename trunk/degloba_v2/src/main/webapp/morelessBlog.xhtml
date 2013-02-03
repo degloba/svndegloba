@@ -1,0 +1,46 @@
+ <ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:c2="http://java.sun.com/jsp/jstl/core">
+
+<a4j:outputPanel id="morelessBlog">
+		
+	<table width="100%">
+		<tr>
+		<td >
+		<h:outputText  escape="false" value="View" styleClass="texteOutput"/>
+		
+		<c2:if test="#{blogs.numPag lt 3}">
+			
+			<a4j:commandLink id="paginaSeguent" styleClass="enllac" 
+			    value=" more blogs"
+			    render="blogRss,morelessBlog" action="#{blogs.paginaSeguent}">
+			</a4j:commandLink>
+			
+		</c2:if>		
+			
+		<c2:if test="#{blogs.numPag lt 3 and blogs.numPag gt 1}">
+			<h:outputText  escape="false" value=" - " styleClass="descNoticies"/>
+		</c2:if>
+					
+		<c2:if test="#{blogs.numPag gt 1}">	
+				
+			<a4j:commandLink  id="paginaAnterior" styleClass="enllac" 
+			    value=" less blogs"
+			    render="blogRss,morelessBlog" action="#{blogs.paginaAnterior}">
+			</a4j:commandLink>
+		</c2:if>
+		
+		</td>
+		<td align="right">
+	
+		<h:outputText escape="false" value="Page : #{blogs.numPag}" styleClass="texteOutput"/>
+		</td>
+		</tr>
+		</table>
+	
+</a4j:outputPanel>
+
+</ui:component>

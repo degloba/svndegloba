@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>degloba</groupId>
+  <artifactId>degloba2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>degloba Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+   <repositories>
+   <repository>
+            <id>parancoe-org-repository</id>
+            <name>Parancoe Repository for Maven</name>
+            <url>http://maven2.parancoe.org/repo</url>
+            <layout>default</layout>
+        </repository>
+   
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>Jboss Repository for Maven</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>java-net</id>
+            <name>Java.net Maven Repository</name>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
+     
+    </repositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Setting this property using archetype-metadata.xml requiredPorperty
+             so that generated project uses correct version of richfaces.
+         -->
+        <org.richfaces.bom.version>4.2.2.Final</org.richfaces.bom.version>
+    </properties>
+
+         
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${org.richfaces.bom.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-components-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.richfaces.core</groupId>
+            <artifactId>richfaces-core-impl</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>5.10</version>
+            <classifier>jdk15</classifier>
+            <scope>test</scope>
+        </dependency>
+        
+        
+        
+        
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-simple</artifactId>
+    	<version>1.6.1</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>net.sourceforge.jtds</groupId>
+    	<artifactId>jtds</artifactId>
+    	<version>1.2.4</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>javassist</groupId>
+    	<artifactId>javassist</artifactId>
+    	<version>3.12.1.GA</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-annotations</artifactId>
+    	<version>3.2.1.ga</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-entitymanager</artifactId>
+    	<version>3.2.1.ga</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.twitter4j</groupId>
+    	<artifactId>twitter4j</artifactId>
+    	<version>2.2.4</version>
+    	<type>pom</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.twitter4j</groupId>
+    	<artifactId>twitter4j-appengine</artifactId>
+    	<version>2.2.4</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>rsslibj</groupId>
+    	<artifactId>rsslibj</artifactId>
+    	<version>1.0RC2</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>rss4j</groupId>
+    	<artifactId>rss4j</artifactId>
+    	<version>0.92</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>oauth.signpost</groupId>
+    	<artifactId>signpost-core</artifactId>
+    	<version>1.2.1.1</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.googlecode.linkedin-j</groupId>
+    	<artifactId>linkedin-j-core</artifactId>
+    	<version>1.0.416</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.google.code.facebookapi</groupId>
+    	<artifactId>facebook-java-api</artifactId>
+    	<version>3.0.4</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    
+
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.18</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.axis</groupId>
+    	<artifactId>axis-saaj</artifactId>
+    	<version>1.4</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.axis</groupId>
+    	<artifactId>axis-jaxrpc</artifactId>
+    	<version>1.4</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>javax.xml</groupId>
+    	<artifactId>jaxrpc</artifactId>
+    	<version>1.1</version>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.sun.faces</groupId>
+    	<artifactId>jsf-api</artifactId>
+    	<version>2.1.3_01</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.sun.faces</groupId>
+    	<artifactId>jsf-impl</artifactId>
+    	<version>2.1.3</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+
+    <dependency>
+    	<groupId>com.google.gdata</groupId>
+    	<artifactId>gdata-client</artifactId>
+    	<version>1.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.google.gdata</groupId>
+    	<artifactId>gdata-blogger</artifactId>
+    	<version>2.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.google.gdata</groupId>
+    	<artifactId>gdata-core</artifactId>
+    	<version>1.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.benfante</groupId>
+    	<artifactId>JSlideShare</artifactId>
+    	<version>0.5</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.sun.facelets</groupId>
+    	<artifactId>jsf-facelets</artifactId>
+    	<version>1.1.14</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    </dependencies>
+  
+</project>
