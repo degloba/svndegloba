@@ -35,8 +35,8 @@ private String nomFilter;
 private int habitacionsFilter;
 private int banysFilter;
 // combos 
-private int localitatFilter;
-private int provinciaFilter;
+private String localitatFilter;
+private String provinciaFilter;
 private String tipusFilter;
 
 private int metresFilter;
@@ -48,16 +48,16 @@ public String getNomFilter() {
 public void setNomFilter(String nomFilter) {
 	this.nomFilter = nomFilter;
 }
-public int getLocalitatFilter() {
+public String getLocalitatFilter() {
 	return localitatFilter;
 }
-public void setLocalitatFilter(int localitatFilter) {
+public void setLocalitatFilter(String localitatFilter) {
 	this.localitatFilter = localitatFilter;
 }
-public int getProvinciaFilter() {
+public String getProvinciaFilter() {
 	return provinciaFilter;
 }
-public void setProvinciaFilter(int provinciaFilter) {
+public void setProvinciaFilter(String provinciaFilter) {
 	this.provinciaFilter = provinciaFilter;
 }
 public String getTipusFilter() {
@@ -203,14 +203,14 @@ public void cambiarProvincia(ValueChangeEvent event)
 		
 
 		// Modifiquem la provincia  i localitat dels corresponents filtres 
-		setLocalitatFilter((Integer) novesCiutats.get(0).getValue());
-		setProvinciaFilter(provincia.getId());
+		setLocalitatFilter((String) novesCiutats.get(0).getValue());
+		setProvinciaFilter(provincia.getProvinciaKey());
 		
 		// actualitzem el necessari per actualitzar els combos de la ciutat i provincia del formulari d'entrada
 		//inmobleForm.setProvincia(provincia.getId());
 		///////inmobleForm.setProvinciaStr(provincia.getName());
-		provinciesForm.setValorActual(provincia.getId());
-		ciutatsForm.setValorActual((Integer) novesCiutats.get(0).getValue());
+		provinciesForm.setValorActual(provincia.getProvinciaKey());
+		ciutatsForm.setValorActual((String) novesCiutats.get(0).getValue());
 		 
       }
 	
@@ -233,7 +233,7 @@ public void cambiarCiutat(ValueChangeEvent event)
 	
 	 if (null != event.getNewValue()) 
 	 {             		
-		 ciutatsForm.setValorActual((Integer) event.getNewValue());
+		 ciutatsForm.setValorActual((String) event.getNewValue());
 		 
       }
 		
