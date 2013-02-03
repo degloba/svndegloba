@@ -10,16 +10,7 @@
 			
 	<h:panelGroup>		
 			
-		<h:outputText value="PROVINCIA: "/>
-		   
-				   					
-			<h:selectOneMenu value="#{provincies.valorActual}" id="lprovincies"
-				valueChangeListener="#{provincies.processValueChange}">
-				<f:selectItems value="#{provincies.provincies}"/>
-				<a4j:ajax event="valueChange" render="pnlGr_inmobles,lciutats,lciutatsFiltre,lprovinciesFiltre" execute="@this"/>
-			</h:selectOneMenu>
-			
-			<h:selectBooleanCheckbox value="#{inmobleForm.columnesVisibles[75]}" />
+
 				
 	 			
 							
@@ -36,6 +27,18 @@
 		<h:selectBooleanCheckbox value="#{inmobleForm.columnesVisibles[74]}" />
 			
 	 	
+	 	
+	 	
+	 			<h:outputText value="PROVINCIA: "/>
+		   
+				   					
+			<h:selectOneMenu value="#{provincies.valorActual}" id="lprovincies"
+				valueChangeListener="#{provincies.processValueChange}">
+				<f:selectItems value="#{provincies.provincies}"/>
+				<a4j:ajax event="valueChange" render="pnlGr_inmobles,lciutats,lciutatsFiltre,lprovinciesFiltre" execute="@this"/>
+			</h:selectOneMenu>
+			
+			<h:selectBooleanCheckbox value="#{inmobleForm.columnesVisibles[75]}" />
 		
 	</h:panelGroup>
 
