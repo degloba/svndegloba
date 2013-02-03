@@ -1,0 +1,48 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+<script>
+//<![CDATA[
+
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: 'degloba',
+  interval: 6000,
+  title: '',
+  subject: 'degloba en Twitter',
+  width: 300,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#827b82'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: 'gray',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    hashtags: false,
+    timestamp: true,
+    avatars: false,
+    toptweets: false,
+    behavior: 'default'
+  }
+}).render().start();
+
+//]]>
+</script>
+		
+
+
+</ui:composition>
+
+

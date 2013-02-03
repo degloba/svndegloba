@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:rich="http://richfaces.org/rich" >
+
+<h:form>
+	<a4j:outputPanel ajaxRendered="true">
+		
+		<table cellspacing="20px" cellpadding="10px" border="0">
+			<tr>
+				<td>
+					<h:outputText styleClass="quefem"
+						value="#{menu.menuItemSeleccionat==null? missatge['menuItem.VisioGener'] : menu.menuItemSeleccionat}"
+						 escape="false" />
+		
+					<h:outputText 
+						value="#{menu.definicioCurrent==null? missatge['definicio.VisioGener']  :menu.definicioCurrent}"
+						escape="false" styleClass="texteOutput22"/>
+						
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a4j:outputPanel id="queFem">	
+						<a4j:commandLink id="ocultar"  value="Que hacemos ?" styleClass="quefem"
+							action="#{visiblePanellDegloba.cambiaVisible}" render="myDiv,queFem" rendered="#{not visiblePanellDegloba.visible}">
+						</a4j:commandLink>
+					</a4j:outputPanel>
+				</td>
+			</tr>
+			
+		</table>   
+				
+	</a4j:outputPanel>
+</h:form>
+
+</ui:composition>

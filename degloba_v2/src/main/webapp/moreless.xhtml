@@ -1,0 +1,34 @@
+ <ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:c2="http://java.sun.com/jsp/jstl/core">
+
+<a4j:outputPanel id="moreless">
+
+	<h:outputText escape="false" value="Ver" styleClass="texteOutput"/>
+	
+	<c2:if test="#{noticies.numPag lt 3}">
+		
+		<a4j:commandLink id="mesNoticies" styleClass="enllac" 
+		    value=" más eventos"
+		    render="noticiesRss,moreless" action="#{noticies.paginaSeguent}">
+		</a4j:commandLink>
+		
+	</c2:if>		
+		
+	<c2:if test="#{noticies.numPag lt 3 and noticies.numPag gt 1}">
+		<h:outputText  escape="false" value=" - " styleClass="descNoticies"/>
+	</c2:if>
+				
+	<c2:if test="#{noticies.numPag gt 1}">	
+			
+		<a4j:commandLink  id="menosNoticies" styleClass="enllac" 
+		    value=" menos eventos"
+		    render="noticiesRss,moreless" action="#{noticies.paginaAnterior}">
+		</a4j:commandLink>
+	</c2:if>
+	
+</a4j:outputPanel>
+
+</ui:component>
