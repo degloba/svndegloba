@@ -3,3 +3,4 @@ eclipse.preferences.version=1
 filesCopiedToWebInfLib=
 gaeDeployDialogSettings=
 gaeHrdEnabled=true
+gaeDatanucleusVersion=v2
