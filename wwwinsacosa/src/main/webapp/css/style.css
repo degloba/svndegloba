@@ -2,7 +2,7 @@ body {
     margin: 0px 0px 0px 0px;
     font-family: serif;   /* arial Sans serif courier bitstream cursor */
     text-transform: none;
-    background-color: #f8ecdd;
+    background-color: #769acb;
     }
 
 
@@ -42,7 +42,7 @@ Mirar : http://www.baluart.net/articulo/6/alternar-color-de-filas-con-css.php */
     font-weight: bold;
     text-decoration: none;
     font-style: normal;
-    color: #7c75e0;
+    color: red;
      
     }
     
@@ -171,58 +171,6 @@ padding-bottom:2px;
 }
 
 
-/********************************************************/   
-/*                      MENU                          */   
-/********************************************************/
-
-ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	width: 109px;
-	height: 10px;
-	border-bottom: 1px solid #ccc;
-
-	}
-ul li {
-	position: relative;
-	}
-	
-	
-li ul {
-	position: absolute;
-	left: 110px;
-	top: 0;
-height: 10px;	
-	display: none;
-
-	}
-	
-ul li a {
-	display: block;
-	text-decoration: none;
-	color: #000000;
-	padding: 5px;
-	border: 1px solid #ccc;
-	border-bottom: 0;
-	}
-	
-html ul li { float: left; }
-html ul li a { height: 1%; }	
-
-li:hover, li.over {
-background-color: #f7a441;
-}
-
-li:hover ul, li.over ul { 
-	display: block;
-	background-color: #f7a441;}
-	
-/********************************************************/   
-/*                      FIN MENU                        */   
-/********************************************************/	
-
-
 .comentari {
 margin-left: 5px;
 font-family: verdana;
@@ -231,7 +179,7 @@ font-family: verdana;
 }
 
  .boton{
-        font-size:10px;
+        font-size:12px;
         font-family:Verdana,Helvetica;
         font-weight:bold;
         color:white;
