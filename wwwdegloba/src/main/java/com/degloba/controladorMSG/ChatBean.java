@@ -15,7 +15,7 @@ import org.richfaces.application.push.TopicsContext;
 import org.richfaces.log.LogFactory;
 import org.richfaces.log.Logger;
 
-import com.insacosa.vo.InmobleForm;
+//import com.insacosa.vo.InmobleForm;
 
 /**
  * @author Nick Belaevski
@@ -64,18 +64,18 @@ public class ChatBean implements Serializable {
     }
     
     private void publishStateChangeMessage(String canal, String action) {
-        try {
-        	topicsContext = TopicsContext.lookup();
+       // try {
+        //	topicsContext = TopicsContext.lookup();
         	
         	FacesContext context = FacesContext.getCurrentInstance();
-        	InmobleForm inmobleForm = (InmobleForm) context.getApplication().evaluateExpressionGet(context, "#{inmobleForm}", InmobleForm.class);
+        	// InmobleForm inmobleForm = (InmobleForm) context.getApplication().evaluateExpressionGet(context, "#{inmobleForm}", InmobleForm.class);
         	//UserForm comprador = (UserForm) context.getApplication().evaluateExpressionGet(context, "#{userForm}", UserForm.class);
       		
         	// ho enviem a la cua de l'usuari del venedor
-            topicsContext.publish(new TopicKey("inmobles", inmobleForm.getVenedor() + canal), "solicitud de inmueble por comprador ");
-        } catch (MessageException e) {
-            LOGGER.error(e.getMessage(), e);
-        }
+            //topicsContext.publish(new TopicKey("inmobles", inmobleForm.getVenedor() + canal), "solicitud de inmueble por comprador ");
+      //  } catch (MessageException e) {
+        //    LOGGER.error(e.getMessage(), e);
+        //}
     }
     
     
