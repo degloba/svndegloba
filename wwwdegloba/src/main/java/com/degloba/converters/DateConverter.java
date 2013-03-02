@@ -1,7 +1,6 @@
 package com.degloba.converters;
 
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.faces.application.FacesMessage;
