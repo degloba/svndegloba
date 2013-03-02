@@ -1,9 +1,6 @@
 package com.degloba.dataModels_JPA;
 
 
-import java.io.InputStream;
-
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -19,19 +16,7 @@ import javax.persistence.EntityManagerFactory;
 
 import javax.persistence.Persistence;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.Node;
-
-
-import com.google.appengine.api.datastore.DatastoreConfig;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceConfig;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.common.collect.Lists;
-import com.google.common.io.Closeables;
 
 /**
  * @author Nick Belaevski

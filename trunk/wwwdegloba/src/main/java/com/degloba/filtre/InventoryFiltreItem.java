@@ -3,7 +3,6 @@ package com.degloba.filtre;
 import java.io.InputStream;
 import java.io.Serializable;
 
-import com.google.appengine.api.datastore.Key;
 
 public class InventoryFiltreItem implements Serializable {
 

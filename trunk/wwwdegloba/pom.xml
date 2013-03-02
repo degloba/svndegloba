@@ -8,7 +8,7 @@
   <url>http://jboss.org/richfaces</url>
 
     <repositories>
-       <repository>
+           <repository>
             <id>parancoe-org-repository</id>
             <name>Parancoe Repository for Maven</name>
             <url>http://maven2.parancoe.org/repo</url>
@@ -416,68 +416,40 @@
         	<version>0.9.7</version>
         	<scope>compile</scope>
         </dependency>
-        
-        
         <dependency>
-    	<groupId>rss4j</groupId>
-    	<artifactId>rss4j</artifactId>
-    	<version>0.92</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    
-    
-    <dependency>
-    	<groupId>com.googlecode.linkedin-j</groupId>
-    	<artifactId>linkedin-j-core</artifactId>
-    	<version>1.0.416</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.google.code.facebookapi</groupId>
-    	<artifactId>facebook-java-api</artifactId>
-    	<version>3.0.4</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>    
-   <dependency>
-    	<groupId>com.google.gdata</groupId>
-    	<artifactId>gdata-client</artifactId>
-    	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-     <dependency>
-    	<groupId>com.google.gdata</groupId>
-    	<artifactId>gdata-blogger</artifactId>
-    	<version>2.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.google.gdata</groupId>
-    	<artifactId>gdata-core</artifactId>
-    	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    
-    <dependency>
-    	<groupId>com.benfante</groupId>
-    	<artifactId>JSlideShare</artifactId>
-    	<version>0.5</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    
-    
-    <dependency>
-    	<groupId>org.twitter4j</groupId>
-    	<artifactId>twitter4j-core</artifactId>
-    	<version>2.2.5</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
+        	<groupId>rss4j</groupId>
+        	<artifactId>rss4j</artifactId>
+        	<version>0.92</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.google.gdata</groupId>
+        	<artifactId>gdata-core</artifactId>
+        	<version>1.0</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.google.code.facebookapi</groupId>
+        	<artifactId>facebook-java-api</artifactId>
+        	<version>3.0.4</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.googlecode.linkedin-j</groupId>
+        	<artifactId>linkedin-j-core</artifactId>
+        	<version>1.0.416</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.twitter4j</groupId>
+        	<artifactId>twitter4j-core</artifactId>
+        	<version>2.2.5</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>
