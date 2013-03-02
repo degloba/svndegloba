@@ -2,7 +2,6 @@
 
 import java.io.IOException;
 import java.util.EnumSet;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,19 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import oauth.signpost.OAuth;
-import oauth.signpost.OAuthConsumer;
-import oauth.signpost.OAuthProvider;
-import oauth.signpost.basic.DefaultOAuthConsumer;
-import oauth.signpost.basic.DefaultOAuthProvider;
 
 /////////////////import com.cs.liveebiz.server.common.ui.ImportLinkedInProfile;
 /////////////////import com.cs.liveebiz.server.common.util.UserContextHolder;
-import com.benfante.jslideshare.SlideShareAPI;
+/*import com.benfante.jslideshare.SlideShareAPI;
 import com.benfante.jslideshare.SlideShareAPIFactory;
-import com.benfante.jslideshare.messages.Group;
 import com.benfante.jslideshare.messages.Slideshow;
-import com.benfante.jslideshare.messages.User;
+import com.benfante.jslideshare.messages.User;*/
 import com.google.code.linkedinapi.client.LinkedInApiClient;
 import com.google.code.linkedinapi.client.LinkedInApiClientFactory;
 import com.google.code.linkedinapi.client.enumeration.ProfileField;
@@ -52,7 +45,7 @@ private static final String CONSUMER_SECRET_OPTION = "paOcIRGQ1RbJW5jBqAKKoBmqxW
 
 public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { 
 
-	
+	/*
 	SlideShareAPI ssapi =  SlideShareAPIFactory.getSlideShareAPI("FfZhXNRX", "TAqlQKeN"  );   // Your API key + Your shared secret
 	String embedCode="";
 
@@ -66,7 +59,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws Servl
       }
 	
 	System.out.println("Codi embed " + embedCode);
-	
+	*/
 	
 	try {
 	
