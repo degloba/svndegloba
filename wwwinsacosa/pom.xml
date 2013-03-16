@@ -6,7 +6,9 @@
   <packaging>war</packaging>
   
   <url>http://jboss.org/richfaces</url>
+  
 
+  
     <repositories>
         <repository>
             <id>jboss-public-repository-group</id>
@@ -120,6 +122,12 @@
             	<groupId>org.apache.maven.plugins</groupId>
             	<artifactId>maven-war-plugin</artifactId>
             	<version>2.2</version>
+            </plugin>
+            
+            <plugin>    
+            	<groupId>com.google.appengine</groupId>    
+            	<artifactId>appengine-maven-plugin</artifactId>    
+            	<version>1.7.4</version>
             </plugin>
         </plugins>
     </build>
@@ -410,5 +418,48 @@
         	<version>0.9.7</version>
         	<scope>compile</scope>
         </dependency>
+        <dependency>
+        	<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-jpa</artifactId>
+        	<version>1.1.5</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-core</artifactId>
+        	<version>1.1.5</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        
+        <dependency>
+        	<groupId>com.google.appengine</groupId>
+        	<artifactId>appengine-api-labs</artifactId>
+        	<version>1.7.5</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+
+        <dependency>
+        	<groupId>com.google.appengine</groupId>
+        	<artifactId>appengine-jsr107cache</artifactId>
+        	<version>1.7.5</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.google.appengine</groupId>
+        	<artifactId>appengine-java-sdk</artifactId>
+        	<version>1.7.5</version>
+        	<type>zip</type>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
+    
+      <parent>        
+	  <groupId>com.google.appengine</groupId>        
+	  <artifactId>appengine</artifactId>          
+	  <version>1.7.5</version>    
+  </parent>
 </project>
