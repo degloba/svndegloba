@@ -115,47 +115,7 @@
 		            </configuration>
 		        </execution>
                 
-                    <execution>
-                        <id>process</id>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <configuration>
-                            <outputDir>generated-resources</outputDir>
-                            <skins>
-                                <skin>blueSky</skin>
-                                <skin>classic</skin>
-                                <skin>deepMarine</skin>
-                                <skin>emeraldTown</skin>
-                                <skin>japanCherry</skin>
-                                <skin>ruby</skin>
-                                <skin>wine</skin>
-                            </skins>
-                            <excludedFiles>
-                                <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
-                                <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
-                            </excludedFiles>
-                            <includedContentTypes>
-                                <include>application/javascript</include>
-                                <include>text/css</include>
-                                <include>image/.+</include>
-                            </includedContentTypes>
-                            <fileNameMappings>
-                                <property>
-                                    <name>^\Qorg.richfaces.renderkit.html\E</name>
-                                    <value>org.richfaces/images</value>
-                                </property>
-                                <property>
-                                    <name>^\Qorg.richfaces.renderkit.html.images\E</name>
-                                    <value>org.richfaces/images</value>
-                                </property>
-                                <property>
-                                    <name>^css/</name>
-                                    <value>org.richfaces/css/</value>
-                                </property>
-                            </fileNameMappings>
-                        </configuration>
-                    </execution>
+                   
                 </executions>
             </plugin>
             <plugin>
@@ -470,7 +430,13 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
- 
+     <dependency>
+    	<groupId>org.richfaces.cdk</groupId>
+    	<artifactId>annotations</artifactId>
+    	<version>4.3.1.Final</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
 
 
 

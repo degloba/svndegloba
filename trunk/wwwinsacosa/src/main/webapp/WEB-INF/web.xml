@@ -119,6 +119,17 @@
         <param-value>false</param-value>
  </context-param>
  
+   <context-param>
+        <param-name>org.richfaces.resourceMapping.enabled</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>org.richfaces.resourceMapping.packedStages</param-name>
+        <param-value>Production</param-value>
+    </context-param>  
+ 
+ 
   <filter>
   <filter-name>PushFilter</filter-name>
   <filter-class>org.richfaces.webapp.PushFilter</filter-class>
