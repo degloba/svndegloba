@@ -35,8 +35,8 @@
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
              so that generated project uses correct version of richfaces.
          -->
-        <org.richfaces.bom.version>4.0.0.Final</org.richfaces.bom.version>
-        <gae.version>1.4.0</gae.version>
+        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
+        <gae.version>1.7.6</gae.version>
         <hornetq.version>2.1.2.Final</hornetq.version>
     </properties>
 
@@ -44,12 +44,72 @@
         <finalName>wwwdegloba</finalName>
         <plugins>
 
-            <plugin>
+             <plugin>
                 <groupId>org.richfaces.cdk</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
+                <artifactId>maven-richfaces-resources-plugin</artifactId>
                 <version>${org.richfaces.bom.version}</version>
-                <configuration></configuration>
+                <configuration>
+                
+                <skins>
+		            <skin>blueSky</skin>
+		        </skins>
+		        <excludedFiles>
+		            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
+		            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
+		        </excludedFiles>
+		        <includedContentTypes>
+		            <include>application/javascript</include>
+		            <include>text/css</include>
+		            <include>image/.+</include>
+		        </includedContentTypes>
+		        <fileNameMappings>
+		            <property>
+		                <name>^.*showcase.*/([^/]+\.css)$</name>
+		                <value>org.richfaces.showcase.css/$1</value>
+		            </property>
+		            <property>
+		                <name>^.+/([^/]+\.(png|gif|jpg))$</name>
+		                <value>org.richfaces.images/$1</value>
+		            </property>
+		            <property>
+		                <name>^.+/([^/]+\.css)$</name>
+		                <value>org.richfaces.css/$1</value>
+		            </property>
+		        </fileNameMappings>
+                
+                
+                
+                </configuration>
                 <executions>
+                <execution>
+		            <id>process-resources</id>
+		            <goals>
+		                <goal>process</goal>
+		            </goals>
+		            <configuration>
+		            
+		                <!-- default RichFaces mapping file, can be anywhere on the classpath, but then you will
+		                     will need to configure Resource Mapping configuration file location in web.xml,
+		                     refer to RichFaces Developer Guide -->
+		                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
+		                
+		                <!-- resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
+		                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
+		                     depending on packaging of this project -->
+		                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
+		                
+		                <!-- resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources) -->
+		                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
+		                
+		                <!-- resources will be packaged, refer to RichFaces Developer Guide -->
+		                <pack>true</pack>
+		                
+		                <!-- resources will be compressed, refer to RichFaces Developer Guide -->
+		                <compress>true</compress>
+		                
+		            </configuration>
+		        </execution>
+                
                     <execution>
                         <id>process</id>
                         <goals>
@@ -96,7 +156,7 @@
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
-                <version>0.7.3</version>
+                <version>0.9.5</version>
                 <dependencies>
                     <dependency>
                         <groupId>net.kindleit</groupId>
@@ -139,12 +199,13 @@
                 </property>
             </activation>
             <dependencies>
-                <dependency>
-                    <groupId>com.google.appengine</groupId>
-                    <artifactId>appengine-java-sdk</artifactId>
-                    <version>${gae.version}</version>
-                    <type>zip</type>
-                </dependency>
+                 <dependency>
+			        	<groupId>com.google.appengine</groupId>
+			        	<artifactId>appengine-api-1.0-sdk</artifactId>
+			        	<version>1.7.6</version>
+			        	<type>jar</type>
+			        	<scope>compile</scope>
+        		</dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -222,10 +283,10 @@
             <artifactId>richfaces-core-impl</artifactId>
         </dependency>
 
-        <dependency>
+         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <scope>provided</scope>
+            <version>2.5</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
@@ -343,14 +404,7 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
-    <dependency>
-    	<groupId>org.richfaces.cdk</groupId>
-    	<artifactId>annotations</artifactId>
-    	<version>4.0.0.20110227-CR1</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    
+       
   
    
     <dependency>
@@ -360,8 +414,6 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
-
-     
 
     
     <dependency>
@@ -381,7 +433,7 @@
     <dependency>
     	<groupId>org.richfaces.core</groupId>
     	<artifactId>richfaces-core-api</artifactId>
-    	<version>4.0.0.Final</version>
+    	<version>4.3.1.Final</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
@@ -451,5 +503,13 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
+        
+		<dependency>
+        	<groupId>org.richfaces.cdk</groupId>
+        	<artifactId>maven-richfaces-resources-plugin</artifactId>
+        	<version>4.3.1.Final</version>
+        	<type>maven-plugin</type>
+        	<scope>compile</scope>
+        </dependency>        
     </dependencies>
 </project>
