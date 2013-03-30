@@ -31,7 +31,7 @@
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
              so that generated project uses correct version of richfaces.
          -->
-        <org.richfaces.bom.version>4.0.0.Final</org.richfaces.bom.version>
+        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
         
         <gae.version>1.7.6</gae.version>
 			<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
@@ -51,7 +51,7 @@
 
             <plugin>
                 <groupId>org.richfaces.cdk</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
+                <artifactId>maven-richfaces-resources-plugin</artifactId>
                 <version>${org.richfaces.bom.version}</version>
                 <configuration></configuration>
                 <executions>
@@ -219,12 +219,12 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <scope>provided</scope>
+            <version>2.5</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
-            <scope>provided</scope>
+            <version>2.0</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -337,13 +337,6 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
-    <dependency>
-    	<groupId>org.richfaces.cdk</groupId>
-    	<artifactId>annotations</artifactId>
-    	<version>4.0.0.20110227-CR1</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
     
   
    
@@ -375,7 +368,7 @@
     <dependency>
     	<groupId>org.richfaces.core</groupId>
     	<artifactId>richfaces-core-api</artifactId>
-    	<version>4.0.0.Final</version>
+    	<version>4.3.1.Final</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
@@ -434,6 +427,13 @@
         	<artifactId>datanucleus-core</artifactId>
         	<version>1.1.5</version>
         	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.richfaces.cdk</groupId>
+        	<artifactId>maven-richfaces-resources-plugin</artifactId>
+        	<version>4.3.1.Final</version>
+        	<type>maven-plugin</type>
         	<scope>compile</scope>
         </dependency>
     </dependencies>
