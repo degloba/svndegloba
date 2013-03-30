@@ -13,13 +13,9 @@ import org.richfaces.application.push.Session;
 import org.richfaces.application.push.TopicKey;
 
 
-import com.google.common.collect.Multimap;
-
 
 public class SimpleSelection implements Session {
 
- 	private static final long serialVersionUID = 1L;
- 
  	private Set<Object> keys = new LinkedHashSet<Object>();
  	
  	private boolean selectAll = false;
