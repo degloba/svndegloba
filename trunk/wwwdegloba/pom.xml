@@ -504,6 +504,14 @@
         	<scope>compile</scope>
         </dependency>
         
+             <dependency>
+    	<groupId>org.richfaces.cdk</groupId>
+    	<artifactId>annotations</artifactId>
+    	<version>4.3.1.Final</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+        
 		<dependency>
         	<groupId>org.richfaces.cdk</groupId>
         	<artifactId>maven-richfaces-resources-plugin</artifactId>
