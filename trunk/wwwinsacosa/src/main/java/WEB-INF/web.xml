@@ -7,16 +7,6 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
-<context-param>
-  <param-name>facebook_api_key</param-name>
-  <param-value>6bb68478ea37a1dc0a5b6066451841d5</param-value>
- </context-param>
- <context-param>
-  <param-name>facebook_secret</param-name>
-  <param-value>19454259f329a7b6857bb86b411f3dc5</param-value>
- </context-param>
-    
     <context-param>
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
         <param-value>/WEB-INF/degloba_tags.xml</param-value>
@@ -45,30 +35,8 @@
   <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
   <param-value>client</param-value>
  </context-param>
- <context-param>
-        <param-name>org.apache.myfaces.SECRET</param-name>
-  <param-value>UmljaEZhY2VzVGVtcEtleQ==</param-value>
- </context-param>
- <context-param>
-        <param-name>org.apache.myfaces.MAC_SECRET</param-name>
-  <param-value>UmljaEZhY2VzVGVtcEtleQ==</param-value>
- </context-param>
- <context-param>
-  <param-name>org.apache.myfaces.algorithm</param-name>
-  <param-value>Blowfish</param-value>
- </context-param>
- <context-param>
-        <param-name>org.richfaces.staticResourceLocation</param-name>
-        <param-value>#{facesContext.externalContext.requestContextPath}/static-resources/#{resourceLocation}</param-value>
- </context-param>
- <context-param>
-        <param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
-        <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
- </context-param>
- <context-param>
-  <param-name>javax.faces.SKIP_COMMENTS</param-name>
-  <param-value>true</param-value>
- </context-param> 
+ 
+
     
     
 <!-- defines whether the uploaded files are stored in temporary files or 
@@ -110,7 +78,7 @@
         <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
     </context-param>
 -->
-<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
+<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine  -->
     <context-param>
         <description>
             When enabled, the runtime initialization and default ResourceHandler
@@ -122,16 +90,15 @@
             pick up new versions of resources when ProjectStage is development.
         </description>
         <param-name>com.sun.faces.enableThreading</param-name>
-  <param-value>false</param-value>
- </context-param>
- <context-param>
-        <param-name>com.sun.faces.expressionFactory</param-name>
-        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
- </context-param>
+  <param-value>false</param-value>  
+ </context-param> 
+
  <context-param>
         <param-name>org.richfaces.executeAWTInitializer</param-name>
         <param-value>false</param-value>
  </context-param>
+ 
+
  
   <filter>
   <filter-name>PushFilter</filter-name>
@@ -142,12 +109,6 @@
   <url-pattern>*.jsf</url-pattern>
  </filter-mapping>
  
-<servlet>
-  <description>Per connectar amb Facebook</description>
-  <display-name>clientFacebook</display-name>
-  <servlet-name>clientFacebook</servlet-name>
-  <servlet-class>clientFacebook</servlet-class>
- </servlet>
  
  <servlet>
   <servlet-name>Faces Servlet</servlet-name>
@@ -155,16 +116,9 @@
   <load-on-startup>1</load-on-startup>
  </servlet>
  <servlet-mapping>
-  <servlet-name>clientFacebook</servlet-name>
-  <url-pattern>/servlets/clientFacebook</url-pattern>
- </servlet-mapping>
- 
- <servlet-mapping>
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>*.jsf</url-pattern>
  </servlet-mapping>
- 
- 
  <servlet-mapping>
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>/faces/*</url-pattern>
@@ -182,9 +136,6 @@
 	 <url-pattern>/remote_api</url-pattern>
 </servlet-mapping>
  
-  <session-config>
-  <session-timeout>0</session-timeout>
- </session-config>
  
     <listener>
  		<listener-class>com.sun.faces.config.ConfigureListener</listener-class> 
