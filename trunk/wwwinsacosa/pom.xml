@@ -46,72 +46,69 @@
     <build>
         <finalName>wwwinsacosa</finalName>
         <plugins>
-      <plugin>
-                <groupId>org.richfaces.cdk</groupId>
-                <artifactId>maven-richfaces-resources-plugin</artifactId>
+      		<plugin>
+    <groupId>org.richfaces.cdk</groupId>
+    <artifactId>maven-richfaces-resources-plugin</artifactId>
                 <version>${org.richfaces.bom.version}</version>
-                <configuration>
-	                 <skins>
-			            <skin>blueSky</skin>
-			        </skins>
-			        <excludedFiles>
-			            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
-			            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
-			        </excludedFiles>
-			        <includedContentTypes>
-			            <include>application/javascript</include>
-			            <include>text/css</include>
-			            <include>image/.+</include>
-			        </includedContentTypes>
-			        <fileNameMappings>
-			            <property>
-			                <name>^.*showcase.*/([^/]+\.css)$</name>
-			                <value>org.richfaces.showcase.css/$1</value>
-			            </property>
-			            <property>
-			                <name>^.+/([^/]+\.(png|gif|jpg))$</name>
-			                <value>org.richfaces.images/$1</value>
-			            </property>
-			            <property>
-			                <name>^.+/([^/]+\.css)$</name>
-			                <value>org.richfaces.css/$1</value>
-			            </property>
-			        </fileNameMappings>
+    <configuration>
+        <skins>
+            <skin>blueSky</skin>
+        </skins>
+        <excludedFiles>
+            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
+            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
+        </excludedFiles>
+        <includedContentTypes>
+            <include>application/javascript</include>
+            <include>text/css</include>
+            <include>image/.+</include>
+        </includedContentTypes>
+        <fileNameMappings>
+            <property>
+                <name>^.*showcase.*/([^/]+\.css)$</name>
+                <value>org.richfaces.showcase.css/$1</value>
+            </property>
+            <property>
+                <name>^.+/([^/]+\.(png|gif|jpg))$</name>
+                <value>org.richfaces.images/$1</value>
+            </property>
+            <property>
+                <name>^.+/([^/]+\.css)$</name>
+                <value>org.richfaces.css/$1</value>
+            </property>
+        </fileNameMappings>
+    </configuration>
+    <executions>
+        <execution>
+            <id>process-resources</id>
+            <goals>
+                <goal>process</goal>
+            </goals>
+            <configuration>
+            
+                <!-- default RichFaces mapping file, can be anywhere on the classpath, but then you will
+                     will need to configure Resource Mapping configuration file location in web.xml,
+                     refer to RichFaces Developer Guide -->
+                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
                 
-                </configuration>
-                <executions>
-                    <execution>
-			            <id>process-resources</id>
-			            <goals>
-			                <goal>process</goal>
-			            </goals>
-			            <configuration>
-			            
-			                <!-- default RichFaces mapping file, can be anywhere on the classpath, but then you will
-			                     will need to configure Resource Mapping configuration file location in web.xml,
-			                     refer to RichFaces Developer Guide -->
-			                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
-			                
-			                <!-- resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
-			                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
-			                     depending on packaging of this project -->
-			                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
-			                
-			                <!-- resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources) -->
-			                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
-			                
-			                <!-- resources will be packaged, refer to RichFaces Developer Guide -->
-			                <pack>true</pack>
-			                
-			                <!-- resources will be compressed, refer to RichFaces Developer Guide -->
-			                <compress>true</compress>
-			                
-			            </configuration>
-			        </execution>
-                    
-                </executions>
-            </plugin>
-           
+                <!-- resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
+                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
+                     depending on packaging of this project -->
+                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
+                
+                <!-- resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources) -->
+                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
+                
+                <!-- resources will be packaged, refer to RichFaces Developer Guide -->
+                <pack>true</pack>
+                
+                <!-- resources will be compressed, refer to RichFaces Developer Guide -->
+                <compress>true</compress>
+                
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
@@ -188,7 +185,7 @@
       
     <dependencies>
     
-      <dependency>
+    	<dependency>
             <groupId>org.jboss.netty</groupId>
             <artifactId>netty</artifactId>
             <version>3.2.2.Final</version>
@@ -382,9 +379,8 @@
         <dependency>
         	<groupId>org.atmosphere</groupId>
         	<artifactId>atmosphere-runtime</artifactId>
-        	<version>0.9.7</version>
         	<scope>compile</scope>
-        </dependency>
+          </dependency>
         <dependency>
         	<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-jpa</artifactId>
