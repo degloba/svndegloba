@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-import org.datanucleus.jpa.annotations.Extension;
+import org.datanucleus.api.jpa.annotations.Extension;
 
 
 @Entity

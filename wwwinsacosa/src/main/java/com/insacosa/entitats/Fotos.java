@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.datanucleus.jpa.annotations.Extension;
+import org.datanucleus.api.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
