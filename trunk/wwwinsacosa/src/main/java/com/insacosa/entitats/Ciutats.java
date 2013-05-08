@@ -20,7 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import org.datanucleus.jpa.annotations.Extension;
+import org.datanucleus.api.jpa.annotations.Extension;
 
 @Entity
 public class Ciutats extends Objecte {

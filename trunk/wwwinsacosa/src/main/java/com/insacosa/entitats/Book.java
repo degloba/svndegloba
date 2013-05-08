@@ -27,7 +27,7 @@ public class Book {
 		return id;
 	}
 
-	public void setId(Key id) {
+	public void setId(Key id) {	
 		this.id = id;
 	}
 

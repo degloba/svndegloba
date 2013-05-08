@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.datanucleus.jpa.annotations.Extension;
+import org.datanucleus.api.jpa.annotations.Extension;
 
 @Entity
 public class Ttpbasic {
