@@ -121,7 +121,6 @@
     <servlet-name>Push Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.PushServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-    <async-supported>true</async-supported>    
 </servlet>
 <servlet-mapping>
     <servlet-name>Push Servlet</servlet-name>
