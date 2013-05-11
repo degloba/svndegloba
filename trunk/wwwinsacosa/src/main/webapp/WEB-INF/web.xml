@@ -11,10 +11,7 @@
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
         <param-value>/WEB-INF/degloba_tags.xml</param-value>
     </context-param>
- <context-param>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value></param-value>
- </context-param>
+
  <context-param>
         <param-name>org.richfaces.enableControlSkinning</param-name>
         <param-value>true</param-value>
@@ -29,7 +26,7 @@
  </context-param>
  <context-param>
   <param-name>javax.faces.PROJECT_STAGE</param-name>
-  <param-value>Production</param-value>
+  <param-value>Development</param-value>
  </context-param>
  <context-param>
   <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -42,6 +39,21 @@
     <param-value>/static-resources</param-value>
 </context-param>
       -->
+      
+          <context-param>
+        <param-name>org.richfaces.resourceMapping.enabled</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+              <context-param>
+        <param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
+        <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
+    </context-param>
+      
+
+      
+      
+      
     
 <!-- defines whether the uploaded files are stored in temporary files or 
   available in the listener directly as byte[] data (false for this example -->
@@ -76,12 +88,12 @@
     <!-- 
        We need to set annotation lifecycyle provider manually as org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
        Other providers use some classes that are restricted on Google App Engine.   
-      
+      -->
  <context-param>
         <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
         <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
     </context-param>
--->
+
 <!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine  -->
     <context-param>
         <description>
@@ -97,6 +109,13 @@
   <param-value>false</param-value>  
  </context-param> 
 
+    
+        <context-param>
+        <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
+        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+    </context-param>
+    
+    
  <context-param>
         <param-name>org.richfaces.executeAWTInitializer</param-name>
         <param-value>false</param-value>
@@ -111,7 +130,7 @@
 
 <servlet-mapping>
     <servlet-name>Resource Servlet</servlet-name>
-    <url-pattern>/org.richfaces.resources/*</url-pattern>
+    <url-pattern>/org.richfaces.resources/*</</url-pattern>
 </servlet-mapping>
  
  
@@ -121,6 +140,7 @@
     <servlet-name>Push Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.PushServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
+    <async-supported>true</async-supported>   
 </servlet>
 <servlet-mapping>
     <servlet-name>Push Servlet</servlet-name>
@@ -162,8 +182,5 @@
 	 <url-pattern>/remote_api</url-pattern>
 </servlet-mapping>
  
- 
-    <listener>
- 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class> 
- 	</listener>
+
 </web-app>
