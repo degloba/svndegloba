@@ -3,15 +3,26 @@ package com.insacosa.interfaces;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.NoResultException;
 
-import com.degloba.EMF;
+import com.insacosa.dataModels_JPA.PersistenceService;
+import com.insacosa.entitats.*;
+
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.CompositeFilter;
+import com.google.appengine.api.datastore.Query.CompositeFilterOperator;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Entity;
+
 import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.Transaction;
-import com.insacosa.dataModels_JPA.PersistenceService;
-import com.insacosa.entitats.*;
+
 
 
 public class Usuari_Impl implements Usuari_If {
@@ -20,7 +31,6 @@ public class Usuari_Impl implements Usuari_If {
 	
 	public Usuari_Impl() {
 		super();
-		// TODO Auto-generated constructor stub
 		
 		FacesContext facesContext = FacesContext.getCurrentInstance(); 
 		
@@ -33,12 +43,15 @@ public class Usuari_Impl implements Usuari_If {
 	public void afegirUsuari(Usuaris usuari) {
 			
 		// Recuperem l'EntityManager
-		// 2 Opcions :
-		// Opcio 1 --> Utilitzar classe PersistenceService
+		
+		// 		2 Opcions :
+		// 			Opcio 1 --> Utilitzar classe PersistenceService
 		EntityManager em = persistenceService.getEntityManager();
-		// Opcio 2 --> Utilitzar classe EMF
+		// 			Opcio 2 --> Utilitzar classe EMF
 		//em = EMF.get().createEntityManager();
+		
 		EntityTransaction tx = em.getTransaction();
+		
 		tx.begin();
 		
 		Usuaris u = new Usuaris();
@@ -55,12 +68,11 @@ public class Usuari_Impl implements Usuari_If {
 		u.setPassword(usuari.getPassword());
 		u.setAcord(usuari.getAcord());
 		
-		try {      
-				
-				
+		try {     
 				em.persist(u);
 				      
-				tx.commit();    
+				tx.commit();  
+				
 		} catch (RuntimeException e) {
 		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
@@ -74,9 +86,9 @@ public class Usuari_Impl implements Usuari_If {
 
 	public void eliminarUsuari(Key keyUsuari) {
 		
-		
 		EntityManager em = persistenceService.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
+		
 		tx.begin();
 		
 		try {
@@ -84,7 +96,8 @@ public class Usuari_Impl implements Usuari_If {
 				Usuaris usuari = em.find(Usuaris.class, keyUsuari);
 				em.remove(usuari);
      
-				tx.commit();    
+				tx.commit();   
+				
 		} catch (RuntimeException e) {
 		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
@@ -101,16 +114,13 @@ public class Usuari_Impl implements Usuari_If {
 		Usuaris usuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
-		try {      
+		try {     
 			
 				usuari = em.find(Usuaris.class, keyUsuari);
-     
-				tx.commit();    
+				
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
+		   
 		    throw e; // or display error message
 		}
 		finally {
@@ -123,21 +133,26 @@ public class Usuari_Impl implements Usuari_If {
 	public Usuaris cercarUsuari(String nomUsuari) {
 		
 		Usuaris usuari = null;
+		Entity usEntity = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {      
 			
-				Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
-				q.setParameter("nomUsuari", nomUsuari);
+				javax.persistence.Query q1 = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+				q1.setParameter("nomUsuari", nomUsuari);
+				usuari = (Usuaris)q1.getSingleResult();
 				
-				usuari = (Usuaris)q.getSingleResult();
-				tx.commit();  
+				
+				// Get the Datastore Service
+				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+				Filter nomFilter =  new FilterPredicate("nom", FilterOperator.EQUAL, nomUsuari);
+				Query q2 = new Query(Usuaris.class.getName()).setFilter(nomFilter);
+				PreparedQuery pq = datastore.prepare(q2);
+				usEntity = pq.asSingleEntity();
+											
 				
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -153,16 +168,12 @@ public class Usuari_Impl implements Usuari_If {
 		Usuaris usuari = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {   
 				usuari = em.find( Usuaris.class, keyUsuari);
-				 
-				tx.commit();  
 				
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
+
 		    throw e; // or display error message
 		}
 		finally {
@@ -173,34 +184,34 @@ public class Usuari_Impl implements Usuari_If {
 		
 	}
 
-
+	
 	
 	public Usuaris usuariValid(Usuaris usuari) {
-		
-		Boolean existeix = false;
-		
+			
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
+		
+		Entity usEntity = null;
 		
 		try {    
 			
-			Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+			// Get the Datastore Service
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			Filter nomFilter =  new FilterPredicate("NOM", FilterOperator.EQUAL, usuari.getNomusuari());
+			Query q2 = new Query(Usuaris.class.getName()).setFilter(nomFilter);
+			PreparedQuery pq = datastore.prepare(q2);
+			usEntity = pq.asSingleEntity();
+			
+			
+			
+			javax.persistence.Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
 			q.setParameter("nomUsuari", usuari.getNomusuari());
 			
-			usuari = (Usuaris)q.getSingleResult();
-
+			return (Usuaris)q.getSingleResult();
 			    
-		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
-		    throw e; // or display error message
+		} catch (NoResultException e) {
+			return null;
 		}
-		finally {
-		    //em.close();
-		}   
-		
-		return usuari;
-		
+ 	
 	}
 
 
@@ -210,22 +221,19 @@ public class Usuari_Impl implements Usuari_If {
 		Boolean existeix = false;
 		    
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {      
 			
-			Query q = em.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'");
+			javax.persistence.Query q = em.createQuery("select count(*) from Usuaris as usuari where usuari.email = '" + email + "'");
 				
 			num = (Long)q.getSingleResult();
 			if (num == 0)
 				existeix = false;
 			else
 				existeix = true;
-				
-			tx.commit();    
+				 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
+
 		    throw e; // or display error message
 		}
 		finally {
@@ -235,7 +243,6 @@ public class Usuari_Impl implements Usuari_If {
 		return existeix;
 
 	}
-
 	
 
 	public String passwordEmail(String email) {
@@ -248,7 +255,7 @@ public class Usuari_Impl implements Usuari_If {
 		
 		try {   
 			
-			 Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
+			 javax.persistence.Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
 			 password = (String)q.getSingleResult();
 			 

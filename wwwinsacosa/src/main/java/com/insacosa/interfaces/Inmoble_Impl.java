@@ -10,6 +10,11 @@ import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
 
 
 import com.degloba.EMF;
@@ -51,9 +56,6 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Tipus ret = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-
 		
 		try {  
 			
@@ -67,11 +69,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				ret = (Tipus) criteria.uniqueResult();
 			*/
 				
-				tx.commit();  
 			 
 				}     
 				catch (Exception e) {
-					tx.rollback();
+
 				}
 			}
 		finally {
@@ -90,17 +91,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Objecte objecte = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {      
 				
 				objecte = em.find( Objecte.class, key);
-				
-				tx.commit();    
+  
 			} 
 		catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -118,18 +115,15 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Inmobles inmoble = null;
 		  
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {      
 			
 				inmoble = em.find( Inmobles.class, keyInmoble);
-				
-				tx.commit();    
+
 			 
 			} 
 		catch (RuntimeException e) {
-			    if ( tx != null && tx.isActive() ) tx.rollback();
+
 			    throw e; // or display error message
 			
 		}
@@ -297,17 +291,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	Caracteristiques c = null;
 	
 	EntityManager em = persistenceService.getEntityManager();
-	EntityTransaction tx = em.getTransaction();
-	tx.begin();
 	  
 	try {      
 			
 			c = em.find(Caracteristiques.class, caractinmoble.getKey());
-			
-			tx.commit(); 
+; 
 			 
 	} catch (RuntimeException e) {
-	    if ( tx != null && tx.isActive() ) tx.rollback();
 	    throw e; // or display error message
 	}
 	finally {
@@ -324,16 +314,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Inmobles inmoble = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		  
 		try {      
 				inmoble = em.find( Inmobles.class, keyInmoble);
-				
-				tx.commit();    
 				 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -373,24 +358,25 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		  
 		try {   
 	
-				/*	
-				CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-				CriteriaQuery<Inmobles> criteriaQuery = criteriaBuilder.createQuery(Inmobles.class);
-		        Root<Inmobles> inmobles = criteriaQuery.from(Inmobles.class);
+				// JPA Criteria API	
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				
+				CriteriaQuery<Inmobles> cq = cb.createQuery(Inmobles.class);
+		        Root<Inmobles> inmobles = cq.from(Inmobles.class);
 		        
-		        ret = (List<Inmobles>) criteriaQuery.gefrom(Inmobles.class).;
-		*/
-			
-			tx.commit();  
-			
+		        /////ret = (List<Inmobles>) cq.select(inmobles);
+		        
+		        
+		        //
+		        TypedQuery<Inmobles> tq = em.createQuery(cq);
+		        ret = tq.getResultList();
+
 			 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
+
 		    throw e; // or display error message
 		}
 		finally {
@@ -408,9 +394,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		
+
 		try {      
 
 			/*
@@ -431,11 +415,10 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 		*/
 			
-			tx.commit();    
+	   
 			
 			 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -498,32 +481,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-
 		
 		try {      
 				
-			/*
-				
-				criteria = session.createCriteria(Inmobles.class)
-					.add(Expression.eq("usuaris",usuari));
-				
-				ret = criteria.list();
-				
-				Iterator<Inmobles> it = ret.iterator();
-				
-				while (it.hasNext())
-				{
-					Inmobles inmoble = it.next();
-						
-				}
-				*/
+			// JPA Criteria API	
+			CriteriaBuilder cb = em.getCriteriaBuilder();
 			
-			tx.commit();    
+			CriteriaQuery<Inmobles> cq = cb.createQuery(Inmobles.class);
+	        Root<Inmobles> inmobles = cq.from(Inmobles.class);
+	        ParameterExpression<Usuaris> p = cb.parameter(Usuaris.class);
+	  
+	        TypedQuery<Inmobles> tq = em.createQuery(cq);
+	        tq.setParameter(p, usuari);
+	        ret = tq.getResultList();
+			
 			 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -1367,16 +1340,19 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 
 
+
+
+
+
 	@Override
-	public Provincies provinciaPerKey(Key idProvincia) {
+	public Objecte retDescripcio(Class entityName, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 
-	@Override
-	public Objecte retDescripcio(Class entityName, String id) {
+	public Provincies provinciaPerKey(Key idProvincia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
