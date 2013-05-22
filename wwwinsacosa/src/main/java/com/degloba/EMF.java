@@ -4,8 +4,12 @@ package com.degloba;
 
 import java.util.Properties;
 
+import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.insacosa.dataModels_JPA.PersistenceService;
 
 public final class EMF {  
 
@@ -17,4 +21,18 @@ public static EntityManagerFactory get() {
 	
 	return emfInstance;    
 	}
+
+
+	/*--------------------------*/
+	/* EntityManager - JPA      */
+	/*--------------------------*/
+	 public static EntityManager lookupEntityManager() {         
+		 FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		 
+		// CUIDADO !!!!!! el #{persistenceService} no s'ha de cambiar encara que es canvii de persistence-unit
+		 PersistenceService persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);         
+	 return persistenceService.getEntityManager();     
+	 } 
+
+
 }
