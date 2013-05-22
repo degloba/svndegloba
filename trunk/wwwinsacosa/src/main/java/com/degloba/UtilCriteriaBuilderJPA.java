@@ -3,6 +3,7 @@ package com.degloba;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -22,10 +23,34 @@ public class UtilCriteriaBuilderJPA<T> {
 	
 	static PersistenceService persistenceService;
 	
+	private EntityManager entityManager;
+	 
 	private Class<T> entityClass;
 	
 
-	  protected Expression<Boolean> createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
+    public UtilCriteriaBuilderJPA(EntityManager entityManager, Class<T> entityClass) {
+        super();
+        
+        this.setEntityManager(entityManager);
+        this.entityClass = entityClass;
+    }
+
+	
+	
+	
+	  public UtilCriteriaBuilderJPA() {
+		super();
+		// TODO Auto-generated constructor stub
+		
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+		
+			//La classe PersistenceService es "ApplicationScoped"
+			persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		
+	}
+
+
+	protected Expression<Boolean> createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
 	    	
 	    	String stringFilterValue = null;
 	    	Integer integerFilterValue = null;
@@ -108,7 +133,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	
 	    protected CriteriaQuery<T> createSelectCriteriaQuery(List<String> campsFiltre,List<Object> valorsFiltre, List<String> campsOrdre, String ordre) {
 	    	
-	    	EntityManager em = persistenceService.getEntityManager();
+	    	EntityManager em = this.getEntityManager();
 	    	
 	        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 	        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);
@@ -167,15 +192,29 @@ public class UtilCriteriaBuilderJPA<T> {
 
 	        	Expression<Boolean> predicate = createFilterCriteriaForField(propertyName, filterValue, root, criteriaBuilder);
               
-		        if (filterCriteria == null) {
+		       /* if (filterCriteria == null) {
 		                    filterCriteria = predicate.as(Boolean.class);
-		                } else {
+		                } else { */
 		                    filterCriteria = criteriaBuilder.and(filterCriteria, predicate.as(Boolean.class));
-		                }
+		                //}
 	        }
 	        
 	        return filterCriteria;
 	    }
+
+
+
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+
+
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 	
 	
 	
