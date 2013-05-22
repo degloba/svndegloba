@@ -106,7 +106,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	  
 	  
 	
-	    private CriteriaQuery<T> createSelectCriteriaQuery(List<String> campsFiltre,List<Object> valorsFiltre, List<String> campsOrdre, String ordre) {
+	    protected CriteriaQuery<T> createSelectCriteriaQuery(List<String> campsFiltre,List<Object> valorsFiltre, List<String> campsOrdre, String ordre) {
 	    	
 	    	EntityManager em = persistenceService.getEntityManager();
 	    	
@@ -147,8 +147,10 @@ public class UtilCriteriaBuilderJPA<T> {
 	    	cq.multiselect(lSelec);  //using metamodel
 	    	List<Tuple> tupleResult = em.createQuery(cq).getResultList();
 	    	for (Tuple t : tupleResult) {
+	    			    		
 	    	    String nom = (String) t.get(0);
 	    	    String cognoms = (String) t.get(1);
+	    	    	    	    
 	    	}
 	    }
 	    
