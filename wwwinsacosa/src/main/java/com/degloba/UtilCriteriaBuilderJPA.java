@@ -17,7 +17,6 @@ import javax.persistence.criteria.Selection;
 
 import com.google.common.collect.Lists;
 import com.insacosa.dataModels_JPA.PersistenceService;
-import com.insacosa.interfaces.Inmoble_Impl;
 
 
 public class UtilCriteriaBuilderJPA<T> {
@@ -36,9 +35,7 @@ public class UtilCriteriaBuilderJPA<T> {
         this.entityClass = entityClass;
     }
 
-	
-	
-	
+		
 	  public UtilCriteriaBuilderJPA() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -101,28 +98,6 @@ public class UtilCriteriaBuilderJPA<T> {
 	    }
 	    
 	
-	protected Expression<Boolean> createFilterCriteriaForField(String propertyName, String filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
-    	
-    	String stringFilterValue = null;
-    	
-    	if (filterValue !=null)
-    	{
-    		
-    			stringFilterValue = (String) filterValue;
-	    		
-	    		// CONSTRUIM LA INSTRUCCIO JPA
-	    		// EN EL CAS DE QUE SIGUI UN STRING EL FILTRE ES QUE LA CADENA ESCRITA SIGUI UN SUBSTRING
-	    		Path<String> expression = root.get(propertyName);////// name, metres,....
-		        Expression<Integer> locator = criteriaBuilder.locate(criteriaBuilder.lower(expression), stringFilterValue, 1);
-		        return criteriaBuilder.gt(locator, 0);
-   
-    	}
-    	else
-    		return null;
-    	
-     
-    }
-    
 	
 	  
 	  private List<Order> createOrders(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> sortFields, String sortOrder) {
@@ -173,8 +148,6 @@ public class UtilCriteriaBuilderJPA<T> {
 	            }
 	            
 	        
-	  //      criteriaQuery.select(root);
-	        
 	        Predicate filterCriteria = createFilterCriteria(criteriaBuilder, root, campsFiltre, valorsFiltre);
 	        if (filterCriteria != null) {
 	                //criteriaQuery.where(criteriaBuilder.equal(root.get("nom"), "peresan"));
@@ -188,9 +161,9 @@ public class UtilCriteriaBuilderJPA<T> {
 	    
 	    private void selectSpecificColumnsByTuple(List<String> columnesSelec)
 	    {
-	    	EntityManager em = persistenceService.getEntityManager();
-	    	CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+	    	EntityManager em = this.getEntityManager();
 	    	
+	    	CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 	    	CriteriaQuery<Tuple> cq = criteriaBuilder.createTupleQuery();
 	    	// write the Root, Path elements as usual
 	    	Root<T> root = cq.from(entityClass);
@@ -210,8 +183,6 @@ public class UtilCriteriaBuilderJPA<T> {
 	    	    	    	    
 	    	}
 	    }
-	    
-	    
 	    
 	        
 	
