@@ -13,7 +13,10 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 
@@ -612,6 +615,20 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				ret = query.list();
 			}
 			*/
+			
+			
+			
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<Usuaris> crit = cb.createQuery(Usuaris.class);
+			Root<Usuaris> candidateRoot = crit.from(Usuaris.class);
+			candidateRoot.alias("p");
+
+			crit.select(candidateRoot);
+			
+			
+			
+			
+			
 			tx.commit();    
 			 
 		} catch (RuntimeException e) {
@@ -633,22 +650,22 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
 		EntityManager em = EMF.get().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
+						
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<Caracteristiques> crit = cb.createQuery(Caracteristiques.class);
+			Root<Caracteristiques> candidateRoot = crit.from(Caracteristiques.class);
 			
-			tx = em.getTransaction();
-			/*
-			criteria = session.createCriteria(Caracteristiques.class)
-			.add(Expression.eq("tipus",tipus));
+			Path<Tipus> nameField = candidateRoot.get("tipus");
+			Predicate nameEquals = cb.equal(nameField, tipus);
+			crit.where(nameEquals);
 			
-			
-			ret = criteria.list();
-			*/
-			tx.commit();    
+			TypedQuery<Caracteristiques> q = em.createQuery(crit);
+			ret = q.getResultList();
+			  
 			 
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
@@ -691,6 +708,18 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				ret = criteria.list();
 				*/
+				
+				
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				CriteriaQuery<Usuaris> crit = cb.createQuery(Usuaris.class);
+				Root<Usuaris> candidateRoot = crit.from(Usuaris.class);
+				candidateRoot.alias("p");
+
+				crit.select(candidateRoot);
+				
+				
+				
+				
 				
 				tx.commit();    
 			 
@@ -786,20 +815,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Provincies provincia = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {
-			try {
-				
+
 				em.find(Provincies.class, keyProvincia);
-				
-				tx.commit();    
-				 
-				} 			    
-				catch (Exception e) {
-			    	tx.rollback();
-			    }
+ 
 			}
 		finally {
 				//em.close();
@@ -815,20 +835,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		Ciutats ciutat = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {      
-			try {
-				
-				em.find(Ciutats.class, keyCiutat);
-				
-				tx.commit();    
-				 
-				} 		
-			catch (Exception e) {
-				tx.rollback();
-				}
+				em.find(Ciutats.class, keyCiutat);	
 			}
 		finally {
 			//em.close();
@@ -1029,12 +1038,9 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		String ret = null;
 		
 		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		  
 		try {
-			try {
-			
+						
 				/*
 				Criteria criteria = session.createCriteria(Caracteristiques.class)
 				.add(Restrictions.eq("id",keyCaract))
@@ -1042,12 +1048,24 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 				
 				ret = criteria.uniqueResult().toString();
 	*/
-				tx.commit();    
-				 
-				} 			    
-			catch (Exception e) {
-		    	tx.rollback();
-				}
+				
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				CriteriaQuery<Caracteristiques> crit = cb.createQuery(Caracteristiques.class);
+				
+				Root<Caracteristiques> candidateRoot = crit.from(Caracteristiques.class);
+				
+				Path<Tipus> nameField = candidateRoot.get("id");
+				Predicate nameEquals = cb.equal(nameField, keyCaract);
+				crit.where(nameEquals);
+					
+				TypedQuery<Caracteristiques> q = em.createQuery(crit);
+				
+				TypedQuery<String> q2 = em.createQuery("SELECT c.ttpcontrol.tipus FROM Caracteristiques AS c", String.class);
+				
+				List<String> ret2 = q2.getResultList();
+				ret = q.getSingleResult().getTtpcontrol().getTipus();
+
+			
 			}
 		finally {
 			//em.close();
