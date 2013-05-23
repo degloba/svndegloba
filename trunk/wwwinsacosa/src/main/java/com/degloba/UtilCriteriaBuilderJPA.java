@@ -17,6 +17,7 @@ import javax.persistence.criteria.Selection;
 
 import com.google.common.collect.Lists;
 import com.insacosa.dataModels_JPA.PersistenceService;
+import com.insacosa.interfaces.Inmoble_Impl;
 
 
 public class UtilCriteriaBuilderJPA<T> {
@@ -50,52 +51,79 @@ public class UtilCriteriaBuilderJPA<T> {
 	}
 
 
-	protected Expression<Boolean> createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
+	protected Predicate createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
 	    	
-	    	String stringFilterValue = null;
-	    	Integer integerFilterValue = null;
 	    	
-	    	if (filterValue !=null)
-	    	{
-	    		if (filterValue.getClass().toString().compareToIgnoreCase("INTEGER") == 0)
-	    		{
-	    			if (((String)filterValue).compareTo("") != 0)
-	    			{
-		    			integerFilterValue = Integer.parseInt((String)filterValue);
-		    			
-		    			// CONSTRUIM LA INSTRUCCIO JPA
-		    			// EN EL CAS DE QUE LA COLUMNA DE LA DATATABLE SIGUI UN INTEGER PODEM APLICAR
-		    	        // DIFERENTS OPERADORS (< , >=, == )
-		        	    Path<Integer> expression = root.get(propertyName); ////// exemple : propertyName="metres", "habitacions",....
-		    			Predicate predicate = criteriaBuilder.ge(expression,  integerFilterValue); 
-		    			
-		    			return predicate;
-	    			}
+		String stringFilterValue = null;
+    	Integer integerFilterValue = null;
+    	
+    	if (filterValue !=null)
+    	{
+    		
+    		if (filterValue.getClass().toString().compareToIgnoreCase("Integer") == 0)
+    		{
+    			if (((String)filterValue).compareTo("") != 0)
+    			{
+	    			integerFilterValue = Integer.parseInt((String)filterValue);
+	    			
+	    			// CONSTRUIM LA INSTRUCCIO JPA
+	    			// EN EL CAS DE QUE LA COLUMNA DE LA DATATABLE SIGUI UN INTEGER PODEM APLICAR
+	    	        // DIFERENTS OPERADORS (< , >=, == )
+	        	    Path<Integer> expression = root.get(propertyName); ////// exemple : propertyName="metres", "habitacions",....
+	    			Predicate predicate = criteriaBuilder.ge(expression,  integerFilterValue); 
+	    			
+	    			return predicate;
+    			}
+    		
+    		}
+    		else if (filterValue.getClass().toString().compareToIgnoreCase("class java.lang.String") == 0)
+    		{
+    			stringFilterValue = (String) filterValue;
 	    		
-	    		}
-	    		else if (filterValue.getClass().toString().compareToIgnoreCase("STRING") == 0)
-	    		{
-	    			stringFilterValue = (String) filterValue;
-	
-		    		
-		    		// CONSTRUIM LA INSTRUCCIO JPA
-		    		// EN EL CAS DE QUE SIGUI UN STRING EL FILTRE ES QUE LA CADENA ESCRITA SIGUI UN SUBSTRING
-		    		Path<String> expression = root.get(propertyName);////// name, metres,....
-			        Expression<Integer> locator = criteriaBuilder.locate(criteriaBuilder.lower(expression), stringFilterValue, 1);
-			        return criteriaBuilder.gt(locator, 0);
-	    		}
-	   
-	    	}
-	    	else
-	    		return null;
-	    	
+	    		
+	    		// CONSTRUIM LA INSTRUCCIO JPA
+	    		// EN EL CAS DE QUE SIGUI UN STRING EL FILTRE ES QUE LA CADENA ESCRITA SIGUI UN SUBSTRING
+	    		Path<String> expression = root.get(propertyName);////// name, metres,....
+		        Expression<Integer> locator = criteriaBuilder.locate(criteriaBuilder.lower(expression), stringFilterValue, 1);
+		        return criteriaBuilder.gt(locator, 0);
+    		}
+    		
+    		
+    	}
+    	else
+    		return null;
+    	
 
-	     
-	     // si el valor del filtre no es de cap tipus (Integer, String,...) que controlem
-	     return null;
+     
+     // si el valor del filtre no es de cap tipus (Integer, String,...) que controlem
+     return null;
 	     
 	    }
 	    
+	
+	protected Expression<Boolean> createFilterCriteriaForField(String propertyName, String filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
+    	
+    	String stringFilterValue = null;
+    	
+    	if (filterValue !=null)
+    	{
+    		
+    			stringFilterValue = (String) filterValue;
+	    		
+	    		// CONSTRUIM LA INSTRUCCIO JPA
+	    		// EN EL CAS DE QUE SIGUI UN STRING EL FILTRE ES QUE LA CADENA ESCRITA SIGUI UN SUBSTRING
+	    		Path<String> expression = root.get(propertyName);////// name, metres,....
+		        Expression<Integer> locator = criteriaBuilder.locate(criteriaBuilder.lower(expression), stringFilterValue, 1);
+		        return criteriaBuilder.gt(locator, 0);
+   
+    	}
+    	else
+    		return null;
+    	
+     
+    }
+    
+	
 	  
 	  private List<Order> createOrders(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> sortFields, String sortOrder) {
 
@@ -144,9 +172,13 @@ public class UtilCriteriaBuilderJPA<T> {
 	                criteriaQuery.orderBy(orders);
 	            }
 	            
-	        Expression<Boolean> filterCriteria = createFilterCriteria(criteriaBuilder, root, campsFiltre, valorsFiltre);
+	        
+	  //      criteriaQuery.select(root);
+	        
+	        Predicate filterCriteria = createFilterCriteria(criteriaBuilder, root, campsFiltre, valorsFiltre);
 	        if (filterCriteria != null) {
-	                criteriaQuery.where(filterCriteria);
+	                //criteriaQuery.where(criteriaBuilder.equal(root.get("nom"), "peresan"));
+	        	criteriaQuery.where(filterCriteria);
 	            }
 
 	        return criteriaQuery;
@@ -181,22 +213,21 @@ public class UtilCriteriaBuilderJPA<T> {
 	    
 	    
 	    
-	    
-	    
+	        
 	
-	  private Expression<Boolean> createFilterCriteria(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> propertyNames, List<Object> filterValue) {
+	  private Predicate createFilterCriteria(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> propertyNames, List<Object> filterValue) {
 		  
-	        Expression<Boolean> filterCriteria = null;
+	        Predicate filterCriteria = null;
 	        
 	        for (String propertyName : propertyNames) {
 
-	        	Expression<Boolean> predicate = createFilterCriteriaForField(propertyName, filterValue, root, criteriaBuilder);
+	        	Predicate predicate = createFilterCriteriaForField(propertyName, filterValue.get(0), root, criteriaBuilder);
               
-		       /* if (filterCriteria == null) {
-		                    filterCriteria = predicate.as(Boolean.class);
-		                } else { */
+		       if (filterCriteria == null) {
+		                    filterCriteria = predicate;
+		                } else { 
 		                    filterCriteria = criteriaBuilder.and(filterCriteria, predicate.as(Boolean.class));
-		                //}
+		                }
 	        }
 	        
 	        return filterCriteria;
