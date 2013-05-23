@@ -223,16 +223,13 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			Query query = new Query("Usuaris"); 
 			query.addFilter("nom", FilterOperator.EQUAL, usuari.getNomusuari()); 
 			usEntity = Util.getDatastoreServiceInstance().prepare(query).asSingleEntity(); 
-			//if (!results.isEmpty()) {   
-				//return (Entity)results.remove(0); 
-				//} 
-			//return null;
+
 			
 		
 			
 			
-			//CriteriaQuery<Usuaris> crit = createSelectCriteriaQuery(new ArrayList<String>(){{add("nom");}}, new ArrayList<Object>(){{add("peresan");}}, null, null);
-			CriteriaQuery<Usuaris> crit = createSelectCriteriaQuery(new ArrayList<String>(), null, null, null);
+			CriteriaQuery<Usuaris> crit = createSelectCriteriaQuery(new ArrayList<String>(){{add("nom");}}, new ArrayList<Object>(){{add("peresan");}}, null, null);
+			//CriteriaQuery<Usuaris> crit = createSelectCriteriaQuery(new ArrayList<String>(), null, null, null);
 				
 			TypedQuery<Usuaris> query2 = em.createQuery(crit);
 			List<Usuaris> results = query2.getResultList();
