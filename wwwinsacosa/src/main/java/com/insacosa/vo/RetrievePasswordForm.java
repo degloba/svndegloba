@@ -1,5 +1,6 @@
 package com.insacosa.vo;
 
+import com.degloba.EMF;
 import com.insacosa.interfaces.Usuari_Impl;
 
 import java.io.*;
@@ -56,7 +57,7 @@ public class RetrievePasswordForm  {
 			
 			
 			//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-			Usuari_Impl r = new Usuari_Impl();
+			Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
 			
 			Boolean existeixEmail = r.emailValid(this.email);
 			if (existeixEmail)

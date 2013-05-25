@@ -1,5 +1,6 @@
 package com.insacosa.vo;
 
+import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.insacosa.interfaces.Usuari_Impl;
@@ -228,7 +229,7 @@ public class UserForm  implements java.io.Serializable {
 				this.setPassword(this.newPwd);
 				
 				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-				Usuari_Impl r = new Usuari_Impl();
+				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
 				
 				Usuaris usuari = new Usuaris();
 				String k = this.getKey() ;
@@ -275,7 +276,7 @@ public class UserForm  implements java.io.Serializable {
 	public String editProfile() throws Exception{
 		
 		//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		Usuari_Impl r = new Usuari_Impl();
+		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(), null);
 		
 		Usuaris usuari = r.editPerfil(this.getKey());
 		
@@ -298,7 +299,7 @@ public class UserForm  implements java.io.Serializable {
 			// si no esta loginat es un nou registre
 			if(!loginat){
 								
-				Usuari_Impl r = new Usuari_Impl();
+				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
 				
 				Usuaris usuari = new Usuaris();
 				
@@ -321,7 +322,7 @@ public class UserForm  implements java.io.Serializable {
 			else{
 				
 				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-				Usuari_Impl r = new Usuari_Impl();
+				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
 				
 				Usuaris usuari = new Usuaris();
 				
@@ -349,7 +350,7 @@ public class UserForm  implements java.io.Serializable {
 		String email_check = email.trim();
 		
 		//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		Usuari_Impl r = new Usuari_Impl();
+		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
 		
 		return r.emailValid(email_check);
 	}
