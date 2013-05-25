@@ -132,7 +132,7 @@ public class Caracteristiques_Impl extends UtilCriteriaBuilderJPA<Caracteristiqu
 			else
 			{
 				
-				Path<Tipus> path = root.get("Tipus"); 
+				Path<Tipus> path = root.get("tipus"); 
 				Path<Integer> path2 = root.get("control"); 
 	
 	    		Predicate p1 = cb.equal(path,  tipus); 

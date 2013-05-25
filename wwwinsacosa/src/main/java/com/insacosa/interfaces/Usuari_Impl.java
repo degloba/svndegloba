@@ -256,7 +256,6 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			
 			// **************************************************	
 			
-			// FUNCIONA
 			p = root.get("nom");
 			Predicate pr = cb.equal(p, "peresan");
 			crit.where(pr);
@@ -266,7 +265,6 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			
 			// **************************************************	
 			
-			// FUNCIONA
 			javax.persistence.Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
 			q.setParameter("nomUsuari", usuari.getNomusuari());
 			
@@ -290,7 +288,6 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<Boolean> cq = cb.createQuery(Boolean.class);
 			Root<Usuaris> r = cq.from(Usuaris.class);			
-						
 				
 			Path<String> p = r.get("email");
 						
@@ -320,19 +317,29 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		String password = null;
 		    
 		EntityManager em = this.getEntityManager(); 
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 		
 		try {   
+			
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<String> cq = cb.createQuery(String.class);
+			Root<Usuaris> r = cq.from(Usuaris.class);			
+				
+			Path<String> p = r.get("email");
+						
+			Predicate predicate = cb.equal(p,  email);  // WHERE
+			cq.where(predicate);
+			
+			cq.multiselect(r.get("password"));
+
+			password = em.createQuery(cq).getSingleResult();
+			
+			// **************************************************	
 			
 			 javax.persistence.Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
 			 password = (String)q.getSingleResult();
-			 
-			 tx.commit();
-			
+			 			
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
