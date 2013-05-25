@@ -1,7 +1,5 @@
 package com.degloba;
 
-
-
 import java.util.Properties;
 
 import javax.faces.context.FacesContext;
