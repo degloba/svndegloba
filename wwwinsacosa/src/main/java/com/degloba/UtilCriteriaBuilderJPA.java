@@ -150,11 +150,9 @@ public class UtilCriteriaBuilderJPA<T> {
 	        if (!orders.isEmpty()) {
 	                criteriaQuery.orderBy(orders);
 	            }
-	            
 	        
 	        Predicate filterCriteria = createFilterCriteria(criteriaBuilder, root, campsFiltre, valorsFiltre);
 	        if (filterCriteria != null) {
-	                //criteriaQuery.where(criteriaBuilder.equal(root.get("nom"), "peresan"));
 	        	criteriaQuery.where(filterCriteria);
 	            }
 
