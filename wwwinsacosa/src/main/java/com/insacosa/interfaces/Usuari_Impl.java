@@ -18,14 +18,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
 
-import org.richfaces.component.SortOrder;
-import org.richfaces.model.FilterField;
-import org.richfaces.model.SortField;
 
-import scala.actors.threadpool.Arrays;
-
-import com.insacosa.dataModels_JPA.InmobleCaract;
-import com.insacosa.dataModels_JPA.JPADataModel;
 import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
@@ -299,7 +292,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		Long num = null;
 		Boolean existeix = false;
 		    
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {      
 			
@@ -328,7 +321,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		String password = null;
 		    
-		EntityManager em = persistenceService.getEntityManager(); 
+		EntityManager em = this.getEntityManager(); 
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -357,7 +350,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 	public String cambiaPassword(Usuaris usuari) {
 		   
-		EntityManager em = persistenceService.getEntityManager(); 
+		EntityManager em = this.getEntityManager(); 
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -383,7 +376,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 	public String modificarUsuari(Usuaris usuari) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = null;
 		tx.begin();
 		

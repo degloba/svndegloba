@@ -18,9 +18,11 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.persistence.criteria.Selection;
 
 
 import com.degloba.EMF;
+import com.degloba.UtilCriteriaBuilderJPA;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -34,10 +36,10 @@ import com.google.common.collect.Maps;
 import com.insacosa.dataModels_JPA.InmobleCaract;
 import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
+import com.degloba.UtilCriteriaBuilderJPA;
 
 
-
-public class Inmoble_Impl extends Objecte implements Inmoble_If {
+public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements Inmoble_If {
 
 	static PersistenceService persistenceService;
 	
@@ -52,48 +54,17 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	}
 	
-	
-
-	public Tipus tipusInmoble(String keyInmoble) {
-		
-		Tipus ret = null;
-		
-		EntityManager em = persistenceService.getEntityManager();
-		
-		try {  
-			
-			try {
-			
-				/*Criteria criteria = session.createCriteria(Inmobles.class)
-				.add(Expression.eq("id",keyInmoble))
-				.setProjection(Projections.property("tipus"));
-				
-				
-				ret = (Tipus) criteria.uniqueResult();
-			*/
-				
-			 
-				}     
-				catch (Exception e) {
-
-				}
-			}
-		finally {
-		    //em.close();
-		}
-
-		
-		return ret;
-		
+	public Inmoble_Impl(EntityManager entityManager, Class<Inmobles> entityClass) {
+		super(entityManager, entityClass);		
 	}
 	
-	
+
 	
 	public Objecte objectePerKey(Key key) {
 		
 		Objecte objecte = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {      
 				
@@ -117,18 +88,13 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Inmobles inmoble = null;
 		  
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {      
-			
 				inmoble = em.find( Inmobles.class, keyInmoble);
-
-			 
 			} 
 		catch (RuntimeException e) {
-
 			    throw e; // or display error message
-			
 		}
 		finally {
 			    //em.close();
@@ -142,7 +108,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public Inmobles afegirInmoble(Inmobles inmoble) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -179,12 +145,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void modificarInmoble(Inmobles inmoble) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
-		try {      
-			
+		try {  
 				em.persist(inmoble);
 				      
 				tx.commit();    
@@ -203,12 +168,11 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarInmoble(Inmobles inmoble) {
 		  
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
-		try {      
-			
+		try {   
 				em.remove(inmoble);
 				      
 				tx.commit();    
@@ -239,7 +203,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		*/
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		  
@@ -287,36 +251,12 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		return ret;
 	}
 
-	
-	
-	public Caracteristiques caracteristicaCaractInmoble(Caractinmobles caractinmoble) {
-	
-	Caracteristiques c = null;
-	
-	EntityManager em = persistenceService.getEntityManager();
-	  
-	try {      
-			
-			c = em.find(Caracteristiques.class, caractinmoble.getKey());
-; 
-			 
-	} catch (RuntimeException e) {
-	    throw e; // or display error message
-	}
-	finally {
-	    //em.close();
-	}
-	
-	return c;
-	}
-	
-
-	
+		
 	public Inmobles detallInmoble(String keyInmoble) {
 		
 		Inmobles inmoble = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		  
 		try {      
 				inmoble = em.find( Inmobles.class, keyInmoble);
@@ -335,7 +275,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void solicitarInmobles(Solicituds solicitud) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -360,7 +300,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		  
 		try {   
 	
@@ -396,7 +336,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 
 		try {      
 
@@ -438,7 +378,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		  
@@ -483,7 +423,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		  
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {      
 				
@@ -519,7 +459,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void afegirFoto(Fotos foto) {
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
 		try {     
@@ -556,7 +496,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Fotos> ret = new ArrayList<Fotos>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		  
 		try {      
@@ -593,7 +533,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		List<Usuaris> nomsUsuaris = new ArrayList<Usuaris>();
 		List<Usuaris> ret = new ArrayList<Usuaris>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
 		try {      
@@ -649,7 +589,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		EntityManager em = EMF.get().createEntityManager();
+		EntityManager em = this.getEntityManager();
 		  
 		try {      
 						
@@ -681,7 +621,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -743,7 +683,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarSolicitud(Solicituds solicitud) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = null;
 		
 		try {  
@@ -773,7 +713,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		QueryResultList<Entity> ret = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -814,7 +754,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Provincies provincia = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {
 
@@ -834,7 +774,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Ciutats ciutat = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		
 		try {      
 				em.find(Ciutats.class, keyCiutat);	
@@ -852,7 +792,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Ciutats> ciutats = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		   
 		try {
@@ -956,7 +896,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		  
@@ -994,7 +934,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 			
 		String ret = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		  
@@ -1037,7 +977,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		  
 		try {
 						
@@ -1080,7 +1020,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		String ret = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		  
@@ -1112,7 +1052,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void afegirValorCaract(ValuesCaracteristiques valorCaracteristica) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -1138,7 +1078,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		Caracteristiques caracteristica = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -1157,7 +1097,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void afegirCaractInmoble(Caractinmobles caractinmoble) {
 			
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 			
@@ -1186,7 +1126,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<?> list = null;
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -1224,7 +1164,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		// QUE CADA FILA DE LA TAULA ES UN inmobleCaract
 		//----------------------------------------------------------------------
 		// tipus de l'inmoble
-		Tipus tipus = tipusInmoble(keyInmoble);
+		//Tipus tipus = tipusInmoble(keyInmoble);
 		
 		/*
 		// construim la row amb totes les caracteristiques segons l'inmoble
@@ -1266,7 +1206,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -1295,15 +1235,14 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void eliminarValorCaract(Key keyCaracteristica, String keyInmoble ) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
 		try {      
 		/*
-		}
 				ValuesCaracteristiques vc = new ValuesCaracteristiques();
-				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
+				//ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
 				
 				vcId.setKeycaracteristica(keyCaracteristica);
 				vcId.setIdinmoble(keyInmoble);
@@ -1327,7 +1266,7 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 	
 	public void modificarValorCaract(Key idCaracteristica, String keyInmoble, String value) {
 		
-		EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = this.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
@@ -1356,25 +1295,42 @@ public class Inmoble_Impl extends Objecte implements Inmoble_If {
 		
 	}
 
-
-
-
-
-
-
-	@Override
-	public Objecte retDescripcio(Class entityName, String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
 	public Provincies provinciaPerKey(Key idProvincia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public Objecte read(Objecte objecte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int retId(String taula, String classe) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Objecte retDescripcio(Class entityName, String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void delete(Objecte objecte) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void create() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(Objecte objecte) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	
 
 }
