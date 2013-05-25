@@ -21,7 +21,6 @@ public interface Inmoble_If {
 	void modificarInmoble(Inmobles inmoble);
 	void eliminarInmoble(Inmobles idInmoble);
 	
-	Tipus tipusInmoble(String keyInmoble);
 	
 	// llista tots els inmobles cercats segons filtre
 	List<Inmobles> buscarInmobles(Inmobles condicioInmoble);
@@ -65,23 +64,8 @@ public interface Inmoble_If {
 	List<Usuaris> solicitantsInmoble(Inmobles inmoble);
 
 	
-	
-	// *************************************
-	// Operacions caracteristiques d'inmoble
-	// *************************************
-	// caracteristiques d'un tipus d'inmoble amb i sense una condicio
-	List<Caracteristiques> caractTipus(Tipus tipus);
-	List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio, Boolean inclouCaractComu);
-	Caracteristiques caractPerKey(String idCaract);
-	List<Caracteristiques> allCaract();
-	
-	
-	// caracteristica a partir d'una caracteristica d'inmoble
-	Caracteristiques caracteristicaCaractInmoble(Caractinmobles caractinmoble);
 	void afegirCaractInmoble(Caractinmobles caractinmoble);
 	
-	
-
 	
 	//Retorna el tipus COLUMNA (String,Integer,..) d'una caracteristica en concret
 	// * Exemple : metres --> integer, adreça --> string,...
@@ -95,19 +79,6 @@ public interface Inmoble_If {
 	String tipusControlUICaract(Key idCaract);
 	String tipusControlUICaract(String nomCaract);
 		
-	
-	// ****************************
-	// Provincies
-	// ****************************
-	Provincies provinciaPerKey(Key idProvincia);
-	
-	
-	
-	// ****************************
-	// Ciutats
-	// ****************************
-	Ciutats ciutatPerKey(Key idCiutat);
-	List<Ciutats> ciutatsProvincia(Provincies provincia);
 	
 	
 	// ****************************
@@ -134,17 +105,6 @@ public interface Inmoble_If {
 	
 	// modifica un objecte
 	void update(Objecte objecte);
-	
-	
-	
-	// ****************************
-	// Valors caracteristiques
-	// ****************************
-	void afegirValorCaract(ValuesCaracteristiques valorCaracteristica);
-	void eliminarValorCaract(Key idCaracteristica, String idInmoble);
-	void modificarValorCaract(Key idCaracteristica, String idInmoble, String value);
-	InmobleCaract valorsCaracteristiquesInmoble(String idInmoble);
-	
 	
 
 }
