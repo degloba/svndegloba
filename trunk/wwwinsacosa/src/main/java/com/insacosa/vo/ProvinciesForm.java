@@ -1,8 +1,12 @@
 package com.insacosa.vo;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.TransactionOptions;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
@@ -24,6 +28,8 @@ import javax.persistence.EntityTransaction;
 
 import com.insacosa.utils.FilterBeanInmobles;
 import com.insacosa.dataModels_JPA.PersistenceService;
+import com.insacosa.entitats.Book;
+import com.insacosa.entitats.Chapter;
 import com.insacosa.entitats.Ciutats;
 import com.insacosa.entitats.Provincies;
 
@@ -51,7 +57,7 @@ public class ProvinciesForm extends Objecte
 	
 	Boolean estaLlista = false;  // per saber si es pot updatar la llista per la modificacio d'una provincia
 		
-	@Override
+	//@Override
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
 		// TODO Auto-generated method stub
@@ -119,7 +125,6 @@ public class ProvinciesForm extends Objecte
 		
 	}
 
-	static PersistenceService persistenceService;
 	
 	/*
 	 * Pel combo de provincies
@@ -144,6 +149,7 @@ public class ProvinciesForm extends Objecte
 		
 		tx.commit();
 		*/
+		
 		
 		
 		List<SelectItem> list;

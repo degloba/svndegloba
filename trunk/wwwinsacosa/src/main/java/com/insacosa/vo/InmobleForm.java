@@ -83,7 +83,8 @@ import com.insacosa.entitats.*;
 @SessionScoped
 public class InmobleForm  implements Serializable
 {
-
+	static PersistenceService persistenceService;
+	
 	private static final long serialVersionUID = 1L;
 	
 	//********************************

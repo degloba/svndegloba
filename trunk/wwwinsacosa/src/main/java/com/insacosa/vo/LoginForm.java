@@ -1,5 +1,6 @@
 package com.insacosa.vo;
 
+import com.degloba.EMF;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Usuari_Impl;
 
@@ -44,7 +45,7 @@ public class LoginForm  {
 
 	public String validUser() throws Exception{
 				
-		Usuari_Impl r = new Usuari_Impl();
+		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),Usuaris.class);
 		
 		Usuaris usuari = new Usuaris();
 		usuari.setNomusuari(nomUsuari);
