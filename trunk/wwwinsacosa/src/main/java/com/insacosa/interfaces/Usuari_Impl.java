@@ -234,6 +234,8 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			TypedQuery<Usuaris> query2 = em.createQuery(crit);
 			List<Usuaris> results = query2.getResultList();
 			
+			System.out.println("0 - " + results.get(0).getNom() + " " + results.get(0).getCognoms());
+			
 			// **************************************************
 			
 			
@@ -244,8 +246,11 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			Root<Usuaris> candidateRoot = crit.from(Usuaris.class);  // FROM
 			crit.select(candidateRoot);
 			
+			
 			TypedQuery<Usuaris> query3 = em.createQuery(crit);
-			List<Usuaris> results3 = query3.getResultList();
+			Usuaris results3 = query3.getSingleResult();
+			
+			System.out.println("1 - " + results3.getNom() + " " + results3.getCognoms());
 			
 			// **************************************************			
 			
@@ -255,15 +260,16 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			Selection<Usuaris> s = crit2.getSelection();
 			Path<String> p = c.get("nom");
 			
-			Predicate predicate = cb.equal(p,  usuari);  // WHERE
-		
 			
-	/*		crit2.select(predicate);
-	
+			Predicate predicate = cb.equal(p,  usuari.getNomusuari());  // WHERE
+			crit2.where(predicate);
+
+			query3 = em.createQuery(crit2);
+			results3 = query3.getSingleResult();
 			
-			TypedQuery<Usuaris> query2 = em.createQuery(crit);
-			List<Usuaris> results = query2.getResultList();
-		*/	
+			System.out.println("2 - " + results3.getNom() + " " + results3.getCognoms());
+			
+			// **************************************************	
 			
 			// FUNCIONA
 			Path nameField = candidateRoot.get("nom");
@@ -273,6 +279,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			TypedQuery<Usuaris> query4 = em.createQuery(crit);
 			Usuaris u= query4.getSingleResult();
 			
+			// **************************************************	
 			
 			// FUNCIONA
 			javax.persistence.Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
