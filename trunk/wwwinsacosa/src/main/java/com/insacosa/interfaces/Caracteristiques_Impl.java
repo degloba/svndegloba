@@ -17,12 +17,11 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import com.degloba.UtilCriteriaBuilderJPA;
+import com.degloba.JPA.*;
 
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
-import com.insacosa.dataModels_JPA.PersistenceService;
+import com.degloba.JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
 
@@ -114,31 +113,32 @@ public class Caracteristiques_Impl extends UtilCriteriaBuilderJPA<Caracteristiqu
 			
 			if (inclouCaractComu)
 			{
-				Tipus tipus99 = new Tipus();
-				tipus99.setId(KeyFactory.stringToKey("99"));
+				//Tipus tipus99 = new Tipus();
+				//tipus99.setId(KeyFactory.stringToKey("99"));
 				
-				Path<Tipus> path = root.get("Tipus"); 
+				//Path<Tipus> path = root.get("Tipus"); 
 				Path<Integer> path2 = root.get("control"); 
 	
-	    		Predicate p1 = cb.equal(path,  tipus); 
-	    		Predicate p2 = cb.equal(path,  tipus99); 
+	    		//Predicate p1 = cb.equal(path,  tipus); 
+	    		//Predicate p2 = cb.equal(path,  tipus99); 
 	    			
-				Predicate p3 = cb.or(p1,p2);
+				//Predicate p3 = cb.or(p1,p2);
 				Predicate p4 = cb.equal(path2,control);
 	    		
-				cb.and(p3, p4);
- 				
+				//cb.and(p3, p4);
+				
+				 				
 			}
 			else
 			{
 				
-				Path<Tipus> path = root.get("tipus"); 
+				//Path<Tipus> path = root.get("tipus"); 
 				Path<Integer> path2 = root.get("control"); 
 	
-	    		Predicate p1 = cb.equal(path,  tipus); 
+	    		//Predicate p1 = cb.equal(path,  tipus); 
 	  			Predicate p2 = cb.equal(path2,control);
 	    		
-				cb.and(p1, p2);
+				//cb.and(p1, p2);
 				
 			}
 						
