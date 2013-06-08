@@ -1,9 +1,10 @@
 package com.insacosa.vo;
 
 
+import com.degloba.JPA.*;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.interfaces.Inmoble_Impl;
+import com.insacosa.interfaces.Caracteristiques_Impl;
 import com.insacosa.interfaces.Objecte;
 
 import java.io.Serializable;
@@ -18,16 +19,14 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 import org.richfaces.component.UIDataTable;
 
 import com.insacosa.utils.HtmlDinamic;
 
-import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.Caracteristiques;
 import com.insacosa.entitats.Tipus;
+import com.insacosa.entitats.Usuaris;
 
 @ManagedBean(name = "tipus")
 @SessionScoped
@@ -104,7 +103,7 @@ public class TipusForm extends Objecte
 				{				
 				Entity tipus = (Entity)(iter.next());  // objecte Hibernate  
 							
-					item = new SelectItem(tipus.getProperty("Id"), tipus.getProperty("Nom").toString() , "", false, false);
+					item = new SelectItem(tipus.getKey(), tipus.getProperty("nom").toString() , "", false, false);
 					
 					list.add(item); 
 				}
@@ -147,7 +146,7 @@ public class TipusForm extends Objecte
 		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
 	
 		inmobleForm.setCambiDades(true); 
-		inmobleForm.setKeyTipus((String)event.getNewValue());
+		inmobleForm.setKeyTipus((Key)event.getNewValue());
 		
 		// 1.- construim els controls dinamics (dins la qual modifica la hashMap de columnes visibles)
 		// -------------------------------------------------------------------------------------------
@@ -168,10 +167,10 @@ public class TipusForm extends Objecte
 		// O A LA PAGINA DE CERCAR INMOBLES
 		
 		// calculem la nova llista d'inmobles venedor
-		Inmoble_Impl r = new Inmoble_Impl();
+		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		 
 	    Tipus tipus = new Tipus();
-	    tipus.setTipusKey((String)event.getNewValue());
+	    tipus.setKey((Key)event.getNewValue());
 	    
 	    List<Caracteristiques> lc = r.caractTipus(tipus,1, false);
 		

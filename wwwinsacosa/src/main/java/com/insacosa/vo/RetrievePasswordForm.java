@@ -1,6 +1,6 @@
 package com.insacosa.vo;
 
-import com.degloba.EMF;
+import com.degloba.JPA.EMF;
 import com.insacosa.interfaces.Usuari_Impl;
 
 import java.io.*;

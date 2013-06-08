@@ -1,21 +1,13 @@
 package com.insacosa.vo;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Transaction;
-import com.google.appengine.api.datastore.TransactionOptions;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -24,23 +16,11 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import com.insacosa.utils.FilterBeanInmobles;
 
-import com.insacosa.dataModels_JPA.PersistenceService;
+import com.degloba.JPA.PersistenceService;
 import com.insacosa.entitats.Ciutats;
 import com.insacosa.entitats.Provincies;
-import com.insacosa.entitats.Tipus;
-
-import com.degloba.converters.KeyConverter;
 
 
 @ManagedBean(name = "ciutats")
@@ -48,6 +28,11 @@ import com.degloba.converters.KeyConverter;
 public class CiutatsForm extends Objecte 
 	implements ValueChangeListener,java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private List<CiutatsForm> llista;
 	
 	private int currentCiutIndex = 1; 
