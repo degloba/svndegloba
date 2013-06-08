@@ -1,11 +1,8 @@
 package com.insacosa.interfaces;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,16 +10,11 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-
-
-import com.degloba.EMF;
-import com.degloba.UtilCriteriaBuilderJPA;
+import com.degloba.JPA.*;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -31,12 +23,9 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
-import com.google.common.collect.Maps;
-
 import com.insacosa.dataModels_JPA.InmobleCaract;
-import com.insacosa.dataModels_JPA.PersistenceService;
+import com.degloba.JPA.PersistenceService;
 import com.insacosa.entitats.*;
-import com.degloba.UtilCriteriaBuilderJPA;
 
 
 public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements Inmoble_If {

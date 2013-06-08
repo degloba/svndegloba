@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
-import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -17,27 +16,19 @@ import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
 
 
-import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
 import com.degloba.Util;
-import com.degloba.UtilCriteriaBuilderJPA;
+import com.degloba.JPA.*;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Query.Filter;
-import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.appengine.api.datastore.Query.FilterOperator;
-import com.google.appengine.api.datastore.Query.CompositeFilter;
-import com.google.appengine.api.datastore.Query.CompositeFilterOperator;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Entity;
 
 import com.google.appengine.api.datastore.Key;
-
-import com.google.appengine.api.datastore.Transaction;
-import com.google.common.collect.Lists;
 
 
 
@@ -57,7 +48,8 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		// 		2 Opcions :
 		// 			Opcio 1 --> Utilitzar classe PersistenceService
-		EntityManager em = persistenceService.getEntityManager();
+		//EntityManager em = persistenceService.getEntityManager();
+		EntityManager em = EMF.lookupEntityManager();
 		// 			Opcio 2 --> Utilitzar classe EMF
 		//em = EMF.get().createEntityManager();
 		

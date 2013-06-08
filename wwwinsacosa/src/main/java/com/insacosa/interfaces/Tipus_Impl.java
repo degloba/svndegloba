@@ -1,11 +1,9 @@
 package com.insacosa.interfaces;
 
 
-import java.util.List;
-
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,9 +12,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
 
-import com.degloba.UtilCriteriaBuilderJPA;
+import com.degloba.JPA.*;
 
-import com.insacosa.dataModels_JPA.PersistenceService;
 import com.insacosa.entitats.*;
 
 
