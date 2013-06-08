@@ -1,12 +1,14 @@
 package com.insacosa.vo;
 
+import com.degloba.JPA.EMF;
 
 import com.insacosa.filtre.InventoryItem;
 import com.insacosa.filtre.InventoryFiltreItem;
 import com.insacosa.filtre.InventoryFiltreList;
 
+import com.insacosa.interfaces.Caracteristiques_Impl;
 import com.insacosa.interfaces.Inmoble_Impl;
-import com.insacosa.interfaces.Objecte;
+import com.insacosa.interfaces.Usuari_Impl;
 //import com.insacosa.interfaces.QuerysJPA;
 
 
@@ -23,16 +25,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Random;
 import java.util.Set;
 
 import javax.el.ValueExpression;
 
-/*----------------------------*/
-/* JSF                        */
-/*----------------------------*/
-import javax.faces.application.Application;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.HtmlInputText;
@@ -45,17 +41,9 @@ import javax.faces.event.AjaxBehaviorEvent;
 /*----------------------------*/
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-
-import org.ajax4jsf.model.Range;
-import org.ajax4jsf.model.SequenceRange;
-import org.richfaces.application.FacesMessages;
 import org.richfaces.component.SortOrder;
 import org.richfaces.component.UIDataTable;
 import org.richfaces.component.UIExtendedDataTable;
-import org.richfaces.component.UIRichMessage;
-import org.richfaces.component.UITooltip;
-
 /*----------------------------*/
 /* Utilitats                  */
 /*----------------------------*/
@@ -65,14 +53,14 @@ import com.insacosa.utils.FormHBM;
 import com.insacosa.utils.HtmlDinamic;
 import com.insacosa.utils.Utils;
 
+
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 import com.google.common.collect.Maps;
 
 import com.insacosa.controladorMSG.ChatBean;
 import com.insacosa.dataModels_JPA.InmobleCaract;
 import com.insacosa.dataModels_JPA.JPADataModel;
-import com.insacosa.dataModels_JPA.PersistenceService;
+import com.degloba.JPA.PersistenceService;
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
 
@@ -93,7 +81,7 @@ public class InmobleForm  implements Serializable
 	private String key;
   	private String nom; // referencia
   	private String adreca;
-	private String keyTipus;  // PIS
+	private Key keyTipus;  // PIS
 	private String idTipus = "1";  // PIS
 	
 	private Short numero,planta;	
@@ -330,11 +318,11 @@ public class InmobleForm  implements Serializable
 															  // ha cap datatable i per tant la construim
 		{
 			// calculem la nova llista d'inmobles venedor
-			Inmoble_Impl r = new Inmoble_Impl();
+			Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 			 
 		    Tipus tipus = new Tipus();
 		    //tipus.setKey(keyTipus);
-		    tipus.setTipusKey(idTipus);
+		    tipus.setId(keyTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);
 		 
@@ -372,10 +360,10 @@ public class InmobleForm  implements Serializable
 		{	
 			
 			// calculem la nova llista d'inmobles venedor
-			Inmoble_Impl r = new Inmoble_Impl();
+			Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setTipusKey(keyTipus);
+		    tipus.setId(keyTipus);
 		    
 		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
 		    
@@ -471,7 +459,7 @@ public class InmobleForm  implements Serializable
 	    Ciutats ciut = new Ciutats();
 	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
-	    setKeyTipus(inmoble.getTipus().getTipusKey()); 
+	    setKeyTipus(inmoble.getTipus().getId()); 
 	    
 	    setNumero(inmoble.getNumero());
 	    setPlanta(inmoble.getPlanta());
@@ -539,7 +527,7 @@ public class InmobleForm  implements Serializable
 			
 			Caracteristiques caracteristicaInmoble = (Caracteristiques) it.next();
 			caracteristicaForm.setKey(caracteristicaInmoble.getCaracteristicaKey());
-			caracteristicaForm.setKeyTipus(caracteristicaInmoble.getTipus().getTipusKey());
+			//caracteristicaForm.setKeyTipus(caracteristicaInmoble.getTipus().getTipusKey());
 			caracteristicaForm.setNom(caracteristicaInmoble.getNom());
 			
 			if (caracteristicaInmoble.getControl() == 0)  // NOMES LES CARACTERISTIQUES BOOLEANES
@@ -896,31 +884,16 @@ public class InmobleForm  implements Serializable
 			{
 				cambiDades = false;
 				
-				Inmoble_Impl r = new Inmoble_Impl();
+				
 		    	List<InmobleCaract> listDataRow = new ArrayList<InmobleCaract>();
 			
-		   		/* CAS : JPA
-		   		 * 
-		   		 */
-		    	EntityManager entityManager = lookupEntityManager();
-		   		Query query = entityManager.createQuery("select inmobles from Inmobles as inmobles " +
-		   						"where inmobles.usuaris.nomusuari = 'EVA' and keyTipus = " + keyTipus);
-		        
-		   		// Recuperem NOMES els inmobles segons la pagina seleccionada
-		   		////////SequenceRange sequenceRange = (SequenceRange) range;
-		        query.setFirstResult(0);
-		        query.setMaxResults(10);
-		        
-		        List<Inmobles> inmoblesVenedor =  query.getResultList();
-		        
-		    		
-		   		/*
-		   		 * CAS : HIBERNATE
-		   		 
-		    	Usuaris usuari = new Usuaris();
-		    	usuari.setNomusuari("EVA");
-		   		List<Inmobles> inmoblesVenedor = r.inmoblesVenedorRang(usuari, 1, 10); // llista inmobles del venedor
-		 		*/
+			    	
+		    	Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),null);
+		    	Usuari_Impl u = new Usuari_Impl(EMF.lookupEntityManager(),null);
+		    			    	
+		    	Usuaris usuari = u.cercarUsuari("peresan");
+		    	
+		    	List<Inmobles> inmoblesVenedor = r.inmoblesVenedorRang(usuari, 0, 10);
 		        
 				Iterator<Inmobles> inmoblesVenedorIt = inmoblesVenedor.iterator();
 				while (inmoblesVenedorIt.hasNext())
@@ -1090,11 +1063,11 @@ public class InmobleForm  implements Serializable
   	}
 
   	
-  	public String getKeyTipus() {
+  	public Key getKeyTipus() {
 		return keyTipus;
 	}
 
-	public void setKeyTipus(String keyTipus) {
+	public void setKeyTipus(Key keyTipus) {
 		this.keyTipus = keyTipus;
 		
 		facesContext = FacesContext.getCurrentInstance(); 
@@ -1231,7 +1204,7 @@ public class InmobleForm  implements Serializable
         		    
         		    inmobleForm.setProvincia(inmoble.getProvincies().getProvinciaKey());
         			
-        			inmobleForm.setKeyTipus(inmoble.getTipus().getTipusKey());
+        			inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
 
         			inmobleForm.setNumero(inmoble.getNumero());
         			inmobleForm.setPlanta(inmoble.getPlanta());
@@ -1384,7 +1357,7 @@ public class InmobleForm  implements Serializable
 		Tipus tipus = new Tipus();
 		/*tipus.setKey(1);*/
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		
 		List<Caracteristiques> caracteristiques = r.caractTipus(tipus);
 		
@@ -1440,11 +1413,11 @@ public class InmobleForm  implements Serializable
 		
 		containerControlsDinamics.getChildren().clear();
 
-		Inmoble_Impl r = new Inmoble_Impl();
+		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		
 		Tipus tipus = new Tipus();
 		//tipus.setKey(keyTipus);
-		tipus.setTipusKey(idTipus);
+		tipus.setId(keyTipus);
 	
 		List<Caracteristiques> c = r.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
@@ -1542,8 +1515,7 @@ public class InmobleForm  implements Serializable
             
         	        	
             Tipus tipus = new Tipus();
-            //tipus.setKey(keyTipus);
-            tipus.setTipusKey(idTipus);
+            tipus.setKey(keyTipus);
              
             
             /*QuerysJPA qJPA= new QuerysJPA(em, Inmobles.class);
@@ -1569,7 +1541,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Cambia la llista de caracteristiques no seleccionades en funcio del tipus d'inmoble
 	 */
-	private void cambiaCaracteristiquesNoSel(String keyTipus)
+	private void cambiaCaracteristiquesNoSel(Key keyTipus)
 	{
 			
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
@@ -1577,11 +1549,10 @@ public class InmobleForm  implements Serializable
 		
 		dragDropBean.getSource().clear();
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		
 		Tipus tipus = new Tipus();
-		//tipus.setKey(keyTipus);
-		tipus.setTipusKey(idTipus);
+		tipus.setKey(keyTipus);
 		
 		Iterator<Caracteristiques> iter = r.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
@@ -1591,7 +1562,7 @@ public class InmobleForm  implements Serializable
 			CaracteristicaForm caract = new CaracteristicaForm();
 			
 			caract.setKey(caracteristica.getCaracteristicaKey());
-			caract.setKeyTipus(caracteristica.getTipus().getTipusKey());
+			//caract.setKeyTipus(caracteristica.getTipus().getTipusKey());
 			caract.setNom(caracteristica.getNom());
 			                   
 			dragDropBean.getSource().add(caracteristica);
@@ -1666,7 +1637,7 @@ public class InmobleForm  implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); 
 		DragDropBeanCaract dragDropBean = (DragDropBeanCaract) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBeanCaract}", DragDropBeanCaract.class);
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		
 		Tipus tipus = new Tipus(); 
 		/*tipus.setKey(keyTipus == null ? 1 : keyTipus); // cuidado*/

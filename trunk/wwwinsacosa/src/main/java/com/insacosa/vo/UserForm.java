@@ -1,8 +1,6 @@
 package com.insacosa.vo;
 
-import com.degloba.EMF;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+import com.degloba.JPA.*;
 import com.insacosa.interfaces.Usuari_Impl;
 
 import javax.mail.Message;
@@ -28,6 +26,12 @@ import javax.faces.context.FacesContext;
 
 public class UserForm  implements java.io.Serializable {
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	public UserForm(){
 		

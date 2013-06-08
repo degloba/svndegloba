@@ -1,6 +1,8 @@
 package com.insacosa.vo;
 
-import com.degloba.EMF;
+
+import com.degloba.JPA.*;
+
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Usuari_Impl;
 

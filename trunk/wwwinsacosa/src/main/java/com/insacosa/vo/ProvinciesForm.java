@@ -27,7 +27,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import com.insacosa.utils.FilterBeanInmobles;
-import com.insacosa.dataModels_JPA.PersistenceService;
+import com.degloba.JPA.PersistenceService;
 import com.insacosa.entitats.Book;
 import com.insacosa.entitats.Chapter;
 import com.insacosa.entitats.Ciutats;
