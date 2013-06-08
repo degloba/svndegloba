@@ -175,7 +175,23 @@
             <plugin>   
              
             	<artifactId>maven-antrun-plugin</artifactId>    
-	            <executions>        
+	            <executions>    
+	                <execution>
+            			<id>compile</id>
+            			<phase>process-classes</phase>            			
+            			<configuration>
+            			<target>
+	            			<echo message="Copying persistence.xml to            
+	            				/target/wwwinsacosa/WEB-INF/classes/META-INF "  />      
+	            			<copy file="${basedir}/src/main/webapp/WEB-INF/META-INF/persistence.xml"          
+	            				tofile="${basedir}/target/wwwinsacosa/WEB-INF/classes/META-INF/persistence.xml"/>
+	            				 
+            			</target>
+            			</configuration>
+            			<goals>
+            				<goal>run</goal>
+            			</goals>
+            		</execution>    
 		            <execution>            
 			            <id>datanucleus-enhance</id>            
 			            <phase>process-classes</phase>            
@@ -206,141 +222,19 @@
 				            		<fileset dir="target/wwwinsacosa/WEB-INF/classes" includes="**/entitats/*.class"/>                    
 				            	</enhance>                
 				            </tasks>
-				            
-				             <!-- 
-			                
-			                		                
-			                
-			            	<taskdef name="datanucleusenhancer" classpathref="enhancer.classpath"                 
-			            		classname="com.google.appengine.tools.enhancer.EnhancerTask" />    
-				            <datanucleusenhancer failonerror="true">        
-					            <fileset dir="target/wwwinsacosa/WEB-INF/classes">            
-					           		 <include name="**/entitats/*.class"/>        
-					            </fileset>        
-					            <classpath>            
-					            <path refid="enhancer.classpath"/>            
-					            <path refid="project.classpath"/>        
-					            </classpath>    
-				            </datanucleusenhancer>
-				            -->
-				            
+				           
+				         
 			            </target>
-			            
-			       		            
-			            
-
-				            
-				            
-				                        
-				            </configuration>            
-				              <goals>                
-				            	<goal>run</goal>            
-				            </goals>  
-				            
+			            </configuration>            
+				        <goals>                
+				          	<goal>run</goal>            
+				        </goals>  
 				                  
 		            </execution>  
-		            
-		            
-		            
-            		<execution>
-            			<id>compile</id>
-            			<phase>compile</phase>            			
-            			<configuration>
-            			<target>
-	            			<echo message="Copying persistence.xml to            
-	            				/target/wwwinsacosa/WEB-INF/classes/META-INF "  />      
-	            			<copy file="${basedir}/src/main/webapp/WEB-INF/META-INF/persistence.xml"          
-	            				tofile="${basedir}/target/wwwinsacosa/WEB-INF/classes/META-INF/persistence.xml"/>
-	            				 
-            			</target>
-            			</configuration>
-            			<goals>
-            				<goal>run</goal>
-            			</goals>
-            		</execution>
-            	
-		            
-		              
+		             
 	            </executions>
 	            </plugin>
-            
-            <!-- 
-            <plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-            	<artifactId>maven-antrun-plugin</artifactId>
-            	<version>1.6</version>
-            	
-            	<configuration> 
-				    <tasks> 
-				      <property name="mvn-plugin-cp" refid="maven.plugin.classpath" /> 
-				      <property name="mvn-compile-cp" refid="maven.compile.classpath" /> 
-				      <taskdef name="enhancer" classpath="${mvn-plugin-cp}" classname="org.jpox.enhancer.tools.EnhancerTask" /> 
-				      <enhancer api="JPA" failonerror="true" persistenceUnit="cra" verbose="true"> 
-				        <classpath> 
-				          <pathelement path="${mvn-plugin-cp}" /> 
-				          <pathelement path="${mvn-compile-cp}" /> 
-				        </classpath> 
-				      </enhancer> 
-				    </tasks> 
-				  </configuration> 
-            	<dependencies> 
-				    <dependency> 
-				      <groupId>jpox</groupId> 
-				      <artifactId>jpox-enhancer</artifactId> 
-				      <version>1.2.0-beta-5</version> 
-				      <exclusions> 
-				        <exclusion> 
-				          <groupId>org.eclipse</groupId> 
-				          <artifactId>org.eclipse.equinox.registry</artifactId> 
-				        </exclusion> 
-				        <exclusion> 
-				          <groupId>org.eclipse</groupId> 
-				          <artifactId>org.eclipse.equinox.common</artifactId> 
-				        </exclusion> 
-				        <exclusion> 
-				          <groupId>org.eclipse</groupId> 
-				          <artifactId>org.eclipse.core.runtime</artifactId> 
-				        </exclusion> 
-				        <exclusion> 
-				          <groupId>org.eclipse</groupId> 
-				          <artifactId>org.eclipse.osgi</artifactId> 
-				        </exclusion> 
-				      </exclusions> 
-				    </dependency> 
-				    <dependency> 
-				      <groupId>jpox</groupId> 
-				      <artifactId>jpox-java5</artifactId> 
-				      <version>1.2.0-beta-5</version> 
-				    </dependency> 
-				    <dependency> 
-				      <groupId>javax.jdo</groupId> 
-				      <artifactId>jdo2-api</artifactId> 
-				      <version>2.3-SNAPSHOT</version> 
-				    </dependency> 
-				  </dependencies> 
-            	
-            	<executions>
-            		<execution>
-            			<id>compile</id>
-            			<phase>compile</phase>
-            			<configuration>
-            			<target>
-	            			<echo message="Copying persistence.xml to            
-	            				/target/wwwinsacosa/WEB-INF/classes/META-INF "  />      
-	            			<copy file="${basedir}/src/main/webapp/WEB-INF/META-INF/persistence.xml"          
-	            				tofile="${basedir}/target/wwwinsacosa/WEB-INF/classes/META-INF/persistence.xml"/>
-	            				 
-            			</target>
-            			</configuration>
-            			<goals>
-            				<goal>run</goal>
-            			</goals>
-            		</execution>
-            	</executions>
-            </plugin>
-            
-             -->
-             
+                         
         </plugins>
         
         
@@ -401,7 +295,7 @@
     <dependency>  
 		 <groupId>org.datanucleus</groupId>  
 		  <artifactId>datanucleus-api-jpa</artifactId>  
-		 <version>3.1.3</version>  
+		 <version>${datanucleus.jpa.version}</version>  
 	</dependency>  
   
 	<dependency>  
@@ -427,9 +321,7 @@
 	  
 	  	  
 	</dependency> 
-   
-     
-    
+         
     	<dependency>
             <groupId>org.jboss.netty</groupId>
             <artifactId>netty</artifactId>
@@ -681,6 +573,13 @@
         
 
 
+        <dependency>
+        	<groupId>degloba.com</groupId>
+        	<artifactId>utilitats</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
     
     
