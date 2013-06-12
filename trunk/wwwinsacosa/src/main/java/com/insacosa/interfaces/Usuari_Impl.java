@@ -49,11 +49,11 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		// 		2 Opcions :
 		// 			Opcio 1 --> Utilitzar classe PersistenceService
 		//EntityManager em = persistenceService.getEntityManager();
-		EntityManager em = EMF.lookupEntityManager();
+		//EntityManager em = EMF.lookupEntityManager();
 		// 			Opcio 2 --> Utilitzar classe EMF
 		//em = EMF.get().createEntityManager();
 		
-		EntityTransaction tx = em.getTransaction();
+		EntityTransaction tx = entityManager.getTransaction();
 		
 		tx.begin();
 		
@@ -72,7 +72,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		u.setAcord(usuari.getAcord());
 		
 		try {     
-				em.persist(u);
+				entityManager.persist(u);
 				      
 				tx.commit();  
 				
@@ -89,14 +89,14 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 	public void eliminarUsuari(Key keyUsuari) {
 		
-		EntityManager em = this.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		//EntityManager em = this.getEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
 		
 		tx.begin();
 		
 		try {
-			Usuaris usuari = em.find(Usuaris.class, keyUsuari);
-			em.remove(usuari);
+			Usuaris usuari = entityManager.find(Usuaris.class, keyUsuari);
+			entityManager.remove(usuari);
      
 			tx.commit();   
 				
@@ -115,10 +115,10 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		Usuaris usuari = null;
 		
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 		
 		try {     
-			usuari = em.find(Usuaris.class, keyUsuari);			
+			usuari = entityManager.find(Usuaris.class, keyUsuari);			
 		} catch (RuntimeException e) {		   
 		    throw e; // or display error message
 		}
@@ -134,17 +134,17 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		Usuaris usuari = null;
 		
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 		
 		try {      
 			
-				javax.persistence.Query q1 = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+				javax.persistence.Query q1 = entityManager.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
 				q1.setParameter("nomUsuari", nomUsuari);
 				usuari = (Usuaris)q1.getSingleResult();
 				
 				// **************************************************
 				
-				CriteriaBuilder cb = em.getCriteriaBuilder();				
+				CriteriaBuilder cb = entityManager.getCriteriaBuilder();				
 				CriteriaQuery<Usuaris> cq = cb.createQuery(Usuaris.class);
 				Root<Usuaris> c = cq.from(Usuaris.class);			
 							
@@ -154,7 +154,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 				Predicate predicate = cb.equal(p,  usuari.getNomusuari());  // WHERE
 				cq.where(predicate);
 
-				TypedQuery<Usuaris> tq = em.createQuery(cq);
+				TypedQuery<Usuaris> tq = entityManager.createQuery(cq);
 				usuari = tq.getSingleResult();					
 				
 		} catch (RuntimeException e) {
@@ -172,10 +172,10 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		Usuaris usuari = null;
 		
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 		
 		try {   
-				usuari = em.find( Usuaris.class, keyUsuari);
+				usuari = entityManager.find( Usuaris.class, keyUsuari);
 				
 		} catch (RuntimeException e) {
 		    throw e; // or display error message
@@ -192,7 +192,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 	public Usuaris usuariValid(Usuaris usuari) {
 			
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 			
 		try {    
 			
@@ -211,7 +211,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			
 			CriteriaQuery<Usuaris> crit = createSelectCriteriaQuery(new ArrayList<String>(){{add("nom");}}, new ArrayList<Object>(){{add("peresan");}}, null, null);
 							
-			TypedQuery<Usuaris> tq = em.createQuery(crit);
+			TypedQuery<Usuaris> tq = entityManager.createQuery(crit);
 			List<Usuaris> results = tq.getResultList();
 			
 			System.out.println("0 - " + results.get(0).getNom() + " " + results.get(0).getCognoms());
@@ -219,13 +219,13 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			// **************************************************
 			
 
-			CriteriaBuilder cb = em.getCriteriaBuilder();  // comu
+			CriteriaBuilder cb = entityManager.getCriteriaBuilder();  // comu
 			
 			crit = cb.createQuery(Usuaris.class);
 			Root<Usuaris> root = crit.from(Usuaris.class);  // FROM
 			crit.select(root);
 						
-			tq = em.createQuery(crit);
+			tq = entityManager.createQuery(crit);
 			Usuaris results3 = tq.getSingleResult();
 			
 			System.out.println("1 - " + results3.getNom() + " " + results3.getCognoms());
@@ -241,7 +241,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			Predicate predicate = cb.equal(p,  usuari.getNomusuari());  // WHERE
 			cq.where(predicate);
 
-			tq = em.createQuery(cq);
+			tq = entityManager.createQuery(cq);
 			results3 = tq.getSingleResult();
 			
 			System.out.println("2 - " + results3.getNom() + " " + results3.getCognoms());
@@ -252,12 +252,12 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			Predicate pr = cb.equal(p, "peresan");
 			crit.where(pr);
 			
-			tq = em.createQuery(crit);
+			tq = entityManager.createQuery(crit);
 			Usuaris u= tq.getSingleResult();
 			
 			// **************************************************	
 			
-			javax.persistence.Query q = em.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
+			javax.persistence.Query q = entityManager.createQuery("SELECT u FROM " + Usuaris.class.getName() + " u WHERE u.nom = :nomUsuari");
 			q.setParameter("nomUsuari", usuari.getNomusuari());
 			
 			return (Usuaris)q.getSingleResult();
@@ -273,11 +273,11 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 				
 		Boolean existeix = false;
 		    
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 		
 		try {      
 			
-			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 			CriteriaQuery<Boolean> cq = cb.createQuery(Boolean.class);
 			Root<Usuaris> r = cq.from(Usuaris.class);			
 				
@@ -288,7 +288,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			
 			cq.select(cb.count(cq.from(Usuaris.class)).as(Boolean.class));
 
-			existeix = em.createQuery(cq).getSingleResult();
+			existeix = entityManager.createQuery(cq).getSingleResult();
 					
 				 
 		} catch (RuntimeException e) {
@@ -308,11 +308,11 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 		
 		String password = null;
 		    
-		EntityManager em = this.getEntityManager(); 
+		//EntityManager em = this.getEntityManager(); 
 		
 		try {   
 			
-			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 			CriteriaQuery<String> cq = cb.createQuery(String.class);
 			Root<Usuaris> r = cq.from(Usuaris.class);			
 				
@@ -323,11 +323,11 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 			
 			cq.multiselect(r.get("password"));
 
-			password = em.createQuery(cq).getSingleResult();
+			password = entityManager.createQuery(cq).getSingleResult();
 			
 			// **************************************************	
 			
-			 javax.persistence.Query q = em.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
+			 javax.persistence.Query q = entityManager.createQuery(("select password from Usuaris as usuari where usuari.email = '" + email + "'"));
 			
 			 password = (String)q.getSingleResult();
 			 			
@@ -347,13 +347,13 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 	public String cambiaPassword(Usuaris usuari) {
 		   
-		EntityManager em = this.getEntityManager(); 
-		EntityTransaction tx = em.getTransaction();
+		//EntityManager em = this.getEntityManager(); 
+		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
 		
 		try {      
 				
-				em.persist(usuari);
+				entityManager.persist(usuari);
 				      
 				tx.commit();    
 		} catch (RuntimeException e) {
@@ -373,13 +373,13 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 	public String modificarUsuari(Usuaris usuari) {
 		
-		EntityManager em = this.getEntityManager();
+		//EntityManager em = this.getEntityManager();
 		EntityTransaction tx = null;
 		tx.begin();
 		
 		try {      
 			
-				em.persist(usuari);
+				entityManager.persist(usuari);
 				      
 				tx.commit();    
 		} catch (RuntimeException e) {
