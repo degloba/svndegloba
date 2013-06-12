@@ -883,13 +883,12 @@ public class InmobleForm  implements Serializable
 			if (inmoblesVenedorCaract.isEmpty() || cambiDades)  // ES CAMBIA LES DADES SI CAMBIEM EL TIPUS
 			{
 				cambiDades = false;
-				
-				
+								
 		    	List<InmobleCaract> listDataRow = new ArrayList<InmobleCaract>();
-			
-			    	
-		    	Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),null);
-		    	Usuari_Impl u = new Usuari_Impl(EMF.lookupEntityManager(),null);
+						    	
+		    	EntityManager em = EMF.lookupEntityManager();
+		    	Inmoble_Impl r = new Inmoble_Impl(em,Inmobles.class);
+		    	Usuari_Impl u = new Usuari_Impl(em,Usuaris.class);
 		    			    	
 		    	Usuaris usuari = u.cercarUsuari("peresan");
 		    	
