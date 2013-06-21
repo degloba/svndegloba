@@ -140,7 +140,6 @@
     <servlet-name>Push Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.PushServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-    <async-supported>true</async-supported>   
 </servlet>
 <servlet-mapping>
     <servlet-name>Push Servlet</servlet-name>
@@ -181,6 +180,24 @@
 	 <servlet-name>RemoteApiServlet</servlet-name>    
 	 <url-pattern>/remote_api</url-pattern>
 </servlet-mapping>
+
+ <filter>    
+     <filter-name>guiceFilter</filter-name>    
+     <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>  
+ </filter>  
+     
+ <filter-mapping>    
+     <filter-name>guiceFilter</filter-name>    
+     <url-pattern>/*</url-pattern>  
+ </filter-mapping>
+ 
+ <listener>  
+     <listener-class>com.degloba.MyGuiceServletConfig</listener-class>
+ </listener>
+ 
+<listener>    
+    <listener-class>com.degloba.MyGuiceServletContextListener</listener-class>  
+</listener> 
  
 
 </web-app>
