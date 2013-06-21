@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
@@ -20,7 +20,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	
 	static PersistenceService persistenceService;
 	
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 	 
 	private Class<T> entityClass;
 	
@@ -91,8 +91,7 @@ public class UtilCriteriaBuilderJPA<T> {
     		
     		
     	}
-    	else
-    		return null;
+
 		return null;
     	
 	     

@@ -25,7 +25,6 @@ public static EntityManagerFactory get() {
 	/* EntityManager - JPA      */
 	/*--------------------------*/
 	 public static EntityManager lookupEntityManager() {         
-		 FacesContext facesContext = FacesContext.getCurrentInstance(); 
 		 
     	// CUIDADO !!!!!! el #{persistenceService} no s'ha de cambiar encara que es canvii de persistence-unit
 	    //PersistenceService persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);

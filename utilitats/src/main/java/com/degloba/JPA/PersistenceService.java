@@ -75,47 +75,7 @@ public class PersistenceService {
         entityManagerFactory = Persistence.createEntityManagerFactory("transactions-optional", new Properties());
 
     }
-/*
-    private List<Person> parseTestData() throws Exception {
-        InputStream dataStream = null;
-        try {
-            dataStream = PersistenceService.class.getResourceAsStream("data.xml");
-            DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Node node = documentBuilder.parse(dataStream).getDocumentElement();
-            
-            List<Person> persons = Lists.newArrayList();
 
-            for (Node personNode = node.getFirstChild(); personNode != null; personNode = personNode.getNextSibling()) {
-                if (personNode.getNodeType() != Node.ELEMENT_NODE) {
-                    continue;
-                }
-                
-                Person person = new Person();
-                persons.add(person);
-         
-                for (Node personDataNode = personNode.getFirstChild(); personDataNode != null; personDataNode = personDataNode.getNextSibling()) {
-                    if (personDataNode.getNodeType() != Node.ELEMENT_NODE) {
-                        continue;
-    }
-
-                    String nodeName = personDataNode.getNodeName();
-                    String text = personDataNode.getTextContent();
-                    if ("name".equals(nodeName)) {
-                        person.setName(text);
-                    } else if ("surname".equals(nodeName)) {
-                        person.setSurname(text);
-                    } else if ("email".equals(nodeName)) {
-                        person.setEmail(text);
-                    }
-                }
-            }
-    
-            return persons;
-        } finally {
-            Closeables.closeQuietly(dataStream);
-        }
-    }
-*/
     @PreDestroy
     public void destroy() {
         entityManagerFactory.close();
