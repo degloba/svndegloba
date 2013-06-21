@@ -33,6 +33,13 @@ public class RealBillingService implements BillingService {
 			} */ 
 		}
 
+	@Override
+	public Receipt chargeOrder(com.degloba.billing.PizzaOrder order,
+			CreditCard creditCard) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 		
 		
