@@ -3,6 +3,7 @@ package com.insacosa.impl;
 import com.degloba.billing.BillingService;
 import com.degloba.billing.ChargeResult;
 import com.degloba.billing.CreditCardProcessor;
+import com.degloba.billing.PizzaOrder;
 import com.degloba.billing.Receipt;
 import com.degloba.logs.TransactionLog;
 import com.paypal.api.payments.CreditCard;
@@ -32,14 +33,6 @@ public class RealBillingService implements BillingService {
 			return Receipt.forSystemFailure(e.getMessage());    
 			} */ 
 		}
-
-	@Override
-	public Receipt chargeOrder(com.degloba.billing.PizzaOrder order,
-			CreditCard creditCard) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 		
 		
