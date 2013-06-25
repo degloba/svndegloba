@@ -3,7 +3,7 @@ package guice;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
-import com.insacosa.modules.BillingModule;
+import guice.modules.BillingModule;
 
 
 /**
@@ -17,8 +17,7 @@ public class MyGuiceServletContextListener extends GuiceServletContextListener {
 	@Override protected Injector getInjector() {    
 	/*return Guice.createInjector(        
 			new YourServletModule());  */
-	return Guice.createInjector(        
-			new YourServletModule(),        
+	return Guice.createInjector(              
 			new BillingModule()); 	
 	}
 
