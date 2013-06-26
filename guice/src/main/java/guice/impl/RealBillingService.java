@@ -6,6 +6,7 @@ import com.degloba.billing.CreditCardProcessor;
 import com.degloba.billing.PizzaOrder;
 import com.degloba.billing.Receipt;
 import com.degloba.logs.TransactionLog;
+import com.google.inject.Inject;
 import com.paypal.api.payments.CreditCard;
 
 
@@ -15,6 +16,7 @@ public class RealBillingService implements BillingService {
 	private final CreditCardProcessor processor;  
 	private final TransactionLog transactionLog;  
 	
+	@Inject
 	public RealBillingService(CreditCardProcessor processor,TransactionLog transactionLog) {    
 		this.processor = processor;    
 		this.transactionLog = transactionLog;  
