@@ -481,6 +481,143 @@ public class PaypalCreditCardProcessor implements CreditCardProcessor{
 	}
 
 	public ChargeResult charge(CreditCard creditCard, Object amount) {
+		
+		
+		System.out.println("ABONAMENT QUANTITAT A INSACO");    	
+       	System.out.println("\n########## Do Direct Payment ##########\n");
+        	
+    		
+    		// TARJETA DE CREDIT DEL COMPRADOR/CLIENT DEL SERVEI
+    		// QUE HAURA ENTRAT EN ALGUN FORMULARI	
+    		// AQUEST ES EL FORMULARI QUE HAUREM DE DISSENYAR PERQUE
+    		// L'ENTRI EL CLIENT DE LA WEB (EX: INSACOSA)
+    		// EXEMPLE : TARJETA DE CREDIT/DEBIT D'UN CLIENT DE INSACOSA
+    		
+    		// IMPORTANT : EN AQUEST EXEMPLE JAVA ESTEM OBLIGATS A QUE INSACOSA.COM
+    		// SUPORTI HTTPS PERQUE S'ENTRA EL NUMERO DE COMPTE MITJAN?ANT UN FORMULARI
+    		// DE LA WEB D'INSACO (tarjeta_credit.jsp)
+    		
+    		// EN E? CAS DEL JSP pagament_Paypal.jsp NO ES NECESSARI QUE INSACOSA.COM
+    		// SUPORTI HTTPS PERQUE TOTA LA TRANSACCIO ES FA A TRAVES DE LA WEB DE
+    		// PAYPAL QUE ES CONNECTA AMB HTTPS
+    		
+       	
+       	
+       	// ###AccessToken		
+       	// Retrieve the access token from OAuthTokenCredential by passing in ClientID and ClientSecret		
+       	APIContext apiContext = null;		
+       	String accessToken = null;
+       	
+       	try {			
+       		accessToken = GenerateAccessToken.getAccessToken("sdk-seller_api1.sdk.com","12345678");	
+       		
+       		// ### Api Context			
+       		// Pass in a `ApiContext` object to authenticate			
+       		// the call and to send a unique request id			
+       		// (that ensures idempotency). The SDK generates			
+       		// a request id if you do not pass one explicitly.			
+       		apiContext = new APIContext(accessToken);			
+       		// Use this variant if you want to pass in a request id			
+       		// that is meaningful in your application, ideally			
+       		// a order id.			
+       		/*			 
+       		 * String requestId = Long.toString(System.nanoTime(); APIContext			 
+       		 * apiContext = new APIContext(accessToken, requestId ));			 
+       		 */		
+       		} catch (PayPalRESTException e) {			
+       			e.printStackTrace();	
+       		}
+       	
+    
+    		
+    		/*Address billingAddress = new Address();
+    		billingAddress.setLine1(adreca);
+    		billingAddress.setCity(ciutat);
+    		billingAddress.setCountryCode("ES");
+    		billingAddress.setPostalCode(codi_postal);
+    		billingAddress.setState(provincia);
+
+  	
+    		creditCard.setBillingAddress(billingAddress);*/
+    		
+    		Details amountDetails = new Details();
+    		amountDetails.setSubtotal("7.41");
+    		amountDetails.setTax("0.03");
+    		amountDetails.setShipping("0.03");
+ 
+
+    		// The Payment creation API requires a list of			
+    		// Transaction; add the created `Transaction`			
+    		// to a List
+    		Transaction transaction = new Transaction();
+    		transaction.setAmount((Amount) amount);
+    		transaction.setDescription("This is the payment transaction description.");
+
+    		List<Transaction> transactions = new ArrayList<Transaction>();
+    		transactions.add(transaction);
+
+    		FundingInstrument fundingInstrument = new FundingInstrument();
+    		fundingInstrument.setCreditCard(creditCard);
+
+    		List<FundingInstrument> fundingInstruments = new ArrayList<FundingInstrument>();
+    		fundingInstruments.add(fundingInstrument);
+
+    		// ###Payer			
+    		// A resource representing a Payer that funds a payment			
+    		// Payment Method			
+    		// as 'paypal'
+    		Payer payer = new Payer();
+    		payer.setFundingInstruments(fundingInstruments);
+    		payer.setPaymentMethod("credit_card");
+
+    		// ###Payment			
+    		// A Payment Resource; create one using			
+    		// the above types and intent as 'sale'
+    		Payment payment = new Payment();
+    		payment.setIntent("sale");
+    		payment.setPayer(payer);
+    		payment.setTransactions(transactions);
+
+    		try
+    		{
+    			Payment createdPayment = payment.create(accessToken);
+	    		
+	    		Iterator<Links> links = createdPayment.getLinks().iterator();				
+	    		while (links.hasNext()) {					
+	    			Links link = links.next();					
+	    			if (link.getRel().equalsIgnoreCase("approval_url")) {						
+	    			//req.setAttribute("redirectURL", link.getHref());					
+	    			}	
+	    		}
+    		}
+    		catch (PayPalRESTException e) {				
+    			//req.setAttribute("error", e.getMessage());
+    		}
+    		
+    					
+    		
+
+//    		 **************************************		
+//    		 FI FORMULARI QUE CALDRA DEFINIR EN LA WEB
+//    		 **************************************
+    		
+    		/*details.setPaymentDetails(payment);
+    		request.setDoDirectPaymentRequestDetails(details);*/
+    		
+    		
+    		// NOTA : el caller conte la informaci? a qui s'ha d'abonar un import
+    		// En aquest cas seria la Web que ven productes/serveis i per tant INSACO
+    		// que ha de tenir un compte PAYPAL associat a ell 
+    		//DoDirectPaymentResponseType response = (DoDirectPaymentResponseType) caller.call("DoDirectPayment", request);
+   /*     	
+        	System.out.println("Operation Ack: " + response.getAck());
+     	  	System.out.println("---------- Results ----------");
+     	  	System.out.println("\nTransaction ID: " + response.getTransactionID());
+     	  	System.out.println("CVV2: " + response.getCVV2Code());
+     	  	System.out.println("AVS: " + response.getAVSCode());
+     	  	System.out.println("Quantitat Total: " + response.getAmount().getCurrencyID() 
+    			+ " " + response.getAmount().get_value());*/
+    			
 		// TODO Auto-generated method stub
 		return null;
 	}
