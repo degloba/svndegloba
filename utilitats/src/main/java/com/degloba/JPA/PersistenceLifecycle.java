@@ -21,6 +21,7 @@
  */
 package com.degloba.JPA;
 
+// JSF
 import javax.faces.FacesException;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseListener;

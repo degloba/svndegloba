@@ -3,7 +3,10 @@ package com.degloba.JPA;
 import java.util.Map;
 import java.util.Properties;
 
+// JSF
 import javax.faces.context.FacesContext;
+
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

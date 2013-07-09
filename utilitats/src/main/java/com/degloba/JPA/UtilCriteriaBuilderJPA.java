@@ -3,8 +3,10 @@ package com.degloba.JPA;
 import java.util.ArrayList;
 import java.util.List;
 
+// JSF
 import javax.faces.context.FacesContext;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -35,12 +37,11 @@ public class UtilCriteriaBuilderJPA<T> {
 		
 	  public UtilCriteriaBuilderJPA() {
 		super();
-		// TODO Auto-generated constructor stub
+			
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
 		
-			FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		
-			//La classe PersistenceService es "ApplicationScoped"
-			persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
+		//La classe PersistenceService es "ApplicationScoped"
+		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
 		
 	}
 

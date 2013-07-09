@@ -23,6 +23,7 @@ package com.degloba.JPA;
 
 import java.util.Iterator;
 
+// JSF
 import javax.faces.FacesWrapper;
 import javax.faces.lifecycle.Lifecycle;
 import javax.faces.lifecycle.LifecycleFactory;
