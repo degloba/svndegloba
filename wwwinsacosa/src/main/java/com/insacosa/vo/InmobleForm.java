@@ -1,6 +1,7 @@
 package com.insacosa.vo;
 
 import com.degloba.JPA.EMF;
+import com.degloba.JPA.PersistenceService;
 
 import com.insacosa.filtre.InventoryItem;
 import com.insacosa.filtre.InventoryFiltreItem;
@@ -9,7 +10,6 @@ import com.insacosa.filtre.InventoryFiltreList;
 import com.insacosa.interfaces.Caracteristiques_Impl;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Usuari_Impl;
-//import com.insacosa.interfaces.QuerysJPA;
 
 
 /*----------------------------*/
@@ -29,6 +29,7 @@ import java.util.Set;
 
 import javax.el.ValueExpression;
 
+// JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.HtmlInputText;
@@ -36,14 +37,16 @@ import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
-/*----------------------------*/
-/* JPA -Persistencia          */
-/*----------------------------*/
+
+// JPA - Persistencia          
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+
+// UI - Richfaces
 import org.richfaces.component.SortOrder;
 import org.richfaces.component.UIDataTable;
 import org.richfaces.component.UIExtendedDataTable;
+
 /*----------------------------*/
 /* Utilitats                  */
 /*----------------------------*/
@@ -55,12 +58,15 @@ import com.insacosa.utils.Utils;
 
 
 import com.google.appengine.api.datastore.Key;
+
 import com.google.common.collect.Maps;
 
 import com.insacosa.controladorMSG.ChatBean;
+
 import com.insacosa.dataModels_JPA.InmobleCaract;
 import com.insacosa.dataModels_JPA.JPADataModel;
-import com.degloba.JPA.PersistenceService;
+
+
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
 
@@ -213,13 +219,7 @@ public class InmobleForm  implements Serializable
 	/*--------------------------*/
     /* EntityManager - JPA      */
     /*--------------------------*/
-	 private EntityManager lookupEntityManager() {         
-		 FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		 
-		// CUIDADO !!!!!! el #{persistenceService} no s'ha de cambiar encara que es canvii de persistence-unit
-		 PersistenceService persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);         
-	 return persistenceService.getEntityManager();     
-	 } 
+
 	 
 	
 	public void toggleSort() {         
@@ -253,7 +253,7 @@ public class InmobleForm  implements Serializable
 
 
 	public Object getDataModel() {         
-		return new InmobleFormDataModel(lookupEntityManager(),null);     
+		return new InmobleFormDataModel(EMF.lookupEntityManager(),null);     
 		}
 	
 	
@@ -444,7 +444,7 @@ public class InmobleForm  implements Serializable
 		
 		String keyInmoble = inmobleForm.getKey();
 
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 
 		Inmobles inmoble = r.detallInmoble(keyInmoble);
 		
@@ -562,7 +562,7 @@ public class InmobleForm  implements Serializable
 				 
 	           	List<InmobleForm> inmoblesSolicitatsPerComprador = new ArrayList<InmobleForm>();
 	    	
-				Inmoble_Impl r = new Inmoble_Impl();
+				Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 				
 				if (!compradors.isEmpty()) // en el cas inicial que no hi ha cap seleccionat
 				{
@@ -589,7 +589,7 @@ public class InmobleForm  implements Serializable
 		    
 		InmobleForm inmobleForm = new InmobleForm();
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 		Inmobles inmoble = r.detallInmoble(keyInmoble);
 	    
 		inmobleForm =  FormHBM.passarHBMtoForm(inmoble);
@@ -613,7 +613,7 @@ public class InmobleForm  implements Serializable
 		
 		Solicituds solicitud = new Solicituds();
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 		
 		// Construim objecte Usuari i objecte Inmoble
 		Usuaris usuari = new Usuaris();
@@ -656,7 +656,7 @@ public class InmobleForm  implements Serializable
 					
 					inmoble.setInmobleKey(getKey());
 					
-					Inmoble_Impl r = new Inmoble_Impl();
+					Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 					
 					List<Usuaris> usuaris = r.solicitantsInmoble(inmoble);
 					
@@ -689,7 +689,7 @@ public class InmobleForm  implements Serializable
 		Inmobles inmoble = new Inmobles();
 		inmoble.setInmobleKey(keyInmoble);
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 		inmoble = r.inmoblePerKey(keyInmoble);
 		
 		
@@ -773,7 +773,7 @@ public class InmobleForm  implements Serializable
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 					
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 		
 		Map<Key,String> valorsCaract = inmobleSeleccionat.getCaractInmobles();
 		
@@ -819,7 +819,7 @@ public class InmobleForm  implements Serializable
 		setNou(false); //
 		setModificable(false);
 		
-		Inmoble_Impl r = new Inmoble_Impl();
+		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 		
 		
 		Inmobles inmoble = new Inmobles();
@@ -934,7 +934,7 @@ public class InmobleForm  implements Serializable
 				facesContext = FacesContext.getCurrentInstance(); 
 				UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 				
-				Inmoble_Impl r = new Inmoble_Impl();
+				Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
 				
 				Usuaris usuari = new Usuaris();
 
@@ -1184,7 +1184,7 @@ public class InmobleForm  implements Serializable
        
                 // tots els inmobles agrupats si cal !!!!!!!!!1
              
-        		Inmoble_Impl r = new Inmoble_Impl();
+        		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
         		
         		Usuaris usuari = new Usuaris();
 
