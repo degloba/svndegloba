@@ -3,29 +3,20 @@ package com.insacosa.vo;
 import com.degloba.JPA.EMF;
 import com.insacosa.interfaces.Usuari_Impl;
 
-import java.io.*;
-import java.sql.*;
 import java.util.*;
 import java.util.regex.*;
 
-import com.insacosa.util.MessageFactory;
+import com.degloba.jsf.*;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.*;
 
-import javax.faces.*;
-import javax.faces.validator.*;
-import javax.faces.application.*;
-import javax.faces.component.*;
 
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.URLName;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-
 
 import com.sun.mail.smtp.SMTPTransport;
 

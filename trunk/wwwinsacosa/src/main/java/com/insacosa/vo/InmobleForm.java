@@ -50,11 +50,11 @@ import org.richfaces.component.UIExtendedDataTable;
 /*----------------------------*/
 /* Utilitats                  */
 /*----------------------------*/
-import com.insacosa.utils.Cadenes;
+import com.degloba.utils.Cadenes;
 import com.insacosa.utils.FilterBeanInmobles;
 import com.insacosa.utils.FormHBM;
 import com.insacosa.utils.HtmlDinamic;
-import com.insacosa.utils.Utils;
+import com.degloba.utils.Utils;
 
 
 import com.google.appengine.api.datastore.Key;

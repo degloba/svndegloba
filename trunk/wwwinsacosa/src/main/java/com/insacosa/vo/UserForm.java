@@ -16,7 +16,7 @@ import com.insacosa.entitats.Usuaris;
 import java.util.*;
 import java.util.regex.*;
 
-import com.insacosa.util.*;
+import com.degloba.jsf.*;
 
 import javax.servlet.http.*;
 
