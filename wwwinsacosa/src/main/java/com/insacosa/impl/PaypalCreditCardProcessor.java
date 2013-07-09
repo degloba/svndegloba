@@ -21,10 +21,10 @@ import com.paypal.sdk.exceptions.PayPalException;
 
 
 import com.degloba.billing.ChargeResult;
-import com.degloba.billing.CreditCardProcessor;
-import com.degloba.billing.GenerateAccessToken;
+import com.degloba.billing.ICreditCardProcessor;
+import com.degloba.paypal.GenerateAccessToken;
 
-public class PaypalCreditCardProcessor implements CreditCardProcessor{
+public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 
 	
 

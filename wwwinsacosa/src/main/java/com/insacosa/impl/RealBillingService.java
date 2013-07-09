@@ -1,20 +1,20 @@
 package com.insacosa.impl;
 
-import com.degloba.billing.BillingService;
+import com.degloba.billing.IBillingService;
 import com.degloba.billing.ChargeResult;
-import com.degloba.billing.CreditCardProcessor;
+import com.degloba.billing.ICreditCardProcessor;
 import com.degloba.billing.PizzaOrder;
 import com.degloba.billing.Receipt;
-import com.degloba.logs.TransactionLog;
+import com.degloba.logs.ITransactionLog;
 import com.paypal.api.payments.CreditCard;
 
 
-public class RealBillingService implements BillingService {  
+public class RealBillingService implements IBillingService {  
 	
-	private final CreditCardProcessor processor;  
-	private final TransactionLog transactionLog;  
+	private final ICreditCardProcessor processor;  
+	private final ITransactionLog transactionLog;  
 	
-	public RealBillingService(CreditCardProcessor processor,TransactionLog transactionLog) {    
+	public RealBillingService(ICreditCardProcessor processor,ITransactionLog transactionLog) {    
 		this.processor = processor;    
 		this.transactionLog = transactionLog;  
 		}  
