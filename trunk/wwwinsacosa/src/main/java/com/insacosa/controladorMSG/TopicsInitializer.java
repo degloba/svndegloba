@@ -2,13 +2,16 @@ package com.insacosa.controladorMSG;
 
 import java.text.MessageFormat;
 
+// JSF
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.SystemEventListener;
+
 import javax.servlet.http.HttpServletRequest;
 
+// UI - Richfaces
 import org.richfaces.application.push.EventAbortedException;
 import org.richfaces.application.push.Session;
 import org.richfaces.application.push.SessionPreSubscriptionEvent;
