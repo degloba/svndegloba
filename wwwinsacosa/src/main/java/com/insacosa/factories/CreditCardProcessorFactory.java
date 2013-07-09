@@ -1,7 +1,7 @@
 package com.insacosa.factories;
 
 import com.degloba.billing.ICreditCardProcessor;
-import com.insacosa.impl.PaypalCreditCardProcessor;
+import com.degloba.paypal.*;
 
 
 public class CreditCardProcessorFactory {
