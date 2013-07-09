@@ -1,7 +1,7 @@
 package guice.impl;
 
-import com.degloba.logs.TransactionLog;
+import com.degloba.logs.ITransactionLog;
 
-public class DatabaseTransactionLog implements TransactionLog {
+public class DatabaseTransactionLog implements ITransactionLog {
 
 }
