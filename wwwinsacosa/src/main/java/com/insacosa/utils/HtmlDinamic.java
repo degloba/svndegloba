@@ -75,6 +75,7 @@ import org.richfaces.component.UIPopupPanel;
 
 import org.richfaces.component.UIRichMessage;
 
+import com.degloba.utils.Cadenes;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.entitats.Caracteristiques;
 import com.insacosa.entitats.Inmobles;
@@ -94,7 +95,7 @@ import javax.faces.context.FacesContext;
 
 import javax.faces.event.ValueChangeListener;
 
-import com.insacosa.utils.Utils;
+import com.degloba.utils.*;
 import com.insacosa.vo.InmobleForm;
 
 

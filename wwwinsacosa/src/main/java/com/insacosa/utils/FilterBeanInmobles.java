@@ -1,9 +1,8 @@
 package com.insacosa.utils;
 
-  
+
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.interfaces.Inmoble_Impl;
-import com.insacosa.interfaces.Objecte;
 
 import java.io.Serializable;   
 import java.util.Iterator;
@@ -37,7 +36,7 @@ private int banysFilter;
 // combos 
 private String localitatFilter;
 private String provinciaFilter;
-private String tipusFilter;
+private Key tipusFilter;
 
 private int metresFilter;
 private int preuFilter;
@@ -60,10 +59,10 @@ public String getProvinciaFilter() {
 public void setProvinciaFilter(String provinciaFilter) {
 	this.provinciaFilter = provinciaFilter;
 }
-public String getTipusFilter() {
+public Key getTipusFilter() {
 	return tipusFilter;
 }
-public void setTipusFilter(String tipusFilter) {
+public void setTipusFilter(Key tipusFilter) {
 	this.tipusFilter = tipusFilter;
 }  
 

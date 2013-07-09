@@ -1,8 +1,5 @@
 package com.insacosa.utils;
 
-import com.degloba.converters.KeyConverter;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 import com.insacosa.interfaces.Inmoble_Impl;
 
 import java.util.ArrayList;
@@ -46,7 +43,7 @@ public class FormHBM {
 	    
 		////////////inmobleForm.setProvincia(inmoble.getProvincies().getKey());
 
-		inmobleForm.setKeyTipus(inmoble.getTipus().getTipusKey());
+		inmobleForm.setKeyTipus(inmoble.getTipus().getId());
 		
 		//inmobleForm.setLloguer(inmoble.getLloguer());
 		inmobleForm.setNumero(inmoble.getNumero());
@@ -108,7 +105,7 @@ public class FormHBM {
 		inmoble.setProvincies(provincia);
 		
 		Tipus tipus = new Tipus();
-		tipus.setTipusKey(inmobleForm.getKeyTipus());
+		tipus.setId(inmobleForm.getKeyTipus());
 		inmoble.setTipus(tipus);
 
 		//inmoble.setLloguer(lloguer);
@@ -251,7 +248,7 @@ public class FormHBM {
 			
 			caracteristicaForm.setKey(caract.getCaracteristicaKey());
 			caracteristicaForm.setNom(caract.getNom());
-			caracteristicaForm.setKeyTipus(caract.getTipus().getTipusKey());
+			//caracteristicaForm.setKeyTipus(caract.getTipus().getTipusKey());
 			
 			caracteristiquesForm.add(caracteristicaForm);
 		}
