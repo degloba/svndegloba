@@ -27,14 +27,15 @@ public class RHPushQueuesGAE extends HttpServlet {
 	// Increment the global count and set the    
 	// namespace locally.  The namespace is    
 	// transferred to the invoked request and     
-	// executed asynchronously.    String namespace = NamespaceManager.get();    
+	// executed asynchronously.    
+	String namespace = NamespaceManager.get();    
 	try {      
 		NamespaceManager.set("-global-");      
 		QueueFactory.getDefaultQueue().add(          
 				TaskOptions.Builder.withUrl("/_ah/update_count")                             
 						.param("countName", "SomeRequest"));    } 
 	finally {      
-		//NamespaceManager.set(namespace);    
+		NamespaceManager.set(namespace);    
 	}    
 	resp.setContentType("text/plain");    
 	resp.getWriter().println("Counts are being updated.");  }
