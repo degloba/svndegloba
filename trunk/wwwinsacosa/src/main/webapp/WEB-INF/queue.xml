@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<queue-entries>
+    
+    <total-storage-limit>50M</total-storage-limit>
+    
+    <!--Change the refresh rate of the default queue to 1/s-->  
+    <queue>    
+        <name>default</name>    
+        <rate>1/s</rate>  
+    </queue>    
+    
+     <queue>    
+         <name>optimize-queue</name>    
+         <rate>20/s</rate>    
+         <bucket-size>40</bucket-size>  
+         <max-concurrent-requests>10</max-concurrent-requests>
+	</queue>
+	
+	<queue>    
+    	<name>pull-queue</name>    
+    	<mode>pull</mode>    
+    	<acl>      
+    	    <user-email>bar@foo.com</user-email> <!-- can list, get, lease, delete, and update tasks -->      
+    	    <writer-email>user@gmail.com</writer-email> <!-- can insert tasks -->      
+    		<writer-email>bar@foo.com</writer-email>  <!-- can do all -->    
+		</acl>  
+	</queue>     
+	
+</queue-entries>
