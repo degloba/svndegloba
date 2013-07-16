@@ -3,7 +3,7 @@ package com.insacosa.infraestructura_data_seedwork.Google;
 
 import com.degloba.Util;
 
-import com.degloba.domain_seedwork.*;
+
 
 //JPA
 import javax.persistence.criteria.Predicate;
@@ -14,8 +14,9 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
-import com.insacosa.Domini.IRepository;
-import com.insacosa.Domini.InsacosaClasse;
+
+import domini.IRepository;
+import domini.InsacosaClasse;
 
 import java.util.List;
 
