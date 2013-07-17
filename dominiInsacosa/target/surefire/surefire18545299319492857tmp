@@ -1,0 +1,35 @@
+#surefire
+#Tue Jul 16 20:07:53 CEST 2013
+testClassesDirectory=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\target\\test-classes
+classPathUrl.4=C\:\\Users\\degloba\\.m2\\repository\\org\\datanucleus\\datanucleus-api-jpa\\3.1.3\\datanucleus-api-jpa-3.1.3.jar
+classPathUrl.3=C\:\\Users\\degloba\\.m2\\repository\\org\\apache\\geronimo\\specs\\geronimo-jpa_2.0_spec\\1.1\\geronimo-jpa_2.0_spec-1.1.jar
+classPathUrl.2=C\:\\Users\\degloba\\.m2\\repository\\com\\google\\appengine\\appengine-api-1.0-sdk\\1.8.0\\appengine-api-1.0-sdk-1.8.0.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\target\\classes
+reportsDirectory=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\target\\surefire-reports
+classPathUrl.0=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\target\\test-classes
+dirscanner.0=directoryScannerOptions
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\degloba\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.7.1\\surefire-api-2.7.1.jar
+surefireClassPathUrl.0=C\:\\Users\\degloba\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit3\\2.7.1\\surefire-junit3-2.7.1.jar
+report.2=org.apache.maven.surefire.report.XMLReporter
+useSystemClassLoader=true
+report.1=org.apache.maven.surefire.report.BriefFileReporter
+report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
+excludes0=**/*$*
+isTrimStackTrace=true
+dirscanner.0.params=C\:\\Users\\degloba\\workspace_JUNO\\dominiInsacosa\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+includes2=**/*TestCase.java
+enableAssertions=true
+includes1=**/*Test.java
+failIfNoTests=false
+includes0=**/Test*.java
+dirscanner.0.types=java.io.File|java.util.ArrayList|java.util.ArrayList
+classPathUrl.10=C\:\\Users\\degloba\\.m2\\repository\\javax\\transaction\\jta\\1.1\\jta-1.1.jar
+classPathUrl.9=C\:\\Users\\degloba\\.m2\\repository\\javax\\jdo\\jdo-api\\3.0.1\\jdo-api-3.0.1.jar
+classPathUrl.8=C\:\\Users\\degloba\\.m2\\repository\\org\\ow2\\asm\\asm\\4.0\\asm-4.0.jar
+classPathUrl.7=C\:\\Users\\degloba\\.m2\\repository\\org\\datanucleus\\datanucleus-enhancer\\3.1.1\\datanucleus-enhancer-3.1.1.jar
+childDelegation=false
+classPathUrl.6=C\:\\Users\\degloba\\.m2\\repository\\com\\google\\appengine\\orm\\datanucleus-appengine\\2.1.1\\datanucleus-appengine-2.1.1.jar
+classPathUrl.5=C\:\\Users\\degloba\\.m2\\repository\\org\\datanucleus\\datanucleus-core\\3.1.3\\datanucleus-core-3.1.3.jar
