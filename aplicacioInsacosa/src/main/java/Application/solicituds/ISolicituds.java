@@ -1,8 +1,9 @@
 package Application.solicituds;
 
+import Application.IInsacosaClasseApp;
 import entitats.Solicituds;
 
-public interface ISolicituds {
+public interface ISolicituds extends IInsacosaClasseApp {
 
-	public Solicituds getSolicitudById();
+	
 }

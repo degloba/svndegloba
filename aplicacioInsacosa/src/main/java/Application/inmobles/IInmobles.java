@@ -1,5 +1,7 @@
 package Application.inmobles;
 
-public interface IInmobles {
+import Application.IInsacosaClasseApp;
+
+public interface IInmobles extends IInsacosaClasseApp {
 
 }
