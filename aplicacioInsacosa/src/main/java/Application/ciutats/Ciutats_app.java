@@ -1,7 +1,5 @@
 package Application.ciutats;
 
-import com.google.appengine.api.datastore.Entity;
-
 import Application.InsacosaClasseApp;
 
 import domini.IInsacosaClasseService;

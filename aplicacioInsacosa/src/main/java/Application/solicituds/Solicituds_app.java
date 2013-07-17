@@ -17,14 +17,7 @@ public class Solicituds_app extends InsacosaClasseApp
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Solicituds getSolicitudById()
-	{
-		IEntityService<Entity> d = ds.CreateService();
-		//IRepository r = d._repositori;
-		//r.Create(t);
-		return null;
-		
-	}
+
 	
 
 }
