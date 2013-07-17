@@ -2,8 +2,8 @@ package domini;
 
 import com.google.appengine.api.datastore.Entity;
 
-public interface IInsacosaClasseService<Entity> {
+public interface IInsacosaClasseService extends IEntityService{
 	
-	public IEntityService<Entity> CreateService();
+	public IEntityService CreateService();
 
 }

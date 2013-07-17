@@ -2,9 +2,9 @@ package domini;
 
 import com.google.appengine.api.datastore.Entity;
 
-public class InsacosaClasseService<Entity> implements IInsacosaClasseService<Entity> {
+public class InsacosaClasseService implements IInsacosaClasseService {
 	
-	public IEntityService<Entity> CreateService()
+	public IEntityService CreateService()
 	{
 		return null;
 		
