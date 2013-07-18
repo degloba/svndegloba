@@ -32,10 +32,7 @@ public class Inmobles_app extends InsacosaClasseApp
 
 
 	public void afegirInmoble(Inmobles inmoble) {
-		// TODO Auto-generated method stub
-		
 		createClasseApp(inmoble);
-		
 	}
 
 
