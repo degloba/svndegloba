@@ -5,10 +5,12 @@ import java.util.List;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.QueryResultList;
+
 //import com.insacosa.interfaces.Objecte;
 
 import entitats.Caractinmobles;
 import entitats.Fotos;
+import entitats.InmobleCaract;
 import entitats.Inmobles;
 import entitats.Solicituds;
 import entitats.Usuaris;
@@ -16,10 +18,10 @@ import Application.IInsacosaClasseApp;
 
 public interface IInmobles extends IInsacosaClasseApp {
 	
-	Inmobles inmoblePerKey(String keyInmoble);
-	Inmobles afegirInmoble(Inmobles idInmoble);
+	Inmobles inmoblePerKey(String key);
+	void afegirInmoble(Inmobles inmoble);
 	void modificarInmoble(Inmobles inmoble);
-	void eliminarInmoble(Inmobles idInmoble);
+	void eliminarInmoble(Key key);
 	
 	// llista tots els inmobles cercats segons filtre
 		List<Inmobles> buscarInmobles(Inmobles condicioInmoble);
@@ -104,6 +106,10 @@ public interface IInmobles extends IInsacosaClasseApp {
 		
 		// modifica un objecte
 		//void update(Objecte objecte);
+		
+		InmobleCaract valorsCaracteristiquesInmoble(String keyInmoble);
+		void modificarValorCaract(Key idCaracteristica, String keyInmoble, String value);
+		void eliminarValorCaract(Key keyCaracteristica, String keyInmoble);
 		
 
 }

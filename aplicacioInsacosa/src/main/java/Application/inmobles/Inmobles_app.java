@@ -2,8 +2,6 @@ package Application.inmobles;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.QueryResultList;
@@ -13,6 +11,7 @@ import Application.InsacosaClasseApp;
 import domini.IInsacosaClasseService;
 import entitats.Caractinmobles;
 import entitats.Fotos;
+import entitats.InmobleCaract;
 import entitats.Inmobles;
 import entitats.Solicituds;
 import entitats.Usuaris;
@@ -27,27 +26,26 @@ public class Inmobles_app extends InsacosaClasseApp
 	}
 	
 	
-	public Inmobles inmoblePerKey(String keyInmoble) {
-		return null;
-		
+	public Inmobles inmoblePerKey(Key key) {
+		return getClasseAppByKey(key);
 	}
 
 
-	public Inmobles afegirInmoble(Inmobles idInmoble) {
+	public void afegirInmoble(Inmobles inmoble) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		createClasseApp(inmoble);
+		
 	}
 
 
 	public void modificarInmoble(Inmobles inmoble) {
-		// TODO Auto-generated method stub
-		
+		saveClasseApp(inmoble);
 	}
 
 
-	public void eliminarInmoble(Inmobles idInmoble) {
-		// TODO Auto-generated method stub
-		
+	public void eliminarInmoble(Key key) {
+		deleteClasseAppByKey(key);
 	}
 
 
@@ -183,6 +181,34 @@ public class Inmobles_app extends InsacosaClasseApp
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	public InmobleCaract valorsCaracteristiquesInmoble(String keyInmoble) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void modificarValorCaract(Key idCaracteristica, String keyInmoble,
+			String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void eliminarValorCaract(Key keyCaracteristica, String keyInmoble) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Inmobles inmoblePerKey(String keyInmoble) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 	
 
 }

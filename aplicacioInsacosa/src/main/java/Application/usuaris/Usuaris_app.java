@@ -41,7 +41,7 @@ public class Usuaris_app extends InsacosaClasseApp
 		
 	}
 
-	public Usuaris cercarUsuari(Key usuari) {
+	public Usuaris cercarUsuari(String usuari) {
 		// TODO Auto-generated method stub
 		return null;
 	}
