@@ -3,6 +3,7 @@ package Application;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 
+import domini.IEntityService;
 import domini.IInsacosaClasseService;
 
 
@@ -27,21 +28,24 @@ public void setDs(IInsacosaClasseService ds) {
 
 public void deleteClasseAppByKey(Key key)
 {
+	IEntityService i = ds.CreateService();	
 	
 }
 
-public <E> void updateClasseApp(E entitat) {
-	// TODO Auto-generated method stub
+public <E> void updateClasseApp(E entitat) {	
+	IEntityService i = ds.CreateService();	
 	
 }
 
 public <E> void createClasseApp(E entitat) {
-	// TODO Auto-generated method stub
+	IEntityService i = ds.CreateService();	
+	
 	
 }
 
 public <E> void saveClasseApp(E entitat) {
-	// TODO Auto-generated method stub	
+	IEntityService i = ds.CreateService();	
+	
 }
 
 public <E> E getClasseAppByKey(Key key) {
