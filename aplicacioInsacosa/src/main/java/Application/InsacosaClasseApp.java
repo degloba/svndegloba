@@ -25,22 +25,30 @@ public void setDs(IInsacosaClasseService ds) {
 }
 
 
-public void deleteByKey(Key key)
+public void deleteClasseAppByKey(Key key)
 {
 	
 }
 
-public void update(com.google.appengine.api.datastore.Entity entitat) {
+public <E> void updateClasseApp(E entitat) {
 	// TODO Auto-generated method stub
 	
 }
 
-public void create(com.google.appengine.api.datastore.Entity entitat) {
+public <E> void createClasseApp(E entitat) {
 	// TODO Auto-generated method stub
 	
 }
 
+public <E> void saveClasseApp(E entitat) {
+	// TODO Auto-generated method stub	
+}
 
+public <E> E getClasseAppByKey(Key key) {
+	return null;
+	// TODO Auto-generated method stub
+	
+}
 
 
 
