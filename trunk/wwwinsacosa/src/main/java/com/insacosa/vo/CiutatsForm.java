@@ -1,8 +1,15 @@
 package com.insacosa.vo;
 
+import Application.ciutats.Ciutats_app;
+import Application.ciutats.ICiutats;
+import Application.provincies.IProvincies;
+import Application.provincies.Provincies_app;
+
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.interfaces.Inmoble_Impl;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+//import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
 import java.util.ArrayList;
@@ -19,8 +26,8 @@ import javax.faces.model.SelectItem;
 import com.insacosa.utils.FilterBeanInmobles;
 
 import com.degloba.JPA.PersistenceService;
-import com.insacosa.entitats.Ciutats;
-import com.insacosa.entitats.Provincies;
+import entitats.*;
+import guice.modules.BillingModule;
 
 
 @ManagedBean(name = "ciutats")
@@ -71,9 +78,10 @@ public class CiutatsForm extends Objecte
 
         	FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
  
-        	Inmoble_Impl r = new Inmoble_Impl();
+    		Injector injector = Guice.createInjector(new BillingModule()); 
+    		ICiutats ciutats_app = injector.getInstance(ICiutats.class);
         	
-        	Ciutats ciutat = r.ciutatPerKey((Key)newValue);   
+        	Ciutats ciutat = ciutats_app.getClasseAppByKey((Key)newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
     		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
@@ -167,8 +175,10 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
 		
-		Inmoble_Impl r = new Inmoble_Impl();
-		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+				
+		Provincies p = provincies_app.getClasseAppByKey(this.getId()); 
 		
 		ciutatHib.setKeyProv(p);
 		
@@ -176,7 +186,7 @@ public class CiutatsForm extends Objecte
 		// hem d'afegir a la llista
 		CiutatsForm ciut = new CiutatsForm();
 		
-		ciut.setId(ciutatHib.getId());
+		ciut.setId(ciutatHib.getKey());
 		ciut.setCode(ciutatHib.getCode());
 		ciut.setName(ciutatHib.getName());
 		ciut.setKeyProv(ciutatHib.getKeyProv().getProvinciaKey());
@@ -188,17 +198,12 @@ public class CiutatsForm extends Objecte
 	
 	public void remove() { 
 	    
-		CiutatsForm ciutatForm = (CiutatsForm) this.getLlista().get(currentCiutIndex);
-    	 
-		// Construim l'objecte Hibernate
-    	Ciutats ciutat = new Ciutats();  // clase Hibernate
-		
-    	ciutat.setCiutatKey(ciutatForm.getKey());
-    	ciutat.setCode(ciutatForm.code);
-    	ciutat.setName(ciutatForm.name);
-    	//ciutat.setProvincia(ciutatForm.getKeyProv());
+		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
     	
-    	ciutat.delete(ciutat);  // esborrem de la BD
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		ICiutats ciutats_app = injector.getInstance(ICiutats.class);
+
+		ciutats_app.deleteClasseAppByKey(ciutat.getId());  // esborrem de la BD
     	
     	
 		// cal eliminar també de la llista
@@ -211,12 +216,14 @@ public class CiutatsForm extends Objecte
 		// Construim l'objecte Hibernate
 		Ciutats ciutatHib = new Ciutats();  // clase Hibernate
 		
-		ciutatHib.setId(this.getId());
+		ciutatHib.setKey(this.getId());
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
 		
-		Inmoble_Impl r = new Inmoble_Impl();
-		Provincies p = r.provinciaPerKey(this.getKeyProv()); 
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		
+		Provincies p = provincies_app.getClasseAppByKey(this.getId()); 
 		
 		ciutatHib.setKeyProv(p);
 		
@@ -280,8 +287,8 @@ public class CiutatsForm extends Objecte
 				try
 				{
 					// Calculem la descripcio de la provincia
-					String a = ((Ciutats)this.read(ciutatForm)).getName();
-					ciutatForm.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey())).getName());
+					//String a = ((Ciutats)this.read(ciutatForm)).getName();
+					//ciutatForm.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey())).getName());
 				}
 				catch(Exception ex)  // pot ser que no trobi cap descripcio
 				{
