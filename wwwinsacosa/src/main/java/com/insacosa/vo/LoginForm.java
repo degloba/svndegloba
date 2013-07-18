@@ -1,15 +1,20 @@
 package com.insacosa.vo;
 
 
+import Application.usuaris.IUsuaris;
+
 import com.degloba.JPA.*;
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.interfaces.Usuari_Impl;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 
 import javax.servlet.http.*;
 import javax.faces.context.*;
 
-import com.insacosa.entitats.*;
+import entitats.*;
+import guice.modules.BillingModule;
 
 
 public class LoginForm  {
@@ -47,12 +52,13 @@ public class LoginForm  {
 
 	public String validUser() throws Exception{
 				
-		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),Usuaris.class);
+   		Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 		
 		Usuaris usuari = new Usuaris();
 		usuari.setNomusuari(nomUsuari);
 		
-		usuari = r.usuariValid(usuari);
+		usuari = usuaris_app.usuariValid(usuari);
 		
 		if (usuari != null)  // existeix l'usuari ?
 		{

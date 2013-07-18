@@ -1,5 +1,10 @@
 package com.insacosa.vo;
 
+import Application.caracteristiques.ICaracteristiques;
+import Application.inmobles.IInmobles;
+import Application.provincies.IProvincies;
+import Application.usuaris.IUsuaris;
+
 import com.degloba.JPA.EMF;
 import com.degloba.JPA.PersistenceService;
 
@@ -7,10 +12,10 @@ import com.insacosa.filtre.InventoryItem;
 import com.insacosa.filtre.InventoryFiltreItem;
 import com.insacosa.filtre.InventoryFiltreList;
 
-import com.insacosa.interfaces.Caracteristiques_Impl;
+/*import com.insacosa.interfaces.Caracteristiques_Impl;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Usuari_Impl;
-
+*/
 
 /*----------------------------*/
 /* java.util                  */
@@ -60,17 +65,18 @@ import com.degloba.utils.Utils;
 import com.google.appengine.api.datastore.Key;
 
 import com.google.common.collect.Maps;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import com.insacosa.controladorMSG.ChatBean;
 
-import com.insacosa.dataModels_JPA.InmobleCaract;
 import com.insacosa.dataModels_JPA.JPADataModel;
 
 
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
-
-import com.insacosa.entitats.*;
+import entitats.*;
+import guice.modules.BillingModule;
 
 
 @ManagedBean(name = "inmoblesForm")
@@ -317,14 +323,14 @@ public class InmobleForm  implements Serializable
 		if (containerHtmlDataTableFS.getChildren().isEmpty())   // la primera vegada dins el HtmlPanelGroup no hi
 															  // ha cap datatable i per tant la construim
 		{
-			// calculem la nova llista d'inmobles venedor
-			Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+			Injector injector = Guice.createInjector(new BillingModule()); 
+			ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 			 
 		    Tipus tipus = new Tipus();
 		    //tipus.setKey(keyTipus);
-		    tipus.setId(keyTipus);
+		    tipus.setKey(keyTipus);
 		    
-		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);
+		    List<Caracteristiques> lc = caracteristiques_app.caractTipus(tipus,1, true);
 		 
 			
 			UIDataTable datatable = HtmlDinamic.buildDatatableFS(
@@ -359,13 +365,13 @@ public class InmobleForm  implements Serializable
 		if (containerHtmlDataTableVenedor.getChildren().isEmpty())   
 		{	
 			
-			// calculem la nova llista d'inmobles venedor
-			Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+			Injector injector = Guice.createInjector(new BillingModule()); 
+			ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setId(keyTipus);
+		    tipus.setKey(keyTipus);
 		    
-		    List<Caracteristiques> lc = r.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
+		    List<Caracteristiques> lc = caracteristiques_app.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
 		    
 			UIDataTable datatable = HtmlDinamic.buildDatatable(
 							"dyn_taulaInmoblesVenedor",
@@ -444,9 +450,11 @@ public class InmobleForm  implements Serializable
 		
 		String keyInmoble = inmobleForm.getKey();
 
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 
-		Inmobles inmoble = r.detallInmoble(keyInmoble);
+		Inmobles inmoble = inmobles_app.detallInmoble(keyInmoble);
 		
 		// Assignem els valors del formulari (inmoble)
 		setKey(inmoble.getInmobleKey());
@@ -459,7 +467,7 @@ public class InmobleForm  implements Serializable
 	    Ciutats ciut = new Ciutats();
 	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
-	    setKeyTipus(inmoble.getTipus().getId()); 
+	    setKeyTipus(inmoble.getTipus().getKey()); 
 	    
 	    setNumero(inmoble.getNumero());
 	    setPlanta(inmoble.getPlanta());
@@ -562,11 +570,13 @@ public class InmobleForm  implements Serializable
 				 
 	           	List<InmobleForm> inmoblesSolicitatsPerComprador = new ArrayList<InmobleForm>();
 	    	
-				Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+				//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+				Injector injector = Guice.createInjector(new BillingModule()); 
+				IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 				
 				if (!compradors.isEmpty()) // en el cas inicial que no hi ha cap seleccionat
 				{
-					Iterator<?> it = r.inmoblesSolicitatsPerUsuari(FormHBM.passarUsuariFormtoHBM(compradors.get(0))).iterator();
+					Iterator<?> it = inmobles_app.inmoblesSolicitatsPerUsuari(FormHBM.passarUsuariFormtoHBM(compradors.get(0))).iterator();
 						
 					while (it.hasNext())
 					{
@@ -589,8 +599,10 @@ public class InmobleForm  implements Serializable
 		    
 		InmobleForm inmobleForm = new InmobleForm();
 		
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-		Inmobles inmoble = r.detallInmoble(keyInmoble);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
+		
+		Inmobles inmoble = inmobles_app.detallInmoble(keyInmoble);
 	    
 		inmobleForm =  FormHBM.passarHBMtoForm(inmoble);
 		    
@@ -613,7 +625,9 @@ public class InmobleForm  implements Serializable
 		
 		Solicituds solicitud = new Solicituds();
 		
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 		
 		// Construim objecte Usuari i objecte Inmoble
 		Usuaris usuari = new Usuaris();
@@ -627,7 +641,7 @@ public class InmobleForm  implements Serializable
 		//UsuariKey h = solicitud.getUsuari();
 		//h.add(usuari.getUsuariKey());
 		//licitud.setUsuariKey(h);
-		r.solicitarInmobles(solicitud);
+		inmobles_app.solicitarInmobles(solicitud);
 		
 		
 		// Notificacio time-real JMS
@@ -656,9 +670,10 @@ public class InmobleForm  implements Serializable
 					
 					inmoble.setInmobleKey(getKey());
 					
-					Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+					Injector injector = Guice.createInjector(new BillingModule()); 
+					IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 					
-					List<Usuaris> usuaris = r.solicitantsInmoble(inmoble);
+					List<Usuaris> usuaris = inmobles_app.solicitantsInmoble(inmoble);
 					
 					solicitants = FormHBM.passarUsuarisHBMtoForm(usuaris);
 					setSolicitantsInmobleVenedor(solicitants);
@@ -689,8 +704,9 @@ public class InmobleForm  implements Serializable
 		Inmobles inmoble = new Inmobles();
 		inmoble.setInmobleKey(keyInmoble);
 		
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-		inmoble = r.inmoblePerKey(keyInmoble);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
+		inmoble = inmobles_app.inmoblePerKey(keyInmoble);
 		
 		
 		try {	/*-----------------------------------------------------------------------*/
@@ -699,14 +715,14 @@ public class InmobleForm  implements Serializable
 	
 			
 				// 0.- VALORS DE LES CARACTERISTIQUES DE L'INMOBLE
-				InmobleCaract caractInmoble = r.valorsCaracteristiquesInmoble(keyInmoble);
+				InmobleCaract caractInmoble = inmobles_app.valorsCaracteristiquesInmoble(keyInmoble);
 				
 				Set<Key> idsCaracteristica = caractInmoble.getCaractInmobles().keySet();
 				
 				Iterator itIdsCaracteristica = idsCaracteristica.iterator();
 				while (itIdsCaracteristica.hasNext())
 				{
-					r.eliminarValorCaract((Key)itIdsCaracteristica.next(), keyInmoble);
+					inmobles_app.eliminarValorCaract((Key)itIdsCaracteristica.next(), keyInmoble);
 				}
 		
 			
@@ -719,7 +735,7 @@ public class InmobleForm  implements Serializable
 					
 					try
 					{
-						r.eliminarFoto(foto);
+						inmobles_app.eliminarFoto(foto);
 					}
 					catch (Exception ex)
 					{
@@ -737,7 +753,7 @@ public class InmobleForm  implements Serializable
 					
 					try
 					{
-						r.eliminarSolicitud(solicitud);
+						inmobles_app.eliminarSolicitud(solicitud);
 					}
 					catch (Exception ex)
 					{
@@ -747,7 +763,7 @@ public class InmobleForm  implements Serializable
 			
 			
 				
-				r.eliminarInmoble(inmoble);
+				//inmobles_app.eliminarInmoble(inmoble);
 				
 				
 				// Notificar als solicitants la seva "eliminacio" (ja no poden "pujar"/"solictar" l'inmoble)
@@ -773,7 +789,9 @@ public class InmobleForm  implements Serializable
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 					
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 		
 		Map<Key,String> valorsCaract = inmobleSeleccionat.getCaractInmobles();
 		
@@ -786,7 +804,7 @@ public class InmobleForm  implements Serializable
 			try {
 				
 				// NOMES MODIFIQUEM SI EL (keyInmoble,IDCARACTERISTICA) EXISTEIX
-				r.modificarValorCaract(caracteristica.getKey(), keyInmoble, String.valueOf(caracteristica.getValue()));
+				inmobles_app.modificarValorCaract(caracteristica.getKey(), keyInmoble, String.valueOf(caracteristica.getValue()));
 				
 			}
 			catch(Exception ex)
@@ -819,7 +837,8 @@ public class InmobleForm  implements Serializable
 		setNou(false); //
 		setModificable(false);
 		
-		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 		
 		
 		Inmobles inmoble = new Inmobles();
@@ -833,7 +852,7 @@ public class InmobleForm  implements Serializable
 		//inmoble.setProvincies(provincies);
 		inmoble.setPreu(preu);
 		
-		r.afegirInmoble(inmoble);
+		inmobles_app.afegirInmoble(inmoble);
 		
 		
 		Set<Entry<String, Object>> keysValors = valorsCaracts.entrySet();
@@ -887,19 +906,23 @@ public class InmobleForm  implements Serializable
 		    	List<InmobleCaract> listDataRow = new ArrayList<InmobleCaract>();
 						    	
 		    	EntityManager em = EMF.lookupEntityManager();
-		    	Inmoble_Impl r = new Inmoble_Impl(em,Inmobles.class);
-		    	Usuari_Impl u = new Usuari_Impl(em,Usuaris.class);
+	
+				Injector injector = Guice.createInjector(new BillingModule()); 
+				IInmobles inmobles_app = injector.getInstance(IInmobles.class);
+				
+
+				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 		    			    	
-		    	Usuaris usuari = u.cercarUsuari("peresan");
+		    	Usuaris usuari = usuaris_app.cercarUsuari("peresan");
 		    	
-		    	List<Inmobles> inmoblesVenedor = r.inmoblesVenedorRang(usuari, 0, 10);
+		    	List<Inmobles> inmoblesVenedor = inmobles_app.inmoblesVenedorRang(usuari, 0, 10);
 		        
 				Iterator<Inmobles> inmoblesVenedorIt = inmoblesVenedor.iterator();
 				while (inmoblesVenedorIt.hasNext())
 				    {
 						Inmobles inmoble = inmoblesVenedorIt.next();
 							
-						InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
+						InmobleCaract valorsCaract = inmobles_app.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
 						
 						valorsCaract.setKeyInmoble(inmoble.getInmobleKey());
 						
@@ -934,12 +957,14 @@ public class InmobleForm  implements Serializable
 				facesContext = FacesContext.getCurrentInstance(); 
 				UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 				
-				Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+				//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+				Injector injector = Guice.createInjector(new BillingModule()); 
+				IInmobles inmobles_app = injector.getInstance(IInmobles.class);
 				
 				Usuaris usuari = new Usuaris();
 
 				usuari.setUsuariKey(userForm.getKey());
-				Iterator<?> it = r.inmoblesVenedor(usuari).iterator();
+				Iterator<?> it = inmobles_app.inmoblesVenedor(usuari).iterator();
 				
 				List<Usuaris> solicitantsInmoble = new ArrayList<Usuaris>();
 				
@@ -956,7 +981,7 @@ public class InmobleForm  implements Serializable
 					inmobleForm = FormHBM.passarHBMtoForm(inmoble); 
 					
 					// per cada inmoble calculem el numero de solicituds
-					solicitantsInmoble = r.solicitantsInmoble(inmoble);
+					solicitantsInmoble = inmobles_app.solicitantsInmoble(inmoble);
 					
 					inmobleForm.setNumSol(solicitantsInmoble.size());
 					
@@ -1184,13 +1209,15 @@ public class InmobleForm  implements Serializable
        
                 // tots els inmobles agrupats si cal !!!!!!!!!1
              
-        		Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+        		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
+        		Injector injector = Guice.createInjector(new BillingModule()); 
+        		IInmobles inmobles_app = injector.getInstance(IInmobles.class);
         		
         		Usuaris usuari = new Usuaris();
 
     			usuari.setUsuariKey(userForm.getKey());
         		
-        		Iterator<?> it = r.inmoblesVenedor(usuari).iterator();
+        		Iterator<?> it = inmobles_app.inmoblesVenedor(usuari).iterator();
         		while (it.hasNext())
         		{
         			InventoryItem inmobleForm = new InventoryItem();
@@ -1355,10 +1382,11 @@ public class InmobleForm  implements Serializable
 		
 		Tipus tipus = new Tipus();
 		/*tipus.setKey(1);*/
+				
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 		
-		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
-		
-		List<Caracteristiques> caracteristiques = r.caractTipus(tipus);
+		List<Caracteristiques> caracteristiques = caracteristiques_app.caractTipus(tipus);
 		
 		return FormHBM.passarCaracteristiquesHBMtoForm(caracteristiques);
 		
@@ -1412,13 +1440,14 @@ public class InmobleForm  implements Serializable
 		
 		containerControlsDinamics.getChildren().clear();
 
-		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 		
 		Tipus tipus = new Tipus();
 		//tipus.setKey(keyTipus);
-		tipus.setId(keyTipus);
+		tipus.setKey(keyTipus);
 	
-		List<Caracteristiques> c = r.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
+		List<Caracteristiques> c = caracteristiques_app.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
 		
 		// en funcio del tipus(varchar,select,...) del Tipus construim el formulari
@@ -1547,13 +1576,14 @@ public class InmobleForm  implements Serializable
 		DragDropBeanCaract dragDropBean = (DragDropBeanCaract) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBean}", DragDropBeanCaract.class);
 		
 		dragDropBean.getSource().clear();
-		
-		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 		
 		Tipus tipus = new Tipus();
 		tipus.setKey(keyTipus);
 		
-		Iterator<Caracteristiques> iter = r.caractTipus(tipus, 0, false).iterator();
+		Iterator<Caracteristiques> iter = caracteristiques_app.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
 		{
 			Caracteristiques caracteristica = (Caracteristiques)(iter.next());
@@ -1636,12 +1666,13 @@ public class InmobleForm  implements Serializable
 		facesContext = FacesContext.getCurrentInstance(); 
 		DragDropBeanCaract dragDropBean = (DragDropBeanCaract) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBeanCaract}", DragDropBeanCaract.class);
 		
-		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);
 		
 		Tipus tipus = new Tipus(); 
 		/*tipus.setKey(keyTipus == null ? 1 : keyTipus); // cuidado*/
 		
-		List<Caracteristiques> novaLlista = r.caractTipus(tipus, 0, false);  // 0 = caracteristiques booleanes
+		List<Caracteristiques> novaLlista = caracteristiques_app.caractTipus(tipus, 0, false);  // 0 = caracteristiques booleanes
 		dragDropBean.reset(novaLlista);  
 		
 		dragDropBean.getSource().clear();
