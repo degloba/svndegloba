@@ -1,7 +1,11 @@
 package com.insacosa.vo;
 
+import Application.ciutats.ICiutats;
+import Application.usuaris.IUsuaris;
+
 import com.degloba.JPA.*;
-import com.insacosa.interfaces.Usuari_Impl;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -11,7 +15,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
-import com.insacosa.entitats.Usuaris;
+import entitats.*;
+import guice.modules.BillingModule;
 
 import java.util.*;
 import java.util.regex.*;
@@ -233,13 +238,14 @@ public class UserForm  implements java.io.Serializable {
 				this.setPassword(this.newPwd);
 				
 				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
+		   		Injector injector = Guice.createInjector(new BillingModule()); 
+	    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 				
 				Usuaris usuari = new Usuaris();
 				String k = this.getKey() ;
 				usuari.setUsuariKey((String)this.getKey());
 				usuari.setPassword(this.newPwd);
-				r.cambiaPassword(usuari);
+				//usuaris_app.cambiaPassword(usuari);
 
 				return "success";
 			}
@@ -279,10 +285,10 @@ public class UserForm  implements java.io.Serializable {
 
 	public String editProfile() throws Exception{
 		
-		//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(), null);
+   		Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 		
-		Usuaris usuari = r.editPerfil(this.getKey());
+		Usuaris usuari = usuaris_app.editPerfil(this.getKey());
 		
 		this.setKey(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
@@ -303,7 +309,8 @@ public class UserForm  implements java.io.Serializable {
 			// si no esta loginat es un nou registre
 			if(!loginat){
 								
-				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
+		   		Injector injector = Guice.createInjector(new BillingModule()); 
+				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 				
 				Usuaris usuari = new Usuaris();
 				
@@ -318,15 +325,15 @@ public class UserForm  implements java.io.Serializable {
 				usuari.setPassword(this.getPassword());
 				
 				
-				r.afegirUsuari(usuari);
+				usuaris_app.afegirUsuari(usuari);
 				
 				/////////////sendMail(getEmail());
 				return "successUserRegistration";
 			}
 			else{
 				
-				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-				Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
+		   		Injector injector = Guice.createInjector(new BillingModule()); 
+				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 				
 				Usuaris usuari = new Usuaris();
 				
@@ -339,7 +346,7 @@ public class UserForm  implements java.io.Serializable {
 				usuari.setCognoms(this.getCognoms());
 				usuari.setPassword(this.password);
 												
-				r.modificarUsuari(usuari);
+				usuaris_app.modificarUsuari(usuari);
 
 				return "successUserUpdate";
 			}
@@ -353,10 +360,10 @@ public class UserForm  implements java.io.Serializable {
 	public boolean validEmail(){
 		String email_check = email.trim();
 		
-		//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
+   		Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 		
-		return r.emailValid(email_check);
+		return usuaris_app.emailValid(email_check);
 	}
 
 	private boolean validateData() throws Exception {
