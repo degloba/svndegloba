@@ -1,5 +1,12 @@
 package com.insacosa.vo;
 
+import Application.ciutats.Ciutats_app;
+import Application.ciutats.ICiutats;
+import Application.provincies.IProvincies;
+import Application.provincies.Provincies_app;
+import Application.solicituds.ISolicituds;
+import Application.solicituds.Solicituds_app;
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -7,6 +14,8 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.insacosa.interfaces.Inmoble_Impl;
 import com.insacosa.interfaces.Objecte;
 
@@ -28,10 +37,9 @@ import javax.persistence.EntityTransaction;
 
 import com.insacosa.utils.FilterBeanInmobles;
 import com.degloba.JPA.PersistenceService;
-import com.insacosa.entitats.Book;
-import com.insacosa.entitats.Chapter;
-import com.insacosa.entitats.Ciutats;
-import com.insacosa.entitats.Provincies;
+
+import entitats.*;
+import guice.modules.BillingModule;
 
 @ManagedBean(name = "provincies")
 @SessionScoped
@@ -82,7 +90,7 @@ public class ProvinciesForm extends Objecte
 			
     		Provincies provincia = new Provincies();
     		provincia.setProvinciaKey(event.getNewValue().toString());
-    		provincia.setId(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
+    		provincia.setKey(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
     		provincia.setKey(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
     		Key parentKey = KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw");
     		
@@ -97,7 +105,7 @@ public class ProvinciesForm extends Objecte
     			ciutatHBM = (Ciutats)(iter.next());
     			ciutatHBM.setKey(KeyFactory.createKey(parentKey, "Ciutats", "key"));
     			
-    			SelectItem item = new SelectItem(ciutatHBM.getId(), ciutatHBM.getName() , "", false, false);
+    			SelectItem item = new SelectItem(ciutatHBM.getKey(), ciutatHBM.getName() , "", false, false);
     			                   
     			novesCiutats.add(item);
     			
@@ -203,22 +211,25 @@ public class ProvinciesForm extends Objecte
 		
 	}
 
-	public void insert(ActionEvent arg0) {
+	public void insert() {
 		
 		// Construim l'objecte Hibernate
-		Provincies provincies = new Provincies();  // clase Hibernate
+		Provincies provincia = new Provincies();  // clase Hibernate
 		
-		provincies.setCode(this.getCode());
-		provincies.setName(this.getName());
-
-		provincies.create();
+		provincia.setCode(this.getCode());
+		provincia.setName(this.getName());
+		
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		
+		provincies_app.createClasseApp(provincia);
 				
 		// hem d'afegir a la llista
 		ProvinciesForm prov = new ProvinciesForm();
 		
-		prov.setId(provincies.getId());
-		prov.setName(provincies.getName());
-		prov.setCode(provincies.getCode());
+		prov.setId(provincia.getKey());
+		prov.setName(provincia.getName());
+		prov.setCode(provincia.getCode());
 
 		
 		this.llista.add(prov);
@@ -228,38 +239,35 @@ public class ProvinciesForm extends Objecte
 	
 	public void remove() { 
 	    
-		ProvinciesForm provincia = (ProvinciesForm) this.getLlista().get(currentProvIndex);
-    	 
-		// Construim l'objecte Hibernate
-		Provincies provincies = new Provincies();  // clase Hibernate
-		
-		provincies.setProvinciaKey(provincia.idProvincia);
-		provincies.setCode(provincia.code);
-		provincies.setName(provincia.name);
+		ProvinciesForm provincia = (ProvinciesForm) this.getLlista().get(currentProvIndex);   	
 
-	   	provincies.delete(provincies);  // esborrem de la BD
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+
+		provincies_app.deleteClasseAppByKey(provincia.getId());  // esborrem de la BD
 	   	
 		// cal eliminar també de la llista
 		this.llista.remove(currentProvIndex);
    
 	   }       
 	    
+
 	public void store() { 
 
 		// Construim l'objecte Hibernate
-		Provincies provincies = new Provincies();  // clase Hibernate
+		Provincies provincia = new Provincies();  // clase Hibernate
 		
-		provincies.setProvinciaKey(this.getIdProvincia());
-		provincies.setCode(this.getCode());
-		provincies.setName(this.getName());
+		provincia.setProvinciaKey(this.getIdProvincia());
+		provincia.setCode(this.getCode());
+		provincia.setName(this.getName());
 		
-	   	this.update(provincies);
+		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		
+		provincies_app.updateClasseApp(provincia);
 	   	
 	   	// cal modificar el valor de la llista
 	   	ProvinciesForm prov = (ProvinciesForm) this.getLlista().get(currentProvIndex);
-
-		prov.setName(provincies.getName());
-		prov.setCode(provincies.getCode());
   
 	   } 	  
 	  
