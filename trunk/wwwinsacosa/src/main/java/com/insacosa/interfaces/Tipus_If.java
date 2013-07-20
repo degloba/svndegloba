@@ -1,6 +1,6 @@
 package com.insacosa.interfaces;
 
-import com.insacosa.entitats.*;
+import entitats.*;
 
 public interface Tipus_If {
 		

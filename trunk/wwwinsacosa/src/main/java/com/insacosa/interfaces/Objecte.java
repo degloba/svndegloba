@@ -20,10 +20,7 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 import com.degloba.JPA.EMF;
 import com.degloba.JPA.PersistenceService;
-import com.insacosa.entitats.Book;
-import com.insacosa.entitats.Chapter;
-import com.insacosa.entitats.Ciutats;
-import com.insacosa.entitats.Usuaris;
+import entitats.*;
 
 
 
