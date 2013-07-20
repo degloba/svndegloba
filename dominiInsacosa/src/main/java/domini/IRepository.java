@@ -13,17 +13,17 @@ import com.google.appengine.api.datastore.Entity;
  * Interficie Repositori (Patró de disseny)
  * @param <T>
  */
-public interface IRepository<Entity>   {
+public interface IRepository   {
 	
 	/// Encuentra un objeto por la expresión indicada       
 	///       
 	///       
-	Entity Find(Predicate predicate);        
+	<E> E Find(Predicate predicate);        
 	
 	////// Crea un nuevo objeto en la base de datos       
 	///       
 	///Nuevo objeto a crear       
-	Entity Create(Entity t);        
+	<E> E Create(E entitat);        
 	
 	////// Borra objetos de la base de datos en base a una expresión de filtrado       
 	///       
@@ -33,6 +33,6 @@ public interface IRepository<Entity>   {
 	////// Actualiza los cambios del objeto en la base de datos       
 	///       
 	///Objeto a actualizar       
-	int Update(Entity t);    
+	<E> int Update(E entitat);    
 
 }

@@ -4,6 +4,9 @@ import com.google.appengine.api.datastore.Entity;
 
 public interface IEntityService {
 
-	//public IRepository _repositori; 
+	public <E> void Add(E entitat);
+	public <E> void Update(E entitat);
+	public <E> void Delete(E entitat);
+	
 
 }

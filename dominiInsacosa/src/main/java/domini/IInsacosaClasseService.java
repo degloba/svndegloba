@@ -2,8 +2,13 @@ package domini;
 
 import com.google.appengine.api.datastore.Entity;
 
-public interface IInsacosaClasseService extends IEntityService{
+import entitats.Usuaris;
+
+
+public interface IInsacosaClasseService<E> extends IEntityService{
 	
-	public IEntityService CreateService();
+	public <E> IEntityService CreateService();
+	
+	Entity usuariValid(Usuaris usuari);
 
 }
