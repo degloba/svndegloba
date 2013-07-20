@@ -2,7 +2,9 @@ package com.insacosa.interfaces;
 
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.entitats.*;
+
+
+import entitats.Usuaris;
 
 public interface Usuari_If {
 	

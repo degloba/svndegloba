@@ -3,8 +3,6 @@ package com.insacosa.infraestructura_data_seedwork.Google;
 
 import com.degloba.Util;
 
-
-
 //JPA
 import javax.persistence.criteria.Predicate;
 
@@ -16,10 +14,8 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 
 import domini.IRepository;
-import domini.InsacosaClasse;
 
 import java.util.List;
-
 
 
 /**
@@ -27,7 +23,7 @@ import java.util.List;
  * Entitat entity.
  *
  */
-public class InsacosaClasseRepository implements IRepository<Entity> {
+public class InsacosaClasseRepository implements IRepository{
 
   /**
    * Update the Entitat
@@ -99,7 +95,17 @@ public class InsacosaClasseRepository implements IRepository<Entity> {
 	  
   }
 
+@Override
+public <E> E Find(Predicate predicate) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
+@Override
+public <E> E Create(E entitat) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 @Override
 public int Delete(Predicate predicate) {
@@ -107,25 +113,19 @@ public int Delete(Predicate predicate) {
 	return 0;
 }
 
-
-
 @Override
-public int Update(Entity t) {
+public <E> int Update(E entitat) {
 	// TODO Auto-generated method stub
 	return 0;
 }
 
-@Override
-public Entity Find(Predicate predicate) {
-	// TODO Auto-generated method stub
-	return null;
-}
 
-@Override
-public Entity Create(Entity t) {
-	// TODO Auto-generated method stub
-	return null;
-}
+
+
+
+
+
+
 
 
 

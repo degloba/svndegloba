@@ -16,7 +16,6 @@ import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
 
 
-import com.insacosa.entitats.*;
 
 import com.degloba.Util;
 import com.degloba.JPA.*;
@@ -29,6 +28,8 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Entity;
 
 import com.google.appengine.api.datastore.Key;
+
+import entitats.Usuaris;
 
 
 
@@ -401,6 +402,5 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 
 
 
-	
 
 }

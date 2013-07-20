@@ -2,17 +2,11 @@ package com.insacosa.interfaces;
 
 import java.util.List;
 
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.QueryResultList;
-import com.insacosa.dataModels_JPA.InmobleCaract;
-
-import com.insacosa.entitats.*;
+import entitats.*;
 
 
 public interface Caracteristiques_If {
-	
-	
+		
 	// *************************************
 	// Operacions caracteristiques d'inmoble
 	// *************************************

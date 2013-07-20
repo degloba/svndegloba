@@ -14,7 +14,7 @@ import javax.persistence.criteria.Selection;
 
 import com.degloba.JPA.*;
 
-import com.insacosa.entitats.*;
+import entitats.*;
 
 
 public class Tipus_Impl extends UtilCriteriaBuilderJPA<Tipus> implements Tipus_If {

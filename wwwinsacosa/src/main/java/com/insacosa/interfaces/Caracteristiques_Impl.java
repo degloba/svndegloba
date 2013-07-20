@@ -22,7 +22,7 @@ import com.degloba.JPA.*;
 import com.google.appengine.api.datastore.Key;
 
 import com.degloba.JPA.PersistenceService;
-import com.insacosa.entitats.*;
+import entitats.*;
 
 
 public class Caracteristiques_Impl extends UtilCriteriaBuilderJPA<Caracteristiques> implements Caracteristiques_If {

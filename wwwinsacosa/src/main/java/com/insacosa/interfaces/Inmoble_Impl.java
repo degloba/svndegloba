@@ -23,9 +23,9 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
-import com.insacosa.dataModels_JPA.InmobleCaract;
 import com.degloba.JPA.PersistenceService;
-import com.insacosa.entitats.*;
+
+import entitats.*;
 
 
 public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements Inmoble_If {
