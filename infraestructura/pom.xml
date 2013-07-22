@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.insacosa</groupId>
+  <artifactId>infraestructura</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+    <properties>
+  	              
+       		<spring.version>3.1.0.RC1</spring.version>    
+       		
+       		<gae.version>1.8.0</gae.version>
+       
+       
+  </properties>
+  
+  
+  <dependencies>
+  
+	<dependency>
+	   	<groupId>org.slf4j</groupId>
+	   	<artifactId>slf4j-simple</artifactId>
+	   	<version>1.6.1</version>
+	   	<type>jar</type>
+	   	<scope>compile</scope>
+    </dependency>
+    
+  	<dependency>  
+	  <groupId>org.apache.geronimo.specs</groupId>  
+	  <artifactId>geronimo-jpa_2.0_spec</artifactId>  
+	  <version>1.1</version>  
+	</dependency> 
+	
+  	  <dependency>                         
+	  		<groupId>javax.inject</groupId>                         
+	  		<artifactId>javax.inject</artifactId>                         
+	  		<version>1</version>                 
+	  </dependency> 
+	  
+  	<dependency>                         
+		<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>                         
+			<version>${spring.version}</version>                 
+	</dependency>                 
+	<dependency>                         
+		<groupId>org.springframework</groupId>                         
+		<artifactId>spring-tx</artifactId>                         
+		<version>${spring.version}</version>                 
+	</dependency>                 
+	<dependency>                         
+		<groupId>org.springframework</groupId>                         
+		<artifactId>spring-orm</artifactId>                         
+		<version>${spring.version}</version>                 
+	</dependency>   	
+  	
+	<dependency>
+		<groupId>com.insacosa</groupId>
+		<artifactId>sagasInsacosa</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.insacosa</groupId>
+		<artifactId>dominiInsacosa</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.insacosa</groupId>
+		<artifactId>aplicacio</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+		<version>12.0.1</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+  </dependencies>
+  
+         <repositories>                 
+       		<repository>                         
+       		<id>org.springframework.maven.milestone</id>                         
+       		<url>http://maven.springframework.org/milestone </url>                 
+       		</repository>         
+       </repositories> 
+       
+        <dependency>
+        	<groupId>com.google.appengine</groupId>
+        	<artifactId>appengine-api-1.0-sdk</artifactId>
+        	<version>${gae.version}</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>       
+       
+</project>
