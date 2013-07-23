@@ -31,6 +31,6 @@ public class SystemUser {
 		// return userId;
 		//List<Client> clients = entityManager.createQuery("from Client").getResultList();
 		//return clients.get(0).getEntityId();
-		return null; // PERE CAL CAMBIAR!!!!!
+		return null; // PERE CAL CAMBIAR!!!!!!!!!
 	}
 }

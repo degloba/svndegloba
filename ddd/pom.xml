@@ -87,12 +87,6 @@
 		<version>${spring.version}</version>                 
 	</dependency>   	
   	
-	<dependency>
-		<groupId>com.insacosa</groupId>
-		<artifactId>erp</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<scope>compile</scope>
-	</dependency>
   </dependencies>
   
          <repositories>                 
