@@ -63,13 +63,7 @@
         	<scope>compile</scope>
         </dependency>
              
-        <dependency>
-        	<groupId>com.insacosa</groupId>
-        	<artifactId>dominiInsacosa</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
+
         <dependency>
         	<groupId>com.insacosa</groupId>
         	<artifactId>aplicacio</artifactId>
