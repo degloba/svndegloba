@@ -18,9 +18,11 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
+
 import com.degloba.JPA.EMF;
 import com.degloba.JPA.PersistenceService;
-import entitats.*;
+
+import com.insacosa.domain.*;
 
 
 

@@ -2,7 +2,7 @@ package com.insacosa.interfaces;
 
 import java.util.List;
 
-import entitats.*;
+import com.insacosa.domain.*;
 
 
 public interface Caracteristiques_If {
