@@ -77,13 +77,10 @@ import org.richfaces.component.UIRichMessage;
 
 import com.degloba.utils.Cadenes;
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.entitats.Caracteristiques;
-import com.insacosa.entitats.Inmobles;
 
+import com.insacosa.domain.*;
 
 import com.sun.faces.taglib.jsf_core.SetPropertyActionListenerImpl;
-
-import com.insacosa.dataModels_JPA.InmobleCaract;
 
 import org.ajax4jsf.component.behavior.AjaxBehavior;
 
@@ -91,7 +88,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.faces.context.FacesContext;
-
 
 import javax.faces.event.ValueChangeListener;
 
