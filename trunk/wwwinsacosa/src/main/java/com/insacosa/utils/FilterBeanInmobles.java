@@ -16,8 +16,7 @@ import javax.faces.model.SelectItem;
 
 import org.richfaces.model.Filter;
 
-import com.insacosa.entitats.Ciutats;
-import com.insacosa.entitats.Provincies;
+import com.insacosa.domain.*;
 
 import com.insacosa.vo.CiutatsForm;
 import com.insacosa.vo.InmobleForm;
@@ -193,7 +192,7 @@ public void cambiarProvincia(ValueChangeEvent event)
 		{
 			Ciutats ciutatHBM = (Ciutats)(iter.next());  
 			
-			SelectItem item = new SelectItem(ciutatHBM.getId(), ciutatHBM.getName() , "", false, false);
+			SelectItem item = new SelectItem(ciutatHBM.getKey(), ciutatHBM.getName() , "", false, false);
 			                   
 			// hem de modificar també el combi de ciutats del formulari d'entrada
 			novesCiutats.add(item);

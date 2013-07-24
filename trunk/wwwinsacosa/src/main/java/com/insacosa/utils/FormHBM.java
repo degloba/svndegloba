@@ -14,13 +14,9 @@ import com.insacosa.vo.CaracteristicaForm;
 import com.insacosa.vo.FotoForm;
 import com.insacosa.vo.InmobleForm;
 import com.insacosa.vo.UserForm;
-import com.insacosa.entitats.Caracteristiques;
-import com.insacosa.entitats.Ciutats;
-import com.insacosa.entitats.Fotos;
-import com.insacosa.entitats.Inmobles;
-import com.insacosa.entitats.Provincies;
-import com.insacosa.entitats.Tipus;
-import com.insacosa.entitats.Usuaris;
+
+import com.insacosa.domain.*;
+
 import com.insacosa.dragdrop.DragDropBean;
 
 public class FormHBM {
@@ -43,7 +39,7 @@ public class FormHBM {
 	    
 		////////////inmobleForm.setProvincia(inmoble.getProvincies().getKey());
 
-		inmobleForm.setKeyTipus(inmoble.getTipus().getId());
+		inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
 		
 		//inmobleForm.setLloguer(inmoble.getLloguer());
 		inmobleForm.setNumero(inmoble.getNumero());
@@ -105,7 +101,7 @@ public class FormHBM {
 		inmoble.setProvincies(provincia);
 		
 		Tipus tipus = new Tipus();
-		tipus.setId(inmobleForm.getKeyTipus());
+		tipus.setKey(inmobleForm.getKeyTipus());
 		inmoble.setTipus(tipus);
 
 		//inmoble.setLloguer(lloguer);
