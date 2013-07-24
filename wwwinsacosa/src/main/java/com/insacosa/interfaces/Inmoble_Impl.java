@@ -25,7 +25,7 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 import com.degloba.JPA.PersistenceService;
 
-import entitats.*;
+import com.insacosa.domain.*;
 
 
 public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements Inmoble_If {
