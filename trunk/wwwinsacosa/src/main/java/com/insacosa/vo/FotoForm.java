@@ -3,7 +3,8 @@ package com.insacosa.vo;
 import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.entitats.Inmobles;
+
+import com.insacosa.domain.*;
 
 
 // Clase Value Object de la que todas las vistas deber?an descender.
