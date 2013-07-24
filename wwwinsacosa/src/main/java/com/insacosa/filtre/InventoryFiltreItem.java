@@ -19,7 +19,7 @@ public class InventoryFiltreItem implements Serializable {
 
 	private String smallImageURL;
 	
-	private String keyTipus;
+	private Key keyTipus;
 	private String tipusStr;
 
 	private Short numero,planta;	
@@ -71,10 +71,10 @@ public class InventoryFiltreItem implements Serializable {
 	public void setSmallImageURL(String smallImageURL) {
 		this.smallImageURL = smallImageURL;
 	}
-	public String getKeyTipus() {
+	public Key getKeyTipus() {
 		return keyTipus;
 	}
-	public void setKeyTipus(String keyTipus) {
+	public void setKeyTipus(Key keyTipus) {
 		this.keyTipus = keyTipus;
 	}
 	public String getTipusStr() {
