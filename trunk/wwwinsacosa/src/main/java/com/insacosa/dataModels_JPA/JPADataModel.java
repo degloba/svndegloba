@@ -60,7 +60,7 @@ import org.richfaces.model.SortField;
 
 import com.insacosa.vo.InmobleForm;
 
-import com.insacosa.entitats.Inmobles;
+import com.insacosa.domain.*;
 
 
 import com.google.appengine.api.datastore.Key;
