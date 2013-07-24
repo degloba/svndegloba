@@ -6,7 +6,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.QueryResultList;
 
-import entitats.*;
+import com.insacosa.domain.*;
 
 
 public interface Inmoble_If {
