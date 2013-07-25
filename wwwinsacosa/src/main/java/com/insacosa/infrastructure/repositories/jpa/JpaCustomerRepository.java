@@ -10,7 +10,7 @@ import ddd.domain.support.InjectorHelper;
 import ddd.infrastructure.repo.jpa.GenericJpaRepositoryForBaseEntity;
 
 import com.insacosa.domain.Customer;
-import com.insacosa.domain.CustomerRepository;
+import com.insacosa.domain.repositories.CustomerRepository;
 
 /**
  * @author Slawek
