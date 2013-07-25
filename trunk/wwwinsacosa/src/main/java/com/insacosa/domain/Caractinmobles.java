@@ -7,8 +7,12 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 @Entity
-public class Caractinmobles {
+@DomainAggregateRoot
+public class Caractinmobles extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
