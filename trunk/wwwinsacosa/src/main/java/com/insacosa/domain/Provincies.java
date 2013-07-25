@@ -3,6 +3,9 @@ package com.insacosa.domain;
 
 import com.google.appengine.api.datastore.Key;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,7 +26,8 @@ import javax.persistence.Transient;
 import org.datanucleus.api.jpa.annotations.Extension;
 
 @Entity
-public class Provincies {
+@DomainAggregateRoot
+public class Provincies extends BaseAggregateRoot{
 
 	
 	@Id    

@@ -16,8 +16,12 @@ import org.datanucleus.api.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 @Entity
-public class Usuaris implements java.io.Serializable {
+@DomainAggregateRoot
+public class Usuaris extends BaseAggregateRoot implements java.io.Serializable {
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)   

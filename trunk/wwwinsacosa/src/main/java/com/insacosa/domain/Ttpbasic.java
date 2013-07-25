@@ -12,8 +12,12 @@ import javax.persistence.OneToMany;
 
 import org.datanucleus.api.jpa.annotations.Extension;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 @Entity
-public class Ttpbasic {
+@DomainAggregateRoot
+public class Ttpbasic extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

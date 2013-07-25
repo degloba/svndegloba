@@ -2,6 +2,9 @@ package com.insacosa.domain;
 
 import com.google.appengine.api.datastore.Key;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +26,8 @@ import javax.persistence.Transient;
 import org.datanucleus.api.jpa.annotations.Extension;
 
 @Entity
-public class Ciutats {
+@DomainAggregateRoot
+public class Ciutats extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
