@@ -12,9 +12,13 @@ import javax.persistence.Transient;
 
 import org.datanucleus.api.jpa.annotations.Extension;
 
+import ddd.domain.BaseAggregateRoot;
+import ddd.domain.annotations.DomainAggregateRoot;
+
 
 @Entity
-public class ValuesCaracteristiques {
+@DomainAggregateRoot
+public class ValuesCaracteristiques extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
