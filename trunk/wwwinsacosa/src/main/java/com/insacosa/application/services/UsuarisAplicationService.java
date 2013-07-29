@@ -30,7 +30,6 @@ import com.insacosa.domain.OrderFactory;
 import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
 
-import application.InsacosaClasseApp;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
