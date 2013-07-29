@@ -24,9 +24,7 @@ import org.richfaces.component.UIDataTable;
 
 import com.insacosa.utils.HtmlDinamic;
 
-import com.insacosa.entitats.Caracteristiques;
-import com.insacosa.entitats.Tipus;
-import com.insacosa.entitats.Usuaris;
+import entitats.*;
 
 @ManagedBean(name = "tipus")
 @SessionScoped

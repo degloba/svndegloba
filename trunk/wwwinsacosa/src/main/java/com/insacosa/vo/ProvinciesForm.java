@@ -1,12 +1,5 @@
 package com.insacosa.vo;
 
-import Application.ciutats.Ciutats_app;
-import Application.ciutats.ICiutats;
-import Application.provincies.IProvincies;
-import Application.provincies.Provincies_app;
-import Application.solicituds.ISolicituds;
-import Application.solicituds.Solicituds_app;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -38,7 +31,11 @@ import javax.persistence.EntityTransaction;
 import com.insacosa.utils.FilterBeanInmobles;
 import com.degloba.JPA.PersistenceService;
 
-import entitats.*;
+import com.insacosa.application.services.CaracteristiquesApplicationService;
+import com.insacosa.application.services.InmoblesApplicationService;
+import com.insacosa.application.services.ProvinciesApplicationService;
+import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.domain.*;
 import guice.modules.BillingModule;
 
 @ManagedBean(name = "provincies")
@@ -64,6 +61,12 @@ public class ProvinciesForm extends Objecte
 	
 	
 	Boolean estaLlista = false;  // per saber si es pot updatar la llista per la modificacio d'una provincia
+	
+	
+	// SERVEIS D'APLICACIO
+	//---------------------
+	
+	ProvinciesApplicationService provinciesService;
 		
 	//@Override
 	public void processValueChange(ValueChangeEvent event)
@@ -219,10 +222,10 @@ public class ProvinciesForm extends Objecte
 		provincia.setCode(this.getCode());
 		provincia.setName(this.getName());
 		
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+/*		Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 		
-		provincies_app.createClasseApp(provincia);
+		provinciesService.createClasseApp(provincia);
 				
 		// hem d'afegir a la llista
 		ProvinciesForm prov = new ProvinciesForm();
@@ -241,10 +244,10 @@ public class ProvinciesForm extends Objecte
 	    
 		ProvinciesForm provincia = (ProvinciesForm) this.getLlista().get(currentProvIndex);   	
 
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 
-		provincies_app.deleteClasseAppByKey(provincia.getId());  // esborrem de la BD
+		provinciesService.deleteClasseAppByKey(provincia.getId());  // esborrem de la BD
 	   	
 		// cal eliminar també de la llista
 		this.llista.remove(currentProvIndex);
@@ -260,11 +263,11 @@ public class ProvinciesForm extends Objecte
 		provincia.setProvinciaKey(this.getIdProvincia());
 		provincia.setCode(this.getCode());
 		provincia.setName(this.getName());
-		
+	/*	
 		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 		
-		provincies_app.updateClasseApp(provincia);
+		provinciesService.updateClasseApp(provincia);
 	   	
 	   	// cal modificar el valor de la llista
 	   	ProvinciesForm prov = (ProvinciesForm) this.getLlista().get(currentProvIndex);

@@ -1,17 +1,20 @@
 package com.insacosa.vo;
 
 
-import Application.usuaris.IUsuaris;
-
-import com.degloba.JPA.*;
-
 import com.google.appengine.api.datastore.Key;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.insacosa.application.services.CaracteristiquesApplicationService;
+import com.insacosa.application.services.InmoblesApplicationService;
+import com.insacosa.application.services.UsuarisAplicationService;
 
 
 import javax.servlet.http.*;
 import javax.faces.context.*;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import entitats.*;
 import guice.modules.BillingModule;
@@ -23,6 +26,10 @@ public class LoginForm  {
 	private String text;
 	private String nomUsuari;
 	private String password;
+	
+	
+	UsuarisAplicationService usuarisService;
+	
 
 	public Key getkey() {
 		return key;
@@ -50,15 +57,31 @@ public class LoginForm  {
 	}
 
 
+	public LoginForm() {
+		super();
+		// TODO Auto-generated constructor stub
+		
+		/* IOC = Spring */
+		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
+		   BeanFactory factory = context;
+		   
+		    usuarisService = (UsuarisAplicationService) factory
+			        .getBean("usuarisApplicationService");
+	  
+		
+	}
+	
+	
+	
 	public String validUser() throws Exception{
 				
-   		Injector injector = Guice.createInjector(new BillingModule()); 
-		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+   /*		Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
 		Usuaris usuari = new Usuaris();
 		usuari.setNomusuari(nomUsuari);
 		
-		usuari = usuaris_app.usuariValid(usuari);
+		usuari = usuarisService.usuariValid(usuari);
 		
 		if (usuari != null)  // existeix l'usuari ?
 		{

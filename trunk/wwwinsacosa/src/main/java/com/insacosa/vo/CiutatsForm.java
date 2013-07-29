@@ -1,9 +1,5 @@
 package com.insacosa.vo;
 
-import Application.ciutats.Ciutats_app;
-import Application.ciutats.ICiutats;
-import Application.provincies.IProvincies;
-import Application.provincies.Provincies_app;
 
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
@@ -26,7 +22,12 @@ import javax.faces.model.SelectItem;
 import com.insacosa.utils.FilterBeanInmobles;
 
 import com.degloba.JPA.PersistenceService;
-import entitats.*;
+import com.insacosa.application.services.CaracteristiquesApplicationService;
+import com.insacosa.application.services.CiutatsApplicationService;
+import com.insacosa.application.services.InmoblesApplicationService;
+import com.insacosa.application.services.ProvinciesApplicationService;
+import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.domain.*;
 import guice.modules.BillingModule;
 
 
@@ -63,6 +64,11 @@ public class CiutatsForm extends Objecte
 	private String valorActual = "967";   // id ciutat (Manresa)
 	
 	
+	// SERVEIS D'APLICACIO
+	//---------------------
+	
+	CiutatsApplicationService ciutatsService;
+	ProvinciesApplicationService provinciesService;
 
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
@@ -78,10 +84,10 @@ public class CiutatsForm extends Objecte
 
         	FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
  
-    		Injector injector = Guice.createInjector(new BillingModule()); 
-    		ICiutats ciutats_app = injector.getInstance(ICiutats.class);
+    		/*Injector injector = Guice.createInjector(new BillingModule()); 
+    		ICiutats ciutats_app = injector.getInstance(ICiutats.class);*/
         	
-        	Ciutats ciutat = ciutats_app.getClasseAppByKey((Key)newValue);   
+        	Ciutats ciutat = ciutatsService.getClasseAppByKey((Key)newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
     		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
@@ -175,10 +181,10 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
 		
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 				
-		Provincies p = provincies_app.getClasseAppByKey(this.getId()); 
+		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
 		
 		ciutatHib.setKeyProv(p);
 		
@@ -200,10 +206,10 @@ public class CiutatsForm extends Objecte
 	    
 		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
     	
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		ICiutats ciutats_app = injector.getInstance(ICiutats.class);
+		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		ICiutats ciutats_app = injector.getInstance(ICiutats.class);*/
 
-		ciutats_app.deleteClasseAppByKey(ciutat.getId());  // esborrem de la BD
+		ciutatsService.deleteClasseAppByKey(ciutat.getId());  // esborrem de la BD
     	
     	
 		// cal eliminar també de la llista
@@ -220,10 +226,10 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
 		
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);
+		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 		
-		Provincies p = provincies_app.getClasseAppByKey(this.getId()); 
+		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
 		
 		ciutatHib.setKeyProv(p);
 		

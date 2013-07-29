@@ -1,11 +1,10 @@
 package com.insacosa.vo;
 
-import Application.ciutats.ICiutats;
-import Application.usuaris.IUsuaris;
 
 import com.degloba.JPA.*;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.insacosa.application.services.UsuarisAplicationService;
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -29,6 +28,10 @@ import javax.faces.application.FacesMessage;
 
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class UserForm  implements java.io.Serializable {
 	
 
@@ -37,8 +40,16 @@ public class UserForm  implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	UsuarisAplicationService usuarisService;
 
 	public UserForm(){
+		
+		/* IOC = Spring */
+		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
+		   BeanFactory factory = context;
+		   
+		    usuarisService = (UsuarisAplicationService) factory
+			        .getBean("usuarisApplicationService");
 		
 	}
 
@@ -238,14 +249,14 @@ public class UserForm  implements java.io.Serializable {
 				this.setPassword(this.newPwd);
 				
 				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		   		Injector injector = Guice.createInjector(new BillingModule()); 
-	    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
+	    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 				
 				Usuaris usuari = new Usuaris();
 				String k = this.getKey() ;
 				usuari.setUsuariKey((String)this.getKey());
 				usuari.setPassword(this.newPwd);
-				//usuaris_app.cambiaPassword(usuari);
+				//usuarisService.cambiaPassword(usuari);
 
 				return "success";
 			}
@@ -285,10 +296,10 @@ public class UserForm  implements java.io.Serializable {
 
 	public String editProfile() throws Exception{
 		
-   		Injector injector = Guice.createInjector(new BillingModule()); 
-		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+   		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
-		Usuaris usuari = usuaris_app.editPerfil(this.getKey());
+		Usuaris usuari = usuarisService.editPerfil(this.getKey());
 		
 		this.setKey(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
@@ -309,8 +320,8 @@ public class UserForm  implements java.io.Serializable {
 			// si no esta loginat es un nou registre
 			if(!loginat){
 								
-		   		Injector injector = Guice.createInjector(new BillingModule()); 
-				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
+				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 				
 				Usuaris usuari = new Usuaris();
 				
@@ -325,16 +336,16 @@ public class UserForm  implements java.io.Serializable {
 				usuari.setPassword(this.getPassword());
 				
 				
-				usuaris_app.afegirUsuari(usuari);
+				usuarisService.afegirUsuari(usuari);
 				
 				/////////////sendMail(getEmail());
 				return "successUserRegistration";
 			}
 			else{
 				
-		   		Injector injector = Guice.createInjector(new BillingModule()); 
+		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
-				
+				*/
 				Usuaris usuari = new Usuaris();
 				
 				usuari.setUsuariKey((String)this.getKey());
@@ -346,7 +357,7 @@ public class UserForm  implements java.io.Serializable {
 				usuari.setCognoms(this.getCognoms());
 				usuari.setPassword(this.password);
 												
-				usuaris_app.modificarUsuari(usuari);
+				usuarisService.modificarUsuari(usuari);
 
 				return "successUserUpdate";
 			}
@@ -360,10 +371,10 @@ public class UserForm  implements java.io.Serializable {
 	public boolean validEmail(){
 		String email_check = email.trim();
 		
-   		Injector injector = Guice.createInjector(new BillingModule()); 
-		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+   		/*Injector injector = Guice.createInjector(new BillingModule()); 
+		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
-		return usuaris_app.emailValid(email_check);
+		return usuarisService.emailValid(email_check);
 	}
 
 	private boolean validateData() throws Exception {
