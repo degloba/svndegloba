@@ -2,7 +2,7 @@ package com.insacosa.application.services;
 
 import javax.inject.Inject;
 
-import com.google.appengine.api.datastore.Entity;
+
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 import com.insacosa.domain.OrderFactory;
@@ -13,8 +13,6 @@ import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
-
-import com.insacosa.domain.*;
 
 @ApplicationService
 public class ProvinciesApplicationService {

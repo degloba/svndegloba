@@ -54,14 +54,14 @@ public class SolicitudsApplicationService
 		solicitudsRepository.save(solicitud);
 
 	    // if we want to Spy Clients:)
-	    eventPublisher.publish(new ProductAddedToOrderEvent(product.getEntityId(), systemUser.getUserId(), quantity));
+	   /////////////// eventPublisher.publish(new ProductAddedToOrderEvent(product.getEntityId(), systemUser.getUserId(), quantity));
 	  
 	}
 	
     public void createNewSolicitud() throws OrderCreationException {
-        Client client = loadClient(systemUser.getUserId());
-        Solicituds solicitud = orderFactory.crateOrder(client);
-        solicitudsRepository.persist(solicitud);
+/////////////Client client = loadClient(systemUser.getUserId());
+/////////////Solicituds solicitud = orderFactory.crateOrder(client);
+/////////////solicitudsRepository.persist(solicitud);
     }
 	
 
