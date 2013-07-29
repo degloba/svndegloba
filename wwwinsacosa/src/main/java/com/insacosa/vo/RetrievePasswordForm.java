@@ -1,7 +1,11 @@
 package com.insacosa.vo;
 
+
 import com.degloba.JPA.EMF;
-import com.insacosa.interfaces.Usuari_Impl;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
+import guice.modules.BillingModule;
 
 import java.util.*;
 import java.util.regex.*;
@@ -45,15 +49,14 @@ public class RetrievePasswordForm  {
 	public String check() throws Exception{
 		String returnString = "";
 		if (validateData()) {
+						
+	   		Injector injector = Guice.createInjector(new BillingModule()); 
+    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 			
-			
-			//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-			Usuari_Impl r = new Usuari_Impl(EMF.lookupEntityManager(),null);
-			
-			Boolean existeixEmail = r.emailValid(this.email);
+			Boolean existeixEmail = usuaris_app.emailValid(this.email);
 			if (existeixEmail)
 				{
-					sendMail(r.passwordEmail(this.email),getEmail());
+					//sendMail(usuaris_app.passwordEmail(this.email),getEmail());
 					returnString = "passwordsendingsuccess";
 				}
 				else{

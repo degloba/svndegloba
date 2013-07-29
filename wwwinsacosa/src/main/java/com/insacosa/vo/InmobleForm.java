@@ -943,9 +943,8 @@ public class InmobleForm  implements Serializable
 	
 				/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-				
-
-				/*IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
+		    	
+		    	/*IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		    			    	
 		    	Usuaris usuari = usuarisService.cercarUsuari("peresan");
 		    	

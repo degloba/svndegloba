@@ -1,8 +1,5 @@
 package com.insacosa.vo;
 
-import com.google.appengine.api.datastore.Key;
-
-
 // 
 public class CaracteristicaForm implements java.io.Serializable ,Comparable<Object>
 {
