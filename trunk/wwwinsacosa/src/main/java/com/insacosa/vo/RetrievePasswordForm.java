@@ -4,6 +4,7 @@ package com.insacosa.vo;
 import com.degloba.JPA.EMF;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.insacosa.application.services.UsuarisAplicationService;
 
 import guice.modules.BillingModule;
 
@@ -31,6 +32,8 @@ public class RetrievePasswordForm  {
 	private Session session;
 	private Transport transport;
 	private Message message;
+	
+	UsuarisAplicationService usuarisService;
 
 	public String getEmail() {
 		return email;
@@ -50,10 +53,10 @@ public class RetrievePasswordForm  {
 		String returnString = "";
 		if (validateData()) {
 						
-	   		Injector injector = Guice.createInjector(new BillingModule()); 
-    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
+	   		/*Injector injector = Guice.createInjector(new BillingModule()); 
+    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 			
-			Boolean existeixEmail = usuaris_app.emailValid(this.email);
+			Boolean existeixEmail = usuarisService.emailValid(this.email);
 			if (existeixEmail)
 				{
 					//sendMail(usuaris_app.passwordEmail(this.email),getEmail());
