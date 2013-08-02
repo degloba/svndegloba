@@ -14,7 +14,7 @@ import ddd.application.annotation.ApplicationService;
 
 
 @ApplicationService
-public class CiutatsApplicationService 
+public class CiutatsApplicationService extends BaseApplicationService
 	 {
 	
 	 @Inject

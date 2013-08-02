@@ -15,7 +15,7 @@ import ddd.application.annotation.ApplicationService;
 import com.insacosa.domain.*;
 
 @ApplicationService
-public class TipusApplicationService
+public class TipusApplicationService extends BaseApplicationService
 
 	 {
 

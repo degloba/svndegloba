@@ -23,7 +23,7 @@ import com.insacosa.domain.errors.OrderCreationException;
 import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
-public class SolicitudsApplicationService 
+public class SolicitudsApplicationService extends BaseApplicationService
 	{
 	
 	 	@Inject
