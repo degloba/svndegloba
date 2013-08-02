@@ -1,11 +1,13 @@
 package com.insacosa.vo;
 
 
-import com.degloba.JPA.*;
+
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
+import com.insacosa.application.services.CaracteristiquesApplicationService;
+import com.insacosa.application.services.UsuarisAplicationService;
 import com.insacosa.interfaces.Caracteristiques_Impl;
-import com.insacosa.interfaces.Objecte;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
 
 import org.richfaces.component.UIDataTable;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.insacosa.utils.HtmlDinamic;
 
@@ -28,7 +33,7 @@ import entitats.*;
 
 @ManagedBean(name = "tipus")
 @SessionScoped
-public class TipusForm extends Objecte 
+public class TipusForm 
 	implements ValueChangeListener, Serializable{
 	
 	private Key key;  //PIS
@@ -38,56 +43,11 @@ public class TipusForm extends Objecte
 	
 	private int valorActual = 1;
 	
-	static PersistenceService persistenceService;
+	
+	CaracteristiquesApplicationService caracteristiquesService;
+	
 	
 	public List<SelectItem> getTipusInmoble() {
-		
-		/*
-		
-		// Crear Entitats
-		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		//La classe PersistenceService es "ApplicationScoped"
-		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
-		
-		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		
-		Tipus t = new Tipus();
-		t.setNom("Bajos");
-		
-		em.persist(t);
-		
-		t = new Tipus();
-		t.setNom("Piso");
-		
-		em.persist(t);
-		
-		t = new Tipus();
-		t.setNom("Loft");
-		
-		em.persist(t);
-		
-		t = new Tipus();
-		t.setNom("Parking");
-		
-		em.persist(t);
-		
-		t = new Tipus();
-		t.setNom("Terreno");
-		
-		em.persist(t);*/
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		List<SelectItem> list = new ArrayList<SelectItem>();
 		 
@@ -96,15 +56,6 @@ public class TipusForm extends Objecte
 		if (tipusInmoble == null) 
 		{
 			
-			Iterator<Entity> iter = llistaObjectes(Tipus.class, "nom", "").iterator();
-			while (iter.hasNext())
-				{				
-				Entity tipus = (Entity)(iter.next());  // objecte Hibernate  
-							
-					item = new SelectItem(tipus.getKey(), tipus.getProperty("nom").toString() , "", false, false);
-					
-					list.add(item); 
-				}
 		
 			setTipusInmoble(list);  // gravem la llista en memoria
 		}
@@ -138,7 +89,6 @@ public class TipusForm extends Objecte
 
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
-		// TODO Auto-generated method stub
 		
 		FacesContext facesContext = FacesContext.getCurrentInstance(); 
 		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
@@ -165,13 +115,14 @@ public class TipusForm extends Objecte
 		// O A LA PAGINA DE CERCAR INMOBLES
 		
 		// calculem la nova llista d'inmobles venedor
-		Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
+		//Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		 
 	    Tipus tipus = new Tipus();
 	    tipus.setKey((Key)event.getNewValue());
 	    
-	    List<Caracteristiques> lc = r.caractTipus(tipus,1, false);
-		
+	    List<Caracteristiques> lc = caracteristiquesService.caractTipus(tipus,1, false);
+	    
+	    
 		if (inmobleForm.isCercable())
 		{
 			inmobleForm.getContainerHtmlDataTableFS().getChildren().clear();
@@ -217,6 +168,18 @@ public class TipusForm extends Objecte
 
 	public void setValorActual(int valorActual) {
 		this.valorActual = valorActual;
+	}
+
+
+	public TipusForm() {
+		super();
+		
+		/* IOC = Spring */
+		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
+		   BeanFactory factory = context;
+		   
+		   caracteristiquesService = (CaracteristiquesApplicationService) factory
+			        .getBean("caracteristiquesApplicationService");
 	}
 
 

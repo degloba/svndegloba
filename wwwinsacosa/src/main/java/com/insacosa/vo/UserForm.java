@@ -2,9 +2,14 @@ package com.insacosa.vo;
 
 
 import com.degloba.JPA.*;
+
+// IOC - GUICE
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+// SERVEIS APLICACIO
 import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.webui.UsuariItemDto;
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -14,7 +19,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
-import entitats.*;
 import guice.modules.BillingModule;
 
 import java.util.*;
@@ -35,9 +39,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UserForm  implements java.io.Serializable {
 	
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	UsuarisAplicationService usuarisService;
@@ -236,31 +237,21 @@ public class UserForm  implements java.io.Serializable {
 
 	
 	public String changePassword() throws Exception {
+		
 		if(validatePassword()){
-			FacesContext context = FacesContext.getCurrentInstance();
-            HttpSession session = (HttpSession)context.getExternalContext().getSession(false);
-            
-          
+                      
 			boolean isPwdValid = false;
 			isPwdValid = this.getPassword().equals(getOldPwd());			
 			if(isPwdValid){
 			
-				//registre.setNomUsuari(this.getNomUsuari()); //PK
 				this.setPassword(this.newPwd);
-				
-				//Interfaces interfaceS = serviceFinder.findBean("Interfaces");
-		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
-	    		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
-				
-				Usuaris usuari = new Usuaris();
-				String k = this.getKey() ;
-				usuari.setUsuariKey((String)this.getKey());
-				usuari.setPassword(this.newPwd);
-				//usuarisService.cambiaPassword(usuari);
+
+				usuarisService.cambiaPassword(this.getKey(),this.newPwd);
 
 				return "success";
 			}
 			else{
+				
 				MessageFactory mf = new MessageFactory();
 				setText(mf.getMessage("errorOldPasswordIncorrect"));
 				
@@ -299,7 +290,7 @@ public class UserForm  implements java.io.Serializable {
    		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
-		Usuaris usuari = usuarisService.editPerfil(this.getKey());
+		com.insacosa.domain.Usuaris usuari = usuarisService.editPerfil(this.getKey());
 		
 		this.setKey(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
@@ -323,7 +314,7 @@ public class UserForm  implements java.io.Serializable {
 		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 				
-				Usuaris usuari = new Usuaris();
+				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
 				
 				usuari.setUsuariKey((String)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
@@ -346,7 +337,7 @@ public class UserForm  implements java.io.Serializable {
 		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 				*/
-				Usuaris usuari = new Usuaris();
+				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
 				
 				usuari.setUsuariKey((String)this.getKey());
 				usuari.setNomusuari(this.getNomUsuari());
