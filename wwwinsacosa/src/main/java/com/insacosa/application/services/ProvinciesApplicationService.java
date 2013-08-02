@@ -8,6 +8,7 @@ import com.insacosa.domain.InvoicingService;
 import com.insacosa.domain.OrderFactory;
 import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
+import com.insacosa.domain.Provincies;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
@@ -15,7 +16,7 @@ import ddd.application.annotation.ApplicationService;
 
 
 @ApplicationService
-public class ProvinciesApplicationService {
+public class ProvinciesApplicationService extends BaseApplicationService {
 	
 	 	@Inject
 	    private OrderRepository orderRepository;
@@ -37,6 +38,11 @@ public class ProvinciesApplicationService {
 
 	    @Inject
 	    private ApplicationEventPublisher eventPublisher;
+
+		public void updateClasseApp(Provincies provincia) {
+			// TODO Auto-generated method stub
+			
+		}
 
 
 	

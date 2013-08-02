@@ -19,9 +19,15 @@ import ddd.application.annotation.ApplicationService;
 
 
 import com.insacosa.domain.*;
+import com.insacosa.vo.FotoForm;
+import com.insacosa.webui.FotoItemDto;
+import com.insacosa.webui.InmobleItemDto;
+import com.insacosa.webui.ProvinciaItemDto;
+import com.insacosa.webui.SolicitudItemDto;
+import com.insacosa.webui.UsuariItemDto;
 
 @ApplicationService
-public class InmoblesApplicationService 
+public class InmoblesApplicationService extends BaseApplicationService
 	 {
 	
 	 	@Inject
@@ -49,11 +55,6 @@ public class InmoblesApplicationService
 	
 	public Inmobles inmoblePerKey(Key key) {
 		return null;
-		
-	}
-
-
-	public void afegirInmoble(Inmobles inmoble) {
 		
 	}
 
@@ -99,7 +100,7 @@ public class InmoblesApplicationService
 	}
 
 
-	public Inmobles detallInmoble(String id) {
+	public InmobleItemDto detallInmoble(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -208,7 +209,7 @@ public class InmoblesApplicationService
 	}
 
 
-	public void modificarValorCaract(Key idCaracteristica, String keyInmoble,
+	public void modificarValorCaract(String string, String keyInmoble,
 			String value) {
 		// TODO Auto-generated method stub
 		
@@ -222,6 +223,48 @@ public class InmoblesApplicationService
 
 
 	public Inmobles inmoblePerKey(String keyInmoble) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void eliminarSolicitud(SolicitudItemDto solicitud) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void afegirInmoble(Inmobles inmoble) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public List<FotoForm> inmoblesVenedor(UsuariItemDto usuari) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void eliminarFoto(FotoItemDto foto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void eliminarValorCaract(Object next, String keyInmoble) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public List<ProvinciaItemDto> ciutatsProvincia(ProvinciaItemDto provincia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public InmobleItemDto esborrarInmoble(String keyInmoble) {
 		// TODO Auto-generated method stub
 		return null;
 	}

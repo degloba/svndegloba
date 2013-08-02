@@ -12,7 +12,7 @@ import ddd.application.annotation.ApplicationService;
 import com.insacosa.domain.*;
 
 @ApplicationService
-public class CaracteristiquesApplicationService
+public class CaracteristiquesApplicationService extends BaseApplicationService
 
 	 {
 		
@@ -44,8 +44,7 @@ public class CaracteristiquesApplicationService
 		return null;
 	}
 
-	public List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio,
-			Boolean inclouCaractComu) {
+	public List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio, Boolean inclouCaractComu) {
 		// TODO Auto-generated method stub
 		return null;
 	}

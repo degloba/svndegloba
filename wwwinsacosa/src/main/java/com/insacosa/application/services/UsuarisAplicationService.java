@@ -37,7 +37,7 @@ import domini.IInsacosaClasseService;
 
 import com.insacosa.domain.*;
 
-public class UsuarisAplicationService
+public class UsuarisAplicationService extends BaseApplicationService
 
 	 {
 
@@ -62,6 +62,7 @@ public class UsuarisAplicationService
 	    @Inject
 	    private ApplicationEventPublisher eventPublisher;
 
+	    
 	public void afegirUsuari(Usuaris usuari) {
 		// TODO Auto-generated method stub
 		
@@ -100,11 +101,10 @@ public class UsuarisAplicationService
 		return false;
 	}
 
-	public String cambiaPassword() {
+	public String cambiaPassword(String usuari, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 	
 	
 	
