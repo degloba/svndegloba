@@ -1,5 +1,6 @@
 package com.insacosa.vo;
 
+import javax.inject.Inject;
 
 import com.degloba.JPA.EMF;
 import com.degloba.JPA.PersistenceService;
@@ -8,10 +9,6 @@ import com.insacosa.filtre.InventoryItem;
 import com.insacosa.filtre.InventoryFiltreItem;
 import com.insacosa.filtre.InventoryFiltreList;
 
-/*import com.insacosa.interfaces.Caracteristiques_Impl;
-import com.insacosa.interfaces.Inmoble_Impl;
-import com.insacosa.interfaces.Usuari_Impl;
-*/
 
 /*----------------------------*/
 /* java.util                  */
@@ -38,6 +35,9 @@ import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
+// Finders,...
+import com.insacosa.presentation.*;
+
 
 // JPA - Persistencia          
 import javax.persistence.EntityManager;
@@ -55,37 +55,76 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /* Utilitats                  */
 /*----------------------------*/
 import com.degloba.utils.Cadenes;
+
 import com.insacosa.utils.FilterBeanInmobles;
 import com.insacosa.utils.FormHBM;
 import com.insacosa.utils.HtmlDinamic;
+import com.insacosa.webui.CiutatItemDto;
+import com.insacosa.webui.FotoItemDto;
+import com.insacosa.webui.InmobleCaractItemDto;
+import com.insacosa.webui.InmobleItemDto;
+import com.insacosa.webui.SolicitudItemDto;
+import com.insacosa.webui.UsuariItemDto;
 import com.degloba.utils.Utils;
+import com.insacosa.controladorMSG.ChatBean;
 
 
 import com.google.appengine.api.datastore.Key;
-
 import com.google.common.collect.Maps;
+
+// IOC - Guice
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import guice.modules.BillingModule;
 
+// SERVEIS APLICACIO
 import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.PurchaseApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.controladorMSG.ChatBean;
+
 
 import com.insacosa.dataModels_JPA.JPADataModel;
 
-
+import com.insacosa.domain.Caracteristiques;
+import com.insacosa.domain.InmobleCaract;
+import com.insacosa.domain.Inmobles;
+import com.insacosa.domain.Tipus;
+import com.insacosa.domain.ValuesCaracteristiques;
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
-import com.insacosa.domain.*;
-import guice.modules.BillingModule;
 
 
 @ManagedBean(name = "inmoblesForm")
 @SessionScoped
 public class InmobleForm  implements Serializable
 {
+	
+	
+	// FinderS (lectura)
+	//---------------------
+	 
+    @Inject
+    private SolicitudsFinder solicitudsFinder;
+    @Inject
+    private TipusFinder tipusFinder;
+    @Inject
+    private InmoblesFinder inmoblesFinder;
+    @Inject
+    private CiutatsFinder ciutatsFinder;
+    @Inject
+    private UsuarisFinder usuarisFinder;    
+
+    
+    
+	// SERVEIS D'APLICACIO
+	//---------------------
+	
+	CaracteristiquesApplicationService caracteristiquesService;
+	InmoblesApplicationService inmoblesService;
+	UsuarisAplicationService usuarisService;
+    
+	
 	static PersistenceService persistenceService;
 	
 	private static final long serialVersionUID = 1L;
@@ -128,11 +167,11 @@ public class InmobleForm  implements Serializable
 	// llistes/consultes
 	//*********************
 	private List<InmobleForm> inmoblesBuscats = new ArrayList<InmobleForm>();
-	private List<InmobleForm> inmoblesVenedor; // inicialitzo a null
-	private List<InmobleCaract> inmoblesVenedorCaract = new ArrayList<InmobleCaract>(); // inicialitzo 
+	private List<InmobleItemDto> inmoblesVenedor; // inicialitzo a null
+	private List<InmobleCaractItemDto> inmoblesVenedorCaract = new ArrayList<InmobleCaractItemDto>(); // inicialitzo 
 	private List<InmobleForm> inmoblesSolicitatsPerComprador; // inmobles solicitats per un possible comprador
 	private List<UserForm> compradors = new ArrayList<UserForm>(); // llista de compradors/solicitants de l'inmoble
-	private List<UserForm> solicitantsInmobleVenedor = new ArrayList<UserForm>();
+	private List<UsuariItemDto> solicitantsInmobleVenedor = new ArrayList<UsuariItemDto>();
 	
 	
 	/*----------------------------------------------------*/
@@ -186,12 +225,7 @@ public class InmobleForm  implements Serializable
 	static private Boolean cambiDades = false;
 	
 	
-	// SERVEIS D'APLICACIO
-	//---------------------
-	
-	CaracteristiquesApplicationService caracteristiquesService;
-	InmoblesApplicationService inmoblesService;
-	UsuarisAplicationService usuarisService;
+
 	
 	
 	public Boolean getCambiDades() {
@@ -229,7 +263,7 @@ public class InmobleForm  implements Serializable
     /*--------------------------------------------------------------*/
     /* Valors dels filtres datatable. <idcaracteristica,valor>      */
     /*--------------------------------------------------------------*/
-	private Map<Key, Object> filterValues = Maps.newHashMap();           
+	private Map<String, Object> filterValues = Maps.newHashMap();           
 	private String sortProperty; 
 	
 	
@@ -284,12 +318,12 @@ public class InmobleForm  implements Serializable
 	}
 
 
-	public Map<Key, Object> getFilterValues() {
+	public Map<String, Object> getFilterValues() {
 		return filterValues;
 	}
 
 	
-	public void setFilterValues(Map<Key, Object> filterValues) {
+	public void setFilterValues(Map<String, Object> filterValues) {
 		this.filterValues = filterValues;
 	}
 
@@ -334,15 +368,7 @@ public class InmobleForm  implements Serializable
 		if (containerHtmlDataTableFS.getChildren().isEmpty())   // la primera vegada dins el HtmlPanelGroup no hi
 															  // ha cap datatable i per tant la construim
 		{
-			/* IOC = Guice */
-			/*Injector injector = Guice.createInjector(new BillingModule()); 
-			ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);*/
-			
-			
-
-
-			
-			
+		
 			
 			 
 		    Tipus tipus = new Tipus();
@@ -432,8 +458,7 @@ public class InmobleForm  implements Serializable
 	// Constructor por defecto.
   	public InmobleForm() 
   	{	
-	    //super();
- 		
+		
   		
 		/* IOC = Spring */
 		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
@@ -484,11 +509,8 @@ public class InmobleForm  implements Serializable
 		
 		String keyInmoble = inmobleForm.getKey();
 
-		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-	/*	Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
 
-		Inmobles inmoble = inmoblesService.detallInmoble(keyInmoble);
+		InmobleItemDto inmoble = inmoblesFinder.detallInmoble(keyInmoble);
 		
 		// Assignem els valors del formulari (inmoble)
 		setKey(inmoble.getInmobleKey());
@@ -498,7 +520,7 @@ public class InmobleForm  implements Serializable
 	    Provincies prov = new Provincies();
 	    prov.setProvinciaKey(inmoble.getProvincies().getProvinciaKey()); 
 
-	    Ciutats ciut = new Ciutats();
+	    CiutatItemDto ciut = new CiutatItemDto();
 	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
 	    setKeyTipus(inmoble.getTipus().getKey()); 
@@ -526,12 +548,12 @@ public class InmobleForm  implements Serializable
 		{
 			FotoForm fotoForm = new FotoForm();
 			
-			Fotos foto = (Fotos) it.next();
+			FotoItemDto foto = (FotoItemDto) it.next();
 			
-			fotoForm.setKey(foto.getKey());
-			fotoForm.setImatge(foto.getImatge());
-			fotoForm.setDescripcio(foto.getDescripcio());
-			fotoForm.setKeyInmoble(foto.getInmobles().getInmobleKey());
+			foto.setKey(foto.getKey());
+			foto.setImatge(foto.getImatge());
+			foto.setDescripcio(foto.getDescripcio());
+			foto.setKeyInmoble(foto.getInmobles().getInmobleKey());
 			
 			fotosForm.add(fotoForm);
 			
@@ -602,22 +624,13 @@ public class InmobleForm  implements Serializable
 			 
 			 if (inmoblesSolicitatsPerComprador == null) {
 				 
-	           	List<InmobleForm> inmoblesSolicitatsPerComprador = new ArrayList<InmobleForm>();
+	           	List<InmobleItemDto> inmoblesSolicitatsPerComprador = new ArrayList<InmobleItemDto>();
 	    	
-				//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-				/*Injector injector = Guice.createInjector(new BillingModule()); 
-				IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-				
+			
 				if (!compradors.isEmpty()) // en el cas inicial que no hi ha cap seleccionat
 				{
-					Iterator<?> it = inmoblesService.inmoblesSolicitatsPerUsuari(FormHBM.passarUsuariFormtoHBM(compradors.get(0))).iterator();
-						
-					while (it.hasNext())
-					{
-						Inmobles inmobleHBM = (Inmobles)it.next();
-							
-						inmoblesSolicitatsPerComprador.add(FormHBM.passarHBMtoForm(inmobleHBM));
-					}
+					inmoblesSolicitatsPerComprador = inmoblesFinder.inmoblesSolicitatsPerUsuari(new Long(1));
+										
 				}
 			 }
 		 }
@@ -629,18 +642,11 @@ public class InmobleForm  implements Serializable
   	/*
   	 * 
   	 */
-	public InmobleForm getDetallInmoble(String keyInmoble) {
-		    
-		InmobleForm inmobleForm = new InmobleForm();
+	public InmobleItemDto getDetallInmoble(String keyInmoble) {		    
 		
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-		
-		Inmobles inmoble = inmoblesService.detallInmoble(keyInmoble);
+		InmobleItemDto inmoble = inmoblesFinder.detallInmoble(keyInmoble);
 	    
-		inmobleForm =  FormHBM.passarHBMtoForm(inmoble);
-		    
-	    return inmobleForm;
+	    return inmoble;
 	      	
 	}	
   	
@@ -659,16 +665,13 @@ public class InmobleForm  implements Serializable
 		
 		Solicituds solicitud = new Solicituds();
 		
-		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
 		
 		// Construim objecte Usuari i objecte Inmoble
-		Usuaris usuari = new Usuaris();
+		UsuariItemDto usuari = new UsuariItemDto();
 		
 		usuari.setUsuariKey(compradorForm.getKey() );
 		
-		Inmobles inmoble = new Inmobles();
+		InmobleItemDto inmoble = new InmobleItemDto();
 		inmoble.setInmobleKey(keyInmoble);
 		
 		///solicitud.setInmobles(inmoble);
@@ -689,28 +692,20 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Solicitants (UserForm) d'un inmoble del venedor en sessio
 	 */
-	public List<UserForm> getSolicitantsInmobleVenedor()
+	public List<UsuariItemDto> getSolicitantsInmobleVenedor()
 	{
 		synchronized (this) { 
 			
 			if (solicitantsInmobleVenedor == null)
 			{
 			
-				List<UserForm> solicitants = new ArrayList<UserForm>();
-				
 				try
 				{	
-					Inmobles inmoble = new Inmobles();
+					InmobleItemDto inmoble = new InmobleItemDto();
 					
-					inmoble.setInmobleKey(getKey());
+					solicitantsInmobleVenedor = usuarisFinder.solicitantsInmoble(inmoble);
 					
-					/*Injector injector = Guice.createInjector(new BillingModule()); 
-					IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-					
-					List<Usuaris> usuaris = inmoblesService.solicitantsInmoble(inmoble);
-					
-					solicitants = FormHBM.passarUsuarisHBMtoForm(usuaris);
-					setSolicitantsInmobleVenedor(solicitants);
+					setSolicitantsInmobleVenedor(solicitantsInmobleVenedor);
 				}
 				catch(Exception ex)
 				{
@@ -726,8 +721,8 @@ public class InmobleForm  implements Serializable
 	
 	
 	public void setSolicitantsInmobleVenedor(
-			List<UserForm> solicitantsInmobleVenedor) {
-		this.solicitantsInmobleVenedor = solicitantsInmobleVenedor;
+			List<UsuariItemDto> solicitants) {
+		this.solicitantsInmobleVenedor = solicitants;
 	}
 
 	public void esborrarInmobles()throws Exception 
@@ -735,105 +730,27 @@ public class InmobleForm  implements Serializable
 
 		String keyInmoble = currentInmobleIndex;
 			
-		Inmobles inmoble = new Inmobles();
+		InmobleItemDto inmoble = new InmobleItemDto();
 		inmoble.setInmobleKey(keyInmoble);
 		
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-		inmoble = inmoblesService.inmoblePerKey(keyInmoble);
-		
-		
-		try {	/*-----------------------------------------------------------------------*/
-				/* Eliminem ABANS els objectes FK (ex: valors, fotos, solicituds, ...)   */
-				/*-----------------------------------------------------------------------*/
-	
-			
-				// 0.- VALORS DE LES CARACTERISTIQUES DE L'INMOBLE
-				InmobleCaract caractInmoble = inmoblesService.valorsCaracteristiquesInmoble(keyInmoble);
-				
-				Set<Key> idsCaracteristica = caractInmoble.getCaractInmobles().keySet();
-				
-				Iterator itIdsCaracteristica = idsCaracteristica.iterator();
-				while (itIdsCaracteristica.hasNext())
-				{
-					inmoblesService.eliminarValorCaract((Key)itIdsCaracteristica.next(), keyInmoble);
-				}
-		
-			
-			
-				// 1.- FOTOS
-				Iterator<?> it = inmoble.getFotoses().iterator();
-				while (it.hasNext())
-				{
-					Fotos foto = (Fotos)it.next();
-					
-					try
-					{
-						inmoblesService.eliminarFoto(foto);
-					}
-					catch (Exception ex)
-					{
-						
-					}
-				}
-			
-			
-				
-				// 2.- SOLICITUDS INMOBLE
-				it = inmoble.getSolicitudses().iterator();
-				while (it.hasNext())
-				{
-					Solicituds solicitud = (Solicituds)it.next();
-					
-					try
-					{
-						inmoblesService.eliminarSolicitud(solicitud);
-					}
-					catch (Exception ex)
-					{
-						
-					}
-				}
-			
-			
-				
-				//inmobles_app.eliminarInmoble(inmoble);
-				
-				
-				// Notificar als solicitants la seva "eliminacio" (ja no poden "pujar"/"solictar" l'inmoble)
-				
-				
-				
-				
-			
-			// modifiquem la llista
-			inmoblesVenedor.remove(currentInmobleIndex);
-		}
-		catch(Exception ex)
-		{
-			
-		}
+		inmoble = inmoblesService.esborrarInmoble(keyInmoble);
 	
 	}
 	  	
 	public void modificarInmobles()throws Exception 
-	{
-		
+	{		
 		String keyInmoble = currentInmobleIndex;
 		
 		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
 					
-		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-	/*	Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-		
+	
 		Map<Key,String> valorsCaract = inmobleSeleccionat.getCaractInmobles();
 		
 		Iterator itValorsCaract = valorsCaract.entrySet().iterator();
 		while (itValorsCaract.hasNext())
 		{
 			
-			Map.Entry<Key, String> caracteristica = (Map.Entry<Key, String>)itValorsCaract.next();
+			Map.Entry<String, String> caracteristica = (Map.Entry<String, String>)itValorsCaract.next();
 			
 			try {
 				
@@ -843,19 +760,7 @@ public class InmobleForm  implements Serializable
 			}
 			catch(Exception ex)
 			{
-				// SI DONA ERROR PER NO PODER FER UPDATE INTENTA FER INSERT
-			/*	
-				ValuesCaracteristiquesId vcId = new ValuesCaracteristiquesId();
-				vcId.setKeyinmoble(keyInmoble);
-				vcId.setKeycaracteristica(caracteristica.getKey());
 				
-				ValuesCaracteristiques vc = new ValuesCaracteristiques();
-				vc.setKey(vcId);
-				
-				vc.setValue(caracteristica.getValue() == null ? "" : String.valueOf(caracteristica.getValue()));
-				
-				r.afegirValorCaract(vc);
-				*/
 			}
 		}
 		
@@ -870,17 +775,13 @@ public class InmobleForm  implements Serializable
 	{
 		setNou(false); //
 		setModificable(false);
-		
-/*		Injector injector = Guice.createInjector(new BillingModule()); 
-		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-		
-		
-		Inmobles inmoble = new Inmobles();
+
+		InmobleItemDto inmoble = new InmobleItemDto();
 		
 		inmoble.setNom(this.getNom());
 		inmoble.setAdreca(this.getAdreca());
 		
-		Ciutats ciutat = new Ciutats();
+		CiutatItemDto ciutat = new CiutatItemDto();
 		//ciutat.setKey()
 		//inmoble.setCiutats(ciutats);
 		//inmoble.setProvincies(provincies);
@@ -937,25 +838,19 @@ public class InmobleForm  implements Serializable
 			{
 				cambiDades = false;
 								
-		    	List<InmobleCaract> listDataRow = new ArrayList<InmobleCaract>();
+		    	List<InmobleCaractItemDto> listDataRow = new ArrayList<InmobleCaractItemDto>();
 						    	
-		    	EntityManager em = EMF.lookupEntityManager();
-	
-				/*Injector injector = Guice.createInjector(new BillingModule()); 
-				IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
+	    			    	
+		    	UsuariItemDto usuari = usuarisFinder.cercarUsuari("peresan");
 		    	
-		    	/*IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
-		    			    	
-		    	Usuaris usuari = usuarisService.cercarUsuari("peresan");
-		    	
-		    	List<Inmobles> inmoblesVenedor = inmoblesService.inmoblesVenedorRang(usuari, 0, 10);
+		    	List<InmobleItemDto> inmoblesVenedor = inmoblesFinder.inmoblesVenedorRang(usuari, 0, 10);
 		        
-				Iterator<Inmobles> inmoblesVenedorIt = inmoblesVenedor.iterator();
+				Iterator<InmobleItemDto> inmoblesVenedorIt = inmoblesVenedor.iterator();
 				while (inmoblesVenedorIt.hasNext())
 				    {
-						Inmobles inmoble = inmoblesVenedorIt.next();
+						InmobleItemDto inmoble = inmoblesVenedorIt.next();
 							
-						InmobleCaract valorsCaract = inmoblesService.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
+						InmobleCaract valorsCaract = inmoblesFinder.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
 						
 						valorsCaract.setKeyInmoble(inmoble.getInmobleKey());
 						
@@ -977,50 +872,23 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Llista de inmobles publicats per un venedor
 	 */
-	public List<InmobleForm> getInmoblesVenedor() {
+	public List<InmobleItemDto> getInmoblesVenedor() {
 		
 		synchronized (this) {
-           ////// if (inmoblesVenedor == null) { // CUIDADO !!!!! COMENTAR SI VOLEM REFRESCAR EL NUMERO SOLICITUDS
-            	
+          	
 			
-				List<InmobleForm> inmoblesVenedor = new ArrayList<InmobleForm>();
+				List<InmobleItemDto> inmoblesVenedor = new ArrayList<InmobleItemDto>();
     	
-				Inmobles inmoble = null;
+				InmobleItemDto inmoble = null;
 				
 				facesContext = FacesContext.getCurrentInstance(); 
-				UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
+				UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);				
 				
-				//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-				/*Injector injector = Guice.createInjector(new BillingModule()); 
-				IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-				
-				Usuaris usuari = new Usuaris();
+				UsuariItemDto usuari = new UsuariItemDto();
 
 				usuari.setUsuariKey(userForm.getKey());
-				Iterator<?> it = inmoblesService.inmoblesVenedor(usuari).iterator();
-				
-				List<Usuaris> solicitantsInmoble = new ArrayList<Usuaris>();
-				
-				
-				// per cada inmoble del venedor
-				while (it.hasNext())
-				{
-					
-					inmoble = (Inmobles)it.next();
-					
-					// creem un nou inmobleForm corresponent al Inmobles
-					InmobleForm inmobleForm = new InmobleForm(); 
-						
-					inmobleForm = FormHBM.passarHBMtoForm(inmoble); 
-					
-					// per cada inmoble calculem el numero de solicituds
-					solicitantsInmoble = inmoblesService.solicitantsInmoble(inmoble);
-					
-					inmobleForm.setNumSol(solicitantsInmoble.size());
-					
-					inmoblesVenedor.add(inmobleForm);
-				}
-				
+				inmoblesVenedor = inmoblesFinder.inmoblesVenedor(usuari);
+	
 				
 			    setInmoblesVenedor(inmoblesVenedor);
         
@@ -1069,12 +937,12 @@ public class InmobleForm  implements Serializable
     
     
     
-	public void setInmoblesVenedor(List<InmobleForm> inmoblesVenedor) {
+	public void setInmoblesVenedor(List<InmobleItemDto> inmoblesVenedor2) {
 		this.inmoblesVenedor = inmoblesVenedor;
 	}
 
 	
-	public void setInmoblesVenedorCaract(List<InmobleCaract> inmoblesVenedorCaract) {
+	public void setInmoblesVenedorCaract(List<InmobleCaractItemDto> inmoblesVenedorCaract) {
 		this.inmoblesVenedorCaract = inmoblesVenedorCaract;
 	}
 
@@ -1233,20 +1101,16 @@ public class InmobleForm  implements Serializable
 	 * retorna tots els items (en el nostre cas inmobles)
 	 */
     public List<InventoryItem> getAllInventoryItems() {
+    	
         synchronized (this) {
+        	
             if (allInventoryItems == null) {
                 allInventoryItems = new ArrayList<InventoryItem>();
 
                 facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
         		UserForm userForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
-       
-                // tots els inmobles agrupats si cal !!!!!!!!!1
-             
-        		//Inmoble_Impl r = new Inmoble_Impl(EMF.lookupEntityManager(),Inmobles.class);
-        		/*Injector injector = Guice.createInjector(new BillingModule()); 
-        		IInmobles inmobles_app = injector.getInstance(IInmobles.class);*/
-        		
-        		Usuaris usuari = new Usuaris();
+         		
+        		UsuariItemDto usuari = new UsuariItemDto();
 
     			usuari.setUsuariKey(userForm.getKey());
         		
@@ -1557,7 +1421,7 @@ public class InmobleForm  implements Serializable
     /*
      * Per actualitza el model de dades
      */
-    void actualitzarDataModel(Key keyTipus)
+    void actualitzarDataModel(String keyTipus)
     {
     	
     	facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
@@ -1578,14 +1442,8 @@ public class InmobleForm  implements Serializable
             Tipus tipus = new Tipus();
             tipus.setKey(keyTipus);
              
+           
             
-            /*QuerysJPA qJPA= new QuerysJPA(em, Inmobles.class);
-            
-            qJPA.querySimple();
-            
-            qJPA.queryWithSingleCriteria(em, Inmobles.class, "habitacions", 2);
-            */
-          
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
@@ -1693,7 +1551,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Reconstruim les llistes DragAndDrop (caracteristiques booleanes)
 	 */
-	public void buildLlistaDragAndDrop(Key keyTipus)
+	public void buildLlistaDragAndDrop(Key key2)
 	{
 
 		facesContext = FacesContext.getCurrentInstance(); 

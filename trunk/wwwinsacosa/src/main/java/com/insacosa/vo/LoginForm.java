@@ -1,28 +1,35 @@
 package com.insacosa.vo;
 
-
-import com.google.appengine.api.datastore.Key;
+// IOC - GUICE
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+// SERVEIS APLICACIO
 import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.domain.Usuaris;
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 
 
 import javax.servlet.http.*;
 import javax.faces.context.*;
+import javax.inject.Inject;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import entitats.*;
 import guice.modules.BillingModule;
 
 
 public class LoginForm  {
 	
-	private Key key;
+	private String key;
 	private String text;
 	private String nomUsuari;
 	private String password;
@@ -30,11 +37,22 @@ public class LoginForm  {
 	
 	UsuarisAplicationService usuarisService;
 	
+    @Inject
+    private SolicitudsFinder solicitudsFinder;
+    @Inject
+    private TipusFinder tipusFinder;
+    @Inject
+    private InmoblesFinder inmoblesFinder;
+    @Inject
+    private CiutatsFinder ciutatsFinder;
+    @Inject
+    private UsuarisFinder usuarisFinder;   
+	
 
-	public Key getkey() {
+	public String getkey() {
 		return key;
 	}
-	public void setKey(Key key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 	public String getNomUsuari() {
@@ -74,22 +92,16 @@ public class LoginForm  {
 	
 	
 	public String validUser() throws Exception{
-				
-   /*		Injector injector = Guice.createInjector(new BillingModule()); 
-		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
 		Usuaris usuari = new Usuaris();
 		usuari.setNomusuari(nomUsuari);
 		
-		usuari = usuarisService.usuariValid(usuari);
+		usuari = usuarisFinder.usuariValid(usuari);
 		
 		if (usuari != null)  // existeix l'usuari ?
 		{
 			FacesContext context = FacesContext.getCurrentInstance();
 			HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
-			
-			
-			//usuari = r.cercarUsuari(nomUsuari);
 			
 			if (usuari.getPassword().equals(this.password))
 			{

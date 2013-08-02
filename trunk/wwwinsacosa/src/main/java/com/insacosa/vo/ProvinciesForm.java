@@ -1,16 +1,10 @@
 package com.insacosa.vo;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Transaction;
-import com.google.appengine.api.datastore.TransactionOptions;
+// IOC - GUICE
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.insacosa.interfaces.Inmoble_Impl;
-import com.insacosa.interfaces.Objecte;
+import guice.modules.BillingModule;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,25 +19,54 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
+import javax.inject.Inject;
+
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.ProvinciesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.utils.FilterBeanInmobles;
-import com.degloba.JPA.PersistenceService;
+import com.insacosa.webui.CiutatItemDto;
+import com.insacosa.webui.ProvinciaItemDto;
 
+
+// SERVEIS APLICACIO
 import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.ProvinciesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.*;
-import guice.modules.BillingModule;
+import com.insacosa.domain.Provincies;
+
 
 @ManagedBean(name = "provincies")
 @SessionScoped
-public class ProvinciesForm extends Objecte 
+public class ProvinciesForm 
 		implements ValueChangeListener,java.io.Serializable  {
 	
-	private List<ProvinciesForm> llista;
+	
+	
+	// FinderS (lectura)
+	//---------------------
+	 
+    @Inject
+    private SolicitudsFinder solicitudsFinder;
+    @Inject
+    private TipusFinder tipusFinder;
+    @Inject
+    private InmoblesFinder inmoblesFinder;
+    @Inject
+    private CiutatsFinder ciutatsFinder;
+    @Inject
+    private ProvinciesFinder provinciesFinder;
+    @Inject
+    private UsuarisFinder usuarisFinder;
+    
+    
+	
+	private List<ProvinciaItemDto> llista;
 	
 	private int currentProvIndex = 1; 
 	private ProvinciesForm editedProv; 
@@ -67,7 +90,9 @@ public class ProvinciesForm extends Objecte
 	//---------------------
 	
 	ProvinciesApplicationService provinciesService;
+	InmoblesApplicationService inmoblesService;
 		
+	
 	//@Override
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
@@ -82,37 +107,16 @@ public class ProvinciesForm extends Objecte
         	InmobleForm inmobleForm = (InmobleForm) context.getApplication().evaluateExpressionGet(context, "#{inmobleForm}", InmobleForm.class);
         	
         	CiutatsForm ciutatsForm = (CiutatsForm) context.getApplication().evaluateExpressionGet(context, "#{ciutats}", CiutatsForm.class);
-        	
-        	
+        	        	
         	List<SelectItem> novesCiutats = new ArrayList<SelectItem>();
-        	
-            // Get the country name and populate the pin value.
-        	Inmoble_Impl r = new Inmoble_Impl();
-        	
+       	
         	// CAL ACTUALITZAR EL COMBO DE CIUTATS EN FUNCIO DE LA PROVINCIA SELECCIONADA
 			
-    		Provincies provincia = new Provincies();
-    		provincia.setProvinciaKey(event.getNewValue().toString());
-    		provincia.setKey(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
-    		provincia.setKey(KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw"));
-    		Key parentKey = KeyFactory.stringToKey("agt3d3dpbnNhY29zYXIRCxIKUHJvdmluY2llcxigAQw");
+    		ProvinciaItemDto provincia = new ProvinciaItemDto();
+  		
+    		    		
+    		List<CiutatItemDto> ciutats = CiutatsFinder.ciutatsProvincia(provincia);
     		
-    		Ciutats ciutatHBM = new Ciutats();
-    		ciutatHBM.setKeyProv(provincia);
-			ciutatHBM.setKey(KeyFactory.createKey(parentKey, "Ciutats", "keyProv"));
-    		
-    		Iterator<Ciutats> iter = r.ciutatsProvincia(provincia).iterator();
-    		while (iter.hasNext())
-    		{
-    			
-    			ciutatHBM = (Ciutats)(iter.next());
-    			ciutatHBM.setKey(KeyFactory.createKey(parentKey, "Ciutats", "key"));
-    			
-    			SelectItem item = new SelectItem(ciutatHBM.getKey(), ciutatHBM.getName() , "", false, false);
-    			                   
-    			novesCiutats.add(item);
-    			
-    		}
     		 
     		// Modifiquem l'String corresponent a la provincia (formulari i filtre)
     		  
@@ -142,50 +146,9 @@ public class ProvinciesForm extends Objecte
 	 */
 	public List<SelectItem> getProvincies() {
 		
-		/*		
-		// Crear Entitats
-		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		//La classe PersistenceService es "ApplicationScoped"
-		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
-		
-		EntityManager em = persistenceService.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		
-		Provincies t = new Provincies();
-		t.setName("Barcelona");
-		
-		t.setCode("9");
-		em.persist(t);
-		
-		tx.commit();
-		*/
-		
-		
-		
 		List<SelectItem> list;
-		
-		if (provincies.size() == 0)
-		{
-		
-			list = new ArrayList<SelectItem>();
-			 
-			SelectItem item;
-			 
-			Iterator<Entity> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
-			while (iter.hasNext())
-				{
-				Entity provincies = (Entity)(iter.next());  
-							
-					item = new SelectItem(provincies.getKey(), provincies.getProperty("name").toString() , "", false, false);
-					
-					list.add(item); 
-				}
-				
-			}
-			else
-				list = provincies;
-		
+			
+		List<ProvinciaItemDto> provincies = ProvinciesFinder.findProvincies();
 		
 		this.setProvincies(list);  // perque no torni a carregar la segona vegada
 		
@@ -216,19 +179,15 @@ public class ProvinciesForm extends Objecte
 
 	public void insert() {
 		
-		// Construim l'objecte Hibernate
-		Provincies provincia = new Provincies();  // clase Hibernate
+		Provincies provincia = new Provincies();  
 		
 		provincia.setCode(this.getCode());
 		provincia.setName(this.getName());
 		
-/*		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
-		
-		provinciesService.createClasseApp(provincia);
+		provinciesService.createClasseApp();
 				
 		// hem d'afegir a la llista
-		ProvinciesForm prov = new ProvinciesForm();
+		ProvinciaItemDto prov = new ProvinciaItemDto();
 		
 		prov.setId(provincia.getKey());
 		prov.setName(provincia.getName());
@@ -242,12 +201,12 @@ public class ProvinciesForm extends Objecte
 	
 	public void remove() { 
 	    
-		ProvinciesForm provincia = (ProvinciesForm) this.getLlista().get(currentProvIndex);   	
+		ProvinciaItemDto provincia = (ProvinciaItemDto) this.getLlista().get(currentProvIndex);   	
 
 		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 
-		provinciesService.deleteClasseAppByKey(provincia.getId());  // esborrem de la BD
+		provinciesService.deleteClasseAppByKey(provincia.getKey());  // esborrem de la BD
 	   	
 		// cal eliminar també de la llista
 		this.llista.remove(currentProvIndex);
@@ -270,7 +229,7 @@ public class ProvinciesForm extends Objecte
 		provinciesService.updateClasseApp(provincia);
 	   	
 	   	// cal modificar el valor de la llista
-	   	ProvinciesForm prov = (ProvinciesForm) this.getLlista().get(currentProvIndex);
+		ProvinciaItemDto prov = (ProvinciaItemDto) this.getLlista().get(currentProvIndex);
   
 	   } 	  
 	  
@@ -301,45 +260,7 @@ public class ProvinciesForm extends Objecte
 		this.name = name;
 	}
 		
-	public List<ProvinciesForm> getLlista() {
-			
-		List<ProvinciesForm> provList = new ArrayList<ProvinciesForm>();
-		// Hem de construir la llista JSF a partir de la llista Hibernate
-				
-		if (this.llista == null) {
-			
-			// apliquem un criteri/condicio.En aquest cas es sobre la property "name" de l'objecte Provincies
-			Iterator<Entity> iter = this.llistaObjectes(Provincies.class, "name", "").iterator();
-			while (iter.hasNext())
-			{
-				ProvinciesForm provinciaForm = new ProvinciesForm();
-				
-				Entity provincia = (Entity)(iter.next());  // objecte Hibernate
-					
-				provinciaForm.setId(provincia.getKey());
-				provinciaForm.setCode( provincia.getProperty("Code").toString() );
-				//provinciaForm.setId( provincia.getId() );
-				provinciaForm.setName( provincia.getProperty("Name").toString() );
-						
-				provList.add(provinciaForm);
-				
-			}
-			
-			this.setLlista(provList);  // gravem la llista en memoria
-		}
-		else
-		{
-			provList = llista;
-		}
-				
-		return provList;
-			
-	}
-		
-	public void setLlista(List<ProvinciesForm> llista) {
-		this.llista = llista;
-	}
-
+	
 		
     public int getCurrentProvIndex() {         
 	   	return currentProvIndex;     

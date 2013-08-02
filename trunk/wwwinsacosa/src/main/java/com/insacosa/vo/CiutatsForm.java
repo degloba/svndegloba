@@ -1,11 +1,9 @@
 package com.insacosa.vo;
 
 
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.Key;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-//import com.insacosa.interfaces.Inmoble_Impl;
+
 import com.insacosa.interfaces.Objecte;
 
 import java.util.ArrayList;
@@ -19,15 +17,26 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
+
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.utils.FilterBeanInmobles;
+import com.insacosa.webui.CiutatItemDto;
 
 import com.degloba.JPA.PersistenceService;
+
+// SERVEIS CAPA APLICACIO
 import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.CiutatsApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.ProvinciesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.*;
+
+
 import guice.modules.BillingModule;
 
 
@@ -36,9 +45,23 @@ import guice.modules.BillingModule;
 public class CiutatsForm extends Objecte 
 	implements ValueChangeListener,java.io.Serializable {
 	
-	/**
-	 * 
-	 */
+	
+	
+	// FinderS (lectura)
+	//---------------------
+	 
+    @Inject
+    private SolicitudsFinder solicitudsFinder;
+    @Inject
+    private TipusFinder tipusFinder;
+    @Inject
+    private InmoblesFinder inmoblesFinder;
+    @Inject
+    private CiutatsFinder ciutatsFinder;
+    @Inject
+    private UsuarisFinder usuarisFinder;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	private List<CiutatsForm> llista;
@@ -87,7 +110,7 @@ public class CiutatsForm extends Objecte
     		/*Injector injector = Guice.createInjector(new BillingModule()); 
     		ICiutats ciutats_app = injector.getInstance(ICiutats.class);*/
         	
-        	Ciutats ciutat = ciutatsService.getClasseAppByKey((Key)newValue);   
+        	CiutatItemDto ciutat = ciutatsService.getClasseAppByKey(newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
     		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
@@ -101,49 +124,16 @@ public class CiutatsForm extends Objecte
 		
 	}
 	
-	
-	static PersistenceService persistenceService;
-	//static EntityManagerFactory emfInstance =  Persistence.createEntityManagerFactory("persistenceServiceSQLServer", new Properties());
-	
+		
 	/*
 	 * Pel combo de provincies
 	 */
 	public List<SelectItem> getCiutats() {
 		
-		//EntityManager emHibernateSQL = emfInstance.createEntityManager();
-		
-		//CriteriaBuilder criteriaBuilder = emHibernateSQL.getCriteriaBuilder();
-        //CriteriaQuery<Ciutats> criteriaQuery = criteriaBuilder.createQuery(Ciutats.class);
-        //Root<Ciutats> from = criteriaQuery.from(Ciutats.class);
-		//CriteriaQuery<Ciutats> select = criteriaQuery.select(from); 
-		//TypedQuery<Ciutats> typedQuery = emHibernateSQL.createQuery(select); 
-		//List<Ciutats> resultList = typedQuery.getResultList(); 
     	
-		List<SelectItem> list;
+		List<CiutatItemDto> ciutats = ciutatsFinder.findCiutats();
 		
-		if (ciutats.size() == 0)
-		{
-		
-			list = new ArrayList<SelectItem>();
-			 
-			SelectItem item;
-			 
-			Iterator<Entity> iter = this.llistaObjectes(Ciutats.class, "name", "").iterator();
-			while (iter.hasNext())
-				{
-					Entity ciutats = (Entity)(iter.next());  
-							
-					item = new SelectItem(ciutats.getKey(), ciutats.getProperty("name").toString() , "", false, false);
-					
-					list.add(item); 
-				}
-				
-			}
-			else
-				list = ciutats;
-		
-		
-		this.setCiutats(list);  // perque no torni a carregar la segona vegada
+		this.setCiutats(ciutats);  
 		
 		
 		 return list;
@@ -175,14 +165,10 @@ public class CiutatsForm extends Objecte
 	
 	public void insert(ActionEvent arg0) {
 		
-		// Construim l'objecte Hibernate
-		Ciutats ciutatHib = new Ciutats();  // clase Hibernate
+		CiutatItemDto ciutatHib = new CiutatItemDto(); 
 		
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
-		
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 				
 		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
 		
@@ -205,9 +191,6 @@ public class CiutatsForm extends Objecte
 	public void remove() { 
 	    
 		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
-    	
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		ICiutats ciutats_app = injector.getInstance(ICiutats.class);*/
 
 		ciutatsService.deleteClasseAppByKey(ciutat.getId());  // esborrem de la BD
     	
@@ -219,28 +202,27 @@ public class CiutatsForm extends Objecte
 	    
 	public void store() { 
 
-		// Construim l'objecte Hibernate
-		Ciutats ciutatHib = new Ciutats();  // clase Hibernate
+		CiutatItemDto ciutat = new CiutatItemDto();  
 		
-		ciutatHib.setKey(this.getId());
-		ciutatHib.setCode(this.getCode());
-		ciutatHib.setName(this.getName());
+		ciutat.setKey(this.getId());
+		ciutat.setCode(this.getCode());
+		ciutat.setName(this.getName());
 		
 		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 		
 		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
 		
-		ciutatHib.setKeyProv(p);
+		ciutat.setKeyProv(p);
 		
 		////	this.update(ciutatHib);
 	   	
 	   	// cal modificar el valor de la llista
 	   	CiutatsForm ciut = (CiutatsForm) this.getLlista().get(currentCiutIndex);
 
-		ciut.setCode(ciutatHib.getCode());
-		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getKeyProv().getProvinciaKey());
+		ciut.setCode(ciutat.getCode());
+		ciut.setName(ciutat.getName());
+		ciut.setKeyProv(ciutat.getKeyProv().getProvinciaKey());
 		
 	   } 	  
 	  
@@ -278,12 +260,12 @@ public class CiutatsForm extends Objecte
 		if (this.llista == null) {
 				
 			// apliquem un criteri/condicio.En aquest cas es sobre la property "name" de l'objecte ScrCiteis
-			Iterator<Entity> iter = this.llistaObjectes(Ciutats.class, "name","").iterator();
+			Iterator<CiutatItemDto> iter = this.llistaObjectes(CiutatItemDto.class, "name","").iterator();
 			while (iter.hasNext())
 			{
 				CiutatsForm ciutatForm = new CiutatsForm();
 				
-				Entity ciutat = (Entity)(iter.next());  // objecte Hibernate
+				CiutatItemDto ciutat = (CiutatItemDto)(iter.next());  // objecte Hibernate
 						
 				//ciutatForm.setId(ciutat.getProperty("Id").toString());
 				ciutatForm.setCode( ciutat.getProperty("Code").toString() );

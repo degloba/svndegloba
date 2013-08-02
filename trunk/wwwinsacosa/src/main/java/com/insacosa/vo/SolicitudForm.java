@@ -6,13 +6,11 @@ import java.util.List;
 
 import javax.faces.context.FacesContext;
 
-import com.google.appengine.api.datastore.Key;
-
 
 public class SolicitudForm implements Serializable
 
 {
-	private Key keyInmoble;
+	private String key;
   	private String nomInmoble;
   	private String comprador;
   	
@@ -67,7 +65,7 @@ public class SolicitudForm implements Serializable
 			SolicitudForm SolicitudForm = (SolicitudForm)iter.next();
 			
 			//comprovem si existeix un keyInmoble en algun element de la llista
-			int pos = cercaInmobleAllista(SolicitudForm.keyInmoble,listaSolicitudsPerInmoble);
+			int pos = cercaInmobleAllista(SolicitudForm.key,listaSolicitudsPerInmoble);
 			if (pos==0)
 				listaSolicitudsPerInmoble.add(SolicitudForm);
 			else
@@ -82,12 +80,12 @@ public class SolicitudForm implements Serializable
   	
   	
 
-	public Key getKeyInmoble() {
-		return keyInmoble;
+	public String getKey() {
+		return key;
 	}
 
-	public void setKeyInmoble(Key keyInmoble) {
-		this.keyInmoble = keyInmoble;
+	public void setKey(String key) {
+		this.key = key;
 	}
 
 	public String getNomInmoble() {
@@ -142,7 +140,7 @@ public class SolicitudForm implements Serializable
  * retorna la posicio dins la llista
  * 0 si no existeix	
  */
-	private Integer cercaInmobleAllista(Key key, List<SolicitudForm> llista)
+	private Integer cercaInmobleAllista(String key, List<SolicitudForm> llista)
 	{
 		
 		Iterator iter = llista.iterator();
@@ -152,7 +150,7 @@ public class SolicitudForm implements Serializable
 		{
 			SolicitudForm objecte = (SolicitudForm)iter.next();
 			
-			if (objecte.getKeyInmoble() == key)
+			if (objecte.getKey() == key)
 				return i; 
 		}
 		
