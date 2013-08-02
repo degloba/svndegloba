@@ -18,17 +18,21 @@ import query.annotations.Finder;
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.Solicituds;
 import com.insacosa.domain.Tipus;
+import com.insacosa.domain.Usuaris;
 import com.insacosa.presentation.SolicitudsListItemDto;
 import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 
 import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.webui.InmobleItemDto;
+import com.insacosa.webui.UsuariItemDto;
 
 /**
  * @author Rafał Jamróz
  */
 @Finder
-public class JpaTipusFinder implements TipusFinder {
+public class JpaUsuarisFinder implements UsuarisFinder {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -50,44 +54,33 @@ public class JpaTipusFinder implements TipusFinder {
 
 
 	@Override
-	public List<TipusDto> findTipus() {
+	public List<UsuariItemDto> findUsuaris() {
 		Query query = entityManager
-                .createQuery("select new com.insacosa.presentation.SolicitudsListItemDto("
-                        + "o.id, o.totalCost, o.submitDate, o.status) from Tipus o");
+                .createQuery("select new com.insacosa.presentation.UsuarisItemDto("
+                        + "o.id, o.totalCost, o.submitDate, o.status) from Usuaris o");
         return query.getResultList();
+	}
+
+	@Override
+	public List<UsuariItemDto> solicitantsInmoble(InmobleItemDto inmoble) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UsuariItemDto cercarUsuari(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuaris usuariValid(Usuaris usuari) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
    
 	
-	@Override
-	public TipusDto tipusInmoble(String keyInmoble) {
-		
-		TipusDto ret = null;
-		
-		
-		try {  
-			
-			CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-	        CriteriaQuery<Tipus> q = cb.createQuery(Tipus.class);
-	        Root<Inmobles> root = q.from(Inmobles.class);
-	        
-	        Path<String> path = root.get("id"); 
-	        Predicate p = cb.equal(path, keyInmoble);
-	        q.where(p);
-	        
-	        Selection<Tipus> s = root.get("Tipus");
-	        q.select(s);
-					
-			TypedQuery<Tipus> tq = entityManager.createQuery(q);
-			//ret = tq.getSingleResult();
-			
-			}
-		finally {
-		    //em.close();
-		}
-		
-		return ret;
-		
-	}
+	
     
 }

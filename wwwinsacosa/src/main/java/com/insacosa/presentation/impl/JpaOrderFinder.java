@@ -39,7 +39,7 @@ public class JpaOrderFinder implements OrderFinder {
     @SuppressWarnings("unchecked")
     public List<ClientOrderListItemDto> findOrders() {
         Query query = entityManager
-                .createQuery("select new sales.presentation.ClientOrderListItemDto("
+                .createQuery("select new com.insacosa.presentation.ClientOrderListItemDto("
                         + "o.id, o.totalCost, o.submitDate, o.status) from Order o");
         return query.getResultList();
     }
