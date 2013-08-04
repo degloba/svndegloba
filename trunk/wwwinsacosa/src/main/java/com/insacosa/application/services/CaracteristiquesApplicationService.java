@@ -1,8 +1,16 @@
 package com.insacosa.application.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 
 import ddd.application.ApplicationEventPublisher;
@@ -38,33 +46,5 @@ public class CaracteristiquesApplicationService extends BaseApplicationService
     private ApplicationEventPublisher eventPublisher;
 
 
-
-	public List<Caracteristiques> caractTipus(Tipus tipus) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio, Boolean inclouCaractComu) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Caracteristiques caractPerKey(String idCaract) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Caracteristiques> allCaract() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Caracteristiques caracteristicaCaractInmoble(
-			Caractinmobles caractinmoble) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 
 }
