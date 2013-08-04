@@ -87,9 +87,14 @@ import com.insacosa.application.services.UsuarisAplicationService;
 import com.insacosa.dataModels_JPA.JPADataModel;
 
 import com.insacosa.domain.Caracteristiques;
+import com.insacosa.domain.Ciutats;
+import com.insacosa.domain.Fotos;
 import com.insacosa.domain.InmobleCaract;
 import com.insacosa.domain.Inmobles;
+import com.insacosa.domain.Provincies;
+import com.insacosa.domain.Solicituds;
 import com.insacosa.domain.Tipus;
+import com.insacosa.domain.Usuaris;
 import com.insacosa.domain.ValuesCaracteristiques;
 import com.insacosa.dragdrop.DragDropBeanCaract;
 
@@ -113,7 +118,9 @@ public class InmobleForm  implements Serializable
     @Inject
     private CiutatsFinder ciutatsFinder;
     @Inject
-    private UsuarisFinder usuarisFinder;    
+    private UsuarisFinder usuarisFinder;   
+    @Inject
+    private CaracteristiquesFinder caracteristiquesFinder;
 
     
     
@@ -169,9 +176,9 @@ public class InmobleForm  implements Serializable
 	private List<InmobleForm> inmoblesBuscats = new ArrayList<InmobleForm>();
 	private List<InmobleItemDto> inmoblesVenedor; // inicialitzo a null
 	private List<InmobleCaractItemDto> inmoblesVenedorCaract = new ArrayList<InmobleCaractItemDto>(); // inicialitzo 
-	private List<InmobleForm> inmoblesSolicitatsPerComprador; // inmobles solicitats per un possible comprador
+	private List<Inmobles> inmoblesSolicitatsPerComprador; // inmobles solicitats per un possible comprador
 	private List<UserForm> compradors = new ArrayList<UserForm>(); // llista de compradors/solicitants de l'inmoble
-	private List<UsuariItemDto> solicitantsInmobleVenedor = new ArrayList<UsuariItemDto>();
+	private List<Usuaris> solicitantsInmobleVenedor = new ArrayList<Usuaris>();
 	
 	
 	/*----------------------------------------------------*/
@@ -375,7 +382,7 @@ public class InmobleForm  implements Serializable
 		    //tipus.setKey(keyTipus);
 		    tipus.setKey(keyTipus);
 		    
-		    List<Caracteristiques> lc = caracteristiquesService.caractTipus(tipus,1, true);
+		    List<Caracteristiques> lc = caracteristiquesFinder.caractTipus(tipus,1, true);
 		 
 			
 			UIDataTable datatable = HtmlDinamic.buildDatatableFS(
@@ -409,14 +416,11 @@ public class InmobleForm  implements Serializable
 		// la primera vegada dins el HtmlPanelGroup no hi ha cap datatable i per tant la construim
 		if (containerHtmlDataTableVenedor.getChildren().isEmpty())   
 		{	
-			
-			/*Injector injector = Guice.createInjector(new BillingModule()); 
-			ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);*/
 			 
 		    Tipus tipus = new Tipus();
 		    tipus.setKey(keyTipus);
 		    
-		    List<Caracteristiques> lc = caracteristiquesService.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
+		    List<Caracteristiques> lc = caracteristiquesFinder.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
 		    
 			UIDataTable datatable = HtmlDinamic.buildDatatable(
 							"dyn_taulaInmoblesVenedor",
@@ -504,13 +508,9 @@ public class InmobleForm  implements Serializable
 		setNou(true);
 		setModificable(true);
 
-		facesContext = FacesContext.getCurrentInstance(); 
-		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
-		
-		String keyInmoble = inmobleForm.getKey();
+		String keyInmoble = getKey();
 
-
-		InmobleItemDto inmoble = inmoblesFinder.detallInmoble(keyInmoble);
+		Inmobles inmoble = inmoblesFinder.detallInmoble(keyInmoble);
 		
 		// Assignem els valors del formulari (inmoble)
 		setKey(inmoble.getInmobleKey());
@@ -520,7 +520,7 @@ public class InmobleForm  implements Serializable
 	    Provincies prov = new Provincies();
 	    prov.setProvinciaKey(inmoble.getProvincies().getProvinciaKey()); 
 
-	    CiutatItemDto ciut = new CiutatItemDto();
+	    Ciutats ciut = new Ciutats();
 	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
 	    setKeyTipus(inmoble.getTipus().getKey()); 
@@ -548,7 +548,7 @@ public class InmobleForm  implements Serializable
 		{
 			FotoForm fotoForm = new FotoForm();
 			
-			FotoItemDto foto = (FotoItemDto) it.next();
+			Fotos foto = (Fotos) it.next();
 			
 			foto.setKey(foto.getKey());
 			foto.setImatge(foto.getImatge());
@@ -581,8 +581,6 @@ public class InmobleForm  implements Serializable
 		
 		dragDropBean.getTarget().clear();
 		cambiaCaracteristiquesNoSel(inmobleForm.getKeyTipus()); // inicialitzo la llista en funcio del tipus d'inmoble
-		
-		/////////passarCaracteristiquesHBMtoForm(new ArrayList<Caracteristiques>(caracteristiquesInmoble));
 		
 		it = caracteristiquesInmoble.iterator();
 		while (it.hasNext())
@@ -618,15 +616,14 @@ public class InmobleForm  implements Serializable
 	/*
 	 * llista tots els inmobles solicitats per un determinat comprador (mirar LOPD)
 	 */
-	public List<InmobleForm> getInmoblesSolicitatsPerComprador()throws Exception
+	public List<Inmobles> getInmoblesSolicitatsPerComprador()throws Exception
 	{
 		 synchronized (this) {
 			 
 			 if (inmoblesSolicitatsPerComprador == null) {
 				 
-	           	List<InmobleItemDto> inmoblesSolicitatsPerComprador = new ArrayList<InmobleItemDto>();
-	    	
-			
+	           	List<Inmobles> inmoblesSolicitatsPerComprador = new ArrayList<Inmobles>();
+	    				
 				if (!compradors.isEmpty()) // en el cas inicial que no hi ha cap seleccionat
 				{
 					inmoblesSolicitatsPerComprador = inmoblesFinder.inmoblesSolicitatsPerUsuari(new Long(1));
@@ -642,9 +639,9 @@ public class InmobleForm  implements Serializable
   	/*
   	 * 
   	 */
-	public InmobleItemDto getDetallInmoble(String keyInmoble) {		    
+	public Inmobles getDetallInmoble(String keyInmoble) {		    
 		
-		InmobleItemDto inmoble = inmoblesFinder.detallInmoble(keyInmoble);
+		Inmobles inmoble = inmoblesFinder.detallInmoble(keyInmoble);
 	    
 	    return inmoble;
 	      	
@@ -656,28 +653,24 @@ public class InmobleForm  implements Serializable
 	public void solicitarInmobles()
 	{
 		// Recuperem l'usuari (comprador) de sessio
-		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
+		facesContext = FacesContext.getCurrentInstance(); 
 		UserForm compradorForm = (UserForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{userForm}", UserForm.class);
 		
 		String keyInmoble = currentInmobleIndex;
 		
-		InmobleCaract inmobleSeleccionat = currentInmobleCaract;
-		
 		Solicituds solicitud = new Solicituds();
-		
-		
+				
 		// Construim objecte Usuari i objecte Inmoble
-		UsuariItemDto usuari = new UsuariItemDto();
+		Usuaris usuari = new Usuaris();
 		
 		usuari.setUsuariKey(compradorForm.getKey() );
 		
-		InmobleItemDto inmoble = new InmobleItemDto();
+		Inmobles inmoble = new Inmobles();
 		inmoble.setInmobleKey(keyInmoble);
 		
-		///solicitud.setInmobles(inmoble);
-		//UsuariKey h = solicitud.getUsuari();
-		//h.add(usuari.getUsuariKey());
-		//licitud.setUsuariKey(h);
+		solicitud.setInmoble(inmoble);
+		solicitud.setUsuari(usuari);
+		
 		inmoblesService.solicitarInmobles(solicitud);
 		
 		
@@ -692,7 +685,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Solicitants (UserForm) d'un inmoble del venedor en sessio
 	 */
-	public List<UsuariItemDto> getSolicitantsInmobleVenedor()
+	public List<Usuaris> getSolicitantsInmobleVenedor()
 	{
 		synchronized (this) { 
 			
@@ -701,7 +694,7 @@ public class InmobleForm  implements Serializable
 			
 				try
 				{	
-					InmobleItemDto inmoble = new InmobleItemDto();
+					Inmobles inmoble = new Inmobles();
 					
 					solicitantsInmobleVenedor = usuarisFinder.solicitantsInmoble(inmoble);
 					
@@ -721,8 +714,8 @@ public class InmobleForm  implements Serializable
 	
 	
 	public void setSolicitantsInmobleVenedor(
-			List<UsuariItemDto> solicitants) {
-		this.solicitantsInmobleVenedor = solicitants;
+			List<Usuaris> solicitantsInmobleVenedor2) {
+		this.solicitantsInmobleVenedor = solicitantsInmobleVenedor2;
 	}
 
 	public void esborrarInmobles()throws Exception 
@@ -765,7 +758,7 @@ public class InmobleForm  implements Serializable
 		}
 		
 		
-		/////r.modificarInmoble(inmoble);
+		inmoblesService.modificarInmoble(inmoble);
 		
 		/////////getInmoblesVenedor().set(currentInmobleIndex, this);
 		
@@ -773,15 +766,15 @@ public class InmobleForm  implements Serializable
 	  	
 	public String afegirInmoble() 
 	{
-		setNou(false); //
+		setNou(false); 
 		setModificable(false);
 
-		InmobleItemDto inmoble = new InmobleItemDto();
+		Inmobles inmoble = new Inmobles();
 		
 		inmoble.setNom(this.getNom());
 		inmoble.setAdreca(this.getAdreca());
 		
-		CiutatItemDto ciutat = new CiutatItemDto();
+		Ciutats ciutat = new Ciutats();
 		//ciutat.setKey()
 		//inmoble.setCiutats(ciutats);
 		//inmoble.setProvincies(provincies);
@@ -826,46 +819,6 @@ public class InmobleForm  implements Serializable
 	}
 
 	
-	/*
-	 * Construim les files de la datatable que son una llista d'objectes InmobleCaract
-	 */
-	public List<InmobleCaract> getInmoblesVenedorCaract()
-    {
-
-		synchronized (this) { 
-		
-			if (inmoblesVenedorCaract.isEmpty() || cambiDades)  // ES CAMBIA LES DADES SI CAMBIEM EL TIPUS
-			{
-				cambiDades = false;
-								
-		    	List<InmobleCaractItemDto> listDataRow = new ArrayList<InmobleCaractItemDto>();
-						    	
-	    			    	
-		    	UsuariItemDto usuari = usuarisFinder.cercarUsuari("peresan");
-		    	
-		    	List<InmobleItemDto> inmoblesVenedor = inmoblesFinder.inmoblesVenedorRang(usuari, 0, 10);
-		        
-				Iterator<InmobleItemDto> inmoblesVenedorIt = inmoblesVenedor.iterator();
-				while (inmoblesVenedorIt.hasNext())
-				    {
-						InmobleItemDto inmoble = inmoblesVenedorIt.next();
-							
-						InmobleCaract valorsCaract = inmoblesFinder.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
-						
-						valorsCaract.setKeyInmoble(inmoble.getInmobleKey());
-						
-						listDataRow.add(valorsCaract);
-				    }
-		    	
-		    	
-				inmoblesVenedorCaract = listDataRow;
-				
-			}
-		}
-		
-		return inmoblesVenedorCaract;
-    	 
-    }
 	
 	
 	
@@ -948,7 +901,7 @@ public class InmobleForm  implements Serializable
 
 
 	public void setInmoblesSolicitatsPerComprador(
-			List<InmobleForm> inmoblesSolicitatsPerComprador) {
+			List<Inmobles> inmoblesSolicitatsPerComprador) {
 		this.inmoblesSolicitatsPerComprador = inmoblesSolicitatsPerComprador;
 	}
 
@@ -1283,7 +1236,7 @@ public class InmobleForm  implements Serializable
 		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);*/
 		
-		List<Caracteristiques> caracteristiques = caracteristiquesService.caractTipus(tipus);
+		List<Caracteristiques> caracteristiques = caracteristiquesFinder.caractTipus(tipus);
 		
 		return FormHBM.passarCaracteristiquesHBMtoForm(caracteristiques);
 		
@@ -1344,7 +1297,7 @@ public class InmobleForm  implements Serializable
 		//tipus.setKey(keyTipus);
 		tipus.setKey(keyTipus);
 	
-		List<Caracteristiques> c = caracteristiquesService.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
+		List<Caracteristiques> c = caracteristiquesFinder.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
 		
 		// en funcio del tipus(varchar,select,...) del Tipus construim el formulari
@@ -1474,7 +1427,7 @@ public class InmobleForm  implements Serializable
 		Tipus tipus = new Tipus();
 		tipus.setKey(keyTipus);
 		
-		Iterator<Caracteristiques> iter = caracteristiquesService.caractTipus(tipus, 0, false).iterator();
+		Iterator<Caracteristiques> iter = caracteristiquesFinder.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
 		{
 			Caracteristiques caracteristica = (Caracteristiques)(iter.next());
@@ -1563,7 +1516,7 @@ public class InmobleForm  implements Serializable
 		Tipus tipus = new Tipus(); 
 		/*tipus.setKey(keyTipus == null ? 1 : keyTipus); // cuidado*/
 		
-		List<Caracteristiques> novaLlista = caracteristiquesService.caractTipus(tipus, 0, false);  // 0 = caracteristiques booleanes
+		List<Caracteristiques> novaLlista = caracteristiquesFinder.caractTipus(tipus, 0, false);  // 0 = caracteristiques booleanes
 		dragDropBean.reset(novaLlista);  
 		
 		dragDropBean.getSource().clear();

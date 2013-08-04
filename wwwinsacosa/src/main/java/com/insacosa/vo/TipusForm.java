@@ -21,12 +21,18 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
 
 import org.richfaces.component.UIDataTable;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.utils.HtmlDinamic;
 
 import entitats.*;
@@ -35,6 +41,21 @@ import entitats.*;
 @SessionScoped
 public class TipusForm 
 	implements ValueChangeListener, Serializable{
+	
+		// FinderS (lectura)
+		//---------------------
+		 
+	    @Inject
+	    private SolicitudsFinder solicitudsFinder;
+	    @Inject
+	    private TipusFinder tipusFinder;
+	    @Inject
+	    private InmoblesFinder inmoblesFinder;
+	    @Inject
+	    private CiutatsFinder ciutatsFinder;
+	    @Inject
+	    private UsuarisFinder usuarisFinder;
+	    
 	
 	private Key key;  //PIS
 	private String nom;
@@ -115,12 +136,11 @@ public class TipusForm
 		// O A LA PAGINA DE CERCAR INMOBLES
 		
 		// calculem la nova llista d'inmobles venedor
-		//Caracteristiques_Impl r = new Caracteristiques_Impl(EMF.lookupEntityManager(),Caracteristiques.class);
 		 
 	    Tipus tipus = new Tipus();
 	    tipus.setKey((Key)event.getNewValue());
 	    
-	    List<Caracteristiques> lc = caracteristiquesService.caractTipus(tipus,1, false);
+	    List<Caracteristiques> lc = tipusFinder.caractTipus(tipus,1, false);
 	    
 	    
 		if (inmobleForm.isCercable())

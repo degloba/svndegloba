@@ -1,6 +1,7 @@
 package com.insacosa.vo;
 
 
+import com.google.appengine.api.datastore.Key;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -35,6 +36,10 @@ import com.insacosa.application.services.CiutatsApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.ProvinciesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.domain.Ciutats;
+import com.insacosa.domain.Provincies;
+
+import ddd.domain.BaseEntity;
 
 
 import guice.modules.BillingModule;
@@ -42,7 +47,7 @@ import guice.modules.BillingModule;
 
 @ManagedBean(name = "ciutats")
 @SessionScoped
-public class CiutatsForm extends Objecte 
+public class CiutatsForm 
 	implements ValueChangeListener,java.io.Serializable {
 	
 	
@@ -71,7 +76,7 @@ public class CiutatsForm extends Objecte
 	private int page = 1; 
 	
 	// Columnes de taula
-	private String key;
+	private Key key;
 	private String code;
 	private String name;
 	private String keyProv;
@@ -95,7 +100,6 @@ public class CiutatsForm extends Objecte
 
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
-		// TODO Auto-generated method stub
 		
 		Object oldValue = event.getOldValue();
         Object newValue = event.getNewValue();
@@ -106,11 +110,8 @@ public class CiutatsForm extends Objecte
         	InmobleForm inmobleForm = (InmobleForm) context.getApplication().evaluateExpressionGet(context, "#{inmobleForm}", InmobleForm.class);
 
         	FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
- 
-    		/*Injector injector = Guice.createInjector(new BillingModule()); 
-    		ICiutats ciutats_app = injector.getInstance(ICiutats.class);*/
-        	
-        	CiutatItemDto ciutat = ciutatsService.getClasseAppByKey(newValue);   
+       	
+        	Ciutats ciutat = ciutatsService.getClasseAppByKey((Key) newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
     		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
@@ -126,12 +127,12 @@ public class CiutatsForm extends Objecte
 	
 		
 	/*
-	 * Pel combo de provincies
+	 * Combo de provincies
 	 */
 	public List<SelectItem> getCiutats() {
 		
     	
-		List<CiutatItemDto> ciutats = ciutatsFinder.findCiutats();
+		List<Ciutats> ciutats = ciutatsFinder.findCiutats();
 		
 		this.setCiutats(ciutats);  
 		
@@ -170,18 +171,11 @@ public class CiutatsForm extends Objecte
 		ciutatHib.setCode(this.getCode());
 		ciutatHib.setName(this.getName());
 				
-		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
+		Provincies p = provinciesService.getClasseAppByKey(this.getKey()); 
 		
 		ciutatHib.setKeyProv(p);
 		
-		
-		// hem d'afegir a la llista
-		CiutatsForm ciut = new CiutatsForm();
-		
-		ciut.setId(ciutatHib.getKey());
-		ciut.setCode(ciutatHib.getCode());
-		ciut.setName(ciutatHib.getName());
-		ciut.setKeyProv(ciutatHib.getKeyProv().getProvinciaKey());
+
 		
 		llista.add(ciut);
 		
@@ -192,7 +186,7 @@ public class CiutatsForm extends Objecte
 	    
 		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
 
-		ciutatsService.deleteClasseAppByKey(ciutat.getId());  // esborrem de la BD
+		ciutatsService.deleteClasseAppByKey(ciutat.getKey());  // esborrem de la BD
     	
     	
 		// cal eliminar també de la llista
@@ -202,20 +196,19 @@ public class CiutatsForm extends Objecte
 	    
 	public void store() { 
 
-		CiutatItemDto ciutat = new CiutatItemDto();  
+		Ciutats ciutat = new Ciutats();  
 		
-		ciutat.setKey(this.getId());
+		ciutat.setKey(this.getKey());
 		ciutat.setCode(this.getCode());
 		ciutat.setName(this.getName());
 		
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
 		
-		Provincies p = provinciesService.getClasseAppByKey(this.getId()); 
+		BaseEntity p = provinciesService.getClasseAppByKey(this.getKey()); 
+		
 		
 		ciutat.setKeyProv(p);
 		
-		////	this.update(ciutatHib);
+		ciutatsService.createClasseApp();
 	   	
 	   	// cal modificar el valor de la llista
 	   	CiutatsForm ciut = (CiutatsForm) this.getLlista().get(currentCiutIndex);
@@ -228,11 +221,11 @@ public class CiutatsForm extends Objecte
 	  
 	  
 	// getters/setters
-	public String getKey() {
+	public Key getKey() {
 		return key;
 	}
 
-	public void setKey(String key) {
+	public void setKey(Key key) {
 		this.key = key;
 	}
 
