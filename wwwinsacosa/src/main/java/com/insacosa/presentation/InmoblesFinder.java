@@ -4,6 +4,8 @@ import java.util.List;
 
 
 import com.insacosa.domain.InmobleCaract;
+import com.insacosa.domain.Inmobles;
+import com.insacosa.domain.Usuaris;
 import com.insacosa.vo.FotoForm;
 import com.insacosa.webui.InmobleItemDto;
 import com.insacosa.webui.UsuariItemDto;
@@ -14,14 +16,20 @@ public interface InmoblesFinder {
 
 	List<InmobleItemDto> findInmobles();
 
-	List<InmobleItemDto> inmoblesSolicitatsPerUsuari(Long usuariId);
+	List<Inmobles> inmoblesSolicitatsPerUsuari(Long usuariId);
 
-	InmobleItemDto detallInmoble(String keyInmoble);
+	Inmobles detallInmoble(String keyInmoble);
 
 	List<InmobleItemDto> inmoblesVenedorRang(UsuariItemDto usuari, int i, int j);
 
 	InmobleCaract valorsCaracteristiquesInmoble(Object inmobleKey);
 
 	List<InmobleItemDto> inmoblesVenedor(UsuariItemDto usuari);
+
+	List<Inmobles> buscarInmobles(Inmobles condicioInmoble);
+
+	Inmobles inmoblePerKey(String keyInmoble);
+
+	List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor);
     
 }
