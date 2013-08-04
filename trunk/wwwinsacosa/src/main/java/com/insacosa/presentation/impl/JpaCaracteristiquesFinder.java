@@ -317,5 +317,11 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 
 	}
 
+	@Override
+	public List<Caracteristiques> caractTipus(Tipus tipus) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
     
 }
