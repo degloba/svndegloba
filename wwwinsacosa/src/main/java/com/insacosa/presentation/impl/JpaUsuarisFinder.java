@@ -1,8 +1,10 @@
 package com.insacosa.presentation.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -61,11 +63,6 @@ public class JpaUsuarisFinder implements UsuarisFinder {
         return query.getResultList();
 	}
 
-	@Override
-	public List<UsuariItemDto> solicitantsInmoble(InmobleItemDto inmoble) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public UsuariItemDto cercarUsuari(String string) {
@@ -79,8 +76,61 @@ public class JpaUsuarisFinder implements UsuarisFinder {
 		return null;
 	}
 
-   
-	
-	
+	@Override
+	public List<Usuaris> solicitantsInmoble(Inmobles inmoble) {
+		
+		
+		List<Usuaris> nomsUsuaris = new ArrayList<Usuaris>();
+		List<Usuaris> ret = new ArrayList<Usuaris>();
+		
+		EntityTransaction tx = entityManager.getTransaction();
+		
+		try {      
+			
+			/*
+			//Noms Usuaris solicitants d'un determinat inmoble
+			String hql = "select usuaris.nomusuari from Solicituds where inmobles = :inmoble";
+			Query query = session.createQuery(hql);
+			query.setEntity("inmoble", inmoble); 
+			
+			nomsUsuaris = query.list();
+			
+			if (!nomsUsuaris.isEmpty())
+			{
+				hql = "from Usuaris where nomusuari in (:names)";
+				query = session.createQuery(hql); 
+				query.setParameterList("names", nomsUsuaris);
+				ret = query.list();
+			}
+			*/
+			
+			
+			
+			CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Usuaris> crit = cb.createQuery(Usuaris.class);
+			Root<Usuaris> candidateRoot = crit.from(Usuaris.class);
+			candidateRoot.alias("p");
+
+			crit.select(candidateRoot);
+			
+			
+			
+			
+			
+			tx.commit();    
+			 
+		} catch (RuntimeException e) {
+		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    throw e; // or display error message
+		}
+		finally {
+		    //em.close();
+		}
+		
+		return ret;
+		
+	}
+
+
     
 }

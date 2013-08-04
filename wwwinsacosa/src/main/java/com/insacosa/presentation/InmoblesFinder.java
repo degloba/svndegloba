@@ -3,6 +3,7 @@ package com.insacosa.presentation;
 import java.util.List;
 
 
+import com.google.appengine.api.datastore.Key;
 import com.insacosa.domain.InmobleCaract;
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.Usuaris;
@@ -31,5 +32,15 @@ public interface InmoblesFinder {
 	Inmobles inmoblePerKey(String keyInmoble);
 
 	List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor);
+
+	List<Inmobles> inmoblesVenedor(Usuaris usuari);
+
+	List<InmobleCaract> getInmoblesVenedorCaract();
+
+	List<Inmobles> inmoblesTipus();
+
+	String tipusColumnaCaract(String propertyName);
+
+	String tipusColumnaCaract(Key idCaract);
     
 }
