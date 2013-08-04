@@ -28,26 +28,9 @@ import com.degloba.JPA.PersistenceService;
 import com.insacosa.domain.*;
 
 
-public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements Inmoble_If {
+public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 
-	static PersistenceService persistenceService;
 	
-	public Inmoble_Impl() {
-		super();
-		// TODO Auto-generated constructor stub
-		
-		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-		
-		//La classe PersistenceService es "ApplicationScoped"
-		persistenceService = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{persistenceService}", PersistenceService.class);
-	
-	}
-	
-	public Inmoble_Impl(EntityManager entityManager, Class<Inmobles> entityClass) {
-		super(entityManager, entityClass);		
-	}
-	
-
 	
 	public Objecte objectePerKey(Key key) {
 		
@@ -73,24 +56,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements In
 
 
 	
-	public Inmobles inmoblePerKey(String keyInmoble) {
-		
-		Inmobles inmoble = null;
-		  
-		EntityManager em = this.getEntityManager();
-		
-		try {      
-				inmoble = em.find( Inmobles.class, keyInmoble);
-			} 
-		catch (RuntimeException e) {
-			    throw e; // or display error message
-		}
-		finally {
-			    //em.close();
-		}   
 	
-		return inmoble;  
-	}
 	
 	
 
@@ -179,67 +145,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements In
 	
 
 	
-	public List<Inmobles> buscarInmobles(Inmobles condicioInmoble) {
-		
-		/*
-		Inmobles inmoble = new Inmobles();
-		Example example = Example.create(inmoble)
-		    .excludeZeroes()           //exclude zero valued properties
-		    //.excludeProperty("color")  //exclude the property named "color"
-		    .ignoreCase()              //perform case insensitive string comparisons
-		    .enableLike();             //use like for string comparisons
-		
-		*/
-		List<Inmobles> ret = new ArrayList<Inmobles>();
-		
-		EntityManager em = this.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		  
-		try {      
-
 	
-			/*	
-				ret = session.createCriteria(Inmobles.class)
-					.add(Restrictions.like("nom", "%" + condicioInmoble.getNom() + "%"))
-					.add(Restrictions.like("adreca", "%" + condicioInmoble.getAdreca() + "%"))
-					///////.add(Restrictions.like("puerta", "%" + condicioInmoble.getPuerta() + "%"))
-					.add(Expression.eq("tipus",condicioInmoble.getTipus()))
-					.add(example)
-					.createCriteria("ciutats","ciutat")
-					.add(Expression.eq("ciutat.id",condicioInmoble.getCiutats().getId()))
-					.add(Expression.eq("ciutat.idProv",condicioInmoble.getCiutats().getIdProv()))	
-					.list();
-					
-				Iterator<Inmobles> it = ret.iterator();
-					
-				while (it.hasNext())
-					{
-						inmoble = it.next();
-						
-						inmoble.getFotoses().size(); // will make hibernate initialize the collection for you instead of the proxy
-						inmoble.getSolicitudses().size(); // will make hibernate initialize the collection for you instead of the proxy
-						inmoble.getCiutats().getInmobleses().size(); // will make hibernate initialize the collection for you instead of the proxy
-						inmoble.getProvincies().getInmobleses().size(); // will make hibernate initialize the collection for you instead of the proxy
-						inmoble.getTipus().getInmobleses().size(); // will make hibernate initialize the collection for you instead of the proxy
-						inmoble.getCaracteristiqueses().size();  // will make hibernate initialize the collection for you instead of the proxy
-					}
-				*/	
-				tx.commit();    
-				 
-		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		 
-			  
-		
-		return ret;
-	}
-
 		
 	public Inmobles detallInmoble(String keyInmoble) {
 		
@@ -285,165 +191,12 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements In
 
 	
 	
-	public List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor) {
-		
-		List<Inmobles> ret = new ArrayList<Inmobles>();
-		
-		EntityManager em = this.getEntityManager();
-		  
-		try {   
-	
-				// JPA Criteria API	
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				
-				CriteriaQuery<Inmobles> cq = cb.createQuery(Inmobles.class);
-		        Root<Inmobles> inmobles = cq.from(Inmobles.class);
-		        
-		        /////ret = (List<Inmobles>) cq.select(inmobles);
-		        
-		        
-		        //
-		        TypedQuery<Inmobles> tq = em.createQuery(cq);
-		        ret = tq.getResultList();
-
-			 
-		} catch (RuntimeException e) {
-
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		
-		return ret;
-		
-	}
-	
-	
-	
-	public List<Inmobles> inmoblesSolicitatsPerUsuari(Usuaris usuariComprador) {
-		
-		List<Inmobles> ret = new ArrayList<Inmobles>();
-		  
-		EntityManager em = this.getEntityManager();
-
-		try {      
-
-			/*
-			Criteria criteria = session.createCriteria(Solicituds.class)
-				.setProjection(Projections.property("inmobles"))
-				.add(Expression.eq("usuaris",usuariComprador))
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-			
-			ret = criteria.list();
-			
-			Iterator<Inmobles> it = ret.iterator();
-			
-			while (it.hasNext())
-			{
-				Inmobles inmoble = it.next();
-				
-				}
-			
-		*/
-			
-	   
-			
-			 
-		} catch (RuntimeException e) {
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}	
-		return ret;
-		
-	}
 	
 	
 	
 	
-	public List<Inmobles> inmoblesVenedorRang(Usuaris usuari, int firstResult, int maxResults) {
-
-		List<Inmobles> ret = new ArrayList<Inmobles>();
-		
-		EntityManager em = this.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		  
-		try {      
-			
-				/*
-				criteria = session.createCriteria(Inmobles.class)
-					.add(Expression.eq("usuaris",usuari));
-				
-				criteria.setFirstResult(firstResult);
-				criteria.setMaxResults(maxResults);
-				
-				ret = criteria.list();
-				
-				Iterator<Inmobles> it = ret.iterator();
-				
-				while (it.hasNext())
-				{
-					Inmobles inmoble = it.next();
-					
-						
-				}
-				
-			*/
-			tx.commit();    
-			 
-		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		return ret;
-		
-	}
 	
 	
-
-	
-	public List<Inmobles> inmoblesVenedor(Usuaris usuari) {
-
-		List<Inmobles> ret = new ArrayList<Inmobles>();
-		  
-		EntityManager em = this.getEntityManager();
-		
-		try {      
-				
-			// JPA Criteria API	
-			CriteriaBuilder cb = em.getCriteriaBuilder();
-			
-			CriteriaQuery<Inmobles> cq = cb.createQuery(Inmobles.class);
-	        Root<Inmobles> inmobles = cq.from(Inmobles.class);
-	        ParameterExpression<Usuaris> p = cb.parameter(Usuaris.class);
-	  
-	        TypedQuery<Inmobles> tq = em.createQuery(cq);
-	        tq.setParameter(p, usuari);
-	        ret = tq.getResultList();
-			
-			 
-		} catch (RuntimeException e) {
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		
-		return ret;
-		
-	}
-
-	
-	public List<Inmobles> inmoblesTipus() {
-		
-		return null;
-	}
 
 	
 	public void afegirFoto(Fotos foto) {
@@ -481,98 +234,9 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> implements In
 	}
 
 	
-	public List<Fotos> fotosInmoble(Inmobles inmoble) {
-		
-		List<Fotos> ret = new ArrayList<Fotos>();
-		
-		EntityManager em = this.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		  
-		try {      
-	
-				tx = em.getTransaction();
-				/*
-			Query query = session.createQuery("1");
-				
-			ret = session.createCriteria(Fotos.class)
-				.add(Expression.eq("inmobles",inmoble))
-				.list();
-
-				*/		
-			tx.commit();    
-			 
-		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		
-		return ret;
-	}
-
-
-
 
 	
-	public List<Usuaris> solicitantsInmoble(Inmobles inmoble) {
-		
-		
-		List<Usuaris> nomsUsuaris = new ArrayList<Usuaris>();
-		List<Usuaris> ret = new ArrayList<Usuaris>();
-		
-		EntityManager em = this.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		
-		try {      
-			
-			tx = em.getTransaction();
-			/*
-			//Noms Usuaris solicitants d'un determinat inmoble
-			String hql = "select usuaris.nomusuari from Solicituds where inmobles = :inmoble";
-			Query query = session.createQuery(hql);
-			query.setEntity("inmoble", inmoble); 
-			
-			nomsUsuaris = query.list();
-			
-			if (!nomsUsuaris.isEmpty())
-			{
-				hql = "from Usuaris where nomusuari in (:names)";
-				query = session.createQuery(hql); 
-				query.setParameterList("names", nomsUsuaris);
-				ret = query.list();
-			}
-			*/
-			
-			
-			
-			CriteriaBuilder cb = em.getCriteriaBuilder();
-			CriteriaQuery<Usuaris> crit = cb.createQuery(Usuaris.class);
-			Root<Usuaris> candidateRoot = crit.from(Usuaris.class);
-			candidateRoot.alias("p");
-
-			crit.select(candidateRoot);
-			
-			
-			
-			
-			
-			tx.commit();    
-			 
-		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
-		    throw e; // or display error message
-		}
-		finally {
-		    //em.close();
-		}
-		
-		return ret;
-		
-	}
-
-
+	
 		
 	public void eliminarSolicitud(Solicituds solicitud) {
 		
