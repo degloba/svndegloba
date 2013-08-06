@@ -1,29 +1,9 @@
 package com.insacosa.application.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
 
-
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.QueryResultList;
-import com.google.appengine.api.datastore.Query.Filter;
-import com.google.appengine.api.datastore.Query.FilterOperator;
+
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 import com.insacosa.domain.OrderFactory;
@@ -33,7 +13,6 @@ import com.insacosa.domain.ProductRepository;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
-import domini.IInsacosaClasseService;
 
 import com.insacosa.domain.*;
 
