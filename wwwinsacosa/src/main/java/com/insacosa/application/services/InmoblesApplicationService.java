@@ -52,12 +52,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 	    private ApplicationEventPublisher eventPublisher;
 
 	
-	
-	public Inmobles inmoblePerKey(Key key) {
-		return null;
-		
-	}
-
 
 	public void modificarInmoble(Inmobles inmoble) {
 
@@ -69,42 +63,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public List<Inmobles> buscarInmobles(Inmobles condicioInmoble) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public List<Inmobles> inmoblesSolicitatsPerUsuari(Usuaris usuariComprador) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public List<Inmobles> inmoblesVenedor(Usuaris venedor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public List<Inmobles> inmoblesVenedorRang(Usuaris usuari, int firstResult,
-			int maxResults) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public InmobleItemDto detallInmoble(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	public void solicitarInmobles(Solicituds solicitud) {
 		// TODO Auto-generated method stub
@@ -112,11 +70,7 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public List<Inmobles> inmoblesTipus() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 
 	public void afegirFoto(Fotos foto) {
 		// TODO Auto-generated method stub
@@ -145,12 +99,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 	public void eliminarSolicitud(Solicituds solicitud) {
 		// TODO Auto-generated method stub
 		
-	}
-
-
-	public List<Usuaris> solicitantsInmoble(Inmobles inmoble) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 
@@ -184,12 +132,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public QueryResultList<Entity> llistaObjectes(Class classe, String ordre,
-			String condicio) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	public int retId(String taula, String classe) {
 		// TODO Auto-generated method stub
@@ -202,11 +144,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 		
 	}
 
-
-	public InmobleCaract valorsCaracteristiquesInmoble(String keyInmoble) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	public void modificarValorCaract(String string, String keyInmoble,
@@ -222,10 +159,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public Inmobles inmoblePerKey(String keyInmoble) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	public void eliminarSolicitud(SolicitudItemDto solicitud) {
@@ -257,11 +190,6 @@ public class InmoblesApplicationService extends BaseApplicationService
 		
 	}
 
-
-	public List<ProvinciaItemDto> ciutatsProvincia(ProvinciaItemDto provincia) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	public InmobleItemDto esborrarInmoble(String keyInmoble) {
