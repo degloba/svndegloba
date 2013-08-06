@@ -25,7 +25,7 @@ public interface InmoblesFinder {
 
 	InmobleCaract valorsCaracteristiquesInmoble(Object inmobleKey);
 
-	List<InmobleItemDto> inmoblesVenedor(UsuariItemDto usuari);
+	List<Inmobles> inmoblesVenedor(UsuariItemDto usuari);
 
 	List<Inmobles> buscarInmobles(Inmobles condicioInmoble);
 
