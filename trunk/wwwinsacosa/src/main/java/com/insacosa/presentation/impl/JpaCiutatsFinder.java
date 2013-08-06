@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import query.annotations.Finder;
+
+import com.insacosa.domain.Ciutats;
+import com.insacosa.domain.Provincies;
 import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.webui.CiutatItemDto;
 import com.insacosa.webui.ProvinciaItemDto;
@@ -21,19 +24,18 @@ public class JpaCiutatsFinder implements CiutatsFinder {
     private EntityManager entityManager;
 
 	@Override
-	public List<CiutatItemDto> findCiutats() {
+	public List<Ciutats> findCiutats() {
 		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<CiutatItemDto> ciutatsProvincia(ProvinciaItemDto provincia) {
+	public List<Ciutats> ciutatsProvincia(Provincies provincia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-   
+  
     
 }

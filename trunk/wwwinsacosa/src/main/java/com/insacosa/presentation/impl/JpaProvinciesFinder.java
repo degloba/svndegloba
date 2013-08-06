@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import query.annotations.Finder;
+
+import com.insacosa.domain.Provincies;
 import com.insacosa.presentation.ProvinciesFinder;
 import com.insacosa.webui.ProvinciaItemDto;
 
@@ -20,7 +22,13 @@ public class JpaProvinciesFinder implements ProvinciesFinder {
     private EntityManager entityManager;
 
 	@Override
-	public List<ProvinciaItemDto> findProvincies() {
+	public List<Provincies> findProvincies() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Provincies provinciaPerKey(String newValue) {
 		// TODO Auto-generated method stub
 		return null;
 	}
