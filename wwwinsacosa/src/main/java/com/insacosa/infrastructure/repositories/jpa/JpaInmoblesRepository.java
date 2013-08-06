@@ -14,8 +14,8 @@ import com.insacosa.domain.repositories.InmoblesRepository;
 
 
 /**
- * @author Slawek
- *
+ * @author degloba
+ * @category Implementació d'un Repository JPA lligat a una entitat de domini (Inmobles)
  */
 @DomainRepositoryImpl
 public class JpaInmoblesRepository extends GenericJpaRepositoryForBaseEntity<Inmobles> implements InmoblesRepository{

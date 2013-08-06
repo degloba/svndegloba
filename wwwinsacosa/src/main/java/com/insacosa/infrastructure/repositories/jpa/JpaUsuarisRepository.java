@@ -14,8 +14,8 @@ import com.insacosa.domain.Usuaris;
 import com.insacosa.domain.repositories.UsuarisRepository;
 
 /**
- * @author Slawek
- *
+ * @author degloba
+ * @category Implementació d'un Repository JPA lligat a una entitat de domini (Usuaris)
  */
 @DomainRepositoryImpl
 public class JpaUsuarisRepository extends GenericJpaRepositoryForBaseEntity<Usuaris> implements UsuarisRepository{
