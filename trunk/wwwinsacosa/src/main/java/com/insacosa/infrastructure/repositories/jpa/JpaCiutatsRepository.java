@@ -14,8 +14,8 @@ import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.repositories.CiutatsRepository;
 
 /**
- * @author Slawek
- *
+ * @author degloba
+ * @category Implementació d'un Repository JPA lligat a una entitat de domini (Ciutats)
  */
 @DomainRepositoryImpl
 public class JpaCiutatsRepository extends GenericJpaRepositoryForBaseEntity<Ciutats> implements CiutatsRepository{
