@@ -54,7 +54,7 @@ public class UserForm  implements java.io.Serializable {
 		
 	}
 
-	private String key;	
+	private String guid;	
   	private String nomUsuari = null;
   	private String nom = null;
   	private String cognoms = null;
@@ -88,11 +88,11 @@ public class UserForm  implements java.io.Serializable {
 	private Session session;
         
 
-	public String getKey() {
-		return key;
+	public String getGuid() {
+		return guid;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 	public String getNomUsuari() {
 		return nomUsuari;
@@ -246,7 +246,7 @@ public class UserForm  implements java.io.Serializable {
 			
 				this.setPassword(this.newPwd);
 
-				usuarisService.cambiaPassword(this.getKey(),this.newPwd);
+				usuarisService.cambiaPassword(this.getGuid(),this.newPwd);
 
 				return "success";
 			}
@@ -290,9 +290,9 @@ public class UserForm  implements java.io.Serializable {
    		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
-		com.insacosa.domain.Usuaris usuari = usuarisService.editPerfil(this.getKey());
+		com.insacosa.domain.Usuaris usuari = usuarisService.editPerfil(this.getGuid());
 		
-		this.setKey(usuari.getUsuariKey());
+		this.setGuid(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
 		this.setCognoms(usuari.getCognoms());
 		this.setPassword(usuari.getPassword());
@@ -316,7 +316,7 @@ public class UserForm  implements java.io.Serializable {
 				
 				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
 				
-				usuari.setUsuariKey((String)this.getKey());
+				usuari.setUsuariKey((String)this.getGuid());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				//registreHib.setCountry(this.getContactNumber());
@@ -339,7 +339,7 @@ public class UserForm  implements java.io.Serializable {
 				*/
 				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
 				
-				usuari.setUsuariKey((String)this.getKey());
+				usuari.setUsuariKey((String)this.getGuid());
 				usuari.setNomusuari(this.getNomUsuari());
 				usuari.setAdreca(this.getAdreca());
 				usuari.setEmail(this.getEmail());

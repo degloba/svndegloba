@@ -132,8 +132,6 @@ public class InmobleForm  implements Serializable
 	UsuarisAplicationService usuarisService;
     
 	
-	static PersistenceService persistenceService;
-	
 	private static final long serialVersionUID = 1L;
 	
 	//********************************
@@ -174,7 +172,7 @@ public class InmobleForm  implements Serializable
 	// llistes/consultes
 	//*********************
 	private List<InmobleForm> inmoblesBuscats = new ArrayList<InmobleForm>();
-	private List<InmobleItemDto> inmoblesVenedor; // inicialitzo a null
+	private List<Inmobles> inmoblesVenedor; // inicialitzo a null
 	private List<InmobleCaractItemDto> inmoblesVenedorCaract = new ArrayList<InmobleCaractItemDto>(); // inicialitzo 
 	private List<Inmobles> inmoblesSolicitatsPerComprador; // inmobles solicitats per un possible comprador
 	private List<UserForm> compradors = new ArrayList<UserForm>(); // llista de compradors/solicitants de l'inmoble
@@ -273,14 +271,9 @@ public class InmobleForm  implements Serializable
 	private Map<String, Object> filterValues = Maps.newHashMap();           
 	private String sortProperty; 
 	
-	
-	/*--------------------------*/
-    /* EntityManager - JPA      */
-    /*--------------------------*/
-
-	 
-	
-	public void toggleSort() {         
+		
+	public void toggleSort() {   
+		
 		for (Entry<String, SortOrder> entry : sortOrders.entrySet()) {             
 			SortOrder newOrder;                           
 			if (entry.getKey().equals(sortProperty)) {                 
@@ -580,7 +573,7 @@ public class InmobleForm  implements Serializable
 		DragDropBeanCaract dragDropBean = (DragDropBeanCaract) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBean}", DragDropBeanCaract.class);
 		
 		dragDropBean.getTarget().clear();
-		cambiaCaracteristiquesNoSel(inmobleForm.getKeyTipus()); // inicialitzo la llista en funcio del tipus d'inmoble
+		cambiaCaracteristiquesNoSel(getKeyTipus()); // inicialitzo la llista en funcio del tipus d'inmoble
 		
 		it = caracteristiquesInmoble.iterator();
 		while (it.hasNext())
@@ -663,7 +656,7 @@ public class InmobleForm  implements Serializable
 		// Construim objecte Usuari i objecte Inmoble
 		Usuaris usuari = new Usuaris();
 		
-		usuari.setUsuariKey(compradorForm.getKey() );
+		usuari.setUsuariKey(compradorForm.getGuid() );
 		
 		Inmobles inmoble = new Inmobles();
 		inmoble.setInmobleKey(keyInmoble);
@@ -759,8 +752,7 @@ public class InmobleForm  implements Serializable
 		
 		
 		inmoblesService.modificarInmoble(inmoble);
-		
-		/////////getInmoblesVenedor().set(currentInmobleIndex, this);
+	
 		
 	}
 	  	
@@ -825,12 +817,12 @@ public class InmobleForm  implements Serializable
 	/*
 	 * Llista de inmobles publicats per un venedor
 	 */
-	public List<InmobleItemDto> getInmoblesVenedor() {
+	public List<Inmobles> getInmoblesVenedor() {
 		
 		synchronized (this) {
           	
 			
-				List<InmobleItemDto> inmoblesVenedor = new ArrayList<InmobleItemDto>();
+				List<Inmobles> inmoblesVenedor = new ArrayList<Inmobles>();
     	
 				InmobleItemDto inmoble = null;
 				
@@ -839,7 +831,7 @@ public class InmobleForm  implements Serializable
 				
 				UsuariItemDto usuari = new UsuariItemDto();
 
-				usuari.setUsuariKey(userForm.getKey());
+				usuari.setUsuariKey(userForm.getGuid());
 				inmoblesVenedor = inmoblesFinder.inmoblesVenedor(usuari);
 	
 				
@@ -890,7 +882,7 @@ public class InmobleForm  implements Serializable
     
     
     
-	public void setInmoblesVenedor(List<InmobleItemDto> inmoblesVenedor2) {
+	public void setInmoblesVenedor(List<Inmobles> inmoblesVenedor2) {
 		this.inmoblesVenedor = inmoblesVenedor;
 	}
 
@@ -1065,7 +1057,7 @@ public class InmobleForm  implements Serializable
          		
         		UsuariItemDto usuari = new UsuariItemDto();
 
-    			usuari.setUsuariKey(userForm.getKey());
+    			usuari.setUsuariKey(userForm.getGuid());
         		
         		Iterator<?> it = inmoblesService.inmoblesVenedor(usuari).iterator();
         		while (it.hasNext())
@@ -1374,7 +1366,7 @@ public class InmobleForm  implements Serializable
     /*
      * Per actualitza el model de dades
      */
-    void actualitzarDataModel(String keyTipus)
+    void actualitzarDataModel(Key keyTipus)
     {
     	
     	facesContext = FacesContext.getCurrentInstance(); // Contexte JSF

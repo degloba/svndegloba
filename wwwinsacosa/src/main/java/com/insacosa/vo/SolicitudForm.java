@@ -35,7 +35,7 @@ public class SolicitudForm implements Serializable
   		FacesContext context = FacesContext.getCurrentInstance(); 
   		UserForm userForm = (UserForm) context.getApplication().evaluateExpressionGet(context, "#{userForm}", UserForm.class);
 
-    	String idVenedor=userForm.getKey();
+    	String idVenedor=userForm.getGuid();
 		
      	
     	this.setListaSolicituds(listaSolicituds);
