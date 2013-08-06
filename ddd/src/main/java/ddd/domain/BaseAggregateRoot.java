@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ddd.domain;
 
 import javax.persistence.MappedSuperclass;
@@ -8,7 +5,7 @@ import javax.persistence.Transient;
 
 
 /**
- * @author Slawek
+ * @author degloba
  * 
  */
 @MappedSuperclass
