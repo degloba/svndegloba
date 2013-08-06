@@ -1,12 +1,12 @@
 package com.insacosa.vo;
 
 
-
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.interfaces.Caracteristiques_Impl;
+import com.insacosa.domain.Caracteristiques;
+import com.insacosa.domain.Tipus;
 
 
 import java.io.Serializable;
@@ -35,7 +35,6 @@ import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.utils.HtmlDinamic;
 
-import entitats.*;
 
 @ManagedBean(name = "tipus")
 @SessionScoped

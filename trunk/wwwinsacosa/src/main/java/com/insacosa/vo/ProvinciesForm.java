@@ -38,6 +38,7 @@ import com.insacosa.application.services.CaracteristiquesApplicationService;
 import com.insacosa.application.services.InmoblesApplicationService;
 import com.insacosa.application.services.ProvinciesApplicationService;
 import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.Provincies;
 
 
@@ -112,10 +113,10 @@ public class ProvinciesForm
        	
         	// CAL ACTUALITZAR EL COMBO DE CIUTATS EN FUNCIO DE LA PROVINCIA SELECCIONADA
 			
-    		ProvinciaItemDto provincia = new ProvinciaItemDto();
+    		Provincies provincia = new Provincies();
   		
     		    		
-    		List<CiutatItemDto> ciutats = CiutatsFinder.ciutatsProvincia(provincia);
+    		List<Ciutats> ciutats = ciutatsFinder.ciutatsProvincia(provincia);
     		
     		 
     		// Modifiquem l'String corresponent a la provincia (formulari i filtre)
@@ -148,7 +149,7 @@ public class ProvinciesForm
 		
 		List<SelectItem> list;
 			
-		List<ProvinciaItemDto> provincies = ProvinciesFinder.findProvincies();
+		List<Provincies> provincies = provinciesFinder.findProvincies();
 		
 		this.setProvincies(list);  // perque no torni a carregar la segona vegada
 		
@@ -200,36 +201,31 @@ public class ProvinciesForm
 	
 	
 	public void remove() { 
-	    
-		ProvinciaItemDto provincia = (ProvinciaItemDto) this.getLlista().get(currentProvIndex);   	
-
-		/*Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
-
-		provinciesService.deleteClasseAppByKey(provincia.getKey());  // esborrem de la BD
+	
+		provinciesService.deleteClasseAppByGuid(getGuid());  // esborrem de la BD
 	   	
 		// cal eliminar també de la llista
-		this.llista.remove(currentProvIndex);
+		llista.remove(currentProvIndex);
    
 	   }       
 	    
 
+	private String getGuid() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	public void store() { 
 
-		// Construim l'objecte Hibernate
-		Provincies provincia = new Provincies();  // clase Hibernate
+		Provincies provincia = new Provincies();  // clase del domini
 		
 		provincia.setProvinciaKey(this.getIdProvincia());
 		provincia.setCode(this.getCode());
 		provincia.setName(this.getName());
-	/*	
-		Injector injector = Guice.createInjector(new BillingModule()); 
-		IProvincies provincies_app = injector.getInstance(IProvincies.class);*/
-		
+			
 		provinciesService.updateClasseApp(provincia);
-	   	
-	   	// cal modificar el valor de la llista
-		ProvinciaItemDto prov = (ProvinciaItemDto) this.getLlista().get(currentProvIndex);
+  	
   
 	   } 	  
 	  

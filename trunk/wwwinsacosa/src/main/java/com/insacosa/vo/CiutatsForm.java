@@ -2,14 +2,13 @@ package com.insacosa.vo;
 
 
 import com.google.appengine.api.datastore.Key;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 
-import com.insacosa.interfaces.Objecte;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+// JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -18,17 +17,24 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
+
+
 import javax.inject.Inject;
 
+// FINDERS
 import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.presentation.InmoblesFinder;
 import com.insacosa.presentation.SolicitudsFinder;
 import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
+
+
 import com.insacosa.utils.FilterBeanInmobles;
+
+// DTOs
 import com.insacosa.webui.CiutatItemDto;
 
-import com.degloba.JPA.PersistenceService;
+
 
 // SERVEIS CAPA APLICACIO
 import com.insacosa.application.services.CaracteristiquesApplicationService;
@@ -51,7 +57,6 @@ public class CiutatsForm
 	implements ValueChangeListener,java.io.Serializable {
 	
 	
-	
 	// FinderS (lectura)
 	//---------------------
 	 
@@ -65,6 +70,13 @@ public class CiutatsForm
     private CiutatsFinder ciutatsFinder;
     @Inject
     private UsuarisFinder usuarisFinder;
+    
+    
+	// SERVEIS D'APLICACIO
+	//---------------------
+	
+	CiutatsApplicationService ciutatsService;
+	ProvinciesApplicationService provinciesService;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -76,10 +88,10 @@ public class CiutatsForm
 	private int page = 1; 
 	
 	// Columnes de taula
-	private Key key;
+	private String guid;
 	private String code;
 	private String name;
-	private String keyProv;
+	private String guidProv;
 	
 	
 	// DESCRIPCIONS
@@ -92,11 +104,7 @@ public class CiutatsForm
 	private String valorActual = "967";   // id ciutat (Manresa)
 	
 	
-	// SERVEIS D'APLICACIO
-	//---------------------
-	
-	CiutatsApplicationService ciutatsService;
-	ProvinciesApplicationService provinciesService;
+
 
 	public void processValueChange(ValueChangeEvent event)
 			throws AbortProcessingException {
@@ -111,7 +119,7 @@ public class CiutatsForm
 
         	FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
        	
-        	Ciutats ciutat = ciutatsService.getClasseAppByKey((Key) newValue);   
+        	Ciutats ciutat = (Ciutats) ciutatsService.getClasseAppByGuid((String) newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
     		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
@@ -166,14 +174,14 @@ public class CiutatsForm
 	
 	public void insert(ActionEvent arg0) {
 		
-		CiutatItemDto ciutatHib = new CiutatItemDto(); 
+		Ciutats ciutat = new Ciutats(); 
 		
-		ciutatHib.setCode(this.getCode());
-		ciutatHib.setName(this.getName());
+		ciutat.setCode(this.getCode());
+		ciutat.setName(this.getName());
 				
-		Provincies p = provinciesService.getClasseAppByKey(this.getKey()); 
+		Provincies p = (Provincies) provinciesService.getClasseAppByGuid(this.guidProv); 
 		
-		ciutatHib.setKeyProv(p);
+		ciutat.setGuidProv(p);
 		
 
 		
@@ -186,7 +194,7 @@ public class CiutatsForm
 	    
 		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
 
-		ciutatsService.deleteClasseAppByKey(ciutat.getKey());  // esborrem de la BD
+		ciutatsService.deleteClasseAppByGuid(ciutat.getGuid());  // esborrem de la BD
     	
     	
 		// cal eliminar també de la llista
@@ -197,16 +205,15 @@ public class CiutatsForm
 	public void store() { 
 
 		Ciutats ciutat = new Ciutats();  
-		
-		ciutat.setKey(this.getKey());
+						
 		ciutat.setCode(this.getCode());
 		ciutat.setName(this.getName());
 		
 		
-		BaseEntity p = provinciesService.getClasseAppByKey(this.getKey()); 
+		BaseEntity p = provinciesService.getClasseAppByGuid(this.getGuid()); 
 		
 		
-		ciutat.setKeyProv(p);
+		ciutat.setGuidProv(p);
 		
 		ciutatsService.createClasseApp();
 	   	
@@ -215,18 +222,18 @@ public class CiutatsForm
 
 		ciut.setCode(ciutat.getCode());
 		ciut.setName(ciutat.getName());
-		ciut.setKeyProv(ciutat.getKeyProv().getProvinciaKey());
+		ciut.setGuidProv(ciutat.getEntityId().getProvinciaGuid());
 		
 	   } 	  
 	  
 	  
 	// getters/setters
-	public Key getKey() {
-		return key;
+	public String getGuid() {
+		return guid;
 	}
 
-	public void setKey(Key key) {
-		this.key = key;
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 
 	public String getCode() {
@@ -263,13 +270,13 @@ public class CiutatsForm
 				//ciutatForm.setId(ciutat.getProperty("Id").toString());
 				ciutatForm.setCode( ciutat.getProperty("Code").toString() );
 				ciutatForm.setName( ciutat.getProperty("Name").toString() );
-				ciutatForm.setKeyProv(((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey());
+				ciutatForm.setguidProv(((Provincies)ciutat.getProperty("guidProv")).getProvinciaGuid());
 				
 				try
 				{
 					// Calculem la descripcio de la provincia
 					//String a = ((Ciutats)this.read(ciutatForm)).getName();
-					//ciutatForm.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ((Provincies)ciutat.getProperty("KeyProv")).getProvinciaKey())).getName());
+					//ciutatForm.setProvinciaDescripcio(((Provincies)retDescripcio(Provincies.class, ((Provincies)ciutat.getProperty("guidProv")).getProvinciaGuid())).getName());
 				}
 				catch(Exception ex)  // pot ser que no trobi cap descripcio
 				{
@@ -321,13 +328,13 @@ public class CiutatsForm
 	   	}
 
 
-	public String getKeyProv() {
-		return keyProv;
+	public String getGuidProv() {
+		return guidProv;
 	}
 
 
-	public void setKeyProv(String keyProv) {
-		this.keyProv = keyProv;
+	public void setguidProv(String guidProv) {
+		this.guidProv = guidProv;
 	}
 
 
