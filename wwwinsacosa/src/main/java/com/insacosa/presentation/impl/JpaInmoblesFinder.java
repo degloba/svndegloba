@@ -18,6 +18,7 @@ import javax.persistence.criteria.Root;
 import query.annotations.Finder;
 
 import com.degloba.JPA.UtilCriteriaBuilderJPA;
+import com.google.appengine.api.datastore.Key;
 import com.insacosa.domain.InmobleCaract;
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.Solicituds;
@@ -318,23 +319,17 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	}
 
 
-	@Override
-	public List<InmobleItemDto> inmoblesVenedor(UsuariItemDto usuari) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
+
 	@Override
 	public List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor) {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
 		
-		EntityManager em = this.getEntityManager();
 		  
 		try {   
 	
 				// JPA Criteria API	
-				CriteriaBuilder cb = em.getCriteriaBuilder();
+				CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 				
 				CriteriaQuery<Inmobles> cq = cb.createQuery(Inmobles.class);
 		        Root<Inmobles> inmobles = cq.from(Inmobles.class);
@@ -343,7 +338,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 		        
 		        
 		        //
-		        TypedQuery<Inmobles> tq = em.createQuery(cq);
+		        TypedQuery<Inmobles> tq = entityManager.createQuery(cq);
 		        ret = tq.getResultList();
 
 			 
@@ -398,6 +393,30 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 		}	
 		return ret;
 		
+	}
+
+
+
+	@Override
+	public String tipusColumnaCaract(String propertyName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public String tipusColumnaCaract(Key idCaract) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Inmobles> inmoblesVenedor(UsuariItemDto usuari) {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 }

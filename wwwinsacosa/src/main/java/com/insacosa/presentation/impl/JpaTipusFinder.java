@@ -24,6 +24,8 @@ import com.insacosa.presentation.TipusFinder;
 
 import com.insacosa.presentation.SolicitudsFinder;
 
+import entitats.Caracteristiques;
+
 /**
  * @author Rafał Jamróz
  */
@@ -88,6 +90,20 @@ public class JpaTipusFinder implements TipusFinder {
 		
 		return ret;
 		
+	}
+
+	@Override
+	public List<Caracteristiques> caractTipus(entitats.Tipus tipus, int i,
+			boolean b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<com.insacosa.domain.Caracteristiques> caractTipus(Tipus tipus,
+			int i, boolean b) {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 }
