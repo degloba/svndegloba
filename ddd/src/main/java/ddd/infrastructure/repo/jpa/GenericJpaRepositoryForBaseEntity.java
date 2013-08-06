@@ -4,8 +4,9 @@ import ddd.domain.BaseEntity;
 
 /**
  * 
- * @author Slawek
- *
+ * @author degloba
+ * @category Defineix un Repository utilitzant JPA (per tant lligat a la tecnologia de persistencia), 
+ * però només lligat a BaseEntity
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
  * @param <K> key type
  */
