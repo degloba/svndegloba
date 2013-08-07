@@ -7,7 +7,7 @@ import javax.persistence.criteria.Predicate;
 import ddd.domain.BaseEntity;
 
 
-public abstract class GenericApplicationService<K,E extends BaseEntity> implements IEntityService<E> {
+public abstract class GenericApplicationServiceForBaseEntity<K,E extends BaseEntity> implements IEntityService<E> {
 
 	protected Class<E> entityClass;  
 	
