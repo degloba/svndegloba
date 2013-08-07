@@ -582,6 +582,11 @@
         	<scope>compile</scope>
         </dependency>
 
+<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0.1</version>
+		</dependency>
         <dependency>
         	<groupId>com.paypal.sdk</groupId>
         	<artifactId>paypal-core</artifactId>
@@ -613,6 +618,32 @@
         	<groupId>com.google.inject.extensions</groupId>
         	<artifactId>guice-servlet</artifactId>
         	<version>3.0</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.insacosa</groupId>
+        	<artifactId>aplicacio</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>ddd</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>cqrs</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>utilitats</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
