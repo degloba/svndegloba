@@ -8,12 +8,11 @@ import javax.persistence.criteria.Predicate;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  * 
- * @param <E>
- *            JPA Entity Type (DDD: Aggregate, Entity)
- * @param <K>
- *            key type
+ * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
+ * @param <K>  Tipus de la clau (Long,String,..) de l'entitat del domini
+ *            
  */
 public class GenericJpaRepository<E, K> {
 
