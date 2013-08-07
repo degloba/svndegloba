@@ -4,6 +4,7 @@ import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.Predicate;
 
 /**
  * 
@@ -41,4 +42,5 @@ public class GenericJpaRepository<E, K> {
     public E save(E entity) {
         return entityManager.merge(entity);
     }
+
 }
