@@ -7,7 +7,9 @@ import javax.persistence.criteria.Predicate;
 
 /**
  * @author degloba
- * @category Defineix patró Repository
+ * @category Defineix patró Repository.
+ * Abstracció de l'infraestructura de persistència
+ * 
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
  */
