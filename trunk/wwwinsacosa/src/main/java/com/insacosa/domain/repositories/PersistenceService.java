@@ -2,6 +2,8 @@ package com.insacosa.domain.repositories;
 
 import java.util.List;
 
+import javax.persistence.criteria.Predicate;
+
 
 /**
  * @author degloba
@@ -11,11 +13,12 @@ import java.util.List;
  */
 public interface PersistenceService<K, E> {  
 	
-	E save(E entity);     
-	E update(E entity);     
+	E save(E entity);          
 	void remove(E entity);     
 	E findById(K id);     
 	List<E> findAll();     
 	Long getTotalResult();
+	void Delete(Predicate predicate);
+	E update(E entity);
 	
 }
