@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.QueryResultList;
+
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 import com.insacosa.domain.OrderFactory;
@@ -19,6 +17,7 @@ import ddd.application.annotation.ApplicationService;
 
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.GenericApplicationService;
 import com.insacosa.vo.FotoForm;
 import com.insacosa.webui.FotoItemDto;
 import com.insacosa.webui.InmobleItemDto;
@@ -27,7 +26,7 @@ import com.insacosa.webui.SolicitudItemDto;
 import com.insacosa.webui.UsuariItemDto;
 
 @ApplicationService
-public class InmoblesApplicationService extends BaseApplicationService
+public class InmoblesApplicationService extends GenericApplicationService <Long, Inmobles>
 	 {
 	
 	 	@Inject
@@ -58,7 +57,7 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public void eliminarInmoble(Key key) {
+	public void eliminarInmoble(Long key) {
 	
 	}
 
@@ -108,7 +107,7 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public String tipusColumnaCaract(Key idCaract) {
+	public String tipusColumnaCaract(Long idCaract) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -120,7 +119,7 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public String tipusControlUICaract(Key idCaract) {
+	public String tipusControlUICaract(Long idCaract) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -153,7 +152,7 @@ public class InmoblesApplicationService extends BaseApplicationService
 	}
 
 
-	public void eliminarValorCaract(Key keyCaracteristica, String keyInmoble) {
+	public void eliminarValorCaract(Long keyCaracteristica, String keyInmoble) {
 		// TODO Auto-generated method stub
 		
 	}

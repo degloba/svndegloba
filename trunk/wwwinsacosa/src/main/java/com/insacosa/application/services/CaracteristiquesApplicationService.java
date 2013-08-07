@@ -8,14 +8,17 @@ import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.CaracteristiquesRepository;
+
+import com.insacosa.domain.repositories.GenericApplicationService;
 
 @ApplicationService
-public class CaracteristiquesApplicationService extends BaseApplicationService
+public class CaracteristiquesApplicationService extends GenericApplicationService <Long, Caracteristiques> 
 
-	 {
+ {
 		
     @Inject
-    private OrderRepository orderRepository;
+    private CaracteristiquesRepository caracteristiquesRepository;
 
     @Inject
     private OrderFactory orderFactory;

@@ -15,8 +15,9 @@ import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.GenericApplicationService;
 
-public class UsuarisAplicationService extends BaseApplicationService
+public class UsuarisAplicationService extends  GenericApplicationService <Long, Usuaris>
 
 	 {
 
