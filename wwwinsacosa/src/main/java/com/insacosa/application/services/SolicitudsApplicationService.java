@@ -2,16 +2,11 @@ package com.insacosa.application.services;
 
 import javax.inject.Inject;
 
-import com.insacosa.application.events.ProductAddedToOrderEvent;
-import com.insacosa.domain.Client;
+
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
-import com.insacosa.domain.Order;
-import com.insacosa.domain.OrderFactory;
-import com.insacosa.domain.OrderRepository;
-import com.insacosa.domain.Product;
-import com.insacosa.domain.ProductRepository;
 
+import com.insacosa.domain.OrderFactory;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
@@ -20,10 +15,11 @@ import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
 import com.insacosa.domain.errors.OrderCreationException;
+import com.insacosa.domain.repositories.GenericApplicationService;
 import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
-public class SolicitudsApplicationService extends BaseApplicationService
+public class SolicitudsApplicationService extends GenericApplicationService <Long, Solicituds>
 	{
 	
 	 	@Inject

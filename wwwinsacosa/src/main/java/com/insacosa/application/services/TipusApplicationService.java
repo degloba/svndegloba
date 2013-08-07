@@ -13,9 +13,10 @@ import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.GenericApplicationService;
 
 @ApplicationService
-public class TipusApplicationService extends BaseApplicationService
+public class TipusApplicationService extends GenericApplicationService <Long, Tipus>
 
 	 {
 
