@@ -12,13 +12,8 @@ public class GenericApplicationService<K,E> {
 	protected Class<E> entityClass;  
 	
 	@Inject
-	private PersistenceService<K,E> _repositori;
+	private RepositoryService<K,E> _repositori;
 
-
-	public void Delete(Predicate predicate) {
-		_repositori.Delete(predicate);
-		
-	}
 	
 	public void Delete(E entitat) {
 		// TODO Auto-generated method stub

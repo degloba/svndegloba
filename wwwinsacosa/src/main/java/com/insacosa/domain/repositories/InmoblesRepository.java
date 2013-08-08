@@ -18,4 +18,6 @@ public interface InmoblesRepository {
 	public Inmobles load(Long id);
 
 	public Inmobles save(Inmobles entity);
+	
+	public void delete(Long id);
 }
