@@ -18,7 +18,7 @@ import ddd.domain.BaseEntity;
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
  */
-public abstract class AbstractJPAPersistenceService<K, E extends BaseEntity> implements PersistenceService<K, E> {
+public abstract class AbstractJPARepositoryService<K, E extends BaseEntity> implements RepositoryService<K, E> {
     
 	protected Class<E> entityClass;  
 	

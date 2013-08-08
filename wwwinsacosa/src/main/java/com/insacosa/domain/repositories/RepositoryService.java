@@ -13,7 +13,7 @@ import javax.persistence.criteria.Predicate;
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
  */
-public interface PersistenceService<K, E> {  
+public interface RepositoryService<K, E> {  
 	
 	E save(E entity);          
 	void remove(E entity);     
