@@ -7,6 +7,7 @@ import javax.persistence.Transient;
 /**
  * @author degloba
  * 
+ * @category Defineix una Entitat AggregateRoot i per tant lligada al Domini
  */
 @MappedSuperclass
 public abstract class BaseAggregateRoot extends BaseEntity {
