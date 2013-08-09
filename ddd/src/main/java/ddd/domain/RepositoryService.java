@@ -7,6 +7,7 @@ import java.util.List;
  * @author degloba
  * @category Defineix patró Repository.
  * Abstracció de l'infraestructura de persistència
+ * No lligat a les entitats de Domini
  * 
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
