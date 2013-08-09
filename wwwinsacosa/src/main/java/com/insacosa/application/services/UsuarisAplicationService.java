@@ -44,6 +44,7 @@ public class UsuarisAplicationService<T extends Usuaris> extends  GenericApplica
 	    
 	public void afegirUsuari(T usuari) {
 		ds.CreateService().Add(usuari);
+		
 	}
 
 	public String modificarUsuari(Usuaris usuari) {

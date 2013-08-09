@@ -20,7 +20,7 @@ public abstract class GenericApplicationServiceForBaseEntity<E extends BaseEntit
 
 	protected Class<E> entityClass;  
 	
-	GenericDomainServiceForBaseEntity<E> ds;
+	public GenericDomainServiceForBaseEntity<E> ds;
 	
 	protected  void SaveBaseEntity(E value) {
 		
