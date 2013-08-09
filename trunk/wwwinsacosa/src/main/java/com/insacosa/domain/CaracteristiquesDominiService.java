@@ -24,7 +24,7 @@ import ddd.domain.sharedkernel.Money;
  *
  */
 @DomainService
-public class CaracteristiquesDominiService<T extends Caracteristiques> extends GenericDomainServiceForBaseEntity<T>{
+public class CaracteristiquesDominiService<K,T extends Caracteristiques> extends GenericDomainServiceForBaseEntity<K,T>{
 	
 	@Inject
 	private CaracteristiquesRepository caracteristiquesRepository;
