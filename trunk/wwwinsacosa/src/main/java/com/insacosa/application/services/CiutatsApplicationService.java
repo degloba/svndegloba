@@ -22,7 +22,7 @@ import ddd.application.annotation.ApplicationService;
  * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Ciutats"
  */
 @ApplicationService
-public class CiutatsApplicationService<T extends Ciutats> extends  GenericApplicationServiceForBaseEntity <T>
+public class CiutatsApplicationService<T extends Ciutats> extends  GenericApplicationServiceForBaseEntity<Long,T>
 	 {
 	
 	

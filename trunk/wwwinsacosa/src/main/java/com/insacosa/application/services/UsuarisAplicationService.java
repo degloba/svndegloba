@@ -16,7 +16,7 @@ import ddd.application.SystemUser;
 
 import com.insacosa.domain.*;
 
-public class UsuarisAplicationService<T extends Usuaris> extends  GenericApplicationServiceForBaseEntity <T>
+public class UsuarisAplicationService<K,T extends Usuaris> extends  GenericApplicationServiceForBaseEntity <K,T>
 
 	 {
 
@@ -43,7 +43,7 @@ public class UsuarisAplicationService<T extends Usuaris> extends  GenericApplica
 
 	    
 	public void afegirUsuari(T usuari) {
-		ds.CreateService().Add(usuari);
+		
 		
 	}
 
