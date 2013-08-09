@@ -13,17 +13,18 @@ import ddd.domain.RepositoryService;
  * 
  * @param <T>
  */
-public class GenericDomainServiceForBaseEntity <T extends BaseEntity>{
+public class GenericDomainServiceForBaseEntity <K,T extends BaseEntity>{
 
 	
 	private RepositoryService<Long, T> _repositori;
 	
 	
-	public IEntityService<T> CreateService() {
+	public IEntityService<K,T> CreateService() {
 		
-		return new EntityService<T>(_repositori);
+		return new EntityService<K,T>(_repositori);
 		
 	}
+
 
 
 
