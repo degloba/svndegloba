@@ -10,10 +10,14 @@ import ddd.application.annotation.ApplicationService;
 import com.insacosa.domain.*;
 import com.insacosa.domain.repositories.CaracteristiquesRepository;
 
-import com.insacosa.domain.repositories.GenericApplicationService;
 
+/**
+ * @author degloba
+ *
+ * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Caracteristiques"
+ */
 @ApplicationService
-public class CaracteristiquesApplicationService extends GenericApplicationService <Long, Caracteristiques> 
+public class CaracteristiquesApplicationService<T extends Caracteristiques> extends GenericApplicationServiceForBaseEntity<T> 
 
  {
 		
@@ -37,6 +41,20 @@ public class CaracteristiquesApplicationService extends GenericApplicationServic
 
     @Inject
     private ApplicationEventPublisher eventPublisher;
+    
+    
+    GenericApplicationServiceForBaseEntity<Caracteristiques>  g;
+    
+    private void GetCaracteristiquesById(T id) {
+    	
+    	ds.CreateService().Add(id);
+    	
+    }
+    private Caracteristiques GetCaracteristiquesById(Long id) {
+    	
+    	return  ds.CreateService().Get(id);
+    	
+    }
 
 
 

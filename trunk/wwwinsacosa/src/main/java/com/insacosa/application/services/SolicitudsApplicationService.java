@@ -6,20 +6,20 @@ import javax.inject.Inject;
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 
+import com.insacosa.domain.Solicituds;
+
 import com.insacosa.domain.OrderFactory;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
-
-import com.insacosa.domain.*;
 import com.insacosa.domain.errors.OrderCreationException;
-import com.insacosa.domain.repositories.GenericApplicationService;
+
 import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
-public class SolicitudsApplicationService extends GenericApplicationService <Long, Solicituds>
+public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <T>
 	{
 	
 	 	@Inject
@@ -60,5 +60,10 @@ public class SolicitudsApplicationService extends GenericApplicationService <Lon
 /////////////solicitudsRepository.persist(solicitud);
     }
 	
+    
+	public void eliminarSolicitud(Long id) {
+		
+		
+	}
 
 }

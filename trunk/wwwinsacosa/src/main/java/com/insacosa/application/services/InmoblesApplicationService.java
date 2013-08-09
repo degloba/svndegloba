@@ -2,63 +2,37 @@ package com.insacosa.application.services;
 
 import java.util.List;
 
-import javax.inject.Inject;
 
-
-import com.insacosa.domain.InvoiceRepository;
-import com.insacosa.domain.InvoicingService;
-import com.insacosa.domain.OrderFactory;
-import com.insacosa.domain.OrderRepository;
-import com.insacosa.domain.ProductRepository;
-
-import ddd.application.ApplicationEventPublisher;
-import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
-
 import com.insacosa.domain.*;
-import com.insacosa.domain.repositories.GenericApplicationService;
+
+
 import com.insacosa.vo.FotoForm;
 import com.insacosa.webui.FotoItemDto;
 import com.insacosa.webui.InmobleItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
+
 import com.insacosa.webui.SolicitudItemDto;
 import com.insacosa.webui.UsuariItemDto;
 
+/**
+ * @author degloba
+ *
+ * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Inmobles"
+ */
 @ApplicationService
-public class InmoblesApplicationService extends GenericApplicationService <Long, Inmobles>
+public class InmoblesApplicationService<T extends Inmobles> extends GenericApplicationServiceForBaseEntity<T>
 	 {
-	
-	 	@Inject
-	    private OrderRepository orderRepository;
-
-	    @Inject
-	    private OrderFactory orderFactory;
-
-	    @Inject
-	    private ProductRepository productRepository;
-
-	    @Inject
-	    private InvoiceRepository invoiceRepository;
-
-	    @Inject
-	    private InvoicingService invoicingService;
-
-	    @Inject
-	    private SystemUser systemUser;
-
-	    @Inject
-	    private ApplicationEventPublisher eventPublisher;
-
 	
 
 	public void modificarInmoble(Inmobles inmoble) {
-
+		
+		
 	}
 
 
-	public void eliminarInmoble(Long key) {
-	
+	public void eliminarInmoble(Long id) {
+		
 	}
 
 
@@ -95,54 +69,16 @@ public class InmoblesApplicationService extends GenericApplicationService <Long,
 	}
 
 
-	public void eliminarSolicitud(Solicituds solicitud) {
-		// TODO Auto-generated method stub
+
+
+
+	public void afegirCaractInmoble(Long caractinmoble, Long inmoble) {
+
+/*		Inmobles i = inmoblesRepository.load(inmoble);
+		Caracteristiques c = caracteristiquesRepository.find(caractinmoble);
+	 	i.getCaracteristiqueses().add(c);*/
 		
 	}
-
-
-	public void afegirCaractInmoble(Caractinmobles caractinmoble) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public String tipusColumnaCaract(Long idCaract) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public String tipusColumnaCaract(String idCaract) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public String tipusControlUICaract(Long idCaract) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public String tipusControlUICaract(String nomCaract) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	public int retId(String taula, String classe) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	public void create() {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 	public void modificarValorCaract(String string, String keyInmoble,
