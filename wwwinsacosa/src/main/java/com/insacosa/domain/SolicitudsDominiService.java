@@ -23,7 +23,7 @@ import ddd.domain.sharedkernel.Money;
  *
  */
 @DomainService
-public class SolicitudsDominiService<T extends Solicituds> extends GenericDomainServiceForBaseEntity<T>{
+public class SolicitudsDominiService<K,T extends Solicituds> extends GenericDomainServiceForBaseEntity<K,T>{
 	
 	@Inject
 	private SolicitudsRepository solicitudsRepository;
