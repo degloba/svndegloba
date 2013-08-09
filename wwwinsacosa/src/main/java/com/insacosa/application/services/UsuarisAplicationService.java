@@ -42,15 +42,11 @@ public class UsuarisAplicationService<T extends Usuaris> extends  GenericApplica
 	    private ApplicationEventPublisher eventPublisher;
 
 	    
-	public void afegirUsuari(Usuaris usuari) {
-		// TODO Auto-generated method stub
-		
-
-		
+	public void afegirUsuari(T usuari) {
+		ds.CreateService().Add(usuari);
 	}
 
 	public String modificarUsuari(Usuaris usuari) {
-		
 		return "";
 		
 	}
