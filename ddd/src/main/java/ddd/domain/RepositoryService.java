@@ -21,4 +21,5 @@ public interface RepositoryService<K, E> {
 	Long getTotalResult();
 	E update(E entity);
 	
+	
 }
