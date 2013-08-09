@@ -8,15 +8,16 @@ import com.insacosa.domain.OrderFactory;
 import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
 
+
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
-import com.insacosa.domain.repositories.GenericApplicationService;
+
 
 @ApplicationService
-public class TipusApplicationService extends GenericApplicationService <Long, Tipus>
+public class TipusApplicationService<T extends Tipus> extends GenericApplicationServiceForBaseEntity <T>
 
 	 {
 

@@ -15,13 +15,12 @@ import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 
 import com.insacosa.domain.*;
-import com.insacosa.domain.repositories.GenericApplicationService;
 
-public class UsuarisAplicationService extends  GenericApplicationService <Long, Usuaris>
+public class UsuarisAplicationService<T extends Usuaris> extends  GenericApplicationServiceForBaseEntity <T>
 
 	 {
 
-	 @Inject
+	 	@Inject
 	    private OrderRepository orderRepository;
 
 	    @Inject
