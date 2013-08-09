@@ -2,6 +2,7 @@ package com.insacosa.application.services;
 
 import javax.inject.Inject;
 
+import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
@@ -16,7 +17,7 @@ import ddd.application.annotation.ApplicationService;
 
 
 @ApplicationService
-public class ProvinciesApplicationService<T extends Provincies> extends GenericApplicationServiceForBaseEntity <T> {
+public class ProvinciesApplicationService<T extends Provincies> extends GenericApplicationServiceForBaseEntity<Long,T> {
 	
 	 	@Inject
 	    private OrderRepository orderRepository;
@@ -38,12 +39,25 @@ public class ProvinciesApplicationService<T extends Provincies> extends GenericA
 
 	    @Inject
 	    private ApplicationEventPublisher eventPublisher;
+	    
+	    
+	    GenericApplicationServiceForBaseEntity<Long,Provincies>  g;
+	    
+	    
+	    private void GetProvinciesById(Long id) {
+	    	
+	    	g.ds.CreateService().Get(id);
+	    	
+	    }
 
 		public void updateClasseApp(Provincies provincia) {
 			// TODO Auto-generated method stub
 			
 		}
 
+
+		
+	    
 
 	
 

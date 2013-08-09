@@ -17,7 +17,7 @@ import com.insacosa.domain.repositories.CaracteristiquesRepository;
  * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Caracteristiques"
  */
 @ApplicationService
-public class CaracteristiquesApplicationService<T extends Caracteristiques> extends GenericApplicationServiceForBaseEntity<T> 
+public class CaracteristiquesApplicationService<T extends Caracteristiques> extends GenericApplicationServiceForBaseEntity<Long,T> 
 
  {
 		
@@ -43,19 +43,13 @@ public class CaracteristiquesApplicationService<T extends Caracteristiques> exte
     private ApplicationEventPublisher eventPublisher;
     
     
-    GenericApplicationServiceForBaseEntity<Caracteristiques>  g;
+    GenericApplicationServiceForBaseEntity<Long,Caracteristiques>  g;
     
-    private void GetCaracteristiquesById(T id) {
+    private void GetCaracteristiquesById(Long id) {
     	
-    	ds.CreateService().Add(id);
-    	
-    }
-    private Caracteristiques GetCaracteristiquesById(Long id) {
-    	
-    	return  ds.CreateService().Get(id);
+    	g.ds.CreateService().Get(id);
     	
     }
-
 
 
 }

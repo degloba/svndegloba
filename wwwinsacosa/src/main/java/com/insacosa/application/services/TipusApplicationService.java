@@ -17,7 +17,7 @@ import com.insacosa.domain.*;
 
 
 @ApplicationService
-public class TipusApplicationService<T extends Tipus> extends GenericApplicationServiceForBaseEntity <T>
+public class TipusApplicationService<T extends Tipus> extends GenericApplicationServiceForBaseEntity <Long,T>
 
 	 {
 

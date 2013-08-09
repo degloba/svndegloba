@@ -3,6 +3,7 @@ package com.insacosa.application.services;
 import javax.inject.Inject;
 
 
+import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 
@@ -19,18 +20,9 @@ import com.insacosa.domain.errors.OrderCreationException;
 import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
-public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <T>
+public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <Long,T>
 	{
 	
-	 	@Inject
-	    private SolicitudsRepository solicitudsRepository;
-	
-	    @Inject
-	    private OrderFactory orderFactory;
-
-	    @Inject
-	    private InvoiceRepository invoiceRepository;
-
 	    @Inject
 	    private InvoicingService invoicingService;  // exemple Servei de Domini
 
@@ -41,14 +33,20 @@ public class SolicitudsApplicationService<T extends Solicituds> extends GenericA
 	    private ApplicationEventPublisher eventPublisher;
 
 
+	    GenericApplicationServiceForBaseEntity<Long,Solicituds>  g;
+	    
+	    
+	    private void GetSolicitudsById(Long id) {
+	    	
+	    	g.ds.CreateService().Get(id);
+	    	
+	    }
+	    
+	    
 
 	public void saveSolicitud(Long solicitudId) {
 		
-		Solicituds solicitud = solicitudsRepository.load(solicitudId);
-	      
-		// Domain logic
-		solicitudsRepository.save(solicitud);
-
+		
 	    // if we want to Spy Clients:)
 	   /////////////// eventPublisher.publish(new ProductAddedToOrderEvent(product.getEntityId(), systemUser.getUserId(), quantity));
 	  

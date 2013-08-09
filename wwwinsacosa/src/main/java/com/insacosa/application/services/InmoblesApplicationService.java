@@ -21,10 +21,20 @@ import com.insacosa.webui.UsuariItemDto;
  * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Inmobles"
  */
 @ApplicationService
-public class InmoblesApplicationService<T extends Inmobles> extends GenericApplicationServiceForBaseEntity<T>
+public class InmoblesApplicationService<T extends Inmobles> extends GenericApplicationServiceForBaseEntity<Long,T>
 	 {
 	
 
+    GenericApplicationServiceForBaseEntity<Long,Inmobles>  g;
+    
+    
+    private void GetInmoblesById(Long id) {
+    	
+    	g.ds.CreateService().Get(id);
+    	
+    }
+    
+	
 	public void modificarInmoble(Inmobles inmoble) {
 		
 		
@@ -32,7 +42,7 @@ public class InmoblesApplicationService<T extends Inmobles> extends GenericAppli
 
 
 	public void eliminarInmoble(Long id) {
-		
+		ds.CreateService().Remove(id);
 	}
 
 
