@@ -87,6 +87,13 @@
 		<version>${spring.version}</version>                 
 	</dependency>   	
   	
+	<dependency>
+		<groupId>com.degloba</groupId>
+		<artifactId>utilitats</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
   </dependencies>
   
          <repositories>                 
