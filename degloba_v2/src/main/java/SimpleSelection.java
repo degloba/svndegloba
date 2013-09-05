@@ -1,11 +1,13 @@
 
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.richfaces.application.push.MessageData;
 import org.richfaces.application.push.Request;
 import org.richfaces.application.push.Session;
 import org.richfaces.application.push.TopicKey;
@@ -142,10 +144,10 @@ public class SimpleSelection implements Session {
 		return 0;
 	}
 
-	public Multimap<TopicKey, TopicKey> getSuccessfulSubscriptions() {
+/*	public Multimap<TopicKey, TopicKey> getSuccessfulSubscriptions() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	public void invalidate() {
 		// TODO Auto-generated method stub
@@ -155,6 +157,30 @@ public class SimpleSelection implements Session {
 	public void subscribe(String[] arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void clearBroadcastedMessages(long arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Collection<MessageData> getMessages() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void push(TopicKey arg0, String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Collection<TopicKey> getSuccessfulSubscriptions() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
