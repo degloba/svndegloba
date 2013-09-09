@@ -102,33 +102,13 @@
     	<scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>org.hibernate</groupId>
-    	<artifactId>hibernate-annotations</artifactId>
-    	<version>3.2.1.ga</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
-    	<groupId>org.hibernate</groupId>
-    	<artifactId>hibernate-entitymanager</artifactId>
-    	<version>3.2.1.ga</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
     	<groupId>org.twitter4j</groupId>
     	<artifactId>twitter4j</artifactId>
     	<version>3.0.3</version>
     	<type>pom</type>
     	<scope>compile</scope>
     </dependency>
-    <dependency>
-    	<groupId>org.twitter4j</groupId>
-    	<artifactId>twitter4j-appengine</artifactId>
-    	<version>2.2.4</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
+    
     <dependency>
     	<groupId>rsslibj</groupId>
     	<artifactId>rsslibj</artifactId>
@@ -212,13 +192,6 @@
     	<groupId>com.google.gdata</groupId>
     	<artifactId>gdata-client</artifactId>
     	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.google.gdata</groupId>
-    	<artifactId>gdata-blogger</artifactId>
-    	<version>2.0</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
