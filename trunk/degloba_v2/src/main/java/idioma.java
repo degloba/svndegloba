@@ -15,15 +15,15 @@ public class idioma {
 	FacesContext context;
 
 	
-	 Boolean  españolEnabled=true;   // idioma seleccionat
+	 Boolean  espanolEnabled=true;   // idioma seleccionat
 	 
 	 
-		public Boolean getespañolEnabled() {
-			return españolEnabled;
+		public Boolean getEspanolEnabled() {
+			return espanolEnabled;
 		}
 
-		public void setespañolEnabled(Boolean españolEnabled) {
-			this.españolEnabled = españolEnabled;
+		public void setEspanolEnabled(Boolean espanolEnabled) {
+			this.espanolEnabled = espanolEnabled;
 		}
 		
 		
@@ -31,7 +31,7 @@ public class idioma {
 		public void cambiarIdioma()
 		{
 
-			españolEnabled=!españolEnabled;
+			espanolEnabled=!espanolEnabled;
 		
 		context = FacesContext.getCurrentInstance();
 		currentLocale = context.getViewRoot().getLocale();
