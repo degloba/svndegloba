@@ -25,10 +25,10 @@
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value></param-value>
  </context-param>    
- <context-param>
-  <param-name>com.sun.faces.expressionFactory</param-name>
-  <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
- </context-param>
+        <context-param>
+        <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
+        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+    </context-param>
  <context-param>
   <param-name>facebook_api_key</param-name>
   <param-value>6bb68478ea37a1dc0a5b6066451841d5</param-value>
@@ -70,10 +70,7 @@
   <param-name>org.richfaces.skin</param-name>
   <param-value>blueSky</param-value>
  </context-param>
- <context-param>
-  <param-name>org.richfaces.staticResourceLocation</param-name>
-  <param-value>#{facesContext.externalContext.requestContextPath}/static-resources/#{resourceLocation}</param-value>
- </context-param>
+ 
  <listener>
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
  </listener>
