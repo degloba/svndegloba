@@ -281,24 +281,7 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>unpack-gae-sdk</id>
-            <activation>
-                <property>
-                    <name>!gae.home</name>
-                </property>
-            </activation>
-            <dependencies>
-                 <dependency>
-			        	<groupId>com.google.appengine</groupId>
-			        	<artifactId>appengine-api-1.0-sdk</artifactId>
-			        	<version>1.7.6</version>
-			        	<type>jar</type>
-			        	<scope>compile</scope>
-        		</dependency>
-            </dependencies>
-            
-        </profile>
+        
     </profiles>
 
     <dependencyManagement>
