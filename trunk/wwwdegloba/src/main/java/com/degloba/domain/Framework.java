@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -22,8 +23,10 @@ public class Framework {
 	private String icon;
 	private String descripcio;
 	private String url;
-	private Integer idtipus;
-	private Integer idf;
+	//private Integer idtipus;
+	
+	@ManyToOne  
+	private TipusFramework tipusframework;
 	
 	
 	public Key getId() {
@@ -62,23 +65,12 @@ public class Framework {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public Integer getIdtipus() {
-		return idtipus;
+	public TipusFramework getTipusframework() {
+		return tipusframework;
 	}
-	public void setIdtipus(Integer idtipus) {
-		this.idtipus = idtipus;
+	public void setTipusframework(TipusFramework tipusframework) {
+		this.tipusframework = tipusframework;
 	}
-	public Integer getIdf() {
-		return idf;
-	}
-	public void setIdf(Integer idf) {
-		this.idf = idf;
-	}
-	
-	
-	
-	
-	
 
 
 }
