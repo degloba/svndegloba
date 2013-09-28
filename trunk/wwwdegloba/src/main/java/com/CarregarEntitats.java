@@ -38,9 +38,9 @@ public class CarregarEntitats {
 
 
 		
-		List tlf =carregarList("tipusframework");
-		List lf = carregarList("framework");	
-		persistir(lf,tlf);
+		List lpare =carregarList("tipusframework");
+		List lfill = carregarList("framework");	
+		persistirRelacio(lfill,lpare);
 		
 	}
 	
@@ -49,7 +49,7 @@ public class CarregarEntitats {
 	/**
 	 * @param fitxer
 	 */
-	private static void persistir(List<HashMap<String,String>> l1 , List<HashMap<String,String>> l2) {
+	private static void persistirRelacio(List<HashMap<String,String>> lfill , List<HashMap<String,String>> lpare) {
 		
 	
 		EntityManager em = null;
@@ -59,7 +59,7 @@ public class CarregarEntitats {
 			
 		////////em = EMF.get().createEntityManager();
 
-		for (HashMap<String,String> linia : l2) {
+		for (HashMap<String,String> linia : lpare) {
 		    // Deal with the line
 							
 			    String fitxer = "tipusframework";
@@ -91,7 +91,7 @@ public class CarregarEntitats {
 						////////////em.persist(e);
 						
 						// busquem els frameworks que tenen el tipusframework = ¿?
-						List<HashMap<String,String>> lhmf = cerca(l1 , "idTipus" , linia.get("idTipus"));
+						List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
 						
 						// persistim els fills
 						
@@ -102,7 +102,7 @@ public class CarregarEntitats {
 						        Map.Entry pairs = (Map.Entry)it.next();
 						        System.out.println(pairs.getKey() + " = " + pairs.getValue());
 						        
-								// Creem entitat Google DataStore
+								// Entitat filla
 								Framework f = new Framework();
 								
 								f.setDescripcio(linia.get("descripcio"));
@@ -110,6 +110,7 @@ public class CarregarEntitats {
 								f.setNom(linia.get("nom"));
 								f.setTecnologia(linia.get("tecnologia"));
 								f.setUrl(linia.get("url"));
+								f.setTipusframework(e);  // referencia
 								
 								
 								// Persistim						
@@ -119,10 +120,7 @@ public class CarregarEntitats {
 							
 						}
 						
-						
-						
-	
-												
+											
 						break;
 						
 					case "blog":
@@ -218,24 +216,27 @@ public class CarregarEntitats {
 	}
 	
 	
-	private static List<HashMap<String,String>> cerca(List<HashMap<String,String>> l , String col , String valor)
+	/**
+	 * Retorna una llista de HashMaps que cumpleixi que la "col" té el "valor"
+	 * @param l
+	 * @param col
+	 * @param valor
+	 * @return
+	 */
+	private static List<HashMap<String,String>> cerca(List<HashMap<String,String>> lfill , String col , String valor)
 	{
 		
-		HashMap<String,String> hm = new HashMap<String,String>();
-		List<HashMap<String,String>> l2 = new ArrayList<HashMap<String,String>>();
+		List<HashMap<String,String>> lret = new ArrayList<HashMap<String,String>>();
 		
-		
-		for (HashMap<String,String> linia : l) {
+		for (HashMap<String,String> linia : lfill) {
 			
 			if (linia.get(col).equals(valor))
 			{
-				l2.add(linia);
+				lret.add(linia);
 			}
-			
 		}
 		
-	
-		return l2;
+		return lret;
 		
 	}
 	
