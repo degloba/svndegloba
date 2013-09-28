@@ -9,7 +9,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 
@@ -37,7 +39,8 @@ public class CarregarEntitats {
 
 		
 		List tlf =carregarList("tipusframework");
-		List lf = carregarList("framework");			
+		List lf = carregarList("framework");	
+		persistir(lf,tlf);
 		
 	}
 	
@@ -46,75 +49,79 @@ public class CarregarEntitats {
 	/**
 	 * @param fitxer
 	 */
-	private static void c(String fitxer) {
+	private static void persistir(List<HashMap<String,String>> l1 , List<HashMap<String,String>> l2) {
 		
-		InputStream    fis;
-		BufferedReader br;
-		String         line;
-		Integer		   numlin = 0;
-		List<String>	   columnes = null;
-		List<String>	   valors = null;
-		
+	
 		EntityManager em = null;
 		
 		try
 		{
 			
-		em = EMF.get().createEntityManager();
-		
-		fis = new FileInputStream(fitxer + ".csv");
-		
-		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		while ((line = br.readLine()) != null) {
-		    // Deal with the line
-			
-			if (numlin == 0) {
-					columnes = Arrays.asList(line.split(","));
-					numlin = 1;
-			}
-			else {
-				
-				numlin = numlin + 1;
-				valors = Arrays.asList(line.split(","));
-				HashMap<String,String> hm = new HashMap<String,String>();
-								
-				for (String columna : columnes) {
-					
-					Integer index = columnes.indexOf(columna);
-					String valor = valors.get(index);
-				    
-				    hm.put(columna,valor);
+		////////em = EMF.get().createEntityManager();
 
-				}
-				
+		for (HashMap<String,String> linia : l2) {
+		    // Deal with the line
+							
+			    String fitxer = "tipusframework";
 				switch(fitxer) {
 				
 					case "framework":
 						
-						// Creem entitat Google DataStore
+/*						// Creem entitat Google DataStore
 						Framework f = new Framework();
 						
-						f.setDescripcio(hm.get("descripcio"));
-						f.setIcon(hm.get("icon"));
-						f.setNom(hm.get("nom"));
-						f.setTecnologia(hm.get("tecnologia"));
-						f.setUrl(hm.get("url"));
+						f.setDescripcio(linia.get("descripcio"));
+						f.setIcon(linia.get("icon"));
+						f.setNom(linia.get("nom"));
+						f.setTecnologia(linia.get("tecnologia"));
+						f.setUrl(linia.get("url"));
 						
-						////////TipusFramework tipusframework = em.find(TipusFramework.class, arg1)
-						/////////f.setTipusframework(tipusframework);
 						
 						// Persistim						
 						em.persist(f);
 					    
-						break;
+						break;*/
 						
 					case "tipusframework":
 						
 						TipusFramework e = new TipusFramework();
-						e.setNom(hm.get("nom"));
+						e.setNom(linia.get("nom"));
+												
+						// Persistim el pare						
+						////////////em.persist(e);
 						
-						// Persistim						
-						em.persist(e);
+						// busquem els frameworks que tenen el tipusframework = ¿?
+						List<HashMap<String,String>> lhmf = cerca(l1 , "idTipus" , linia.get("idTipus"));
+						
+						// persistim els fills
+						
+						for (HashMap<String,String> hmf : lhmf) {
+							
+							Iterator it = hmf.entrySet().iterator();
+						    while (it.hasNext()) {
+						        Map.Entry pairs = (Map.Entry)it.next();
+						        System.out.println(pairs.getKey() + " = " + pairs.getValue());
+						        
+								// Creem entitat Google DataStore
+								Framework f = new Framework();
+								
+								f.setDescripcio(linia.get("descripcio"));
+								f.setIcon(linia.get("icon"));
+								f.setNom(linia.get("nom"));
+								f.setTecnologia(linia.get("tecnologia"));
+								f.setUrl(linia.get("url"));
+								
+								
+								// Persistim						
+								////em.persist(f);
+						        
+						    }
+							
+						}
+						
+						
+						
+	
 												
 						break;
 						
@@ -122,8 +129,8 @@ public class CarregarEntitats {
 						
 						Blog b = new Blog();
 						
-						b.setDescripcio(hm.get("descripcio"));
-						b.setTitol(hm.get("titol"));
+						b.setDescripcio(linia.get("descripcio"));
+						b.setTitol(linia.get("titol"));
 						
 						// Persistim						
 						em.persist(b);
@@ -134,14 +141,14 @@ public class CarregarEntitats {
 						
 						Document d = new Document();
 						
-						d.setAbrev(hm.get("abrev"));
-						d.setDescripcio(hm.get("descripcio"));
-						d.setEntorn(hm.get("entorn"));
-						d.setEsroot(Boolean.parseBoolean(hm.get("esroot")));
-						d.setIdanterior(Integer.parseInt(hm.get("idanterior")));
-						d.setIdarbre(Integer.parseInt(hm.get("idarbre")));
-						d.setOrdre(Integer.parseInt(hm.get("ordre")));
-						d.setTecnologia(hm.get("tecnologia"));
+						d.setAbrev(linia.get("abrev"));
+						d.setDescripcio(linia.get("descripcio"));
+						d.setEntorn(linia.get("entorn"));
+						d.setEsroot(Boolean.parseBoolean(linia.get("esroot")));
+						d.setIdanterior(Integer.parseInt(linia.get("idanterior")));
+						d.setIdarbre(Integer.parseInt(linia.get("idarbre")));
+						d.setOrdre(Integer.parseInt(linia.get("ordre")));
+						d.setTecnologia(linia.get("tecnologia"));
 						
 						// Persistim						
 						em.persist(d);
@@ -152,9 +159,9 @@ public class CarregarEntitats {
 						
 						// Menubar
 						Menubar m = new Menubar();
-						m.setAbrev1(hm.get("abrev1"));
-						m.setAbrev2(hm.get("abrev2"));
-						m.setAbrev3(hm.get("abrev3"));
+						m.setAbrev1(linia.get("abrev1"));
+						m.setAbrev2(linia.get("abrev2"));
+						m.setAbrev3(linia.get("abrev3"));
 						//////////////m.setIdmenuitem(idmenuitem);
 						
 						// Persistim						
@@ -167,7 +174,7 @@ public class CarregarEntitats {
 						//ModalPanel
 						Modalpanel mp = new Modalpanel();
 						
-						mp.setDescripcio(hm.get("descripcio"));
+						mp.setDescripcio(linia.get("descripcio"));
 						//mp.setModalpanelid(modalpanelid);
 						
 						// Persistim						
@@ -181,13 +188,13 @@ public class CarregarEntitats {
 						
 						Wizard w = new Wizard();
 						
-						w.setAbrev(hm.get("abrev"));
-						w.setDescripcio(hm.get("descripcio"));
-						w.setEsroot(Boolean.parseBoolean(hm.get("esroot")));
-						w.setIdanterior(Integer.parseInt(hm.get("idanterior")));
-						w.setIdarbre(Integer.parseInt(hm.get("idarbre")));
-						w.setJsp(hm.get("jsp"));
-						w.setJspgrafic(hm.get("jspgrafic"));
+						w.setAbrev(linia.get("abrev"));
+						w.setDescripcio(linia.get("descripcio"));
+						w.setEsroot(Boolean.parseBoolean(linia.get("esroot")));
+						w.setIdanterior(Integer.parseInt(linia.get("idanterior")));
+						w.setIdarbre(Integer.parseInt(linia.get("idarbre")));
+						w.setJsp(linia.get("jsp"));
+						w.setJspgrafic(linia.get("jspgrafic"));
 						
 						// Persistim						
 						em.persist(w);
@@ -195,26 +202,41 @@ public class CarregarEntitats {
 						break;
 		
 						}
-			
 
+		} //for
 		
-				} // if
 
-		} //while
-		
-		// Done with the file
-		br.close();
-		br = null;
-		fis = null;
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	finally {
-		em.close();
+		//////em.close();
 	}
 
+	}
+	
+	
+	private static List<HashMap<String,String>> cerca(List<HashMap<String,String>> l , String col , String valor)
+	{
+		
+		HashMap<String,String> hm = new HashMap<String,String>();
+		List<HashMap<String,String>> l2 = new ArrayList<HashMap<String,String>>();
+		
+		
+		for (HashMap<String,String> linia : l) {
+			
+			if (linia.get(col).equals(valor))
+			{
+				l2.add(linia);
+			}
+			
+		}
+		
+	
+		return l2;
+		
 	}
 	
 	
