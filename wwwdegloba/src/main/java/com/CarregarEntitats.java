@@ -37,12 +37,12 @@ public class CarregarEntitats {
 		// TODO Auto-generated method stub
 
 		
-		List lpare =carregarList("tipusframework");
-		List lfill = carregarList("framework");	
+		List lpare = carregarCSVtoList("tipusframework");
+		List lfill = carregarCSVtoList("framework");	
 		persistir("tipusframework",lpare,lfill);
 		
 		
-		List lblogs = carregarList("blog");
+		List lblogs = carregarCSVtoList("blog");
 		persistir("blog",lblogs,null);
 		
 	}
@@ -66,23 +66,6 @@ public class CarregarEntitats {
 		    // Deal with the line
 							
 				switch(tPersistencia) {
-				
-					case "framework":
-						
-/*						// Creem entitat Google DataStore
-						Framework f = new Framework();
-						
-						f.setDescripcio(linia.get("descripcio"));
-						f.setIcon(linia.get("icon"));
-						f.setNom(linia.get("nom"));
-						f.setTecnologia(linia.get("tecnologia"));
-						f.setUrl(linia.get("url"));
-						
-						
-						// Persistim						
-						em.persist(f);
-					    
-						break;*/
 						
 					case "tipusframework":
 						
@@ -240,7 +223,7 @@ public class CarregarEntitats {
 	}
 	
 	
-	private static List carregarList(String fitxer) {
+	private static List carregarCSVtoList(String fitxer) {
 		
 		InputStream    fis;
 		BufferedReader br;
