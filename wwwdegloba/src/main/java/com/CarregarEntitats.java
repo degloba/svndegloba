@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,8 +34,10 @@ public class CarregarEntitats {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
-		c("tipusframework");
-		c("framework");			
+
+		
+		List tlf =carregarList("tipusframework");
+		List lf = carregarList("framework");			
 		
 	}
 	
@@ -213,4 +216,64 @@ public class CarregarEntitats {
 	}
 
 	}
+	
+	
+	private static List carregarList(String fitxer) {
+		
+		InputStream    fis;
+		BufferedReader br;
+		String         line;
+		Integer		   numlin = 0;
+		List<String>	   columnes = null;
+		List<String>	   valors = null;
+		
+		List list = new ArrayList();
+		
+		try
+		{
+					
+			fis = new FileInputStream(fitxer + ".csv");
+			
+			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+			while ((line = br.readLine()) != null) {
+			    // Deal with the line
+				
+				if (numlin == 0) {
+						columnes = Arrays.asList(line.split(","));
+						numlin = 1;
+				}
+				else {
+					
+					numlin = numlin + 1;
+					valors = Arrays.asList(line.split(","));
+					HashMap<String,String> hm = new HashMap<String,String>();
+									
+					for (String columna : columnes) {
+						
+						Integer index = columnes.indexOf(columna);
+						String valor = valors.get(index);
+					    
+					    hm.put(columna,valor);
+	
+					}
+					
+					// afegim linia
+					list.add(hm);
+	
+				}
+			}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally {
+			}
+		
+		
+		return list;
+		
+	}
+	
+	
+	
 }
