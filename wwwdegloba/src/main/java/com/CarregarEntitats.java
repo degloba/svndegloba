@@ -36,11 +36,14 @@ public class CarregarEntitats {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
-
 		
 		List lpare =carregarList("tipusframework");
 		List lfill = carregarList("framework");	
-		persistirRelacio(lfill,lpare);
+		persistir("tipusframework",lpare,lfill);
+		
+		
+		List lblogs = carregarList("blog");
+		persistir("blog",lblogs,null);
 		
 	}
 	
@@ -49,7 +52,7 @@ public class CarregarEntitats {
 	/**
 	 * @param fitxer
 	 */
-	private static void persistirRelacio(List<HashMap<String,String>> lfill , List<HashMap<String,String>> lpare) {
+	private static void persistir(String tPersistencia, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
 		
 	
 		EntityManager em = null;
@@ -62,8 +65,7 @@ public class CarregarEntitats {
 		for (HashMap<String,String> linia : lpare) {
 		    // Deal with the line
 							
-			    String fitxer = "tipusframework";
-				switch(fitxer) {
+				switch(tPersistencia) {
 				
 					case "framework":
 						
@@ -131,7 +133,7 @@ public class CarregarEntitats {
 						b.setTitol(linia.get("titol"));
 						
 						// Persistim						
-						em.persist(b);
+						///////em.persist(b);
 												
 						break;
 						
@@ -230,12 +232,9 @@ public class CarregarEntitats {
 		
 		for (HashMap<String,String> linia : lfill) {
 			
-			if (linia.get(col).equals(valor))
-			{
-				lret.add(linia);
-			}
+			if (linia.get(col).equals(valor)) lret.add(linia);
 		}
-		
+		 
 		return lret;
 		
 	}
