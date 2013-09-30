@@ -42,8 +42,5 @@ public class Blog {
 	public void setDescripcio(String descripcio) {
 		this.descripcio = descripcio;
 	}
-
-	
-    
-    
+   
 }
