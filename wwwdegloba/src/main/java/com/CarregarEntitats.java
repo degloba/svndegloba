@@ -52,7 +52,7 @@ public class CarregarEntitats {
 	/**
 	 * @param fitxer
 	 */
-	private static void persistir(String tPersistencia, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
+	private static void persistir(String classePare, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
 		
 	
 		EntityManager em = null;
@@ -63,9 +63,8 @@ public class CarregarEntitats {
 		////////em = EMF.get().createEntityManager();
 
 		for (HashMap<String,String> linia : lpare) {
-		    // Deal with the line
 							
-				switch(tPersistencia) {
+				switch(classePare) {
 						
 					case "tipusframework":
 						
