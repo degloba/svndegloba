@@ -191,10 +191,10 @@
 					            	<classpath>                            
 							            <pathelement path="${appengine.tools.classpath}"/>                            
 							            <pathelement path="${dependency_classpath}"/>                            
-							            <pathelement path="target/wwwdegloba/WEB-INF/classes"/>    
+							            <pathelement path="target/wwwdegloba/WEB-INF/classes/com/degloba"/>    
 					            	</classpath>
 					                                  
-				            		<fileset dir="target/wwwdegloba/WEB-INF/classes" includes="**/entitats/*.class"/>                    
+				            		<fileset dir="target/wwwdegloba/WEB-INF/classes/com/degloba" includes="**/domain/*.class"/>                    
 				            	</enhance>                
 				            </tasks>
 				           
