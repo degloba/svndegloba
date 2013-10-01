@@ -8,7 +8,6 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
-
 @Entity
 public class Blog {
 
