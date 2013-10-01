@@ -28,6 +28,7 @@
   <managed-bean-class>framework</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
+
  <managed-bean>
   <managed-bean-name>frameworks</managed-bean-name>
   <managed-bean-class>frameworks</managed-bean-class>
