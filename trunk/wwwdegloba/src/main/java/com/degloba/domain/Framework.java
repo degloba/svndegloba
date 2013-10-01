@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 
 import com.google.appengine.api.datastore.Key;
 
-
 @Entity
 public class Framework {
 	

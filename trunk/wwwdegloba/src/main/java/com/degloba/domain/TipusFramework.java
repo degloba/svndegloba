@@ -1,7 +1,6 @@
 package com.degloba.domain;
 
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 
