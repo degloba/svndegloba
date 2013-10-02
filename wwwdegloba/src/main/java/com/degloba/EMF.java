@@ -1,7 +1,6 @@
 package com.degloba;
 
 
-
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
