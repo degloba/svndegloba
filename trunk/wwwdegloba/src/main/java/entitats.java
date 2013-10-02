@@ -17,6 +17,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 
+import com.degloba.EMF;
 import com.degloba.domain.Blog;
 import com.degloba.domain.Document;
 import com.degloba.domain.Framework;
@@ -33,14 +34,14 @@ public  class entitats implements Serializable {
 	
 	public void carrega()
 	{
+		List lblogs = carregarCSVtoList("blog");
+		persistir("blog",lblogs,null);
 				
 		List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
 		persistir("tipusframework",lpare,lfill);
-		
-		
-		List lblogs = carregarCSVtoList("blog");
-		persistir("blog",lblogs,null);
+			
+
 		
 	}
 	
@@ -57,7 +58,8 @@ public  class entitats implements Serializable {
 		try
 		{
 			
-		////////em = EMF.get().createEntityManager();
+		em = EMF.get().createEntityManager();
+		em.getTransaction().begin();
 
 		for (HashMap<String,String> linia : lpare) {
 							
@@ -69,7 +71,7 @@ public  class entitats implements Serializable {
 						e.setNom(linia.get("nom"));
 												
 						// Persistim el pare						
-						////////////em.persist(e);
+						em.persist(e);
 						
 						// busquem els frameworks que tenen el tipusframework = �?
 						List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
@@ -95,7 +97,7 @@ public  class entitats implements Serializable {
 								
 								
 								// Persistim						
-								////em.persist(f);
+								em.persist(f);
 						        
 						    }
 							
@@ -112,7 +114,7 @@ public  class entitats implements Serializable {
 						b.setTitol(linia.get("titol"));
 						
 						// Persistim						
-						///////em.persist(b);
+						em.persist(b);
 												
 						break;
 						
@@ -191,7 +193,9 @@ public  class entitats implements Serializable {
 		e.printStackTrace();
 	}
 	finally {
-		//////em.close();
+		em.getTransaction().commit();
+
+		em.close();
 	}
 
 	}
