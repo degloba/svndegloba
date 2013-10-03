@@ -16,8 +16,11 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.degloba.EMF;
+import com.degloba.Util;
+import com.degloba.JPA.UtilCriteriaBuilderJPA;
 import com.degloba.domain.Blog;
 import com.degloba.domain.Document;
 import com.degloba.domain.Framework;
@@ -34,12 +37,25 @@ public  class entitats implements Serializable {
 	
 	public void carrega()
 	{
-		List lblogs = carregarCSVtoList("blog");
+/*		List lblogs = carregarCSVtoList("blog");
 		persistir("blog",lblogs,null);
-				
+		
+		List lmenubar = carregarCSVtoList("menubar");
+		persistir("menubar",lmenubar,null);
+		
+		List ldocument = carregarCSVtoList("document");
+		persistir("document",ldocument,null);
+		
+		List lmodalpanel = carregarCSVtoList("modalpanel");
+		persistir("modalpanel",lmodalpanel,null);
+		
+		List lwizard = carregarCSVtoList("wizard");
+		persistir("wizard",lwizard,null);		
+				*/
 		List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
 		persistir("tipusframework",lpare,lfill);
+		persistirFills(lpare,lfill);
 			
 
 		
@@ -73,7 +89,7 @@ public  class entitats implements Serializable {
 						// Persistim el pare						
 						em.persist(e);
 						
-						// busquem els frameworks que tenen el tipusframework = �?
+						/*// busquem els frameworks que tenen el tipusframework = �?
 						List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
 						
 						// persistim els fills
@@ -101,7 +117,7 @@ public  class entitats implements Serializable {
 						        
 						    }
 							
-						}
+						}*/
 						
 											
 						break;
@@ -201,6 +217,73 @@ public  class entitats implements Serializable {
 	}
 	
 	
+	
+	private void persistirFills(List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill)
+	{
+		
+		EntityManager em = null;
+		
+		try
+		{
+			
+			em = EMF.get().createEntityManager();
+			em.getTransaction().begin();
+			
+		
+			for (HashMap<String,String> linia : lpare) {
+				
+			
+				
+				/*UtilCriteriaBuilderJPA<TipusFramework> u = new UtilCriteriaBuilderJPA<TipusFramework>();
+				u.createFilterCriteriaForField(propertyName, filterValue, root, criteriaBuilder);
+				u.createFilterCriteria(criteriaBuilder, root, propertyNames, filterValue);
+				u.createSelectCriteriaQuery(campsFiltre, valorsFiltre, campsOrdre, ordre);*/
+				
+				TypedQuery<TipusFramework> q2 = em.createQuery("SELECT c FROM TipusFramework c WHERE c.idTipus = '" + linia.get("idTipus") + "'", TipusFramework.class);
+				TipusFramework e = q2.getSingleResult();
+																	
+				// busquem els fills que del pare en questio
+				List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
+						
+				// persistim els fills
+						
+				for (HashMap<String,String> hmf : lhmf) {
+							
+					Iterator it = hmf.entrySet().iterator();
+				    while (it.hasNext()) {
+				        Map.Entry pairs = (Map.Entry)it.next();
+				        System.out.println(pairs.getKey() + " = " + pairs.getValue());
+						        
+						// Entitat filla
+						Framework f = new Framework();
+								
+						f.setDescripcio(linia.get("descripcio"));
+						f.setIcon(linia.get("icon"));
+						f.setNom(linia.get("nom"));
+						f.setTecnologia(linia.get("tecnologia"));
+						f.setUrl(linia.get("url"));
+						f.setTipusframework(e);  // referencia
+								
+							
+						// Persistim						
+						em.persist(f);
+						        
+				    }
+				}
+			}
+		}
+		catch (Exception e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			em.getTransaction().commit();
+			em.close();
+		}
+					
+	}
+	
+	
 	/**
 	 * Retorna una llista de HashMaps que cumpleixi que la "col" t� el "valor"
 	 * @param l
@@ -276,6 +359,23 @@ public  class entitats implements Serializable {
 		
 		
 		return list;
+		
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 */
+	private void uuuu()
+	{
+		Util.persistEntity(null);
+		/*Util.listChildKeys(kind, ancestor);
+		Util.listChildren(kind, ancestor);
+		Util.listEntities(kind, searchBy, searchFor);
+		*/
+		
 		
 	}
 	
