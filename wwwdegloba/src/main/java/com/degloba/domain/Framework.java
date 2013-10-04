@@ -20,7 +20,7 @@ public class Framework {
 	private String icon;
 	private String descripcio;
 	private String url;
-	//private Integer idtipus;
+	private Key idTipus;
 	
 	@ManyToOne  
 	private TipusFramework tipusframework;
@@ -67,6 +67,12 @@ public class Framework {
 	}
 	public void setTipusframework(TipusFramework tipusframework) {
 		this.tipusframework = tipusframework;
+	}
+	public Key getIdTipus() {
+		return idTipus;
+	}
+	public void setIdTipus(Key idTipus) {
+		this.idTipus = idTipus;
 	}
 
 
