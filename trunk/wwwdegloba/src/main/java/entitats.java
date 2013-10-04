@@ -19,8 +19,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.degloba.EMF;
-import com.degloba.Util;
-import com.degloba.JPA.UtilCriteriaBuilderJPA;
+/*import com.degloba.UtilPersistenciaGAE;
+import com.degloba.JPA.UtilCriteriaBuilderJPA;*/
 import com.degloba.domain.Blog;
 import com.degloba.domain.Document;
 import com.degloba.domain.Framework;
@@ -28,6 +28,10 @@ import com.degloba.domain.Menubar;
 import com.degloba.domain.Modalpanel;
 import com.degloba.domain.TipusFramework;
 import com.degloba.domain.Wizard;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Transaction;
 
 import scala.actors.threadpool.Arrays;
 
@@ -55,7 +59,7 @@ public  class entitats implements Serializable {
 		List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
 		persistir("tipusframework",lpare,lfill);
-		persistirFills(lpare,lfill);
+		//persistirFills(lpare,lfill);
 			
 
 		
@@ -74,8 +78,10 @@ public  class entitats implements Serializable {
 		try
 		{
 			
-		em = EMF.get().createEntityManager();
-		em.getTransaction().begin();
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			em = EMF.get().createEntityManager();
+			//em.getTransaction().begin();
 
 		for (HashMap<String,String> linia : lpare) {
 							
@@ -83,41 +89,43 @@ public  class entitats implements Serializable {
 						
 					case "tipusframework":
 						
-						TipusFramework e = new TipusFramework();
-						e.setNom(linia.get("nom"));
-												
-						// Persistim el pare						
-						em.persist(e);
+						Entity tf = new Entity("TipusFramework");
+						datastore.put(tf);
+										
+						// Transactions on root entities
+						Transaction tx = datastore.beginTransaction();
 						
-						/*// busquem els frameworks que tenen el tipusframework = �?
+						tf = datastore.get(tf.getKey());
+						tf.setProperty("nom", linia.get("nom"));
+						
+						// Persistim el pare						
+						datastore.put(tf);
+						tx.commit();
+						
+												
+						// busquem els frameworks que tenen el tipusframework = 
 						List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
 						
 						// persistim els fills
-						
 						for (HashMap<String,String> hmf : lhmf) {
-							
-							Iterator it = hmf.entrySet().iterator();
-						    while (it.hasNext()) {
-						        Map.Entry pairs = (Map.Entry)it.next();
-						        System.out.println(pairs.getKey() + " = " + pairs.getValue());
+																	        						        
+						        tx = datastore.beginTransaction();
+						        tf = datastore.get(tf.getKey());
 						        
-								// Entitat filla
-								Framework f = new Framework();
-								
-								f.setDescripcio(linia.get("descripcio"));
-								f.setIcon(linia.get("icon"));
-								f.setNom(linia.get("nom"));
-								f.setTecnologia(linia.get("tecnologia"));
-								f.setUrl(linia.get("url"));
-								f.setTipusframework(e);  // referencia
-								
-								
+						        
+						        // Entitat filla
+						        Entity f = new Entity("Framework", tf.getKey());
+						        f.setProperty("descripcio", hmf.get("descripcio"));
+						        f.setProperty("icon", hmf.get("icon"));
+						        f.setProperty("nom", hmf.get("nom"));
+						        f.setProperty("url", hmf.get("url"));
+						        f.setProperty("tecnologia", hmf.get("tecnologia"));
+						        
 								// Persistim						
-								em.persist(f);
-						        
-						    }
-							
-						}*/
+								datastore.put(f);
+								tx.commit();
+								
+						}
 						
 											
 						break;
@@ -198,7 +206,7 @@ public  class entitats implements Serializable {
 						
 						break;
 		
-						}
+						} //switch
 
 		} //for
 		
@@ -209,7 +217,7 @@ public  class entitats implements Serializable {
 		e.printStackTrace();
 	}
 	finally {
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 
 		em.close();
 	}
@@ -225,6 +233,7 @@ public  class entitats implements Serializable {
 		
 		try
 		{
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
 			em = EMF.get().createEntityManager();
 			em.getTransaction().begin();
@@ -370,8 +379,8 @@ public  class entitats implements Serializable {
 	 */
 	private void uuuu()
 	{
-		Util.persistEntity(null);
-		/*Util.listChildKeys(kind, ancestor);
+		/*UtilPersistenciaGAE.persistEntity(null);
+		Util.listChildKeys(kind, ancestor);
 		Util.listChildren(kind, ancestor);
 		Util.listEntities(kind, searchBy, searchFor);
 		*/
