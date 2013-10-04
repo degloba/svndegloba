@@ -120,6 +120,7 @@ public  class entitats implements Serializable {
 						        f.setProperty("nom", hmf.get("nom"));
 						        f.setProperty("url", hmf.get("url"));
 						        f.setProperty("tecnologia", hmf.get("tecnologia"));
+						        f.setProperty("idTipus", tf.getKey());
 						        
 								// Persistim						
 								datastore.put(f);
