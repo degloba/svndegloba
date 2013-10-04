@@ -96,8 +96,19 @@ public  class entitats implements Serializable {
 						Transaction tx = datastore.beginTransaction();
 						
 						tf = datastore.get(tf.getKey());
-						tf.setProperty("nom", linia.get("nom"));
 						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    Iterator it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+					        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	tf.setProperty("nom", linia.get("nom"));
+					        }
+						
+					    }
 						// Persistim el pare						
 						datastore.put(tf);
 						tx.commit();
@@ -115,14 +126,15 @@ public  class entitats implements Serializable {
 						    // Entitat filla
 						    Entity f = new Entity("Framework", tf.getKey());
 						    
-						    Iterator it = hmf.entrySet().iterator();
+						    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+						    Iterator it2 = hmf.entrySet().iterator();
 						    while (it.hasNext()) {
-						        Map.Entry pairs = (Map.Entry)it.next();
+						        Map.Entry pairs2 = (Map.Entry)it.next();
 						        						        
 						        // Hem d'excloure les columnes "id" i "idTipus"
-						        if (!pairs.getKey().toString().equals("id") & !pairs.getKey().toString().equals("idTipus"))
+						        if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals("idTipus"))
 						        {
-						        	f.setProperty(pairs.getKey().toString(), hmf.get(pairs.getKey().toString()));
+						        	f.setProperty(pairs2.getKey().toString(), hmf.get(pairs2.getKey().toString()));
 						        }
 
 							    f.setProperty("idTipus", tf.getKey()); // lligam pare-fill
