@@ -109,22 +109,28 @@ public  class entitats implements Serializable {
 						// persistim els fills
 						for (HashMap<String,String> hmf : lhmf) {
 																	        						        
-						        tx = datastore.beginTransaction();
-						        tf = datastore.get(tf.getKey());
+							tx = datastore.beginTransaction();
+						    tf = datastore.get(tf.getKey());
 						        
+						    // Entitat filla
+						    Entity f = new Entity("Framework", tf.getKey());
+						    
+						    Iterator it = hmf.entrySet().iterator();
+						    while (it.hasNext()) {
+						        Map.Entry pairs = (Map.Entry)it.next();
+						        						        
+						        // Hem d'excloure les columnes "id" i "idTipus"
+						        if (!pairs.getKey().toString().equals("id") & !pairs.getKey().toString().equals("idTipus"))
+						        {
+						        	f.setProperty(pairs.getKey().toString(), hmf.get(pairs.getKey().toString()));
+						        }
+
+							    f.setProperty("idTipus", tf.getKey()); // lligam pare-fill
+						    }
 						        
-						        // Entitat filla
-						        Entity f = new Entity("Framework", tf.getKey());
-						        f.setProperty("descripcio", hmf.get("descripcio"));
-						        f.setProperty("icon", hmf.get("icon"));
-						        f.setProperty("nom", hmf.get("nom"));
-						        f.setProperty("url", hmf.get("url"));
-						        f.setProperty("tecnologia", hmf.get("tecnologia"));
-						        f.setProperty("idTipus", tf.getKey());
-						        
-								// Persistim						
-								datastore.put(f);
-								tx.commit();
+							// Persistim						
+							datastore.put(f);
+							tx.commit();
 								
 						}
 						
