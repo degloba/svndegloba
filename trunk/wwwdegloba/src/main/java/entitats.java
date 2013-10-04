@@ -105,7 +105,7 @@ public  class entitats implements Serializable {
 					        // Hem d'excloure les columnes "idTipus" 
 					        if (!pairs.getKey().toString().equals("idTipus") )
 					        {
-					        	tf.setProperty("nom", linia.get("nom"));
+					        	tf.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
 					        }
 						
 					    }
@@ -128,8 +128,8 @@ public  class entitats implements Serializable {
 						    
 						    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
 						    Iterator it2 = hmf.entrySet().iterator();
-						    while (it.hasNext()) {
-						        Map.Entry pairs2 = (Map.Entry)it.next();
+						    while (it2.hasNext()) {
+						        Map.Entry pairs2 = (Map.Entry)it2.next();
 						        						        
 						        // Hem d'excloure les columnes "id" i "idTipus"
 						        if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals("idTipus"))
