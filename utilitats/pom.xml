@@ -99,13 +99,14 @@
             <artifactId>jms</artifactId>
             <version>1.1</version>
         </dependency>
+        
+        <dependency>
+        	<groupId>com.sun.faces</groupId>
+        	<artifactId>jsf-api</artifactId>
+        	<version>2.1.3_01</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
   
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.2.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
   </dependencies>
 </project>
