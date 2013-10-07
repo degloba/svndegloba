@@ -15,7 +15,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 
-import com.degloba.EMF;
+
 import com.degloba.domain.Blog;
 import com.degloba.domain.Document;
 import com.degloba.domain.Framework;
