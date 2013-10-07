@@ -641,6 +641,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>utilitats</artifactId>
