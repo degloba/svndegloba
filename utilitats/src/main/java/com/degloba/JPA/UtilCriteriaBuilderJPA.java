@@ -56,7 +56,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	 * @param criteriaBuilder
 	 * @return
 	 */
-	protected Predicate createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
+	public Predicate createFilterCriteriaForField(String propertyName, Object filterValue, Root<T> root, CriteriaBuilder criteriaBuilder) {
 	    	
     	Integer integerFilterValue = null;
     	
@@ -101,7 +101,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	
 	
 	  
-	  private List<Order> createOrders(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> sortFields, String sortOrder) {
+	  public List<Order> createOrders(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> sortFields, String sortOrder) {
 
 	        List<Order> orders = new ArrayList<Order>();
 	        
@@ -135,7 +135,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	  
 	  
 	
-	    protected CriteriaQuery<T> createSelectCriteriaQuery(List<String> campsFiltre,List<Object> valorsFiltre, List<String> campsOrdre, String ordre) {
+	    public CriteriaQuery<T> createSelectCriteriaQuery(List<String> campsFiltre,List<Object> valorsFiltre, List<String> campsOrdre, String ordre) {
 	    	
 	    	EntityManager em = this.getEntityManager();
 	    	
@@ -158,7 +158,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	    
 	    
 	    
-	    private void selectSpecificColumnsByTuple(List<String> columnesSelec)
+	    public void selectSpecificColumnsByTuple(List<String> columnesSelec)
 	    {
 	    	EntityManager em = this.getEntityManager();
 	    	
@@ -185,7 +185,7 @@ public class UtilCriteriaBuilderJPA<T> {
 	    
 	        
 	
-	  private Predicate createFilterCriteria(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> propertyNames, List<Object> filterValue) {
+	  public Predicate createFilterCriteria(CriteriaBuilder criteriaBuilder, Root<T> root, List<String> propertyNames, List<Object> filterValue) {
 		  
 	        Predicate filterCriteria = null;
 	        
