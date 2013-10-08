@@ -1,4 +1,5 @@
 package com.degloba;
+
 public class ToolBarItem {
 	
 private String iconURI;

@@ -38,9 +38,4 @@ public class tecnologia {
 		this.descripcio = descripcio;
 	}
 	
-	
-	
-  	
-
-
 }

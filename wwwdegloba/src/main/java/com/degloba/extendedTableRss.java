@@ -2,10 +2,7 @@ package com.degloba;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import churchillobjects.rss4j.RssChannelItem;
 
