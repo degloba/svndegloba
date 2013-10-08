@@ -1,8 +1,6 @@
 package com.degloba.webui;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +33,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.degloba.blog;
 
 import churchillobjects.rss4j.*;
 
@@ -222,19 +221,16 @@ public class blogs implements ActionListener{
 	
 	private void omplirBlogs() {
 		
-		Statement stmt = null;
-		ResultSet rs = null;
-		
 		try {
 			
 		
 		
     	
-        if (stmt.execute("SELECT DISTINCT BLOGID , TITOL , DESCRIPCIO FROM blogs order by blogid")) {
+/*        if (stmt.execute("SELECT DISTINCT BLOGID , TITOL , DESCRIPCIO FROM blogs order by blogid")) {
             rs = stmt.getResultSet();
-        }
+        }*/
         
-        while (rs.next())
+/*        while (rs.next())
   		{
 	  		blog = new blog();
 	  		
@@ -246,15 +242,13 @@ public class blogs implements ActionListener{
 
 			estatBlogs.add(false);
 				
-  		}
+  		}*/
         
 
 		
-		}	catch (SQLException ex) {
+		}	catch (Exception ex) {
 			    // handle any errors
-			    System.out.println("SQLException: " + ex.getMessage());
-			    System.out.println("SQLState: " + ex.getSQLState());
-			    System.out.println("VendorError: " + ex.getErrorCode());
+
 		}
 		
 		
