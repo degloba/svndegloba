@@ -1,7 +1,9 @@
-package com.degloba;
+package com.degloba.converters;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+
+import com.degloba.ToolBarItem;
 
 public class listShuttleConverter implements javax.faces.convert.Converter{
 
