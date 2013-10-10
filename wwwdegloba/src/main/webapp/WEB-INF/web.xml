@@ -83,7 +83,7 @@
   <description>Per connectar amb Facebook</description>
   <display-name>clientFacebook</display-name>
   <servlet-name>clientFacebook</servlet-name>
-  <servlet-class>clientFacebook</servlet-class>
+  <servlet-class>com.degloba.servlets.clientFacebook</servlet-class>
  </servlet>
  <servlet>
   <display-name>Remote API Servlet</display-name>
