@@ -8,9 +8,8 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 	<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>        
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
-			<property name="datanucleus.NontransactionalWrite" value="true"/>            
-			<property name="datanucleus.ConnectionURL" value="appengine"/>  
-			
+			<property name="datanucleus.NontransactionalWrite" value="false"/>            
+			<property name="datanucleus.ConnectionURL" value="appengine"/>  			
 			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>		
 			      
 		</properties>    
