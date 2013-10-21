@@ -13,9 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ActionListener;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.PersistenceUnit;
 import javax.persistence.TypedQuery;
 
 
@@ -36,26 +44,49 @@ import com.google.appengine.api.datastore.Transaction;
 
 import scala.actors.threadpool.Arrays;
 
-@ManagedBean
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@ManagedBean(eager = true)
 @SessionScoped
-public  class entitats implements Serializable {
+@Repository
+public  class entitats implements ActionListener, Serializable {
 	
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@PersistenceContext
+	protected EntityManager em;     
+	public EntityManager getEntityManager() {        
+		return em;    
+	}   
+   
+	public void setEntityManager(EntityManager entityManager) {        
+		this.em = entityManager;    
+		}
+	
+
 	public void carrega()
 	{
 		List lblogs = carregarCSVtoList("blog");
 		persistir("blog",lblogs,null);
 		
-		List lmenubar = carregarCSVtoList("menubar");
-		persistir("menubar",lmenubar,null);
+		List lwizard = carregarCSVtoList("wizard");
+		persistir("wizard",lwizard,null);	
 		
 		List ldocument = carregarCSVtoList("document");
 		persistir("document",ldocument,null);
 		
+		List lmenubar = carregarCSVtoList("menubar");
+		persistir("menubar",lmenubar,null);
+				
 		List lmodalpanel = carregarCSVtoList("modalpanel");
 		persistir("modalpanel",lmodalpanel,null);
 		
-		List lwizard = carregarCSVtoList("wizard");
-		persistir("wizard",lwizard,null);		
 				
 		List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
@@ -103,15 +134,17 @@ public  class entitats implements Serializable {
 	private void persistir(String classePare, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
 		
 	
-		EntityManager em = null;
+		//EntityManager em = null;
 		
 		try
 		{
 			
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
-			em = EMF.get().createEntityManager();
+			//em = EMF.get().createEntityManager();
 			//em.getTransaction().begin();
+			
+	
 
 		for (HashMap<String,String> linia : lpare) {
 							
@@ -181,19 +214,46 @@ public  class entitats implements Serializable {
 						
 					case "blog":
 						
-						Blog b = new Blog();
+				/*		Blog b = new Blog();
 						
-						b.setDescripcio(linia.get("descripcio"));
-						b.setTitol(linia.get("titol"));
+						b.setDescripcio(linia.get("DESCRIPCIO"));
+						b.setTitol(linia.get("TITOL"));
 						
 						// Persistim						
-						em.persist(b);
+						em.persist(b);*/
+						
+												
+						Entity b = new Entity("Blog");
+						datastore.put(b);
+										
+						// Transactions on root entities
+						tx = datastore.beginTransaction();
+						
+						b = datastore.get(b.getKey());
+						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+				/*	        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	b.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        }*/
+						
+					    }
+						// Persistim el pare						
+						datastore.put(b);
+						tx.commit();
+						
+											
 												
 						break;
 						
 					case "document":
 						
-						Document d = new Document();
+					/*	Document d = new Document();
 						
 						d.setAbrev(linia.get("abrev"));
 						d.setDescripcio(linia.get("descripcio"));
@@ -205,34 +265,110 @@ public  class entitats implements Serializable {
 						d.setTecnologia(linia.get("tecnologia"));
 						
 						// Persistim						
-						em.persist(d);
+						em.persist(d);*/
+						
+						
+						Entity d = new Entity("Document");
+						datastore.put(d);
+										
+						// Transactions on root entities
+						tx = datastore.beginTransaction();
+						
+						d = datastore.get(d.getKey());
+						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+					        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	d.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        }
+						
+					    }
+						// Persistim el pare						
+						datastore.put(d);
+						tx.commit();
 						
 						break;
 						
 					case "menubar":
 						
 						// Menubar
-						Menubar m = new Menubar();
-						m.setAbrev1(linia.get("abrev1"));
-						m.setAbrev2(linia.get("abrev2"));
-						m.setAbrev3(linia.get("abrev3"));
+					/*	Menubar m = new Menubar();
+						m.setAbrev1(linia.get("ABREV1"));
+						m.setAbrev2(linia.get("ABREV2"));
+						m.setAbrev3(linia.get("ABREV3"));
 						//////////////m.setIdmenuitem(idmenuitem);
 						
 						// Persistim						
-						em.persist(m);
+						em.persist(m);*/
+						
+						Entity m = new Entity("Menubar");
+						datastore.put(m);
+										
+						// Transactions on root entities
+						tx = datastore.beginTransaction();
+						
+						m = datastore.get(m.getKey());
+						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+					        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	m.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        }
+						
+					    }
+						// Persistim el pare						
+						datastore.put(m);
+						tx.commit();
 						
 						break;
 						
 					case "modalpanel":
 						
 						//ModalPanel
-						Modalpanel mp = new Modalpanel();
+					/*	Modalpanel mp = new Modalpanel();
 						
 						mp.setDescripcio(linia.get("descripcio"));
 						//mp.setModalpanelid(modalpanelid);
 						
 						// Persistim						
-						em.persist(mp);
+						em.persist(mp);*/
+						
+						
+						Entity mp = new Entity("Modalpanel");
+						datastore.put(mp);
+										
+						// Transactions on root entities
+						tx = datastore.beginTransaction();
+						
+						mp = datastore.get(mp.getKey());
+						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+					        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	mp.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        }
+						
+					    }
+						// Persistim el pare						
+						datastore.put(mp);
+						tx.commit();
+						
+						
 						
 						break;
 						
@@ -240,7 +376,7 @@ public  class entitats implements Serializable {
 						
 						//Wizard
 						
-						Wizard w = new Wizard();
+					/*	Wizard w = new Wizard();
 						
 						w.setAbrev(linia.get("abrev"));
 						w.setDescripcio(linia.get("descripcio"));
@@ -251,7 +387,32 @@ public  class entitats implements Serializable {
 						w.setJspgrafic(linia.get("jspgrafic"));
 						
 						// Persistim						
-						em.persist(w);
+						em.persist(w);*/
+						
+						Entity w = new Entity("Wizard");
+						datastore.put(w);
+										
+						// Transactions on root entities
+						tx = datastore.beginTransaction();
+						
+						w = datastore.get(w.getKey());
+						
+					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
+					    it = linia.entrySet().iterator();
+					    while (it.hasNext()) {
+					        Map.Entry pairs = (Map.Entry)it.next();
+					        						        
+					        // Hem d'excloure les columnes "idTipus" 
+					        if (!pairs.getKey().toString().equals("idTipus") )
+					        {
+					        	w.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        }
+						
+					    }
+						// Persistim el pare						
+						datastore.put(w);
+						tx.commit();
+						
 						
 						break;
 		
@@ -268,7 +429,7 @@ public  class entitats implements Serializable {
 	finally {
 		//em.getTransaction().commit();
 
-		em.close();
+		//em.close();
 	}
 
 	}
@@ -284,7 +445,7 @@ public  class entitats implements Serializable {
 		{
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
-			em = EMF.get().createEntityManager();
+			//em = EMF.get().createEntityManager();
 			em.getTransaction().begin();
 			
 		
@@ -434,6 +595,14 @@ public  class entitats implements Serializable {
 		Util.listEntities(kind, searchBy, searchFor);
 		*/
 		
+		
+	}
+
+
+	@Override
+	public void processAction(ActionEvent event)
+			throws AbortProcessingException {
+		// TODO Auto-generated method stub
 		
 	}
 	
