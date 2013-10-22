@@ -51,25 +51,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @ManagedBean(eager = true)
 @SessionScoped
-@Repository
 public  class entitats implements ActionListener, Serializable {
 	
 	DatastoreService datastore;
-		/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext
-	protected EntityManager em;     
-	public EntityManager getEntityManager() {        
-		return em;    
-	}   
-   
-	public void setEntityManager(EntityManager entityManager) {        
-		this.em = entityManager;    
-		}
-	
+	private static final long serialVersionUID = 1L;
 
 	public void carrega()
 	{
@@ -137,17 +123,10 @@ public  class entitats implements ActionListener, Serializable {
 	 */
 	private void persistir(String classePare, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
 		
-	
-		//EntityManager em = null;
 		
 		try
 		{
-			
-			
-			
-			//em = EMF.get().createEntityManager();
-			//em.getTransaction().begin();
-			
+
 	
 		for (HashMap<String,String> linia : lpare) {
 							
@@ -155,7 +134,7 @@ public  class entitats implements ActionListener, Serializable {
 						
 					case "tipusframework":
 						
-						Entity tf = new Entity("TipusFramework");
+						Entity tf = new Entity(classePare);
 						datastore.put(tf);
 										
 						// Transactions on root entities
@@ -214,23 +193,14 @@ public  class entitats implements ActionListener, Serializable {
 						
 											
 						break;
+
 						
-					case "blog":
+					default:
 						
-				/*		Blog b = new Blog();
+						Entity e = new Entity(classePare);
+						datastore.put(e);
 						
-						b.setDescripcio(linia.get("DESCRIPCIO"));
-						b.setTitol(linia.get("TITOL"));
-						
-						// Persistim						
-						em.persist(b);*/
-						
-												
-						Entity b = new Entity("Blog");
-						datastore.put(b);
-										
-					
-						b = datastore.get(b.getKey());
+						e = datastore.get(e.getKey());
 						
 					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
 					    it = linia.entrySet().iterator();
@@ -240,163 +210,15 @@ public  class entitats implements ActionListener, Serializable {
 					        // Hem d'excloure les columnes "idTipus" 
 					        if (!pairs.getKey().toString().equals("idTipus") )
 					        {
-					        	b.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					        	e.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
 					        }
 						
 					    }
-						// Persistim el pare						
-						datastore.put(b);
-																
-												
-						break;
-						
-					case "document":
-						
-					/*	Document d = new Document();
-						
-						d.setAbrev(linia.get("abrev"));
-						d.setDescripcio(linia.get("descripcio"));
-						d.setEntorn(linia.get("entorn"));
-						d.setEsroot(Boolean.parseBoolean(linia.get("esroot")));
-						d.setIdanterior(Integer.parseInt(linia.get("idanterior")));
-						d.setIdarbre(Integer.parseInt(linia.get("idarbre")));
-						d.setOrdre(Integer.parseInt(linia.get("ordre")));
-						d.setTecnologia(linia.get("tecnologia"));
-						
-						// Persistim						
-						em.persist(d);*/
-						
-						
-						Entity d = new Entity("Document");
-						datastore.put(d);
-						
-						d = datastore.get(d.getKey());
-						
-					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-					    it = linia.entrySet().iterator();
-					    while (it.hasNext()) {
-					        Map.Entry pairs = (Map.Entry)it.next();
-					        						        
-					        // Hem d'excloure les columnes "idTipus" 
-					        if (!pairs.getKey().toString().equals("idTipus") )
-					        {
-					        	d.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }
-						
-					    }
-						// Persistim el pare						
-						datastore.put(d);
+				
+						datastore.put(e);
 						
 						break;
-						
-					case "menubar":
-						
-						// Menubar
-					/*	Menubar m = new Menubar();
-						m.setAbrev1(linia.get("ABREV1"));
-						m.setAbrev2(linia.get("ABREV2"));
-						m.setAbrev3(linia.get("ABREV3"));
-						//////////////m.setIdmenuitem(idmenuitem);
-						
-						// Persistim						
-						em.persist(m);*/
-						
-						Entity m = new Entity("Menubar");
-						datastore.put(m);
-						
-						m = datastore.get(m.getKey());
-						
-					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-					    it = linia.entrySet().iterator();
-					    while (it.hasNext()) {
-					        Map.Entry pairs = (Map.Entry)it.next();
-					        						        
-					        // Hem d'excloure les columnes "idTipus" 
-					        if (!pairs.getKey().toString().equals("idTipus") )
-					        {
-					        	m.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }
-						
-					    }
-						// Persistim el pare						
-						datastore.put(m);
-						
-						break;
-						
-					case "modalpanel":
-						
-						//ModalPanel
-					/*	Modalpanel mp = new Modalpanel();
-						
-						mp.setDescripcio(linia.get("descripcio"));
-						//mp.setModalpanelid(modalpanelid);
-						
-						// Persistim						
-						em.persist(mp);*/
-						
-						
-						Entity mp = new Entity("Modalpanel");
-						datastore.put(mp);
-						
-						mp = datastore.get(mp.getKey());
-						
-					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-					    it = linia.entrySet().iterator();
-					    while (it.hasNext()) {
-					        Map.Entry pairs = (Map.Entry)it.next();
-					        						        
-					        // Hem d'excloure les columnes "idTipus" 
-					        if (!pairs.getKey().toString().equals("idTipus") )
-					        {
-					        	mp.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }
-						
-					    }
-						// Persistim el pare						
-						datastore.put(mp);
-	
-						break;
-						
-					case "wizard":
-						
-						//Wizard
-						
-					/*	Wizard w = new Wizard();
-						
-						w.setAbrev(linia.get("abrev"));
-						w.setDescripcio(linia.get("descripcio"));
-						w.setEsroot(Boolean.parseBoolean(linia.get("esroot")));
-						w.setIdanterior(Integer.parseInt(linia.get("idanterior")));
-						w.setIdarbre(Integer.parseInt(linia.get("idarbre")));
-						w.setJsp(linia.get("jsp"));
-						w.setJspgrafic(linia.get("jspgrafic"));
-						
-						// Persistim						
-						em.persist(w);*/
-						
-						Entity w = new Entity("Wizard");
-						datastore.put(w);
-						
-						w = datastore.get(w.getKey());
-						
-					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-					    it = linia.entrySet().iterator();
-					    while (it.hasNext()) {
-					        Map.Entry pairs = (Map.Entry)it.next();
-					        						        
-					        // Hem d'excloure les columnes "idTipus" 
-					        if (!pairs.getKey().toString().equals("idTipus") )
-					        {
-					        	w.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }
-						
-					    }
-						// Persistim el pare						
-						datastore.put(w);
-	
-						
-						break;
-		
+							
 						} //switch
 
 		} //for
@@ -408,80 +230,12 @@ public  class entitats implements ActionListener, Serializable {
 		e.printStackTrace();
 	}
 	finally {
-		//em.getTransaction().commit();
 
-		//em.close();
 	}
 
 	}
 	
 	
-	
-	private void persistirFills(List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill)
-	{
-		
-		EntityManager em = null;
-		
-		try
-		{
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			//em = EMF.get().createEntityManager();
-			em.getTransaction().begin();
-			
-		
-			for (HashMap<String,String> linia : lpare) {
-				
-			
-				
-				/*UtilCriteriaBuilderJPA<TipusFramework> u = new UtilCriteriaBuilderJPA<TipusFramework>();
-				u.createFilterCriteriaForField(propertyName, filterValue, root, criteriaBuilder);
-				u.createFilterCriteria(criteriaBuilder, root, propertyNames, filterValue);
-				u.createSelectCriteriaQuery(campsFiltre, valorsFiltre, campsOrdre, ordre);*/
-				
-				TypedQuery<TipusFramework> q2 = em.createQuery("SELECT c FROM TipusFramework c WHERE c.idTipus = '" + linia.get("idTipus") + "'", TipusFramework.class);
-				TipusFramework e = q2.getSingleResult();
-																	
-				// busquem els fills que del pare en questio
-				List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
-						
-				// persistim els fills
-						
-				for (HashMap<String,String> hmf : lhmf) {
-							
-					Iterator it = hmf.entrySet().iterator();
-				    while (it.hasNext()) {
-				        Map.Entry pairs = (Map.Entry)it.next();
-				        System.out.println(pairs.getKey() + " = " + pairs.getValue());
-						        
-						// Entitat filla
-						Framework f = new Framework();
-								
-						f.setDescripcio(linia.get("descripcio"));
-						f.setIcon(linia.get("icon"));
-						f.setNom(linia.get("nom"));
-						f.setTecnologia(linia.get("tecnologia"));
-						f.setUrl(linia.get("url"));
-						f.setTipusframework(e);  // referencia
-								
-							
-						// Persistim						
-						em.persist(f);
-						        
-				    }
-				}
-			}
-		}
-		catch (Exception e) {
-		// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			em.getTransaction().commit();
-			em.close();
-		}
-					
-	}
 	
 	
 	/**
