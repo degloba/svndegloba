@@ -54,6 +54,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public  class entitats implements ActionListener, Serializable {
 	
+	DatastoreService datastore;
 		/**
 	 * 
 	 */
@@ -72,11 +73,14 @@ public  class entitats implements ActionListener, Serializable {
 
 	public void carrega()
 	{
+		
+		datastore = DatastoreServiceFactory.getDatastoreService();
+		
 		List lblogs = carregarCSVtoList("blog");
 		persistir("blog",lblogs,null);
 		
-		List lwizard = carregarCSVtoList("wizard");
-		persistir("wizard",lwizard,null);	
+		//List lwizard = carregarCSVtoList("wizard");
+		//persistir("wizard",lwizard,null);	
 		
 		List ldocument = carregarCSVtoList("document");
 		persistir("document",ldocument,null);
@@ -139,13 +143,12 @@ public  class entitats implements ActionListener, Serializable {
 		try
 		{
 			
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
 			
 			//em = EMF.get().createEntityManager();
 			//em.getTransaction().begin();
 			
 	
-
 		for (HashMap<String,String> linia : lpare) {
 							
 				switch(classePare) {
@@ -156,7 +159,7 @@ public  class entitats implements ActionListener, Serializable {
 						datastore.put(tf);
 										
 						// Transactions on root entities
-						Transaction tx = datastore.beginTransaction();
+						//Transaction tx = datastore.beginTransaction();
 						
 						tf = datastore.get(tf.getKey());
 						
@@ -174,7 +177,7 @@ public  class entitats implements ActionListener, Serializable {
 					    }
 						// Persistim el pare						
 						datastore.put(tf);
-						tx.commit();
+						//tx.commit();
 						
 												
 						// busquem els frameworks que tenen el tipusframework = 
@@ -183,7 +186,7 @@ public  class entitats implements ActionListener, Serializable {
 						// persistim els fills
 						for (HashMap<String,String> hmf : lhmf) {
 																	        						        
-							tx = datastore.beginTransaction();
+							//tx = datastore.beginTransaction();
 						    tf = datastore.get(tf.getKey());
 						        
 						    // Entitat filla
@@ -205,7 +208,7 @@ public  class entitats implements ActionListener, Serializable {
 						        
 							// Persistim						
 							datastore.put(f);
-							tx.commit();
+							//tx.commit();
 								
 						}
 						
@@ -226,9 +229,7 @@ public  class entitats implements ActionListener, Serializable {
 						Entity b = new Entity("Blog");
 						datastore.put(b);
 										
-						// Transactions on root entities
-						tx = datastore.beginTransaction();
-						
+					
 						b = datastore.get(b.getKey());
 						
 					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
@@ -237,17 +238,15 @@ public  class entitats implements ActionListener, Serializable {
 					        Map.Entry pairs = (Map.Entry)it.next();
 					        						        
 					        // Hem d'excloure les columnes "idTipus" 
-				/*	        if (!pairs.getKey().toString().equals("idTipus") )
+					        if (!pairs.getKey().toString().equals("idTipus") )
 					        {
 					        	b.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }*/
+					        }
 						
 					    }
 						// Persistim el pare						
 						datastore.put(b);
-						tx.commit();
-						
-											
+																
 												
 						break;
 						
@@ -270,9 +269,6 @@ public  class entitats implements ActionListener, Serializable {
 						
 						Entity d = new Entity("Document");
 						datastore.put(d);
-										
-						// Transactions on root entities
-						tx = datastore.beginTransaction();
 						
 						d = datastore.get(d.getKey());
 						
@@ -290,7 +286,6 @@ public  class entitats implements ActionListener, Serializable {
 					    }
 						// Persistim el pare						
 						datastore.put(d);
-						tx.commit();
 						
 						break;
 						
@@ -308,9 +303,6 @@ public  class entitats implements ActionListener, Serializable {
 						
 						Entity m = new Entity("Menubar");
 						datastore.put(m);
-										
-						// Transactions on root entities
-						tx = datastore.beginTransaction();
 						
 						m = datastore.get(m.getKey());
 						
@@ -328,7 +320,6 @@ public  class entitats implements ActionListener, Serializable {
 					    }
 						// Persistim el pare						
 						datastore.put(m);
-						tx.commit();
 						
 						break;
 						
@@ -346,9 +337,6 @@ public  class entitats implements ActionListener, Serializable {
 						
 						Entity mp = new Entity("Modalpanel");
 						datastore.put(mp);
-										
-						// Transactions on root entities
-						tx = datastore.beginTransaction();
 						
 						mp = datastore.get(mp.getKey());
 						
@@ -366,10 +354,7 @@ public  class entitats implements ActionListener, Serializable {
 					    }
 						// Persistim el pare						
 						datastore.put(mp);
-						tx.commit();
-						
-						
-						
+	
 						break;
 						
 					case "wizard":
@@ -391,9 +376,6 @@ public  class entitats implements ActionListener, Serializable {
 						
 						Entity w = new Entity("Wizard");
 						datastore.put(w);
-										
-						// Transactions on root entities
-						tx = datastore.beginTransaction();
 						
 						w = datastore.get(w.getKey());
 						
@@ -411,8 +393,7 @@ public  class entitats implements ActionListener, Serializable {
 					    }
 						// Persistim el pare						
 						datastore.put(w);
-						tx.commit();
-						
+	
 						
 						break;
 		
