@@ -63,24 +63,24 @@ public  class entitats implements ActionListener, Serializable {
 		datastore = DatastoreServiceFactory.getDatastoreService();
 		
 		List lblogs = carregarCSVtoList("blog");
-		persistir("blog",null, lblogs,null);
+		persistir("blog",null,null, lblogs,null);
 		
 		//List lwizard = carregarCSVtoList("wizard");
-		//persistir("wizard",null, lwizard,null);	
+		//persistir("wizard",null,null, lwizard,null);	
 		
 		List ldocument = carregarCSVtoList("document");
-		persistir("document",null, ldocument,null);
+		persistir("document",null, null, ldocument,null);
 		
 		List lmenubar = carregarCSVtoList("menubar");
-		persistir("menubar",null, lmenubar,null);
+		persistir("menubar",null, null, lmenubar,null);
 				
 		List lmodalpanel = carregarCSVtoList("modalpanel");
-		persistir("modalpanel",null ,lmodalpanel,null);
+		persistir("modalpanel",null, null, lmodalpanel,null);
 		
 				
 		List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
-		persistir("tipusframework", "framework", lpare,lfill);
+		persistir("tipusframework", "framework", "idTipus", lpare,lfill);
 		//persistirFills(lpare,lfill);
 			
 		llegirTipusFramework();
@@ -121,7 +121,7 @@ public  class entitats implements ActionListener, Serializable {
 	/**
 	 * @param fitxer
 	 */
-	private void persistir(String classePare, String classeFilla, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
+	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
 		
 		
 		try
@@ -131,32 +131,32 @@ public  class entitats implements ActionListener, Serializable {
 		for (HashMap<String,String> linia : lpare) {
 							
 
-						Entity tf = new Entity(classePare);
-						datastore.put(tf);
+				Entity tf = new Entity(classePare);
+				datastore.put(tf);
 						
-						tf = datastore.get(tf.getKey());
+				tf = datastore.get(tf.getKey());
 						
-					    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-					    Iterator it = linia.entrySet().iterator();
-					    while (it.hasNext()) {
-					        Map.Entry pairs = (Map.Entry)it.next();
+				// Construim les propietat de l'"Entitat" a partir de les columnes CSV
+				Iterator it = linia.entrySet().iterator();
+				while (it.hasNext()) {
+				   Map.Entry pairs = (Map.Entry)it.next();
 					        						        
-					        // Hem d'excloure les columnes "idXXX" 
-					        if (!pairs.getKey().toString().equals("idTipus") )
-					        {
-					        	tf.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
-					        }
+				   // Hem d'excloure les columnes "idXXX" 
+				   if (!pairs.getKey().toString().equals(relacio) )
+				       {
+				        	tf.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+				       }
 						
-					    }
-						// Persistim el pare						
-						datastore.put(tf);
-					
+				    }
+					// Persistim el pare						
+					datastore.put(tf);
 								
-						if (classeFilla != null) 
+					// Tractem les entitats filles si en té
+					if (classeFilla != null) 
 						{
 							
-							// busquem els frameworks que tenen el tipusframework = 
-							List<HashMap<String,String>> lhmf = cerca(lfill , "idTipus" , linia.get("idTipus"));
+							// busquem els "fills" que tenen el "pareId = "
+							List<HashMap<String,String>> lhmf = cerca(lfill , relacio , linia.get(relacio));
 							
 							// persistim els fills
 							for (HashMap<String,String> hmf : lhmf) {
@@ -171,13 +171,13 @@ public  class entitats implements ActionListener, Serializable {
 							    while (it2.hasNext()) {
 							        Map.Entry pairs2 = (Map.Entry)it2.next();
 							        						        
-							        // Hem d'excloure les columnes "id" i "idTipus"
-							        if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals("idTipus"))
+							        // Hem d'excloure les columnes "id" i "<relacio>"
+							        if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals(relacio))
 							        {
 							        	f.setProperty(pairs2.getKey().toString(), hmf.get(pairs2.getKey().toString()));
 							        }
 
-								    f.setProperty("idTipus", tf.getKey()); // lligam pare-fill
+								    f.setProperty(relacio, tf.getKey()); // lligam pare-fill
 							    }
 							        
 								// Persistim						
