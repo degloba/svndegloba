@@ -12,12 +12,13 @@ import com.insacosa.application.commands.CreateOrderCommand;
 import com.insacosa.application.events.ProductAddedToOrderEvent;
 import com.insacosa.application.services.PurchaseApplicationService;
 import com.insacosa.domain.Client;
-import com.insacosa.domain.ClientRepository;
+
 import com.insacosa.domain.Order;
 import com.insacosa.domain.OrderFactory;
 import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
 import com.insacosa.domain.errors.OrderCreationException;
+import com.insacosa.domain.repositories.ClientRepository;
 
 /**
  * @see PurchaseApplicationService
