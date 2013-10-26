@@ -9,7 +9,7 @@ import command.handler.CommandHandler;
 import command.handler.CommandHandlerAnnotation;
 import com.insacosa.application.commands.ChangeCustomerStatusCommand;
 import com.insacosa.domain.Customer;
-import com.insacosa.domain.CustomerRepository;
+import com.insacosa.domain.repositories.CustomerRepository;
 
 /**
  * @author Slawek
