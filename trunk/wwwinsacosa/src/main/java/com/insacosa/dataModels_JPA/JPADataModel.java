@@ -1,28 +1,5 @@
 package com.insacosa.dataModels_JPA;
 
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2011, Red Hat, Inc. and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
-
-import com.insacosa.interfaces.Inmoble_Impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,14 +9,13 @@ import java.util.Set;
 import java.util.UUID;
 
 
-
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+
+
+// JPA
 import javax.persistence.EntityManager;
-
 import javax.persistence.Query;
-
-
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
@@ -48,6 +24,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+// UI - RICHFACES
 import org.ajax4jsf.model.DataVisitor;
 import org.ajax4jsf.model.ExtendedDataModel;
 import org.ajax4jsf.model.Range;
@@ -58,9 +35,15 @@ import org.richfaces.model.ArrangeableState;
 import org.richfaces.model.FilterField;
 import org.richfaces.model.SortField;
 
-import com.insacosa.vo.InmobleForm;
+
 
 import com.insacosa.domain.*;
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
+import com.insacosa.vo.InmobleForm;
 
 
 import com.google.appengine.api.datastore.Key;
@@ -68,6 +51,20 @@ import com.google.common.collect.Lists;
 
 
 public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Arrangeable {
+	
+		// FinderS (lectura)
+		//---------------------
+		 
+	    @Inject
+	    private SolicitudsFinder solicitudsFinder;
+	    @Inject
+	    private TipusFinder tipusFinder;
+	    @Inject
+	    private InmoblesFinder inmoblesFinder;
+	    @Inject
+	    private CiutatsFinder ciutatsFinder;
+	    @Inject
+	    private UsuarisFinder usuarisFinder;
 
     private EntityManager entityManager;
     
@@ -228,10 +225,8 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     	
     	if (filterValue !=null)
     	{
-    		
-    		Inmoble_Impl r = new Inmoble_Impl();
    		 
-    		String tipusColumna = r.tipusColumnaCaract(propertyName);  
+    		String tipusColumna = inmoblesFinder.tipusColumnaCaract(propertyName);  
     		
     		if (tipusColumna != null && tipusColumna.compareToIgnoreCase("INT") == 0)
     		{
@@ -344,22 +339,20 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
      * Mètode utilitzat nomes si les caracteristiques NO son properties de Bean
      * (tramita) 
      ------------------------------------------------------------------------*/
-    private String cercaTabular()
+    private String cercaTabular(InmobleForm inmobleForm)
     {
     	
-    	FacesContext facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
-		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
-		
-		Set<Key> idCaracts = inmobleForm.getFilterValues().keySet(); //ids caracteristiques
+    	
+		Set<String> idCaracts = inmobleForm.getFilterValues().keySet(); //ids caracteristiques
 		 
 		String sql ="";
 		Boolean primeraSelect = true;
 		 
 		// per cada una de les caracteristiques construim la select anidada
-		Iterator<Key> idCaractsIt = idCaracts.iterator();
+		Iterator<String> idCaractsIt = idCaracts.iterator();
 		while (idCaractsIt.hasNext())
 		    {
-				Key idCaract = (Key) idCaractsIt.next();
+				String idCaract = (String) idCaractsIt.next();
 				
 				// comprovem si el valor del filtre (sigui numeric o cadena) es ""
 				if (String.valueOf(inmobleForm.getFilterValues().get(idCaract)).compareTo("") != 0 &&
@@ -378,9 +371,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
 			    			"and caracteristiques.id = " + idCaract;  
 			    			
 			    			// comprovem el tipus de columna per aplicar el filtre corresponent
-			    			Inmoble_Impl r = new Inmoble_Impl();
-			    			
-			    			String tipusColumna = r.tipusColumnaCaract(idCaract);  
+			    			String tipusColumna = inmoblesFinder.tipusColumnaCaract(idCaract);  
 			    			
 			        		if (tipusColumna != null && tipusColumna.compareToIgnoreCase("INT") == 0)
 			        		{
@@ -411,8 +402,6 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
      -------------------------------------------------------------------------------*/
     private List<InmobleCaract> datatableToList(String sql, Range range)
     {
-
-    	Inmoble_Impl r = new Inmoble_Impl();
     	
     	List<InmobleCaract> listDataRow = new ArrayList<InmobleCaract>();
 			 
@@ -431,7 +420,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
 			while (inmoblesCondicionsIt.hasNext())
 			    {
 					Inmobles inmoble = inmoblesCondicionsIt.next();
-					InmobleCaract valorsCaract = r.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
+					InmobleCaract valorsCaract = inmoblesFinder.valorsCaracteristiquesInmoble(inmoble.getInmobleKey());
 					
 					listDataRow.add(valorsCaract);
 			    }
@@ -485,7 +474,10 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
      	
 	        /* OPCIO 2 */
 	    	/*---------*/
-	    	String sql = cercaTabular();
+            FacesContext facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
+    		InmobleForm inmobleForm = (InmobleForm) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{inmobleForm}", InmobleForm.class);
+    		
+	    	String sql = cercaTabular(inmobleForm);
 	    	this.cachedItems = datatableToList(sql, range);
 	    	
 	    	
@@ -543,7 +535,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
 	    	/* OPCIO 2 */
 	    	/*---------*/
 	    	
-        	String sql = cercaTabular();   // calculem la SQL a executar a partir dels filtres
+        	String sql = "";  //cercaTabular();   // calculem la SQL a executar a partir dels filtres
  			    	
 			 mapRow.put(dataModelID + "_asked", "");
 			 
@@ -600,7 +592,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     	{
     		InmobleCaract inmoble = (InmobleCaract) it.next();
     		
-    		if (inmoble.getKeyInmoble() == (String) rowKey)
+    		if (inmoble.getKeyInmoble() == (Key) rowKey)
     			return (T) inmoble;
     	}
     	
