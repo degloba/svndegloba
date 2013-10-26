@@ -40,6 +40,8 @@ import com.degloba.domain.Wizard;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
 
 import scala.actors.threadpool.Arrays;
@@ -56,13 +58,17 @@ public  class entitats implements ActionListener, Serializable {
 	DatastoreService datastore;
 
 	private static final long serialVersionUID = 1L;
+	
+	List<HashMap<String,String>> lblogs;
+	List<HashMap<String,String>> ltipusframework;
+	List<HashMap<String,String>> lframeworks;
 
 	public void carrega()
 	{
 		
 		datastore = DatastoreServiceFactory.getDatastoreService();
 		
-		List lblogs = carregarCSVtoList("blog");
+/*		lblogs = carregarCSVtoList("blog");
 		persistir("blog",null,null, lblogs,null);
 		
 		//List lwizard = carregarCSVtoList("wizard");
@@ -83,8 +89,15 @@ public  class entitats implements ActionListener, Serializable {
 		persistir("tipusframework", "framework", "idTipus", lpare,lfill);
 		//persistirFills(lpare,lfill);
 			
-		llegirTipusFramework();
+		llegirTipusFramework();*/
 		
+		ltipusframework = carregarCSVtoList("tipusframework");
+		lframeworks = carregarCSVtoList("framework");
+		persistir("tipusframework", null, null, ltipusframework,null);
+		
+		List<String> relacionsPare = new ArrayList<String>();
+		relacionsPare.add("idTipus"); // llista de FKs
+		persistirFilla(lframeworks, "framework", null , relacionsPare ); 
 	}
 	
 	
@@ -121,50 +134,55 @@ public  class entitats implements ActionListener, Serializable {
 	/**
 	 * @param fitxer
 	 */
-	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpare , List<HashMap<String,String>> lfill) {
+	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpares , List<HashMap<String,String>> lfill) {
 		
 		
 		try
 		{
 
 	
-		for (HashMap<String,String> linia : lpare) {
+		for (HashMap<String,String> lpare : lpares) {
 							
 
-				Entity tf = new Entity(classePare);
-				datastore.put(tf);
+				Entity pare = new Entity(classePare);
+				datastore.put(pare);
+				
+				Key clauPare = pare.getKey();
+				
+				// Afegim la Key de l'Entitat a la 
+				lpare.put("clauGoogle", KeyFactory.keyToString(clauPare));
 						
-				tf = datastore.get(tf.getKey());
+				pare = datastore.get(clauPare);
 						
 				// Construim les propietat de l'"Entitat" a partir de les columnes CSV
-				Iterator it = linia.entrySet().iterator();
+				Iterator it = lpare.entrySet().iterator();
 				while (it.hasNext()) {
 				   Map.Entry pairs = (Map.Entry)it.next();
 					        						        
 				   // Hem d'excloure les columnes "idXXX" 
-				   if (!pairs.getKey().toString().equals(relacio) )
+				   if (!pairs.getKey().toString().equals(relacio) & !pairs.getKey().toString().equals("clauGoogle"))
 				       {
-				        	tf.setProperty(pairs.getKey().toString(), linia.get(pairs.getKey().toString()));
+					   pare.setProperty(pairs.getKey().toString(), lpare.get(pairs.getKey().toString()));
 				       }
 						
 				    }
 					// Persistim el pare						
-					datastore.put(tf);
+					datastore.put(pare);
 								
 					// Tractem les entitats filles si en té
 					if (classeFilla != null) 
 						{
 							
 							// busquem els "fills" que tenen el "pareId = "
-							List<HashMap<String,String>> lhmf = cerca(lfill , relacio , linia.get(relacio));
+							List<HashMap<String,String>> lhmf = cerca(lfill , relacio , lpare.get(relacio));
 							
 							// persistim els fills
 							for (HashMap<String,String> hmf : lhmf) {
 																		        						        
-							    tf = datastore.get(tf.getKey());
+								pare = datastore.get(pare.getKey());
 							        
 							    // Entitat filla
-							    Entity f = new Entity(classeFilla, tf.getKey());
+							    Entity filla = new Entity(classeFilla, pare.getKey());
 							    
 							    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
 							    Iterator it2 = hmf.entrySet().iterator();
@@ -174,14 +192,14 @@ public  class entitats implements ActionListener, Serializable {
 							        // Hem d'excloure les columnes "id" i "<relacio>"
 							        if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals(relacio))
 							        {
-							        	f.setProperty(pairs2.getKey().toString(), hmf.get(pairs2.getKey().toString()));
+							        	filla.setProperty(pairs2.getKey().toString(), hmf.get(pairs2.getKey().toString()));
 							        }
 
-								    f.setProperty(relacio, tf.getKey()); // lligam pare-fill
+							        filla.setProperty(relacio, pare.getKey()); // lligam pare-fill
 							    }
 							        
 								// Persistim						
-								datastore.put(f);
+								datastore.put(filla);
 									
 							}
 							
@@ -204,6 +222,76 @@ public  class entitats implements ActionListener, Serializable {
 	
 	
 	
+	private void persistirFilla(List<HashMap<String,String>> lfills,String classeFilla, List<String> classesPare ,List<String> relacionsPare ) {
+		
+		
+		try
+		{			
+			// 
+			for (HashMap<String,String> lfilla : lfills) {
+				
+				Entity filla = null;
+				Boolean teTotElsPares = true;
+				
+				// per cada fill busquem els pares
+				for (String relacioPare : relacionsPare)
+				{
+							
+					// Recuperem l'entitat Pare a partir de la "Key" guardada en la List<HashMap<>>
+					HashMap<String,String> p = cercaPare(ltipusframework,relacioPare,lfilla.get(relacioPare));
+					if (p.size() != 0) {  //té pare
+						
+						Key clauPare = KeyFactory.stringToKey(p.get("clauGoogle").toString());
+
+						
+						// Entitat filla
+						filla = new Entity(classeFilla);
+									    
+						// Construim les propietat de l'"Entitat" a partir de les columnes CSV
+						Iterator it2 = lfilla.entrySet().iterator();
+						while (it2.hasNext()) {
+							Map.Entry pairs2 = (Map.Entry)it2.next();
+									        						        
+							// Hem d'excloure les columnes "id" i "<relacio>"
+							if (!pairs2.getKey().toString().equals("id") & !pairs2.getKey().toString().equals(relacioPare) & !pairs2.getKey().toString().equals("clauGoogle"))
+								{
+								   	filla.setProperty(pairs2.getKey().toString(), lfilla.get(pairs2.getKey().toString()));
+								}
+
+							// FK
+							filla.setProperty(relacioPare, clauPare); // lligam pare-fill
+							}
+						
+					}
+					else {  // no té pare
+						teTotElsPares = false;
+					}
+					
+				} //for	
+					
+				if (teTotElsPares)
+				{
+					// Persistim						
+					datastore.put(filla);
+				}
+							
+			}
+							
+					
+
+		
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	finally {
+
+	}
+
+	}
+	
+	
+	
 	
 	/**
 	 * Retorna una llista de HashMaps que cumpleixi que la "col" tï¿½ el "valor"
@@ -212,14 +300,14 @@ public  class entitats implements ActionListener, Serializable {
 	 * @param valor
 	 * @return
 	 */
-	private List<HashMap<String,String>> cerca(List<HashMap<String,String>> lfill , String col , String valor)
+	private List<HashMap<String,String>> cerca(List<HashMap<String,String>> lfills , String col , String valor)
 	{
 		
 		List<HashMap<String,String>> lret = new ArrayList<HashMap<String,String>>();
 		
-		for (HashMap<String,String> linia : lfill) {
+		for (HashMap<String,String> filla : lfills) {
 			
-			if (linia.get(col).equals(valor)) lret.add(linia);
+			if (filla.get(col).equals(valor)) lret.add(filla);
 		}
 		 
 		return lret;
@@ -227,7 +315,30 @@ public  class entitats implements ActionListener, Serializable {
 	}
 	
 	
-	private List carregarCSVtoList(String fitxer) {
+	/**
+	 * Retorna el "pare" del fill d'una llista de pares
+	 * @param lpare
+	 * @param relacioPare = columna que representa la clau primaria
+	 * @param valor
+	 * @return
+	 */
+	private HashMap<String,String> cercaPare(List<HashMap<String,String>> lpares, String relacioPare , String valorRelacio)
+	{
+		
+		HashMap<String,String> ret = new HashMap<String,String>();
+		
+		for (HashMap<String,String> pare : lpares) {
+			
+			if (pare.get(relacioPare).equals(valorRelacio)) ret = pare;
+		}
+		 
+		return ret;
+		
+	}
+	
+	
+	
+	private List<HashMap<String,String>> carregarCSVtoList(String fitxer) {
 		
 		InputStream    fis;
 		BufferedReader br;
