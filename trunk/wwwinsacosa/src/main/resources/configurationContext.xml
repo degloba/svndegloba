@@ -37,19 +37,16 @@
 	
 	<!-- FACTORIES -->
 	
-	<bean id="orderFactory" class="writer.NiceWriter" />
-	<bean id="invoiceRepository" class="writer.NiceWriter" />
-	<bean id="orderRepository" class="writer.NiceWriter" />
+
 	
 	<!-- SYSTEM USER -->
 	
-	<bean id="systemUser" class="writer.NiceWriter" />
+
 	
 	
 	<!-- EVENT PUBLISHER -->
 	
-	<bean id="eventPublisher" class="writer.NiceWriter" />
-	
+
 	
 	
 	<!-- SERVEIS D'APLICACIO -->
