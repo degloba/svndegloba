@@ -59,7 +59,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	    		//Predicate p2 = cb.equal(path,  tipus99); 
 	    			
 				//Predicate p3 = cb.or(p1,p2);
-				Predicate p4 = cb.equal(path2,control);
+				//Predicate p4 = cb.equal(path2,control);
 	    		
 				//cb.and(p3, p4);
 				
@@ -72,7 +72,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 				Path<Integer> path2 = root.get("control"); 
 	
 	    		//Predicate p1 = cb.equal(path,  tipus); 
-	  			Predicate p2 = cb.equal(path2,control);
+	  			//Predicate p2 = cb.equal(path2,control);
 	    		
 				//cb.and(p1, p2);
 				
@@ -88,7 +88,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	
 		return ret;
 
-		return null;
+		//return null;
 	}
 
     @Override

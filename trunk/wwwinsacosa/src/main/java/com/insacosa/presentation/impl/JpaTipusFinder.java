@@ -15,6 +15,7 @@ import javax.persistence.criteria.Selection;
 
 import query.annotations.Finder;
 
+import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.Solicituds;
 import com.insacosa.domain.Tipus;
@@ -24,7 +25,6 @@ import com.insacosa.presentation.TipusFinder;
 
 import com.insacosa.presentation.SolicitudsFinder;
 
-import entitats.Caracteristiques;
 
 /**
  * @author Rafał Jamróz
@@ -93,17 +93,11 @@ public class JpaTipusFinder implements TipusFinder {
 	}
 
 	@Override
-	public List<Caracteristiques> caractTipus(entitats.Tipus tipus, int i,
+	public List<Caracteristiques> caractTipus(Tipus tipus, int i,
 			boolean b) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<com.insacosa.domain.Caracteristiques> caractTipus(Tipus tipus,
-			int i, boolean b) {
-		// TODO Auto-generated method stub
-		return null;
-	}
     
 }
