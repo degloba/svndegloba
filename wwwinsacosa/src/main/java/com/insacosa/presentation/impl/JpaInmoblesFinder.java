@@ -17,7 +17,7 @@ import javax.persistence.criteria.Root;
 
 import query.annotations.Finder;
 
-import com.degloba.JPA.UtilCriteriaBuilderJPA;
+import com.degloba.persistencia.JPA.UtilCriteriaBuilderJPA;
 import com.google.appengine.api.datastore.Key;
 import com.insacosa.domain.InmobleCaract;
 import com.insacosa.domain.Inmobles;
@@ -162,8 +162,9 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
     @Override
 	public List<InmobleCaract> getInmoblesVenedorCaract()
     {
+		return null;
 
-		synchronized (this) { 
+/*		synchronized (this) { 
 		
 			if (inmoblesVenedorCaract.isEmpty() || cambiDades)  // ES CAMBIA LES DADES SI CAMBIEM EL TIPUS
 			{
@@ -194,7 +195,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 			}
 		}
 		
-		return inmoblesVenedorCaract;
+		return inmoblesVenedorCaract;*/
     	 
     }
 	

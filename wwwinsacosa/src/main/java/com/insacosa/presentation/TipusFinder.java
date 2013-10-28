@@ -19,6 +19,4 @@ public interface TipusFinder {
 	List<Caracteristiques> caractTipus(Tipus tipus, int i, boolean b);
 
 
-	List<entitats.Caracteristiques> caractTipus(entitats.Tipus tipus, int i,
-			boolean b);
 }
