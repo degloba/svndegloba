@@ -18,7 +18,7 @@ public class MyGuiceServletContextListener extends GuiceServletContextListener {
 	/*return Guice.createInjector(        
 			new YourServletModule());  */
 	return Guice.createInjector(              
-			new BillingModule()); 	
+			new BillingModule());
 	}
 
 }
