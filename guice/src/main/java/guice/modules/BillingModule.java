@@ -1,5 +1,6 @@
 package guice.modules;
 
+
 import Application.ciutats.Ciutats_app;
 import Application.ciutats.ICiutats;
 import Application.inmobles.IInmobles;
@@ -9,13 +10,12 @@ import Application.solicituds.Solicituds_app;
 import Application.usuaris.IUsuaris;
 import Application.usuaris.Usuaris_app;
 
-import com.google.inject.AbstractModule;
 
 import com.degloba.billing.IBillingService;
 import com.degloba.billing.ICreditCardProcessor;
 import com.degloba.logs.ITransactionLog;
+import com.google.inject.AbstractModule;
 
-import entitats.Solicituds;
 
 import guice.impl.DatabaseTransactionLog;
 import guice.impl.PaypalCreditCardProcessor;
