@@ -15,6 +15,12 @@
        	</repository> 
        	
         <repository>
+            <id>parancoe-org-repository</id>
+            <name>Parancoe Repository for Maven</name>
+            <url>http://maven2.parancoe.org/repo</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
             <id>jboss-public-repository-group</id>
             <name>Jboss Repository for Maven</name>
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
@@ -31,7 +37,7 @@
     </repositories>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
              so that generated project uses correct version of richfaces.
          -->
@@ -43,23 +49,21 @@
         		 ${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
      	</gae.home>
      		
-		<spring.version>3.1.0.RC1</spring.version>  
         <hornetq.version>2.1.2.Final</hornetq.version>
         
+        <spring.version>3.1.0.RC1</spring.version>  
         <datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
           
     </properties>
 
     <build>
-    
         <finalName>wwwinsacosa</finalName>
- 
         <plugins>
         
 		        <plugin>
 			    <groupId>org.richfaces.cdk</groupId>
 			    <artifactId>maven-richfaces-resources-plugin</artifactId>
-			    <version>4.3.1.Final</version>
+                <version>${org.richfaces.bom.version}</version>
 			    <configuration>
 			        <skins>
 			            <skin>blueSky</skin>
@@ -117,13 +121,10 @@
 			                
 			            </configuration>
 			        </execution>
-			    </executions>
-			</plugin>
-		        
-        
-        
-        
-        
+               
+              
+                </executions>
+            </plugin>
 			
             <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
@@ -133,8 +134,11 @@
             <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
             	<artifactId>maven-compiler-plugin</artifactId>
-            	<version>2.5.1</version>
-            	
+            	<version>3.1</version>
+				<configuration>
+            		<source>1.7</source>
+           			 <target>1.7</target>
+        		</configuration>            	
             </plugin>
             <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
@@ -142,43 +146,8 @@
             	<version>2.2</version>
             </plugin>
             
-            <!-- 
             <plugin>  
-			  <groupId>org.datanucleus</groupId>  
-			  <artifactId>maven-datanucleus-plugin</artifactId>  
-			  <version>${datanucleus.jpa.version}</version>  
 			    
-			  <configuration>  
-			  	<fork>false</fork>			  
-			    <api>JPA</api>  
-			    <mappingIncludes>com/insacosa/entitats/*.class</mappingIncludes>  
-			    <verbose>true</verbose>  				    		    		  
-			  </configuration>  
-			    
-			  <dependencies>  
-			    <dependency>  
-			      <groupId>org.datanucleus</groupId>  
-			      <artifactId>datanucleus-core</artifactId>  
-			      <version>${datanucleus.jpa.version}</version>  
-			      <scope>runtime</scope>			      
-			    </dependency>  
-			  </dependencies>  
-			    
-			  <executions>  
-			    <execution>     
-			      <phase>compile</phase>  
-			      <goals>  
-			        <goal>enhance</goal>  
-			      </goals>  
-			    </execution>  
-			  </executions>  
-			</plugin>  
-			 -->
-            
-            
-            
-            <plugin>   
-             
             	<artifactId>maven-antrun-plugin</artifactId>    
 	            <executions>    
 	                <execution>
@@ -211,6 +180,12 @@
 				        
 			            <!-- This target should replace your existing datanucleusenhance target -->
 			            <target name="datanucleusenhance" depends="compile" description="DataNucleus enhancement">
+			                <enhance_war war="war">              
+				                <args>              
+				                <arg value="-enhancerVersion"/>              
+				                <arg value="v2"/>          
+				                </args>      
+			                </enhance_war>
 			                
 			                			                         
 				            <tasks>                    
@@ -221,10 +196,10 @@
 					            	<classpath>                            
 							            <pathelement path="${appengine.tools.classpath}"/>                            
 							            <pathelement path="${dependency_classpath}"/>                            
-							            <pathelement path="target/wwwinsacosa/WEB-INF/classes"/>    
+							            <pathelement path="target/wwwinsacosa/WEB-INF/classes/com/insacosa"/>    
 					            	</classpath>
 					                                  
-				            		<fileset dir="target/wwwinsacosa/WEB-INF/classes" includes="**/entitats/*.class"/>                    
+				            		<fileset dir="target/wwwinsacosa/WEB-INF/classes/com/insacosa" includes="**/domain/*.class"/>                    
 				            	</enhance>                
 				            </tasks>
 				           
@@ -241,8 +216,24 @@
 	            </plugin>
 	            
                          
-        </plugins>
+            <plugin>
+            	<groupId>org.datanucleus</groupId>
+            	<artifactId>maven-datanucleus-plugin</artifactId>
+            	<version>3.1.3</version>
+            </plugin>
         
+        
+            <plugin>                
+	            <groupId>com.google.appengine</groupId>                
+	            <artifactId>appengine-maven-plugin</artifactId>                
+	            <version>1.8.4-maven3.0</version>                
+	            <configuration>                   
+		            <fullScanSeconds>1</fullScanSeconds>                   
+		            <server>preview.appengine.google.com</server>                
+            	</configuration>            
+            </plugin>
+            
+        </plugins>
         
         
 		<pluginManagement>  
@@ -282,7 +273,10 @@
         
     </build>
 
+    <profiles>
     
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -298,20 +292,41 @@
       
     <dependencies>
     
-    <dependency>  
-		 <groupId>org.datanucleus</groupId>  
-		  <artifactId>datanucleus-api-jpa</artifactId>  
-		 <version>${datanucleus.jpa.version}</version>  
-	</dependency>  
-  
-	<dependency>  
-	  <groupId>org.datanucleus</groupId>  
-	  <artifactId>datanucleus-core</artifactId>  
-	  <version>${datanucleus.jpa.version}</version>  
-	  <scope>runtime</scope>	  
-	</dependency>  
-   
-         
+        	<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-api</artifactId>
+    		<version>2.2.2</version>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-core</artifactId>
+    		<version>2.2.2</version>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-jsp</artifactId>
+    		<version>2.2.2</version>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-servlet</artifactId>
+    		<version>2.2.2</version>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-template</artifactId>
+    		<version>2.2.2</version>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
     	<dependency>
             <groupId>org.jboss.netty</groupId>
             <artifactId>netty</artifactId>
@@ -323,7 +338,7 @@
             <version>1.1</version>
         </dependency>
 
-    	<dependency>
+    <dependency>
             <groupId>org.hornetq</groupId>
             <artifactId>hornetq-core</artifactId>
             <version>${hornetq.version}</version>
@@ -391,6 +406,11 @@
             <artifactId>el-impl</artifactId>
             <version>2.2</version>
         </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>2.2</version>
+        </dependency>        
 
         <dependency>
             <groupId>xalan</groupId>
@@ -399,6 +419,13 @@
             <scope>runtime</scope>
         </dependency>
   
+        <dependency>
+        	<groupId>com.sun.faces</groupId>
+        	<artifactId>jsf-api</artifactId>
+        	<version>2.1.3_01</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
         
             <dependency>
 		    	<groupId>org.slf4j</groupId>
@@ -437,13 +464,7 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
-    <dependency>
-    	<groupId>javax.enterprise</groupId>
-    	<artifactId>cdi-api</artifactId>
-    	<version>1.0-SP4</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
+      
     <dependency>
     	<groupId>org.apache.lucene</groupId>
     	<artifactId>lucene-analyzers</artifactId>
@@ -451,6 +472,7 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
+    
     <dependency>
     	<groupId>org.apache.lucene</groupId>
     	<artifactId>lucene-core</artifactId>
@@ -469,47 +491,22 @@
         	<scope>compile</scope>
         </dependency>
 
-     	<dependency>                         
-		<groupId>org.springframework</groupId> 
-			<artifactId>spring-web</artifactId>                         
-			<version>${spring.version}</version>                 
-	</dependency>  
-		
-		<dependency>                         
-		<groupId>org.springframework</groupId> 
-			<artifactId>spring-webmvc</artifactId>                         
-			<version>${spring.version}</version>                 
-	</dependency>                 
-	<dependency>                         
-		<groupId>org.springframework</groupId>                         
-		<artifactId>spring-tx</artifactId>                         
-		<version>${spring.version}</version>                 
-	</dependency>                 
-	<dependency>                         
-		<groupId>org.springframework</groupId>                         
-		<artifactId>spring-orm</artifactId>                         
-		<version>${spring.version}</version>                 
-	</dependency>   
-		
 
     
-    <dependency>
-    	<groupId>javax.jdo</groupId>
-    	<artifactId>jdo-api</artifactId>
-    	<version>3.0.1</version>
-    </dependency>
     
 	<dependency>  
-	  <groupId>org.apache.geronimo.specs</groupId>  
-	  <artifactId>geronimo-jpa_2.0_spec</artifactId>  
-	  <version>1.1</version>  
+    	<groupId>org.richfaces.core</groupId>
+    	<artifactId>richfaces-core-api</artifactId>
+    	<version>4.3.1.Final</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
 	</dependency> 
     
    
     <dependency>
     	<groupId>javax.validation</groupId>
     	<artifactId>validation-api</artifactId>
-    	<version>1.0.0.GA</version>
+    	<version>1.1.0.Final</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
@@ -523,64 +520,16 @@
     </dependency>
     
     
+    
         <dependency>
         	<groupId>org.atmosphere</groupId>
         	<artifactId>atmosphere-runtime</artifactId>
+        	<version>0.9.7</version>
         	<scope>compile</scope>
           </dependency>
 
 
-
-
-
-
-
-        
-        
-        
-        <dependency>
-        	<groupId>org.richfaces.cdk</groupId>
-        	<artifactId>annotations</artifactId>
-        	<version>4.3.1.Final</version>
-        	<scope>compile</scope>
-        </dependency>
-        
-        <dependency>
-        	<groupId>org.jboss.el</groupId>
-        	<artifactId>jboss-el</artifactId>
-        	<version>2.0.1.GA</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
-        <dependency>
-        	<groupId>org.richfaces.core</groupId>
-        	<artifactId>richfaces-core-api</artifactId>
-        	<version>4.3.1.Final</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
-       
-       <!-- 
-        <dependency>
-        	<groupId>net.kindleit</groupId>
-        	<artifactId>gae-runtime</artifactId>
-        	<version>1.7.6</version>
-        	<type>pom</type>
-        	<scope>compile</scope>
-        </dependency>
-         -->
-        
-
-
-        <dependency>
-        	<groupId>degloba.com</groupId>
-        	<artifactId>utilitats</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
-
-<dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0.1</version>
@@ -601,6 +550,25 @@
         </dependency>
         
         <dependency>            
+    	<groupId>org.richfaces.cdk</groupId>
+    	<artifactId>annotations</artifactId>
+    	<version>4.3.1.Final</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+          
+		      
+		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+			<version>${datanucleus.jpa.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		<dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-testing</artifactId>            
 			<version>${gae.version}</version>            
@@ -682,35 +650,22 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		
-		
-		
-<!--         <dependency>
-        	<groupId>com.google.inject</groupId>
-        	<artifactId>guice</artifactId>
-        	<version>3.0</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>        
-        <dependency>
-        	<groupId>com.insacosa</groupId>
-        	<artifactId>guice</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        	<scope>compile</scope>
-        </dependency>
-        <dependency>
-        	<groupId>com.google.inject.extensions</groupId>
-        	<artifactId>guice-servlet</artifactId>
-        	<version>3.0</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency> -->
-        <dependency>
-        	<groupId>com.insacosa</groupId>
-        	<artifactId>aplicacio</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        	<scope>compile</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jpa</artifactId>
+			<version>${datanucleus.jpa.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	
+	
         <dependency>
         	<groupId>com.degloba</groupId>
         	<artifactId>ddd</artifactId>
@@ -727,6 +682,28 @@
   
    
    <dependency>
+		<groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId>                         
+			<version>${spring.version}</version>                 
+	</dependency>  
+		
+		<dependency>                         
+		<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>                         
+			<version>${spring.version}</version>                 
+	</dependency>                 
+	<dependency>                         
+		<groupId>org.springframework</groupId>                         
+		<artifactId>spring-tx</artifactId>                         
+		<version>${spring.version}</version>                 
+	</dependency>                 
+	<dependency>                         
+		<groupId>org.springframework</groupId>                         
+		<artifactId>spring-orm</artifactId>                         
+		<version>${spring.version}</version>                 
+	</dependency>   
+		
+	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-validator</artifactId>
 		<version>4.3.1.Final</version>
@@ -734,42 +711,14 @@
 		<scope>compile</scope>
 	</dependency>
 	
-	<dependency>
-    		<groupId>org.apache.tiles</groupId>
-    		<artifactId>tiles-api</artifactId>
-    		<version>2.2.2</version>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.apache.tiles</groupId>
-    		<artifactId>tiles-core</artifactId>
-    		<version>2.2.2</version>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.apache.tiles</groupId>
-    		<artifactId>tiles-jsp</artifactId>
-    		<version>2.2.2</version>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.apache.tiles</groupId>
-    		<artifactId>tiles-servlet</artifactId>
-    		<version>2.2.2</version>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.apache.tiles</groupId>
-    		<artifactId>tiles-template</artifactId>
-    		<version>2.2.2</version>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
     	
-</dependencies>
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>2.2</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+    </dependencies>
 
 </project>
