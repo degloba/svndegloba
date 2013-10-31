@@ -13,7 +13,7 @@ import com.google.appengine.api.datastore.Key;
 
 public class InmobleCaract {
 	
-	private String keyInmoble;
+	private Key keyInmoble;
 	private Map<Key, String> caractInmobles;
 	
 	
@@ -22,11 +22,11 @@ public class InmobleCaract {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getKeyInmoble() {
+	public Key getKeyInmoble() {
 		return keyInmoble;
 	}
-	public void setKeyInmoble(String keyInmoble) {
-		this.keyInmoble = keyInmoble;
+	public void setKeyInmoble(Key key) {
+		this.keyInmoble = key;
 	}
 	public Map<Key, String> getCaractInmobles() {
 		return caractInmobles;

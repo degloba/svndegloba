@@ -18,7 +18,6 @@ import javax.persistence.Transient;
 
 import org.datanucleus.api.jpa.annotations.Extension;
 
-import com.google.appengine.api.datastore.Key;
 
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
@@ -78,6 +77,7 @@ public class Inmobles extends BaseAggregateRoot{
 
    
    @Transient
+   @ManyToMany
    private Set<Caracteristiques> caracteristiqueses;
    
    @Basic(fetch = FetchType.EAGER)
@@ -271,10 +271,7 @@ public class Inmobles extends BaseAggregateRoot{
 		this.visitat = visitat;
 	}
 
-	
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "CARACTINMOBLES", schema = "dbo", catalog = "INSACO", joinColumns = { @JoinColumn(name = "IDINMOBLE", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "IDCARACT", nullable = false, updatable = false) })
 	public Set<Caracteristiques> getCaracteristiqueses() {
 		return this.caracteristiqueses;
 	}
