@@ -1,6 +1,5 @@
 package com.insacosa.domain;
 
-
 import com.google.appengine.api.datastore.Key;
 
 import ddd.domain.BaseAggregateRoot;

@@ -1,5 +1,6 @@
 package com.insacosa.domain;
 
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -27,6 +28,8 @@ public class Ttpbasic extends BaseAggregateRoot{
 	private String key;
 	
 	private String bdtype;
+	
+	@OneToMany
 	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(
 			0);
 
@@ -59,7 +62,6 @@ public class Ttpbasic extends BaseAggregateRoot{
 		this.bdtype = bdtype;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ttpbasic")
 	public Set<Caracteristiques> getCaracteristiqueses() {
 		return this.caracteristiqueses;
 	}

@@ -1,8 +1,7 @@
 package com.insacosa.domain;
 
-import com.google.appengine.api.datastore.Key;
-
 import ddd.domain.BaseAggregateRoot;
+import ddd.domain.BaseEntity;
 import ddd.domain.annotations.DomainAggregateRoot;
 
 
@@ -29,10 +28,10 @@ import org.datanucleus.api.jpa.annotations.Extension;
 @DomainAggregateRoot
 public class Ciutats extends BaseAggregateRoot{
 
-	@Id    
+/*	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
-	private Key key;
+	private Key key;*/
 	
 	private String ciutatKey;
 	
@@ -97,13 +96,13 @@ public class Ciutats extends BaseAggregateRoot{
 		this.name = name;
 	}
 
-	@Column(name = "keyProv", nullable = false)
+	
 	public Provincies getKeyProv() {
 		return this.keyProv;
 	}
 
-	public void setKeyProv(Provincies keyProv) {
-		this.keyProv = keyProv;
+	public void setKeyProv(Provincies p) {
+		this.keyProv = p;
 	}
 
 	public Set<Inmobles> getInmobleses() {
@@ -121,17 +120,6 @@ public class Ciutats extends BaseAggregateRoot{
 	public void setInmoblesesKeys(Set<String> inmoblesesKeys) {
 		this.inmoblesesKeys = inmoblesesKeys;
 	}
-
-	public Key getKey() {
-		return key;
-	}
-
-	public void setKey(Key key) {
-		this.key = key;
-	}
-
-
-
 
 
 

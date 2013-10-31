@@ -1,5 +1,6 @@
 package com.insacosa.domain;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,6 +28,7 @@ public class Fotos extends BaseAggregateRoot{
 	
 	private Key key;
 	
+	@ManyToOne
 	private Inmobles inmobles;
 	private byte[] imatge;
 	private String descripcio;
@@ -55,16 +57,6 @@ public class Fotos extends BaseAggregateRoot{
 		this.key = key;
 	}
 		
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDINMOBLE")
-	public Inmobles getInmobles() {
-		return this.inmobles;
-	}
-
-	public void setInmobles(Inmobles inmobles) {
-		this.inmobles = inmobles;
-	}
 
 	@Column(name = "IMATGE")
 	public byte[] getImatge() {
