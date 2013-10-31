@@ -26,6 +26,7 @@ public class Ttpcontrol {
 	
 	private String tipus;
 	
+	@OneToMany
 	private Set<Caracteristiques> caracteristiqueses = new HashSet<Caracteristiques>(
 			0);
 
@@ -47,7 +48,6 @@ public class Ttpcontrol {
     	return key;    
     	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ttpcontrol")
 	public Set<Caracteristiques> getCaracteristiqueses() {
 		return this.caracteristiqueses;
 	}
