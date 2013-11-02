@@ -30,13 +30,23 @@
             <name>Java.net Maven Repository</name>
             <url>http://download.java.net/maven/2</url>
         </repository>
+        
+       
         <repository>             
 	        <id>DataNucleus</id>             
 	        <url>http://www.datanucleus.org/downloads/maven2/</url>         
         </repository> 
+       <repository>             
+       		<id>google-maven-repo</id>             
+       		<name>Google Maven Repository</name>             
+       		<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
+       	</repository>
+       	         
     </repositories>
 
     <properties>
+    
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
        
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
              so that generated project uses correct version of richfaces.
@@ -146,6 +156,8 @@
             	<version>2.2</version>
             </plugin>
             
+                         
+            <!--  
             <plugin>  
 			    
             	<artifactId>maven-antrun-plugin</artifactId>    
@@ -178,7 +190,7 @@
 				            </fileset>
 				        </path>
 				        
-			            <!-- This target should replace your existing datanucleusenhance target -->
+			             This target should replace your existing datanucleusenhance target 
 			            <target name="datanucleusenhance" depends="compile" description="DataNucleus enhancement">
 			                <enhance_war war="war">              
 				                <args>              
@@ -214,31 +226,15 @@
 		             
 	            </executions>
 	            </plugin>
-	            
+	            -->
                          
-            <plugin>
-            	<groupId>org.datanucleus</groupId>
-            	<artifactId>maven-datanucleus-plugin</artifactId>
-            	<version>3.1.3</version>
-            </plugin>
-        
-        
-            <plugin>                
-	            <groupId>com.google.appengine</groupId>                
-	            <artifactId>appengine-maven-plugin</artifactId>                
-	            <version>1.8.4-maven3.0</version>                
-	            <configuration>                   
-		            <fullScanSeconds>1</fullScanSeconds>                   
-		            <server>preview.appengine.google.com</server>                
-            	</configuration>            
-            </plugin>
             
         </plugins>
         
         
 		<pluginManagement>  
 		  <plugins>  
-		    <plugin>  
+		   <!--   <plugin>  
 		      <groupId>org.eclipse.m2e</groupId>  
 		      <artifactId>lifecycle-mapping</artifactId>  
 		      <version>1.0.0</version>  
@@ -266,7 +262,7 @@
 		          </pluginExecutions>  
 		        </lifecycleMappingMetadata>  
 		      </configuration>  
-		    </plugin>  
+		    </plugin>  -->
 		  </plugins>  
 		</pluginManagement> 
         
@@ -427,7 +423,15 @@
         	<scope>compile</scope>
         </dependency>
         
-            <dependency>
+   		<dependency>
+	    	<groupId>com.sun.faces</groupId>
+	    	<artifactId>jsf-impl</artifactId>
+	    	<version>2.1.3_01</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+    	</dependency>        
+        
+        <dependency>
 		    	<groupId>org.slf4j</groupId>
 		    	<artifactId>slf4j-simple</artifactId>
 		    	<version>1.6.1</version>
@@ -511,15 +515,6 @@
     	<scope>compile</scope>
     </dependency>
 
-    <dependency>
-    	<groupId>com.sun.faces</groupId>
-    	<artifactId>jsf-impl</artifactId>
-    	<version>2.1.3_01</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
-    </dependency>
-    
-    
     
         <dependency>
         	<groupId>org.atmosphere</groupId>
@@ -558,17 +553,60 @@
     </dependency>
           
 		      
-		
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-core</artifactId>
-			<version>${datanucleus.jpa.version}</version>
+<!-- DataNucleus v2 -->	
+  
+  	<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>4.0</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		
+		<!--  <dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>	-->	
 		
-		<dependency>            
+	
+	
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-enhancer</artifactId>
+            <version>3.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+        </dependency>
+       
+		<dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <version>3.1.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+        </dependency>
+	
+	
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jpa</artifactId>
+			<version>3.1.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+	
+	<!-- Goggle App Engine -->	
+	 	<dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-testing</artifactId>            
 			<version>${gae.version}</version>            
@@ -607,64 +645,39 @@
 		</dependency>
 		
         
-        <dependency>
+       <!--   <dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${gae.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency> -->
+		
 		<dependency>
 			<groupId>net.sf.jsr107cache</groupId>
 			<artifactId>jsr107cache</artifactId>
 			<version>1.1</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
-		<dependency>
+		</dependency> 
+		
+		<!--  <dependency>
 			<groupId>javax.jdo</groupId>
 			<artifactId>jdo2-api</artifactId>
 			<version>2.3-20090302111651</version>
 			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
+			<scope>compile</scope>  
+		</dependency>  
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api</artifactId>
 			<version>1.3.5</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-			<version>3.0.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine.orm</groupId>
-			<artifactId>datanucleus-appengine</artifactId>
-			<version>2.1.2</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
+		</dependency>  -->
 		
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-			<version>1.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>		
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-api-jpa</artifactId>
-			<version>${datanucleus.jpa.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-	
+		
+	<!-- Projectes Referencia -->
 	
         <dependency>
         	<groupId>com.degloba</groupId>
@@ -680,6 +693,8 @@
         	<scope>compile</scope>
         </dependency>
   
+  
+   <!-- Spring -->
    
    <dependency>
 		<groupId>org.springframework</groupId> 
@@ -712,10 +727,20 @@
 	</dependency>
 	
     	
-	<dependency>
+	<!--  <dependency>
 		<groupId>cglib</groupId>
 		<artifactId>cglib</artifactId>
 		<version>2.2</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>  -->
+	
+	
+
+	<dependency>
+		<groupId>org.datanucleus</groupId>
+		<artifactId>datanucleus-jpa</artifactId>
+		<version>2.1.8</version>
 		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>
