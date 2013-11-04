@@ -10,7 +10,7 @@ import ddd.domain.Entitat;
 /**
  * @author degloba
  * 
- * Defineix el Servei d'Aplicació NO lligat al Domini (BaseEntity)
+ * Defineix el Servei d'AplicaciÃ³ NO lligat al Domini (BaseEntity)
  * @param <K>
  * @param <E>
  */

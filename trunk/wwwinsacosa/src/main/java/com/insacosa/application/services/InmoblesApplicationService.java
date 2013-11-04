@@ -1,5 +1,6 @@
 package com.insacosa.application.services;
 
+
 import java.util.List;
 
 
@@ -18,7 +19,7 @@ import com.insacosa.webui.UsuariItemDto;
 /**
  * @author degloba
  *
- * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Inmobles"
+ * @category Defineix el Servei d'AplicaciÃ³ per l'entitat de Domini "Inmobles"
  */
 @ApplicationService
 public class InmoblesApplicationService<T extends Inmobles> extends GenericApplicationServiceForBaseEntity<Long,T>

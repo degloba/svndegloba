@@ -2,22 +2,15 @@ package com.insacosa.application.services;
 
 import javax.inject.Inject;
 
-
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 
 import com.insacosa.domain.Solicituds;
-
-import com.insacosa.domain.OrderFactory;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.errors.OrderCreationException;
-
-import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
 public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <Long,T>
