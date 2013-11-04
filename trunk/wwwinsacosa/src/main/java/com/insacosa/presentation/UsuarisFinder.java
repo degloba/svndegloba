@@ -5,9 +5,8 @@ import java.util.List;
 
 import com.insacosa.domain.Inmobles;
 import com.insacosa.domain.Usuaris;
-import com.insacosa.webui.InmobleItemDto;
-import com.insacosa.webui.UsuariItemDto;
 
+import com.insacosa.webui.UsuariItemDto;
 
 
 public interface UsuarisFinder {

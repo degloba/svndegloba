@@ -12,7 +12,6 @@ import com.insacosa.webui.InmobleItemDto;
 import com.insacosa.webui.UsuariItemDto;
 
 
-
 public interface InmoblesFinder {
 
 	List<InmobleItemDto> findInmobles();
