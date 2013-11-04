@@ -1,7 +1,6 @@
 package com.insacosa.dragdrop;
 
 
-
 import java.io.Serializable;
 
 import java.util.Iterator;
