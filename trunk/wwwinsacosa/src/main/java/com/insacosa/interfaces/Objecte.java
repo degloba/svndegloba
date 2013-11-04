@@ -19,8 +19,8 @@ import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 
-import com.degloba.JPA.EMF;
-import com.degloba.JPA.PersistenceService;
+import com.degloba.persistencia.JPA.EMF;
+import com.degloba.persistencia.JPA.PersistenceService;
 
 import com.insacosa.domain.*;
 
@@ -212,34 +212,16 @@ public class Objecte implements Interfaces{
 		 options = TransactionOptions.Builder.withXG(true);    
 		 txn = datastore.beginTransaction(options);
 		
-		
-		Book b = new Book();
-		b.setTitle("JPA 4eva");
-		
-		Chapter c1 = new Chapter();
-		c1.setTitle("Intro");
-		c1.setNumPages(10);
-		b.getChapters().add(c1);
-		Chapter c2 = new Chapter();
-		c2.setTitle("Configuration");
-		c2.setNumPages(9);
-		b.getChapters().add(c2);
-
 		tx.begin();
 		 try {
-		    em.persist(b);
+		    //em.persist(b);
 		    em.getTransaction().commit();
 		 } finally {
 		    if (em.getTransaction().isActive()) {
 		         em.getTransaction().rollback();
 		    }
 		}
-		
-		Book bb= em.find(Book.class,b.getId());
-	
-		
-		
-		
+
 						
 		// Creem Book
 		Entity b2 = new Entity("Book2");
