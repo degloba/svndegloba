@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    id="richfaces-showcase" version="2.5">
- <display-name>RichFaces 4 GAE application</display-name>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-    
-    	<!-- spring container shared by servlets and filters -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml</param-value>
-	</context-param>
-	
-    
-    <context-param>
-        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-        <param-value>/WEB-INF/degloba_tags.xml</param-value>
-    </context-param>
+<web-app id="richfaces-showcase" version="2.5"
+ xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ <display-name>insaco</display-name>
+ <!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine  -->
+ <context-param>
+  <description>
+            When enabled, the runtime initialization and default ResourceHandler
+            implementation will use threads to perform their functions. Set this
+            value to false if threads aren't desired (as in the case of running
+            within the Google Application Engine).
 
+            Note that when this option is disabled, the ResourceHandler will not
+            pick up new versions of resources when ProjectStage is development.
+        </description>
+  <param-name>com.sun.faces.enableThreading</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <!-- spring container shared by servlets and filters -->
  <context-param>
-        <param-name>org.richfaces.enableControlSkinning</param-name>
-        <param-value>true</param-value>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/applicationContext.xml</param-value>
  </context-param>
  <context-param>
-        <param-name>org.richfaces.enableControlSkinningClasses</param-name>
-        <param-value>false</param-value>
- </context-param>
- <context-param>
-        <param-name>org.richfaces.skin</param-name>
-        <param-value>blueSky</param-value>
+  <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+  <param-value>/WEB-INF/degloba_tags.xml</param-value>
  </context-param>
  <context-param>
   <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -40,30 +34,35 @@
   <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
   <param-value>client</param-value>
  </context-param>
- 
-<!--  PERE NO SE COM CONFIGURAR
-<context-param>
-    <param-name>org.richfaces.resourceMapping.location</param-name>
-    <param-value>/static-resources</param-value>
-</context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
+  <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
+  <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+ </context-param>
+ <!-- 
+       We need to set annotation lifecycyle provider manually as org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
+       Other providers use some classes that are restricted on Google App Engine.   
       -->
-      
-          <context-param>
-        <param-name>org.richfaces.resourceMapping.enabled</param-name>
-        <param-value>true</param-value>
-    </context-param>
-    
-              <context-param>
-        <param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
-        <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
-    </context-param>
-      
-
-      
-      
-      
-    
-<!-- defines whether the uploaded files are stored in temporary files or 
+ <context-param>
+  <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
+  <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.enableControlSkinning</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.enableControlSkinningClasses</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.executeAWTInitializer</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <!-- defines whether the uploaded files are stored in temporary files or 
   available in the listener directly as byte[] data (false for this example -->
  <context-param>
   <param-name>org.richfaces.fileUpload.createTempFiles</param-name>
@@ -74,13 +73,11 @@
   <param-name>org.richfaces.fileUpload.maxRequestSize</param-name>
   <param-value>100000</param-value>
  </context-param>
- 
+ <!-- setups servlet-mapping in RichFaces configuration -->
  <context-param>
- <param-name>org.richfaces.queue.enabled</param-name>
- <param-value>true</param-value> <!-- false = this is default value -->
+  <param-name>org.richfaces.push.handlerMapping</param-name>
+  <param-value>/__richfaces_push</param-value>
  </context-param>
- 
- 
  <!-- configuracio de com Richfaces Push acce3deix als missatges enviats que ha de llegir 
  (només té sentit utilitzar en push el Topic -->
  <context-param>
@@ -90,84 +87,91 @@
  <context-param>
   <param-name>org.richfaces.push.jms.topicsNamespace</param-name>
   <param-value>/topic</param-value>
- </context-param>    
-    
-    
-    <!-- 
-       We need to set annotation lifecycyle provider manually as org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
-       Other providers use some classes that are restricted on Google App Engine.   
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.queue.enabled</param-name>
+  <param-value>true</param-value>
+  <!-- false = this is default value -->
+ </context-param>
+ <!--  PERE NO SE COM CONFIGURAR
+<context-param>
+    <param-name>org.richfaces.resourceMapping.location</param-name>
+    <param-value>/static-resources</param-value>
+</context-param>
       -->
  <context-param>
-        <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
-        <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
-    </context-param>
-
-<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine  -->
-    <context-param>
-        <description>
-            When enabled, the runtime initialization and default ResourceHandler
-            implementation will use threads to perform their functions. Set this
-            value to false if threads aren't desired (as in the case of running
-            within the Google Application Engine).
-
-            Note that when this option is disabled, the ResourceHandler will not
-            pick up new versions of resources when ProjectStage is development.
-        </description>
-        <param-name>com.sun.faces.enableThreading</param-name>
-  <param-value>false</param-value>  
- </context-param> 
-
-    
-        <context-param>
-        <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
-        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-    </context-param>
-    
-    
- <context-param>
-        <param-name>org.richfaces.executeAWTInitializer</param-name>
-        <param-value>false</param-value>
+  <param-name>org.richfaces.resourceMapping.enabled</param-name>
+  <param-value>true</param-value>
  </context-param>
- 
-
+ <context-param>
+  <param-name>org.richfaces.skin</param-name>
+  <param-value>blueSky</param-value>
+ </context-param>
+ <!-- Configure the namespace filter. -->
+ <filter>
+  <filter-name>NamespaceFilter</filter-name>
+  <filter-class>com.degloba.queues.NamespaceFilter</filter-class>
+ </filter>
+ <filter>
+  <filter-name>guiceFilter</filter-name>
+  <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>NamespaceFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>guiceFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ <listener>
+  <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+ </listener>
+ <listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ </listener>
  <servlet>
-    <servlet-name>Resource Servlet</servlet-name>
-    <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-</servlet>
-
-<servlet-mapping>
-    <servlet-name>Resource Servlet</servlet-name>
-    <url-pattern>/org.richfaces.resources/*</url-pattern>
-</servlet-mapping>
- 
- 
- 
-<!-- Push Servlet - listens for user sessions -->
-<servlet>
-    <servlet-name>Push Servlet</servlet-name>
-    <servlet-class>org.richfaces.webapp.PushServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-</servlet>
-<servlet-mapping>
-    <servlet-name>Push Servlet</servlet-name>
-    <url-pattern>/__richfaces_push</url-pattern>
-</servlet-mapping>
-
-
-<!-- setups servlet-mapping in RichFaces configuration -->
-<context-param>
-    <param-name>org.richfaces.push.handlerMapping</param-name>
-    <param-value>/__richfaces_push</param-value>
-</context-param>
-
- 
- 
+  <servlet-name>Resource Servlet</servlet-name>
+  <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <!-- Push Servlet - listens for user sessions -->
+ <servlet>
+  <servlet-name>Push Servlet</servlet-name>
+  <servlet-class>org.richfaces.webapp.PushServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
  <servlet>
   <servlet-name>Faces Servlet</servlet-name>
   <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
   <load-on-startup>1</load-on-startup>
  </servlet>
+ <servlet>
+  <display-name>Remote API Servlet</display-name>
+  <servlet-name>RemoteApiServlet</servlet-name>
+  <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet>
+  <display-name>Request Handler Push Queues GAE</display-name>
+  <servlet-name>RHPushQueuesGAE</servlet-name>
+  <servlet-class>com.degloba.queues.RHPushQueuesGAE</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <!-- spring mvc servlet -->
+ <servlet>
+  <servlet-name>springmvc</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>Resource Servlet</servlet-name>
+  <url-pattern>/org.richfaces.resources/*</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Push Servlet</servlet-name>
+  <url-pattern>/__richfaces_push</url-pattern>
+ </servlet-mapping>
  <servlet-mapping>
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>*.jsf</url-pattern>
@@ -176,82 +180,26 @@
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>/faces/*</url-pattern>
  </servlet-mapping>
- 
- <servlet>    
-	 <display-name>Remote API Servlet</display-name>    
-	 <servlet-name>RemoteApiServlet</servlet-name>    
-	 <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>    
-	 <load-on-startup>1</load-on-startup>
- </servlet>
- 
- <servlet-mapping>    
-	 <servlet-name>RemoteApiServlet</servlet-name>    
-	 <url-pattern>/remote_api</url-pattern>
-</servlet-mapping>
-
- 
-  <servlet>    
-	 <display-name>Request Handler Push Queues GAE</display-name>    
-	 <servlet-name>RHPushQueuesGAE</servlet-name>    
-	 <servlet-class>com.degloba.queues.RHPushQueuesGAE</servlet-class>    
-	 <load-on-startup>1</load-on-startup>
- </servlet>
- 
- <servlet-mapping>    
-	 <servlet-name>RHPushQueuesGAE</servlet-name>    
-	 <url-pattern>/worker</url-pattern>
-</servlet-mapping>
-
- 
- <!-- spring mvc servlet -->
-	<servlet>
-		<servlet-name>springmvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
- 
-
-<!-- Configure the namespace filter. -->  
-<filter>    
-    <filter-name>NamespaceFilter</filter-name>    
-    <filter-class>com.degloba.queues.NamespaceFilter</filter-class>  
-</filter>  
-    
-<filter-mapping>    
-	<filter-name>NamespaceFilter</filter-name>     
-	<url-pattern>/*</url-pattern>  
-</filter-mapping> 
- 
-
- <filter>    
-     <filter-name>guiceFilter</filter-name>    
-     <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>  
- </filter>  
-     
- <filter-mapping>    
-     <filter-name>guiceFilter</filter-name>    
-     <url-pattern>/*</url-pattern>  
- </filter-mapping>
- 
-  <listener>
-  <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
- </listener>
- 
- <listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
- 
-<!-- <listener>    
+ <servlet-mapping>
+  <servlet-name>RemoteApiServlet</servlet-name>
+  <url-pattern>/remote_api</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>RHPushQueuesGAE</servlet-name>
+  <url-pattern>/worker</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>springmvc</servlet-name>
+  <url-pattern>/</url-pattern>
+ </servlet-mapping>
+ <welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>
+ </welcome-file-list>
+ <!-- <listener>    
     <listener-class>guice.MyGuiceServletContextListener</listener-class>  
 </listener> 
 
 <listener>    
     <listener-class>com.insacosa.modules.MyGuiceServletContextListener</listener-class>  
 </listener>  -->
- 
-
 </web-app>
