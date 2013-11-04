@@ -3,7 +3,6 @@
  */
 package com.insacosa.domain.repositories;
 
-import com.insacosa.domain.Customer;
 import com.insacosa.domain.Inmobles;
 
 import ddd.domain.annotations.DomainRepository;
