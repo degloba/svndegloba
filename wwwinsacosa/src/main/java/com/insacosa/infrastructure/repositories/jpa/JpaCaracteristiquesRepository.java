@@ -17,7 +17,7 @@ import com.insacosa.domain.repositories.CaracteristiquesRepository;
 
 /**
  * @author degloba
- * @category Implementació d'un Repository JPA lligat a una entitat de domini (caracteristiques)
+ * @category ImplementaciÃ³ d'un Repository JPA lligat a una entitat de domini (caracteristiques)
  */
 @DomainRepositoryImpl
 public class JpaCaracteristiquesRepository extends GenericJpaRepositoryForBaseEntity<Caracteristiques> implements CaracteristiquesRepository{

@@ -15,7 +15,7 @@ import com.insacosa.domain.repositories.ProvinciesRepository;
 
 /**
  * @author degloba
- * @category Implementació d'un Repository JPA lligat a una entitat de domini (Provincies)
+ * @category ImplementaciÃ³ d'un Repository JPA lligat a una entitat de domini (Provincies)
  */
 @DomainRepositoryImpl
 public class JpaProvinciesRepository extends GenericJpaRepositoryForBaseEntity<Provincies> implements ProvinciesRepository{

@@ -15,7 +15,7 @@ import com.insacosa.domain.repositories.UsuarisRepository;
 
 /**
  * @author degloba
- * @category Implementació d'un Repository JPA lligat a una entitat de domini (Usuaris)
+ * @category ImplementaciÃ³ d'un Repository JPA lligat a una entitat de domini (Usuaris)
  */
 @DomainRepositoryImpl
 public class JpaUsuarisRepository extends GenericJpaRepositoryForBaseEntity<Usuaris> implements UsuarisRepository{

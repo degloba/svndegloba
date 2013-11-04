@@ -15,7 +15,7 @@ import com.insacosa.domain.repositories.TipusRepository;
 
 /**
  * @author Slawek
- * @category Implementació d'un Repository JPA lligat a una entitat de domini (Tipus)
+ * @category ImplementaciÃ³ d'un Repository JPA lligat a una entitat de domini (Tipus)
  */
 @DomainRepositoryImpl
 public class JpaTipusRepository extends GenericJpaRepositoryForBaseEntity<Tipus> implements TipusRepository{
