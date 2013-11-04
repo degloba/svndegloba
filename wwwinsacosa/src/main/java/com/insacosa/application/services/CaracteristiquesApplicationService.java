@@ -10,11 +10,10 @@ import ddd.application.annotation.ApplicationService;
 import com.insacosa.domain.*;
 import com.insacosa.domain.repositories.CaracteristiquesRepository;
 
-
 /**
  * @author degloba
  *
- * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Caracteristiques"
+ * @category Defineix el Servei d'AplicaciÃ³ per l'entitat de Domini "Caracteristiques"
  */
 @ApplicationService
 public class CaracteristiquesApplicationService<T extends Caracteristiques> extends GenericApplicationServiceForBaseEntity<Long,T> 

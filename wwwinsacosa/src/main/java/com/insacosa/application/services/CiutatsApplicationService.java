@@ -1,9 +1,6 @@
 package com.insacosa.application.services;
 
-import javax.inject.Inject;
 
-
-import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
@@ -19,7 +16,7 @@ import ddd.application.annotation.ApplicationService;
 /**
  * @author degloba
  *
- * @category Defineix el Servei d'Aplicació per l'entitat de Domini "Ciutats"
+ * @category Defineix el Servei d'AplicaciÃ³ per l'entitat de Domini "Ciutats"
  */
 @ApplicationService
 public class CiutatsApplicationService<T extends Ciutats> extends  GenericApplicationServiceForBaseEntity<Long,T>

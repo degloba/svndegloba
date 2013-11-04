@@ -13,7 +13,7 @@ import ddd.domain.annotations.DomainService;
 
 /**
  * @author degloba
- * Defineix el Servei d'Aplicació lligat al Domini (BaseEntity)
+ * Defineix el Servei d'AplicaciÃ³ lligat al Domini (BaseEntity)
  * @param <E>
  */
 public abstract class GenericApplicationServiceForBaseEntity<K,E extends BaseEntity> extends GenericApplicationService<E> {
