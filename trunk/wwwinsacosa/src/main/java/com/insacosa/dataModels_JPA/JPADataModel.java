@@ -49,7 +49,6 @@ import com.insacosa.vo.InmobleForm;
 import com.google.appengine.api.datastore.Key;
 import com.google.common.collect.Lists;
 
-
 public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Arrangeable {
 	
 		// FinderS (lectura)
@@ -156,7 +155,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
         // IMPORTANT !
         // perque sortFields no sigui buit cal que el SortBy d'algun dels sortFields
         // tingui un ValueExpression (ex : sortBy=#{item.metres}
-        // El problema est‡ en que sortBy ha de ser el nom d'una columna de la datatable,
+        // El problema est√† en que sortBy ha de ser el nom d'una columna de la datatable,
         // per tant el ValueExpression del sortBy ha de ser tal que el seu valor calculat
         // sigui el nom de la columna
         if (sortFields != null && !sortFields.isEmpty()) {
@@ -170,7 +169,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
             	// cal que sortField.getSortBy() que es un ValueExpression sigui efectivament una "Expressio"
             	// NO PAS un literal (per exemple sortBy="metres"
             	
-            	// AIXO ES UNA XAPUSSA !!!! perÚ resolt el problema
+            	// AIXO ES UNA XAPUSSA !!!! per√≤ resolt el problema
             	// CAL OBLIGATORIAMENT QUE : sortBy=#{<nom_columna>}
         /* funciona */    	
          		String propertyName = null;
@@ -336,7 +335,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     /*------------------------------------------------------------------------
      * Retorna la SQL que permet obtenir els inmobles que cumpleixen
      * unes determinades condicions (condicions equivalents al filterValues)
-     * MËtode utilitzat nomes si les caracteristiques NO son properties de Bean
+     * M√®tode utilitzat nomes si les caracteristiques NO son properties de Bean
      * (tramita) 
      ------------------------------------------------------------------------*/
     private String cercaTabular(InmobleForm inmobleForm)
@@ -397,7 +396,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     
     /*------------------------------------------------------------------------------
      * Construeix el List dels inmobles que cumpleixen les condicions (filterValues)
-     * MËtode utilitzat nomes si les caracteristiques NO son properties de Bean
+     * M√®tode utilitzat nomes si les caracteristiques NO son properties de Bean
      * (tramita) 
      -------------------------------------------------------------------------------*/
     private List<InmobleCaract> datatableToList(String sql, Range range)
@@ -506,7 +505,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
         // o un fitxer XML ,...
         //for (T t : data) {     	
         for (InmobleCaract t : this.cachedItems) {
-        	// Aquest mËtode retornar‡ la trucada (com a visitant) de 
+        	// Aquest m√®tode retornar√† la trucada (com a visitant) de 
         	// ExtendedDataModel.walk 
         	// (FacesContext, DataVisitor, Range) per a cada fila.
         	
@@ -623,7 +622,7 @@ public abstract class JPADataModel<T> extends ExtendedDataModel<T> implements Ar
     
     //TODO - implement using metadata
     // Identifica de forma unica l'Objecte (inmoble).
-    // Utilitzem el mËtode getId() de l'objecte inmoble
+    // Utilitzem el m√®tode getId() de l'objecte inmoble
     // T = CLASSE ENTITAT HBM
     ////////////protected abstract Object getId(T t);
     protected abstract Object getId(InmobleCaract t);
