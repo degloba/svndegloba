@@ -1,7 +1,6 @@
 package com.insacosa.presentation.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -16,6 +15,7 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import query.annotations.Finder;
+
 
 import com.degloba.persistencia.JPA.UtilCriteriaBuilderJPA;
 import com.google.appengine.api.datastore.Key;

@@ -11,10 +11,7 @@ import query.annotations.Finder;
 
 import com.insacosa.domain.Fotos;
 import com.insacosa.domain.Inmobles;
-import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.presentation.FotosFinder;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
 
 
 /**

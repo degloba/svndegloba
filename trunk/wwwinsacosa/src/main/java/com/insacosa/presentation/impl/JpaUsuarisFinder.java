@@ -26,8 +26,6 @@ import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
 
-import com.insacosa.presentation.SolicitudsFinder;
-import com.insacosa.webui.InmobleItemDto;
 import com.insacosa.webui.UsuariItemDto;
 
 /**

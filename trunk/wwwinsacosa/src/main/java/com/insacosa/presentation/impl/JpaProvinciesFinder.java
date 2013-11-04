@@ -9,7 +9,6 @@ import query.annotations.Finder;
 
 import com.insacosa.domain.Provincies;
 import com.insacosa.presentation.ProvinciesFinder;
-import com.insacosa.webui.ProvinciaItemDto;
 
 
 /**
