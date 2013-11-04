@@ -15,7 +15,7 @@ import com.insacosa.domain.repositories.SolicitudsRepository;
 
 /**
  * @author degloba
- * @category Implementació d'un Repository JPA lligat a una entitat de domini (Solicituds)
+ * @category ImplementaciÃ³ d'un Repository JPA lligat a una entitat de domini (Solicituds)
  */
 @DomainRepositoryImpl
 public class JpaSolicitudsRepository extends GenericJpaRepositoryForBaseEntity<Solicituds> implements SolicitudsRepository{
