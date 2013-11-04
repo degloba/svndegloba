@@ -112,7 +112,7 @@ public class HornetQInitializer implements SystemEventListener {
      */
     public void startHornetQ() throws Exception {
     	
-    	/* opcio d'acces a la configuracio del HornetQ Server mitjançant fitxer de configuracio 
+    	/* opcio d'acces a la configuracio del HornetQ Server mitjanÃ§ant fitxer de configuracio 
     	 FileConfiguration configuration = new FileConfiguration();
          configuration.setConfigurationUrl("hornetq-configuration.xml");
          configuration.start();
@@ -141,7 +141,7 @@ public class HornetQInitializer implements SystemEventListener {
         serverManager = new JMSServerManagerImpl(server, "hornetq-jms.xml");
         
         
-        /* opcio d'acces a la configuracio del HornetQ Server mitjançant fitxer de configuracio 
+        /* opcio d'acces a la configuracio del HornetQ Server mitjanï¿½ant fitxer de configuracio 
     	JMSServerManager serverManager = new JMSServerManagerImpl(server, "hornetq-jms.xml");*/
 
         //if you want to use JNDI, simple inject a context here or don't call this method and make sure the JNDI parameters are set.
