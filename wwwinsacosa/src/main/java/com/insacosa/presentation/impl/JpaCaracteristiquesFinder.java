@@ -21,9 +21,6 @@ import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Caractinmobles;
 import com.insacosa.domain.Tipus;
 import com.insacosa.presentation.CaracteristiquesFinder;
-import com.insacosa.presentation.CiutatsFinder;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
 
 
 /**
@@ -112,7 +109,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
     
     /*
 	 * Retorna el tipus de COLUMNA (VCHR,INT,DBL,DATE,,..) d'una caracteristica en concret
-	 * Exemple : metres --> integer, adreça --> string, preu --> double , ...
+	 * Exemple : metres --> integer, adreÃ§a --> string, preu --> double , ...
 	 */
 	
     @Override

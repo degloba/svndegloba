@@ -2,6 +2,7 @@ package com.insacosa.presentation.impl;
 
 import java.util.List;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -17,9 +18,8 @@ import query.annotations.Finder;
 
 import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Solicituds;
+
 import com.insacosa.domain.Tipus;
-import com.insacosa.presentation.SolicitudsListItemDto;
 import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.TipusFinder;
 

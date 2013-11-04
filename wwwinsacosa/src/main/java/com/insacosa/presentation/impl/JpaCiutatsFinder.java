@@ -10,8 +10,6 @@ import query.annotations.Finder;
 import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.Provincies;
 import com.insacosa.presentation.CiutatsFinder;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
 
 
 /**
