@@ -12,7 +12,7 @@ import ddd.domain.annotations.DomainRepository;
 /**
  * @author degloba
  * @category Repository lligat a l'entitat del Domini "Caracteristiques".
- * No est‡ lligat a la tecnologia de persistencia
+ * No est√† lligat a la tecnologia de persistencia
  */
 @DomainRepository
 public interface CaracteristiquesRepository {
