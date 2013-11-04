@@ -17,8 +17,8 @@ import javax.persistence.criteria.Selection;
 
 
 
-import com.degloba.Util;
-import com.degloba.JPA.*;
+import com.degloba.persistencia.Google.UtilCache;
+import com.degloba.persistencia.JPA.*;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.Query.Filter;
@@ -28,8 +28,7 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Entity;
 
 import com.google.appengine.api.datastore.Key;
-
-import entitats.Usuaris;
+import com.insacosa.domain.Usuaris;
 
 
 
@@ -206,7 +205,7 @@ public class Usuari_Impl extends UtilCriteriaBuilderJPA<Usuaris> implements Usua
 						
 			Query query = new Query("Usuaris"); 
 			query.addFilter("nom", FilterOperator.EQUAL, usuari.getNomusuari()); 
-			usEntity = Util.getDatastoreServiceInstance().prepare(query).asSingleEntity(); 
+			usEntity = UtilCache.getDatastoreServiceInstance().prepare(query).asSingleEntity(); 
 
 			// **************************************************
 			

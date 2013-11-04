@@ -1,20 +1,25 @@
 package com.insacosa.interfaces;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.faces.context.FacesContext;
+
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import com.degloba.JPA.*;
+
+
+import com.degloba.persistencia.JPA.*;
+
+// Google
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -23,7 +28,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
-import com.degloba.JPA.PersistenceService;
+
 
 import com.insacosa.domain.*;
 
@@ -77,7 +82,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 				{
 				
 					Fotos foto = (Fotos) it.next();
-					foto.setInmobles(inmoble);
+					//foto.setInmobles(inmoble);
 					em.persist(foto);
 				}
 				
@@ -354,30 +359,16 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 		   
 		try {
 				
-				Book b = new Book();
-				b.setTitle("JPA 4eva");
-				
-				Chapter c1 = new Chapter();
-				c1.setTitle("Intro");
-				c1.setNumPages(10);
-				b.getChapters().add(c1);
-				Chapter c2 = new Chapter();
-				c2.setTitle("Configuration");
-				c2.setNumPages(9);
-				b.getChapters().add(c2);
-
-				tx.begin();
+								tx.begin();
 				 try {
-				    em.persist(b);
+				    //em.persist(b);
 				    em.getTransaction().commit();
 				 } finally {
 				    if (em.getTransaction().isActive()) {
 				         em.getTransaction().rollback();
 				    }
 				}
-				
-				Book bb= em.find(Book.class,b.getId());
-				
+											
 				
 				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();    
 				TransactionOptions options = TransactionOptions.Builder.withXG(true);    
@@ -446,7 +437,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 	
 	/*
 	 * Retorna el tipus de COLUMNA (VCHR,INT,DBL,DATE,,..) d'una caracteristica en concret
-	 * Exemple : metres --> integer, adreça --> string, preu --> double , ...
+	 * Exemple : metres --> integer, adreÃ§a --> string, preu --> double , ...
 	 */
 	
 	public String tipusColumnaCaract(Key keyCaract) {
