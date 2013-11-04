@@ -6,8 +6,6 @@ import com.google.appengine.api.datastore.Key;
 import com.insacosa.domain.Caracteristiques;
 import com.insacosa.domain.Caractinmobles;
 import com.insacosa.domain.Tipus;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
 
 
 public interface CaracteristiquesFinder {

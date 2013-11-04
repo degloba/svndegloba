@@ -1,5 +1,6 @@
 package com.insacosa.presentation;
 
+
 import java.util.List;
 
 import com.insacosa.domain.Caracteristiques;
