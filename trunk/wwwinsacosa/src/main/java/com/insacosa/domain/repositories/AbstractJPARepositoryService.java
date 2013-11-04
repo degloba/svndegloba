@@ -15,7 +15,7 @@ import ddd.domain.RepositoryService;
 
 /**
  * @author degloba
- * Implementacio JPA del servei de persistencia genèric (agnostic a la persistència)
+ * Implementacio JPA del servei de persistencia genÃ¨ric (agnostic a la persistÃ¨ncia)
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
  */
