@@ -8,6 +8,7 @@ encoding//src/main/java/com/insacosa/controladorMSG/HornetQInitializer.java=UTF-
 encoding//src/main/java/com/insacosa/dataModels_JPA/JPADataModel.java=UTF-8
 encoding//src/main/java/com/insacosa/domain/Inmobles.java=UTF-8
 encoding//src/main/java/com/insacosa/domain/Solicituds.java=UTF-8
+encoding//src/main/java/com/insacosa/domain/Tipus.java=UTF-8
 encoding//src/main/java/com/insacosa/domain/Ttpbasic.java=UTF-8
 encoding//src/main/java/com/insacosa/domain/Usuaris.java=UTF-8
 encoding//src/main/java/com/insacosa/domain/repositories/AbstractJPARepositoryService.java=UTF-8
