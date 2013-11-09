@@ -6,9 +6,8 @@
   <description>classes d'utilitats</description>
   
    <properties>
-        
+        <gae.version>1.8.4</gae.version>
         <hornetq.version>2.1.2.Final</hornetq.version>
-          
     </properties>
   
   
@@ -88,15 +87,13 @@
         	<scope>compile</scope>
         </dependency>
 
-        <dependency>
-        	<groupId>com.google.appengine</groupId>
-        	<artifactId>appengine-api-1.0-sdk</artifactId>
-        	<version>1.8.0</version>
-        </dependency>
+
+		<!-- NECESSARIES PERQUE UTILITZA GAE -->
         <dependency>
         	<groupId>javax.jdo</groupId>
         	<artifactId>jdo-api</artifactId>
         	<version>3.0.1</version>
         </dependency>
+        
   </dependencies>
 </project>
