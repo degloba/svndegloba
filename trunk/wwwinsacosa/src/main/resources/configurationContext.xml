@@ -72,49 +72,42 @@
 	
 	<bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService">
 		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
-		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
+		<property name="eventPublisher" ref="eventPublisher" />  
 	</bean>	
 	
 	<bean id="ciutatsApplicationService" class="com.insacosa.application.services.CiutatsApplicationService">
 		<property name="ciutatsRepository" ref="ciutatsRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
-		<!--  <property name="eventPublisher" ref="eventPublisher" /> -->
+		<property name="eventPublisher" ref="eventPublisher" /> 
 	</bean> 
 	
 	<bean id="inmoblesApplicationService" class="com.insacosa.application.services.InmoblesApplicationService">
 		<property name="inmoblesRepository" ref="inmoblesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
-		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
+		<property name="eventPublisher" ref="eventPublisher" /> 
 	</bean>  
 	
 	 <bean id="solicitudsApplicationService" class="com.insacosa.application.services.SolicitudsApplicationService">
 		<property name="solicitudsRepository" ref="solicitudsRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
 		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
 	</bean>
 	
 	<bean id="provinciesApplicationService" class="com.insacosa.application.services.ProvinciesApplicationService">
 		<property name="provinciesRepository" ref="provinciesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
 		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
 	</bean>
 	
 	<bean id="tipusApplicationService" class="com.insacosa.application.services.TipusApplicationService">
 		<property name="tipusRepository" ref="tipusRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
 		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
 	</bean>
 	
 	<bean id="usuarisAplicationService" class="com.insacosa.application.services.UsuarisAplicationService">
 		<property name="usuarisRepository" ref="usuarisRepository" />
-		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
 		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
 	</bean>	 
