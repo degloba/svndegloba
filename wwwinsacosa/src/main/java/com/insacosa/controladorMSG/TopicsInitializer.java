@@ -11,8 +11,8 @@ import javax.faces.event.SystemEventListener;
 
 import javax.servlet.http.HttpServletRequest;
 
-// UI - Richfaces
 import org.richfaces.application.push.EventAbortedException;
+// UI - Richfaces
 import org.richfaces.application.push.Session;
 import org.richfaces.application.push.SessionPreSubscriptionEvent;
 import org.richfaces.application.push.SessionSubscriptionEvent;
