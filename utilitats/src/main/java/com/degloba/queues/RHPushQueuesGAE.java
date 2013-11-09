@@ -1,7 +1,6 @@
 package com.degloba.queues;
 
 import java.io.*;
-import javax.servlet.*;
 import javax.servlet.http.*;
 
 import com.google.appengine.api.NamespaceManager;
@@ -16,6 +15,11 @@ import com.google.appengine.api.taskqueue.TaskOptions;
  */
 public class RHPushQueuesGAE extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Handler for URL get requests.  
 	protected void doGet(HttpServletRequest req,                        
 				HttpServletResponse resp)       
