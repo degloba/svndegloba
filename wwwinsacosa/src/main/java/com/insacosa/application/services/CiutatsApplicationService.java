@@ -1,13 +1,15 @@
 package com.insacosa.application.services;
 
 
+import javax.inject.Inject;
+
 import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.InvoiceRepository;
 import com.insacosa.domain.InvoicingService;
 import com.insacosa.domain.OrderFactory;
-import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
-
+import com.insacosa.domain.repositories.CaracteristiquesRepository;
+import com.insacosa.domain.repositories.CiutatsRepository;
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
@@ -22,7 +24,41 @@ import ddd.application.annotation.ApplicationService;
 public class CiutatsApplicationService<T extends Ciutats> extends  GenericApplicationServiceForBaseEntity<Long,T>
 	 {
 	
+    @Inject
+    private CiutatsRepository ciutatsRepository;
+
+    @Inject
+    private SystemUser systemUser;
+
+    @Inject
+    private ApplicationEventPublisher eventPublisher;
+    
+
+	public CiutatsRepository getCiutatsRepository() {
+		return ciutatsRepository;
+	}
+
+	public void setCiutatsRepository(CiutatsRepository ciutatsRepository) {
+		this.ciutatsRepository = ciutatsRepository;
+	}
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
 	
-	
+    
+    
 
 }

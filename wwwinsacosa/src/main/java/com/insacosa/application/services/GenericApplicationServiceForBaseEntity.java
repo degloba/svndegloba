@@ -1,14 +1,8 @@
 package com.insacosa.application.services;
 
-import javax.inject.Inject;
-
 import com.insacosa.domain.GenericDomainServiceForBaseEntity;
-import com.insacosa.domain.InvoicingService;
-
 
 import ddd.domain.BaseEntity;
-import ddd.domain.IEntityService;
-import ddd.domain.annotations.DomainService;
 
 
 /**

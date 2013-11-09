@@ -53,7 +53,7 @@ public class PurchaseApplicationService {
     private InvoiceRepository invoiceRepository;
 
     @Inject
-    private InvoicingService invoicingService;
+    private InvoicingService<?, ?> invoicingService;
 
     @Inject
     private SystemUser systemUser;

@@ -23,20 +23,6 @@ public class TipusApplicationService<T extends Tipus> extends GenericApplication
 
 	 {
 
-	 	@Inject
-	    private OrderRepository orderRepository;
-
-	    @Inject
-	    private OrderFactory orderFactory;
-
-	    @Inject
-	    private ProductRepository productRepository;
-
-	    @Inject
-	    private InvoiceRepository invoiceRepository;
-
-	    @Inject
-	    private InvoicingService invoicingService;
 
 	    @Inject
 	    private SystemUser systemUser;
@@ -48,6 +34,26 @@ public class TipusApplicationService<T extends Tipus> extends GenericApplication
 	public Tipus tipusInmoble(String keyInmoble) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
 	}
 	
 	
