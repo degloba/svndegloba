@@ -13,7 +13,11 @@ import com.insacosa.domain.Order.OrderStatus;
  */
 public class ClientOrderListItemDto implements Serializable {
 
-    private Long orderId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long orderId;
     private Money totalCost;
     private Date submitDate;
     private OrderStatus status;
