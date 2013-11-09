@@ -60,32 +60,32 @@
 	
 	<!-- SERVEIS D'APLICACIO -->
 		
-	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
+	<!--  <bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
 		<property name="orderRepository" ref="orderRepository" />
 		<property name="orderFactory" ref="orderFactory" />
 		<property name="productRepository" ref="productRepository" />
 		<property name="invoiceRepository" ref="invoiceRepository" />
 		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
-		<!--  <property name="eventPublisher" ref="eventPublisher" /> -->
-	</bean>
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>-->
 	
 	<bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService">
 		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" />
 		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />  
+		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
 	</bean>	
 	
 	<bean id="ciutatsApplicationService" class="com.insacosa.application.services.CiutatsApplicationService">
 		<property name="ciutatsRepository" ref="ciutatsRepository" />
 		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" /> 
+		<!--  <property name="eventPublisher" ref="eventPublisher" /> -->
 	</bean> 
 	
 	<bean id="inmoblesApplicationService" class="com.insacosa.application.services.InmoblesApplicationService">
 		<property name="inmoblesRepository" ref="inmoblesRepository" />
 		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" /> 
+		<!--  <property name="eventPublisher" ref="eventPublisher" /> -->
 	</bean>  
 	
 	 <bean id="solicitudsApplicationService" class="com.insacosa.application.services.SolicitudsApplicationService">
