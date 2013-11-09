@@ -4,7 +4,11 @@ import ddd.domain.DomainEvent;
 
 public class OrderShippedEvent implements DomainEvent {
 
-    private final Long orderId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Long orderId;
     private final Long shipmentId;
 
     public OrderShippedEvent(Long orderId, Long shipmentId) {
