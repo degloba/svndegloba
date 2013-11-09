@@ -9,7 +9,11 @@ import ddd.domain.DomainEvent;
 
 public class OrderCreatedEvent implements DomainEvent {
 
-    private final Long orderId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Long orderId;
 
     public OrderCreatedEvent(Long orderId) {
         this.orderId = orderId;
