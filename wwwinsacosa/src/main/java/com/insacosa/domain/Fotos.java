@@ -3,19 +3,17 @@ package com.insacosa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.datanucleus.api.jpa.annotations.Extension;
 
 import com.google.appengine.api.datastore.Key;
 
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
+
 
 @Entity
 @DomainAggregateRoot
@@ -23,7 +21,6 @@ public class Fotos extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true")
 	private String id;
 	
 	private Key key;

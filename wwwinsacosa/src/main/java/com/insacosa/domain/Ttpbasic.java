@@ -5,13 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import org.datanucleus.api.jpa.annotations.Extension;
 
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
@@ -22,7 +19,6 @@ public class Ttpbasic extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private String id;
 	
 	private String key;

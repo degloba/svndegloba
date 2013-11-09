@@ -19,7 +19,7 @@ import ddd.domain.sharedkernel.Money;
  *
  */
 @DomainService
-public class InvoicingService {
+public class InvoicingService<K,T extends Invoice> extends GenericDomainServiceForBaseEntity<K,T>{
 	
 	@Inject
 	private ProductRepository productRepository;
@@ -40,5 +40,16 @@ public class InvoicingService {
 		
 		return invoice;
 	}
+
+	public ProductRepository getProductRepository() {
+		return productRepository;
+	}
+
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+	
+
+
 	
 }

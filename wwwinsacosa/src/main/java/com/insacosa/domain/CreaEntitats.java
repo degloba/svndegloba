@@ -1,7 +1,6 @@
-package entitats;
+package com.insacosa.domain;
 
 import java.io.IOException;
-import java.util.Date;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
