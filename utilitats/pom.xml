@@ -12,22 +12,20 @@
     </properties>
   
   
-  
   <dependencies>
-  	
+  
+  <!-- JPA persistencia -->	
 	<dependency>  
 	  <groupId>org.apache.geronimo.specs</groupId>  
 	  <artifactId>geronimo-jpa_2.0_spec</artifactId>  
 	  <version>1.1</version>  
 	</dependency>
 
-	<dependency>
-        	<groupId>org.jboss.el</groupId>
-        	<artifactId>jboss-el</artifactId>
-        	<version>2.0.1.GA</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
+		<dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>2.2</version> 
+        </dependency>    
         
           <dependency>
         	<groupId>commons-validator</groupId>
@@ -89,6 +87,16 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
-  
+
+        <dependency>
+        	<groupId>com.google.appengine</groupId>
+        	<artifactId>appengine-api-1.0-sdk</artifactId>
+        	<version>1.8.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>javax.jdo</groupId>
+        	<artifactId>jdo-api</artifactId>
+        	<version>3.0.1</version>
+        </dependency>
   </dependencies>
 </project>
