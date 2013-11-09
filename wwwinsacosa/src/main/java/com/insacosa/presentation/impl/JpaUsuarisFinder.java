@@ -7,23 +7,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
+
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
+
 
 import query.annotations.Finder;
 
 import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Solicituds;
 import com.insacosa.domain.Tipus;
 import com.insacosa.domain.Usuaris;
-import com.insacosa.presentation.SolicitudsListItemDto;
 import com.insacosa.presentation.TipusDto;
-import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
 
 import com.insacosa.webui.UsuariItemDto;

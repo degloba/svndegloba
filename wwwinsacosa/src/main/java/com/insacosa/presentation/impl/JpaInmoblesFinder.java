@@ -30,8 +30,6 @@ import com.insacosa.presentation.SolicitudsListItemDto;
 import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
 
-import com.insacosa.vo.FotoForm;
-import com.insacosa.webui.InmobleCaractItemDto;
 import com.insacosa.webui.InmobleItemDto;
 import com.insacosa.webui.UsuariItemDto;
 
@@ -59,7 +57,8 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
      private UsuarisFinder usuarisFinder;
 
   
-    private SolicitudsListItemDto toSolicitudsListItemDto(Solicituds solicitud) {
+    @SuppressWarnings("unused")
+	private SolicitudsListItemDto toSolicitudsListItemDto(Solicituds solicitud) {
     	SolicitudsListItemDto dto = new SolicitudsListItemDto();
         dto.setOrderId(solicitud.getEntityId());
 /*        dto.setTotalCost(solicitud.getTotalCost());
