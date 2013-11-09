@@ -5,6 +5,10 @@ import java.sql.Timestamp;
 // Clase Value Object de la que todas las vistas deber?an descender.
 public class BaseVO implements java.io.Serializable 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
   	private Timestamp timeCreated = null;
   	private String description;
