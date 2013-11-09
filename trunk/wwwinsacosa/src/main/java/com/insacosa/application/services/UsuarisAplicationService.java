@@ -23,21 +23,6 @@ public class UsuarisAplicationService<K,T extends Usuaris> extends  GenericAppli
 
 	 {
 
-	 	@Inject
-	    private OrderRepository orderRepository;
-
-	    @Inject
-	    private OrderFactory orderFactory;
-
-	    @Inject
-	    private ProductRepository productRepository;
-
-	    @Inject
-	    private InvoiceRepository invoiceRepository;
-
-	    @Inject
-	    private InvoicingService invoicingService;
-
 	    @Inject
 	    private SystemUser systemUser;
 
@@ -83,6 +68,22 @@ public class UsuarisAplicationService<K,T extends Usuaris> extends  GenericAppli
 	public String cambiaPassword(String usuari, String password) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
 	}
 	
 	

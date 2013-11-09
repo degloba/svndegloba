@@ -3,10 +3,15 @@ package com.insacosa.application.services;
 
 import java.util.List;
 
+import javax.inject.Inject;
 
+
+import ddd.application.ApplicationEventPublisher;
+import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.InmoblesRepository;
 
 
 import com.insacosa.vo.FotoForm;
@@ -24,6 +29,16 @@ import com.insacosa.webui.UsuariItemDto;
 @ApplicationService
 public class InmoblesApplicationService<T extends Inmobles> extends GenericApplicationServiceForBaseEntity<Long,T>
 	 {
+	
+	
+    @Inject
+    private InmoblesRepository inmoblesRepository;
+
+    @Inject
+    private SystemUser systemUser;
+
+    @Inject
+    private ApplicationEventPublisher eventPublisher;
 	
 
     GenericApplicationServiceForBaseEntity<Long,Inmobles>  g;
@@ -141,6 +156,36 @@ public class InmoblesApplicationService<T extends Inmobles> extends GenericAppli
 	public InmobleItemDto esborrarInmoble(String keyInmoble) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public InmoblesRepository getInmoblesRepository() {
+		return inmoblesRepository;
+	}
+
+
+	public void setInmoblesRepository(InmoblesRepository inmoblesRepository) {
+		this.inmoblesRepository = inmoblesRepository;
+	}
+
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
 	}
 
 

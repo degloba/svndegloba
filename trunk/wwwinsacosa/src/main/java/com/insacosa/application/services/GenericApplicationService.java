@@ -1,10 +1,7 @@
 package com.insacosa.application.services;
 
-import javax.inject.Inject;
-import javax.persistence.criteria.Predicate;
 
 import ddd.domain.Entitat;
-
 
 
 /**

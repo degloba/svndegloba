@@ -16,8 +16,6 @@ import com.insacosa.domain.errors.OrderCreationException;
 public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <Long,T>
 	{
 	
-	    @Inject
-	    private InvoicingService invoicingService;  // exemple Servei de Domini
 
 	    @Inject
 	    private SystemUser systemUser;
@@ -31,7 +29,7 @@ public class SolicitudsApplicationService<T extends Solicituds> extends GenericA
 	    
 	    private void GetSolicitudsById(Long id) {
 	    	
-	    	g.ds.CreateService().Get(id);
+	    	//ds.CreateService().Get(id);
 	    	
 	    }
 	    

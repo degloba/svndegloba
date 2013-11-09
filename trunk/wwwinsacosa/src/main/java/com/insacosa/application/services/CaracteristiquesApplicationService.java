@@ -23,18 +23,6 @@ public class CaracteristiquesApplicationService<T extends Caracteristiques> exte
     private CaracteristiquesRepository caracteristiquesRepository;
 
     @Inject
-    private OrderFactory orderFactory;
-
-    @Inject
-    private ProductRepository productRepository;
-
-    @Inject
-    private InvoiceRepository invoiceRepository;
-
-    @Inject
-    private InvoicingService<?, ?> invoicingService;
-
-    @Inject
     private SystemUser systemUser;
 
     @Inject
@@ -58,37 +46,6 @@ public class CaracteristiquesApplicationService<T extends Caracteristiques> exte
 		this.caracteristiquesRepository = caracteristiquesRepository;
 	}
 
-	public OrderFactory getOrderFactory() {
-		return orderFactory;
-	}
-
-	public void setOrderFactory(OrderFactory orderFactory) {
-		this.orderFactory = orderFactory;
-	}
-
-	public ProductRepository getProductRepository() {
-		return productRepository;
-	}
-
-	public void setProductRepository(ProductRepository productRepository) {
-		this.productRepository = productRepository;
-	}
-
-	public InvoiceRepository getInvoiceRepository() {
-		return invoiceRepository;
-	}
-
-	public void setInvoiceRepository(InvoiceRepository invoiceRepository) {
-		this.invoiceRepository = invoiceRepository;
-	}
-
-	public InvoicingService<?, ?> getInvoicingService() {
-		return invoicingService;
-	}
-
-	public void setInvoicingService(InvoicingService<?, ?> invoicingService) {
-		this.invoicingService = invoicingService;
-	}
 
 	public SystemUser getSystemUser() {
 		return systemUser;
