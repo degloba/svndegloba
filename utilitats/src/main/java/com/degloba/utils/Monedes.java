@@ -5,11 +5,9 @@
 
 package com.degloba.utils;
 
-import java.io.PrintStream;
 import java.math.BigDecimal;
-import java.sql.*;
+
 import java.util.Hashtable;
-import javax.servlet.ServletContext;
 
 
 public class Monedes
@@ -53,5 +51,5 @@ public class Monedes
         System.out.println(Euros_Pts("10.6"));
     }
 
-    Hashtable hTable;
+    Hashtable<?, ?> hTable;
 }
