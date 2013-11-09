@@ -63,7 +63,7 @@
      	
         <hornetq.version>2.1.2.Final</hornetq.version>
         
-        <spring.version>3.1.0.RC1</spring.version>  
+        <spring.version>3.2.0.RELEASE</spring.version>  
         <datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
           
     </properties>
@@ -158,7 +158,7 @@
             	<version>2.2</version>
             </plugin>
             
-  
+     
             <plugin>  
 			    
             	<artifactId>maven-antrun-plugin</artifactId>    
@@ -212,7 +212,7 @@
 							            <pathelement path="target/wwwinsacosa/WEB-INF/classes/com/insacosa/domain"/>    
 					            	</classpath>
 					                                  
-				            		<fileset dir="target/wwwinsacosa/WEB-INF/classes/com/insacosa" includes="**/domain/*.class"/>                    
+				            		<fileset dir="target/wwwinsacosa/WEB-INF/classes/com/insacosa/domain" includes="**/*.class"/>                    
 				            	</enhance>                
 				            </tasks>
 				           
@@ -227,14 +227,14 @@
 		             
 	            </executions>
 	            </plugin> 
-	                                    
+	                                  
             
         </plugins>
         
         
 		<pluginManagement>  
 		  <plugins>  
-		   <!--   <plugin>  
+		      <plugin>  
 		      <groupId>org.eclipse.m2e</groupId>  
 		      <artifactId>lifecycle-mapping</artifactId>  
 		      <version>1.0.0</version>  
@@ -258,40 +258,25 @@
 		                  <runOnIncremental>false</runOnIncremental>  
 		                </execute >  
 		              </action>  
-		            </pluginExecution>  
+		            </pluginExecution>
+		            <pluginExecution>
+		            	<pluginExecutionFilter>
+		            		<groupId>org.apache.maven.plugins</groupId>
+		            		<artifactId>maven-antrun-plugin</artifactId>
+		            		<versionRange>[1.3,)</versionRange>
+		            		<goals>
+		            			<goal>run</goal>
+		            		</goals>
+		            	</pluginExecutionFilter>
+		            	<action>
+		            		<ignore></ignore>
+		            	</action>
+		            </pluginExecution>
 		          </pluginExecutions>  
 		        </lifecycleMappingMetadata>  
 		      </configuration>  
-		    </plugin>  -->
-		   <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-		   <plugin>
-		   	<groupId>org.eclipse.m2e</groupId>
-		   	<artifactId>lifecycle-mapping</artifactId>
-		   	<version>1.0.0</version>
-		   	<configuration>
-		   		<lifecycleMappingMetadata>
-		   			<pluginExecutions>
-		   				<pluginExecution>
-		   					<pluginExecutionFilter>
-		   						<groupId>
-		   							org.apache.maven.plugins
-		   						</groupId>
-		   						<artifactId>
-		   							maven-antrun-plugin
-		   						</artifactId>
-		   						<versionRange>[1.3,)</versionRange>
-		   						<goals>
-		   							<goal>run</goal>
-		   						</goals>
-		   					</pluginExecutionFilter>
-		   					<action>
-		   						<ignore></ignore>
-		   					</action>
-		   				</pluginExecution>
-		   			</pluginExecutions>
-		   		</lifecycleMappingMetadata>
-		   	</configuration>
-		   </plugin>
+		    </plugin>  
+		   
 		  </plugins>  
 		</pluginManagement> 
         
@@ -596,12 +581,12 @@
 			<version>3.0.1</version>
 		</dependency>
 
-	<!--  	<dependency>
+	    	<dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-enhancer</artifactId>
             <version>3.1.1</version>
 			<type>jar</type>
-        </dependency>  -->
+        </dependency>  
        
 	<!--  <dependency>
             <groupId>org.datanucleus</groupId>
@@ -619,13 +604,13 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<dependency>
+	  	<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
 			<version>3.1.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency> 
 
 	
 	<!-- Goggle App Engine -->	
@@ -741,11 +726,7 @@
 		<artifactId>spring-orm</artifactId>                         
 		<version>${spring.version}</version>                 
 	</dependency> 
-	  <dependency>                         
-		<groupId>org.springframework</groupId>                         
-		<artifactId>spring-asm</artifactId>                         
-		<version>${spring.version}</version>                 
-	</dependency>   	  
+	 	  
 		
 	<dependency>
 		<groupId>org.hibernate</groupId>
@@ -789,7 +770,8 @@
 	  	<version>2.1.2</version>
 	  </dependency>
 	  -->
-	  
+
+
     </dependencies>
 
 </project>
