@@ -1,11 +1,10 @@
 package ddd.infrastructure.sagas.impl;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.inject.Inject;
 

@@ -18,7 +18,7 @@ import ddd.domain.BaseEntity;
 public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends GenericJpaRepository<E, Long>{
 		
 	  
-	public <E> E Find(Predicate predicate) {
+	public E Find(Predicate predicate) {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -37,14 +37,14 @@ public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends Gen
 	}
 	  
 
-	public <E> E Create(E entitat) {
+	public  E Create(E entitat) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 
-	public <E> int Update(E entitat) {
+	public  int Update(E entitat) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

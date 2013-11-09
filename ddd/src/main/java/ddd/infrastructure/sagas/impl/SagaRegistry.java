@@ -9,5 +9,5 @@ public interface SagaRegistry {
 
     Collection<SagaManager> getLoadersForEvent(Object event);
 
-    SagaInstance createSagaInstance(Class<? extends SagaInstance> sagaType);
+    SagaInstance<?> createSagaInstance(Class<? extends SagaInstance> sagaType);
 }

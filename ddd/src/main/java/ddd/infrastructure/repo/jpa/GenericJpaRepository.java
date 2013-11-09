@@ -4,7 +4,7 @@ import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.Predicate;
+
 
 /**
  * 
