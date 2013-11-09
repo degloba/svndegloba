@@ -9,6 +9,8 @@ import com.insacosa.domain.OrderFactory;
 import com.insacosa.domain.OrderRepository;
 import com.insacosa.domain.ProductRepository;
 import com.insacosa.domain.Provincies;
+import com.insacosa.domain.repositories.InmoblesRepository;
+import com.insacosa.domain.repositories.ProvinciesRepository;
 
 // DDD
 import ddd.application.ApplicationEventPublisher;
@@ -19,6 +21,9 @@ import ddd.application.annotation.ApplicationService;
 @ApplicationService
 public class ProvinciesApplicationService<T extends Provincies> extends GenericApplicationServiceForBaseEntity<Long,T> {
 	
+    	@Inject
+    	private ProvinciesRepository provinciesRepository;
+    
 	    @Inject
 	    private SystemUser systemUser;
 
@@ -54,6 +59,14 @@ public class ProvinciesApplicationService<T extends Provincies> extends GenericA
 
 		public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
 			this.eventPublisher = eventPublisher;
+		}
+
+		public ProvinciesRepository getProvinciesRepository() {
+			return provinciesRepository;
+		}
+
+		public void setProvinciesRepository(ProvinciesRepository provinciesRepository) {
+			this.provinciesRepository = provinciesRepository;
 		}
 
 
