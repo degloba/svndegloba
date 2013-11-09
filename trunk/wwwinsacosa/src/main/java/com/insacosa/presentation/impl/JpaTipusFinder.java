@@ -23,8 +23,6 @@ import com.insacosa.domain.Tipus;
 import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.TipusFinder;
 
-import com.insacosa.presentation.SolicitudsFinder;
-
 
 /**
  * @author Rafał Jamróz
