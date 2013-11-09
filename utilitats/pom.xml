@@ -79,13 +79,6 @@
             <version>1.1</version>
         </dependency>
         
-        <dependency>
-        	<groupId>com.sun.faces</groupId>
-        	<artifactId>jsf-api</artifactId>
-        	<version>2.1.3_01</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
 
 
 		<!-- NECESSARIES PERQUE UTILITZA GAE -->
@@ -99,6 +92,11 @@
         	<artifactId>jdo-api</artifactId>
         	<version>3.0.1</version>
         </dependency>
-        
+
+        <dependency>
+        	<groupId>com.sun.faces</groupId>
+        	<artifactId>jsf-api</artifactId>
+        	<version>2.1.7</version>
+        </dependency>
   </dependencies>
 </project>
