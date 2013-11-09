@@ -1,6 +1,5 @@
 package com.insacosa.application.services;
 
-
 import javax.inject.Inject;
 
 import ddd.application.ApplicationEventPublisher;
@@ -8,7 +7,7 @@ import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
-import com.insacosa.domain.repositories.CaracteristiquesRepository;
+import com.insacosa.domain.repositories.*;
 
 /**
  * @author degloba
@@ -33,7 +32,7 @@ public class CaracteristiquesApplicationService<T extends Caracteristiques> exte
     private InvoiceRepository invoiceRepository;
 
     @Inject
-    private InvoicingService invoicingService;
+    private InvoicingService<?, ?> invoicingService;
 
     @Inject
     private SystemUser systemUser;
@@ -50,5 +49,64 @@ public class CaracteristiquesApplicationService<T extends Caracteristiques> exte
     	
     }
 
+	public CaracteristiquesRepository getCaracteristiquesRepository() {
+		return caracteristiquesRepository;
+	}
+
+	public void setCaracteristiquesRepository(
+			CaracteristiquesRepository caracteristiquesRepository) {
+		this.caracteristiquesRepository = caracteristiquesRepository;
+	}
+
+	public OrderFactory getOrderFactory() {
+		return orderFactory;
+	}
+
+	public void setOrderFactory(OrderFactory orderFactory) {
+		this.orderFactory = orderFactory;
+	}
+
+	public ProductRepository getProductRepository() {
+		return productRepository;
+	}
+
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+
+	public InvoiceRepository getInvoiceRepository() {
+		return invoiceRepository;
+	}
+
+	public void setInvoiceRepository(InvoiceRepository invoiceRepository) {
+		this.invoiceRepository = invoiceRepository;
+	}
+
+	public InvoicingService<?, ?> getInvoicingService() {
+		return invoicingService;
+	}
+
+	public void setInvoicingService(InvoicingService<?, ?> invoicingService) {
+		this.invoicingService = invoicingService;
+	}
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
+
+    
+    
 
 }
