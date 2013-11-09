@@ -1,6 +1,5 @@
 package com.insacosa.webui;
 
-import com.google.appengine.api.datastore.Key;
 
 /**
  * Helper DTO to created by a controller (and not by finder like other DTOs).
