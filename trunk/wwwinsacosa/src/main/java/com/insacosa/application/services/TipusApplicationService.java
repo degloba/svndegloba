@@ -16,6 +16,7 @@ import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.TipusRepository;
 
 
 @ApplicationService
@@ -23,6 +24,8 @@ public class TipusApplicationService<T extends Tipus> extends GenericApplication
 
 	 {
 
+		@Inject
+		private TipusRepository tipusRepository;
 
 	    @Inject
 	    private SystemUser systemUser;
@@ -54,6 +57,16 @@ public class TipusApplicationService<T extends Tipus> extends GenericApplication
 
 	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
 		this.eventPublisher = eventPublisher;
+	}
+
+
+	public TipusRepository getTipusRepository() {
+		return tipusRepository;
+	}
+
+
+	public void setTipusRepository(TipusRepository tipusRepository) {
+		this.tipusRepository = tipusRepository;
 	}
 	
 	
