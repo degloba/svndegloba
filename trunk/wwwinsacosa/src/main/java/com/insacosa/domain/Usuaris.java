@@ -1,5 +1,6 @@
 package com.insacosa.domain;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import org.datanucleus.api.jpa.annotations.Extension;
-
-import com.google.appengine.api.datastore.Key;
 
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
@@ -22,10 +20,9 @@ import ddd.domain.annotations.DomainAggregateRoot;
 @Entity
 @DomainAggregateRoot
 public class Usuaris extends BaseAggregateRoot implements java.io.Serializable {
-
+	
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)   
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private String id;
 	
 	private String usuariKey;

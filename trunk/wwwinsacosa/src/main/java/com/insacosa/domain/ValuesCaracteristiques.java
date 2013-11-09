@@ -1,5 +1,6 @@
 package com.insacosa.domain;
 
+
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -10,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-import org.datanucleus.api.jpa.annotations.Extension;
 
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
@@ -22,7 +22,6 @@ public class ValuesCaracteristiques extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private String id;
 	
 	private String valueCaracteristicaKey;

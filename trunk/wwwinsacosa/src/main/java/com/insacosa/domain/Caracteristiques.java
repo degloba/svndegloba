@@ -13,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import org.datanucleus.api.jpa.annotations.Extension;
-
-
 import ddd.domain.BaseAggregateRoot;
 import ddd.domain.annotations.DomainAggregateRoot;
 
@@ -25,7 +22,6 @@ public class Caracteristiques extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private String id;
 	
 	private String caracteristicaKey;

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.insacosa.domain;
 
 import javax.persistence.Entity;

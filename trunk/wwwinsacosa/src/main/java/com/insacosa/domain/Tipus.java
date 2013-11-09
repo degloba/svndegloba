@@ -1,3 +1,4 @@
+
 package com.insacosa.domain;
 
 
@@ -19,7 +20,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import org.datanucleus.api.jpa.annotations.Extension;
 
 @Entity
 @DomainAggregateRoot
@@ -27,7 +27,6 @@ public class Tipus   extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private Key key;
 	
 	

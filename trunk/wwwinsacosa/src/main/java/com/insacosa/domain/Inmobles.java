@@ -1,5 +1,6 @@
 package com.insacosa.domain;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,13 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
-
-import org.datanucleus.api.jpa.annotations.Extension;
 
 
 import ddd.domain.BaseAggregateRoot;
@@ -28,7 +25,6 @@ public class Inmobles extends BaseAggregateRoot{
 
 	@Id    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Extension(vendorName="datanucleus", key="gae.encoded-pk",value="true") 
 	private String id;
 	
 	private String inmobleKey;

@@ -3,12 +3,9 @@ package com.insacosa.domain;
 import javax.inject.Inject;
 
 import com.insacosa.domain.repositories.CaracteristiquesRepository;
-import com.insacosa.domain.repositories.InmoblesRepository;
-import com.insacosa.domain.repositories.SolicitudsRepository;
 
-import ddd.domain.IEntityService;
 import ddd.domain.annotations.DomainService;
-import ddd.domain.sharedkernel.Money;
+
 
 
 /**
