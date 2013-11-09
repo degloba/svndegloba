@@ -1,5 +1,6 @@
 package com.degloba.billing;
 
+
 public class ChargeResult {
 	
 	public boolean wasSuccessful()
