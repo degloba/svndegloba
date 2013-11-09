@@ -11,11 +11,14 @@ import ddd.application.SystemUser;
 import ddd.application.annotation.ApplicationService;
 
 import com.insacosa.domain.errors.OrderCreationException;
+import com.insacosa.domain.repositories.SolicitudsRepository;
 
 @ApplicationService
 public class SolicitudsApplicationService<T extends Solicituds> extends GenericApplicationServiceForBaseEntity <Long,T>
 	{
 	
+		@Inject
+		private SolicitudsRepository solicitudsRepository;
 
 	    @Inject
 	    private SystemUser systemUser;
@@ -54,5 +57,44 @@ public class SolicitudsApplicationService<T extends Solicituds> extends GenericA
 		
 		
 	}
+
+
+
+	public SolicitudsRepository getSolicitudsRepository() {
+		return solicitudsRepository;
+	}
+
+
+
+	public void setSolicitudsRepository(SolicitudsRepository solicitudsRepository) {
+		this.solicitudsRepository = solicitudsRepository;
+	}
+
+
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+
+
+
+	public ApplicationEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+
+
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
+	
+	
+	
 
 }
