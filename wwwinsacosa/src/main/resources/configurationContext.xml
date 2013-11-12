@@ -30,6 +30,7 @@
 	<bean id="tipusRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaTipusRepository" />
 	<bean id="usuarisRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaUsuarisRepository" /> 
 	
+	<!-- FINDERS -->
 	
 	
 	<!-- SERVEIS DE DOMINI -->
@@ -53,9 +54,13 @@
 	
 	
 	<!-- EVENT PUBLISHER -->
-	
-<!-- 	<bean id="eventPublisher" class="writer.NiceWriter" /> -->
+<!--  	<bean id="eventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" /> 
+ 	 <bean id="applicationEventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" />
 
+	<bean id="baseAggregateRoot" class="ddd.domain.BaseAggregateRoot">
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>	 -->
+	
 	
 	
 	<!-- SERVEIS D'APLICACIO -->
