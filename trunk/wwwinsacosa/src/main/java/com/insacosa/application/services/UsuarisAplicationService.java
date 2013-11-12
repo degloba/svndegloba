@@ -18,10 +18,14 @@ import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
 
 import com.insacosa.domain.*;
+import com.insacosa.domain.repositories.UsuarisRepository;
 
 public class UsuarisAplicationService<K,T extends Usuaris> extends  GenericApplicationServiceForBaseEntity <K,T>
 
 	 {
+	
+    	@Inject
+    	private UsuarisRepository usuarisRepository;
 
 	    @Inject
 	    private SystemUser systemUser;
@@ -84,6 +88,14 @@ public class UsuarisAplicationService<K,T extends Usuaris> extends  GenericAppli
 
 	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
 		this.eventPublisher = eventPublisher;
+	}
+
+	public UsuarisRepository getUsuarisRepository() {
+		return usuarisRepository;
+	}
+
+	public void setUsuarisRepository(UsuarisRepository usuarisRepository) {
+		this.usuarisRepository = usuarisRepository;
 	}
 	
 	
