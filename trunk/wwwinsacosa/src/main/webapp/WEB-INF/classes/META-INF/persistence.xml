@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"    
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
+http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">   
+ 
+     
+	<persistence-unit name="transactions-optional">        
+	<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  
+		<class>com.insacosa.domain.Caracteristiques</class>
+		<class>com.insacosa.domain.Provincies</class>
+        <class>com.insacosa.domain.Ciutats</class>
+        <class>com.insacosa.domain.InmobleCaract</class>
+        <class>com.insacosa.domain.Solicituds</class>  
+        <class>com.insacosa.domain.Inmobles</class> 
+		<class>com.insacosa.domain.Fotos</class>  
+		<class>com.insacosa.domain.Caractinmobles</class> 
+		<class>com.insacosa.domain.Tipus</class>  
+		<class>com.insacosa.domain.Ttpbasic</class>  
+		<class>com.insacosa.domain.Ttpcontrol</class>  
+		<class>com.insacosa.domain.Usuaris</class>  
+		<class>com.insacosa.domain.ValuesCaracteristiques</class>   
+        <exclude-unlisted-classes/>  
+		<properties>            
+			<property name="datanucleus.NontransactionalRead" value="true"/>            
+			<property name="datanucleus.NontransactionalWrite" value="true"/>            
+			<property name="datanucleus.ConnectionURL" value="googlestorage"/>      	      
+		</properties>    
+	</persistence-unit>
+	
+	<persistence-unit name="eventual-reads-short-deadlines">        
+	    <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>        
+	    <properties>            
+	    	<property name="datanucleus.NontransactionalRead" value="true"/>            
+		    <property name="datanucleus.NontransactionalWrite" value="true"/>            
+		    <property name="datanucleus.ConnectionURL" value="googlestorage"/>            
+		    <property name="datanucleus.appengine.datastoreReadConsistency" value="EVENTUAL" />            
+		    <property name="javax.persistence.query.timeout" value="5000" />            
+		    <property name="datanucleus.datastoreWriteTimeout" value="10000" /> 
+		    <property name="datanucleus.singletonEMFForName" value="true"/>       
+		</properties>    
+	</persistence-unit>
+</persistence>
