@@ -49,8 +49,19 @@
 	
 	<!-- SYSTEM USER -->
 	
-<!-- 	<bean id="systemUser" class="writer.NiceWriter" /> -->
-
+	<bean id="systemUser" class="ddd.application.SystemUser" /> 
+	
+	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider" />
+	
+	<bean id="runEnvironment" class="command.impl.RunEnvironment" >
+	    <property name="handlersProvider" ref="handlersProvider"></property>
+	</bean>    
+	
+	<!-- GATE -->
+	<bean id="gate" class="command.impl.StandardGate" >
+	    <property name="runEnvironment" ref="runEnvironment"></property>
+	</bean>
+	     
 	
 	
 	<!-- EVENT PUBLISHER -->
@@ -60,6 +71,7 @@
 	<bean id="baseAggregateRoot" class="ddd.domain.BaseAggregateRoot">
 		<property name="eventPublisher" ref="eventPublisher" />
 	</bean>	 -->
+	
 	
 	
 	
