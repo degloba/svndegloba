@@ -17,19 +17,16 @@ public class EntityService<K,TEntity extends BaseEntity> implements IEntityServi
 	}
 
 	
-	@Override
 	public void Add(TEntity value) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void Remove(K id) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public TEntity Get(K id) {
 		// TODO Auto-generated method stub
 		return null;
