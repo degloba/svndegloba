@@ -7,19 +7,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
-
 		
-    <context:component-scan base-package="com.degloba.cqrs,com.degloba.ddd,com.insacosa,cqrs,ddd">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
-
+	
     <context:annotation-config/>
 	
+	<bean id="injectorHelper" class="ddd.domain.support.InjectorHelper" >
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>
+	
 	<!-- REPOSITORIS -->
-	<bean id="orderRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaOrderRepository" /> 
-	<bean id="invoiceRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInvoiceRepository" />
-	<bean id="productRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProductRepository" />
-	<bean id="caracteristiquesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCaracteristiquesRepository" />
+	<bean id="caracteristiquesRepository"
+		class="com.insacosa.infrastructure.repositories.jpa.JpaCaracteristiquesRepository">
+		<property name="injectorHelper" ref="injectorHelper">
+		</property>
+	</bean>
+
 	<bean id="ciutatsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCiutatsRepository" />
 	<bean id="inmoblesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInmoblesRepository" />
 	<bean id="provinciesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProvinciesRepository" />
@@ -32,9 +34,9 @@
 	
 	<!-- SERVEIS DE DOMINI -->
 	
- 	<bean id="invoicingService" class="com.insacosa.domain.InvoicingService" >
+ 	<!--  <bean id="invoicingService" class="com.insacosa.domain.InvoicingService" >
 	    <property name="productRepository" ref="productRepository"></property>
-	</bean> 
+	</bean>  -->
 
 	
 	<!-- FACTORIES -->
@@ -59,15 +61,14 @@
 	    <property name="runEnvironment" ref="runEnvironment"></property>
 	</bean>  -->
 	     
-	
-	
+		
 	<!-- EVENT PUBLISHER -->
-  	<bean id="eventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" /> 
- 	 <bean id="applicationEventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" />
+  	 <bean id="eventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" /> 
+ 	 <!--<bean id="applicationEventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" />
 
-	<bean id="baseAggregateRoot" class="ddd.domain.BaseAggregateRoot">
-		<!--  <property name="eventPublisher" ref="eventPublisher" /> -->
-	</bean>	 
+	 <bean id="baseAggregateRoot" class="ddd.domain.BaseAggregateRoot">
+		  <property name="eventPublisher" ref="eventPublisher" /> 
+	</bean>	 -->
 	
 	
 	
@@ -126,9 +127,6 @@
 	</bean>	 
 	
 	
-     <bean id="jpaTemplate" class="org.springframework.orm.jpa.JpaTemplate"> 
-                <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>  
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
