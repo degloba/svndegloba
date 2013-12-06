@@ -24,7 +24,7 @@ public class JpaFotosFinder implements FotosFinder {
     private EntityManager entityManager;
 
     
-    @Override
+    
 	public List<Fotos> fotosInmoble(Inmobles inmoble) {
 		
 		List<Fotos> ret = new ArrayList<Fotos>();

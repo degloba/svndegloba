@@ -48,7 +48,7 @@ public class JpaUsuarisFinder implements UsuarisFinder {
     }
 
 
-	@Override
+	
 	public List<UsuariItemDto> findUsuaris() {
 		Query query = entityManager
                 .createQuery("select new com.insacosa.presentation.UsuarisItemDto("
@@ -57,19 +57,19 @@ public class JpaUsuarisFinder implements UsuarisFinder {
 	}
 
 
-	@Override
+	
 	public UsuariItemDto cercarUsuari(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Usuaris usuariValid(Usuaris usuari) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public List<Usuaris> solicitantsInmoble(Inmobles inmoble) {
 		
 		

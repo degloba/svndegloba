@@ -33,7 +33,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
     private EntityManager entityManager;
     
     
-    @Override
+   
     public List<Caracteristiques> caractTipus(Tipus tipus, Integer condicio, Boolean inclouCaractComu) {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
@@ -88,7 +88,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 		//return null;
 	}
 
-    @Override
+    
     public Caracteristiques caracteristicaCaractInmoble(Caractinmobles caractinmoble) {
 		
 		Caracteristiques c = null;
@@ -112,7 +112,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	 * Exemple : metres --> integer, adreça --> string, preu --> double , ...
 	 */
 	
-    @Override
+    
 	public String tipusColumnaCaract(Key keyCaract) {
 		
 		String ret = null;
@@ -149,7 +149,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	}
 
 
-    @Override
+
 	public String tipusColumnaCaract(String nomCaract) {
 			
 		String ret = null;
@@ -191,7 +191,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	 * Retorna el tipus de CONTROL UI (ITXT,SELT,IRAD,FILE,,..) d'una caracteristica en concret
 	 * Exemple : metres --> ITXT, provincia --> SELT , ...
 	 */
-    @Override
+    
 	public String tipusControlUICaract(Key keyCaract) {
 		
 		String ret = null;
@@ -232,7 +232,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 
 	}
 
-    @Override
+    
 	public String tipusControlUICaract(String nomCaract) {
 		
 		String ret = null;
@@ -265,7 +265,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	}
 
 
-    @Override
+    
 	public Caracteristiques caractPerKey(String keyCaract) {
 		
 		Caracteristiques caracteristica = null;
@@ -285,7 +285,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 	}
 
 	
-    @Override
+   
 	public List<Caracteristiques> allCaract() {
 		
 		List<Caracteristiques> ret = new ArrayList<Caracteristiques>();
@@ -314,7 +314,7 @@ public class JpaCaracteristiquesFinder implements CaracteristiquesFinder {
 
 	}
 
-	@Override
+	
 	public List<Caracteristiques> caractTipus(Tipus tipus) {
 		// TODO Auto-generated method stub
 		return null;
