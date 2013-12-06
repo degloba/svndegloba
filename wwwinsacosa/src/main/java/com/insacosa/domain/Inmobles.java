@@ -1,6 +1,5 @@
 package com.insacosa.domain;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
@@ -21,6 +22,7 @@ import ddd.domain.annotations.DomainAggregateRoot;
 
 @Entity
 @DomainAggregateRoot
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Inmobles extends BaseAggregateRoot{
 
 	@Id    
@@ -32,8 +34,8 @@ public class Inmobles extends BaseAggregateRoot{
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Tipus tipus;
 	
-	@Transient
-	private Usuaris usuaris;
+	
+	//private Usuaris usuaris;
 
 	 // Unowned relationship
     private String usuariKey;
@@ -113,7 +115,7 @@ public class Inmobles extends BaseAggregateRoot{
 			Set<Solicituds> solicitudses, Set<Fotos> fotoses) {
 		this.inmobleKey = inmobleKey;
 		this.tipus = tipus;
-		this.usuaris = usuaris;
+		//this.usuaris = usuaris;
 		this.provincies = provincies;
 		this.ciutats = ciutats;
 		this.nom = nom;
@@ -151,13 +153,13 @@ public class Inmobles extends BaseAggregateRoot{
 	}
 
 
-	public Usuaris getUsuaris() {
+/*	public Usuaris getUsuaris() {
 		return this.usuaris;
 	}
 
 	public void setUsuaris(Usuaris usuaris) {
 		this.usuaris = usuaris;
-	}
+	}*/
 
 
 	public Provincies getProvincies() {
@@ -249,16 +251,14 @@ public class Inmobles extends BaseAggregateRoot{
 		this.preu = preu;
 	}
 
-	@Column(name = "IMATGE")
-	public byte[] getImatge() {
+/*	public byte[] getImatge() {
 		return this.imatge;
 	}
 
 	public void setImatge(byte[] imatge) {
 		this.imatge = imatge;
-	}
+	}*/
 
-	@Column(name = "VISITAT", nullable = false)
 	public boolean isVisitat() {
 		return this.visitat;
 	}

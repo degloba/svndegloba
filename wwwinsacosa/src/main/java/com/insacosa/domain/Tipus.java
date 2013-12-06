@@ -1,6 +1,4 @@
-
 package com.insacosa.domain;
-
 
 import com.google.appengine.api.datastore.Key;
 
@@ -18,11 +16,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
-
 
 @Entity
 @DomainAggregateRoot
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Tipus   extends BaseAggregateRoot{
 
 	@Id    
@@ -112,13 +112,13 @@ public class Tipus   extends BaseAggregateRoot{
 		this.caracteristiqueses = caracteristiqueses;
 	}
 
-	public Key getKey() {
+/*	public Key getKey() {
 		return key;
 	}
 
 	public void setKey(Key key) {
 		this.key = key;
-	}
+	}*/
 
 	
 

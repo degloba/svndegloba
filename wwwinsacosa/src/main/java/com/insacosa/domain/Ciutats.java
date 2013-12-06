@@ -11,14 +11,15 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-
-
 @Entity
 @DomainAggregateRoot
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Ciutats extends BaseAggregateRoot{
 
 /*	@Id    
