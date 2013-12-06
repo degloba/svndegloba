@@ -21,14 +21,12 @@ public class JpaCiutatsFinder implements CiutatsFinder {
     @PersistenceContext
     private EntityManager entityManager;
 
-	@Override
 	public List<Ciutats> findCiutats() {
 		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public List<Ciutats> ciutatsProvincia(Provincies provincia) {
 		// TODO Auto-generated method stub
 		return null;

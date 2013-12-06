@@ -49,7 +49,6 @@ public class JpaTipusFinder implements TipusFinder {
     }
 
 
-	@Override
 	public List<TipusDto> findTipus() {
 		Query query = entityManager
                 .createQuery("select new com.insacosa.presentation.SolicitudsListItemDto("
@@ -58,8 +57,7 @@ public class JpaTipusFinder implements TipusFinder {
 	}
 
    
-	
-	@Override
+
 	public TipusDto tipusInmoble(String keyInmoble) {
 		
 		TipusDto ret = null;
@@ -90,7 +88,6 @@ public class JpaTipusFinder implements TipusFinder {
 		
 	}
 
-	@Override
 	public List<Caracteristiques> caractTipus(Tipus tipus, int i,
 			boolean b) {
 		// TODO Auto-generated method stub

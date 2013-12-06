@@ -42,7 +42,7 @@ public class JpaSolicitudsFinder implements SolicitudsFinder {
     }
 
 
-	@Override
+	
 	public List<SolicitudsListItemDto> findSolicituds() {
 		Query query = entityManager
                 .createQuery("select new com.insacosa.presentation.SolicitudsListItemDto("
@@ -50,7 +50,7 @@ public class JpaSolicitudsFinder implements SolicitudsFinder {
         return query.getResultList();
 	}
 
-	@Override
+	
 	public SolicitudsListItemDto getSolicitudsClient(Long clientId) {
 		// TODO Auto-generated method stub
 		return null;

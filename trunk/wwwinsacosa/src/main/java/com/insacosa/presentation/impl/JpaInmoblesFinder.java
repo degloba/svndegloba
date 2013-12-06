@@ -36,6 +36,10 @@ import com.insacosa.webui.UsuariItemDto;
 /**
  * @author Rafał Jamróz
  */
+/**
+ * @author degloba
+ *
+ */
 @Finder
 public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implements InmoblesFinder {
 
@@ -45,7 +49,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
     // FinderS (lectura)
  	//---------------------
  	 
-     @Inject
+/*     @Inject
      private SolicitudsFinder solicitudsFinder;
      @Inject
      private TipusFinder tipusFinder;
@@ -54,7 +58,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
      @Inject
      private CiutatsFinder ciutatsFinder;
      @Inject
-     private UsuarisFinder usuarisFinder;
+     private UsuarisFinder usuarisFinder;*/
 
   
     @SuppressWarnings("unused")
@@ -114,7 +118,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	
 	
 
-    @Override
+    
 	public List<Inmobles> inmoblesVenedor(Usuaris usuari) {
 
 		List<Inmobles> ret = new ArrayList<Inmobles>();
@@ -147,7 +151,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	}
 
     
-    @Override
+    
 	public List<Inmobles> inmoblesTipus() {
 		
 		return null;
@@ -158,7 +162,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
     /*
 	 * Construim les files de la datatable que son una llista d'objectes InmobleCaract
 	 */
-    @Override
+    
 	public List<InmobleCaract> getInmoblesVenedorCaract()
     {
 		return null;
@@ -201,7 +205,6 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
     
     
 
-	@Override
 	public List<InmobleItemDto> findInmobles() {
 		Query query = entityManager
                 .createQuery("select new com.insacosa.presentation.InmobleItemDto("
@@ -209,7 +212,6 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
         return query.getResultList();
 	}
 
-	@Override
 	public Inmobles inmoblePerKey(String keyInmoble) {
 		
 		Inmobles inmoble = null;
@@ -228,14 +230,14 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	}
 	
 	
-	@Override
+	
 	public List<Inmobles> inmoblesSolicitatsPerUsuari(Long usuariId)
 	{
 	return null;
 	
 	}
 
-	@Override
+	
 	public List<Inmobles> buscarInmobles(Inmobles condicioInmoble) {
 		
 		/*
@@ -297,14 +299,14 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	}
 
 
-	@Override
+	
 	public Inmobles detallInmoble(String keyInmoble) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	@Override
+	
 	public List<InmobleItemDto> inmoblesVenedorRang(UsuariItemDto usuari,
 			int i, int j) {
 		// TODO Auto-generated method stub
@@ -312,7 +314,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 	}
 
 
-	@Override
+	
 	public InmobleCaract valorsCaracteristiquesInmoble(Object inmobleKey) {
 		// TODO Auto-generated method stub
 		return null;
@@ -320,7 +322,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 
 
 
-	@Override
+	
 	public List<Inmobles> inmoblesSolicitats(Usuaris usuariVenedor) {
 		
 		List<Inmobles> ret = new ArrayList<Inmobles>();
@@ -397,7 +399,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 
 
 
-	@Override
+	
 	public String tipusColumnaCaract(String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
@@ -405,7 +407,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 
 
 
-	@Override
+	
 	public String tipusColumnaCaract(Key idCaract) {
 		// TODO Auto-generated method stub
 		return null;
@@ -413,7 +415,7 @@ public class JpaInmoblesFinder extends UtilCriteriaBuilderJPA<Inmobles> implemen
 
 
 
-	@Override
+	
 	public List<Inmobles> inmoblesVenedor(UsuariItemDto usuari) {
 		// TODO Auto-generated method stub
 		return null;
