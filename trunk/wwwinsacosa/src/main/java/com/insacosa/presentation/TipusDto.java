@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import ddd.domain.sharedkernel.Money;
-import com.insacosa.domain.Order.OrderStatus;
 
 /**
  * Orders as seen by client creating it on a list.
@@ -16,16 +15,15 @@ public class TipusDto implements Serializable {
     private Long orderId;
     private Money totalCost;
     private Date submitDate;
-    private OrderStatus status;
+
 
     public TipusDto() {
     }
 
-    public TipusDto(Long orderId, Money totalCost, Date submitDate, OrderStatus status) {
+    public TipusDto(Long orderId, Money totalCost, Date submitDate) {
         this.orderId = orderId;
         this.totalCost = totalCost;
         this.submitDate = submitDate;
-        this.status = status;
     }
 
     public Long getOrderId() {
@@ -52,11 +50,5 @@ public class TipusDto implements Serializable {
         this.submitDate = submitDate;
     }
 
-    public OrderStatus getStatus() {
-        return status;
-    }
 
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
 }
