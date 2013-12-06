@@ -1,14 +1,8 @@
 package com.insacosa.application.services;
 
-
 import javax.inject.Inject;
 
 import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.InvoiceRepository;
-import com.insacosa.domain.InvoicingService;
-import com.insacosa.domain.OrderFactory;
-import com.insacosa.domain.ProductRepository;
-import com.insacosa.domain.repositories.CaracteristiquesRepository;
 import com.insacosa.domain.repositories.CiutatsRepository;
 
 import ddd.application.ApplicationEventPublisher;

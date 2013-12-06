@@ -3,11 +3,6 @@ package com.insacosa.application.services;
 import javax.inject.Inject;
 
 // Domini
-import com.insacosa.domain.InvoiceRepository;
-import com.insacosa.domain.InvoicingService;
-import com.insacosa.domain.OrderFactory;
-import com.insacosa.domain.OrderRepository;
-import com.insacosa.domain.ProductRepository;
 import com.insacosa.domain.Provincies;
 import com.insacosa.domain.repositories.InmoblesRepository;
 import com.insacosa.domain.repositories.ProvinciesRepository;

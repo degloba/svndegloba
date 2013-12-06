@@ -2,8 +2,6 @@ package com.insacosa.application.services;
 
 import javax.inject.Inject;
 
-import com.insacosa.domain.InvoicingService;
-
 import com.insacosa.domain.Solicituds;
 
 import ddd.application.ApplicationEventPublisher;

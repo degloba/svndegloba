@@ -5,14 +5,6 @@ import javax.inject.Inject;
 import com.google.appengine.api.datastore.Key;
 
 // Repsoitoris
-import com.insacosa.domain.InvoiceRepository;
-import com.insacosa.domain.OrderRepository;
-import com.insacosa.domain.ProductRepository;
-
-import com.insacosa.domain.InvoicingService;
-import com.insacosa.domain.OrderFactory;
-
-
 
 import ddd.application.ApplicationEventPublisher;
 import ddd.application.SystemUser;
