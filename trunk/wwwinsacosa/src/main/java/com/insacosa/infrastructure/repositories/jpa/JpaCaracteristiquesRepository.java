@@ -25,22 +25,34 @@ public class JpaCaracteristiquesRepository extends GenericJpaRepositoryForBaseEn
 	@Inject
 	private InjectorHelper injectorHelper;
 	
-	@Override
+	
 	public Caracteristiques load(Long id) {		
 		Caracteristiques caracteristiques = super.load(id);
 		injectorHelper.injectDependencies(caracteristiques);
 		return caracteristiques;
 	}
 
-	@Override
+	
 	public Caracteristiques find(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public List<Caracteristiques> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	public InjectorHelper getInjectorHelper() {
+		return injectorHelper;
+	}
+
+
+	public void setInjectorHelper(InjectorHelper injectorHelper) {
+		this.injectorHelper = injectorHelper;
+	}
+	
+	
 }
