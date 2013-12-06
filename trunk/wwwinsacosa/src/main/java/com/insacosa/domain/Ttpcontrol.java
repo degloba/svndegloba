@@ -1,17 +1,22 @@
 package com.insacosa.domain;
 
-
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 import com.google.appengine.api.datastore.Key;
 
+import ddd.domain.annotations.DomainAggregateRoot;
+
 @Entity
+@DomainAggregateRoot
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Ttpcontrol {
 
 	@Id    
