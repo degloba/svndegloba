@@ -14,8 +14,18 @@ public class InjectorHelper {
 
     public void injectDependencies(BaseAggregateRoot aggregateRoot) {
         if (aggregateRoot != null) {
-            aggregateRoot.setEventPubslisher(eventPublisher);
+            aggregateRoot.setEventPublisher(eventPublisher);
         }
     }
+
+	public DomainEventPublisher getEventPublisher() {
+		return eventPublisher;
+	}
+
+	public void setEventPublisher(DomainEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
+    
+    
 
 }
