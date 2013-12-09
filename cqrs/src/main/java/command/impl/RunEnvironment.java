@@ -20,10 +20,10 @@ public class RunEnvironment {
 	}
 	
 	@Inject
-	private HandlersProvider handlersProfiver;
+	private HandlersProvider handlersProvider;
 	
 	public Object run(Object command) {		
-		CommandHandler<Object, Object> handler = handlersProfiver.getHandler(command);
+		CommandHandler<Object, Object> handler = handlersProvider.getHandler(command);
 		
 		//You can add Your own capabilities here: dependency injection, security, transaction management, logging, profiling, spying, storing commands, etc
 		
@@ -34,4 +34,14 @@ public class RunEnvironment {
 		return result;
 	}
 
+	public HandlersProvider getHandlersProvider() {
+		return handlersProvider;
+	}
+
+	public void setHandlersProvider(HandlersProvider handlersProvider) {
+		this.handlersProvider = handlersProvider;
+	}
+
+	
+	
 }
