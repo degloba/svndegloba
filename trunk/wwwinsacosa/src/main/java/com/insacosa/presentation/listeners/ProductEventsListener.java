@@ -8,8 +8,8 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import ddd.infrastructure.events.EventListener;
-import ddd.infrastructure.events.EventListeners;
+import infrastructure.events.EventListener;
+import infrastructure.events.EventListeners;
 import com.insacosa.application.events.ProductAddedToOrderEvent;
 import com.insacosa.presentation.model.OrderedProduct;
 
