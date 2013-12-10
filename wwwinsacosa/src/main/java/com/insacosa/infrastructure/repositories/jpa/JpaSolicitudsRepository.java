@@ -5,9 +5,9 @@ package com.insacosa.infrastructure.repositories.jpa;
 
 import javax.inject.Inject;
 
-import ddd.domain.annotations.DomainRepositoryImpl;
-import ddd.domain.support.InjectorHelper;
-import ddd.infrastructure.repo.jpa.GenericJpaRepositoryForBaseEntity;
+import domain.annotations.DomainRepositoryImpl;
+import domain.support.InjectorHelper;
+import infrastructure.repo.jpa.GenericJpaRepositoryForBaseEntity;
 
 
 import com.insacosa.domain.Solicituds;
