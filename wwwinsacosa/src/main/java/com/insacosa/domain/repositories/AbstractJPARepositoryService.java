@@ -9,8 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import ddd.domain.BaseEntity;
-import ddd.domain.RepositoryService;
+import domain.BaseEntity;
+import domain.RepositoryService;
 
 
 /**

@@ -5,7 +5,7 @@ package com.insacosa.domain.repositories;
 
 import com.insacosa.domain.Inmobles;
 
-import ddd.domain.annotations.DomainRepository;
+import domain.annotations.DomainRepository;
 
 /**
  * @author Slawek
