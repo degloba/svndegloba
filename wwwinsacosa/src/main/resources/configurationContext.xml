@@ -7,13 +7,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
-		
-	
-    <context:annotation-config/>
-	
-	<bean id="injectorHelper" class="ddd.domain.support.InjectorHelper" >
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
+			
+	<context:annotation-config />
+	<context:component-scan base-package="cqrs,com.insacosa.domain" ></context:component-scan>
 	
 	<!-- REPOSITORIS -->
 	<bean id="caracteristiquesRepository"
@@ -29,6 +25,7 @@
 	<bean id="tipusRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaTipusRepository" />
 	<bean id="usuarisRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaUsuarisRepository" /> 
 	
+	
 	<!-- FINDERS -->
 	
 	
@@ -37,6 +34,10 @@
  	<!--  <bean id="invoicingService" class="com.insacosa.domain.InvoicingService" >
 	    <property name="productRepository" ref="productRepository"></property>
 	</bean>  -->
+	
+	 <bean id="caracteristiquesDominiService" class="com.insacosa.domain.CaracteristiquesDominiService" >
+	    <property name="caracteristiquesRepository" ref="caracteristiquesRepository"></property>
+	</bean>  
 
 	
 	<!-- FACTORIES -->
@@ -48,7 +49,7 @@
 	
 	<!-- SYSTEM USER -->
 	
-	<bean id="systemUser" class="ddd.application.SystemUser" /> 
+	<bean id="systemUser" class="application.SystemUser" /> 
 	
 	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider" />
 	
@@ -63,13 +64,16 @@
 	     
 		
 	<!-- EVENT PUBLISHER -->
-  	 <bean id="eventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" /> 
+  	 <bean id="eventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> 
  	 <!--<bean id="applicationEventPublisher" class="ddd.infrastructure.events.impl.SimpleEventPublisher" />
 
 	 <bean id="baseAggregateRoot" class="ddd.domain.BaseAggregateRoot">
 		  <property name="eventPublisher" ref="eventPublisher" /> 
 	</bean>	 -->
 	
+		<bean id="injectorHelper" class="domain.support.InjectorHelper" >
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>
 	
 	
 	<!-- SERVEIS D'APLICACIO -->
@@ -87,7 +91,7 @@
 	<bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService">
 		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" />
 		<property name="systemUser" ref="systemUser" />
-		<!--  <property name="eventPublisher" ref="eventPublisher" />  -->
+		<property name="eventPublisher" ref="eventPublisher" /> 
 	</bean>	
 	
 	<bean id="ciutatsApplicationService" class="com.insacosa.application.services.CiutatsApplicationService">
