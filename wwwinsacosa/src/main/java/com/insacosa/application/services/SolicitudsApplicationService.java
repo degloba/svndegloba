@@ -4,9 +4,9 @@ import javax.inject.Inject;
 
 import com.insacosa.domain.Solicituds;
 
-import ddd.application.ApplicationEventPublisher;
-import ddd.application.SystemUser;
-import ddd.application.annotation.ApplicationService;
+import application.ApplicationEventPublisher;
+import application.SystemUser;
+import application.annotation.ApplicationService;
 
 import com.insacosa.domain.errors.OrderCreationException;
 import com.insacosa.domain.repositories.SolicitudsRepository;

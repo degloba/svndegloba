@@ -1,7 +1,7 @@
 package com.insacosa.application.services;
 
+import domain.Entitat;
 
-import ddd.domain.Entitat;
 
 
 /**

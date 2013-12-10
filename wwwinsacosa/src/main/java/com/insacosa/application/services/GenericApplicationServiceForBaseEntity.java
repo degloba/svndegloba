@@ -2,7 +2,7 @@ package com.insacosa.application.services;
 
 import com.insacosa.domain.GenericDomainServiceForBaseEntity;
 
-import ddd.domain.BaseEntity;
+import domain.BaseEntity;
 
 
 /**

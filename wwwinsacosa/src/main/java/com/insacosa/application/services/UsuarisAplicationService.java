@@ -6,8 +6,8 @@ import com.google.appengine.api.datastore.Key;
 
 // Repsoitoris
 
-import ddd.application.ApplicationEventPublisher;
-import ddd.application.SystemUser;
+import application.ApplicationEventPublisher;
+import application.SystemUser;
 
 import com.insacosa.domain.*;
 import com.insacosa.domain.repositories.UsuarisRepository;
