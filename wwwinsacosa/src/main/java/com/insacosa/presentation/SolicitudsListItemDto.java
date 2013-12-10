@@ -3,7 +3,7 @@ package com.insacosa.presentation;
 import java.io.Serializable;
 import java.util.Date;
 
-import ddd.domain.sharedkernel.Money;
+import domain.sharedkernel.Money;
 
 /**
  * Orders as seen by client creating it on a list.
