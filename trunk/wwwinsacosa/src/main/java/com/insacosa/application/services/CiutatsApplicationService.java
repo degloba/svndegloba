@@ -5,9 +5,9 @@ import javax.inject.Inject;
 import com.insacosa.domain.Ciutats;
 import com.insacosa.domain.repositories.CiutatsRepository;
 
-import ddd.application.ApplicationEventPublisher;
-import ddd.application.SystemUser;
-import ddd.application.annotation.ApplicationService;
+import application.ApplicationEventPublisher;
+import application.SystemUser;
+import application.annotation.ApplicationService;
 
 /**
  * @author degloba

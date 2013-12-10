@@ -8,9 +8,9 @@ import com.insacosa.domain.repositories.InmoblesRepository;
 import com.insacosa.domain.repositories.ProvinciesRepository;
 
 // DDD
-import ddd.application.ApplicationEventPublisher;
-import ddd.application.SystemUser;
-import ddd.application.annotation.ApplicationService;
+import application.ApplicationEventPublisher;
+import application.SystemUser;
+import application.annotation.ApplicationService;
 
 
 @ApplicationService
