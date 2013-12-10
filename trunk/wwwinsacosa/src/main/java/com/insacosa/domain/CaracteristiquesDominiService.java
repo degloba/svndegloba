@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import com.insacosa.domain.repositories.CaracteristiquesRepository;
 
-import ddd.domain.annotations.DomainService;
+import domain.annotations.DomainService;
 
 
 
@@ -26,6 +26,15 @@ public class CaracteristiquesDominiService<K,T extends Caracteristiques> extends
 	
 	@Inject
 	private CaracteristiquesRepository caracteristiquesRepository;
+
+	public CaracteristiquesRepository getCaracteristiquesRepository() {
+		return caracteristiquesRepository;
+	}
+
+	public void setCaracteristiquesRepository(
+			CaracteristiquesRepository caracteristiquesRepository) {
+		this.caracteristiquesRepository = caracteristiquesRepository;
+	}
 	
 	
 	

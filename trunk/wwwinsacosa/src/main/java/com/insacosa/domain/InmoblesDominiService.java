@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import com.insacosa.domain.repositories.InmoblesRepository;
 
-import ddd.domain.annotations.DomainService;
+import domain.annotations.DomainService;
 
 
 /**

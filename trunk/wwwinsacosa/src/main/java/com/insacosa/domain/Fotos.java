@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 
 import com.google.appengine.api.datastore.Key;
 
-import ddd.domain.BaseAggregateRoot;
-import ddd.domain.annotations.DomainAggregateRoot;
+import domain.BaseAggregateRoot;
+import domain.annotations.DomainAggregateRoot;
 
 
 @Entity

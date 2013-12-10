@@ -2,8 +2,8 @@ package com.insacosa.domain;
 
 import javax.persistence.Entity;
 
-import ddd.domain.BaseEntity;
-import ddd.domain.annotations.DomainEntity;
+import domain.BaseEntity;
+import domain.annotations.DomainEntity;
 
 @Entity
 @DomainEntity

@@ -1,9 +1,9 @@
 package com.insacosa.domain;
 
-import ddd.domain.BaseEntity;
-import ddd.domain.EntityService;
-import ddd.domain.IEntityService;
-import ddd.domain.RepositoryService;
+import domain.BaseEntity;
+import domain.EntityService;
+import domain.IEntityService;
+import domain.RepositoryService;
 
 /**
  * @author degloba
