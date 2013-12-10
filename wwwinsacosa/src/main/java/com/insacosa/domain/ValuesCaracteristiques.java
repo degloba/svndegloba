@@ -14,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 
-import ddd.domain.BaseAggregateRoot;
-import ddd.domain.annotations.DomainAggregateRoot;
+import domain.BaseAggregateRoot;
+import domain.annotations.DomainAggregateRoot;
 
 
 @Entity

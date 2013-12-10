@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 
 import com.google.appengine.api.datastore.Key;
 
-import ddd.domain.annotations.DomainAggregateRoot;
+import domain.annotations.DomainAggregateRoot;
 
 @Entity
 @DomainAggregateRoot

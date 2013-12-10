@@ -12,8 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
-import ddd.domain.BaseAggregateRoot;
-import ddd.domain.annotations.DomainAggregateRoot;
+import domain.BaseAggregateRoot;
+import domain.annotations.DomainAggregateRoot;
 
 @Entity
 @DomainAggregateRoot
