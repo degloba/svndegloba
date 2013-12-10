@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import ddd.application.annotation.ApplicationEvent;
+import application.annotation.ApplicationEvent;
 
 /**
  * 
