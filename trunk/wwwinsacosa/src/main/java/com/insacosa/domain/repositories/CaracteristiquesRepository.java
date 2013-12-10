@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.insacosa.domain.Caracteristiques;
 
-import ddd.domain.annotations.DomainRepository;
+import domain.annotations.DomainRepository;
 
 /**
  * @author degloba
