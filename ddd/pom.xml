@@ -118,7 +118,15 @@
 			<version>3.3.0-release</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency> 
+		</dependency>
+		 
+	<dependency>
+			<groupId>org.datanucleus</groupId>
+             <artifactId>datanucleus-core</artifactId>
+			<version>3.2.8</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>		
 		
 		<dependency>
 			<groupId>javax.jdo</groupId>
