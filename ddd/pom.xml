@@ -4,10 +4,8 @@
   <artifactId>ddd</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-  	              
        	<spring.version>3.2.0.RELEASE</spring.version>   
-
-		     
+       	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
   </properties>
   
   
@@ -24,7 +22,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.4</version>
-            </plugin>
+            </plugin>            
         </plugins>
     </pluginManagement>
     <plugins>
@@ -35,6 +33,53 @@
                 <target>1.7</target>
             </configuration>
         </plugin>
+        
+         <!-- DataNucleus Enhancer (versions 3.2.x)-->   
+            <!--   <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>datanucleus-maven-plugin</artifactId>
+                <version>3.3.0-release</version>
+                <configuration>
+                    <api>JPA</api>
+                    <persistenceUnitName>transactions-optional</persistenceUnitName>
+                      <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration> 
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+            
+                        
+            <!-- DataNucleus Enhancer (versions 3.1.x)-->   
+             <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>maven-datanucleus-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>                    
+                    <persistenceUnitName>transactions-optional</persistenceUnitName>
+                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration> 
+                    <verbose>true</verbose>
+                    <api>JPA</api>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 
+                  
+            
+        
+        
     </plugins>
   
   
@@ -111,23 +156,17 @@
 	
 		       
 <!-- Pel DataNucleus enhancer (Entitats : BaseEntity, BaseAggregateRoot,  -->	
-		
+
+	
 	  	<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
-			<version>3.3.0-release</version>
+			<version>3.1.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		 
-	<dependency>
-			<groupId>org.datanucleus</groupId>
-             <artifactId>datanucleus-core</artifactId>
-			<version>3.2.8</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>		
-		
+	
 		<dependency>
 			<groupId>javax.jdo</groupId>
 			<artifactId>jdo-api</artifactId>
