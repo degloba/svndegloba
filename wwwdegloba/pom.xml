@@ -149,7 +149,7 @@
             	<version>2.2</version>
             </plugin>
             
-            <plugin>   
+      <!--       <plugin>   
              
             	<artifactId>maven-antrun-plugin</artifactId>    
 	            <executions>    
@@ -181,7 +181,7 @@
 				            </fileset>
 				        </path>
 				        
-			            <!-- This target should replace your existing datanucleusenhance target -->
+			             This target should replace your existing datanucleusenhance target 
 			            <target name="datanucleusenhance" depends="compile" description="DataNucleus enhancement">
 			                <enhance_war war="war">              
 				                <args>              
@@ -216,7 +216,7 @@
 		             
 	            </executions>
 	            </plugin>
-            
+            --> 
             
             <plugin>
             	<groupId>org.datanucleus</groupId>
@@ -413,8 +413,7 @@
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
-            <version>2.2</version>
-        </dependency>
+            </dependency>
 
         <dependency>
             <groupId>xalan</groupId>
@@ -426,7 +425,6 @@
         <dependency>
         	<groupId>com.sun.faces</groupId>
         	<artifactId>jsf-api</artifactId>
-        	<version>2.1.3_01</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
@@ -513,7 +511,6 @@
     <dependency>
     	<groupId>javax.validation</groupId>
     	<artifactId>validation-api</artifactId>
-    	<version>1.1.0.Final</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
@@ -532,7 +529,6 @@
         <dependency>
         	<groupId>org.atmosphere</groupId>
         	<artifactId>atmosphere-runtime</artifactId>
-        	<version>0.9.7</version>
         	<scope>compile</scope>
         </dependency>
         <dependency>
