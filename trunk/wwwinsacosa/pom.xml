@@ -373,7 +373,6 @@
         <dependency>
         	<groupId>com.sun.faces</groupId>
         	<artifactId>jsf-api</artifactId>
-        	<version>2.1.7</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
@@ -381,7 +380,7 @@
    		<dependency>
 	    	<groupId>com.sun.faces</groupId>
 	    	<artifactId>jsf-impl</artifactId>
-	    	<version>2.1.7</version>
+	    	<version>2.1.3_01</version>
 	    	<type>jar</type>
 	    	<scope>compile</scope>
     	</dependency>        
