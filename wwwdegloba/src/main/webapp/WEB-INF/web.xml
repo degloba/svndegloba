@@ -46,10 +46,6 @@
   <param-value>19454259f329a7b6857bb86b411f3dc5</param-value>
  </context-param>
  <context-param>
-  <param-name>facelets.LIBRARIES</param-name>
-  <param-value>/WEB-INF/degloba_tags.xml</param-value>
- </context-param>
- <context-param>
   <param-name>javax.faces.PROJECT_STAGE</param-name>
   <param-value>Development</param-value>
  </context-param>
