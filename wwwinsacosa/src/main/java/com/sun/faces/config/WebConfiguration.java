@@ -56,9 +56,6 @@ import javax.faces.application.ViewHandler;
 import javax.faces.application.StateManager;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletContext;
  
 import com.sun.faces.util.FacesLogger;
