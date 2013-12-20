@@ -3,6 +3,8 @@
  xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
  <display-name>degloba</display-name>
+ 
+ 
  <!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
  <context-param>
   <description>
@@ -17,6 +19,19 @@
   <param-name>com.sun.faces.enableThreading</param-name>
   <param-value>false</param-value>
  </context-param>
+ 
+ <!-- ***** Designate client-side state saving. *****  -->
+    <context-param>
+       <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+       <param-value>client</param-value>
+    </context-param>
+ 
+ <!-- Set the default suffix for JSF pages to .xhtml -->
+    <context-param>
+       <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+       <param-value>.xhtml</param-value>
+    </context-param>
+ 
  
  <!-- spring container shared by servlets and filters 
 	<context-param>
