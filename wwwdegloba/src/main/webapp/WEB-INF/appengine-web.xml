@@ -3,22 +3,24 @@
   <application>wwwdegloba</application>
   <version>1</version>
 	
-  <!--
-    By default, App Engine sends requests serially to a given web server.
-    To allow App Engine to send multiple requests in parallel specify: -->
-
-      <threadsafe>true</threadsafe>
+	  <!--
+	    By default, App Engine sends requests serially to a given web server.
+	    To allow App Engine to send multiple requests in parallel specify: -->
+	
+	  <threadsafe>true</threadsafe>
   
  
-  <!-- Configure java.util.logging -->
-  <system-properties>
-    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-  </system-properties>
+	  <!-- Configure java.util.logging -->
+	  <system-properties>
+	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+	  </system-properties>
   
+	  
 	<sessions-enabled>true</sessions-enabled>  
+	
 	<async-session-persistence enabled="false" />
   
-      <resource-files>
+    <resource-files>
         <exclude path="/static-resources/**" />
     </resource-files>
     
