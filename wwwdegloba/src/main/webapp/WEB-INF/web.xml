@@ -19,6 +19,28 @@
   <param-name>com.sun.faces.enableThreading</param-name>
   <param-value>false</param-value>
  </context-param>
+ 
+ 
+ <!-- *************************************************************************************************************************************************************************** -->
+ <!-- Configuracio dels "recursos" en Richfaces -->
+ <!-- http://docs.jboss.org/richfaces/latest_4_1_X/Developer_Guide/en-US/html/chap-Developer_Guide-Advanced_features.html#sect-Developer_Guide-Advanced_features-Resource_mapping -->
+ <context-param>
+    <param-name>org.richfaces.resourceMapping.enabled</param-name>
+    <param-value>true</param-value>
+</context-param>
+
+ <context-param>
+    <param-name>org.richfaces.resourceMapping.mappingFile</param-name>
+    <param-value>META-INF/richfaces/static-resource-mappings.properties</param-value>
+</context-param>
+
+ <context-param>
+    <param-name>org.richfaces.resourceMapping.location</param-name>
+    <param-value>#{facesContext.externalContext.requestContextPath}/resources/#{resourceLocation}</param-value>
+</context-param>
+<!-- *************************************************************************************************************************************************************************** --> 
+ 
+ 
   
  <!-- spring container shared by servlets and filters -->
 	<context-param>
