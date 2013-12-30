@@ -13,7 +13,7 @@
 <meta name="verify-v1" content="HdEoAqkFNfj7gLh85e9xCDJQE3lGpfyGEOrhx0AdCVs=" />
 
 <title><ui:insert name="title" /> - deGloba Consulting - </title>
-<link rel="stylesheet" type="text/css" media="all" href="css/degloba.css" />
+<link rel="stylesheet" type="text/css" media="all" href="resources/css/degloba.css" />
 <link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
 
 <script type="text/javascript">
@@ -85,6 +85,9 @@ function hidePanelWithEffect(panelId, hideEffect, params) {
 </script>
 
 
+	<script src="http://code.jquery.com/jquery-latest.js"/>
+
+ 	
 </h:head>
 
 <h:body>
@@ -93,38 +96,36 @@ function hidePanelWithEffect(panelId, hideEffect, params) {
 <f:loadBundle var="missatge" basename="idioma"/>
 
 
+
+
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="80%">
 <tr>
 <td>
-	<table border="0">
+	<table border="1">
 
 		<tr>
 			<td colspan="2" >
 				<ui:insert name="header">
 					<ui:include src="/header.xhtml" />
-				</ui:insert>
+				</ui:insert>			
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="2">
-				<ui:insert name="content">
-					<ui:include src="/menu2.xhtml" />
-				</ui:insert>
+				
 			</td>
 		</tr>
 		
 		<tr>
 			<td valign="top" rowspan="1"  height="150px">
-				<ui:insert name="seleccio">
-				<ui:include src="/seleccio.xhtml" />
-			</ui:insert></td>
+				<ui:include src="/panells_modals.xhtml" />
+			</td>
 						
 			
 			<td valign="top"  rowspan="1" >
- 				<ui:insert name="noticies">
-				<ui:include src="/noticies3.xhtml" />
-				</ui:insert>
+ 				<ui:include src="/carregaEntitats.xhtml" />
+
 			</td>
 		</tr>
 </table>
@@ -136,40 +137,31 @@ function hidePanelWithEffect(panelId, hideEffect, params) {
 	
 		<tr>
 			<td valign="top" colspan="1" width="330px">
-				<ui:insert name="panelBars">
-					<ui:include src="/panelBars.xhtml" />
-				</ui:insert>
+				
 			</td>
 			<td valign="top"  rowspan="2" width="800px" height="100%">
 		
-				<ui:insert name="panelContingutBars">
-						<ui:include src="/contingutPanelBars.xhtml"/>
-				</ui:insert>
+				
 				
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="1" valign="top">
-				<ui:insert name="panelNoticies">
-					<ui:include src="/noticies4.xhtml"/>
-				</ui:insert>
+				
 					
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" >
-				<ui:insert name="footer">
-					<ui:include src="/footer.xhtml" />
-				</ui:insert>
+				
 			</td>
 		</tr>
 			
 			<tr>
 				<td  colspan="2" >
-					<ui:insert name="mapa">
-					<ui:include src="/mapaWeb.xhtml" />
-				</ui:insert>
+					
+
 				</td>
 			</tr>
 	
