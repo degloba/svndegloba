@@ -19,25 +19,12 @@
   <param-name>com.sun.faces.enableThreading</param-name>
   <param-value>false</param-value>
  </context-param>
- 
- <!-- ***** Designate client-side state saving. *****  -->
-    <context-param>
-       <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-       <param-value>client</param-value>
-    </context-param>
- 
- <!-- Set the default suffix for JSF pages to .xhtml -->
-    <context-param>
-       <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-       <param-value>.xhtml</param-value>
-    </context-param>
- 
- 
- <!-- spring container shared by servlets and filters 
+  
+ <!-- spring container shared by servlets and filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext.xml</param-value>
-	</context-param> -->
+	</context-param> 
 	
  
  <context-param>
@@ -76,10 +63,6 @@
   <param-name>org.richfaces.enableControlSkinning</param-name>
   <param-value>true</param-value>
  </context-param>
- <context-param>
-  <param-name>org.richfaces.enableControlSkinningClasses</param-name>
-  <param-value>false</param-value>
- </context-param>
  
  <context-param>
   <param-name>org.richfaces.executeAWTInitializer</param-name>
@@ -94,10 +77,14 @@
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
  </listener>
  
- <!-- 
+ 
   <listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>  -->
+	</listener> 
+	
+	 <listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
  
  <!-- spring mvc servlet 
 	<servlet>
