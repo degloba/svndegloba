@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="SF">
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+  <property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+  <property name="hibernate.connection.password">sa</property>
+  <property name="hibernate.connection.url">jdbc:jtds:sqlserver://SRVDEV:1433/SCR;instance=SQL2000</property>
+  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.search.autoregister_listeners">false</property>
+  <property name="hibernate.show_sql">true</property>
+  <mapping class="model.HBM.ScrTypedoc" resource="model/HBM/ScrTypedoc.hbm.xml"/>
+  <mapping class="model.HBM.ScrAddrtel"/>
+  <mapping class="model.HBM.ScrPinfo"/>
+  <mapping class="model.HBM.ScrProv"/>
+  <mapping class="model.HBM.ScrPjur"/>
+  <mapping class="model.HBM.ScrCities"/>
+  <mapping class="model.HBM.ScrAddress"/>
+  <mapping resource="model/HBM/ScrTypeaddress.hbm.xml"/>
+  <mapping class="model.HBM.ScrContador" resource="model/HBM/ScrContador.hbm.xml"/>
+  <mapping class="model.HBM.ScrDom"/>
+  <mapping class="model.HBM.ScrPfis"/>
+ </session-factory>
+</hibernate-configuration>
