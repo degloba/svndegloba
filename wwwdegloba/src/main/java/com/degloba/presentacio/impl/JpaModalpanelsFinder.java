@@ -8,12 +8,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
+// CQRS
 import query.annotations.Finder;
 
+// Entitat Domini
 import com.degloba.domain.Modalpanel;
 
+// 
 import com.degloba.presentacio.ModalpanelsFinder;
+
+// GAE
 import com.google.appengine.api.datastore.Key;
 
 /**
@@ -24,11 +28,6 @@ public class JpaModalpanelsFinder implements ModalpanelsFinder {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
-   
-    public void intialize(Object entity, int depth) {
-        //JpaUtils.initialize(entityManager, entity, depth);
-    }
     
     
 	@SuppressWarnings("unchecked")
