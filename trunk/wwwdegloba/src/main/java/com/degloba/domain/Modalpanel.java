@@ -12,16 +12,17 @@ public class Modalpanel {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Key id;
+	private Long id;
 	
 	private Integer modalpanelid;
 	private String descripcio;
+	private String titol;
 	
 	
-	public Key getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Key id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Integer getModalpanelid() {
@@ -36,8 +37,11 @@ public class Modalpanel {
 	public void setDescripcio(String descripcio) {
 		this.descripcio = descripcio;
 	}
+	public String getTitol() {
+		return titol;
+	}
+	public void setTitol(String titol) {
+		this.titol = titol;
+	}
 	
-	
-
-
 }
