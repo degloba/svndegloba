@@ -2,10 +2,10 @@ package com.degloba;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,42 +13,22 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
+// JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.PersistenceUnit;
-import javax.persistence.TypedQuery;
 
-
-import com.degloba.persistencia.JPA.*;
-/*import com.degloba.UtilPersistenciaGAE;
-import com.degloba.JPA.UtilCriteriaBuilderJPA;*/
-import com.degloba.domain.Blog;
-import com.degloba.domain.Document;
-import com.degloba.domain.Framework;
-import com.degloba.domain.Menubar;
-import com.degloba.domain.Modalpanel;
-import com.degloba.domain.TipusFramework;
-import com.degloba.domain.Wizard;
+import com.degloba.converters.ConvertTo;
+// GAE
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Transaction;
 
 import scala.actors.threadpool.Arrays;
-
-import org.springframework.dao.DataAccessException;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @ManagedBean(eager = true)
@@ -68,82 +48,49 @@ public  class entitats implements ActionListener, Serializable {
 		
 		datastore = DatastoreServiceFactory.getDatastoreService();
 		
-/*		lblogs = carregarCSVtoList("blog");
-		persistir("blog",null,null, lblogs,null);
+		/*lblogs = carregarCSVtoList("blog");
+		persistir("Blog",null,null, lblogs,null);*/
 		
 		//List lwizard = carregarCSVtoList("wizard");
 		//persistir("wizard",null,null, lwizard,null);	
 		
-		List ldocument = carregarCSVtoList("document");
-		persistir("document",null, null, ldocument,null);
+	/*	List ldocument = carregarCSVtoList("document");
+		persistir("Document",null, null, ldocument,null);
 		
 		List lmenubar = carregarCSVtoList("menubar");
-		persistir("menubar",null, null, lmenubar,null);
+		persistir("Menubar",null, null, lmenubar,null);*/
 				
-		List lmodalpanel = carregarCSVtoList("modalpanel");
-		persistir("modalpanel",null, null, lmodalpanel,null);
+		List lmodalpanel = carregarCSVtoList("Modalpanel");
+		persistir("Modalpanel",null, null, lmodalpanel,null);
 		
 				
-		List lpare = carregarCSVtoList("tipusframework");
+		/*List lpare = carregarCSVtoList("tipusframework");
 		List lfill = carregarCSVtoList("framework");	
-		persistir("tipusframework", "framework", "idTipus", lpare,lfill);
+		persistir("Tipusframework", "Framework", "idTipus", lpare,lfill);
 		//persistirFills(lpare,lfill);
 			
-		llegirTipusFramework();*/
+		//llegirTipusFramework();
 		
 		ltipusframework = carregarCSVtoList("tipusframework");
 		lframeworks = carregarCSVtoList("framework");
-		persistir("tipusframework", null, null, ltipusframework,null);
+		persistir("Tipusframework", "idTipus", null, ltipusframework,null);
 		
 		List<String> relacionsPare = new ArrayList<String>();
 		relacionsPare.add("idTipus"); // llista de FKs
-		persistirFilla(lframeworks, "framework", null , relacionsPare ); 
+		persistirFilla(lframeworks, "Framework", null , relacionsPare ); */
 	}
-	
-	
-	
-	private void llegirTipusFramework()
-	{
-		EntityManager em = null;
 		
-		try
-		{
-			em = EMF.get().createEntityManager();
-			
-			TypedQuery<TipusFramework> q2 = em.createQuery("SELECT c FROM TipusFramework c WHERE c.nom = 'Web'", TipusFramework.class);
-			TipusFramework e = q2.getSingleResult();
-			System.out.println("Tenim : " + e.getFrameworks().size() + " frameworks d'aquest tipus");
-		
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			//em.getTransaction().commit();
-	
-			em.close();
-		}
-		
-		
-		
-		
-	}
-	
-	
 	
 	/**
 	 * @param fitxer
 	 */
-	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpares , List<HashMap<String,String>> lfill) {
-		
-		
+	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpares , List<HashMap<String,String>> lfilles) {
+				
 		try
 		{
-
 	
-		for (HashMap<String,String> lpare : lpares) {
-							
-
+			for (HashMap<String,String> lpare : lpares) {
+			
 				Entity pare = new Entity(classePare);
 				datastore.put(pare);
 				
@@ -162,19 +109,54 @@ public  class entitats implements ActionListener, Serializable {
 				   // Hem d'excloure les columnes "idXXX" 
 				   if (!pairs.getKey().toString().equals(relacio) & !pairs.getKey().toString().equals("clauGoogle"))
 				       {
-					   pare.setProperty(pairs.getKey().toString(), lpare.get(pairs.getKey().toString()));
+					   		Class<?> c = Class.forName("com.degloba.domain." + classePare);
+					   		Field f = c.getDeclaredField(pairs.getKey().toString().toLowerCase());
+					   		Class<?> outputType = f.getType();
+					   		String value = lpare.get(pairs.getKey().toString());
+					   		Object valorConvertit = value;
+				   		
+	
+					   			if(Byte.class.equals(outputType)) {
+					   				//valorConvertit =  value.byteValue(); 
+					   				valorConvertit =  Byte.parseByte(value);
+							    }
+							    if(Short.class.equals(outputType)) {
+							    	//valorConvertit = ((Short) value).shortValue(); 
+							    	valorConvertit = Short.parseShort(value);
+							    }
+							    if(Integer.class.equals(outputType)) {
+							    	//valorConvertit = ((Integer) value).intValue();		
+							    	valorConvertit = Integer.parseInt(value);
+							    }
+							    if(Long.class.equals(outputType)) {
+							    	//valorConvertit = ((Long) value).longValue(); 
+							    	valorConvertit = Long.parseLong(value);
+							    }
+							    if(Float.class.equals(outputType)) {
+							    	//valorConvertit = ((Float) value).floatValue();
+							    	valorConvertit = Float.parseFloat(value);
+							    }
+							    if(Double.class.equals(outputType)) {
+							    	//valorConvertit = ((Double) value).doubleValue();
+							    	valorConvertit = Double.parseDouble(value);
+							    }
+						   		
+						   		//value = ConvertTo.convertir(outputType, value);
+							   	
+					   							   		
+					   		pare.setProperty(pairs.getKey().toString(), valorConvertit);
 				       }
 						
 				    }
 					// Persistim el pare						
 					datastore.put(pare);
 								
-					// Tractem les entitats filles si en té
+					// Tractem les entitats filles si en tï¿½
 					if (classeFilla != null) 
 						{
 							
 							// busquem els "fills" que tenen el "pareId = "
-							List<HashMap<String,String>> lhmf = cerca(lfill , relacio , lpare.get(relacio));
+							List<HashMap<String,String>> lhmf = cerca(lfilles , relacio , lpare.get(relacio));
 							
 							// persistim els fills
 							for (HashMap<String,String> hmf : lhmf) {
@@ -239,7 +221,7 @@ public  class entitats implements ActionListener, Serializable {
 							
 					// Recuperem l'entitat Pare a partir de la "Key" guardada en la List<HashMap<>>
 					HashMap<String,String> p = cercaPare(ltipusframework,relacioPare,lfilla.get(relacioPare));
-					if (p.size() != 0) {  //té pare
+					if (p.size() != 0) {  //tï¿½ pare
 						
 						Key clauPare = KeyFactory.stringToKey(p.get("clauGoogle").toString());
 
@@ -263,7 +245,7 @@ public  class entitats implements ActionListener, Serializable {
 							}
 						
 					}
-					else {  // no té pare
+					else {  // no tï¿½ pare
 						teTotElsPares = false;
 					}
 					
