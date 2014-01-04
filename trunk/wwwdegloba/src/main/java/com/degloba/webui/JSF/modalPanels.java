@@ -6,14 +6,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
+// JSF
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+
 
 import com.degloba.modalPanel;
+
+// Entitat Domini
 import com.degloba.domain.Modalpanel;
-import com.degloba.persistencia.JPA.EMF;
+
+// Finder (CQRS)
 import com.degloba.presentacio.ModalpanelsFinder;
 
 
@@ -57,7 +60,7 @@ public class modalPanels {
 			
 			List<Modalpanel> rs = modalpanelsFinder.findAll();
     	
-			Iterator imp=rs.iterator();
+			Iterator<Modalpanel> imp=rs.iterator();
 	        while (imp.hasNext())
 	  		{
 	        	Modalpanel mp1 = (Modalpanel) imp.next();
