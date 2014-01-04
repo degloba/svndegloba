@@ -2,14 +2,27 @@ package com.degloba.webui.JSF;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.degloba.modalPanel;
+import com.degloba.domain.Modalpanel;
+import com.degloba.persistencia.JPA.EMF;
+import com.degloba.presentacio.ModalpanelsFinder;
+
 
 public class modalPanels {
+	
+	
+    //@Inject
+    private ModalpanelsFinder modalpanelsFinder;
+    
 	
 	private  ArrayList<modalPanel> items = new ArrayList<modalPanel>();
 	modalPanel mp;
@@ -22,16 +35,13 @@ public class modalPanels {
 		super();
 
 		context  = FacesContext.getCurrentInstance();
-		
 		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 		
-		
-		//omplirPanelModals();
 	}
 
 
 	public List<modalPanel> getItems() {
-		
+		omplirPanelModals();
 		return this.items;
 	}
 
@@ -43,36 +53,38 @@ public class modalPanels {
 
 	private void omplirPanelModals() {
 		
-
-		
 		try {
-
-
-/*        if (stmt.execute("SELECT MODALPANELID FROM modalpanels")) {
-            rs = stmt.getResultSet();
-   
-        }
+			
+			List<Modalpanel> rs = modalpanelsFinder.findAll();
     	
-        while (rs.next())
-  		{
-        	
-    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
-			
-	  		mp = new modalPanel();
-	  		mp.setId(rs.getInt("MODALPANELID"));
-	  		mp.setTitol(bundle.getString("titolPanelModal." + rs.getString("MODALPANELID")));
-	  		mp.setDefinicio(bundle.getString("definicioPanelModal." + rs.getString("MODALPANELID")));
-			
-			this.items.add(mp);
+			Iterator imp=rs.iterator();
+	        while (imp.hasNext())
+	  		{
+	        	Modalpanel mp1 = (Modalpanel) imp.next();
+	        	
+	    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 				
-  		}*/
-
-  		
-		
+		  		mp = new modalPanel();
+		  /*		mp.setId(rs.getInt("MODALPANELID"));
+		  		mp.setTitol(bundle.getString("titolPanelModal." + rs.getString("MODALPANELID")));
+		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + rs.getString("MODALPANELID")));*/
+				
+				//this.items.add(mp);
+	  		}
+                
 		}	catch (Exception ex) {
 			    // handle any errors
-
 		}
+	}
+
+
+	public ModalpanelsFinder getModalpanelsFinder() {
+		return modalpanelsFinder;
+	}
+
+
+	public void setModalpanelsFinder(ModalpanelsFinder modalpanelsFinder) {
+		this.modalpanelsFinder = modalpanelsFinder;
 	}
 	
 	
