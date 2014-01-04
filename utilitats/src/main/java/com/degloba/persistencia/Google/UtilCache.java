@@ -172,7 +172,8 @@ public class UtilCache {
 	 * @param ancestor : Parent key of the entity group that needs to be searched for
 	 * @return an iterable with keys of children
 	 */
-  public static Iterable<Entity> listChildKeys(String kind, Key ancestor) {
+  @SuppressWarnings("deprecation")
+public static Iterable<Entity> listChildKeys(String kind, Key ancestor) {
     logger.log(Level.INFO, "Search entities based on parent");
     Query query = new Query(kind);
     query.setAncestor(ancestor).setKeysOnly();
