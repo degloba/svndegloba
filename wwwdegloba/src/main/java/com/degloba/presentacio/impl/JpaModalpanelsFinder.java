@@ -3,16 +3,11 @@ package com.degloba.presentacio.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+// JPA - Persistencia
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+
 
 import query.annotations.Finder;
 
@@ -31,30 +26,34 @@ public class JpaModalpanelsFinder implements ModalpanelsFinder {
     private EntityManager entityManager;
     
    
+    public void intialize(Object entity, int depth) {
+        //JpaUtils.initialize(entityManager, entity, depth);
+    }
+    
+    
+	@SuppressWarnings("unchecked")
 	public List<Modalpanel> allCaract() {
 		
 		List<Modalpanel> ret = new ArrayList<Modalpanel>();
 
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		//EntityTransaction tx = entityManager.getTransaction();
+		//tx.begin();
 		
 		try {      
-
 			
-			Query q = entityManager.createQuery("SELECT c FROM " + Modalpanel.class.getName());
-			
+			Query q = entityManager.createQuery("select c FROM Modalpanel c");
 			
 			ret = (List<Modalpanel>)q.getResultList();
-			
+			ret.size();
 			    
 		} catch (RuntimeException e) {
-		    if ( tx != null && tx.isActive() ) tx.rollback();
+		    //if ( tx != null && tx.isActive() ) tx.rollback();
 		    throw e; // or display error message
 		}
 		finally {
 		    //em.close();
 		}
-		
+
 		return ret;
 
 	}
