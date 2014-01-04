@@ -6,7 +6,7 @@ import com.degloba.domain.Modalpanel;
 
 public interface ModalpanelsFinder {
 
-	List<Modalpanel> allCaract();
+	List<Modalpanel> findAll();
 
     
 }
