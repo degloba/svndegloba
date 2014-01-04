@@ -31,7 +31,7 @@ public class JpaModalpanelsFinder implements ModalpanelsFinder {
     
     
 	@SuppressWarnings("unchecked")
-	public List<Modalpanel> allCaract() {
+	public List<Modalpanel> findAll() {
 		
 		List<Modalpanel> ret = new ArrayList<Modalpanel>();
 
