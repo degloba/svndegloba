@@ -1,15 +1,10 @@
 package com.insacosa.vo;
 
 
-import com.degloba.JPA.*;
-
-// IOC - GUICE
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-
 // SERVEIS APLICACIO
-import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.domain.Usuaris;
+import com.insacosa.Inmobles.application.services.UsuarisAplicationService;
+
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -19,14 +14,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
-import guice.modules.BillingModule;
-
 import java.util.*;
 import java.util.regex.*;
 
 import com.degloba.jsf.*;
 
-import javax.servlet.http.*;
 
 import javax.faces.application.FacesMessage;
 
@@ -290,7 +282,7 @@ public class UserForm  implements java.io.Serializable {
    		/*Injector injector = Guice.createInjector(new BillingModule()); 
 		IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 		
-		com.insacosa.domain.Usuaris usuari = usuarisService.editPerfil(this.getGuid());
+		Usuaris usuari = usuarisService.editPerfil(this.getGuid());
 		
 		this.setGuid(usuari.getUsuariKey());
 		this.setNom(usuari.getNom());
@@ -314,7 +306,7 @@ public class UserForm  implements java.io.Serializable {
 		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);*/
 				
-				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
+				Usuaris usuari = new Usuaris();
 				
 				usuari.setUsuariKey((String)this.getGuid());
 				usuari.setNomusuari(this.getNomUsuari());
@@ -337,7 +329,7 @@ public class UserForm  implements java.io.Serializable {
 		   		/*Injector injector = Guice.createInjector(new BillingModule()); 
 				IUsuaris usuaris_app = injector.getInstance(IUsuaris.class);
 				*/
-				com.insacosa.domain.Usuaris usuari = new com.insacosa.domain.Usuaris();
+				Usuaris usuari = new Usuaris();
 				
 				usuari.setUsuariKey((String)this.getGuid());
 				usuari.setNomusuari(this.getNomUsuari());

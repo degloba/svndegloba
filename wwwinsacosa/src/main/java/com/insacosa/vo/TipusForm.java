@@ -1,17 +1,15 @@
 package com.insacosa.vo;
 
-
-import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.application.services.CaracteristiquesApplicationService;
-import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Tipus;
+import com.insacosa.Inmobles.application.services.CaracteristiquesApplicationService;
+
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Tipus;
 
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -44,7 +42,11 @@ public class TipusForm
 		// FinderS (lectura)
 		//---------------------
 		 
-	    @Inject
+	    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		@Inject
 	    private SolicitudsFinder solicitudsFinder;
 	    @Inject
 	    private TipusFinder tipusFinder;
@@ -64,7 +66,7 @@ public class TipusForm
 	private int valorActual = 1;
 	
 	
-	CaracteristiquesApplicationService caracteristiquesService;
+	CaracteristiquesApplicationService<?> caracteristiquesService;
 	
 	
 	public List<SelectItem> getTipusInmoble() {
@@ -137,7 +139,7 @@ public class TipusForm
 		// calculem la nova llista d'inmobles venedor
 		 
 	    Tipus tipus = new Tipus();
-	    tipus.setKey((Key)event.getNewValue());
+	    //tipus.setKey((Key)event.getNewValue());
 	    
 	    List<Caracteristiques> lc = tipusFinder.caractTipus(tipus,1, false);
 	    
@@ -197,7 +199,7 @@ public class TipusForm
 		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
 		   BeanFactory factory = context;
 		   
-		   caracteristiquesService = (CaracteristiquesApplicationService) factory
+		   caracteristiquesService = (CaracteristiquesApplicationService<?>) factory
 			        .getBean("caracteristiquesApplicationService");
 	}
 

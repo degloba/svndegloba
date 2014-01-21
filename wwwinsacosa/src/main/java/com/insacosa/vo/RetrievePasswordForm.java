@@ -1,12 +1,7 @@
 package com.insacosa.vo;
 
 
-import com.degloba.JPA.EMF;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.insacosa.application.services.UsuarisAplicationService;
-
-import guice.modules.BillingModule;
+import com.insacosa.Inmobles.application.services.UsuarisAplicationService;
 
 import java.util.*;
 import java.util.regex.*;
@@ -23,7 +18,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.sun.mail.smtp.SMTPTransport;
 
 public class RetrievePasswordForm  {
 	private String email;

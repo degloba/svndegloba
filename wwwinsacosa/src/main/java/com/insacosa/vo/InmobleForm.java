@@ -2,12 +2,9 @@ package com.insacosa.vo;
 
 import javax.inject.Inject;
 
-import com.degloba.JPA.EMF;
-import com.degloba.JPA.PersistenceService;
-
-import com.insacosa.filtre.InventoryItem;
 import com.insacosa.filtre.InventoryFiltreItem;
 import com.insacosa.filtre.InventoryFiltreList;
+import com.insacosa.filtre.InventoryItem;
 
 
 /*----------------------------*/
@@ -51,6 +48,9 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
+import com.degloba.persistencia.JPA.EMF;
+import com.degloba.persistencia.JPA.PersistenceService;
 /*----------------------------*/
 /* Utilitats                  */
 /*----------------------------*/
@@ -59,12 +59,9 @@ import com.degloba.utils.Cadenes;
 import com.insacosa.utils.FilterBeanInmobles;
 import com.insacosa.utils.FormHBM;
 import com.insacosa.utils.HtmlDinamic;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.FotoItemDto;
-import com.insacosa.webui.InmobleCaractItemDto;
-import com.insacosa.webui.InmobleItemDto;
-import com.insacosa.webui.SolicitudItemDto;
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.webui.InmobleCaractItemDto;
+import com.insacosa.Inmobles.webui.InmobleItemDto;
+import com.insacosa.Inmobles.webui.UsuariItemDto;
 import com.degloba.utils.Utils;
 import com.insacosa.controladorMSG.ChatBean;
 
@@ -73,31 +70,29 @@ import com.google.appengine.api.datastore.Key;
 import com.google.common.collect.Maps;
 
 // IOC - Guice
-import com.google.inject.Guice;
+/*import com.google.inject.Guice;
 import com.google.inject.Injector;
-import guice.modules.BillingModule;
+import guice.modules.BillingModule;*/
 
 // SERVEIS APLICACIO
-import com.insacosa.application.services.CaracteristiquesApplicationService;
-import com.insacosa.application.services.InmoblesApplicationService;
-import com.insacosa.application.services.PurchaseApplicationService;
-import com.insacosa.application.services.UsuarisAplicationService;
+import com.insacosa.Inmobles.application.services.CaracteristiquesApplicationService;
+import com.insacosa.Inmobles.application.services.InmoblesApplicationService;
+import com.insacosa.Inmobles.application.services.UsuarisAplicationService;
 
 
 import com.insacosa.dataModels_JPA.JPADataModel;
 
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.Fotos;
-import com.insacosa.domain.InmobleCaract;
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Provincies;
-import com.insacosa.domain.Solicituds;
-import com.insacosa.domain.Tipus;
-import com.insacosa.domain.Usuaris;
-import com.insacosa.domain.ValuesCaracteristiques;
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Ciutats;
+import com.insacosa.Inmobles.domain.Fotos;
+import com.insacosa.Inmobles.domain.InmobleCaract;
+import com.insacosa.Inmobles.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Provincies;
+import com.insacosa.Inmobles.domain.Solicituds;
+import com.insacosa.Inmobles.domain.Tipus;
+import com.insacosa.Inmobles.domain.Usuaris;
+import com.insacosa.Inmobles.domain.ValuesCaracteristiques;
 import com.insacosa.dragdrop.DragDropBeanCaract;
-
 
 
 @ManagedBean(name = "inmoblesForm")
@@ -127,9 +122,9 @@ public class InmobleForm  implements Serializable
 	// SERVEIS D'APLICACIO
 	//---------------------
 	
-	CaracteristiquesApplicationService caracteristiquesService;
-	InmoblesApplicationService inmoblesService;
-	UsuarisAplicationService usuarisService;
+	CaracteristiquesApplicationService<?> caracteristiquesService;
+	InmoblesApplicationService<?> inmoblesService;
+	UsuarisAplicationService<?, ?> usuarisService;
     
 	
 	private static final long serialVersionUID = 1L;
@@ -180,7 +175,7 @@ public class InmobleForm  implements Serializable
 	
 	
 	/*----------------------------------------------------*/
-	/* Filtre r‡pid (ex: tipus, habitacions, banys,...) --*/
+	/* Filtre r√†pid (ex: tipus, habitacions, banys,...) --*/
 	/*----------------------------------------------------*/
 	private List<InventoryItem> allInventoryItems = null;
     private List<InventoryFiltreList> InventoryFiltreLists = null;
@@ -373,7 +368,7 @@ public class InmobleForm  implements Serializable
 			 
 		    Tipus tipus = new Tipus();
 		    //tipus.setKey(keyTipus);
-		    tipus.setKey(keyTipus);
+		    //tipus.setKey(keyTipus);
 		    
 		    List<Caracteristiques> lc = caracteristiquesFinder.caractTipus(tipus,1, true);
 		 
@@ -411,7 +406,7 @@ public class InmobleForm  implements Serializable
 		{	
 			 
 		    Tipus tipus = new Tipus();
-		    tipus.setKey(keyTipus);
+		    //tipus.setKey(keyTipus);
 		    
 		    List<Caracteristiques> lc = caracteristiquesFinder.caractTipus(tipus,1, true);  // caracteristiques per tipus d'inmoble , INCLOU LES CARACT COMUNES I NO BOOLEANES
 		    
@@ -461,14 +456,14 @@ public class InmobleForm  implements Serializable
 		   ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/configurationContext.xml");
 		   BeanFactory factory = context;
 		   
-		   inmoblesService = (InmoblesApplicationService) factory
+		   inmoblesService = (InmoblesApplicationService<?>) factory
 			        .getBean("inmoblesApplicationService");
 		   
-		   caracteristiquesService = (CaracteristiquesApplicationService) factory
+		   caracteristiquesService = (CaracteristiquesApplicationService<?>) factory
 			        .getBean("caracteristiquesApplicationService");
 		   
 		   
-			    
+		   
   		
   		
         sortOrders.put("nom", SortOrder.unsorted);
@@ -516,7 +511,7 @@ public class InmobleForm  implements Serializable
 	    Ciutats ciut = new Ciutats();
 	    ciut.setCiutatKey(inmoble.getCiutats().getCiutatKey());  
 	    
-	    setKeyTipus(inmoble.getTipus().getKey()); 
+	    //setKeyTipus(inmoble.getTipus().getKey()); 
 	    
 	    setNumero(inmoble.getNumero());
 	    setPlanta(inmoble.getPlanta());
@@ -524,7 +519,7 @@ public class InmobleForm  implements Serializable
 	    setMetres(inmoble.getMetres());
 	    setPreu(inmoble.getPreu());
 		
-		setVenedor(inmoble.getUsuaris().getUsuariKey() ); //
+		//setVenedor(inmoble.getUsuaris().getUsuariKey() ); //
 	    setVisitat(inmoble.isVisitat());
 	    
 	    
@@ -543,17 +538,17 @@ public class InmobleForm  implements Serializable
 			
 			Fotos foto = (Fotos) it.next();
 			
-			foto.setKey(foto.getKey());
-			foto.setImatge(foto.getImatge());
+			//foto.setKey(foto.getKey());
+			//foto.setImatge(foto.getImatge());
 			foto.setDescripcio(foto.getDescripcio());
-			foto.setKeyInmoble(foto.getInmobles().getInmobleKey());
+			//foto.setKeyInmoble(foto.getInmobles().getInmobleKey());
 			
 			fotosForm.add(fotoForm);
 			
 			// carreguem en el control de imatges pujades
 			UploadedImage uploadedImage = new UploadedImage();
-			uploadedImage.setData(foto.getImatge());
-			uploadedImage.setLength(foto.getImatge().length);
+			//uploadedImage.setData(foto.getImatge());
+			//uploadedImage.setLength(foto.getImatge().length);
 			uploadedImage.setName(foto.getDescripcio());
 			
 			uploadedImages.add(uploadedImage);
@@ -732,7 +727,7 @@ public class InmobleForm  implements Serializable
 	
 		Map<Key,String> valorsCaract = inmobleSeleccionat.getCaractInmobles();
 		
-		Iterator itValorsCaract = valorsCaract.entrySet().iterator();
+		Iterator<?> itValorsCaract = valorsCaract.entrySet().iterator();
 		while (itValorsCaract.hasNext())
 		{
 			
@@ -751,7 +746,7 @@ public class InmobleForm  implements Serializable
 		}
 		
 		
-		inmoblesService.modificarInmoble(inmoble);
+		//inmoblesService.modificarInmoble(inmoble);
 	
 		
 	}
@@ -777,7 +772,7 @@ public class InmobleForm  implements Serializable
 		
 		Set<Entry<String, Object>> keysValors = valorsCaracts.entrySet();
 		
-		Iterator it = keysValors.iterator();
+		Iterator<Entry<String, Object>> it = keysValors.iterator();
 		
 		while (it.hasNext())
 		{
@@ -1072,7 +1067,7 @@ public class InmobleForm  implements Serializable
         		    
         		    inmobleForm.setProvincia(inmoble.getProvincies().getProvinciaKey());
         			
-        			inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
+        			//inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
 
         			inmobleForm.setNumero(inmoble.getNumero());
         			inmobleForm.setPlanta(inmoble.getPlanta());
@@ -1082,7 +1077,7 @@ public class InmobleForm  implements Serializable
         		    
         			// Objecte venedor		
         				
-        			inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
+        			//inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
         				
         			inmobleForm.setVisitat(inmoble.isVisitat());
         		    
@@ -1117,7 +1112,7 @@ public class InmobleForm  implements Serializable
 	
     /*
      * Construeix una llista de llistes on cada element de la llista
-     * contÈ el valor (agrupacio) del filtre i els items (en el nostre cas
+     * cont√© el valor (agrupacio) del filtre i els items (en el nostre cas
      * inmobles) amb aquest valor de filtre
      */
     public List<InventoryFiltreList> getInventoryFiltreLists() {
@@ -1218,7 +1213,7 @@ public class InmobleForm  implements Serializable
 	}
 
 	
-	/* NO S'UTILITZA.Es per rich:listShuttle (nomÈs Richfaces 3 ---- */
+	/* NO S'UTILITZA.Es per rich:listShuttle (nom√©s Richfaces 3 ---- */
 	/* Caracteristiques (subtipus) d'un tipus d'inmoble ------------ */
 	public List<CaracteristicaForm> getCaractFreeItems() {
 		
@@ -1287,7 +1282,7 @@ public class InmobleForm  implements Serializable
 		
 		Tipus tipus = new Tipus();
 		//tipus.setKey(keyTipus);
-		tipus.setKey(keyTipus);
+		//tipus.setKey(keyTipus);
 	
 		List<Caracteristiques> c = caracteristiquesFinder.caractTipus(tipus,1, false);  // seleccionem els que no son booleans i no son caract comunes
 		
@@ -1317,7 +1312,7 @@ public class InmobleForm  implements Serializable
 			      	"width:" + (10*cc.getTamanyControl()) + "px", 
 			      	cc.getTamanyControl(), 
 			      	"Campo requerido",   // requiredMessage
-			      	cc.getTtpbasic().getBdtype().compareTo("INT") == 0 ?  "valor numÈrico" : "valor incorrecto",
+			      	cc.getTtpbasic().getBdtype().compareTo("INT") == 0 ?  "valor num√©rico" : "valor incorrecto",
 			      	cc.getTtpbasic().getBdtype(),
 			      	cc.getObligatori(),
 			      	true,     // transient !!!!!!!!!!!!
@@ -1338,8 +1333,18 @@ public class InmobleForm  implements Serializable
 			    containerControlsDinamics.getChildren().add(HtmlDinamic.buildCheckbox(
 			       	cc.getCaracteristicaKey(),  // idCaracteristica
 			       	v2,
-			       	new ArrayList<String>(){{add("@this");add("dyn_taulaInmobles");add("dyn_taulaInmoblesVenedor");}},
-			       	new ArrayList<String>(){{add("@this");}}));
+			       	new ArrayList<String>(){/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
+
+					{add("@this");add("dyn_taulaInmobles");add("dyn_taulaInmoblesVenedor");}},
+			       	new ArrayList<String>(){/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
+
+					{add("@this");}}));
 			        		
 			        		
 			        		
@@ -1385,7 +1390,7 @@ public class InmobleForm  implements Serializable
             
         	        	
             Tipus tipus = new Tipus();
-            tipus.setKey(keyTipus);
+            //tipus.setKey(keyTipus);
              
            
             
@@ -1417,7 +1422,7 @@ public class InmobleForm  implements Serializable
 		ICaracteristiques caracteristiques_app = injector.getInstance(ICaracteristiques.class);*/
 		
 		Tipus tipus = new Tipus();
-		tipus.setKey(keyTipus);
+		//tipus.setKey(keyTipus);
 		
 		Iterator<Caracteristiques> iter = caracteristiquesFinder.caractTipus(tipus, 0, false).iterator();
 		while (iter.hasNext())
@@ -1461,7 +1466,7 @@ public class InmobleForm  implements Serializable
 	/*
 	 * 
 	 */
-	private HashMap mergeHash(HashMap<String, Boolean> h1 , HashMap h2)
+	private HashMap<?, ?> mergeHash(HashMap<String, Boolean> h1 , HashMap<?, ?> h2)
 	{
 		
 		Set<String> k1 = h1.keySet();

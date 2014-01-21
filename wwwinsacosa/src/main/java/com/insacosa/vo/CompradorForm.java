@@ -7,6 +7,10 @@ import java.util.List;
 // Clase Value Object que implementa la vista del comprador.
 public class CompradorForm implements java.io.Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Datos del VO Comprador.
 	private String key;
 	private String nom;
