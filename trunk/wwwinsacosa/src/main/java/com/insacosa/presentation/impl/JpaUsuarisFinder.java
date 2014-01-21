@@ -15,13 +15,13 @@ import javax.persistence.criteria.Root;
 
 import query.annotations.Finder;
 
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Tipus;
-import com.insacosa.domain.Usuaris;
+import com.insacosa.Inmobles.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Tipus;
+import com.insacosa.Inmobles.domain.Usuaris;
 import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.UsuarisFinder;
 
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.webui.UsuariItemDto;
 
 /**
  * @author Rafał Jamróz

@@ -2,7 +2,7 @@ package com.insacosa.presentation;
 
 import java.util.List;
 
-import com.insacosa.domain.Provincies;
+import com.insacosa.Inmobles.domain.Provincies;
 
 
 public interface ProvinciesFinder {

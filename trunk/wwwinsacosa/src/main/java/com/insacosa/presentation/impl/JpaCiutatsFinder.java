@@ -7,8 +7,8 @@ import javax.persistence.PersistenceContext;
 
 import query.annotations.Finder;
 
-import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.Provincies;
+import com.insacosa.Inmobles.domain.Ciutats;
+import com.insacosa.Inmobles.domain.Provincies;
 import com.insacosa.presentation.CiutatsFinder;
 
 

@@ -19,19 +19,15 @@ import query.annotations.Finder;
 
 import com.degloba.persistencia.JPA.UtilCriteriaBuilderJPA;
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.domain.InmobleCaract;
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Solicituds;
-import com.insacosa.domain.Usuaris;
-import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.Inmobles.domain.InmobleCaract;
+import com.insacosa.Inmobles.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Solicituds;
+import com.insacosa.Inmobles.domain.Usuaris;
 import com.insacosa.presentation.InmoblesFinder;
-import com.insacosa.presentation.SolicitudsFinder;
 import com.insacosa.presentation.SolicitudsListItemDto;
-import com.insacosa.presentation.TipusFinder;
-import com.insacosa.presentation.UsuarisFinder;
 
-import com.insacosa.webui.InmobleItemDto;
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.webui.InmobleItemDto;
+import com.insacosa.Inmobles.webui.UsuariItemDto;
 
 /**
  * @author Rafał Jamróz

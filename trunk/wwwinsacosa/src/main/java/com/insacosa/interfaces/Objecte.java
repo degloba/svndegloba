@@ -22,7 +22,7 @@ import com.google.appengine.api.datastore.TransactionOptions;
 import com.degloba.persistencia.JPA.EMF;
 import com.degloba.persistencia.JPA.PersistenceService;
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
 
 
