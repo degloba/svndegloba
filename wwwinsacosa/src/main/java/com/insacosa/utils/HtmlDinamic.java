@@ -13,14 +13,13 @@ import java.util.Set;
 import javax.el.MethodExpression;
 import javax.el.ValueExpression;
 import javax.faces.application.Application;
-import javax.faces.application.FacesMessage;
 
 //------------------------------------------------------------
 //Corresponen als components Core de JSF.  exemple : <f:facet>
 //------------------------------------------------------------
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
-import javax.faces.component.UIOutput;
+
 import javax.faces.component.UISelectItem;
 import javax.faces.component.UISelectItems;
 
@@ -28,14 +27,12 @@ import javax.faces.component.UISelectItems;
 //Validators JSF
 //---------------------------------------------------------------
 import javax.faces.validator.LengthValidator;
-import javax.faces.validator.DoubleRangeValidator;
 
 //---------------------------------------------------------------
 //Converters JSF
 //---------------------------------------------------------------
 import javax.faces.convert.Converter;
 import javax.faces.convert.IntegerConverter;
-import javax.faces.convert.DateTimeConverter;
 
 
 
@@ -50,7 +47,6 @@ import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.component.html.HtmlCommandLink;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.component.html.HtmlOutputLabel;
-import javax.faces.component.html.HtmlOutputLink;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlPanelGroup;
@@ -62,10 +58,6 @@ import javax.faces.component.html.HtmlSelectBooleanCheckbox;
 import org.richfaces.component.UICommandLink;
 import org.richfaces.component.UIDataScroller;
 import org.richfaces.component.UIDataTable;
-import org.richfaces.component.UIPanelMenu;
-import org.richfaces.component.UISelect;
-import org.richfaces.component.UIDropDownMenu;
-import org.richfaces.component.UIMenuItem;
 import org.richfaces.component.UIColumn;
 
 import org.richfaces.component.UITooltip;
@@ -76,9 +68,8 @@ import org.richfaces.component.UIPopupPanel;
 import org.richfaces.component.UIRichMessage;
 
 import com.degloba.utils.Cadenes;
-import com.google.appengine.api.datastore.Key;
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
 import com.sun.faces.taglib.jsf_core.SetPropertyActionListenerImpl;
 
@@ -600,7 +591,7 @@ public abstract class HtmlDinamic implements Serializable {
 	<h:inputText value="#{inmobleForm.numero}"  style="width:10px"                   
 				requiredMessage="es requereix" id="numeroInmoble"                   
 				converter="javax.faces.Integer" 
-		   		converterMessage="Hauria de ser un valor numèric"                    
+		   		converterMessage="Hauria de ser un valor numÃ¨ric"                    
 				validatorMessage="Hauria de ser un nom valid" label="numero">                     
 		  	</h:inputText>
 	------------------------------------------------------------------------------*/	
@@ -722,8 +713,18 @@ public abstract class HtmlDinamic implements Serializable {
     	UICommandLink cl = buildCommandLinkRich(
     			"butoneraBooleana_" + idColumna ,
     			null,
-    			new ArrayList<String>(){{add("@this");}} ,
-    			new ArrayList<String>(){{add("@this");}});
+    			new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@this");}} ,
+    			new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@this");}});
 		
 		ValueExpression vTrue = (ValueExpression) Utils.resolveExpression("/images/16-security-lock.png");
 		ValueExpression vFalse = (ValueExpression) Utils.resolveExpression("/images/16-em-cross.png");
@@ -831,8 +832,18 @@ public abstract class HtmlDinamic implements Serializable {
 	    			0,  // minim nombre digits o chars
 	    			caracteristica.getTamanyControl() == null ? 0 : caracteristica.getTamanyControl().intValue(),  // maxim nombre digits o chars
 	    			caracteristica.isModificable(),
-	    			new ArrayList<String>(){{add(componentID);}},
-	    			new ArrayList<String>(){{add("@this");}});  
+	    			new ArrayList<String>(){/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
+
+					{add(componentID);}},
+	    			new ArrayList<String>(){/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
+
+					{add("@this");}});  
 	    	
 	    	htmlDataTable.getChildren().add(columna);
 			
@@ -851,8 +862,18 @@ public abstract class HtmlDinamic implements Serializable {
 	    		null, 
 	    		"/images/bSelectNR.gif", 
 	    		"Solicitar Inmueble",
-	    		new ArrayList<String>(){{add("dyn_taulaInmobles");add(componentID);}},
-	    		new ArrayList<String>(){{add("@this");}}));
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("dyn_taulaInmobles");add(componentID);}},
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@this");}}));
 	    
 	    htmlDataTable.getChildren().add(buildColumnAmbLink(2L, 
 	    		"eliminar","headerTextValue",
@@ -862,8 +883,18 @@ public abstract class HtmlDinamic implements Serializable {
 	    		null, 
 	    		"/images/16-em-cross.png", 
 	    		"Eliminar Inmueble",
-	    		new ArrayList<String>(){{add("dyn_taulaInmobles");add(componentID);}},
-	    		new ArrayList<String>(){{add("@this");}}));
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("dyn_taulaInmobles");add(componentID);}},
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@this");}}));
 	    
 	    htmlDataTable.getChildren().add(buildColumnAmbLink(3L, 
 	    		"modificar","headerTextValue",
@@ -873,8 +904,18 @@ public abstract class HtmlDinamic implements Serializable {
 	    		null, 
 	    		"/images/update.gif", 
 	    		"Modificar Inmueble",
-	    		new ArrayList<String>(){{add("dyn_taulaInmobles");add(componentID);}},
-	    		new ArrayList<String>(){{add("@form");}}));
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("dyn_taulaInmobles");add(componentID);}},
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@form");}}));
 	   
 	  	
         htmlDataTable.getFacets().put("footer", buildDatascroller("dyn_datascroller"));
@@ -976,8 +1017,18 @@ public abstract class HtmlDinamic implements Serializable {
 	    		null, 
 	    		"/images/bSelectNR.gif", 
 	    		"Solicitar Inmueble",
-	    		new ArrayList<String>(){{add(componentID);}},
-	    		new ArrayList<String>(){{add("@this");}}));
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add(componentID);}},
+	    		new ArrayList<String>(){/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+				{add("@this");}}));
 	    
 
 		
@@ -1173,7 +1224,7 @@ public abstract class HtmlDinamic implements Serializable {
 			    		"width:50px", 
 			    		20, 
 			    		"",  
-			    		tipusColumna.compareTo("INT") == 0 ? "valor numérico" : "valor incorrecto",
+			    		tipusColumna.compareTo("INT") == 0 ? "valor numÃ©rico" : "valor incorrecto",
 			    		tipusColumna, 
 			    		false,
 			    		false,   // transient !!!!!!
@@ -1298,8 +1349,18 @@ public abstract class HtmlDinamic implements Serializable {
 									tipusControl,
 									minimum,
 									maximum,
-									new ArrayList<String>(){{add("dyn_taulaInmobles");}},
-									new ArrayList<String>(){{add("@this");}});
+									new ArrayList<String>(){/**
+										 * 
+										 */
+										private static final long serialVersionUID = 1L;
+
+									{add("dyn_taulaInmobles");}},
+									new ArrayList<String>(){/**
+										 * 
+										 */
+										private static final long serialVersionUID = 1L;
+
+									{add("@this");}});
 							
 							panelGroup.getChildren().add(butoneraNum);	
 							
@@ -1332,8 +1393,18 @@ public abstract class HtmlDinamic implements Serializable {
 							afegirAjax(
 									itPanelGroup, 
 									"blur", 
-									new ArrayList<String>(){{add("pnlGr_inmobles");}}, 
-									new ArrayList<String>(){{add("@this");}});
+									new ArrayList<String>(){/**
+										 * 
+										 */
+										private static final long serialVersionUID = 1L;
+
+									{add("pnlGr_inmobles");}}, 
+									new ArrayList<String>(){/**
+										 * 
+										 */
+										private static final long serialVersionUID = 1L;
+
+									{add("@this");}});
 								
 						    panelGroup.getChildren().add(itPanelGroup);
 							
@@ -1353,8 +1424,18 @@ public abstract class HtmlDinamic implements Serializable {
 						"#{" + nomColumna.toLowerCase() + ".valorActual}",
 						Cadenes.primeraLletraMajuscula(nomColumna.toLowerCase()) + "Form" , 
 						"#{" + nomColumna.toLowerCase() + "." + nomColumna.toLowerCase() + "}", 
-						new ArrayList<String>(){{add("pnlGr_inmobles");add("lciutats");add("lprovincies");}}, 
-						new ArrayList<String>(){{add("@this");}});
+						new ArrayList<String>(){/**
+							 * 
+							 */
+							private static final long serialVersionUID = 1L;
+
+						{add("pnlGr_inmobles");add("lciutats");add("lprovincies");}}, 
+						new ArrayList<String>(){/**
+							 * 
+							 */
+							private static final long serialVersionUID = 1L;
+
+						{add("@this");}});
 				
 				panelGroup.getChildren().add(selectOneMenu);
 				
@@ -1376,7 +1457,7 @@ public abstract class HtmlDinamic implements Serializable {
 				HtmlGraphicImage icone = buildGraphicImage(
 						"icone_" + numAleatInm + "_" + nomColumna, 
 						v, 
-						"Operación");
+						"OperaciÃ³n");
 					
 				panelGroup.getChildren().add(icone);
 		
@@ -1594,7 +1675,7 @@ public abstract class HtmlDinamic implements Serializable {
 	
 	/**********************************************************************/
 	/**********************************************************************/
-	/* mes mètodes de construir components                                */
+	/* mes mÃ¨todes de construir components                                */
 	/**********************************************************************/
 	/**********************************************************************/
 	

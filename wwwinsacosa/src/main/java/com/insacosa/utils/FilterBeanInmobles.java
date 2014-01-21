@@ -2,7 +2,6 @@ package com.insacosa.utils;
 
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.interfaces.Inmoble_Impl;
 
 import java.io.Serializable;   
 import java.util.Iterator;
@@ -13,18 +12,42 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
 
 import org.richfaces.model.Filter;
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
+import com.insacosa.presentation.CiutatsFinder;
+import com.insacosa.presentation.InmoblesFinder;
+import com.insacosa.presentation.ProvinciesFinder;
+import com.insacosa.presentation.SolicitudsFinder;
+import com.insacosa.presentation.TipusFinder;
+import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.vo.CiutatsForm;
 import com.insacosa.vo.InmobleForm;
 import com.insacosa.vo.ProvinciesForm;
  
 @ManagedBean
 @SessionScoped
-public class FilterBeanInmobles implements Serializable {     /**      *       */    
+public class FilterBeanInmobles implements Serializable {    
+	
+	// FinderS (lectura)
+	//---------------------
+	 
+    @Inject
+    private SolicitudsFinder solicitudsFinder;
+    @Inject
+    private TipusFinder tipusFinder;
+    @Inject
+    private InmoblesFinder inmoblesFinder;
+    @Inject
+    private CiutatsFinder ciutatsFinder;
+    @Inject
+    private ProvinciesFinder provinciesFinder;
+    @Inject
+    private UsuarisFinder usuarisFinder;
+    
 	
 	private static final long serialVersionUID = -5680001353441022183L;     
 
@@ -177,24 +200,24 @@ public void cambiarProvincia(ValueChangeEvent event)
 	List<SelectItem> novesCiutats = ciutatsForm.getCiutats();
 	novesCiutats.clear();
 	
-	Inmoble_Impl r = new Inmoble_Impl();
+	//Inmoble_Impl r = new Inmoble_Impl();
 	
 	 if (null != event.getNewValue()) 
 	 {             		
 		Provincies provincia = new Provincies();
 		
 		// Recuperem l'objecte Provincia que hem seleccionat
-		provincia = r.provinciaPerKey((String)event.getNewValue());
+		provincia = provinciesFinder.provinciaPerKey((String)event.getNewValue());
 		
 		// Actualitzem les ciutats de la provincia seleccionada		
-		Iterator<Ciutats> iter = r.ciutatsProvincia(provincia).iterator();
+		Iterator<Ciutats> iter = ciutatsFinder.ciutatsProvincia(provincia).iterator();
 		while (iter.hasNext())
 		{
 			Ciutats ciutatHBM = (Ciutats)(iter.next());  
 			
-			SelectItem item = new SelectItem(ciutatHBM.getKey(), ciutatHBM.getName() , "", false, false);
+			SelectItem item = new SelectItem(ciutatHBM.getEntityId(), ciutatHBM.getName() , "", false, false);
 			                   
-			// hem de modificar també el combi de ciutats del formulari d'entrada
+			// hem de modificar tambÃ© el combi de ciutats del formulari d'entrada
 			novesCiutats.add(item);
 			
 		}
@@ -227,8 +250,7 @@ public void cambiarCiutat(ValueChangeEvent event)
 	FacesContext context = FacesContext.getCurrentInstance(); 
 	CiutatsForm ciutatsForm = (CiutatsForm) context.getApplication().evaluateExpressionGet(context, "#{ciutats}", CiutatsForm.class);
 	
-	Inmoble_Impl r = new Inmoble_Impl();
-	
+
 	 if (null != event.getNewValue()) 
 	 {             		
 		 ciutatsForm.setValorActual((String) event.getNewValue());
