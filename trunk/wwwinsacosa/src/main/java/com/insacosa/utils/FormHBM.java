@@ -15,7 +15,7 @@ import com.insacosa.vo.FotoForm;
 import com.insacosa.vo.InmobleForm;
 import com.insacosa.vo.UserForm;
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
 import com.insacosa.dragdrop.DragDropBean;
 
@@ -39,7 +39,7 @@ public class FormHBM {
 	    
 		////////////inmobleForm.setProvincia(inmoble.getProvincies().getKey());
 
-		inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
+		//inmobleForm.setKeyTipus(inmoble.getTipus().getKey());
 		
 		//inmobleForm.setLloguer(inmoble.getLloguer());
 		inmobleForm.setNumero(inmoble.getNumero());
@@ -50,7 +50,7 @@ public class FormHBM {
 	    
 		// Objecte venedor
 		  
-		inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
+		//inmobleForm.setVenedor(inmoble.getUsuaris().getUsuariKey());
 		
 		inmobleForm.setVisitat(inmoble.isVisitat());
 	    
@@ -66,10 +66,10 @@ public class FormHBM {
 			
 			Fotos foto = (Fotos) it.next();
 			
-			fotoForm.setKey(foto.getKey());
-			fotoForm.setImatge(foto.getImatge());
+			//fotoForm.setKey(foto.getKey());
+			//fotoForm.setImatge(foto.getImatge());
 			fotoForm.setDescripcio(foto.getDescripcio());
-			fotoForm.setKeyInmoble(foto.getInmobles().getInmobleKey());
+			//fotoForm.setKeyInmoble(foto.getInmobles().getInmobleKey());
 			
 			fotosForm.add(fotoForm);
 		}
@@ -101,7 +101,7 @@ public class FormHBM {
 		inmoble.setProvincies(provincia);
 		
 		Tipus tipus = new Tipus();
-		tipus.setKey(inmobleForm.getKeyTipus());
+		//tipus.setKey(inmobleForm.getKeyTipus());
 		inmoble.setTipus(tipus);
 
 		//inmoble.setLloguer(lloguer);
@@ -116,8 +116,8 @@ public class FormHBM {
 		Usuaris venedor = new Usuaris();
 		
 	
-		venedor.setUsuariKey(userForm.getKey());
-		inmoble.setUsuaris(venedor);
+		venedor.setUsuariKey(userForm.getGuid());
+		//inmoble.setUsuaris(venedor);
 
 		
 		// **********************
@@ -126,7 +126,7 @@ public class FormHBM {
 		
 		// afegim les coleccions (fotos,caracteristiques,...)
 		facesContext = FacesContext.getCurrentInstance(); // Contexte JSF
-		DragDropBean dragDropBean = (DragDropBean) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBeanCaract}", DragDropBean.class);
+		DragDropBean<?> dragDropBean = (DragDropBean<?>) facesContext.getApplication().evaluateExpressionGet(facesContext, "#{dragDropBeanCaract}", DragDropBean.class);
 		Inmoble_Impl r = new Inmoble_Impl();
 		
 		Iterator<?> it = dragDropBean.getTarget().iterator();
@@ -156,8 +156,8 @@ public class FormHBM {
 			
 			Fotos foto = new Fotos();
 			foto.setDescripcio(fotoForm.getDescripcio());
-			foto.setKey(fotoForm.getKey());
-			foto.setImatge(fotoForm.getImatge());
+			//foto.setKey(fotoForm.getKey());
+			//foto.setImatge(fotoForm.getImatge());
 			//fotosetInmobles(fotoForm.getIdInmoble());
 			
 			fotos.add(foto);
@@ -184,7 +184,7 @@ public class FormHBM {
 			
 			Usuaris usuari = (Usuaris)it.next();
 
-			usuariForm.setKey(usuari.getUsuariKey());
+			usuariForm.setGuid(usuari.getUsuariKey());
 			usuariForm.setAdreca(usuari.getAdreca());
 			usuariForm.setCognoms(usuari.getCognoms());
 			usuariForm.setEmail(usuari.getEmail());
@@ -204,7 +204,7 @@ public class FormHBM {
 
 		UserForm usuariForm = new UserForm();
 			
-		usuariForm.setKey(usuari.getUsuariKey());
+		usuariForm.setGuid(usuari.getUsuariKey());
 		usuariForm.setAdreca(usuari.getAdreca());
 		usuariForm.setCognoms(usuari.getCognoms());
 		usuariForm.setEmail(usuari.getEmail());
@@ -220,7 +220,7 @@ public class FormHBM {
 
 		Usuaris usuari = new Usuaris();
 		
-		usuari.setUsuariKey(usuariForm.getKey());
+		usuari.setUsuariKey(usuariForm.getGuid());
 		usuari.setAdreca(usuariForm.getAdreca());
 		usuari.setCognoms(usuariForm.getCognoms());
 		usuari.setEmail(usuariForm.getEmail());
