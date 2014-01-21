@@ -30,7 +30,7 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
 
 public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
@@ -76,7 +76,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 			
 				// fotos
 				
-				Iterator it = inmoble.getFotoses().iterator();
+				Iterator<Fotos> it = inmoble.getFotoses().iterator();
 				
 				while (it.hasNext())
 				{
@@ -271,7 +271,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 	 * Retorna la llista d'Objectes
 	 * Parametres : Classe , Ordre, condicio/criteri 
 	 */
-	public QueryResultList<Entity> llistaObjectes(Class classe, String ordre, String condicio) {
+	public QueryResultList<Entity> llistaObjectes(Class<?> classe, String ordre, String condicio) {
 		
 		QueryResultList<Entity> ret = null;
 		
@@ -858,7 +858,7 @@ public class Inmoble_Impl extends UtilCriteriaBuilderJPA<Inmobles> {
 		return 0;
 	}
 
-	public Objecte retDescripcio(Class entityName, String id) {
+	public Objecte retDescripcio(Class<?> entityName, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

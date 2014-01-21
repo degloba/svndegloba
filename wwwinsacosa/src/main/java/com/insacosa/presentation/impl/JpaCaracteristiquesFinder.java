@@ -17,9 +17,9 @@ import javax.persistence.criteria.Root;
 import query.annotations.Finder;
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Caractinmobles;
-import com.insacosa.domain.Tipus;
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Caractinmobles;
+import com.insacosa.Inmobles.domain.Tipus;
 import com.insacosa.presentation.CaracteristiquesFinder;
 
 

@@ -2,8 +2,8 @@ package com.insacosa.presentation;
 
 import java.util.List;
 
-import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.Provincies;
+import com.insacosa.Inmobles.domain.Ciutats;
+import com.insacosa.Inmobles.domain.Provincies;
 
 
 public interface CiutatsFinder {

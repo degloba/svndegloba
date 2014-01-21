@@ -4,12 +4,11 @@ import java.util.List;
 
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.domain.InmobleCaract;
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Usuaris;
-import com.insacosa.vo.FotoForm;
-import com.insacosa.webui.InmobleItemDto;
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.domain.InmobleCaract;
+import com.insacosa.Inmobles.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Usuaris;
+import com.insacosa.Inmobles.webui.InmobleItemDto;
+import com.insacosa.Inmobles.webui.UsuariItemDto;
 
 
 public interface InmoblesFinder {

@@ -3,8 +3,8 @@ package com.insacosa.presentation;
 
 import java.util.List;
 
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Tipus;
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Tipus;
 
 
 public interface TipusFinder {

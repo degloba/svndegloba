@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import infrastructure.events.EventListener;
 import infrastructure.events.EventListeners;
-import com.insacosa.application.events.ProductAddedToOrderEvent;
+import com.insacosa.Inmobles.application.events.ProductAddedToOrderEvent;
 import com.insacosa.presentation.model.OrderedProduct;
 
 /**

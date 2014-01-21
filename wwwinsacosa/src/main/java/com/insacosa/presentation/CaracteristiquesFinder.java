@@ -3,9 +3,9 @@ package com.insacosa.presentation;
 import java.util.List;
 
 import com.google.appengine.api.datastore.Key;
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Caractinmobles;
-import com.insacosa.domain.Tipus;
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Caractinmobles;
+import com.insacosa.Inmobles.domain.Tipus;
 
 
 public interface CaracteristiquesFinder {

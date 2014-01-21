@@ -3,10 +3,10 @@ package com.insacosa.presentation;
 import java.util.List;
 
 
-import com.insacosa.domain.Inmobles;
-import com.insacosa.domain.Usuaris;
+import com.insacosa.Inmobles.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Usuaris;
 
-import com.insacosa.webui.UsuariItemDto;
+import com.insacosa.Inmobles.webui.UsuariItemDto;
 
 
 public interface UsuarisFinder {

@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import query.annotations.Finder;
 
 
-import com.insacosa.domain.Solicituds;
+import com.insacosa.Inmobles.domain.Solicituds;
 
 import com.insacosa.presentation.SolicitudsListItemDto;
 

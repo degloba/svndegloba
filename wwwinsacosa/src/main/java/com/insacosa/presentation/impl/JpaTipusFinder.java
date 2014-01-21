@@ -16,10 +16,10 @@ import javax.persistence.criteria.Selection;
 
 import query.annotations.Finder;
 
-import com.insacosa.domain.Caracteristiques;
-import com.insacosa.domain.Inmobles;
+import com.insacosa.Inmobles.domain.Caracteristiques;
+import com.insacosa.Inmobles.domain.Inmobles;
 
-import com.insacosa.domain.Tipus;
+import com.insacosa.Inmobles.domain.Tipus;
 import com.insacosa.presentation.TipusDto;
 import com.insacosa.presentation.TipusFinder;
 
