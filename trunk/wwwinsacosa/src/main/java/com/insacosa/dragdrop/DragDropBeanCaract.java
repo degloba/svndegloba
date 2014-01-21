@@ -14,7 +14,7 @@ import com.google.common.collect.Lists;
 
 import com.insacosa.vo.InmobleForm;
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 
 
 @ManagedBean(name = "dragDropBeanCaract")
