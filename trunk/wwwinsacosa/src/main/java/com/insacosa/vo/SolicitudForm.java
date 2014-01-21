@@ -10,6 +10,10 @@ import javax.faces.context.FacesContext;
 public class SolicitudForm implements Serializable
 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String key;
   	private String nomInmoble;
   	private String comprador;

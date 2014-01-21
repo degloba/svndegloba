@@ -1,45 +1,44 @@
 package com.insacosa.vo;
 
 // IOC - GUICE
-import com.google.inject.Guice;
+/*import com.google.inject.Guice;
 import com.google.inject.Injector;
 import guice.modules.BillingModule;
-
+*/
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
+// JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
-import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
 
 import javax.inject.Inject;
 
+// Finder
 import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.presentation.InmoblesFinder;
 import com.insacosa.presentation.ProvinciesFinder;
 import com.insacosa.presentation.SolicitudsFinder;
 import com.insacosa.presentation.TipusFinder;
 import com.insacosa.presentation.UsuarisFinder;
+
 import com.insacosa.utils.FilterBeanInmobles;
-import com.insacosa.webui.CiutatItemDto;
-import com.insacosa.webui.ProvinciaItemDto;
+
+import com.insacosa.Inmobles.webui.ProvinciaItemDto;
 
 
 // SERVEIS APLICACIO
-import com.insacosa.application.services.CaracteristiquesApplicationService;
-import com.insacosa.application.services.InmoblesApplicationService;
-import com.insacosa.application.services.ProvinciesApplicationService;
-import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.Provincies;
+
+import com.insacosa.Inmobles.application.services.InmoblesApplicationService;
+import com.insacosa.Inmobles.application.services.ProvinciesApplicationService;
+import com.insacosa.Inmobles.domain.Ciutats;
+import com.insacosa.Inmobles.domain.Provincies;
 
 
 @ManagedBean(name = "provincies")
@@ -52,7 +51,11 @@ public class ProvinciesForm
 	// FinderS (lectura)
 	//---------------------
 	 
-    @Inject
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Inject
     private SolicitudsFinder solicitudsFinder;
     @Inject
     private TipusFinder tipusFinder;
@@ -90,8 +93,8 @@ public class ProvinciesForm
 	// SERVEIS D'APLICACIO
 	//---------------------
 	
-	ProvinciesApplicationService provinciesService;
-	InmoblesApplicationService inmoblesService;
+	ProvinciesApplicationService<?> provinciesService;
+	InmoblesApplicationService<?> inmoblesService;
 		
 	
 	//@Override
@@ -147,7 +150,7 @@ public class ProvinciesForm
 	 */
 	public List<SelectItem> getProvincies() {
 		
-		List<SelectItem> list;
+		List<SelectItem> list = new ArrayList<SelectItem>();
 			
 		List<Provincies> provincies = provinciesFinder.findProvincies();
 		
@@ -185,12 +188,12 @@ public class ProvinciesForm
 		provincia.setCode(this.getCode());
 		provincia.setName(this.getName());
 		
-		provinciesService.createClasseApp();
+		//provinciesService.createClasseApp();
 				
 		// hem d'afegir a la llista
 		ProvinciaItemDto prov = new ProvinciaItemDto();
 		
-		prov.setId(provincia.getKey());
+		//prov.setId(provincia.getKey());
 		prov.setName(provincia.getName());
 		prov.setCode(provincia.getCode());
 
@@ -202,9 +205,9 @@ public class ProvinciesForm
 	
 	public void remove() { 
 	
-		provinciesService.deleteClasseAppByGuid(getGuid());  // esborrem de la BD
+		//provinciesService.deleteClasseAppByGuid(getGuid());  // esborrem de la BD
 	   	
-		// cal eliminar també de la llista
+		// cal eliminar tambÃ© de la llista
 		llista.remove(currentProvIndex);
    
 	   }       

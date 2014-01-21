@@ -4,7 +4,11 @@ package com.insacosa.vo;
 public class RegistreComprador implements java.io.Serializable
 {
 
-  	private String nom = null;
+  	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String nom = null;
   	private String cognoms = null;
   	private String adreca = null;
   	private String localitat = null;

@@ -1,9 +1,6 @@
 package com.insacosa.vo;
 
 
-import com.google.appengine.api.datastore.Key;
-
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,8 +15,8 @@ import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
 
-
 import javax.inject.Inject;
+
 
 // FINDERS
 import com.insacosa.presentation.CiutatsFinder;
@@ -32,23 +29,15 @@ import com.insacosa.presentation.UsuarisFinder;
 import com.insacosa.utils.FilterBeanInmobles;
 
 // DTOs
-import com.insacosa.webui.CiutatItemDto;
+import com.insacosa.Inmobles.webui.CiutatItemDto;
 
 
 
 // SERVEIS CAPA APLICACIO
-import com.insacosa.application.services.CaracteristiquesApplicationService;
-import com.insacosa.application.services.CiutatsApplicationService;
-import com.insacosa.application.services.InmoblesApplicationService;
-import com.insacosa.application.services.ProvinciesApplicationService;
-import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.Ciutats;
-import com.insacosa.domain.Provincies;
+import com.insacosa.Inmobles.application.services.CiutatsApplicationService;
+import com.insacosa.Inmobles.application.services.ProvinciesApplicationService;
+import com.insacosa.Inmobles.domain.Ciutats;
 
-import ddd.domain.BaseEntity;
-
-
-import guice.modules.BillingModule;
 
 
 @ManagedBean(name = "ciutats")
@@ -75,8 +64,8 @@ public class CiutatsForm
 	// SERVEIS D'APLICACIO
 	//---------------------
 	
-	CiutatsApplicationService ciutatsService;
-	ProvinciesApplicationService provinciesService;
+	CiutatsApplicationService<?> ciutatsService;
+	ProvinciesApplicationService<?> provinciesService;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -119,11 +108,11 @@ public class CiutatsForm
 
         	FilterBeanInmobles filterBeanInmobles = (FilterBeanInmobles) context.getApplication().evaluateExpressionGet(context, "#{filterBeanInmobles}", FilterBeanInmobles.class);
        	
-        	Ciutats ciutat = (Ciutats) ciutatsService.getClasseAppByGuid((String) newValue);   
+        	//Ciutats ciutat = (Ciutats) ciutatsService.getClasseAppByGuid((String) newValue);   
         	
     		// Modifiquem l'String corresponent a la localitat (formulari i filtre)
-    		filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
-    		setValorActual(ciutat.getCiutatKey());
+    		/*filterBeanInmobles.setLocalitatFilter(ciutat.getCiutatKey());
+    		setValorActual(ciutat.getCiutatKey());*/
     		
     		/*
     		inmobleForm.getFilterValues().put((long) 74, String.valueOf(newValue));
@@ -139,10 +128,11 @@ public class CiutatsForm
 	 */
 	public List<SelectItem> getCiutats() {
 		
-    	
+		List<SelectItem> list = new ArrayList<SelectItem>();
+		
 		List<Ciutats> ciutats = ciutatsFinder.findCiutats();
 		
-		this.setCiutats(ciutats);  
+		//this.setCiutats(ciutats);  
 		
 		
 		 return list;
@@ -179,14 +169,14 @@ public class CiutatsForm
 		ciutat.setCode(this.getCode());
 		ciutat.setName(this.getName());
 				
-		Provincies p = (Provincies) provinciesService.getClasseAppByGuid(this.guidProv); 
+/*		Provincies p = (Provincies) provinciesService.getClasseAppByGuid(this.guidProv); 
 		
 		ciutat.setGuidProv(p);
 		
 
 		
 		llista.add(ciut);
-		
+		*/
 	}
 	
 	
@@ -194,10 +184,10 @@ public class CiutatsForm
 	    
 		CiutatsForm ciutat = (CiutatsForm) this.getLlista().get(currentCiutIndex);
 
-		ciutatsService.deleteClasseAppByGuid(ciutat.getGuid());  // esborrem de la BD
+		//ciutatsService.deleteClasseAppByGuid(ciutat.getGuid());  // esborrem de la BD
     	
     	
-		// cal eliminar també de la llista
+		// cal eliminar tambÃ© de la llista
 		this.llista.remove(currentCiutIndex);
 	   	
 	   }       
@@ -210,7 +200,7 @@ public class CiutatsForm
 		ciutat.setName(this.getName());
 		
 		
-		BaseEntity p = provinciesService.getClasseAppByGuid(this.getGuid()); 
+	/*	BaseEntity p = provinciesService.getClasseAppByGuid(this.getGuid()); 
 		
 		
 		ciutat.setGuidProv(p);
@@ -222,7 +212,7 @@ public class CiutatsForm
 
 		ciut.setCode(ciutat.getCode());
 		ciut.setName(ciutat.getName());
-		ciut.setGuidProv(ciutat.getEntityId().getProvinciaGuid());
+		ciut.setGuidProv(ciutat.getEntityId().getProvinciaGuid());*/
 		
 	   } 	  
 	  
@@ -260,7 +250,7 @@ public class CiutatsForm
 		if (this.llista == null) {
 				
 			// apliquem un criteri/condicio.En aquest cas es sobre la property "name" de l'objecte ScrCiteis
-			Iterator<CiutatItemDto> iter = this.llistaObjectes(CiutatItemDto.class, "name","").iterator();
+			Iterator<CiutatItemDto> iter = null;  //this.llistaObjectes(CiutatItemDto.class, "name","").iterator();
 			while (iter.hasNext())
 			{
 				CiutatsForm ciutatForm = new CiutatsForm();
@@ -270,7 +260,7 @@ public class CiutatsForm
 				//ciutatForm.setId(ciutat.getProperty("Id").toString());
 				ciutatForm.setCode( ciutat.getProperty("Code").toString() );
 				ciutatForm.setName( ciutat.getProperty("Name").toString() );
-				ciutatForm.setguidProv(((Provincies)ciutat.getProperty("guidProv")).getProvinciaGuid());
+				//ciutatForm.setguidProv(((Provincies)ciutat.getProperty("guidProv")).getProvinciaGuid());
 				
 				try
 				{

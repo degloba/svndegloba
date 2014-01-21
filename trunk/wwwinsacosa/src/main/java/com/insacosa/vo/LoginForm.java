@@ -1,14 +1,13 @@
 package com.insacosa.vo;
 
 // IOC - GUICE
-import com.google.inject.Guice;
-import com.google.inject.Injector;
+/*import com.google.inject.Guice;
+import com.google.inject.Injector;*/
 
 // SERVEIS APLICACIO
-import com.insacosa.application.services.CaracteristiquesApplicationService;
-import com.insacosa.application.services.InmoblesApplicationService;
-import com.insacosa.application.services.UsuarisAplicationService;
-import com.insacosa.domain.Usuaris;
+
+import com.insacosa.Inmobles.application.services.UsuarisAplicationService;
+import com.insacosa.Inmobles.domain.Usuaris;
 import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.presentation.InmoblesFinder;
 import com.insacosa.presentation.SolicitudsFinder;
@@ -23,8 +22,6 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import guice.modules.BillingModule;
 
 
 public class LoginForm  {
