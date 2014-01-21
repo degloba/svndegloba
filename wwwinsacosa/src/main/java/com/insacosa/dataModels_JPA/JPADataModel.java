@@ -37,7 +37,7 @@ import org.richfaces.model.SortField;
 
 
 
-import com.insacosa.domain.*;
+import com.insacosa.Inmobles.domain.*;
 import com.insacosa.presentation.CiutatsFinder;
 import com.insacosa.presentation.InmoblesFinder;
 import com.insacosa.presentation.SolicitudsFinder;
