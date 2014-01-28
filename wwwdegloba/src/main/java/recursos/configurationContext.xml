@@ -19,6 +19,7 @@
 		</property>
 	</bean>
 	
+	
 
 	<!-- REPOSITORIS -->
 <!-- 	<bean id="orderRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaOrderRepository" />
@@ -58,7 +59,7 @@
 	
 		
 	<!-- FINDERS -->
-	<bean id="modalpanelsFinder" class="com.degloba.presentacio.impl.JpaModalpanelsFinder"/>
+	<bean id="modalpanelsFinder" class="com.degloba.readmodel.impl.JpaModalpanelsFinder"/>
 	
 	
 	<!-- SERVEIS D'APLICACIO -->
