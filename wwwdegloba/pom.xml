@@ -591,24 +591,12 @@
 		<scope>compile</scope>
 	</dependency>
 	
-	
-	<dependency>
-		<groupId>cglib</groupId>
-		<artifactId>cglib</artifactId>
-		<version>3.0</version>
-		<type>jar</type>
-		<scope>compile</scope>
-	</dependency>
+
 
 	<dependency>
 		<groupId>com.degloba</groupId>
 		<artifactId>cqrs</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.directory.studio</groupId>
-		<artifactId>org.apache.commons.lang</artifactId>
-		<version>2.6</version>
 	</dependency>
 	
 		<dependency>
