@@ -7,13 +7,12 @@ import java.util.List;
 import org.richfaces.event.DropEvent;
 
 import com.degloba.framework;
-import com.degloba.wizard;
 import com.degloba.domain.Framework;
-import com.degloba.domain.TipusFramework;
-import com.degloba.persistencia.JPA.EMF;
 
-
+// JSF
 import javax.faces.context.FacesContext;
+
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -109,10 +108,10 @@ public class frameworks {
 			{
 				//em = EMF.get().createEntityManager();
 				
-				TypedQuery<Framework> q2 = em.createQuery("SELECT c FROM Framework c", Framework.class);
+				TypedQuery<Framework> q2 = (TypedQuery<Framework>) em.createQuery("SELECT c FROM Framework c");
 				List<Framework> f = q2.getResultList();
 				
-				Iterator iterador =f.listIterator();
+				Iterator<Framework> iterador =f.listIterator();
 				while (iterador.hasNext())
 				{
 					Framework actual = ((Framework)iterador.next());
