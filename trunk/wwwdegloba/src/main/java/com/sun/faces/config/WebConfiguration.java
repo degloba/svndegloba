@@ -56,9 +56,6 @@ import javax.faces.application.ViewHandler;
 import javax.faces.application.StateManager;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletContext;
  
 import com.sun.faces.util.FacesLogger;
@@ -570,7 +567,7 @@ public class WebConfiguration {
      */
     private void initSetList(ServletContext servletContext) {
  
-        for (Enumeration e = servletContext.getInitParameterNames();
+        for (Enumeration<?> e = servletContext.getInitParameterNames();
               e.hasMoreElements(); ) {
             String name = e.nextElement().toString();
             if (name.startsWith("com.sun.faces") ||
