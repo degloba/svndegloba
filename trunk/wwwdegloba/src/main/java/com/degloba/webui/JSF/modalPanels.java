@@ -5,25 +5,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 // JSF
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
 
 import com.degloba.modalPanel;
 
 // Entitat Domini
 import com.degloba.domain.Modalpanel;
 
+
 // Finder (CQRS)
-import com.degloba.presentacio.ModalpanelsFinder;
+import com.degloba.readmodel.ModalpanelsFinder;
 
 
 public class modalPanels {
 	
+	private static final Logger log = Logger.getLogger(modalPanels.class.getName());
 	
-    //@Inject
+    @Inject
     private ModalpanelsFinder modalpanelsFinder;
     
 	
@@ -44,8 +46,7 @@ public class modalPanels {
 
 
 	public List<modalPanel> getItems() {
-		omplirPanelModals();
-		return this.items;
+		return omplirPanelModals();		
 	}
 
 
@@ -54,11 +55,15 @@ public class modalPanels {
 	}
 
 
-	private void omplirPanelModals() {
+	private List<modalPanel> omplirPanelModals() {
+		
+		List<modalPanel> panells = new ArrayList<modalPanel>(); 
 		
 		try {
 			
 			List<Modalpanel> rs = modalpanelsFinder.findAll();
+			
+			log.info("Modalpanel count : " + rs.size());
     	
 			Iterator<Modalpanel> imp=rs.iterator();
 	        while (imp.hasNext())
@@ -68,16 +73,18 @@ public class modalPanels {
 	    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 				
 		  		mp = new modalPanel();
-		  /*		mp.setId(rs.getInt("MODALPANELID"));
-		  		mp.setTitol(bundle.getString("titolPanelModal." + rs.getString("MODALPANELID")));
-		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + rs.getString("MODALPANELID")));*/
+		  		mp.setId(mp1.getModalpanelid());
+		  		mp.setTitol(bundle.getString("titolPanelModal." + mp1.getModalpanelid().toString()));
+		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + mp1.getModalpanelid().toString()));
 				
-				//this.items.add(mp);
+				panells.add(mp);
 	  		}
                 
 		}	catch (Exception ex) {
 			    // handle any errors
 		}
+		
+		return panells;
 	}
 
 
