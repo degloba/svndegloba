@@ -22,7 +22,6 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
-import twitter4j.UserList;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
@@ -31,7 +30,7 @@ public class clientTwitter {
 	
 	static Twitter twitter;
 	
-	public void clientTwitter()
+	public clientTwitter()
 	{
 	
 	}
@@ -40,6 +39,8 @@ public class clientTwitter {
 	// Afegeix un tweet
 	public static void updateWhatAreYouDoing(String latestStatus)
 	{
+		
+		
 		// The factory instance is re-useable and thread safe.
 	    twitter = new TwitterFactory().getInstance();
 	    Status status;
@@ -195,7 +196,7 @@ public class clientTwitter {
 		}
 	        
 	        
-//NOMES S'HA D'EXECUTAR UNA VEGADA SI EL twitter4j.properties NO CONTÉ ELS ACCES TOKEN I ACCESS TOKEN SECRET 
+//NOMES S'HA D'EXECUTAR UNA VEGADA SI EL twitter4j.properties NO CONTï¿½ ELS ACCES TOKEN I ACCESS TOKEN SECRET 
 		
 		public static void connect()
 		{
