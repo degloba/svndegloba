@@ -46,7 +46,7 @@ public class wizards implements ActionListener{
 	{
 		int quinWizard=Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("quinWizard"));
 				
-		Iterator iterador =items.listIterator();
+		Iterator<wizard> iterador =items.listIterator();
 		
 		while (iterador.hasNext())
 		{
@@ -76,7 +76,7 @@ public class wizards implements ActionListener{
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
 		visiblePanellDegloba visiblePanellDegloba = (visiblePanellDegloba)session.getAttribute("visiblePanellDegloba");
 		
-		//Només si el panell de l'esquema degloba esta visible cal modificar la visibilitat
+		//Nomï¿½s si el panell de l'esquema degloba esta visible cal modificar la visibilitat
 		if (visiblePanellDegloba.getVisible())
 			visiblePanellDegloba.cambiaVisible();
 		/******************************************************************************************/
@@ -87,7 +87,7 @@ public class wizards implements ActionListener{
 		// Calculem el wizard que hem de visualitzar.
 		String quinWizard = event.getComponent().getAttributes().get("quinWizard").toString();
 		
-		Iterator iterador =items.listIterator();
+		Iterator<wizard> iterador =items.listIterator();
 		
 		while (iterador.hasNext())
 		{
