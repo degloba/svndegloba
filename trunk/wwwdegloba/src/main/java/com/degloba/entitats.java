@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 // JSF
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,6 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 
-import com.degloba.converters.ConvertTo;
 // GAE
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -31,48 +31,46 @@ import com.google.appengine.api.datastore.KeyFactory;
 import scala.actors.threadpool.Arrays;
 
 
-@ManagedBean(eager = true)
+@ManagedBean
 @SessionScoped
 public  class entitats implements ActionListener, Serializable {
 	
-	DatastoreService datastore;
-
 	private static final long serialVersionUID = 1L;
 	
 	List<HashMap<String,String>> lblogs;
 	List<HashMap<String,String>> ltipusframework;
 	List<HashMap<String,String>> lframeworks;
+	
+	private static final Logger log = Logger.getLogger(entitats.class.getName());
 
 	public void carrega()
 	{
-		
-		datastore = DatastoreServiceFactory.getDatastoreService();
-		
-		/*lblogs = carregarCSVtoList("blog");
+				
+		/*lblogs = carregarCSVtoList("Blog");
 		persistir("Blog",null,null, lblogs,null);*/
 		
-		//List lwizard = carregarCSVtoList("wizard");
-		//persistir("wizard",null,null, lwizard,null);	
+		//List lwizard = carregarCSVtoList("Wizard");
+		//persistir("Wizard",null,null, lwizard,null);	
 		
-	/*	List ldocument = carregarCSVtoList("document");
+	/*	List ldocument = carregarCSVtoList("Document");
 		persistir("Document",null, null, ldocument,null);
 		
-		List lmenubar = carregarCSVtoList("menubar");
+		List lmenubar = carregarCSVtoList("Menubar");
 		persistir("Menubar",null, null, lmenubar,null);*/
 				
-		List lmodalpanel = carregarCSVtoList("Modalpanel");
+		List<HashMap<String, String>> lmodalpanel = carregarCSVtoList("Modalpanel");
 		persistir("Modalpanel",null, null, lmodalpanel,null);
 		
 				
-		/*List lpare = carregarCSVtoList("tipusframework");
-		List lfill = carregarCSVtoList("framework");	
+		/*List lpare = carregarCSVtoList("Tipusframework");
+		List lfill = carregarCSVtoList("Framework");	
 		persistir("Tipusframework", "Framework", "idTipus", lpare,lfill);
 		//persistirFills(lpare,lfill);
 			
 		//llegirTipusFramework();
 		
-		ltipusframework = carregarCSVtoList("tipusframework");
-		lframeworks = carregarCSVtoList("framework");
+		ltipusframework = carregarCSVtoList("Tipusframework");
+		lframeworks = carregarCSVtoList("Framework");
 		persistir("Tipusframework", "idTipus", null, ltipusframework,null);
 		
 		List<String> relacionsPare = new ArrayList<String>();
@@ -81,11 +79,15 @@ public  class entitats implements ActionListener, Serializable {
 	}
 		
 	
+		
 	/**
 	 * @param fitxer
 	 */
 	private void persistir(String classePare, String classeFilla, String relacio, List<HashMap<String,String>> lpares , List<HashMap<String,String>> lfilles) {
 				
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		log.severe("Info log message --> DataStoreService!!!!!!!");
+		
 		try
 		{
 	
@@ -93,16 +95,17 @@ public  class entitats implements ActionListener, Serializable {
 			
 				Entity pare = new Entity(classePare);
 				datastore.put(pare);
+				log.warning("Persistim pare.!!!!!!!");
 				
 				Key clauPare = pare.getKey();
 				
 				// Afegim la Key de l'Entitat a la 
 				lpare.put("clauGoogle", KeyFactory.keyToString(clauPare));
-						
+									
 				pare = datastore.get(clauPare);
 						
 				// Construim les propietat de l'"Entitat" a partir de les columnes CSV
-				Iterator it = lpare.entrySet().iterator();
+				Iterator<?> it = lpare.entrySet().iterator();
 				while (it.hasNext()) {
 				   Map.Entry pairs = (Map.Entry)it.next();
 					        						        
@@ -148,7 +151,8 @@ public  class entitats implements ActionListener, Serializable {
 				       }
 						
 				    }
-					// Persistim el pare						
+					// Persistim el pare	
+					log.warning("Persistim pare.!!!!!!!");
 					datastore.put(pare);
 								
 					// Tractem les entitats filles si en t�
@@ -167,7 +171,7 @@ public  class entitats implements ActionListener, Serializable {
 							    Entity filla = new Entity(classeFilla, pare.getKey());
 							    
 							    // Construim les propietat de l'"Entitat" a partir de les columnes CSV
-							    Iterator it2 = hmf.entrySet().iterator();
+							    Iterator<?> it2 = hmf.entrySet().iterator();
 							    while (it2.hasNext()) {
 							        Map.Entry pairs2 = (Map.Entry)it2.next();
 							        						        
@@ -193,6 +197,7 @@ public  class entitats implements ActionListener, Serializable {
 
 		
 	} catch (Exception e) {
+		log.warning("Error");
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
@@ -206,6 +211,8 @@ public  class entitats implements ActionListener, Serializable {
 	
 	private void persistirFilla(List<HashMap<String,String>> lfills,String classeFilla, List<String> classesPare ,List<String> relacionsPare ) {
 		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		log.severe("Info log message --> DataStoreService!!!!!!!");
 		
 		try
 		{			
@@ -230,7 +237,7 @@ public  class entitats implements ActionListener, Serializable {
 						filla = new Entity(classeFilla);
 									    
 						// Construim les propietat de l'"Entitat" a partir de les columnes CSV
-						Iterator it2 = lfilla.entrySet().iterator();
+						Iterator<?> it2 = lfilla.entrySet().iterator();
 						while (it2.hasNext()) {
 							Map.Entry pairs2 = (Map.Entry)it2.next();
 									        						        
@@ -323,21 +330,21 @@ public  class entitats implements ActionListener, Serializable {
 	private List<HashMap<String,String>> carregarCSVtoList(String fitxer) {
 		
 		InputStream    fis;
-		BufferedReader br;
+		BufferedReader breader;
 		String         line;
 		Integer		   numlin = 0;
 		List<String>	   columnes = null;
 		List<String>	   valors = null;
 		
-		List list = new ArrayList();
+		List<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
 		
 		try
 		{
-					
+			log.info("Obrim fitxer CSV " + fitxer + ".csv");
 			fis = new FileInputStream(fitxer + ".csv");
 			
-			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-			while ((line = br.readLine()) != null) {
+			breader = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+			while ((line = breader.readLine()) != null) {
 			    // Deal with the line
 				
 				if (numlin == 0) {
@@ -365,10 +372,13 @@ public  class entitats implements ActionListener, Serializable {
 				}
 			}
 			} catch (Exception e) {
+				
+				log.severe("Error carrega fitxer CSV " + fitxer + ".csv");
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			finally {
+				
 			}
 		
 		
@@ -377,23 +387,6 @@ public  class entitats implements ActionListener, Serializable {
 	}
 	
 	
-	
-	
-	/**
-	 * 
-	 */
-	private void uuuu()
-	{
-		/*UtilPersistenciaGAE.persistEntity(null);
-		Util.listChildKeys(kind, ancestor);
-		Util.listChildren(kind, ancestor);
-		Util.listEntities(kind, searchBy, searchFor);
-		*/
-		
-		
-	}
-
-
 	@Override
 	public void processAction(ActionEvent event)
 			throws AbortProcessingException {
