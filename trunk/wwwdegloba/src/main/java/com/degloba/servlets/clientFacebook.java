@@ -14,6 +14,11 @@ import com.google.code.facebookapi.FacebookXmlRestClient;
 public class clientFacebook extends HttpServlet{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { 
 		
 		HttpSession session = req.getSession();

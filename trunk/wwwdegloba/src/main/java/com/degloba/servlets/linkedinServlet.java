@@ -2,7 +2,6 @@ package com.degloba.servlets;
 
 import java.io.IOException;
 import java.util.EnumSet;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
