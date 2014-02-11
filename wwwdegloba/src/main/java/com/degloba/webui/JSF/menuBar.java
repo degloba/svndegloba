@@ -85,9 +85,8 @@ public class menuBar {
         	llistaMenuItems.add(rs.getString("ABREV2"));
         }*/
         
-
         
-        Iterator it =llistaMenuItems.listIterator();
+        Iterator<String> it =llistaMenuItems.listIterator();
         
         while (it.hasNext())
   		{	
@@ -102,7 +101,7 @@ public class menuBar {
     		
     	    //rs = stmt.executeQuery("SELECT IDMENUITEM, ABREV2,ABREV3 FROM menubar WHERE ABREV1 = '" + nomDropDownMenu + "' AND ABREV2 = '" + menuItem + "'");
     	    
-    	    Boolean teSubmenu = false; // si té submenu o no
+    	    Boolean teSubmenu = false; // si tï¿½ submenu o no
     	    menuItem mi2 = null;
     	    
     	    ArrayList<menuItem> llistaSubMenuItems = new ArrayList<menuItem>();
@@ -133,7 +132,7 @@ public class menuBar {
     	        
 	  		}  //while
     	    */
-    	    if (teSubmenu)  // té SubMenu
+    	    if (teSubmenu)  // tï¿½ SubMenu
     	    {
     	    	mi2.setMenuItems(llistaSubMenuItems);
     	    	dd.menuItems.add(mi2);
