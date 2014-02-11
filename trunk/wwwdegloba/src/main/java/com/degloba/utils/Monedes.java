@@ -5,17 +5,13 @@
 
 package com.degloba.utils;
 
-import java.io.PrintStream;
-import java.math.BigDecimal;
-import java.sql.*;
-import java.util.Hashtable;
-import javax.servlet.ServletContext;
 
+import java.math.BigDecimal;
+
+import java.util.Hashtable;
 
 public class Monedes
 {
-
-
     public static String Pts_Euros(String pts)
     {
         if(pts == null || pts == "")
