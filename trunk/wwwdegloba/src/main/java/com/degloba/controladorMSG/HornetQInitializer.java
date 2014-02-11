@@ -24,9 +24,7 @@ package com.degloba.controladorMSG;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Properties;
 
-import javax.annotation.Resource;
 import javax.faces.application.Application;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
@@ -34,18 +32,15 @@ import javax.faces.event.PostConstructApplicationEvent;
 import javax.faces.event.PreDestroyApplicationEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.SystemEventListener;
-import javax.naming.Context;
-import javax.naming.InitialContext;
+
 
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.api.jms.HornetQJMSClient;
 import org.hornetq.core.config.Configuration;
 import org.hornetq.core.config.impl.ConfigurationImpl;
-import org.hornetq.core.config.impl.FileConfiguration;
+
 import org.hornetq.core.remoting.impl.invm.InVMAcceptorFactory;
 import org.hornetq.core.remoting.impl.invm.InVMConnectorFactory;
-import org.hornetq.core.remoting.impl.netty.NettyAcceptorFactory;
-import org.hornetq.core.remoting.impl.netty.NettyConnectorFactory;
 import org.hornetq.core.server.HornetQServer;
 import org.hornetq.core.server.HornetQServers;
 import org.hornetq.jms.server.JMSServerManager;
@@ -54,24 +49,17 @@ import org.hornetq.jms.server.config.impl.ConnectionFactoryConfigurationImpl;
 import org.hornetq.jms.server.impl.JMSServerManagerImpl;
 import org.richfaces.application.ServiceTracker;
 import org.richfaces.application.push.PushContextFactory;
-import org.richfaces.application.push.TopicKey;
-import org.richfaces.application.push.TopicsContext;
-
-import org.hornetq.jms.client.HornetQQueue;
 
 
 // per la versio 2.2.7 de HornetQ
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
+
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-import javax.jms.Topic;
-import javax.jms.TopicSubscriber;
-
 
 
 
@@ -120,7 +108,7 @@ public class HornetQInitializer implements SystemEventListener {
      */
     public void startHornetQ() throws Exception {
     	
-    	/* opcio d'acces a la configuracio del HornetQ Server mitjançant fitxer de configuracio 
+    	/* opcio d'acces a la configuracio del HornetQ Server mitjanï¿½ant fitxer de configuracio 
     	 FileConfiguration configuration = new FileConfiguration();
          configuration.setConfigurationUrl("hornetq-configuration.xml");
          configuration.start();
@@ -149,7 +137,7 @@ public class HornetQInitializer implements SystemEventListener {
         serverManager = new JMSServerManagerImpl(server, "hornetq-jms.xml");
         
         
-        /* opcio d'acces a la configuracio del HornetQ Server mitjançant fitxer de configuracio 
+        /* opcio d'acces a la configuracio del HornetQ Server mitjanï¿½ant fitxer de configuracio 
     	JMSServerManager serverManager = new JMSServerManagerImpl(server, "hornetq-jms.xml");*/
 
         //if you want to use JNDI, simple inject a context here or don't call this method and make sure the JNDI parameters are set.
@@ -186,7 +174,7 @@ public class HornetQInitializer implements SystemEventListener {
         // Step 2. Instantiate the TransportConfiguration object which contains the knowledge of what transport to use,
         // The server port etc.
 
-        Map connectionParams = new HashMap();
+        Map<String, Integer> connectionParams = new HashMap<String, Integer>();
         connectionParams.put("port", 5445); // cas Netty
 
 ////////TransportConfiguration transportConfiguration = new TransportConfiguration(NettyConnectorFactory.class.getName(),
