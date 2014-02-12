@@ -6,6 +6,7 @@
   <description>classes d'utilitats</description>
   
    <properties>
+  		 <spring.version>3.2.0.RELEASE</spring.version> 
         <gae.version>1.8.4</gae.version>
         <hornetq.version>2.1.2.Final</hornetq.version>
     </properties>
@@ -96,7 +97,22 @@
         <dependency>
         	<groupId>com.sun.faces</groupId>
         	<artifactId>jsf-api</artifactId>
-        	<version>2.1.7</version>
+        	<version>2.2.4</version>
         </dependency>
+        
+        
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		
+		
+				<dependency>                         
+		<groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId>                         
+			<version>${spring.version}</version>                 
+	</dependency>  
+	
   </dependencies>
 </project>
