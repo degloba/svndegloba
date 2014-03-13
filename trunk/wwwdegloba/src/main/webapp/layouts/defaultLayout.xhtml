@@ -2,179 +2,156 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:h="http://java.sun.com/jsf/html" 
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core" 
-    xmlns:a4j="http://richfaces.org/a4j" 
-    xmlns:rich="http://richfaces.org/rich">
+    xmlns:f="http://java.sun.com/jsf/core">
 
     
 <h:head>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
-<meta name="verify-v1" content="HdEoAqkFNfj7gLh85e9xCDJQE3lGpfyGEOrhx0AdCVs=" />
 
 <title><ui:insert name="title" /> - deGloba Consulting - </title>
-<link rel="stylesheet" type="text/css" media="all" href="resources/css/degloba.css" />
 <link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
 
+<link rel="stylesheet" type="text/css" media="all" href="/css/degloba.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/> 	
+<link rel="stylesheet" href="resources/jQuery/arbor-v0.92/style.css" type="text/css"/>
+
+<!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="resources/magnific-popup/magnific-popup.css"/> 
+<link rel="stylesheet" href="resources/magnific-popup/magnific-popup_degloba.css"/> 
+
+
+  <style>
+    .toggler { width: 500px; height: 200px; position: relative; }
+    #button { padding: .5em 1em; text-decoration: none; }
+    #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
+    #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+    .ui-effects-transfer { border: 2px dotted gray; }
+  </style>
+
+<!--  <script src="resources/jQuery/jquery-2.1.0.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-latest.js"/> -->
+
+
+<!-- 1.-  jQUERY -->
+<!-- *********** -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 <script type="text/javascript">
-	
-// http://ahoehma.wordpress.com/2009/07/22/fadein-and-fadeout-a-richfaces-modalpanel/ 
-function applyModalPanelEffect(panelId, effectFunc, params, hide) {
-	if (panelId)
-		if(effectFunc) {
-		 var modalPanel = document.getElementById(panelId);
-		
-		 if (modalPanel)
-			 {
-			
-			 if (modalPanel.component) {
-				
-			 var component = modalPanel.component;
-			 var div = component.getSizedElement();
-			 if (hide) {
-				
-				 Element.hide(div);
-			 }
-		 }
-		effectFunc.call(this, Object.extend( {targetId : div.id}, params || {}));}}
-}
-	 
-function showModalPanelWithEffect(panelId, showEffect, params) {
-	
-	applyModalPanelEffect(panelId, showEffect, params, true);
-	}
-	 
-function hideModalPanelWithEffect(panelId, hideEffect, params) {
-	
-	 var _params = params;
-	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
-	 applyModalPanelEffect(panelId, hideEffect, params, false);
-}
+$newjquery = jQuery.noConflict();
 
-
+$newjquery(function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $newjquery( "#effectTypes" ).val();
  
-function applyPanelEffect(panelId, effectFunc, params, hide) {
-	if (panelId)
-		if(effectFunc) {
-			 
-		 var panel = document.getElementById(panelId);
-		 
-		 
-		 if (hide) {
-				
-				 Element.hide(panel);
-			 }
-		alert("hol"); 
-		effectFunc.call(this, Object.extend( {targetId : 'pnlDegloba'}, params || {}));
-		}
-}
-	 
-function showPanelWithEffect(panelId, showEffect, params) {
-	 
-	applyPanelEffect(panelId, showEffect, params, true);
-	}
-	 
-function hidePanelWithEffect(panelId, hideEffect, params) {
-	
-	 var _params = params;
-	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
-	 applyPanelEffect(panelId, hideEffect, params, false);
-}
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 0 };
+      } else if ( selectedEffect === "transfer" ) {
+        options = { to: "#button", className: "ui-effects-transfer" };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+ 
+      // run the effect
+      $newjquery( "#effect" ).effect( selectedEffect, options, 500, callback );
+    };
+ 
+    // callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $newjquery( "#effect" ).removeAttr( "style" ).hide().fadeIn();
+      }, 1000 );
+    };
+ 
+    // set effect from select menu value
+    $newjquery( "#button" ).click(function() {
+      runEffect();
+      return false;
+    });
+  });
 
-	
 </script>
 
 
-	<script src="http://code.jquery.com/jquery-latest.js"/>
+<!-- 3.-jQUERY -->
+<script type="text/javascript" src="http://use.typekit.com/mxh7kqd.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
- 	
+
+
 </h:head>
 
+
 <h:body>
-
-
+ 	
 <f:loadBundle var="missatge" basename="idioma"/>
-
-
-
-
-<table align="center" cellpadding="0" cellspacing="0" border="0" width="80%">
-<tr>
-<td>
-	<table border="1">
-
-		<tr>
-			<td colspan="2" >
-				<ui:insert name="header">
-					<ui:include src="/header.xhtml" />
-				</ui:insert>			
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
 				
-			</td>
-		</tr>
-		
-		<tr>
-			<td valign="top" rowspan="1"  height="150px">
-				<ui:include src="/panells_modals.xhtml" />
-			</td>
-						
-			
-			<td valign="top"  rowspan="1" >
- 				<ui:include src="/carregaEntitats.xhtml" />
+<ui:include src="/panells_modals.xhtml" />
 
-			</td>
-		</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td >
-	<table border="0" >
-	
-		<tr>
-			<td valign="top" colspan="1" width="330px">
-				
-			</td>
-			<td valign="top"  rowspan="2" width="800px" height="100%">
-		
-				
-				
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="1" valign="top">
-				
-					
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" >
-				
-			</td>
-		</tr>
-			
-			<tr>
-				<td  colspan="2" >
-					
 
-				</td>
-			</tr>
-	
-		</table>
-</td>	
-</tr>
+<!-- 3.-  jQUERY -->
+<!-- *********** -->
 
-</table>
+<!-- Magnific Popup core JS file -->
+<script src="resources/magnific-popup/jquery.magnific-popup.js"></script> 
 
-		
-			
+<script type="text/javascript">
+
+// Initialize popup as usual
+$('.image-link').magnificPopup({ 
+  type: 'image',
+  mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+  zoom: {
+    enabled: true, // By default it's false, so don't forget to enable it
+
+    duration: 700, // duration of the effect, in milliseconds
+    easing: 'ease-in-out' // CSS transition easing function 
+  }
+
+});
+
+</script>
+
+
+ 	
+ 	
+ 
+	<canvas id="viewport" width="800" height="600"></canvas>
+
+  
+  
+ <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>  -->
+
+	<script src="resources/jQuery/jquery.address-1.4.min.js"></script>
+
+  <!-- run from the minified library file: -->
+  <script src="resources/jQuery/arbor-v0.92/lib/arbor.js"></script>  
+
+  <!--  <script src="resources/jQuery/arbor-v0.92/main.js"></script>  -->
+  
+    <!-- run from the original source files: -->
+  	<!--   <script src="resources/jQuery/arbor-v0.92/src/etc.js"></script>
+       <script src="resources/jQuery/arbor-v0.92/src/kernel.js"></script>
+       <script src="resources/jQuery/arbor-v0.92/src/graphics/colors.js"></script> 
+       <script src="resources/jQuery/arbor-v0.92/src/graphics/primitives.js"></script>  -->
+                     
+        <!-- <script src="resources/jQuery/arbor-v0.92/src/tween/easing.js"></script> -->
+              
+       <!-- <script src="resources/jQuery/arbor-v0.92/src/physics/atoms.js"></script>
+       <script src="resources/jQuery/arbor-v0.92/src/physics/physics.js"></script>
+       <script src="resources/jQuery/arbor-v0.92/src/physics/system.js"></script> 
+       <script src="resources/jQuery/arbor-v0.92/src/dev.js"></script>  -->
+       
+        <script src="resources/jQuery/arbor-v0.92/demos/echolalia/echolalia.js"></script> 
+  
 
 </h:body>
+
 
 </html>
 
