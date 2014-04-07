@@ -1,0 +1,9 @@
+abrev,action,entorn,icon,descripcio,tecnologia,ordre,idanterior,esroot,idarbre
+Slshdataobject01,,SOA,,"Soa Sca Esb",NULL,6,15,0,2
+xen,,Virtualization,,Xen,NULL,1,13,0,5
+Integracion,,Integracion,,Integracion,NULL,0,0,1,15
+Presentacion,,Presentacion,,Presentacion,NULL,0,0,1,14
+Mobile,,Mobile,,"Mobile Apps",NULL,0,14,0,8
+Cloud,,Cloud,,Cloud,NULL,0,13,0,12
+Middleware,,Middleware,,Middleware,NULL,0,0,1,17
+Infraestructura,,Infraestructura,,Infraestructura,NULL,0,0,1,13
