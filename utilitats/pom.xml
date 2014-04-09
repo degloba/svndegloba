@@ -7,7 +7,7 @@
   
    <properties>
   		 <spring.version>3.2.0.RELEASE</spring.version> 
-        <gae.version>1.8.4</gae.version>
+        <gae.version>1.8.7</gae.version>
         <hornetq.version>2.1.2.Final</hornetq.version>
     </properties>
   
