@@ -286,7 +286,7 @@
         </dependency>
         
 	<!-- GAE PROFILE DEPENDENCIES -->
-          <dependency>
+         <!--  <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>el-impl</artifactId>
             <version>2.2</version>
@@ -294,7 +294,7 @@
          <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
-		</dependency>  
+		</dependency>   -->
         <dependency>
             <groupId>xalan</groupId>
             <artifactId>xalan</artifactId>
@@ -371,7 +371,7 @@
 	    	<scope>compile</scope>
 	    </dependency>
 	
-	   <!--  JSF Mojarra Oracle -->
+	   <!--  JSF Mojarra Oracle 
 	    <dependency>
 	    	<groupId>com.sun.faces</groupId>
 	    	<artifactId>jsf-impl</artifactId>
@@ -384,7 +384,7 @@
         	<artifactId>jsf-api</artifactId>
         	<type>jar</type>
         	<scope>compile</scope>
-        </dependency>
+        </dependency> -->
     
         <dependency>
         	<groupId>org.atmosphere</groupId>
@@ -426,7 +426,7 @@
 		<dependency>
 			<groupId>org.twitter4j</groupId>
 			<artifactId>twitter4j-appengine</artifactId>
-			<version>3.0.3</version>
+			<version>3.0.5</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>        
@@ -560,7 +560,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.3.1.Final</version>
+			<version>4.2.0.Final</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -582,6 +582,21 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0.1</version>
-		</dependency>	
+		</dependency>
+		 <dependency>
+			<groupId>org.jboss.spec.javax.el</groupId>
+			<artifactId>jboss-el-api_2.2_spec</artifactId>
+			<version>1.0.2.Final</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>jboss.web</groupId>
+			<artifactId>el-api</artifactId>
+			<version>2.1.12.GA</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.4</version>
+		</dependency>
     </dependencies>
 </project>
