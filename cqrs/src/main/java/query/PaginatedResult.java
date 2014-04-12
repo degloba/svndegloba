@@ -5,7 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class PaginatedResult<T> implements Serializable {
-    private final List<T> items;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final List<T> items;
     private final int pageSize;
     private final int pageNumber;
     private final int pagesCount;
