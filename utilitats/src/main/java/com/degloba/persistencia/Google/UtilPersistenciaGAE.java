@@ -127,7 +127,9 @@ public static Iterable<Entity> listChildren(String kind, Key ancestor) {
 	logger.log(Level.INFO, "Search entities based on parent");
 	Query q = new Query(kind);
 	q.setAncestor(ancestor);
-	q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+	  Filter filtre = new Query.FilterPredicate(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+	  q.setFilter(filtre);
+	//q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
 	PreparedQuery pq = datastore.prepare(q);
 	return pq.asIterable();
 }
@@ -142,7 +144,8 @@ public static Iterable<Entity> listChildKeys(String kind, Key ancestor) {
 	logger.log(Level.INFO, "Search entities based on parent");
 	Query q = new Query(kind);
 	q.setAncestor(ancestor).setKeysOnly();
-	q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+	  Filter filtre = new Query.FilterPredicate(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+	  q.setFilter(filtre);	
 	PreparedQuery pq = datastore.prepare(q);
 	return pq.asIterable();
 }
