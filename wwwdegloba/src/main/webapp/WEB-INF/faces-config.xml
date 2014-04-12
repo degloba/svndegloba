@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
-<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xi="http://www.w3.org/2001/XInclude"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
  <name>degloba</name>
  <converter>
   <converter-id>listShuttleconverter</converter-id>
@@ -130,11 +130,11 @@
   </managed-property>
  </managed-bean>
  <!--  MODALPANELS  -->
- <managed-bean>
+ <!--  <managed-bean>
   <managed-bean-name>modalPanels</managed-bean-name>
-  <managed-bean-class>modalPanels</managed-bean-class>
+  <managed-bean-class>com.degloba.webui.JSF.modalPanels</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
+ </managed-bean> -->
  <!--  WIZARDS  -->
  <managed-bean>
   <managed-bean-name>wizards</managed-bean-name>
@@ -230,7 +230,15 @@
   <managed-bean-class>extendedTableRss</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
- <application>
+ <application>     
+     <lifecycle>
+		<phase-listener>com.degloba.gae.jsf22.SessionPhaseListener</phase-listener>
+    </lifecycle>
+     
+     <variable-resolver>
+			org.springframework.web.jsf.DelegatingVariableResolver
+		</variable-resolver>
+		
   <locale-config>
    <default-locale>es</default-locale>
    <supported-locale>es</supported-locale>
