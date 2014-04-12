@@ -6,113 +6,66 @@
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:richx="http://degloba.com/richx">
+	
+	
+<h:form id="myForm">
+
+<rich:collapsiblePanel header="Efecte jQuery Richfaces" >
+
+<!-- jQuery Richfaces -->
+
+	<a4j:commandButton id="show" value="show jQuery Richfaces"/>
+    <a4j:commandButton id="hide" value="hide jQuery Richfaces"/>
+    
+    
+	 <!--     <rich:jQuery selector="#show"
+                     query="click(function(){
+                   $('#myForm .rf-p').fadeIn(1000);
+                   })"/>
+        <rich:jQuery selector="#hide"
+                     query="click(function(){
+                   $('#myForm .rf-p').fadeOut(1000);
+                   })"/> -->
+                                     
+	     <rich:jQuery selector="#show"
+                     query="click(function(){
+                   $('#myForm\\:bar').fadeIn(1000);
+                   })"/>
+        <rich:jQuery selector="#hide"
+                     query="click(function(){
+                   $('#myForm\\:bar').fadeOut(1000);
+                   })"/> 
+               
+               
+<!-- Panell de commandLinks + PopUps -->
+
+	<h:panelGrid id="bar" columns="12" styleClass="panelGridCenter">
 		
-
-<h:form>
-
-<script type="text/javascript">
-	
-// http://ahoehma.wordpress.com/2009/07/22/fadein-and-fadeout-a-richfaces-modalpanel/ 
-function applyModalPanelEffect(panelId, effectFunc, params, hide) {
-
-	if (panelId)
-
-		if(effectFunc) 
-			{
-			 var modalPanel = document.getElementById("j_idt9:"+panelId);
-	
-			 if (modalPanel)
-				 {
-					
-				// if (modalPanel.component) 
-				//{
-					 
-					 //var component = modalPanel.component;
-					 var component = modalPanel;
-					 //var div = component.getSizedElement();
-					 //alert(div);
-					 //if (hide) {
-						alert("si");
-						 Element.hide(div);
-					 //}
-			 	//}
-				effectFunc.call(this, Object.extend( {targetId : div.id}, params || {}));
-				}
-			}
-}
-	 
-function showModalPanelWithEffect(panelId, showEffect, params) {
-	alert("hola");
-	applyModalPanelEffect(panelId, showEffect, params, true);
-	}
-	 
-function hideModalPanelWithEffect(panelId, hideEffect, params) {
-
-	 var _params = params;
-
-	_params['afterFinish'] = function(){richfaces.component(panelId).hide()};
-	alert("hol2222226");
-	 applyModalPanelEffect(panelId, hideEffect, params, false);
-}
-
-
- 
-function applyPanelEffect(panelId, effectFunc, params, hide) {
-	if (panelId)
-		if(effectFunc) {
-			 
-		 var panel = document.getElementById(panelId);
-		 
-		 
-		 if (hide) {
-				
-				 Element.hide(panel);
-			 }
-		alert("hol"); 
-		effectFunc.call(this, Object.extend( {targetId : 'pnlDegloba'}, params || {}));
-		}
-}
-	 
-function showPanelWithEffect(panelId, showEffect, params) {
-	 
-	applyPanelEffect(panelId, showEffect, params, true);
-	}
-	 
-function hidePanelWithEffect(panelId, hideEffect, params) {
-	
-	 var _params = params;
-	_params['afterFinish'] = function(){Richfaces.hideModalPanel(panelId)};
-	 applyPanelEffect(panelId, hideEffect, params, false);
-}
-
-
-</script>
-
-	<h:panelGrid id="bar" columns="12">
-	
-	
 		<c:forEach var="modalPanel" items="#{modalPanels.items}">
 				
-	
-			<img src='images/93.png' border='0'/>
-
-				
-			<h:commandLink value="#{modalPanel.titol} - " styleClass="enllac2">        
- 				<rich:componentControl target="mp#{modalPanel.id}" operation="show" event="click"/>
+			<h:commandLink value="#{modalPanel.titol} - " styleClass="enllac">        
+ 				<rich:componentControl target="mp#{modalPanel.id}" operation="show" event="click">
+ 					<a4j:param noEscape="true" value="event" />
+ 					<rich:hashParam>
+ 				 		<f:param name="width" value="600" />
+ 						<f:param name="height" value="500" />
+ 				  		<a4j:param noEscape="true" name="left" value="(jQuery(window).width()/2)-250" />
+         				<a4j:param noEscape="true" name="top" value="(jQuery(window).height()/2)-250" />
+ 				 	</rich:hashParam>
+ 				 </rich:componentControl>
  			</h:commandLink>
+ 			
  						
 			<rich:popupPanel id="mp#{modalPanel.id}" modal="true" resizeable="false"  
 				minWidth="10" minHeight="10" onmaskclick="#{rich:component(richx:concat('mp',modalPanel.id))}.hide()" 
-				autosized="true" shadowDepth="20" width="700" keepVisualState="false" moveable="true"> 
+				autosized="true" shadowDepth="20" keepVisualState="false" moveable="true"> 
 					
 				<h:panelGrid>
 					
 					<h:outputText value=" #{modalPanel.titol}" styleClass="titolModalPanel"></h:outputText>
 
 					<h:outputText value="#{modalPanel.definicio}" escape="false" />
-						
-					<ui:include src="closeModalPanel.xhtml"/>
-						
+												
 				</h:panelGrid>
 						
 			</rich:popupPanel>
@@ -121,6 +74,108 @@ function hidePanelWithEffect(panelId, hideEffect, params) {
 	
 	</h:panelGrid>
 	
-</h:form>
-		
+</rich:collapsiblePanel>
+
+<rich:collapsiblePanel header="Efecte jQuery Genèric" >
+          
+<!-- jQuery : http://jqueryui.com/effect/ -->                   
+<div class="toggler">
+  <div id="effect" class="ui-widget-content ui-corner-all">
+    <h3 class="ui-widget-header ui-corner-all">Effect</h3>
+    <p>
+      Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+    </p>
+  </div>
+</div>
+ 
+<select name="effects" id="effectTypes">
+  <option value="blind">Blind</option>
+  <option value="bounce">Bounce</option>
+  <option value="clip">Clip</option>
+  <option value="drop">Drop</option>
+  <option value="explode">Explode</option>
+  <option value="fade">Fade</option>
+  <option value="fold">Fold</option>
+  <option value="highlight">Highlight</option>
+  <option value="puff">Puff</option>
+  <option value="pulsate">Pulsate</option>
+  <option value="scale">Scale</option>
+  <option value="shake">Shake</option>
+  <option value="size">Size</option>
+  <option value="slide">Slide</option>
+  <option value="transfer">Transfer</option>
+</select>
+ 
+ <a href="#" id="button" class="ui-state-default ui-corner-all">Run Effect</a>   
+ 
+ </rich:collapsiblePanel>
+ 
+ </h:form>
+ 
+        
+URL : <input type='text' id='url' size='50' value='http://www.google.com' />
+<h4>Delicious count : <span id="delicious_result"></span></h4>
+ 
+<button id="delicious">Get Delicious Count (.Ajax)</button>
+<button id="delicious2">Get Delicious Count (.getJSON)</button>
+<script type="text/javascript">
+
+$('#delicious').click(function(){
+ 
+	$("#delicious_result").text("Loading......");
+ 
+ var url = $('#url').val();
+ 
+ $.ajax({ 
+ type: "GET",
+ dataType: "json",
+ url: "http://feeds.delicious.com/v2/json/urlinfo/data?url="+url+"&amp;callback=?",
+ success: function(data){
+	var count = 0;
+	if (data.length > 0) {
+		count = data[0].total_posts;
+	}
+	$("#delicious_result").text(count + ' Saved');
+ 
+   }
+  });
+});
+ 
+$('#delicious2').click(function(){
+ 
+ $("#delicious_result").text("Loading......");
+ 
+ var url = $('#url').val();
+ 
+ $.getJSON("http://feeds.delicious.com/v2/json/urlinfo/data?url="+url+"&amp;callback=?",
+ 
+ function(data) {
+ 
+	var count = 0;
+	if (data.length > 0) {
+		count = data[0].total_posts;
+	}
+	$("#delicious_result").text(count + ' Saved');
+ 
+  });	
+});
+</script>
+  
+
+ 
+	
+<!-- Exemple de fer un Zoom d'una imatge (Magnific Pop-up) -->	
+<a href="images/Arquitectura.png" class="image-link">
+   <img src="images/dev.png" />
+</a>
+
+<a href="images/ArquitecturaEucalyptus.png" class="image-link">
+   <img src="images/dev.png" />
+</a>
+	
+	
+
+	
+	
+			
 </ui:composition>

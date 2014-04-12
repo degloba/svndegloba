@@ -1,0 +1,71 @@
+<ui:composition template="/layouts/defaultLayout.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+ 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:c="http://java.sun.com/jstl/core">   
+    
+    
+   
+
+	<ui:define name="content1">
+
+			 <rich:panel rendered="true">
+				   <f:facet name="header" >
+				   	      <h:outputText value="Contactar - Dades Empresa"  style="font-size:small" />
+  				  </f:facet>
+  			     
+  				<table border="0">
+									<tr>
+										<td width="20%">
+           						 			<h:outputText value="Nom Empresa : " style="font-size:small"/>
+           						 		</td>
+           						 		<td width="80%">
+           						 			<rich:inplaceInput defaultLabel="entra nom empresa per contactar amb nosaltres" 
+           						     			showControls="true"  inputWidth="350px" value="#{client.nom}" />
+           						     	</td>	
+           						    </tr>   
+									<tr>
+										<td width="20%">	
+           						     		<h:outputText value="Correo Electronic : " style="font-size:small"/>
+           						     	</td>
+           						     	<td width="80%">           						     
+            								<rich:inplaceInput defaultLabel="entra correo electronic per contactar amb nosaltres" 
+             					   			showControls="true"   inputWidth="350px" value="#{client.correo}"/>
+										</td>
+									</tr>
+									<tr><td colspan="2"><h:outputText id="validacio" value="#{client.error}" style="color:red;" /></td></tr>
+									<tr>
+									<td colspan="2">
+										<a4j:commandButton image="/images/enrera.png" action="enrera"/>
+			             				<h:commandButton  value="#" id="enviar" action="#{client.doContactar}" image="/images/mail.png"/>
+									</td>
+									</tr>
+									<tr>
+									<td colspan="2">
+										<rich:panel>
+										<a4j:outputPanel ajaxRendered="true">
+									<h:outputText
+										value="Per tal de posar-vos en contacte entreu la informació de la vostra empresa"
+										style="font-size:16px" escape="false" />
+										</a4j:outputPanel>
+									</rich:panel>
+									</td>
+									</tr>
+								</table>
+
+	   
+             					 <br/>
+
+             				
+             				</rich:panel>
+
+ 			</ui:define>
+
+
+</ui:composition>
+
+
+
