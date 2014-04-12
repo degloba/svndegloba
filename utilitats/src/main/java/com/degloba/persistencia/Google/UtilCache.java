@@ -31,6 +31,7 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.memcache.MemcacheService;
@@ -143,7 +144,8 @@ public class UtilCache {
     logger.log(Level.INFO, "Search entities based on search criteria");
     Query query = new Query(kind);
     if (searchFor != null && !"".equals(searchFor)) {
-      query.addFilter(searchBy, FilterOperator.EQUAL, searchFor);
+      Filter filtre = new Query.FilterPredicate(searchBy, FilterOperator.EQUAL, searchFor);
+      query.setFilter(filtre); //addFilter(searchBy, FilterOperator.EQUAL, searchFor);
     }
     PreparedQuery pq = datastore.prepare(query);
     return pq.asIterable();
@@ -160,7 +162,8 @@ public class UtilCache {
     logger.log(Level.INFO, "Search entities based on parent");
     Query query = new Query(kind);
     query.setAncestor(ancestor);
-    query.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+    Filter filtre = new Query.FilterPredicate(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+    query.setFilter(filtre); //addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
     PreparedQuery pq = datastore.prepare(query);
     return pq.asIterable();
   }

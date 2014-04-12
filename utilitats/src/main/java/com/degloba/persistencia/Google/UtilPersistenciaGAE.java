@@ -29,6 +29,7 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 
 
@@ -106,7 +107,10 @@ public static Iterable<Entity> listEntities(String kind, String searchBy,
 	logger.log(Level.INFO, "Search entities based on search criteria");
 	Query q = new Query(kind);
 	if (searchFor != null && !"".equals(searchFor)) {
-	  q.addFilter(searchBy, FilterOperator.EQUAL, searchFor);
+		
+	  Filter filtre = new Query.FilterPredicate(searchBy, FilterOperator.EQUAL, searchFor);
+	  //q.setFilter(filtre); //addFilter(searchBy, FilterOperator.EQUAL, searchFor);
+	  q.setFilter(filtre);
 	}
 	PreparedQuery pq = datastore.prepare(q);
 	return pq.asIterable();
