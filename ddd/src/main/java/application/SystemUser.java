@@ -24,7 +24,6 @@ public class SystemUser {
 	/**
 	 * @return any user id
 	 */
-	@SuppressWarnings("unchecked")
 	public Long getUserId() {
 		// return userId;
 		//List<Client> clients = entityManager.createQuery("from Client").getResultList();

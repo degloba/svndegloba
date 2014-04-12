@@ -38,7 +38,6 @@ public abstract class BaseEntity extends Entitat {
     @GeneratedValue
     private Long entityId;
 
-    @SuppressWarnings("unused")
 	@Version
     private Long version;
 
