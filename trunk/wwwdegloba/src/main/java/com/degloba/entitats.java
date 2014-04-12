@@ -17,9 +17,11 @@ import java.util.logging.Logger;
 // JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
+import javax.servlet.ServletContext;
 
 // GAE
 import com.google.appengine.api.datastore.DatastoreService;
@@ -58,7 +60,9 @@ public  class entitats implements ActionListener, Serializable {
 		List lmenubar = carregarCSVtoList("Menubar");
 		persistir("Menubar",null, null, lmenubar,null);*/
 				
-		List<HashMap<String, String>> lmodalpanel = carregarCSVtoList("Modalpanel");
+		ServletContext ctx =(ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+		
+		List<HashMap<String, String>> lmodalpanel = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Modalpanel");
 		persistir("Modalpanel",null, null, lmodalpanel,null);
 		
 				
@@ -117,36 +121,26 @@ public  class entitats implements ActionListener, Serializable {
 					   		Class<?> outputType = f.getType();
 					   		String value = lpare.get(pairs.getKey().toString());
 					   		Object valorConvertit = value;
-				   		
-	
+				   			
 					   			if(Byte.class.equals(outputType)) {
-					   				//valorConvertit =  value.byteValue(); 
 					   				valorConvertit =  Byte.parseByte(value);
 							    }
-							    if(Short.class.equals(outputType)) {
-							    	//valorConvertit = ((Short) value).shortValue(); 
+							    if(Short.class.equals(outputType)) { 
 							    	valorConvertit = Short.parseShort(value);
 							    }
-							    if(Integer.class.equals(outputType)) {
-							    	//valorConvertit = ((Integer) value).intValue();		
+							    if(Integer.class.equals(outputType)) {	
 							    	valorConvertit = Integer.parseInt(value);
 							    }
-							    if(Long.class.equals(outputType)) {
-							    	//valorConvertit = ((Long) value).longValue(); 
+							    if(Long.class.equals(outputType)) { 
 							    	valorConvertit = Long.parseLong(value);
 							    }
 							    if(Float.class.equals(outputType)) {
-							    	//valorConvertit = ((Float) value).floatValue();
 							    	valorConvertit = Float.parseFloat(value);
 							    }
 							    if(Double.class.equals(outputType)) {
-							    	//valorConvertit = ((Double) value).doubleValue();
 							    	valorConvertit = Double.parseDouble(value);
 							    }
-						   		
-						   		//value = ConvertTo.convertir(outputType, value);
-							   	
-					   							   		
+					   						   		
 					   		pare.setProperty(pairs.getKey().toString(), valorConvertit);
 				       }
 						
@@ -194,8 +188,6 @@ public  class entitats implements ActionListener, Serializable {
 
 		} //for
 		
-
-		
 	} catch (Exception e) {
 		log.warning("Error");
 		// TODO Auto-generated catch block
@@ -205,10 +197,11 @@ public  class entitats implements ActionListener, Serializable {
 
 	}
 
-	}
+}
 	
 	
 	
+	@SuppressWarnings("unused")
 	private void persistirFilla(List<HashMap<String,String>> lfills,String classeFilla, List<String> classesPare ,List<String> relacionsPare ) {
 		
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -265,9 +258,6 @@ public  class entitats implements ActionListener, Serializable {
 				}
 							
 			}
-							
-					
-
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -277,7 +267,7 @@ public  class entitats implements ActionListener, Serializable {
 
 	}
 
-	}
+}
 	
 	
 	
@@ -371,6 +361,9 @@ public  class entitats implements ActionListener, Serializable {
 	
 				}
 			}
+			
+			breader.close();
+			
 			} catch (Exception e) {
 				
 				log.severe("Error carrega fitxer CSV " + fitxer + ".csv");
@@ -387,7 +380,6 @@ public  class entitats implements ActionListener, Serializable {
 	}
 	
 	
-	@Override
 	public void processAction(ActionEvent event)
 			throws AbortProcessingException {
 		// TODO Auto-generated method stub
