@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>deglobaparent</artifactId>
+  <packaging>pom</packaging>
+  <groupId>com.degloba</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+<properties>
+	<spring.version>3.2.0.RELEASE</spring.version>    
+	<hornetq.version>2.1.2.Final</hornetq.version> 	
+</properties>
+  
+<repositories>                 
+	<repository>                         
+		<id>org.springframework.maven.milestone</id>                         
+		<url>http://maven.springframework.org/milestone </url>                 
+	</repository>         
+</repositories> 
+
+       
+<dependencyManagement>
+       
+	<dependencies>
+       
+       <!--  Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>     
+       
+		<dependency>                         
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-tx</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-orm</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>
+	
+		<!--  -->
+		<dependency>                         
+	  		<groupId>javax.inject</groupId>                         
+	  		<artifactId>javax.inject</artifactId>                         
+	  		<version>1</version>                 
+		</dependency> 
+		
+		
+		<!-- HornetQ -->
+		<dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-core</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-jms</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-logging</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+        
+        
+		<!-- JPA persistencia -->	
+		<dependency>  
+			<groupId>org.apache.geronimo.specs</groupId>  
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>  
+			<version>1.1</version>  
+		</dependency>   
+		
+		<!--  JSF 2.2 -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.4</version>
+		</dependency>     
+	
+	</dependencies>
+	
+	</dependencyManagement>
+
+</project>
