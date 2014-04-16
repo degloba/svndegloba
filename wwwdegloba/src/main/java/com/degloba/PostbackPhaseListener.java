@@ -10,14 +10,18 @@ import javax.faces.event.PhaseListener;
 
 public class PostbackPhaseListener implements PhaseListener {
 
-    public static final String POSTBACK_ATTRIBUTE_NAME = PostbackPhaseListener.class.getName();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public static final String POSTBACK_ATTRIBUTE_NAME = PostbackPhaseListener.class.getName();
     
     public void afterPhase(PhaseEvent event) {
     }
 
     public void beforePhase(PhaseEvent event) {
         FacesContext facesContext = event.getFacesContext();
-        Map requestMap = facesContext.getExternalContext().getRequestMap();
+        Map<String, Object> requestMap = facesContext.getExternalContext().getRequestMap();
         requestMap.put(POSTBACK_ATTRIBUTE_NAME, Boolean.TRUE);
     }
 

@@ -41,7 +41,7 @@ public class noticies {
 
 
 	public void setNumPag(int numPag) {
-		this.numPag = numPag;
+		noticies.numPag = numPag;
 	}
 
 
@@ -61,7 +61,7 @@ public class noticies {
 			
 		try {
 				
-			// Recuperem nomes els items de la pagina en què estem
+			// Recuperem nomes els items de la pagina en quï¿½ estem
 				
 			itemsTemp = s.getMultipleItems(14);
 				

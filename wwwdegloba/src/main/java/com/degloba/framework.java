@@ -14,12 +14,11 @@ public class framework {
 	}
 
 
-	public framework(String nom,String tecnologia, String descripcio, String tipus) {
+	public framework(String nom,String tecnologia, String descripcio) {
 		super();
 		this.nom = nom;
 		this.tecnologia = tecnologia;
 		this.descripcio = descripcio;
-		this.tipus = tipus;
 	}
 
 
