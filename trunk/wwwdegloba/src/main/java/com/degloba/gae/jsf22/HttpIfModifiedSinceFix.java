@@ -31,7 +31,6 @@ public class HttpIfModifiedSinceFix implements Filter {
 	 *  Called by the web container to indicate to a filter that it is being 
 	 *  taken out of service.
 	 */
-	@Override
 	public void destroy() {
 		logger.entering(_CLASS,"destroy()");
 		logger.exiting(_CLASS,"destroy()");
@@ -42,7 +41,6 @@ public class HttpIfModifiedSinceFix implements Filter {
 	 * each time a request/response pair is passed through the chain due to a 
 	 * client request for a resource at the end of the chain.
 	 */
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		logger.entering(_CLASS,
@@ -63,7 +61,6 @@ public class HttpIfModifiedSinceFix implements Filter {
 	 * Called by the web container to indicate to a filter that it is being 
 	 * placed into service.
 	 */
-	@Override
 	public void init(FilterConfig config) throws ServletException {
 		logger.entering(_CLASS,"init(FilterConfig)",config);
 		logger.exiting(_CLASS,"init(FilterConfig)");
