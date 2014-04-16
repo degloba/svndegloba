@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -78,7 +77,7 @@ public class ObjecteNode implements ActionListener {
 				    while (rs.next())
 		            	{
 		            	
-					  		Class cl = Class.forName(nomObjecte);
+					  		Class<?> cl = Class.forName(nomObjecte);
 
 					  		ObjecteNode obj =(ObjecteNode) cl.newInstance();
 					  		obj.setIdArbre(rs.getInt("IDARBRE"));   // id dins l'arbre de l'objecte
@@ -116,14 +115,14 @@ public class ObjecteNode implements ActionListener {
                 ArrayList<Object> nodes =  resourceObjectes;
                 children = new ArrayList<ObjecteNode>();
                 
-                Iterator itNodes = nodes.iterator();
+                Iterator<Object> itNodes = nodes.iterator();
                 while (itNodes.hasNext())
                 {
                 	Object objNode = itNodes.next();
-                	int idArbre = ((ObjecteNode)objNode).getIdArbre(); // conté  l'ID dins l'arbre de l'objecte
-                    int idAnterior = ((ObjecteNode)objNode).getIdAnterior(); // conté  l'IDAnterior de l'bjecte dins l'arbre
+                	int idArbre = ((ObjecteNode)objNode).getIdArbre(); // contï¿½  l'ID dins l'arbre de l'objecte
+                    int idAnterior = ((ObjecteNode)objNode).getIdAnterior(); // contï¿½  l'IDAnterior de l'bjecte dins l'arbre
                     String titol = ((ObjecteNode)objNode).getAbrev(); // 
-                    String descripcio = ((ObjecteNode)objNode).getDescripcio(); // conté el texte que ha de sortir de l'objecte dins l'arbre
+                    String descripcio = ((ObjecteNode)objNode).getDescripcio(); // contï¿½ el texte que ha de sortir de l'objecte dins l'arbre
                     
                     Boolean fulla = ((ObjecteNode)objNode).esFulla(nomObjecte,idArbre);
                     //if (!fulla)
