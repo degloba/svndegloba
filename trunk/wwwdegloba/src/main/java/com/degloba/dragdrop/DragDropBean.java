@@ -54,7 +54,7 @@ public abstract class DragDropBean<T> implements Serializable {
         setSource(Lists.newArrayList());
         setTarget(Lists.newArrayList());
         
-        Iterator iter = novaLlista.iterator();
+        Iterator<T> iter = novaLlista.iterator();
         while (iter.hasNext())
         {
            	getSource().add((T) iter.next());
