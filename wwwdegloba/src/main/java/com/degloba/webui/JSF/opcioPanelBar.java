@@ -1,26 +1,18 @@
 package com.degloba.webui.JSF;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
+
 import java.util.Map;
 
-import javax.faces.context.FacesContext;
-import javax.faces.event.AbortProcessingException;
-
 import org.richfaces.event.ItemChangeEvent;
-import org.richfaces.event.ItemChangeListener;
-import org.richfaces.component.UIAccordionItem;
 
 public class opcioPanelBar {
 	
-	private static HashMap<String,Boolean> visibles=new HashMap<String,Boolean>();
+	private HashMap<String,Boolean> visibles=new HashMap<String,Boolean>();
 	private String item;
 	
-	
-
 	public String getItem() {
 		return item;
 	}
@@ -48,9 +40,8 @@ public class opcioPanelBar {
 	
 	public void reset ()
 	{
-		int seguent;
 		
-		Iterator it = visibles.entrySet().iterator();
+		Iterator<?> it = visibles.entrySet().iterator();
 		
 		while (it.hasNext()) {
 			Map.Entry e = (Map.Entry)it.next();
@@ -65,8 +56,6 @@ public class opcioPanelBar {
 	public void setVisibles(HashMap<String,Boolean> visibles) {
 		this.visibles = visibles;
 	}
-
-
 
 	
     public void itemChangeActionListener(ItemChangeEvent event) {

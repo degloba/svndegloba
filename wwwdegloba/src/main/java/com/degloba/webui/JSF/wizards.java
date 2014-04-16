@@ -136,7 +136,7 @@ public class wizards implements ActionListener{
 	
 	private void omplirWizards() {
 		
-		Statement stmt = null;
+		/*Statement stmt = null;
 		ResultSet rs = null;
 		
 		try {
@@ -173,7 +173,7 @@ public class wizards implements ActionListener{
 			    System.out.println("SQLException: " + ex.getMessage());
 			    System.out.println("SQLState: " + ex.getSQLState());
 			    System.out.println("VendorError: " + ex.getErrorCode());
-		}
+		}*/
 		
 		this.setItems(this.items);
 	}
@@ -223,12 +223,11 @@ public class wizards implements ActionListener{
 	private ArrayList<jspgrafic> carregaJSPGRAFIC(wizard wz)
 	{
 		
-		Statement stmt = null;
-		ResultSet rs = null;
-		
+	
 		ArrayList<jspgrafic> jspgrafics = new ArrayList<jspgrafic>();
+		return jspgrafics;
 		
-		try {
+		/*try {
 			
 	    	
 	        if (stmt.execute("SELECT JSPGRAFIC FROM wizards WHERE WIZARDID=" + wz.getId())) {
@@ -251,7 +250,7 @@ public class wizards implements ActionListener{
 			
 			wz.setJspsgrafics(jspgrafics);
 	
-	return jspgrafics;
+	return jspgrafics;*/
 		
 	}
 	
