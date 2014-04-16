@@ -1,7 +1,6 @@
 package com.degloba;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -68,7 +67,7 @@ public ExtendedTableBean(String nomObjecte) {  // exemple : RssItem
 	 Object objecte = new Object();
 		
 		try {
-			Class cl = Class.forName(nomObjecte);
+			Class<?> cl = Class.forName(nomObjecte);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
