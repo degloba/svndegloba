@@ -3,7 +3,6 @@ package com.degloba.canals;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -200,7 +199,6 @@ public class clientTwitter {
 		
 		public static void connect()
 		{
-		
 
 	        File file = new File("twitter4j.properties");
 	        Properties prop = new Properties();
@@ -299,7 +297,7 @@ public class clientTwitter {
 				e.printStackTrace();
 			}*/
 			
-			
+			connect();
 			
 			userLists();  // LLISTES DEFINIDES (EX: @degloba/cloud , @degloba/soa , ...)
 			followers();  // SEGUIDORS
