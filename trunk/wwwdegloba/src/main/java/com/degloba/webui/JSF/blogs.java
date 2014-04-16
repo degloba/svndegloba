@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.Logger;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
@@ -88,7 +87,7 @@ public class blogs implements ActionListener{
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
 		visiblePanellDegloba visiblePanellDegloba = (visiblePanellDegloba)session.getAttribute("visiblePanellDegloba");
 		
-		//Només si el panell de l'esquema degloba esta visible cal modificar la visibilitat
+		//Nomï¿½s si el panell de l'esquema degloba esta visible cal modificar la visibilitat
 		if (visiblePanellDegloba.getVisible())
 			visiblePanellDegloba.cambiaVisible();
 		/******************************************************************************************/
@@ -98,7 +97,7 @@ public class blogs implements ActionListener{
 		String quinBlog = event.getComponent().getAttributes().get("quinBlog").toString();
 		setAccio(event.getComponent().getAttributes().get("accio").toString());
 		
-		Iterator iterador =items.listIterator();
+		Iterator<blog> iterador =items.listIterator();
 		
 		while (iterador.hasNext())
 		{
@@ -194,7 +193,7 @@ public class blogs implements ActionListener{
 		
 		try {
 			
-			// Recuperem nomes els items del Blog de la pagina en què estem
+			// Recuperem nomes els items del Blog de la pagina en quï¿½ estem
 			
 			itemsTemp = s.getMultipleItems(14);
 			
@@ -380,7 +379,7 @@ public class blogs implements ActionListener{
 
 
 	public void setTitolActiu(String titolActiu) {
-		this.titolActiu = titolActiu;
+		blogs.titolActiu = titolActiu;
 	}
 	
 	
@@ -391,7 +390,7 @@ public class blogs implements ActionListener{
 
 
 	public void setDescripcioBlogActiu(String descripcioBlogActiu) {
-		this.descripcioBlogActiu = descripcioBlogActiu;
+		blogs.descripcioBlogActiu = descripcioBlogActiu;
 	}
 
 
@@ -447,7 +446,7 @@ public class blogs implements ActionListener{
 
 
 	public void setNumPag(int numPag) {
-		this.numPag = numPag;
+		blogs.numPag = numPag;
 	}
 
 
