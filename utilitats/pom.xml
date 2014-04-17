@@ -83,10 +83,8 @@
 	<dependency>
 		<groupId>javax.jdo</groupId>
 		<artifactId>jdo-api</artifactId>
-		<version>3.0.1</version>
 	</dependency>
-
-        
+      
         
 	<dependency>
 		<groupId>org.apache.commons</groupId>
