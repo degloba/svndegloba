@@ -17,6 +17,12 @@ public class Probability {
 	@Transient
 	private MathContext mathContext = MathContext.DECIMAL32;
 	
+	
+	public Probability() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private Probability(BigDecimal value){
 		this.value = value;
 	}
