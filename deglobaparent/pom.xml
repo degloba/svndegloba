@@ -9,6 +9,7 @@
 	<spring.version>3.2.0.RELEASE</spring.version>    
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
 	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>	
+	<gae.version>1.9.3</gae.version>
 </properties>
   
 <repositories>   
@@ -23,8 +24,9 @@
 </repositories> 
 
        
+      
 <dependencyManagement>
-       
+
 	<dependencies>
        
        <!--  Spring -->
@@ -149,7 +151,38 @@
 	            <version>2.1.0</version>
 	        </dependency>	
 			
-		
+			<!-- Google Appengine -->
+		<dependency>            
+			<groupId>com.google.appengine</groupId>            
+			<artifactId>appengine-testing</artifactId>            
+			<version>${gae.version}</version>            
+			<scope>test</scope>        
+		</dependency>       		 
+		<dependency>            
+			<groupId>com.google.appengine</groupId>            
+			<artifactId>appengine-api-stubs</artifactId>            
+			<version>${gae.version}</version>            
+			<scope>test</scope>        
+		</dependency>		
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-remote-api</artifactId>
+			<version>${gae.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-jsr107cache</artifactId>
+			<version>${gae.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	<dependency>
+		<groupId>com.google.appengine</groupId>
+		<artifactId>appengine-api-1.0-sdk</artifactId>
+		<version>${gae.version}</version>
+	</dependency>
         
 	
 	</dependencies>
