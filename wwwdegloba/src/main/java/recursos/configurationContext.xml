@@ -177,4 +177,33 @@
 	<bean id="noticies" name="noticies" class="com.degloba.noticies"
 		scope="request">
 	</bean>
+	<bean id="idioma" name="idioma" class="idioma" scope="session"></bean>
+	<bean id="framework" name="framework"
+		class="com.degloba.domain.Framework" scope="session">
+	</bean>
+	<bean id="visiblePanellDegloba" name="visiblePanellDegloba"
+		class="com.degloba.visiblePanellDegloba" scope="session">
+	</bean>
+	<bean id="opcioPanelBar" name="opcioPanelBar"
+		class="com.degloba.webui.JSF.opcioPanelBar" scope="session">
+	</bean>
+	<bean id="item" name="item" class="com.degloba.item"
+		scope="session">
+	</bean>
+	<bean id="jboss" name="jboss" class="com.degloba.jboss"
+		scope="session">
+	</bean>
+	<bean id="jsp" name="jsp" class="com.degloba.jsp" scope="request"></bean>
+	<bean id="objecteNode" name="objecteNode"
+		class="com.degloba.ObjecteNode" scope="session">
+	</bean>
+	<bean id="objecteBean" name="objecteBean"
+		class="com.degloba.ObjecteBean" scope="session">
+	</bean>
+	<bean id="tooltips" name="tooltips"
+		class="com.degloba.webui.JSF.tooltips" scope="session">
+	</bean>
+	<bean id="blogs" name="blogs" class="com.degloba.webui.JSF.blogs"
+		scope="session">
+	</bean>
 </beans>
