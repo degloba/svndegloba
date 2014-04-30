@@ -8,26 +8,6 @@
   <converter-id>listShuttleconverter</converter-id>
   <converter-class>listShuttleConverter</converter-class>
  </converter>
- <managed-bean>
-  <managed-bean-name>idioma</managed-bean-name>
-  <managed-bean-class>idioma</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
-  <managed-property>
-   <property-name>españolEnabled</property-name>
-   <property-class>java.lang.Boolean</property-class>
-   <value>true</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>client2</managed-bean-name>
-  <managed-bean-class>client2</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>framework</managed-bean-name>
-  <managed-bean-class>framework</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
 
  <managed-bean>
   <managed-bean-name>frameworks</managed-bean-name>
@@ -36,97 +16,6 @@
   <managed-property>
    <property-name>frameworks</property-name>
    <list-entries/>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>toolBar</managed-bean-name>
-  <managed-bean-class>toolBar</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
-  <managed-property>
-   <property-name>freeItems</property-name>
-   <list-entries/>
-  </managed-property>
-  <managed-property>
-   <property-name>toolBarItems</property-name>
-   <list-entries/>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>item</managed-bean-name>
-  <managed-bean-class>item</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>visiblePanellDegloba</managed-bean-name>
-  <managed-bean-class>visiblePanellDegloba</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
-  <managed-property>
-   <property-name>visible</property-name>
-   <property-class>java.lang.Boolean</property-class>
-   <value>true</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>documents</managed-bean-name>
-  <managed-bean-class>documents</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>richBean</managed-bean-name>
-  <managed-bean-class>JavaBeatRichfacesBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>report</managed-bean-name>
-  <managed-bean-class>report</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>registre</managed-bean-name>
-  <managed-bean-class>registre</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>depesa</managed-bean-name>
-  <managed-bean-class>despesa</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>jboss</managed-bean-name>
-  <managed-bean-class>jboss</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>tecnologia</managed-bean-name>
-  <managed-bean-class>tecnologia</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>dropDownMenu</managed-bean-name>
-  <managed-bean-class>dropDownMenu</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>menuBar</managed-bean-name>
-  <managed-bean-class>menuBar</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>menuItem</managed-bean-name>
-  <managed-bean-class>menuItem</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>menu</managed-bean-name>
-  <managed-bean-class>menuItem</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
-  <managed-property>
-   <property-name>current</property-name>
-   <value/>
-  </managed-property>
-  <managed-property>
-   <property-name>menuItemSeleccionat</property-name>
-   <value/>
   </managed-property>
  </managed-bean>
  <!--  MODALPANELS  -->
@@ -151,22 +40,7 @@
   </managed-property>
    
  </managed-bean>
- <managed-bean>
-  <managed-bean-name>wizard</managed-bean-name>
-  <managed-bean-class>wizard</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
  <!--  TOOLTIPS  -->
- <managed-bean>
-  <managed-bean-name>tooltips</managed-bean-name>
-  <managed-bean-class>tooltips</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>tooltip</managed-bean-name>
-  <managed-bean-class>tooltip</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
  <managed-bean>
   <managed-bean-name>blogs</managed-bean-name>
   <managed-bean-class>blogs</managed-bean-class>
@@ -186,50 +60,7 @@
    <value/>
   </managed-property>  
  </managed-bean>
- 
- <managed-bean>
-  <managed-bean-name>blog</managed-bean-name>
-  <managed-bean-class>blog</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>opcioPanelBar</managed-bean-name>
-  <managed-bean-class>opcioPanelBar</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
  <!--  NOTICIES  -->
- <managed-bean>
-  <managed-bean-name>noticies</managed-bean-name>
-  <managed-bean-class>noticies</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>jsp</managed-bean-name>
-  <managed-bean-class>jsp</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>ObjecteBean</managed-bean-name>
-  <managed-bean-class>ObjecteBean</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>ObjecteNode</managed-bean-name>
-  <managed-bean-class>ObjecteNode</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>extendedTableBean</managed-bean-name>
-  <managed-bean-class>ExtendedTableBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- 
- 
-  <managed-bean>
-  <managed-bean-name>extendedTableRss</managed-bean-name>
-  <managed-bean-class>extendedTableRss</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
  <application>     
      <lifecycle>
 		<phase-listener>com.degloba.gae.jsf22.SessionPhaseListener</phase-listener>
