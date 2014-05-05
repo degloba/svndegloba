@@ -29,13 +29,12 @@
 
 	<dependencies>
        
-       <!--  Spring -->
+    <!--  Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-web</artifactId>                         
 			<version>${spring.version}</version>                 
 		</dependency>     
-       
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-webmvc</artifactId>                         
@@ -62,20 +61,20 @@
 		
 		<!-- HornetQ -->
 		<dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-core</artifactId>
-            <version>${hornetq.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-jms</artifactId>
-            <version>${hornetq.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-logging</artifactId>
-            <version>${hornetq.version}</version>
-        </dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-core</artifactId>
+        <version>${hornetq.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-jms</artifactId>
+        <version>${hornetq.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-logging</artifactId>
+        <version>${hornetq.version}</version>
+    </dependency>
  		
 		<!--  JSF 2.2 -->
 		<dependency>
@@ -93,14 +92,12 @@
 		
 		<!--  -->
 		<dependency>
-        	<groupId>commons-validator</groupId>
-        	<artifactId>commons-validator</artifactId>
-        	<version>1.4.0</version>
-        </dependency>		
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>1.4.0</version>
+    </dependency>		
         
-        
-        
-        <!-- DataNucleus v2 -->	
+    <!-- DataNucleus v2 -->	
 		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
@@ -116,10 +113,10 @@
 				</exclusion>	                
 			</exclusions>
 		</dependency>
-        <dependency>
+    <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
-                <version>${datanucleus.jpa.version}</version>
+      <version>${datanucleus.jpa.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
@@ -143,15 +140,14 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency> 
-
 	
-			<dependency>
-	            <groupId>org.eclipse.persistence</groupId>
-	            <artifactId>javax.persistence</artifactId>
-	            <version>2.1.0</version>
-	        </dependency>	
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>javax.persistence</artifactId>
+      <version>2.1.0</version>
+    </dependency>	
 			
-			<!-- Google Appengine -->
+    <!-- Google Appengine -->
 		<dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-testing</artifactId>            
