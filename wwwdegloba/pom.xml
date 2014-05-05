@@ -160,16 +160,15 @@
 
       
     <dependencies>
-      
        
-    	<dependency>
+        <dependency>
             <groupId>org.jboss.netty</groupId>
             <artifactId>netty</artifactId>
             <version>3.2.2.Final</version>
         </dependency>
 
 
-		<!-- HornetQ -->
+      <!-- HornetQ -->
     	<dependency>
             <groupId>org.hornetq</groupId>
             <artifactId>hornetq-core</artifactId>
@@ -184,22 +183,22 @@
         </dependency>
   
     
-    	<!-- Richfaces -->
+    <!-- Richfaces -->
 		<dependency>
     		<groupId>org.richfaces.core</groupId>
     		<artifactId>richfaces-core-api</artifactId>
     		<type>jar</type>
     		<scope>compile</scope>
     	</dependency>
-        <dependency>
+      <dependency>
             <groupId>org.richfaces.ui</groupId>
             <artifactId>richfaces-components-ui</artifactId>
-        </dependency>
-        <dependency>
+      </dependency>
+      <dependency>
             <groupId>org.richfaces.core</groupId>
             <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
-		<dependency>
+      </dependency>
+      <dependency>
 	    	<groupId>org.richfaces.cdk</groupId>
 	    	<artifactId>annotations</artifactId>
 	    	<version>${org.richfaces.bom.version}</version>
@@ -207,8 +206,7 @@
 	    	<scope>compile</scope>
     	</dependency>        
 
-
-        <dependency>
+      <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>  
@@ -356,14 +354,13 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
-        
-		<dependency>
-			<groupId>org.twitter4j</groupId>
-			<artifactId>twitter4j-appengine</artifactId>
-			<version>3.0.5</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>        
+        <dependency>
+           <groupId>org.twitter4j</groupId>
+           <artifactId>twitter4j-appengine</artifactId>
+           <version>3.0.5</version>
+           <type>jar</type>
+           <scope>compile</scope>
+        </dependency>        
                 
 
           
