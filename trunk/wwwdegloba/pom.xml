@@ -244,6 +244,7 @@
             <scope>runtime</scope>
         </dependency>
                 
+    <!-- slf4j : simple facade or abstraction for various logging frameworks e.g. java.util.logging, logback, log4j -->
 		<dependency>
     		<groupId>org.slf4j</groupId>
     		<artifactId>slf4j-simple</artifactId>
@@ -251,6 +252,8 @@
     		<type>jar</type>
     		<scope>compile</scope>
 	    </dependency>
+       
+      <!--JDBC driver for Microsoft SQL Server-->       
 	    <dependency>
 	    	<groupId>net.sourceforge.jtds</groupId>
 	    	<artifactId>jtds</artifactId>
@@ -437,9 +440,9 @@
 
 	
 			<dependency>
-	            <groupId>org.eclipse.persistence</groupId>
-	            <artifactId>javax.persistence</artifactId>
-	            </dependency>	
+          <groupId>org.eclipse.persistence</groupId>
+          <artifactId>javax.persistence</artifactId>
+      </dependency>	
 			
 		
 		<!-- Spring -->
