@@ -3,7 +3,7 @@
   <artifactId>cqrs</artifactId>
   <version>0.0.2-SNAPSHOT</version>
   
-  	<parent>
+  <parent>
 		<groupId>com.degloba</groupId>
 		<artifactId>deglobaparent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
@@ -13,8 +13,8 @@
 <dependencies>
   
 	<dependency>                         
-	  		<groupId>javax.inject</groupId>                         
-	  		<artifactId>javax.inject</artifactId>                         
+    <groupId>javax.inject</groupId>                         
+    <artifactId>javax.inject</artifactId>                         
 	</dependency> 
 	  
 	  
