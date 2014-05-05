@@ -48,7 +48,7 @@
     </dependency>
     
     
-    <!-- HornetQ -->
+  <!-- HornetQ -->
 	<dependency>
 		<groupId>org.hornetq</groupId>
 		<artifactId>hornetq-core</artifactId>
