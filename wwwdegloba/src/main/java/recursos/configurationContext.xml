@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
@@ -12,174 +11,150 @@
 
 
 	<!-- BEANS JSF GESTIONAT PER SPRING -->
-	
-	<bean id="modalPanels" class="com.degloba.webui.JSF.modalPanels" scope="request">
+
+	<bean id="modalPanels" class="com.degloba.webui.JSF.modalPanels"
+		scope="request">
 		<property name="modalpanelsFinder">
-			<ref bean="modalpanelsFinder"/>
+			<ref bean="modalpanelsFinder" />
 		</property>
 	</bean>
-	
-	
+
+
 
 	<!-- REPOSITORIS -->
-<!-- 	<bean id="orderRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaOrderRepository" />
-	<bean id="invoiceRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInvoiceRepository" />
-	<bean id="productRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProductRepository" />
-	<bean id="caracteristiquesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCaracteristiquesRepository" />
-	<bean id="ciutatsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCiutatsRepository" />
-	<bean id="inmoblesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInmoblesRepository" />
-	<bean id="provinciesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProvinciesRepository" />
-	<bean id="solicitudsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaSolicitudsRepository" />
-	<bean id="tipusRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaTipusRepository" />
-	<bean id="usuarisRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaUsuarisRepository" /> -->
-	
-	
-	
-	<!-- SERVEIS DE DOMINI -->
-	
-<!-- 	<bean id="invoicingService" class="com.insacosa.domain.InvoicingService" >
-	    <property name="productRepository" ref="productRepository"></property>
-	</bean> -->
+	<!-- <bean id="orderRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaOrderRepository" 
+		/> <bean id="invoiceRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInvoiceRepository" 
+		/> <bean id="productRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProductRepository" 
+		/> <bean id="caracteristiquesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCaracteristiquesRepository" 
+		/> <bean id="ciutatsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCiutatsRepository" 
+		/> <bean id="inmoblesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInmoblesRepository" 
+		/> <bean id="provinciesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProvinciesRepository" 
+		/> <bean id="solicitudsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaSolicitudsRepository" 
+		/> <bean id="tipusRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaTipusRepository" 
+		/> <bean id="usuarisRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaUsuarisRepository" 
+		/> -->
 
-	
+
+
+	<!-- SERVEIS DE DOMINI -->
+
+	<!-- <bean id="invoicingService" class="com.insacosa.domain.InvoicingService" 
+		> <property name="productRepository" ref="productRepository"></property> 
+		</bean> -->
+
+
 	<!-- FACTORIES -->
-	
-<!-- 	<bean id="orderFactory" class="writer.NiceWriter" />
-	<bean id="invoiceRepository" class="writer.NiceWriter" />
-	<bean id="orderRepository" class="writer.NiceWriter" /> -->
-	
+
+	<!-- <bean id="orderFactory" class="writer.NiceWriter" /> <bean id="invoiceRepository" 
+		class="writer.NiceWriter" /> <bean id="orderRepository" class="writer.NiceWriter" 
+		/> -->
+
 	<!-- SYSTEM USER -->
-	
-<!-- 	<bean id="systemUser" class="writer.NiceWriter" /> -->
-	
-	
+
+	<!-- <bean id="systemUser" class="writer.NiceWriter" /> -->
+
+
 	<!-- EVENT PUBLISHER -->
-	
-<!-- 	<bean id="eventPublisher" class="writer.NiceWriter" /> -->
-	
-		
+
+	<!-- <bean id="eventPublisher" class="writer.NiceWriter" /> -->
+
+
 	<!-- FINDERS -->
-	<bean id="modalpanelsFinder" class="com.degloba.readmodel.impl.JpaModalpanelsFinder"/>
-	
-	
+	<bean id="modalpanelsFinder" class="com.degloba.readmodel.impl.JpaModalpanelsFinder" />
+
+
 	<!-- SERVEIS D'APLICACIO -->
-		
-<!-- 	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
-		<property name="orderRepository" ref="orderRepository" />
-		<property name="orderFactory" ref="orderFactory" />
-		<property name="productRepository" ref="productRepository" />
-		<property name="invoiceRepository" ref="invoiceRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService">
-		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>	
-	
-	<bean id="ciutatsApplicationService" class="com.insacosa.application.services.CiutatsApplicationService">
-		<property name="ciutatsRepository" ref="ciutatsRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="inmoblesApplicationService" class="com.insacosa.application.services.InmoblesApplicationService">
-		<property name="inmoblesRepository" ref="inmoblesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="solicitudsApplicationService" class="com.insacosa.application.services.SolicitudsApplicationService">
-		<property name="solicitudsRepository" ref="solicitudsRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="provinciesApplicationService" class="com.insacosa.application.services.ProvinciesApplicationService">
-		<property name="provinciesRepository" ref="provinciesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="tipusApplicationService" class="com.insacosa.application.services.TipusApplicationService">
-		<property name="tipusRepository" ref="tipusRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="usuarisAplicationService" class="com.insacosa.application.services.UsuarisAplicationService">
-		<property name="usuarisRepository" ref="usuarisRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>	 -->
-	
+
+	<!-- <bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService"> 
+		<property name="orderRepository" ref="orderRepository" /> <property name="orderFactory" 
+		ref="orderFactory" /> <property name="productRepository" ref="productRepository" 
+		/> <property name="invoiceRepository" ref="invoiceRepository" /> <property 
+		name="invoicingService" ref="invoicingService" /> <property name="systemUser" 
+		ref="systemUser" /> <property name="eventPublisher" ref="eventPublisher" 
+		/> </bean> <bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService"> 
+		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" 
+		/> <property name="invoicingService" ref="invoicingService" /> <property 
+		name="systemUser" ref="systemUser" /> <property name="eventPublisher" ref="eventPublisher" 
+		/> </bean> <bean id="ciutatsApplicationService" class="com.insacosa.application.services.CiutatsApplicationService"> 
+		<property name="ciutatsRepository" ref="ciutatsRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> <bean id="inmoblesApplicationService" 
+		class="com.insacosa.application.services.InmoblesApplicationService"> <property 
+		name="inmoblesRepository" ref="inmoblesRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> <bean id="solicitudsApplicationService" 
+		class="com.insacosa.application.services.SolicitudsApplicationService"> <property 
+		name="solicitudsRepository" ref="solicitudsRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> <bean id="provinciesApplicationService" 
+		class="com.insacosa.application.services.ProvinciesApplicationService"> <property 
+		name="provinciesRepository" ref="provinciesRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> <bean id="tipusApplicationService" 
+		class="com.insacosa.application.services.TipusApplicationService"> <property 
+		name="tipusRepository" ref="tipusRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> <bean id="usuarisAplicationService" 
+		class="com.insacosa.application.services.UsuarisAplicationService"> <property 
+		name="usuarisRepository" ref="usuarisRepository" /> <property name="invoicingService" 
+		ref="invoicingService" /> <property name="systemUser" ref="systemUser" /> 
+		<property name="eventPublisher" ref="eventPublisher" /> </bean> -->
+
 
 
 	<bean id="carregarEntitats" class="com.degloba.entitats" />
 
 	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA -->
 
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
-          <property name="persistenceUnitName" value="transactions-optional" />
-    </bean>  
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"
+		lazy-init="true">
+		<property name="persistenceUnitName" value="transactions-optional" />
+	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />    
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
-		
-	<context:annotation-config/>
-		
+
+	<context:annotation-config />
+
 	<bean id="menu" class="com.degloba.menuItem" scope="request"></bean>
 	<bean id="toolbar" name="toolbar" class="com.degloba.toolBar"
 		scope="request">
 	</bean>
-	<bean id="tecnologia" name="tecnologia"
-		class="com.degloba.tecnologia" scope="request">
-	</bean>
-	<bean id="menubar" name="menubar"
-		class="com.degloba.webui.JSF.menuBar" scope="request">
-	</bean>
-	<bean id="dropDownMenu" name="dropDownMenu"
-		class="com.degloba.dropDownMenu" scope="request">
-	</bean>
-	<bean id="wizard" name="wizard" class="com.degloba.wizard"
+	<bean id="tecnologia" name="tecnologia" class="com.degloba.tecnologia"
 		scope="request">
 	</bean>
-	<bean id="blog" name="blog" class="com.degloba.blog"
+	<bean id="menubar" name="menubar" class="com.degloba.webui.JSF.menuBar"
 		scope="request">
+	</bean>
+	<bean id="dropDownMenu" name="dropDownMenu" class="com.degloba.dropDownMenu"
+		scope="request">
+	</bean>
+	<bean id="wizard" name="wizard" class="com.degloba.wizard" scope="request">
+	</bean>
+	<bean id="blog" name="blog" class="com.degloba.blog" scope="request">
 	</bean>
 	<bean id="tooltip" name="tooltip" class="com.degloba.tooltip"
 		scope="request">
 	</bean>
-	<bean id="extendedTableBean" name="extendedTableBean"
-		class="com.degloba.ExtendedTableBean" scope="request">
+	<bean id="extendedTableBean" name="extendedTableBean" class="com.degloba.ExtendedTableBean"
+		scope="request">
 	</bean>
-	<bean id="extendedTableRss" name="extendedTableRss"
-		class="com.degloba.extendedTableRss" scope="request">
-	</bean>
-	<bean id="menu" name="menu" class="com.degloba.menuItem"
+	<bean id="extendedTableRss" name="extendedTableRss" class="com.degloba.extendedTableRss"
 		scope="request">
 	</bean>
 	<bean id="noticies" name="noticies" class="com.degloba.noticies"
 		scope="request">
 	</bean>
 	<bean id="idioma" name="idioma" class="idioma" scope="session"></bean>
-	<bean id="framework" name="framework"
-		class="com.degloba.domain.Framework" scope="session">
+	<bean id="framework" name="framework" class="com.degloba.domain.Framework"
+		scope="session">
 	</bean>
 	<bean id="visiblePanellDegloba" name="visiblePanellDegloba"
 		class="com.degloba.visiblePanellDegloba" scope="session">
@@ -187,21 +162,19 @@
 	<bean id="opcioPanelBar" name="opcioPanelBar"
 		class="com.degloba.webui.JSF.opcioPanelBar" scope="session">
 	</bean>
-	<bean id="item" name="item" class="com.degloba.item"
-		scope="session">
+	<bean id="item" name="item" class="com.degloba.item" scope="session">
 	</bean>
-	<bean id="jboss" name="jboss" class="com.degloba.jboss"
-		scope="session">
+	<bean id="jboss" name="jboss" class="com.degloba.jboss" scope="session">
 	</bean>
 	<bean id="jsp" name="jsp" class="com.degloba.jsp" scope="request"></bean>
-	<bean id="objecteNode" name="objecteNode"
-		class="com.degloba.ObjecteNode" scope="session">
+	<bean id="objecteNode" name="objecteNode" class="com.degloba.ObjecteNode"
+		scope="session">
 	</bean>
-	<bean id="objecteBean" name="objecteBean"
-		class="com.degloba.ObjecteBean" scope="session">
+	<bean id="objecteBean" name="objecteBean" class="com.degloba.ObjecteBean"
+		scope="session">
 	</bean>
-	<bean id="tooltips" name="tooltips"
-		class="com.degloba.webui.JSF.tooltips" scope="session">
+	<bean id="tooltips" name="tooltips" class="com.degloba.webui.JSF.tooltips"
+		scope="session">
 	</bean>
 	<bean id="blogs" name="blogs" class="com.degloba.webui.JSF.blogs"
 		scope="session">
