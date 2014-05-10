@@ -459,16 +459,6 @@
 			<scope>compile</scope>
 		</dependency> 
 
-<!-- 	
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>javax.persistence</artifactId>
-		</dependency>	 -->
-			
-		
-		
-			
-		
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
