@@ -10,7 +10,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
   
- 
+	<properties> 
+        <gae.version>1.9.4</gae.version>
+	</properties>
+  
   
 <dependencies>
   
@@ -48,7 +51,7 @@
     </dependency>
     
     
-  <!-- HornetQ -->
+    <!-- HornetQ -->
 	<dependency>
 		<groupId>org.hornetq</groupId>
 		<artifactId>hornetq-core</artifactId>
@@ -75,8 +78,12 @@
 	<dependency>
 		<groupId>com.google.appengine</groupId>
 		<artifactId>appengine-api-1.0-sdk</artifactId>
+		<version>${gae.version}</version>
 	</dependency>
-
+	<dependency>
+		<groupId>javax.jdo</groupId>
+		<artifactId>jdo-api</artifactId>
+	</dependency>
       
         
 	<dependency>
