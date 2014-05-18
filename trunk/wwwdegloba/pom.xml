@@ -48,9 +48,15 @@
 
     <build>
         <finalName>wwwdegloba</finalName>
-        <plugins>
-
-             <plugin>
+          <pluginManagement>
+	        <plugins>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <version>3.0</version>
+	            </plugin>
+	            
+<plugin>
                 <groupId>org.richfaces.cdk</groupId>
                 <artifactId>maven-richfaces-resources-plugin</artifactId>
                 <version>${org.richfaces.bom.version}</version>
@@ -117,7 +123,22 @@
                 
                    
                 </executions>
-            </plugin>
+            </plugin>	            
+	        </plugins>
+		</pluginManagement>
+            
+        <plugins>
+        
+        
+		<plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+        
+             
     
             
             <plugin>
@@ -235,7 +256,6 @@
 		<dependency>
     		<groupId>org.slf4j</groupId>
     		<artifactId>slf4j-simple</artifactId>
-    		<version>1.6.1</version>
     		<type>jar</type>
     		<scope>compile</scope>
 	    </dependency>
@@ -330,8 +350,8 @@
         <!-- Google APIs -->
         <dependency>
         	<groupId>com.google.gdata</groupId>
-        	<artifactId>gdata-core</artifactId>
-        	<version>1.0</version>
+        	<artifactId>core</artifactId>
+        	<version>1.47.1</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
@@ -406,8 +426,9 @@
 <!-- Spring -->
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
-			<artifactId>spring-web</artifactId>                         
-		</dependency>  		
+			<artifactId>spring-web</artifactId>                                        
+		</dependency>    
+ 		
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-webmvc</artifactId>                                        
