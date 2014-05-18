@@ -8,7 +8,7 @@ public  class wizard  extends ObjecteNode{
 	private String abrev;  // Es correspon am idioma_XX.properties i la columna de la taula
 	private int ordre;
 	private ArrayList<jsp> jsps = new ArrayList<jsp>();
-	private ArrayList<jspgrafic> jspsgrafics = new ArrayList<jspgrafic>();  // url d'un HTML que conté un png/gif "desglossat" amb ImageCut 
+	private ArrayList<jspgrafic> jspsgrafics = new ArrayList<jspgrafic>();  // url d'un HTML que contÃ© un png/gif "desglossat" amb ImageCut 
 	private int idAnterior;  // id de l'anterior wizard dins l'arbre de wizards
 	private int idArbre;  // id dins l'arbre del wizard 
 	
