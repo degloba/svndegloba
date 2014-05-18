@@ -8,16 +8,6 @@
   <converter-id>listShuttleconverter</converter-id>
   <converter-class>listShuttleConverter</converter-class>
  </converter>
-
- <managed-bean>
-  <managed-bean-name>frameworks</managed-bean-name>
-  <managed-bean-class>frameworks</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
-  <managed-property>
-   <property-name>frameworks</property-name>
-   <list-entries/>
-  </managed-property>
- </managed-bean>
  <!--  MODALPANELS  -->
  <!--  <managed-bean>
   <managed-bean-name>modalPanels</managed-bean-name>
@@ -25,41 +15,7 @@
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean> -->
  <!--  WIZARDS  -->
- <managed-bean>
-  <managed-bean-name>wizards</managed-bean-name>
-  <managed-bean-class>wizards</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
-  <managed-property>
-   <property-name>estatWizards</property-name>
-   <list-entries/>
-  </managed-property>
-  <managed-property>
-   <property-name>descripcioWizardActiu</property-name>
-   <property-class>java.lang.String</property-class>
-   <value/>
-  </managed-property>
-   
- </managed-bean>
  <!--  TOOLTIPS  -->
- <managed-bean>
-  <managed-bean-name>blogs</managed-bean-name>
-  <managed-bean-class>blogs</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
-  <managed-property>
-   <property-name>estatBlogs</property-name>
-   <list-entries/>
-  </managed-property>
-  <managed-property>
-   <property-name>titolActiu</property-name>
-   <property-class>java.lang.String</property-class>
-   <value/>
-  </managed-property>
-   <managed-property>
-   <property-name>mostrar</property-name>
-   <property-class>java.lang.Boolean</property-class>
-   <value/>
-  </managed-property>  
- </managed-bean>
  <!--  NOTICIES  -->
  <application>     
      <lifecycle>
