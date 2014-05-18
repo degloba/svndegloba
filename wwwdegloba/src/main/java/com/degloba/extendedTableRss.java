@@ -8,7 +8,7 @@ import churchillobjects.rss4j.RssChannelItem;
 
 
 /*
- * És una classe ExtendedTableBean
+ * Es una classe ExtendedTableBean
  */
 public class extendedTableRss extends ExtendedTableBean {
 	
@@ -39,7 +39,7 @@ public class extendedTableRss extends ExtendedTableBean {
 		
 		try {
 			
-			// Recuperem nomes els items del Blog de la pagina en què estem
+			// Recuperem nomes els items del Blog de la pagina en quÃ¨ estem
 			
 			 setItems(s.getMultipleItems(14));
 			
