@@ -72,7 +72,7 @@ public class FacebookUserFilter implements Filter {
                         IFacebookRestClient<Document> userClient = getUserClient(session); 
                         if(userClient == null) {
                             logger.debug("User session doesn't have a Facebook API client setup yet. Creating one and storing it in the user's session.");
-                            userClient = new FacebookXmlRestClient(api_key, secret);  // client per connectar a l'aplicació degloba de Facebook
+                            userClient = new FacebookXmlRestClient(api_key, secret);  // client per connectar a l'aplicaciÃ³ degloba de Facebook
                             session.setAttribute(FACEBOOK_USER_CLIENT, userClient);
                         }
                         
