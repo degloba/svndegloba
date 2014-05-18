@@ -11,6 +11,7 @@
 	</parent>
   
 	<properties> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.version>1.9.4</gae.version>
 	</properties>
   
@@ -95,7 +96,7 @@
 	<!--  Spring -->				
 	<dependency>                         
 		<groupId>org.springframework</groupId> 
-		<artifactId>spring-web</artifactId>                                       
+		<artifactId>spring-webmvc</artifactId>                                       
 	</dependency>
 
 	<!--  JSF -->
