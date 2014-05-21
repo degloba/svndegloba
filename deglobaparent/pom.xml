@@ -81,7 +81,7 @@
             <version>${hornetq.version}</version>
         </dependency>
  		
-		<!--  JSF 2.2 -->
+		<!--  Glassfish conté JSF 2.2 (Mojarra) -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
