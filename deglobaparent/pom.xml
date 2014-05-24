@@ -81,12 +81,6 @@
             <version>${hornetq.version}</version>
         </dependency>
  		
-		<!--  Glassfish conté JSF 2.2 (Mojarra) -->
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.2.4</version>
-		</dependency>     
 		
 		<!--  -->
 		<dependency>
@@ -169,7 +163,23 @@
 		   	<scope>compile</scope>
 	    </dependency>
 
-	
+
+		<!--  Glassfish conté JSF 2.2 (Mojarra) 
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.4</version>  
+		</dependency>     -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.1.7</version>
+		</dependency>  
 	</dependencies>
 	
 	</dependencyManagement>
