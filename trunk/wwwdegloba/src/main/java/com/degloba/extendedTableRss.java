@@ -39,7 +39,7 @@ public class extendedTableRss extends ExtendedTableBean {
 		
 		try {
 			
-			// Recuperem nomes els items del Blog de la pagina en què estem
+			// Recuperem nomes els items del Blog de la pagina en que estem
 			
 			 setItems(s.getMultipleItems(14));
 			
