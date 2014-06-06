@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.faces-2.2.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jboss-el-api_2.2_spec.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jboss-el.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
