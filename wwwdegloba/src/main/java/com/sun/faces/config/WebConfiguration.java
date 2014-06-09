@@ -72,8 +72,7 @@ import javax.faces.lifecycle.Lifecycle;
 import javax.faces.lifecycle.LifecycleFactory;
 import javax.faces.validator.BeanValidator;
 import javax.faces.view.facelets.ResourceResolver;
- 
- 
+  
 /** Class Documentation */
 public class WebConfiguration {
  
@@ -245,7 +244,7 @@ public class WebConfiguration {
     public com.sun.faces.config.FaceletsConfiguration getFaceletsConfiguration() {
  
         if (null == faceletsConfig) {
-           // faceletsConfig = new FaceletsConfiguration(this);
+            faceletsConfig = new FaceletsConfiguration(this);
         }
         return faceletsConfig;
  
