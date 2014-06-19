@@ -56,7 +56,7 @@
 	                <version>2.5</version>
 	            </plugin>
 	            
-			<plugin>
+	            <plugin>
                 <groupId>org.richfaces.cdk</groupId>
                 <artifactId>maven-richfaces-resources-plugin</artifactId>
                 <version>${org.richfaces.bom.version}</version>
@@ -124,11 +124,14 @@
                    
                 </executions>
             </plugin>	            
+        
+		
 	        </plugins>
 		</pluginManagement>
             
         <plugins>
         
+        	
         
 		<plugin>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -145,8 +148,11 @@
             	<version>2.2</version>
             </plugin>
           
+          
+          
         </plugins>
-                
+               
+     
       
     </build>
 
@@ -275,15 +281,15 @@
 	    </dependency>
 	
 	    
-	    <dependency>
+	<!--     <dependency>
 	    	<groupId>javax.ejb</groupId>
 	    	<artifactId>ejb-api</artifactId>
 	    	<version>3.0</version>
 	    	<type>jar</type>
 	    	<scope>compile</scope>
-	    </dependency>
+	    </dependency> -->
 	    
-	    <!-- Lucene -->
+	    <!-- Lucene 
 	    <dependency>
 	    	<groupId>org.apache.lucene</groupId>
 	    	<artifactId>lucene-analyzers</artifactId>
@@ -297,7 +303,7 @@
 	    	<version>3.5.0</version>
 	    	<type>jar</type>
 	    	<scope>compile</scope>
-	    </dependency>
+	    </dependency>  -->
  
     	<dependency>
         	<groupId>commons-validator</groupId>
@@ -358,12 +364,12 @@
 
           
 		<!-- Google Appengine -->
-		<dependency>            
+		<!--  <dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-testing</artifactId>            
 			<version>${gae.version}</version>            
 			<scope>test</scope>        
-		</dependency>       		 
+		</dependency>     -->  		 
 		<dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-api-stubs</artifactId>            
@@ -400,7 +406,7 @@
 		</dependency>
 				
 
-<!-- Spring -->
+		<!-- Spring -->
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-web</artifactId>                                        
@@ -424,10 +430,10 @@
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
 			<exclusions>
-				<exclusion>
+				<!-- <exclusion>
 					<groupId>com.google.appengine</groupId>
 					<artifactId>appengine-api-1.0-sdk</artifactId>						
-				</exclusion>
+				</exclusion> -->
 				<exclusion>
 					<groupId>org.datanucleus</groupId>
 					<artifactId>datanucleus-enhancer</artifactId>		                					
@@ -506,18 +512,15 @@
 			<artifactId>cqrs</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
-
-
-
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>utilitats</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+		 <dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> 
     </dependencies>
 </project>
