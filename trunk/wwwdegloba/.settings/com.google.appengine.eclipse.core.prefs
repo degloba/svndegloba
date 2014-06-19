@@ -3,5 +3,6 @@ filesCopiedToWebInfLib=
 gaeDatanucleusVersion=v2
 gaeDeployDialogSettings=
 gaeHrdEnabled=true
+gaeLaunchAppInBrowser=false
 googleCloudSqlEnabled=false
 localDevMySqlEnabled=true
