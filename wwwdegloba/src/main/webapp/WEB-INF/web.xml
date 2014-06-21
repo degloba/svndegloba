@@ -6,7 +6,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 <display-name>wwwdegloba</display-name>
     <description>
-    	WebApp application configured to run on the Google AppEngine for Java.
+    	Aplicació web configurada per executar-se sobre Google AppEngine for Java.
    </description>
  
 <!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
@@ -22,9 +22,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</description>
 	<param-name>com.sun.faces.enableThreading</param-name>
 	<param-value>false</param-value>
- </context-param>
- 
- 
+</context-param>
+  
 <context-param>
 	<description>
 		Used to specify where the state should be saved.
@@ -35,8 +34,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 	<param-value>client</param-value>
 </context-param>
- 
-
   
 <!-- Configuracio dels "recursos" en Richfaces -->
 <!-- http://docs.jboss.org/richfaces/latest_4_1_X/Developer_Guide/en-US/html/chap-Developer_Guide-Advanced_features.html#sect-Developer_Guide-Advanced_features-Resource_mapping -->
@@ -98,25 +95,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </context-param>
  
  
- <!-- Expression Language -->
+<!-- Expression Language -->
  
- 	<context-param> 
-		 <param-name>com.sun.faces.expressionFactory</param-name> 
-		 <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
- 	</context-param>
+<context-param> 
+	<param-name>com.sun.faces.expressionFactory</param-name> 
+	<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+</context-param>
  
  
-	<!--  <context-param>
+<!--  <context-param>
         <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
         <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-    </context-param> -->
+</context-param> -->
     
 <!-- ***** Specify JBoss Expression Language Over Default 
 <context-param>     
 	<param-name>com.sun.faces.expressionFactory</param-name>
 	<param-value>org.jboss.el.ExpressionFactoryImpl</param-value>   
 </context-param> -->
-    
     
     
 <!-- Facebook -->
@@ -130,10 +126,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </context-param>
 
 
-
- 
- <welcome-file-list>
-<welcome-file>index.jsf</welcome-file>
+<welcome-file-list>
+	<welcome-file>index.jsf</welcome-file>
 </welcome-file-list>
  
  
@@ -223,6 +217,32 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
  
  <session-config>
   <session-timeout>0</session-timeout>
- </session-config>
+</session-config>
+ 
+ 
+ <servlet>
+		<servlet-name>TicTacToeServlet</servlet-name>
+		<servlet-class>com.degloba.servlets.channel.TicTacToeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TicTacToeServlet</servlet-name>
+		<url-pattern>/channel</url-pattern>
+	</servlet-mapping>
+  <!-- <servlet>
+    <servlet-name>OpenedServlet</servlet-name>
+    <servlet-class>com.degloba.servlets.channel.OpenedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OpenedServlet</servlet-name>
+    <url-pattern>/opened</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MoveServlet</servlet-name>
+    <servlet-class>com.degloba.servlets.channel.MoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoveServlet</servlet-name>
+    <url-pattern>/move</url-pattern>
+  </servlet-mapping> -->
  
 </web-app>
