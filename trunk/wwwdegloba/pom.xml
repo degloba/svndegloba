@@ -9,7 +9,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
   
-  <url>http://jboss.org/richfaces</url>
 
     <repositories>
     
@@ -130,30 +129,23 @@
 		</pluginManagement>
             
         <plugins>
-        
-        	
-        
-		<plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.7</source>
-                <target>1.7</target>
-            </configuration>
-        </plugin>
-            
-            
-        <plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-            	<artifactId>maven-war-plugin</artifactId>
-            	<version>2.2</version>
-            </plugin>
-          
-          
+         
+			<plugin>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>1.7</source>
+	                <target>1.7</target>
+	            </configuration>
+	        </plugin>
+	             
+	        <plugin>
+	            	<groupId>org.apache.maven.plugins</groupId>
+	            	<artifactId>maven-war-plugin</artifactId>
+	            	<version>2.2</version>
+			</plugin>
           
         </plugins>
-               
-     
-      
+            
     </build>
 
 
@@ -171,25 +163,7 @@
 
       
     <dependencies>
-             
-
-
-
-		<!-- HornetQ -->
-    	<dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-jms</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hornetq</groupId>
-            <artifactId>hornetq-logging</artifactId>
-        </dependency>
-  
-    
+     
     	<!-- Richfaces -->
 		<dependency>
     		<groupId>org.richfaces.core</groupId>
@@ -259,13 +233,6 @@
     		<scope>compile</scope>
 	    </dependency>
 	    <dependency>
-	    	<groupId>net.sourceforge.jtds</groupId>
-	    	<artifactId>jtds</artifactId>
-	    	<version>1.2.4</version>
-	    	<type>jar</type>
-	    	<scope>compile</scope>
-	    </dependency>
-	    <dependency>
 	    	<groupId>javassist</groupId>
 	    	<artifactId>javassist</artifactId>
 	    	<version>3.12.1.GA</version>
@@ -280,31 +247,7 @@
 	    	<scope>compile</scope>
 	    </dependency>
 	
-	    
-	<!--     <dependency>
-	    	<groupId>javax.ejb</groupId>
-	    	<artifactId>ejb-api</artifactId>
-	    	<version>3.0</version>
-	    	<type>jar</type>
-	    	<scope>compile</scope>
-	    </dependency> -->
-	    
-	    <!-- Lucene 
-	    <dependency>
-	    	<groupId>org.apache.lucene</groupId>
-	    	<artifactId>lucene-analyzers</artifactId>
-	    	<version>3.5.0</version>
-	    	<type>jar</type>
-	    	<scope>compile</scope>
-	    </dependency>
-	    <dependency>
-	    	<groupId>org.apache.lucene</groupId>
-	    	<artifactId>lucene-core</artifactId>
-	    	<version>3.5.0</version>
-	    	<type>jar</type>
-	    	<scope>compile</scope>
-	    </dependency>  -->
- 
+	
     	<dependency>
         	<groupId>commons-validator</groupId>
         	<artifactId>commons-validator</artifactId>
@@ -314,8 +257,7 @@
 	    	<groupId>javax.validation</groupId>
 	    	<artifactId>validation-api</artifactId>	    	
 	    </dependency>
-	
-    
+	    
         <dependency>
         	<groupId>org.atmosphere</groupId>
         	<artifactId>atmosphere-runtime</artifactId>
@@ -360,8 +302,6 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>        
-                
-
           
 		<!-- Google Appengine -->
 		<!--  <dependency>            
@@ -411,7 +351,6 @@
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-web</artifactId>                                        
 		</dependency>    
- 		
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-webmvc</artifactId>                                        
@@ -430,10 +369,6 @@
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
 			<exclusions>
-				<!-- <exclusion>
-					<groupId>com.google.appengine</groupId>
-					<artifactId>appengine-api-1.0-sdk</artifactId>						
-				</exclusion> -->
 				<exclusion>
 					<groupId>org.datanucleus</groupId>
 					<artifactId>datanucleus-enhancer</artifactId>		                					
@@ -523,4 +458,6 @@
 			<version>1.0</version>
 		</dependency> 
     </dependencies>
+    <url>www.degloba.com</url>
+    <name>web degloba</name>
 </project>
