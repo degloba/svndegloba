@@ -8,7 +8,6 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>        
         <class>com.degloba.domain.Modalpanel</class>
         <class>com.degloba.domain.Wizard</class>
-        <class>com.degloba.canonicalmodel.publishedlanguage.AggregateId</class>
         <class>com.degloba.domain.Blog</class>
         <class>com.degloba.domain.Document</class>
         <class>com.degloba.domain.Menubar</class>
