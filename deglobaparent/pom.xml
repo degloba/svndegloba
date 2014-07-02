@@ -32,6 +32,14 @@
 <dependencyManagement>
        
 	<dependencies>
+	
+	<!-- <dependency>            
+		<groupId>org.springframework</groupId>            
+		<artifactId>spring-framework-bom</artifactId>            
+		<version>${spring.version}</version>            
+		<type>pom</type>            
+		<scope>import</scope>        
+	</dependency> -->
        
        <!--  Spring -->
 		<dependency>
@@ -54,7 +62,7 @@
 			<groupId>org.springframework</groupId>                         
 			<artifactId>spring-orm</artifactId>                         
 			<version>${spring.version}</version>                 
-		</dependency>
+		</dependency> 
 	
 		<!--  -->
 		<dependency>                         
