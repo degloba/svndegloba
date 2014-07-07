@@ -7,8 +7,12 @@
   <version>${version}</version>
   <packaging>jar</packaging>
 
-  <name>A custom project</name>
-  <url>http://www.myorganization.org</url>
+  <name>Archetype Maven degloba (JSF,JPA,Spring,GAE)</name>
+  <url>http://www.degloba.com</url>
+
+	<properties> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
   <dependencies>
     <dependency>
