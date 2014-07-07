@@ -35,7 +35,7 @@ public class PersistenceService {
     /*
      * Retorna un EntityManager a partir del FacesContext(attribute)
      * NOTA : com el FacesContext es diferent per cada request JSF
-     * l'EntityManager també serà diferents per cada request JSF
+     * l'EntityManager tambe sera diferents per cada request JSF
      */
     public EntityManager getEntityManager() {
         Map<Object, Object> attributes = FacesContext.getCurrentInstance().getAttributes();
