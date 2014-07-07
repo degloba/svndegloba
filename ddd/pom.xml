@@ -8,6 +8,10 @@
 		<artifactId>deglobaparent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	
+	<properties> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
   
   <build>
   
@@ -23,7 +27,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.4</version>
             </plugin> 
-            <plugin>
+            <!-- <plugin>
             	<groupId>org.eclipse.m2e</groupId>
             	<artifactId>lifecycle-mapping</artifactId>
             	<version>1.0.0</version>
@@ -49,7 +53,7 @@
             			</pluginExecutions>
             		</lifecycleMappingMetadata>
             	</configuration>
-            </plugin>           
+            </plugin>          -->  
         </plugins>
     </pluginManagement>
     <plugins>
@@ -84,7 +88,7 @@
             
                         
             <!-- DataNucleus Enhancer (versions 3.1.x)-->   
-             <plugin>
+            <!--  <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
                 <version>3.1.1</version>
@@ -102,7 +106,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> 
+            </plugin>  -->
           
         
     </plugins>
