@@ -1,7 +1,6 @@
 package com.degloba.gae.jsf22;
 
 
-
 import java.util.Map;
 import java.util.logging.Logger;
  

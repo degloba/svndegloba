@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.degloba.gae.jsf22;
 
 import java.util.ArrayList;
