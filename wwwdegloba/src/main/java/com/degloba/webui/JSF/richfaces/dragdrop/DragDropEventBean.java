@@ -1,4 +1,4 @@
-package com.degloba.dragdrop;
+package com.degloba.webui.JSF.richfaces.dragdrop;
 
 
 import javax.faces.bean.ManagedBean;
