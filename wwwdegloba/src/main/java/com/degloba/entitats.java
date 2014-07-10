@@ -48,8 +48,8 @@ public  class entitats implements ActionListener, Serializable {
 	public void carrega()
 	{
 				
-		/*lblogs = carregarCSVtoList("Blog");
-		persistir("Blog",null,null, lblogs,null);*/
+		/*List<HashMap<String, String>> lblogs = carregarCSVtoList("Blog");
+		persistir("Blog",null,null, lblogs,null);*7
 		
 		//List lwizard = carregarCSVtoList("Wizard");
 		//persistir("Wizard",null,null, lwizard,null);	
@@ -61,6 +61,9 @@ public  class entitats implements ActionListener, Serializable {
 		persistir("Menubar",null, null, lmenubar,null);*/
 				
 		ServletContext ctx =(ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+		
+		List<HashMap<String, String>> lblog = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Blog");
+		persistir("Blog",null, null, lblog,null);
 		
 		List<HashMap<String, String>> lmodalpanel = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Modalpanel");
 		persistir("Modalpanel",null, null, lmodalpanel,null);
@@ -116,7 +119,7 @@ public  class entitats implements ActionListener, Serializable {
 				   // Hem d'excloure les columnes "idXXX" 
 				   if (!pairs.getKey().toString().equals(relacio) & !pairs.getKey().toString().equals("clauGoogle"))
 				       {
-					   		Class<?> c = Class.forName("com.degloba.domain." + classePare);
+					   		Class<?> c = Class.forName("com.degloba.boundedContext.domain." + classePare);
 					   		Field f = c.getDeclaredField(pairs.getKey().toString().toLowerCase());
 					   		Class<?> outputType = f.getType();
 					   		String value = lpare.get(pairs.getKey().toString());
