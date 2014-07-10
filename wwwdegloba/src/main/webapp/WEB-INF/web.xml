@@ -184,7 +184,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<description>Per connectar amb Facebook</description>
 	<display-name>clientFacebook</display-name>
 	<servlet-name>clientFacebook</servlet-name>
-	<servlet-class>com.degloba.servlets.clientFacebook</servlet-class>
+	<servlet-class>com.degloba.webui.servlets.clientFacebook</servlet-class>
 </servlet>
 <servlet-mapping>
 	<servlet-name>clientFacebook</servlet-name>
@@ -220,14 +220,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </session-config>
  
  
- <servlet>
+<!--  <servlet>
 		<servlet-name>TicTacToeServlet</servlet-name>
 		<servlet-class>com.degloba.servlets.channel.TicTacToeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>TicTacToeServlet</servlet-name>
 		<url-pattern>/channel</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
   <!-- <servlet>
     <servlet-name>OpenedServlet</servlet-name>
     <servlet-class>com.degloba.servlets.channel.OpenedServlet</servlet-class>
