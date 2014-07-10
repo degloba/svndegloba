@@ -5,15 +5,8 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">   
  
 	<persistence-unit name="transactions-optional">        
-		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>        
-        <class>com.degloba.domain.Modalpanel</class>
-        <class>com.degloba.domain.Wizard</class>
-        <class>com.degloba.domain.Blog</class>
-        <class>com.degloba.domain.Document</class>
-        <class>com.degloba.domain.Menubar</class>
-        <class>com.degloba.domain.TipusFramework</class>
-        <class>com.degloba.domain.Tooltip</class>
-        <class>com.degloba.domain.Framework</class>    
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>com.degloba.boundedContext.domain.Modalpanel</class>    
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
