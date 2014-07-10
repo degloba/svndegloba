@@ -14,7 +14,7 @@ import javax.inject.Inject;
 import com.degloba.modalPanel;
 
 // Entitat Domini
-import com.degloba.domain.Modalpanel;
+import com.degloba.boundedContext.domain.Modalpanel;
 
 
 // Finder (CQRS)
