@@ -1,5 +1,4 @@
-package com.degloba.dragdrop;
-
+package com.degloba.webui.JSF.richfaces.dragdrop;
 
 
 import java.io.Serializable;
