@@ -3,7 +3,7 @@
  */
 package command.handler;
 
-import command.Command;
+import command.annotations.Command;
 
 /**
  * 
