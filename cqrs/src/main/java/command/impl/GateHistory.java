@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import command.Command;
+import command.annotations.Command;
 
 /**
  * Manages command execution history based on {@link Command} annotation attributes<br>

@@ -1,14 +1,11 @@
-/**
- * 
- */
 package command.impl;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import command.Command;
 import command.Gate;
+import command.annotations.Command;
 
 
 @Component
