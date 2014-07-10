@@ -1,4 +1,4 @@
-package infrastructure.repository.jpa;
+package repository.jpa;
 
 // JPA
 import javax.persistence.criteria.Predicate;

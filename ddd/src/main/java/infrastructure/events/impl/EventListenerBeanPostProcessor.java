@@ -8,7 +8,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import infrastructure.events.EventListener;
+import infrastructure.events.annotations.EventListener;
 import infrastructure.events.impl.handlers.AsynchronousEventHandler;
 import infrastructure.events.impl.handlers.EventHandler;
 import infrastructure.events.impl.handlers.SpringEventHandler;

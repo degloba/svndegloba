@@ -1,4 +1,4 @@
-package infrastructure.repository.jpa;
+package repository.jpa;
 
 import java.lang.reflect.ParameterizedType;
 
