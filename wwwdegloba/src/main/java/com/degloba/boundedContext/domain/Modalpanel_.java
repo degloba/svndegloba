@@ -1,4 +1,5 @@
-package com.degloba.domain;package com.degloba.boundedContext.domain;
+package com.degloba.boundedContext.domain;
+
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
