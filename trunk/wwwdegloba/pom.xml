@@ -227,12 +227,16 @@
             <scope>runtime</scope>
         </dependency>
                 
+		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
+		(e.g. java.util.logging, logback, log4j) 
+		allowing the end user to plug in the desired logging framework at deployment time. -->		              
 		<dependency>
     		<groupId>org.slf4j</groupId>
     		<artifactId>slf4j-simple</artifactId>
     		<type>jar</type>
     		<scope>compile</scope>
 	    </dependency>
+	    
 	    <dependency>
 	    	<groupId>javassist</groupId>
 	    	<artifactId>javassist</artifactId>
@@ -264,14 +268,7 @@
         	<artifactId>atmosphere-runtime</artifactId>
         	<scope>compile</scope>
         </dependency>
-        <dependency>
-        	<groupId>rss4j</groupId>
-        	<artifactId>rss4j</artifactId>
-        	<version>0.92</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
-        </dependency>
-        
+            
         
         <!-- Google APIs -->
         <dependency>
@@ -296,13 +293,7 @@
         	<scope>compile</scope>
         </dependency>
         
-		<dependency>
-			<groupId>org.twitter4j</groupId>
-			<artifactId>twitter4j-appengine</artifactId>
-			<version>3.0.5</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>        
+		      
           
 		<!-- Google Appengine -->
 		<!--  <dependency>            
@@ -448,6 +439,11 @@
 			<artifactId>cqrs</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
+			<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ddd</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>		
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>utilitats</artifactId>
