@@ -1,7 +1,7 @@
 /**
  * 
  */
-package infrastructure.events;
+package infrastructure.events.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
