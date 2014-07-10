@@ -16,7 +16,7 @@ import query.annotations.Finder;
 
 
 // Entitat Domini
-import com.degloba.domain.Modalpanel;
+import com.degloba.boundedContext.domain.Modalpanel;
 
 // 
 import com.degloba.readmodel.ModalpanelsFinder;
