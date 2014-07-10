@@ -2,7 +2,7 @@ package com.degloba.readmodel;
 
 import java.util.List;
 
-import com.degloba.domain.Modalpanel;
+import com.degloba.boundedContext.domain.Modalpanel;
 
 
 public interface ModalpanelsFinder {
