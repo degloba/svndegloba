@@ -18,7 +18,7 @@ import com.degloba.boundedContext.domain.Modalpanel;
 
 
 // Finder (CQRS)
-import com.degloba.readmodel.ModalpanelsFinder;
+import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 
 
 public class modalPanels {
