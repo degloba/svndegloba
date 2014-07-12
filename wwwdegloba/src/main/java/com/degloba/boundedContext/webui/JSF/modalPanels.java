@@ -21,9 +21,9 @@ import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 
 
-public class modalPanels {
+public class ModalPanels {
 	
-	private static final Logger log = Logger.getLogger(modalPanels.class.getName());
+	private static final Logger log = Logger.getLogger(ModalPanels.class.getName());
 	
     @Inject
     private ModalpanelsFinder modalpanelsFinder;
@@ -36,7 +36,7 @@ public class modalPanels {
 	ResourceBundle bundle;
 
 
-	public modalPanels() {
+	public ModalPanels() {
 		super();
 
 		context  = FacesContext.getCurrentInstance();
