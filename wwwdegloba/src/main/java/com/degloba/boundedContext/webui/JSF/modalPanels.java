@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import com.degloba.modalPanel;
+import com.degloba.ModalPanel;
 
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
@@ -29,8 +29,8 @@ public class modalPanels {
     private ModalpanelsFinder modalpanelsFinder;
     
 	
-	private  ArrayList<modalPanel> items = new ArrayList<modalPanel>();
-	modalPanel mp;
+	private  ArrayList<ModalPanel> items = new ArrayList<ModalPanel>();
+	ModalPanel mp;
 
 	FacesContext context;
 	ResourceBundle bundle;
@@ -45,19 +45,19 @@ public class modalPanels {
 	}
 
 
-	public List<modalPanel> getItems() {
+	public List<ModalPanel> getItems() {
 		return omplirPanelModals();		
 	}
 
 
-	public void setItems(ArrayList<modalPanel> items) {
+	public void setItems(ArrayList<ModalPanel> items) {
 		this.items = items;
 	}
 
 
-	private List<modalPanel> omplirPanelModals() {
+	private List<ModalPanel> omplirPanelModals() {
 		
-		List<modalPanel> panells = new ArrayList<modalPanel>(); 
+		List<ModalPanel> panells = new ArrayList<ModalPanel>(); 
 		
 		try {
 			
@@ -72,7 +72,7 @@ public class modalPanels {
 	        	
 	    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 				
-		  		mp = new modalPanel();
+		  		mp = new ModalPanel();
 		  		mp.setId(mp1.getModalpanelid());
 		  		mp.setTitol(bundle.getString("titolPanelModal." + mp1.getModalpanelid().toString()));
 		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + mp1.getModalpanelid().toString()));
