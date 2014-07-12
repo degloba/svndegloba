@@ -41,7 +41,7 @@ public class ClientData {
 	private String name;
 
 	@SuppressWarnings("unused")
-	private ClientData(){}
+	public ClientData(){}
 	
 	public ClientData(AggregateId aggregateId, String name) {
 		this.aggregateId = aggregateId;
