@@ -59,7 +59,7 @@
 	
 		
 	<!-- FINDERS -->
-	<bean id="modalpanelsFinder" class="com.degloba.readmodel.impl.JpaModalpanelsFinder"/>
+	<bean id="modalpanelsFinder" class="com.degloba.boundedContext.readmodel.impl.JpaModalpanelFinder"/>
 	
 	
 	<!-- SERVEIS D'APLICACIO -->
