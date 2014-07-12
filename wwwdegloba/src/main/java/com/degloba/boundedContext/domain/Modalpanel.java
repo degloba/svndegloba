@@ -5,8 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import domain.BaseAggregateRoot;
+import domain.annotations.AggregateRoot;
+
+@AggregateRoot
 @Entity
-public class Modalpanel {
+public class Modalpanel extends BaseAggregateRoot{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
