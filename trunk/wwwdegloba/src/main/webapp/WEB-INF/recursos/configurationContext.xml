@@ -13,7 +13,7 @@
 
 	<!-- BEANS JSF GESTIONAT PER SPRING -->
 	
-	<bean id="modalPanels" class="com.degloba.webui.JSF.modalPanels" scope="request">
+	<bean id="modalPanels" class="com.degloba.boundedContext.webui.JSF.ModalPanels" scope="request">
 		<property name="modalpanelsFinder">
 			<ref bean="modalpanelsFinder"/>
 		</property>
