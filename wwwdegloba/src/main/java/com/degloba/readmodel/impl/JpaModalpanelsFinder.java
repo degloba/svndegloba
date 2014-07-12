@@ -20,7 +20,7 @@ import com.degloba.boundedContext.domain.Modalpanel;
 
 // 
 import com.degloba.readmodel.ModalpanelsFinder;
-import com.degloba.webui.JSF.modalPanels;
+import com.degloba.boundedContext.webui.JSF.modalPanels;
 
 
 // GAE
