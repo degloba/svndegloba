@@ -1,13 +1,13 @@
 package com.degloba;
 
-public  class modalPanel  {
+public  class ModalPanel  {
 	
 	private int id;
 	private String titol;
 	private String definicio;
 
 	
-	public modalPanel() {
+	public ModalPanel() {
 		
 		super();
    
