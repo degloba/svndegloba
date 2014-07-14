@@ -39,6 +39,21 @@ public class JpaModalpanelRepository extends GenericJpaRepository<Modalpanel,Lon
 		// TODO Auto-generated method stub
 		
 	}
+   
+   
+  /* .Net
+  Public Function Get_PautaQuery(value As Guid, ParamArray includeExpressions As Expressions.Expression(Of Func(Of Pauta, Object))()) As IQueryable(Of Pauta) Implements IFarmaciaClasseRepository.Get_PautaQuery
+        Dim qry As IQueryable(Of Pauta) = _context.Pauta
+
+        If includeExpressions IsNot Nothing Then
+            For Each includeExpression In includeExpressions
+                qry = qry.Include(includeExpression)
+            Next
+        End If
+
+        Return qry.Where(Function(a) a.Id = value)
+    End Function */
+   
 
 }
 
