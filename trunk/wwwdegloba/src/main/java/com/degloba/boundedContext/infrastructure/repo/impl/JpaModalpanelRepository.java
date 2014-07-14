@@ -42,6 +42,8 @@ public class JpaModalpanelRepository extends GenericJpaRepository<Modalpanel,Lon
    
    
   /* .Net
+  Private _context As IMainBCUnitOfWork
+  
   Public Function Get_PautaQuery(value As Guid, ParamArray includeExpressions As Expressions.Expression(Of Func(Of Pauta, Object))()) As IQueryable(Of Pauta) Implements IFarmaciaClasseRepository.Get_PautaQuery
         Dim qry As IQueryable(Of Pauta) = _context.Pauta
 
