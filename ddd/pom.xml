@@ -88,7 +88,7 @@
             
                         
             <!-- DataNucleus Enhancer (versions 3.1.x)-->   
-            <!--  <plugin>
+              <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
                 <version>3.1.1</version>
@@ -106,7 +106,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>  -->
+            </plugin>  
           
         
     </plugins>
@@ -170,6 +170,11 @@
 			<artifactId>jdo-api</artifactId>
 		</dependency>
   
+  
+  	<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
   	
   </dependencies>
   
