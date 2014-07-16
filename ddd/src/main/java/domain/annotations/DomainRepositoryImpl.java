@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author degloba
- * @category Defineix el patró Repository
+ * @category Defineix el patro Repository
  */
 @Repository
 public @interface DomainRepositoryImpl {
