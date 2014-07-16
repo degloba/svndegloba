@@ -21,7 +21,7 @@ import sagas.SagaInstance;
 import sagas.SagaManager;
 
 /**
- * @author Rafał Jamróz
+ * @author Rafal Jamroz
  */
 @Component
 public class SimpleSagaEngine implements SagaEngine {
