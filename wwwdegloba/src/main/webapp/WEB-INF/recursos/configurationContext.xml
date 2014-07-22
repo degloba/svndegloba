@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<context:component-scan base-package="cqrs,com.degloba,ddd">
+	<context:component-scan base-package="cqrs,com.degloba,domain,infrastructure.events.impl">
 	</context:component-scan>
 
 
@@ -16,14 +16,6 @@
 	<bean id="modalPanels" class="com.degloba.boundedContext.webui.JSF.ModalPanels" scope="request">
 		<property name="modalpanelsFinder">
 			<ref bean="modalpanelsFinder"/>
-		</property>
-	</bean>
-
-
-	<bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
-		scope="request">
-		<property name="eventPublisher">
-			<ref bean="eventPublisher"/>
 		</property>
 	</bean>
 
@@ -60,9 +52,9 @@
 <!-- 	<bean id="systemUser" class="writer.NiceWriter" /> -->
 	
 	
-	<!-- EVENT PUBLISHER -->
+	<!-- EVENT PUBLISHER 
 	
- 	<bean id="eventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> 
+ 	<bean id="domainEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> -->
 	
 		
 	<!-- FINDERS -->
@@ -108,8 +100,13 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 		
 	<context:annotation-config/>
-		
-	<bean id="domainEventPublisher"
-		class="infrastructure.events.impl.SimpleEventPublisher">
-	</bean>
+	
+	
+	 <bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
+		scope="request">
+		<property name="domainEventPublisher">
+
+		<bean class="infrastructure.events.impl.SimpleEventPublisher"></bean>
+		</property>
+	 </bean> 
 </beans>
