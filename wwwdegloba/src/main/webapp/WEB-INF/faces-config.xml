@@ -6,15 +6,7 @@
  http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
  <name>degloba</name>
 
- <!--  MODALPANELS  -->
- <!--  <managed-bean>
-  <managed-bean-name>modalPanels</managed-bean-name>
-  <managed-bean-class>com.degloba.webui.JSF.modalPanels</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean> -->
- <!--  WIZARDS  -->
- <!--  TOOLTIPS  -->
- <!--  NOTICIES  -->
+
  <application>     
      
      <el-resolver>
@@ -26,4 +18,12 @@
    <supported-locale>es</supported-locale>
   </locale-config>
  </application>
+ 
+ <faces-config-extension>
+ <facelets-processing> 
+      <file-extension>.xhtml</file-extension> 
+      <process-as>html5</process-as> 
+    </facelets-processing> 
+ </faces-config-extension>
+ 
 </faces-config>
