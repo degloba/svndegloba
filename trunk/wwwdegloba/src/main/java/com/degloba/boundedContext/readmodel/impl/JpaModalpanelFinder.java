@@ -22,15 +22,22 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
+
+
 // JPA - Persistencia
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
+
+
 
 
 
 // CQRS
 import query.annotations.Finder;
+
+
 
 
 
@@ -41,6 +48,7 @@ import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 import com.degloba.boundedContext.webui.JSF.ModalPanels;
 
+import domain.DomainEventPublisher;
 import domain.annotations.FinderImpl;
 
 
@@ -75,11 +83,15 @@ public class JpaModalpanelFinder implements ModalpanelsFinder {
 		
 		try {      
 			
-			Query q = entityManager.createQuery("select c FROM Modalpanel c");
+			Query q = entityManager.createQuery("select c FROM com.degloba.boundedContext.domain.Modalpanel c");
 			
 			ret = (List<Modalpanel>)q.getResultList();
+			/*PersistenceUnitUtil util=entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
+			Object projectId = util.getIdentifier(ret.get(0));*/
+			
 			ret.size();
-			    
+			DomainEventPublisher de =ret.get(0).getDomainEventPublisher();
+						    
 		} catch (RuntimeException e) {
 			log.warning("Modalpanel error" + e.getMessage() );
 		    //if ( tx != null && tx.isActive() ) tx.rollback();
