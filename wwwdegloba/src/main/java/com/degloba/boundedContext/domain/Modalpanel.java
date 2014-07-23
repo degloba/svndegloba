@@ -1,32 +1,23 @@
 package com.degloba.boundedContext.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import domain.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
+import domain.canonicalmodel.publishedlanguage.ClientData;
 
 @AggregateRoot
 @Entity
 public class Modalpanel extends BaseAggregateRoot{
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	
 	private Integer modalpanelid;
 	private String descripcio;
 	private String titol;
 	
+	/*@Embedded
+	private ClientData clientData; */
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public Integer getModalpanelid() {
 		return modalpanelid;
 	}
@@ -45,5 +36,14 @@ public class Modalpanel extends BaseAggregateRoot{
 	public void setTitol(String titol) {
 		this.titol = titol;
 	}
+	
+	
+	public Modalpanel() {}
+	
+	/*	public Modalpanel(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+	}*/
+	
+	
 	
 }

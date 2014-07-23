@@ -16,9 +16,8 @@ package com.degloba.boundedContext.domain;
  * limitations under the License.
  */
 
-
-import com.degloba.canonicalmodel.publishedlanguage.AggregateId;
 import domain.annotations.DomainRepository;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepository
 public interface ModalpanelRepository<K> {
