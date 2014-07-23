@@ -140,7 +140,22 @@
 			<artifactId>jsf-impl</artifactId>
 		</dependency>
 	 
-	
+	 	<!-- Canals -->
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-appengine</artifactId>
+			<version>3.0.5</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>  
+		
+        <dependency>
+        	<groupId>rss4j</groupId>
+        	<artifactId>rss4j</artifactId>
+        	<version>0.92</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>		
 	
 </dependencies>
   
