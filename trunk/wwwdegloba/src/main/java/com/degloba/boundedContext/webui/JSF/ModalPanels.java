@@ -8,6 +8,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 
+
+
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 // JSF
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -15,15 +20,22 @@ import javax.inject.Inject;
 
 
 
+
+
+
+import org.springframework.stereotype.Component;
+
+
+
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
-
-
 import com.degloba.boundedContext.readmodel.ModalPanelDto;
 // Finder (CQRS)
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 
-
+@Component
+@ManagedBean
+@SessionScoped
 public class ModalPanels {
 	
 	private static final Logger log = Logger.getLogger(ModalPanels.class.getName());
