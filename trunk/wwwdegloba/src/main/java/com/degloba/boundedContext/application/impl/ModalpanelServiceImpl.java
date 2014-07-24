@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
+import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.domain.ModalpanelFactory;
 import com.degloba.boundedContext.domain.ModalpanelRepository;
 import com.degloba.system.application.SystemContext;
@@ -76,10 +77,19 @@ public class ModalpanelServiceImpl implements ModalpanelService {
 		reservationRepository.save(reservation);
 	}*/
 	
-	@Override
+/*	@Override
 	public void addModalpanel(AggregateId modalpanelId, AggregateId productId,
 			int quantity) {
 		// TODO Auto-generated method stub
+		
+	}*/
+	
+	@Override
+	public void addModalpanel(AggregateId modalpanelId) {
+		// TODO Auto-generated method stub
+		
+		Modalpanel modalpanel = this.modalpanelRepository.load(modalpanelId);
+		this.modalpanelRepository.save(modalpanel);
 		
 	}
 
