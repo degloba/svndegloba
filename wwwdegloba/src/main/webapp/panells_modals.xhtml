@@ -42,7 +42,7 @@
 
 	<h:panelGrid id="bar" columns="12" styleClass="panelGridCenter">
 		
-		<c:forEach var="modalPanel" items="#{modalPanels.items}">
+		<c:forEach var="modalPanel" items="#{modalPanelJSFBean.items}">
 				
 			<h:commandLink value="#{modalPanel.titol} - " styleClass="enllac">        
  				<rich:componentControl target="mp#{modalPanel.id}" operation="show" event="click">
