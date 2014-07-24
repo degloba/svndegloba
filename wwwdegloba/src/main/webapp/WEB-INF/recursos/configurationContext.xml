@@ -11,8 +11,7 @@
 	
 	<!-- <context:annotation-config/> -->
 
-	<!-- BEANS JSF GESTIONAT PER SPRING 
-	
+	<!-- 1. BEANS JSF GESTIONAT PER SPRING 	
 	<bean id="simpleEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" />
 	
 	<bean id="modalPanels" class="com.degloba.boundedContext.webui.JSF.ModalPanels" scope="request">
@@ -24,55 +23,43 @@
 	<bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
 		scope="request">
 		<property name="domainEventPublisher">
-
-		<ref bean="simpleEventPublisher"/>
-</property>
+			<ref bean="simpleEventPublisher"/>
+		</property>
 	 </bean> -->
+	 
+	 <bean id="carregarEntitats" class="com.degloba.entitats" />
 
 
-	<!-- REPOSITORIS -->
-<!-- 	<bean id="orderRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaOrderRepository" />
-	<bean id="invoiceRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInvoiceRepository" />
-	<bean id="productRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProductRepository" />
-	<bean id="caracteristiquesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCaracteristiquesRepository" />
-	<bean id="ciutatsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaCiutatsRepository" />
-	<bean id="inmoblesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaInmoblesRepository" />
-	<bean id="provinciesRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaProvinciesRepository" />
-	<bean id="solicitudsRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaSolicitudsRepository" />
-	<bean id="tipusRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaTipusRepository" />
-	<bean id="usuarisRepository" class="com.insacosa.infrastructure.repositories.jpa.JpaUsuarisRepository" /> -->
+	<!-- 2. REPOSITORIS -->
+ 	<bean id="modalpanelRepository" class="com.degloba.boundedContext.infrastructure.repositories.impl.JpaModalpanelRepository" />
+			
 	
-	
-	
-	<!-- SERVEIS DE DOMINI -->
-	
-<!-- 	<bean id="invoicingService" class="com.insacosa.domain.InvoicingService" >
-	    <property name="productRepository" ref="productRepository"></property>
-	</bean> -->
+	<!-- 3. SERVEIS DE DOMINI -->
+
 
 	
-	<!-- FACTORIES -->
+	<!-- 4. FACTORIES -->	
+ 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.ModalpanelFactory" />  
+
 	
-<!-- 	<bean id="orderFactory" class="writer.NiceWriter" />
-	<bean id="invoiceRepository" class="writer.NiceWriter" />
-	<bean id="orderRepository" class="writer.NiceWriter" /> -->
+	<!-- 5. SYSTEM USER -->
+ 	<bean id="systemUser" class="application.SystemUser" />
+ 	
 	
-	<!-- SYSTEM USER -->
-	
-<!-- 	<bean id="systemUser" class="writer.NiceWriter" /> -->
-	
-	
-	<!-- EVENT PUBLISHER 
-	
+	<!-- 6. EVENT PUBLISHER 	
  	<bean id="domainEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> -->
 	
 		
-	<!-- FINDERS -->
+	<!-- 7. FINDERS -->
 	<bean id="modalpanelsFinder" class="com.degloba.boundedContext.readmodel.impl.JpaModalpanelFinder"/>
 	
 	
-	<!-- SERVEIS D'APLICACIO -->
-		
+	<!-- 8. SERVEIS D'APLICACIO 
+		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
+	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>
+	    <property name="modalpanelFactory" ref="modalpanelFactory"></property>
+	</bean> -->
+	
 <!-- 	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
 		<property name="orderRepository" ref="orderRepository" />
 		<property name="orderFactory" ref="orderFactory" />
@@ -81,21 +68,10 @@
 		<property name="invoicingService" ref="invoicingService" />
 		<property name="systemUser" ref="systemUser" />
 		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>
-	
-	<bean id="caracteristiquesApplicationService" class="com.insacosa.application.services.CaracteristiquesApplicationService">
-		<property name="caracteristiquesRepository" ref="caracteristiquesRepository" />
-		<property name="invoicingService" ref="invoicingService" />
-		<property name="systemUser" ref="systemUser" />
-		<property name="eventPublisher" ref="eventPublisher" />
-	</bean>	
-	 -->
+	</bean>	 -->
 	
 
-
-	<bean id="carregarEntitats" class="com.degloba.entitats" />
-
-	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA -->
+	<!-- 9. BEANS RELACIONAT AMB LA PERSISTENCIA -->
 
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
