@@ -7,8 +7,9 @@ public interface ModalpanelService {
 	public AggregateId createModalpanel();
 
 	// 2.
-	public void addModalpanel(AggregateId modalpanelId, AggregateId productId, int quantity);
-
+	/*public void addModalpanel(AggregateId modalpanelId, AggregateId productId, int quantity);*/
+	public void addModalpanel(AggregateId modalpanelId);
+	
 /*	// 3. 
 	public Offer calculateOffer(AggregateId orderId);
 
