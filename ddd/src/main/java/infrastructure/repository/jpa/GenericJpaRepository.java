@@ -42,4 +42,12 @@ public class GenericJpaRepository<E, K> {
         return entityManager.merge(entity);
     }
 
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
 }
