@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 
+
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -16,10 +17,13 @@ import javax.faces.bean.SessionScoped;
 // CDI Java EE 6
 import javax.inject.Inject;
 
+
 // SPRING
 import org.springframework.stereotype.Component;
 
 
+
+import com.degloba.boundedContext.application.api.service.ModalpanelService;
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.readmodel.ModalPanelDto;
@@ -37,6 +41,9 @@ public class ModalPanels {
 	
     @Inject
     private ModalpanelsFinder modalpanelsFinder;
+    
+    @Inject
+    private ModalpanelService modalpanelsService;
     	
 	private  ArrayList<ModalPanelDto> items = new ArrayList<ModalPanelDto>();
 	ModalPanelDto mp;
