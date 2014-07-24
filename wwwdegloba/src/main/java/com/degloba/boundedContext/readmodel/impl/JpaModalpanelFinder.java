@@ -46,7 +46,7 @@ import com.degloba.boundedContext.domain.Modalpanel;
 
 // 
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
-import com.degloba.boundedContext.webui.JSF.ModalPanels;
+import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
 
 import domain.DomainEventPublisher;
 import domain.annotations.FinderImpl;
@@ -58,7 +58,7 @@ public class JpaModalpanelFinder implements ModalpanelsFinder {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	private static final Logger log = Logger.getLogger(ModalPanels.class.getName());
+	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
 
 /*	@SuppressWarnings("unchecked")
 	@Override
