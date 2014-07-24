@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Logger;
+
+
 
 
 
@@ -18,8 +21,12 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 
+
+
 // SPRING
 import org.springframework.stereotype.Component;
+
+
 
 
 
@@ -31,13 +38,15 @@ import com.degloba.boundedContext.readmodel.ModalPanelDto;
 // Finder (CQRS)
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 
+import domain.canonicalmodel.publishedlanguage.AggregateId;
+
 
 @Component
 @ManagedBean
 @SessionScoped
-public class ModalPanels {
+public class ModalPanelJSFBean {
 	
-	private static final Logger log = Logger.getLogger(ModalPanels.class.getName());
+	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
 	
     @Inject
     private ModalpanelsFinder modalpanelsFinder;
@@ -52,7 +61,7 @@ public class ModalPanels {
 	ResourceBundle bundle;
 
 
-	public ModalPanels() {
+	public ModalPanelJSFBean() {
 		super();
 
 		context  = FacesContext.getCurrentInstance();
@@ -99,6 +108,10 @@ public class ModalPanels {
 		}	catch (Exception ex) {
 			    // handle any errors
 		}
+		
+		AggregateId id = new AggregateId(UUID.randomUUID().toString());
+		
+		modalpanelsService.addModalpanel(id);
 		
 		return panells;
 	}
