@@ -11,7 +11,7 @@ import domain.annotations.DomainService;
  * @param <T>
  */
 @DomainService
-public interface IEntityService<K,T extends Entitat> {
+public interface IGenericService<K,T extends BaseAggregateRoot> {
 	
 	public void Add(T value);
 	public void Remove(K id);
