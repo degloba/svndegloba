@@ -34,13 +34,6 @@ public class JpaModalpanelRepository extends GenericJpaRepository<Modalpanel,Lon
 		return null;
 	}
 
-	@Override
-	public Modalpanel save(Modalpanel modalpanel) {
-		return modalpanel;
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 }
