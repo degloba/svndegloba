@@ -3,8 +3,8 @@ package infrastructure.repository.jpa;
 // JPA
 import javax.persistence.criteria.Predicate;
 
-// Domini
-import domain.BaseEntity;
+
+import domain.BaseAggregateRoot;
 
 
 /**
@@ -15,7 +15,7 @@ import domain.BaseEntity;
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
  * @param <K> key type
  */
-public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends GenericJpaRepository<E, Long>{
+public class GenericJpaRepositoryForBaseEntity<E extends BaseAggregateRoot> extends GenericJpaRepository<E, Long>{
 		
 	  
 	public E Find(Predicate predicate) {
@@ -55,7 +55,7 @@ public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends Gen
 	   * @param kind : of kind Entitat
 	   * @return  Entitats
 	   */
-	  public static Iterable<BaseEntity> getAllEntitats(String kind) {
+	  public static Iterable<BaseAggregateRoot> getAllEntitats(String kind) {
 		return null;
 	    //return Util.listEntities(kind, null, null);
 	  }
