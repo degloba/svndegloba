@@ -22,7 +22,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 @DomainRepository
 public interface ModalpanelRepository<K> {
 
-	public Modalpanel load(AggregateId id);
+	public Modalpanel load(K id);
 
 	public Modalpanel save(Modalpanel modalpanel);
 }

@@ -1,10 +1,13 @@
 package com.degloba.boundedContext.domain;
 
+// JPA
 import javax.persistence.Entity;
 
+// Aggregate
 import domain.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
+
 import domain.canonicalmodel.publishedlanguage.ClientData;
 
 @AggregateRoot
