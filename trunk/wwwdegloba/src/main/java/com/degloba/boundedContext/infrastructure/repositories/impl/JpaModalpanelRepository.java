@@ -28,12 +28,12 @@ import com.degloba.boundedContext.domain.ModalpanelRepository;
 @DomainRepositoryImpl
 public class JpaModalpanelRepository extends GenericJpaRepository<Modalpanel,Long> implements ModalpanelRepository<Long>{
 
-	@Override
+/*	@Override
 	public Modalpanel load(AggregateId id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+*/
 
 
 }
