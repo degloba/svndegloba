@@ -5,7 +5,21 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 public class SystemUser {   
 	
-	public AggregateId getDomainUserId(){                
-	return new AggregateId("1");//TODO introduce security integration        
+	private AggregateId clientId;
+
+	SystemUser(AggregateId clientId) {
+		this.clientId = clientId;
+	}
+
+	/**
+	 * 
+	 * @return Domain model Client
+	 */
+	public AggregateId getClientId(){
+		return clientId;
+	}
+
+	public boolean isLoogedIn(){
+		return clientId != null;
 	}
 }
