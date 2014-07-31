@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import application.ApplicationEventPublisher;
-import domain.DomainEvent;
+import domain.support.DomainEvent;
 import domain.support.DomainEventPublisher;
 import infrastructure.events.impl.handlers.EventHandler;
 
