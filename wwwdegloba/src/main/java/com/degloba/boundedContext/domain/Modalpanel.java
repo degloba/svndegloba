@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 
 
 // Aggregate
-import domain.BaseAggregateRoot;
+import domain.support.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.canonicalmodel.publishedlanguage.ClientData;

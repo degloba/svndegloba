@@ -1,44 +1,52 @@
 package com.degloba.boundedContext.application.impl;
 
+
 import javax.inject.Inject;
 
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
+import com.degloba.boundedContext.domain.Client;
+import com.degloba.boundedContext.domain.ClientRepository;
 import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.domain.ModalpanelFactory;
 import com.degloba.boundedContext.domain.ModalpanelRepository;
 import com.degloba.system.application.SystemContext;
 
+
+import domain.RepositoryService;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.sharedkernel.exceptions.DomainOperationException;
+import application.GenericApplicationService;
 import application.annotations.ApplicationService;
 
 /**
  * Ordering Use Case steps<br>
  * Each step is a Domain Story<br>
  * <br>
- * Notice that application language is different (simpler) than domain language, ex: we don'nt want to exposure domain concepts like Purchase and Reservation to the upper layers, we hide them under the Order term  
- * <br>
+ * Notice that application language is different (simpler) than domain language, 
+ * ex: we don'nt want to exposure domain concepts like Purchase and Reservation to the upper layers, 
+ * we hide them under the Order term  
  * Technically App Service is just a bunch of procedures, therefore OO principles (ex: CqS, SOLID, GRASP) does not apply here  
  *
  * @author Slawek
  */
 @ApplicationService
-public class ModalpanelServiceImpl implements ModalpanelService {
+public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId,Modalpanel> implements ModalpanelService<AggregateId> {
 
-/*	@Inject
-	private SystemContext systemContext;*/
+	@Inject
+	private SystemContext systemContext;
 
-/*	@Inject
-	private ClientRepository clientRepository;*/
+	@Inject
+	private ClientRepository clientRepository;
+
 
 	@Inject
 	private ModalpanelFactory modalpanelFactory;
 
 	@Inject
-	private ModalpanelRepository modalpanelRepository;
+	private ModalpanelRepository<?> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;*/
@@ -77,18 +85,15 @@ public class ModalpanelServiceImpl implements ModalpanelService {
 		reservationRepository.save(reservation);
 	}*/
 	
-/*	@Override
-	public void addModalpanel(AggregateId modalpanelId, AggregateId productId,
-			int quantity) {
-		// TODO Auto-generated method stub
-		
-	}*/
 	
 	@Override
 	public void addModalpanel(AggregateId modalpanelId) {
 		// TODO Auto-generated method stub
 		
-		Modalpanel modalpanel = this.modalpanelRepository.load(modalpanelId);
+		//Modalpanel modalpanel = this.modalpanelRepository.load(modalpanelId);
+		Modalpanel modalpanel = new Modalpanel();
+		modalpanel.setDescripcio("nou");
+		
 		this.modalpanelRepository.save(modalpanel);
 		
 	}
@@ -166,14 +171,15 @@ public class ModalpanelServiceImpl implements ModalpanelService {
 
 	}*/
 
-/*	private Client loadClient() {
+	private Client loadClient() {
 		return clientRepository.load(systemContext.getSystemUser().getClientId());
-	}*/
+	}
 
 	@Override
 	public AggregateId createModalpanel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
