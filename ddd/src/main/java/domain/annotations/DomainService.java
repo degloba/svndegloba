@@ -11,10 +11,23 @@ import org.springframework.stereotype.Service;
  * No lligat al model de Domini (cap entitat)
  */
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@Service
+import org.springframework.stereotype.Component;
+
+@Component
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface DomainService {
+
+}
+
+/*@Service
 //public interface DomainService <K,T extends Entitat>{
 public @interface DomainService {
 	
 
-}
+}*/
