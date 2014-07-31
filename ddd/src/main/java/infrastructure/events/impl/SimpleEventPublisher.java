@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import application.ApplicationEventPublisher;
 import domain.DomainEvent;
-import domain.DomainEventPublisher;
+import domain.support.DomainEventPublisher;
 import infrastructure.events.impl.handlers.EventHandler;
 
 @Component
