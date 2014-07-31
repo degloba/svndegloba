@@ -22,8 +22,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-
-
 // JPA - Persistencia
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,13 +29,8 @@ import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
 
-
-
-
 // CQRS
 import query.annotations.Finder;
-
-
 
 
 
@@ -48,8 +41,10 @@ import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
 
-import domain.DomainEventPublisher;
+
+
 import domain.annotations.FinderImpl;
+import domain.support.DomainEventPublisher;
 
 
 @FinderImpl
