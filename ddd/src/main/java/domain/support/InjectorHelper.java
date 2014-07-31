@@ -3,27 +3,25 @@ package domain.support;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import domain.BaseAggregateRoot;
-import domain.DomainEventPublisher;
 
 @Named
 public class InjectorHelper {
 
     @Inject
-    private DomainEventPublisher eventPublisher;
+    private DomainEventPublisher domainEventPublisher;
 
     public void injectDependencies(BaseAggregateRoot aggregateRoot) {
         if (aggregateRoot != null) {
-            aggregateRoot.setEventPublisher(eventPublisher);
+            aggregateRoot.setDomainEventPublisher(domainEventPublisher);
         }
     }
 
-	public DomainEventPublisher getEventPublisher() {
-		return eventPublisher;
+	public DomainEventPublisher getDomainEventPublisher() {
+		return domainEventPublisher;
 	}
 
-	public void setEventPublisher(DomainEventPublisher eventPublisher) {
-		this.eventPublisher = eventPublisher;
+	public void setDomainEventPublisher(DomainEventPublisher domainEventPublisher) {
+		this.domainEventPublisher = domainEventPublisher;
 	}
     
     

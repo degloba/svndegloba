@@ -1,5 +1,7 @@
 package domain;
 
+import domain.support.Entitat;
+
 
 /**
  * @author degloba
@@ -9,12 +11,7 @@ package domain;
  * @param <K>
  * @param <TEntity>
  */
-public class GenericService<K,TEntity extends BaseAggregateRoot> implements IGenericService<K,TEntity> {
-
-
-	public GenericService(RepositoryService<Long, TEntity> _repositori) {
-		// TODO Auto-generated constructor stub
-	}
+public class GenericService<K,TEntity extends Entitat> implements IGenericService<K,TEntity> {
 
 	
 	public void Add(TEntity value) {
