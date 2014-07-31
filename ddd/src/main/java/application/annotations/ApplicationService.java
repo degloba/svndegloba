@@ -22,12 +22,27 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * @author Slawek
+ * 
+ */
 
 @Component
 @Retention(RetentionPolicy.RUNTIME)
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED)
 @Target(ElementType.TYPE)
 public @interface ApplicationService {
 
 }
+/*@Service
+@Transactional
+//@Secured
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface ApplicationService {
+    String value() default "";
+}*/
