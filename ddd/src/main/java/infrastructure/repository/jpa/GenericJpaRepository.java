@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
  * @author degloba
  * 
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
- * @param <K>  Tipus de la clau (Long,String,..) de l'entitat del domini
+ * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
 public class GenericJpaRepository<E, K> {

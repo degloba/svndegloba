@@ -3,8 +3,8 @@ package infrastructure.repository.jpa;
 // JPA
 import javax.persistence.criteria.Predicate;
 
+import domain.support.BaseAggregateRoot;
 
-import domain.BaseAggregateRoot;
 
 
 /**
