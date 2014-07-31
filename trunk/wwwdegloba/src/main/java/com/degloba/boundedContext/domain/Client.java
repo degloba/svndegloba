@@ -4,8 +4,10 @@ package com.degloba.boundedContext.domain;
 import javax.persistence.Entity;
 
 // BaseEntity = NO aggregate
-import domain.BaseEntity;
+
+
 import domain.annotations.DomainEntity;
+import domain.support.BaseEntity;
 
 @Entity
 @DomainEntity
