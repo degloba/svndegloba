@@ -8,7 +8,7 @@ package command;
  * <li>command queues for asynchronous commands 
  * </ul>
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 public interface Gate {
