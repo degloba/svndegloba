@@ -3,6 +3,7 @@ package com.degloba.boundedContext.application.impl;
 
 import javax.inject.Inject;
 
+// SPRING
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +15,7 @@ import com.degloba.boundedContext.domain.ModalpanelFactory;
 import com.degloba.boundedContext.domain.ModalpanelRepository;
 import com.degloba.system.application.SystemContext;
 
-
-import domain.RepositoryService;
+// DDD
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.sharedkernel.exceptions.DomainOperationException;
 import application.GenericApplicationService;
@@ -30,7 +30,7 @@ import application.annotations.ApplicationService;
  * we hide them under the Order term  
  * Technically App Service is just a bunch of procedures, therefore OO principles (ex: CqS, SOLID, GRASP) does not apply here  
  *
- * @author Slawek
+ * @author degloba
  */
 @ApplicationService
 public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId,Modalpanel> implements ModalpanelService<AggregateId> {
@@ -39,14 +39,14 @@ public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId
 	private SystemContext systemContext;
 
 	@Inject
-	private ClientRepository clientRepository;
+	private ClientRepository<AggregateId> clientRepository;
 
 
 	@Inject
 	private ModalpanelFactory modalpanelFactory;
 
 	@Inject
-	private ModalpanelRepository<?> modalpanelRepository;
+	private ModalpanelRepository<Long> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;*/

@@ -6,22 +6,24 @@ import com.degloba.boundedContext.application.commands.ChangeModalpanelStatusCom
 import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.domain.ModalpanelRepository;
 
+// DDD
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.CommandHandler;
 
+
 /**
- * @author Slawek
+ * @author degloba
  *
  */
 @CommandHandlerAnnotation
-public class ChangeModalpanelStatusCommandHandler implements CommandHandler<ChangeModalpanelStatusCommand, Void>{
+public class ChangeModalpanelStatusCommandHandler<K> implements CommandHandler<ChangeModalpanelStatusCommand<K>, Void>{
 
 	@Inject
-	private ModalpanelRepository modalpanelRepository; 
+	private ModalpanelRepository<K> modalpanelRepository; 
 
 	@Override
-	public Void handle(ChangeModalpanelStatusCommand command) {
-		Modalpanel modalpanel = modalpanelRepository.load(command.getCustomerId());
+	public Void handle(ChangeModalpanelStatusCommand<K> command) {
+		Modalpanel modalpanel = modalpanelRepository.load(command.getModalpanelId());
 		modalpanel.changeStatus(command.getStatus());
 		modalpanelRepository.save(modalpanel);		
 		return null;
