@@ -1,8 +1,5 @@
 package domain.annotations;
 
-import org.springframework.stereotype.Service;
-
-
 /**
  * 
  * @author degloba
@@ -16,7 +13,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+// SPRING
 import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Service;
 
 @Component
 @Retention(RetentionPolicy.RUNTIME)
@@ -29,5 +28,4 @@ public @interface DomainService {
 //public interface DomainService <K,T extends Entitat>{
 public @interface DomainService {
 	
-
 }*/

@@ -5,13 +5,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import java.lang.annotation.RetentionPolicy;
 
-
+// SPRING
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  * 
  */
 @Component
