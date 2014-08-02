@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * @author degloba
+ * 
  * @category Defineix patro Repository.
  * Abstraccio de l'infraestructura de persistencia
  * No lligat a les entitats de Domini
