@@ -1,31 +1,30 @@
 package com.degloba.boundedContext.application.commands;
 
+// DDD
 import command.annotations.Command;
-
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 import com.degloba.boundedContext.domain.Modalpanel.ModalpanelStatus;
 
 /**
- * @author Slawek
+ * @author degloba
  *
  */
-@SuppressWarnings("serial")
-@Command
-public class ChangeModalpanelStatusCommand {
 
-	private AggregateId customerId;
+@Command
+public class ChangeModalpanelStatusCommand<K> {
+
+	private K modalpanelId;
 
 	private ModalpanelStatus status;
 
-	public ChangeModalpanelStatusCommand(AggregateId customerId, ModalpanelStatus status) {
+	public ChangeModalpanelStatusCommand(K modalpanelId, ModalpanelStatus status) {
 		super();
-		this.customerId = customerId;
+		this.modalpanelId = modalpanelId;
 		this.status = status;
 	}
 
-	public AggregateId getCustomerId() {
-		return customerId;
+	public K getModalpanelId() {
+		return modalpanelId;
 	}
 
 	public ModalpanelStatus getStatus() {
