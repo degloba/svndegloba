@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author Slawek
  */
 @Component
-public class SystemUser {
+public class SystemUser implements ISystemUser{
 
 	@PersistenceContext
 	private EntityManager entityManager;
