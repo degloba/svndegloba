@@ -1,27 +1,25 @@
 package com.degloba.boundedContext.application.api.command;
 
 import command.annotations.Command;
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @Command()
-public class AddModalpanelCommand {
+public class AddModalpanelCommand<K> {
 
-	private AggregateId orderId;
-	private AggregateId modalpanelId;
+	private K orderId;
+	private K modalpanelId;
 	private int quantity;
 
-	public AddModalpanelCommand(AggregateId orderId, AggregateId modalpanelId,
-		int quantity) {
+	public AddModalpanelCommand(K orderId, K modalpanelId,int quantity) {
 		this.orderId = orderId;
 		this.modalpanelId = modalpanelId;
 		this.quantity = quantity;
 	}
 
-	public AggregateId getOrderId() {
+	public K getOrderId() {
 		return orderId;
 	}
 
-	public AggregateId getModalpanelId() {
+	public K getModalpanelId() {
 		return modalpanelId;
 	}
 
