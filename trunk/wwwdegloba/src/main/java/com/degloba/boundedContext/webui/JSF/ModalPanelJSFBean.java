@@ -52,7 +52,7 @@ public class ModalPanelJSFBean {
     private ModalpanelsFinder modalpanelsFinder;
     
     @Inject
-    private ModalpanelService modalpanelsService;
+    private ModalpanelService<AggregateId> modalpanelsService;
     	
 	private  ArrayList<ModalPanelDto> items = new ArrayList<ModalPanelDto>();
 	ModalPanelDto mp;
