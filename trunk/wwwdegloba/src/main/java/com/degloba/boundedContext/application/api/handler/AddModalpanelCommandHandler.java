@@ -11,27 +11,28 @@ import com.degloba.system.application.SystemContext;
 
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.CommandHandler;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @CommandHandlerAnnotation
-public class AddModalpanelCommandHandler implements CommandHandler<AddModalpanelCommand, Void>{ 
+public class AddModalpanelCommandHandler<K> implements CommandHandler<AddModalpanelCommand<K>, Void>{ 
 
 	/*@Inject
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private ModalpanelRepository modalpanelRepository;
+	private ModalpanelRepository<K> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
 */
 	@Inject
-	private ClientRepository clientRepository;
+	private ClientRepository<AggregateId> clientRepository;
 
 	@Inject
 	private SystemContext systemContext;
 
 	@Override
-	public Void handle(AddModalpanelCommand command) {
+	public Void handle(AddModalpanelCommand<K> command) {
 		//Reservation reservation = reservationRepository.load(command.getOrderId());
 
 		Modalpanel modalPanel = modalpanelRepository.load(command.getModalpanelId());

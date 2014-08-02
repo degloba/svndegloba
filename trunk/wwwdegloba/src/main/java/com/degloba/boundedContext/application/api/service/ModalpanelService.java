@@ -1,6 +1,5 @@
 package com.degloba.boundedContext.application.api.service;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 public interface ModalpanelService<K> {
 	
