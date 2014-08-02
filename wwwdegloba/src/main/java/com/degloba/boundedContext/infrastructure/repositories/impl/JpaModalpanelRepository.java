@@ -11,7 +11,7 @@ import com.degloba.boundedContext.domain.ModalpanelRepository;
 
 
 @DomainRepositoryImpl
-public class JpaModalpanelRepository extends GenericJpaRepository<Modalpanel,Long> implements ModalpanelRepository<Long>{
+public class JpaModalpanelRepository extends GenericJpaRepository<Long,Modalpanel> implements ModalpanelRepository<Long>{
 
 	@Override
 	public Modalpanel load(Long modalpanelId) {
