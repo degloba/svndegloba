@@ -2,8 +2,10 @@ package command.impl;
 
 import javax.inject.Inject;
 
+// SPRING
 import org.springframework.stereotype.Component;
 
+// CQRS
 import command.Gate;
 import command.annotations.Command;
 
