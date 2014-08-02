@@ -9,13 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import application.ApplicationEventPublisher;
-import domain.support.DomainEvent;
-import domain.support.DomainEventPublisher;
+import application.IApplicationEventPublisher;
+import domain.support.IDomainEvent;
+import domain.support.IDomainEventPublisher;
 import infrastructure.events.impl.handlers.EventHandler;
 
 @Component
-public class SimpleEventPublisher implements DomainEventPublisher, ApplicationEventPublisher {
+public class SimpleEventPublisher implements IDomainEventPublisher, IApplicationEventPublisher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEventPublisher.class);
 
@@ -30,7 +30,7 @@ public class SimpleEventPublisher implements DomainEventPublisher, ApplicationEv
         doPublish(event);
     }
 
-    public void publish(DomainEvent event) {
+    public void publish(IDomainEvent event) {
         doPublish(event);
     }
 
@@ -45,4 +45,10 @@ public class SimpleEventPublisher implements DomainEventPublisher, ApplicationEv
             }
         }
     }
+
+	@Override
+	public void publish(Object event) {
+		// TODO Auto-generated method stub
+		
+	}
 }
