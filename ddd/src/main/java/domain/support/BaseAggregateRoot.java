@@ -62,7 +62,7 @@ import org.springframework.stereotype.Component;
 
 		@Transient
 		@Inject
-		protected IDomainEventPublisher<?> domainEventPublisher;
+		protected IDomainEventPublisher<IDomainEvent> domainEventPublisher;
 		
 		
 
@@ -140,13 +140,13 @@ import org.springframework.stereotype.Component;
      * Can be called only once by Factory/Repository<br>
      * Visible for package (Factory/Repository)
      */
-   public void setDomainEventPublisher(IDomainEventPublisher<?> domainEventPubslisher) {
+   public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent> domainEventPublisher) {
         if (this.domainEventPublisher != null)
             throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
-        this.domainEventPublisher = domainEventPubslisher;
+        this.domainEventPublisher = domainEventPublisher;
     }
 
-	public IDomainEventPublisher<?> getDomainEventPublisher() {
+	public IDomainEventPublisher<IDomainEvent> getDomainEventPublisher() {
 		return domainEventPublisher;
 	}
 
