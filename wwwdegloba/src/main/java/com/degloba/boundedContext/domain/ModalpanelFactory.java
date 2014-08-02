@@ -7,12 +7,16 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import domain.annotations.DomainFactory;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.sharedkernel.exceptions.DomainOperationException;
+import domain.support.DomainEventPublisher;
 
 @DomainFactory
 public class ModalpanelFactory {
 
 	@Inject
 	private AutowireCapableBeanFactory spring;
+	
+	@Inject
+	private DomainEventPublisher domainEventPublisher;
 
 	/**
 	 * 
@@ -44,6 +48,16 @@ public class ModalpanelFactory {
 
 	private boolean canPurchse(Client client, List<OfferItem> availabeItems) {
 		return true;//TODO explore domain rules
+	}*/
+	
+
+
+	/*public Modalpanel createModalpanel(ClientData clientData, Money amount){
+		//TODO validate
+
+		AggregateId aggregateId = AggregateId.generate();
+		domainEventPublisher.publish(new ClientPaidEvent(aggregateId, clientData, amount));
+		return new Modalpanel(aggregateId, clientData, amount);
 	}*/
 
 }
