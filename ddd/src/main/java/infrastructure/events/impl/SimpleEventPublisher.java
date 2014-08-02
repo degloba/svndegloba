@@ -15,7 +15,7 @@ import domain.support.IDomainEventPublisher;
 import infrastructure.events.impl.handlers.EventHandler;
 
 @Component
-public class SimpleEventPublisher implements IDomainEventPublisher, IApplicationEventPublisher {
+public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent>, IApplicationEventPublisher<Object> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEventPublisher.class);
 
