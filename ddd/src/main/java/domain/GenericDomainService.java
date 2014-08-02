@@ -1,6 +1,10 @@
 package domain;
 
-import domain.support.Entitat;
+import infrastructure.repository.jpa.GenericJpaRepository;
+
+
+// DDD
+import domain.support.BaseEntity;
 
 
 /**
@@ -11,8 +15,10 @@ import domain.support.Entitat;
  * @param <K>
  * @param <TEntity>
  */
-public class GenericDomainService<K,TEntity extends Entitat> implements IGenericDomainService<K,TEntity> {
+public class GenericDomainService<K,TEntity extends BaseEntity> implements IGenericDomainService<K,TEntity> {
 
+	private GenericJpaRepository<K, TEntity> repositori;
+	//private IViewsGenericRepository views;
 	
 	public void Add(TEntity value) {
 		// TODO Auto-generated method stub
@@ -28,4 +34,9 @@ public class GenericDomainService<K,TEntity extends Entitat> implements IGeneric
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	/*public EntityService CreateService(TEntity entitat) {
+		
+	}
+	*/
 }
