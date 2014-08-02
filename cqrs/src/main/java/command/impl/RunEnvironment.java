@@ -5,12 +5,14 @@ package command.impl;
 
 import javax.inject.Inject;
 
+// SPRING
 import org.springframework.stereotype.Component;
 
+// CQRS
 import command.handler.CommandHandler;
 
 /**
- * @author Slawek
+ * @author degloba
  */
 @Component
 public class RunEnvironment {
