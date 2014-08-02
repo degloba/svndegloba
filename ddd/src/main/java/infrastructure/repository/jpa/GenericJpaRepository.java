@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class GenericJpaRepository<E, K> {
+public class GenericJpaRepository<K, E> {
 
     @PersistenceContext
     protected EntityManager entityManager;

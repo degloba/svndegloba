@@ -3,19 +3,22 @@ package infrastructure.repository.jpa;
 // JPA
 import javax.persistence.criteria.Predicate;
 
+// DDD
 import domain.support.BaseAggregateRoot;
+import domain.support.BaseEntity;
 
 
 
 /**
  * 
  * @author degloba
+ * 
  * @category Defineix un Repository utilitzant JPA (per tant lligat a la tecnologia de persistencia), 
- * per� nom�s lligat a BaseEntity (Generic)
+ * pero nomes lligat a BaseEntity (Generic)
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
  * @param <K> key type
  */
-public class GenericJpaRepositoryForBaseEntity<E extends BaseAggregateRoot> extends GenericJpaRepository<E, Long>{
+public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends GenericJpaRepository<Long,E>{
 		
 	  
 	public E Find(Predicate predicate) {
