@@ -1,6 +1,8 @@
 package domain.support;
 
 // CDI Java EE 6
+import java.util.Date;
+
 import javax.inject.Inject;
 
 // JPA
@@ -17,12 +19,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
+
 // SPRING
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.sharedkernel.exceptions.DomainOperationException;
 
 
 /**
@@ -36,11 +36,7 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 	@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends Entitat{
-		public static enum AggregateStatus {
-			ACTIVE, ARCHIVE
-		}
-	
+	public abstract class BaseAggregateRoot extends BaseEntity{
 		/*@EmbeddedId
 		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
@@ -50,19 +46,24 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
 		
+
+		/**
+		 * control de concurrencia
+		 */
 		@Version
 		private Long version;
-
-		@Enumerated(EnumType.ORDINAL)
-		private AggregateStatus aggregateStatus = AggregateStatus.ACTIVE;
+				
+		private Boolean actiu; //esborrat logic
 		
+		private Date DataVigenciaIni;
+		private Date DataVigenciaFi;
+		private Date DataIniciSeleccio;
+		
+
 		@Transient
 		@Inject
-		protected DomainEventPublisher domainEventPublisher;
+		protected IDomainEventPublisher<?> domainEventPublisher;
 		
-		public void markAsRemoved() {
-			aggregateStatus = AggregateStatus.ARCHIVE;
-		}
 		
 
 /*		public AggregateId getAggregateId() {
@@ -98,9 +99,35 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 			return aggregateId.hashCode();
 		}	*/	
 		
-
 	
-    /**
+
+    //    getters - setters
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Boolean getActiu() {
+		return actiu;
+	}
+
+	public void setActiu(Boolean actiu) {
+		this.actiu = actiu;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	private void setVersion(Long version) {
+		this.version = version;
+	}
+
+	 /**
      * Sample of Domain Event usage<br>
      * Event Publisher is injected by Factory/Repo 
      
@@ -113,25 +140,15 @@ import domain.sharedkernel.exceptions.DomainOperationException;
      * Can be called only once by Factory/Repository<br>
      * Visible for package (Factory/Repository)
      */
-   public void setDomainEventPublisher(DomainEventPublisher domainEventPubslisher) {
+   public void setDomainEventPublisher(IDomainEventPublisher<?> domainEventPubslisher) {
         if (this.domainEventPublisher != null)
             throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
         this.domainEventPublisher = domainEventPubslisher;
     }
 
-	public DomainEventPublisher getDomainEventPublisher() {
+	public IDomainEventPublisher<?> getDomainEventPublisher() {
 		return domainEventPublisher;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-  
 
     
 }
