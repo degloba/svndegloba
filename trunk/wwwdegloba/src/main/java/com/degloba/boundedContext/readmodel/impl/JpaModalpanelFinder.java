@@ -1,38 +1,19 @@
 package com.degloba.boundedContext.readmodel.impl;
 
-/*
- * Copyright 2011-2014 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 
-// JPA - Persistencia
+// JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
-
 // CQRS
 import query.annotations.Finder;
-
-
 
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
@@ -41,10 +22,11 @@ import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
 
-
-
+// DDD
 import domain.annotations.FinderImpl;
 import domain.support.DomainEventPublisher;
+import domain.support.IDomainEvent;
+import domain.support.IDomainEventPublisher;
 
 
 @FinderImpl
@@ -85,7 +67,7 @@ public class JpaModalpanelFinder implements ModalpanelsFinder {
 			Object projectId = util.getIdentifier(ret.get(0));*/
 			
 			ret.size();
-			DomainEventPublisher de =ret.get(0).getDomainEventPublisher();
+			IDomainEventPublisher<IDomainEvent> de =ret.get(0).getDomainEventPublisher();
 						    
 		} catch (RuntimeException e) {
 			log.warning("Modalpanel error" + e.getMessage() );
