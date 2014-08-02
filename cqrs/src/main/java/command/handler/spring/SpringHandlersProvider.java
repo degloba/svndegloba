@@ -7,12 +7,14 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+// SPRING
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+// CQRS
 import command.handler.CommandHandler;
 import command.impl.RunEnvironment.HandlersProvider;
 
