@@ -16,9 +16,10 @@ import domain.support.BaseEntity;
  * @category Defineix un Repository utilitzant JPA (per tant lligat a la tecnologia de persistencia), 
  * pero nomes lligat a BaseEntity (Generic)
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
+ * @param <K>
  * @param <K> key type
  */
-public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends GenericJpaRepository<Long,E>{
+public class GenericJpaRepositoryForBaseEntity<K,E extends BaseEntity> extends GenericJpaRepository<K,E>{
 		
 	  
 	public E Find(Predicate predicate) {
@@ -27,7 +28,7 @@ public class GenericJpaRepositoryForBaseEntity<E extends BaseEntity> extends Gen
 		}
 	
 	
-	public void delete(Long id){
+	public void delete(K id){
 		E entity = load(id);
 		entity.markAsRemoved();		
 		save(entity);	
