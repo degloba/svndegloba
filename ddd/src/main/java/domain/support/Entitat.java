@@ -9,4 +9,9 @@ package domain.support;
  */
 public class Entitat {
 
+	public Boolean Equals(Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

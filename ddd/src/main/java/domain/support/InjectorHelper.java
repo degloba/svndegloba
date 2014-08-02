@@ -8,7 +8,7 @@ import javax.inject.Named;
 public class InjectorHelper {
 
     @Inject
-    private DomainEventPublisher domainEventPublisher;
+    private IDomainEventPublisher<?> domainEventPublisher;
 
     public void injectDependencies(BaseAggregateRoot aggregateRoot) {
         if (aggregateRoot != null) {
@@ -16,11 +16,11 @@ public class InjectorHelper {
         }
     }
 
-	public DomainEventPublisher getDomainEventPublisher() {
+	public IDomainEventPublisher<?> getDomainEventPublisher() {
 		return domainEventPublisher;
 	}
 
-	public void setDomainEventPublisher(DomainEventPublisher domainEventPublisher) {
+	public void setDomainEventPublisher(IDomainEventPublisher<?> domainEventPublisher) {
 		this.domainEventPublisher = domainEventPublisher;
 	}
     
