@@ -1,6 +1,3 @@
-/**
- * 
- */
 package command.impl;
 
 import javax.inject.Inject;
@@ -9,7 +6,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.handler.CommandHandler;
+import command.handler.ICommandHandler;
 
 /**
  * @author degloba
@@ -18,14 +15,14 @@ import command.handler.CommandHandler;
 public class RunEnvironment {
 
 	public interface HandlersProvider{
-		CommandHandler<Object, Object> getHandler(Object command);
+		ICommandHandler<Object> getHandler(Object command);
 	}
 	
 	@Inject
 	private HandlersProvider handlersProvider;
 	
 	public Object run(Object command) {		
-		CommandHandler<Object, Object> handler = handlersProvider.getHandler(command);
+		ICommandHandler<Object> handler = handlersProvider.getHandler(command);
 		
 		//You can add Your own capabilities here: dependency injection, security, transaction management, logging, profiling, spying, storing commands, etc
 		

@@ -6,12 +6,12 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.Gate;
+import command.IGate;
 import command.annotations.Command;
 
 
 @Component
-public class StandardGate implements Gate {
+public class StandardGate implements IGate {
 	
 	@Inject
 	private RunEnvironment runEnvironment;
