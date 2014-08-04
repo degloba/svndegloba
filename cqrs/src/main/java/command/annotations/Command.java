@@ -6,7 +6,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import command.handler.CommandHandler;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
