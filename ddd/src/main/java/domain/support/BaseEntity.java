@@ -14,7 +14,7 @@ import javax.persistence.MappedSuperclass;
  *
  */
 @MappedSuperclass
-public abstract class BaseEntity extends Entitat{
+public abstract class BaseEntity{
 
     // ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
     // annotated as ordinal in sake of performance
@@ -51,7 +51,6 @@ public abstract class BaseEntity extends Entitat{
  /* (non-Javadoc)
  * @see domain.support.Entitat#Equals(java.lang.Object)
  */
-@Override
   public Boolean Equals(Object obj)
   {	
 	  if (this == obj)
