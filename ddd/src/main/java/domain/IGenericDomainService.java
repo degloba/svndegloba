@@ -1,7 +1,9 @@
 package domain;
 
+// DDD
 import domain.annotations.DomainService;
-import domain.support.Entitat;
+import domain.support.BaseEntity;
+
 
 /**
  * @author degloba
@@ -12,7 +14,7 @@ import domain.support.Entitat;
  * @param <T>
  */
 @DomainService
-public interface IGenericDomainService<K,T extends Entitat> {
+public interface IGenericDomainService<K,T extends BaseEntity> {
 	
 	public void Add(T value);
 	public void Remove(K id);
