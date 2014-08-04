@@ -15,7 +15,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.handler.CommandHandler;
+import command.handler.ICommandHandler;
 import command.impl.RunEnvironment.HandlersProvider;
 
 @Component
@@ -27,18 +27,18 @@ public class SpringHandlersProvider implements HandlersProvider, ApplicationList
     private Map<Class<?>, String> handlers = new HashMap<Class<?>, String>();
 
     @SuppressWarnings("unchecked")
-    public CommandHandler<Object, Object> getHandler(Object command) {
+    public ICommandHandler<Object> getHandler(Object command) {
         String beanName = handlers.get(command.getClass());
         if (beanName == null) {
             throw new RuntimeException("command handler not found. Command class is " + command.getClass());
         }
-        CommandHandler<Object, Object> handler = beanFactory.getBean(beanName, CommandHandler.class);
+        ICommandHandler<Object> handler = beanFactory.getBean(beanName, ICommandHandler.class);
         return handler;
     }
 
     public void onApplicationEvent(ContextRefreshedEvent event) {
         handlers.clear();
-        String[] commandHandlersNames = beanFactory.getBeanNamesForType(CommandHandler.class);
+        String[] commandHandlersNames = beanFactory.getBeanNamesForType(ICommandHandler.class);
         for (String beanName : commandHandlersNames) {
             BeanDefinition commandHandler = beanFactory.getBeanDefinition(beanName);
             try {
@@ -52,7 +52,7 @@ public class SpringHandlersProvider implements HandlersProvider, ApplicationList
 
     private Class<?> getHandledCommandType(Class<?> clazz) {
         Type[] genericInterfaces = clazz.getGenericInterfaces();
-        ParameterizedType type = findByRawType(genericInterfaces, CommandHandler.class);
+        ParameterizedType type = findByRawType(genericInterfaces, ICommandHandler.class);
         return (Class<?>) type.getActualTypeArguments()[0];
     }
 
