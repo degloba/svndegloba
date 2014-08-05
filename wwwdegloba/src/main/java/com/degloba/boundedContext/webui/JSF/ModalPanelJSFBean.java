@@ -9,9 +9,6 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 
-
-
-
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -21,15 +18,11 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 
-
-
 // SPRING
 import org.springframework.stereotype.Component;
 
 
-
-
-
+import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
@@ -38,6 +31,7 @@ import com.degloba.boundedContext.readmodel.ModalPanelDto;
 // Finder (CQRS)
 import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
 
+import command.IGate;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
@@ -52,7 +46,10 @@ public class ModalPanelJSFBean {
     private ModalpanelsFinder modalpanelsFinder;
     
     @Inject
-    private ModalpanelService<AggregateId> modalpanelsService;
+    private ModalpanelService<Long> modalpanelsService;
+    
+    @Inject
+    private IGate gate;
     	
 	private  ArrayList<ModalPanelDto> items = new ArrayList<ModalPanelDto>();
 	ModalPanelDto mp;
@@ -109,9 +106,11 @@ public class ModalPanelJSFBean {
 			    // handle any errors
 		}
 		
-		AggregateId id = new AggregateId(UUID.randomUUID().toString());
+		/////////AggregateId id = new AggregateId(UUID.randomUUID().toString());
 		
-		modalpanelsService.addModalpanel(id);
+		modalpanelsService.addModalpanel((long) 1);
+		
+		gate.dispatch(new AddModalpanelCommand((long) 1));
 		
 		return panells;
 	}
