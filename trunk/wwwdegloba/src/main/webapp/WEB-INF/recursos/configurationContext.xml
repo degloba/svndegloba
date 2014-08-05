@@ -53,6 +53,8 @@
 	<!-- 7. FINDERS -->
 	<bean id="modalpanelsFinder" class="com.degloba.boundedContext.readmodel.impl.JpaModalpanelFinder"/>
 	
+	<!-- 8. GATE - COMMANDS -->
+	<bean id="gate" class="command.impl.StandardGate"/>
 	
 	<!-- 8. SERVEIS D'APLICACIO 
 		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
