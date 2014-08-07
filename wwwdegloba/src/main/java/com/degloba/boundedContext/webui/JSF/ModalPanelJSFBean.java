@@ -17,19 +17,18 @@ import javax.faces.bean.SessionScoped;
 // CDI Java EE 6
 import javax.inject.Inject;
 
-
 // SPRING
 import org.springframework.stereotype.Component;
 
-
 import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
+
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
-import com.degloba.boundedContext.readmodel.ModalPanelDto;
+import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 
 // Finder (CQRS)
-import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
+import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
 
 import command.IGate;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
@@ -43,7 +42,7 @@ public class ModalPanelJSFBean {
 	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
 	
     @Inject
-    private ModalpanelsFinder modalpanelsFinder;
+    private IModalpanelFinder modalpanelsFinder;
     
     @Inject
     private ModalpanelService<Long> modalpanelsService;
@@ -51,8 +50,8 @@ public class ModalPanelJSFBean {
     @Inject
     private IGate gate;
     	
-	private  ArrayList<ModalPanelDto> items = new ArrayList<ModalPanelDto>();
-	ModalPanelDto mp;
+	private  ArrayList<ModalpanelDto> items = new ArrayList<ModalpanelDto>();
+	ModalpanelDto mp;
 
 	FacesContext context;
 	ResourceBundle bundle;
@@ -67,19 +66,19 @@ public class ModalPanelJSFBean {
 	}
 
 
-	public List<ModalPanelDto> getItems() {
+	public List<ModalpanelDto> getItems() {
 		return omplirPanelModals();		
 	}
 
 
-	public void setItems(ArrayList<ModalPanelDto> items) {
+	public void setItems(ArrayList<ModalpanelDto> items) {
 		this.items = items;
 	}
 
 
-	private List<ModalPanelDto> omplirPanelModals() {
+	private List<ModalpanelDto> omplirPanelModals() {
 		
-		List<ModalPanelDto> panells = new ArrayList<ModalPanelDto>(); 
+		List<ModalpanelDto> panells = new ArrayList<ModalpanelDto>(); 
 		
 		try {
 			
@@ -94,7 +93,7 @@ public class ModalPanelJSFBean {
 	        	
 	    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 				
-		  		mp = new ModalPanelDto();
+		  		mp = new ModalpanelDto();
 		  		mp.setId(mp1.getModalpanelid());
 		  		mp.setTitol(bundle.getString("titolPanelModal." + mp1.getModalpanelid().toString()));
 		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + mp1.getModalpanelid().toString()));
@@ -116,12 +115,12 @@ public class ModalPanelJSFBean {
 	}
 
 
-	public ModalpanelsFinder getModalpanelsFinder() {
+	public IModalpanelFinder getModalpanelsFinder() {
 		return modalpanelsFinder;
 	}
 
 
-	public void setModalpanelsFinder(ModalpanelsFinder modalpanelsFinder) {
+	public void setModalpanelsFinder(IModalpanelFinder modalpanelsFinder) {
 		this.modalpanelsFinder = modalpanelsFinder;
 	}
 	
