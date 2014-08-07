@@ -6,21 +6,28 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
+
 // JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
+
+import query.PaginatedResult;
 // CQRS
 import query.annotations.Finder;
+
 
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
 
 // 
-import com.degloba.boundedContext.readmodel.ModalpanelsFinder;
+import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
+import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
+import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
 import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
+
 
 // DDD
 import domain.annotations.FinderImpl;
@@ -30,7 +37,7 @@ import domain.support.IDomainEventPublisher;
 
 
 @FinderImpl
-public class JpaModalpanelFinder implements ModalpanelsFinder {
+public class JpaModalpanelFinder implements IModalpanelFinder {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -80,6 +87,12 @@ public class JpaModalpanelFinder implements ModalpanelsFinder {
 
 		return ret;
 
+	}
+
+	@Override
+	public PaginatedResult<ModalpanelDto> query(ModalpanelQuery orderQuery) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
