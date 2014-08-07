@@ -1,13 +1,13 @@
-package com.degloba.boundedContext.readmodel;
+package com.degloba.boundedContext.readmodel.modalpanel;
 
-public  class ModalPanelDto  {
+public  class ModalpanelDto  {
 	
 	private int id;
 	private String titol;
 	private String definicio;
 
 	
-	public ModalPanelDto() {
+	public ModalpanelDto() {
 		
 		super();
    
