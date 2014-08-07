@@ -42,7 +42,7 @@ public class ModalPanelJSFBean {
 	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
 	
     @Inject
-    private IModalpanelFinder modalpanelsFinder;
+    private IModalpanelFinder modalpanelFinder;
     
     @Inject
     private ModalpanelService<Long> modalpanelsService;
@@ -82,7 +82,7 @@ public class ModalPanelJSFBean {
 		
 		try {
 			
-			List<Modalpanel> rs = modalpanelsFinder.findAll();
+			List<Modalpanel> rs = modalpanelFinder.findAll();
 			
 			log.info("Modalpanel count : " + rs.size());
     	
@@ -115,13 +115,13 @@ public class ModalPanelJSFBean {
 	}
 
 
-	public IModalpanelFinder getModalpanelsFinder() {
-		return modalpanelsFinder;
+	public IModalpanelFinder getModalpanelFinder() {
+		return modalpanelFinder;
 	}
 
 
-	public void setModalpanelsFinder(IModalpanelFinder modalpanelsFinder) {
-		this.modalpanelsFinder = modalpanelsFinder;
+	public void setModalpanelFinder(IModalpanelFinder modalpanelFinder) {
+		this.modalpanelFinder = modalpanelFinder;
 	}
 	
 	
