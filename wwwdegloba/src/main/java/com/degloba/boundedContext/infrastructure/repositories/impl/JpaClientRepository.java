@@ -1,14 +1,14 @@
 package com.degloba.boundedContext.infrastructure.repositories.impl;
 
 import com.degloba.boundedContext.domain.Client;
-import com.degloba.boundedContext.domain.ClientRepository;
+import com.degloba.boundedContext.domain.IClientRepository;
 
 import infrastructure.repository.jpa.GenericJpaRepository;
 import domain.annotations.DomainRepositoryImpl;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepositoryImpl
-public class JpaClientRepository extends GenericJpaRepository<Client, AggregateId> implements ClientRepository<AggregateId> {
+public class JpaClientRepository extends GenericJpaRepository<Client, AggregateId> implements IClientRepository<AggregateId> {
 
 	@Override
 	public Client load(AggregateId clientId) {
