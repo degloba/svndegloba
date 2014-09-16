@@ -15,8 +15,8 @@ public class ModalpanelFactory {
 	@Inject
 	private AutowireCapableBeanFactory spring;
 	
-	@Inject
-	private DomainEventPublisher domainEventPublisher;
+	/*@Inject
+	private DomainEventPublisher domainEventPublisher;*/
 
 	/**
 	 * 
