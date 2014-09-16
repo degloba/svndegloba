@@ -73,7 +73,7 @@ public class JpaModalpanelFinder implements IModalpanelFinder {
 			/*PersistenceUnitUtil util=entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
 			Object projectId = util.getIdentifier(ret.get(0));*/
 			
-			ret.size();
+			ret.size();	
 			IDomainEventPublisher<IDomainEvent> de =ret.get(0).getDomainEventPublisher();
 						    
 		} catch (RuntimeException e) {
