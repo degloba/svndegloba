@@ -4,9 +4,9 @@ import javax.inject.Inject;
 
 import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.domain.Client;
-import com.degloba.boundedContext.domain.ClientRepository;
+import com.degloba.boundedContext.domain.IClientRepository;
 import com.degloba.boundedContext.domain.Modalpanel;
-import com.degloba.boundedContext.domain.ModalpanelRepository;
+import com.degloba.boundedContext.domain.IModalpanelRepository;
 import com.degloba.system.application.SystemContext;
 
 // CQRS
@@ -23,13 +23,13 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private ModalpanelRepository<Long> modalpanelRepository;
+	private IModalpanelRepository<Long> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
 */
 	@Inject
-	private ClientRepository<AggregateId> clientRepository;
+	private IClientRepository<Long> clientRepository;
 
 	@Inject
 	private SystemContext systemContext;
@@ -52,7 +52,7 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		return null;
 	}
 
-	private Client loadClient() {
+/*	private Client loadClient() {
 		return clientRepository.load(systemContext.getSystemUser().getClientId());
-	}
+	}*/
 }

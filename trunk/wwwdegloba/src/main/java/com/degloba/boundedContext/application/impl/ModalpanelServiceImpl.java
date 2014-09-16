@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
 import com.degloba.boundedContext.domain.Client;
-import com.degloba.boundedContext.domain.ClientRepository;
+import com.degloba.boundedContext.domain.IClientRepository;
 import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.domain.ModalpanelFactory;
-import com.degloba.boundedContext.domain.ModalpanelRepository;
+import com.degloba.boundedContext.domain.IModalpanelRepository;
 import com.degloba.system.application.SystemContext;
 
 // DDD
@@ -33,20 +33,20 @@ import application.annotations.ApplicationService;
  * @author degloba
  */
 @ApplicationService
-public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId,Modalpanel> implements ModalpanelService<AggregateId> {
+public class ModalpanelServiceImpl extends GenericApplicationService<Long,Modalpanel> implements ModalpanelService<Long> {
 
 	@Inject
 	private SystemContext systemContext;
 
 	@Inject
-	private ClientRepository<AggregateId> clientRepository;
+	private IClientRepository<Long> clientRepository;
 
 
 	@Inject
 	private ModalpanelFactory modalpanelFactory;
 
 	@Inject
-	private ModalpanelRepository<Long> modalpanelRepository;
+	private IModalpanelRepository<Long> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;*/
@@ -87,7 +87,7 @@ public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId
 	
 	
 	@Override
-	public void addModalpanel(AggregateId modalpanelId) {
+	public void addModalpanel(Long modalpanelId) {
 		// TODO Auto-generated method stub
 		
 		//Modalpanel modalpanel = this.modalpanelRepository.load(modalpanelId);
@@ -171,12 +171,12 @@ public class ModalpanelServiceImpl extends GenericApplicationService<AggregateId
 
 	}*/
 
-	private Client loadClient() {
+/*	private Client loadClient() {
 		return clientRepository.load(systemContext.getSystemUser().getClientId());
-	}
+	}*/
 
 	@Override
-	public AggregateId createModalpanel() {
+	public Long createModalpanel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
