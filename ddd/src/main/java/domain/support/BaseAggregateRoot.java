@@ -1,10 +1,12 @@
 package domain.support;
 
-// CDI Java EE 6
 import java.util.Date;
 
+
+// CDI Java EE 6
 import javax.inject.Inject;
 
+import javax.jdo.annotations.PersistenceCapable;
 // JPA
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+
 
 
 // SPRING
@@ -36,15 +39,16 @@ import org.springframework.stereotype.Component;
 	@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends BaseEntity{
+	public class BaseAggregateRoot extends BaseEntity {
+		//public abstract class BaseAggregateRoot extends BaseEntity{
 		/*@EmbeddedId
 		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-		private AggregateId aggregateId;
-		*/
-		@Id
+		private AggregateId aggregateId; */
+		
+		/*@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private Long id;
+		private Long id; */
 		
 
 		/**
@@ -103,14 +107,6 @@ import org.springframework.stereotype.Component;
 
     //    getters - setters
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Boolean getActiu() {
 		return actiu;
 	}
@@ -123,10 +119,36 @@ import org.springframework.stereotype.Component;
 		return version;
 	}
 
-	private void setVersion(Long version) {
+	public void setVersion(Long version) {
 		this.version = version;
 	}
 
+	public Date getDataVigenciaIni() {
+		return DataVigenciaIni;
+	}
+
+	public void setDataVigenciaIni(Date dataVigenciaIni) {
+		DataVigenciaIni = dataVigenciaIni;
+	}
+
+	public Date getDataVigenciaFi() {
+		return DataVigenciaFi;
+	}
+
+	public void setDataVigenciaFi(Date dataVigenciaFi) {
+		DataVigenciaFi = dataVigenciaFi;
+	}
+
+	public Date getDataIniciSeleccio() {
+		return DataIniciSeleccio;
+	}
+
+	public void setDataIniciSeleccio(Date dataIniciSeleccio) {
+		DataIniciSeleccio = dataIniciSeleccio;
+	}
+
+	
+	
 	 /**
      * Sample of Domain Event usage<br>
      * Event Publisher is injected by Factory/Repo 
@@ -134,7 +156,8 @@ import org.springframework.stereotype.Component;
     @Transient
     protected DomainEventPublisher eventPublisher; */
 
-    /**
+   
+	/**
      * Sample technique of injecting Event Publisher into the Aggregate.<br>
      * <br>
      * Can be called only once by Factory/Repository<br>
@@ -149,6 +172,14 @@ import org.springframework.stereotype.Component;
 	public IDomainEventPublisher<IDomainEvent> getDomainEventPublisher() {
 		return domainEventPublisher;
 	}
+
+	/*public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}*/
 
     
 }

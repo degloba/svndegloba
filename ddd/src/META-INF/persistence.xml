@@ -7,7 +7,7 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
      
 	<persistence-unit name="transactions-optional">        
 	<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  
-		<class>domain.support.BaseAggregateRoot</class> 		
+		<class>domain.support.BaseEntity</class>	
         <exclude-unlisted-classes/>  
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            

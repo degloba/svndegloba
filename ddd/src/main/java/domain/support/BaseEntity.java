@@ -1,18 +1,29 @@
 package domain.support;
 
 // JPA
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.PersistenceCapable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 //import javax.persistence.Version;
+
+
+
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 
 /**
  * @author degloba
  *
  */
+@PersistenceCapable
+@Inheritance
 @MappedSuperclass
 public abstract class BaseEntity{
 

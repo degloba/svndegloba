@@ -1,6 +1,7 @@
 package application;
 
 import domain.annotations.DomainService;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
 /**
@@ -12,7 +13,7 @@ import domain.support.BaseEntity;
  * @param <T>
  */
 @DomainService
-public interface IGenericApplicationService<K,T extends BaseEntity> {
+public interface IGenericApplicationService<K,T extends BaseAggregateRoot> {
 	
 
 	public void Add(T value);

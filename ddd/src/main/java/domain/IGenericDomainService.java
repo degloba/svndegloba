@@ -2,6 +2,7 @@ package domain;
 
 // DDD
 import domain.annotations.DomainService;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
 
@@ -14,7 +15,7 @@ import domain.support.BaseEntity;
  * @param <T>
  */
 @DomainService
-public interface IGenericDomainService<K,T extends BaseEntity> {
+public interface IGenericDomainService<K,T extends BaseAggregateRoot> {
 	
 	public void Add(T value);
 	public void Remove(K id);

@@ -3,6 +3,7 @@ package domain;
 import infrastructure.repository.jpa.GenericJpaRepository;
 
 
+import domain.support.BaseAggregateRoot;
 // DDD
 import domain.support.BaseEntity;
 
@@ -15,7 +16,7 @@ import domain.support.BaseEntity;
  * @param <K>
  * @param <TEntity>
  */
-public class GenericDomainService<K,TEntity extends BaseEntity> implements IGenericDomainService<K,TEntity> {
+public class GenericDomainService<K,TEntity extends BaseAggregateRoot> implements IGenericDomainService<K,TEntity> {
 
 	private GenericJpaRepository<K, TEntity> repositori;
 	//private IViewsGenericRepository views;

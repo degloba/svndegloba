@@ -2,6 +2,7 @@ package application;
 
 // DDD
 import domain.IGenericDomainService;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
 
@@ -13,7 +14,7 @@ import domain.support.BaseEntity;
  * @param <K>
  * @param <TEntity>
  */
-public class GenericApplicationService<K,TEntity extends BaseEntity> implements IGenericApplicationService<K,TEntity> {
+public class GenericApplicationService<K,TEntity extends BaseAggregateRoot> implements IGenericApplicationService<K,TEntity> {
 
 	private IGenericDomainService<K, TEntity> genericDomainService;
 /*	private Sys.ISys sysoperations;

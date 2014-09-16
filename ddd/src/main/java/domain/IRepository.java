@@ -5,14 +5,17 @@ import java.util.List;
 
 /**
  * @author degloba
+ * 
  * @category Defineix patro Repository.
- * Abstracci� de l'infraestructura de persistencia
+ * Abstraccio de l'infraestructura de persistencia
  * No lligat a les entitats de Domini
  * 
  * @param <K> = Tipus d'identificador
  * @param <E> = Tipus d'entitat que gestiona
  */
-public interface RepositoryService<K, E> {  
+public interface IRepository<K, E> {  
+	
+	void add(E entity);
 	
 	E save(E entity);          
 	void remove(E entity);     
