@@ -12,7 +12,7 @@ public interface IModalpanelFinder {
 
 	List<Modalpanel> findAll();
 
-	PaginatedResult<ModalpanelDto> query(ModalpanelQuery orderQuery);
+	PaginatedResult<ModalpanelDto> query(ModalpanelQuery<?> orderQuery);
 
     
 }
