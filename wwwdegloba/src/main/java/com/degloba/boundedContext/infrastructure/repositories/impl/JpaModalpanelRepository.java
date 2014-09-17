@@ -1,7 +1,7 @@
 package com.degloba.boundedContext.infrastructure.repositories.impl;
 
 // DDD
-import infrastructure.repository.jpa.GenericJpaRepository;
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 import domain.annotations.DomainRepositoryImpl;
 
 
@@ -11,7 +11,7 @@ import com.degloba.boundedContext.domain.IModalpanelRepository;
 
 
 @DomainRepositoryImpl
-public class JpaModalpanelRepository extends GenericJpaRepository<Long,Modalpanel> implements IModalpanelRepository<Long>{
+public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Long,Modalpanel> implements IModalpanelRepository<Long>{
 
 	@Override
 	public Modalpanel load(Long modalpanelId) {
