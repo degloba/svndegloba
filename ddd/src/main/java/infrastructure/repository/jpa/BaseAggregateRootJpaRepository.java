@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class GenericJpaRepository<K, E> {
+public class BaseAggregateRootJpaRepository<K, E> implements IBaseAggregateRootJpaRepository{
 
     @PersistenceContext
     protected EntityManager entityManager;
@@ -22,7 +22,7 @@ public class GenericJpaRepository<K, E> {
     private Class<E> clazz;
 
     @SuppressWarnings("unchecked")
-    public GenericJpaRepository() {
+    public BaseAggregateRootJpaRepository() {
         this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 

@@ -15,7 +15,7 @@ import domain.support.BaseEntity;
  * @param <T>
  */
 @DomainService
-public interface IGenericDomainService<K,T extends BaseAggregateRoot> {
+public interface IBaseAggregateRootDomainService<K,T extends BaseAggregateRoot> {
 	
 	public void Add(T value);
 	public void Remove(K id);

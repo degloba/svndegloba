@@ -1,7 +1,7 @@
 package application;
 
 // DDD
-import domain.IGenericDomainService;
+import domain.IBaseAggregateRootDomainService;
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
@@ -14,9 +14,9 @@ import domain.support.BaseEntity;
  * @param <K>
  * @param <TEntity>
  */
-public class GenericApplicationService<K,TEntity extends BaseAggregateRoot> implements IGenericApplicationService<K,TEntity> {
+public class BaseAggregateRootApplicationService<K,TEntity extends BaseAggregateRoot> implements IBaseAggregateRootApplicationService<K,TEntity> {
 
-	private IGenericDomainService<K, TEntity> genericDomainService;
+	private IBaseAggregateRootDomainService<K, TEntity> genericDomainService;
 /*	private Sys.ISys sysoperations;
 	private Log.Ilog logService; 
 	private Core.ICore coreService;

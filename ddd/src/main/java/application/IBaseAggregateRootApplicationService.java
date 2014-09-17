@@ -13,7 +13,7 @@ import domain.support.BaseEntity;
  * @param <T>
  */
 @DomainService
-public interface IGenericApplicationService<K,T extends BaseAggregateRoot> {
+public interface IBaseAggregateRootApplicationService<K,T extends BaseAggregateRoot> {
 	
 
 	public void Add(T value);
