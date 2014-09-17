@@ -18,7 +18,7 @@ import com.degloba.system.application.SystemContext;
 // DDD
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.sharedkernel.exceptions.DomainOperationException;
-import application.GenericApplicationService;
+import application.BaseAggregateRootApplicationService;
 import application.annotations.ApplicationService;
 
 /**
@@ -33,7 +33,7 @@ import application.annotations.ApplicationService;
  * @author degloba
  */
 @ApplicationService
-public class ModalpanelServiceImpl extends GenericApplicationService<Long,Modalpanel> implements ModalpanelService<Long> {
+public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<Long,Modalpanel> implements ModalpanelService<Long> {
 
 	@Inject
 	private SystemContext systemContext;
