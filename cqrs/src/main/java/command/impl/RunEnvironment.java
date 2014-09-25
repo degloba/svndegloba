@@ -10,16 +10,17 @@ import command.handler.ICommandHandler;
 
 /**
  * @author degloba
+ * @param <K>
  */
 @Component
 public class RunEnvironment {
 
-	public interface HandlersProvider{
+	public interface IHandlersProvider{
 		ICommandHandler<Object> getHandler(Object command);
 	}
 	
 	@Inject
-	private HandlersProvider handlersProvider;
+	private IHandlersProvider handlersProvider;
 	
 	public Object run(Object command) {		
 		ICommandHandler<Object> handler = handlersProvider.getHandler(command);
@@ -33,11 +34,11 @@ public class RunEnvironment {
 		return result;
 	}
 
-	public HandlersProvider getHandlersProvider() {
+	public IHandlersProvider getHandlersProvider() {
 		return handlersProvider;
 	}
 
-	public void setHandlersProvider(HandlersProvider handlersProvider) {
+	public void setHandlersProvider(IHandlersProvider handlersProvider) {
 		this.handlersProvider = handlersProvider;
 	}
 
