@@ -1,23 +1,15 @@
 package com.degloba.boundedContext.readmodel.impl;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-
-
 // JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
-
 import query.PaginatedResult;
-// CQRS
-import query.annotations.Finder;
-
 
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
@@ -31,7 +23,6 @@ import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
 
 // DDD
 import domain.annotations.FinderImpl;
-import domain.support.DomainEventPublisher;
 import domain.support.IDomainEvent;
 import domain.support.IDomainEventPublisher;
 
@@ -90,7 +81,7 @@ public class JpaModalpanelFinder implements IModalpanelFinder {
 	}
 
 	@Override
-	public PaginatedResult<ModalpanelDto> query(ModalpanelQuery orderQuery) {
+	public PaginatedResult<ModalpanelDto> query(ModalpanelQuery<?> orderQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}

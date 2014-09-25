@@ -3,15 +3,15 @@ package com.degloba.boundedContext.application.api.commands;
 import command.annotations.Command;
 
 @Command()
-public class AddModalpanelCommand {
+public class AddModalpanelCommand<K> {
 
-	private Long modalpanelId;
+	private K modalpanelId;
 
-	public AddModalpanelCommand(Long modalpanelId) {
+	public AddModalpanelCommand(K modalpanelId) {
 		this.modalpanelId = modalpanelId;
 	}
 
-	public Long getModalpanelId() {
+	public K getModalpanelId() {
 		return modalpanelId;
 	}
 

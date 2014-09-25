@@ -16,10 +16,10 @@ import command.handler.ICommandHandler;
  *
  */
 @CommandHandlerAnnotation
-public class ChangeModalpanelStatusCommandHandler implements ICommandHandler<ChangeModalpanelStatusCommand>{
+public class ChangeModalpanelStatusCommandHandler<K> implements ICommandHandler<ChangeModalpanelStatusCommand>{
 
 	@Inject
-	private IModalpanelRepository modalpanelRepository; 
+	private IModalpanelRepository<K> modalpanelRepository; 
 
 	@Override
 	public Void handle(ChangeModalpanelStatusCommand command) {
