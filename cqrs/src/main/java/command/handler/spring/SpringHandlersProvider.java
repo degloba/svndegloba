@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 
 // CQRS
 import command.handler.ICommandHandler;
-import command.impl.RunEnvironment.HandlersProvider;
+import command.impl.RunEnvironment.IHandlersProvider;
 
 @Component
-public class SpringHandlersProvider implements HandlersProvider, ApplicationListener<ContextRefreshedEvent> {
+public class SpringHandlersProvider implements IHandlersProvider, ApplicationListener<ContextRefreshedEvent> {
 
     @Inject
     private ConfigurableListableBeanFactory beanFactory;
