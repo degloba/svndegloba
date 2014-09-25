@@ -8,7 +8,7 @@ import domain.annotations.DomainRepositoryImpl;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepositoryImpl
-public class JpaClientRepository extends BaseAggregateRootJpaRepository<Client, AggregateId> implements IClientRepository<AggregateId> {
+public class JpaClientRepository extends BaseAggregateRootJpaRepository<AggregateId,Client> implements IClientRepository<AggregateId> {
 
 /*	@Override
 	public Client load(AggregateId clientId) {
