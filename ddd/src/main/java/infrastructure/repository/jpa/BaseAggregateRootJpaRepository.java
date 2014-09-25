@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import domain.support.BaseAggregateRoot;
+
 
 /**
  * 
@@ -14,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class BaseAggregateRootJpaRepository<K, E> implements IBaseAggregateRootJpaRepository{
+public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<K>{
 
     @PersistenceContext
     protected EntityManager entityManager;
