@@ -9,6 +9,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 
+
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -16,6 +17,7 @@ import javax.faces.bean.SessionScoped;
 
 // CDI Java EE 6
 import javax.inject.Inject;
+
 
 // SPRING
 import org.springframework.stereotype.Component;
@@ -109,7 +111,7 @@ public class ModalPanelJSFBean {
 		
 		modalpanelsService.addModalpanel((long) 1);
 		
-		gate.dispatch(new AddModalpanelCommand((long) 1));
+		gate.dispatch(new AddModalpanelCommand<AggregateId>(new AggregateId()));
 		
 		return panells;
 	}

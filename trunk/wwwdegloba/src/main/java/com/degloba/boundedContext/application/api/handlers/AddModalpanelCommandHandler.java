@@ -17,13 +17,13 @@ import command.handler.ICommandHandler;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @CommandHandlerAnnotation
-public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpanelCommand>{ 
+public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalpanelCommand<K>>{ 
 
 	/*@Inject
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository;
+	private IModalpanelRepository<AggregateId> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
@@ -35,7 +35,7 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 	private SystemContext systemContext;
 
 	@Override
-	public Void handle(AddModalpanelCommand command) {
+	public Void handle(AddModalpanelCommand<K> command) {
 		//Reservation reservation = reservationRepository.load(command.getOrderId());
 
 		Modalpanel modalPanel = modalpanelRepository.load(command.getModalpanelId());

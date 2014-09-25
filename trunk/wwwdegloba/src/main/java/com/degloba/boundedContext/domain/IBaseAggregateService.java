@@ -1,5 +1,5 @@
 package com.degloba.boundedContext.domain;
 
-public interface IBaseAggregateService {
+public interface IBaseAggregateService<K> {
 
 }
