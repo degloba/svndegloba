@@ -5,9 +5,9 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 public class SystemUser {   
 	
-	private AggregateId clientId;
+	private Long clientId;
 
-	SystemUser(AggregateId clientId) {
+	SystemUser(Long clientId) {
 		this.clientId = clientId;
 	}
 
@@ -15,7 +15,7 @@ public class SystemUser {
 	 * 
 	 * @return Domain model Client
 	 */
-	public AggregateId getClientId(){
+	public Long getClientId(){
 		return clientId;
 	}
 

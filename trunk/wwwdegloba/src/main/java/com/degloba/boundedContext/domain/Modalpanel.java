@@ -1,9 +1,13 @@
 package com.degloba.boundedContext.domain;
 
 // JPA
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.jdo.spi.StateManager;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+
 
 
 
@@ -15,6 +19,7 @@ import domain.canonicalmodel.publishedlanguage.ClientData;
 
 @AggregateRoot
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Modalpanel extends BaseAggregateRoot{
 	
 	private Integer modalpanelid;
@@ -24,9 +29,9 @@ public class Modalpanel extends BaseAggregateRoot{
 	/*@Embedded
 	private ClientData clientData; */
 	
-	public Integer getModalpanelid() {
+/*	public Integer getModalpanelid() {
 		return modalpanelid;
-	}
+	}*/
 	public void setModalpanelid(Integer modalpanelid) {
 		this.modalpanelid = modalpanelid;
 	}
@@ -68,8 +73,6 @@ public class Modalpanel extends BaseAggregateRoot{
 		//Sample Case: give 10% rebate for all draft orders - communication via events with different Bounded Context to achieve decoupling
 		///////eventPublisher.publish(new CustomerStatusChangedEvent(getAggregateId(), status));
 	}
-
-
 	
 	
 }

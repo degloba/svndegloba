@@ -21,7 +21,8 @@ public class SystemContext {
 	@Bean        
 	@Scope("prototype")        
 	public SystemUser getSystemUser(){                
-		return new SystemUser(new AggregateId("1"));//TODO introduce security integration        
+		//return new SystemUser(new AggregateId("1"));//TODO introduce security integration        
+		return new SystemUser((long) 1);//TODO introduce security integration
 		}
 }
 
