@@ -17,13 +17,13 @@ import command.handler.ICommandHandler;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @CommandHandlerAnnotation
-public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalpanelCommand<K>>{ 
+public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalpanelCommand>{ 
 
 	/*@Inject
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private IModalpanelRepository<AggregateId> modalpanelRepository;
+	private IModalpanelRepository modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
@@ -35,10 +35,10 @@ public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalp
 	private SystemContext systemContext;
 
 	@Override
-	public Void handle(AddModalpanelCommand<K> command) {
+	public Void handle(AddModalpanelCommand command) {
 		//Reservation reservation = reservationRepository.load(command.getOrderId());
 
-		Modalpanel modalPanel = modalpanelRepository.load(command.getModalpanelId());
+		//Modalpanel modalPanel = modalpanelRepository.load(command.getModalpanelId());
 
 		/*if (! modalPanel.isAvailabe()){
 			Client client = loadClient();	
@@ -48,6 +48,16 @@ public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalp
 	/*	reservation.add(modalPanel, command.getQuantity());
 
 		reservationRepository.save(reservation);*/
+		
+		Modalpanel modalpanel = new Modalpanel();
+		modalpanel.setAggregateId(command.getModalpanelId());
+		modalpanel.setActiu(true);
+		modalpanel.setDescripcio("hola");
+		modalpanel.setTitol("titol hora");
+		modalpanel.changeStatus(Modalpanel.ModalpanelStatus.VIP);
+			
+		
+		this.modalpanelRepository.save(modalpanel);
 
 		return null;
 	}
