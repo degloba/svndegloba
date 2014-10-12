@@ -1,6 +1,7 @@
 package command.handler;
 
-import command.annotations.Command;
+//import command.annotations.Command;
+import command.impl.Command;
 
 /**
  * 
