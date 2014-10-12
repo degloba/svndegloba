@@ -17,4 +17,12 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		</properties>    
 	</persistence-unit>
 	
+	<persistence-unit name="mongodb">
+		<properties>  
+            <property name="datanucleus.ConnectionURL" value="mongodb://degloba:tivoli00@ds039960.mongolab.com:39960/degloba"/>  
+            <property name="datanucleus.storeManagerType" value="mongodb" />  
+           <property name="datanucleus.autoCreateSchema" value="true" />  
+        </properties>  	
+	</persistence-unit>
+	
 </persistence>
