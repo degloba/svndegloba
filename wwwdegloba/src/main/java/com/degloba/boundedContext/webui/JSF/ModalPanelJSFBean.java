@@ -84,6 +84,9 @@ public class ModalPanelJSFBean {
 		
 		try {
 			
+			Modalpanel p = new Modalpanel();
+			p.setAggregateId(AggregateId.generate());
+			
 			List<Modalpanel> rs = modalpanelFinder.findAll();
 			
 			log.info("Modalpanel count : " + rs.size());
@@ -96,9 +99,9 @@ public class ModalPanelJSFBean {
 	    		bundle= ResourceBundle.getBundle("idioma", context.getViewRoot().getLocale()); 
 				
 		  		mp = new ModalpanelDto();
-		  		mp.setId(mp1.getModalpanelid());
-		  		mp.setTitol(bundle.getString("titolPanelModal." + mp1.getModalpanelid().toString()));
-		  		mp.setDefinicio(bundle.getString("definicioPanelModal." + mp1.getModalpanelid().toString()));
+		  		//mp.setId(mp1.getModalpanelid());
+		  		//mp.setTitol(bundle.getString("titolPanelModal." + mp1.getModalpanelid().toString()));
+		  		//mp.setDefinicio(bundle.getString("definicioPanelModal." + mp1.getModalpanelid().toString()));
 				
 				panells.add(mp);
 	  		}
@@ -109,9 +112,9 @@ public class ModalPanelJSFBean {
 		
 		/////////AggregateId id = new AggregateId(UUID.randomUUID().toString());
 		
-		modalpanelsService.addModalpanel((long) 1);
+		////modalpanelsService.addModalpanel((long) 1);
 		
-		gate.dispatch(new AddModalpanelCommand<AggregateId>(new AggregateId()));
+		gate.dispatch(new AddModalpanelCommand(AggregateId.generate()));
 		
 		return panells;
 	}

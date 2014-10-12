@@ -33,7 +33,7 @@ import application.annotations.ApplicationService;
  * @author degloba
  */
 @ApplicationService
-public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<Long,Modalpanel> implements ModalpanelService<Long> {
+public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<AggregateId,Modalpanel> implements ModalpanelService<AggregateId> {
 
 	@Inject
 	private SystemContext systemContext;
@@ -46,7 +46,7 @@ public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<L
 	private ModalpanelFactory modalpanelFactory;
 
 	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository;
+	private IModalpanelRepository modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;*/
@@ -86,7 +86,7 @@ public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<L
 	}*/
 	
 	
-	@Override
+/*	@Override
 	public void addModalpanel(Long modalpanelId) {
 		// TODO Auto-generated method stub
 		
@@ -96,7 +96,7 @@ public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<L
 		
 		this.modalpanelRepository.save(modalpanel);
 		
-	}
+	}*/
 
 	/**
 	 * Can be invoked many times for the same order (with different params).<br>
@@ -176,9 +176,15 @@ public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<L
 	}*/
 
 	@Override
-	public Long createModalpanel() {
+	public AggregateId createModalpanel() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void addModalpanel(AggregateId modalpanelId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

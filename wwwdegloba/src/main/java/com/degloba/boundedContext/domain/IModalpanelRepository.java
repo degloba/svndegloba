@@ -1,11 +1,12 @@
 package com.degloba.boundedContext.domain;
 
 import domain.annotations.DomainRepository;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepository
-public interface IModalpanelRepository<K> {
+public interface IModalpanelRepository {
 
-	public Modalpanel load(Object object);
+	public Modalpanel load(AggregateId aggregateId);
 
 	public Modalpanel save(Modalpanel modalpanel);
 	
