@@ -3,10 +3,12 @@ package domain.support;
 import java.util.Date;
 
 
+
+
 // CDI Java EE 6
 import javax.inject.Inject;
 
-import javax.jdo.annotations.PersistenceCapable;
+import javax.persistence.Entity;
 // JPA
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +25,13 @@ import javax.persistence.Transient;
 
 
 
+
+
 // SPRING
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**
@@ -38,11 +44,12 @@ import org.springframework.stereotype.Component;
 
 	@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
+	@Entity
 	@MappedSuperclass
-	public class BaseAggregateRoot extends BaseEntity {
-		//public abstract class BaseAggregateRoot extends BaseEntity{
-		/*@EmbeddedId
-		@AttributeOverrides({
+	public abstract class BaseAggregateRoot extends BaseEntity {
+	//public abstract class BaseAggregateRoot {
+		//@EmbeddedId
+		/*@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
 		private AggregateId aggregateId; */
 		

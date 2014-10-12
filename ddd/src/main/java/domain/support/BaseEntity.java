@@ -1,8 +1,12 @@
 package domain.support;
 
 // JPA
-import javax.jdo.annotations.Inheritance;
-import javax.jdo.annotations.PersistenceCapable;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -12,20 +16,19 @@ import javax.persistence.MappedSuperclass;
 //import javax.persistence.Version;
 
 
-
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**
  * @author degloba
  *
  */
-@PersistenceCapable
-@Inheritance
+@Entity
 @MappedSuperclass
-public abstract class BaseEntity{
+public class BaseEntity{
 
     // ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
     // annotated as ordinal in sake of performance
@@ -34,9 +37,14 @@ public abstract class BaseEntity{
     }
 
     //entityId because ID can mean something (some domain concept) in some Bounded Context
-    @Id
+/*    @Id
     @GeneratedValue
-    private Long entityId;
+    private Long entityId;*/
+    
+    @EmbeddedId
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+	private AggregateId aggregateId; 
 
 
 /*    @Version
@@ -54,8 +62,9 @@ public abstract class BaseEntity{
      * Check if this  entity is transient,ie, without identity at this moment
      * @return  True if entity is transient, else false
      */
-    public Boolean IsTransient() {
-    	return this.entityId ==  0;  // guid.empty
+    public  Boolean IsTransient() {
+    	//return this.entityId ==  0;  // guid.empty
+    	return this.aggregateId == null;
     }
 
     
@@ -73,14 +82,17 @@ public abstract class BaseEntity{
 
 	  BaseEntity item = (BaseEntity)obj;
 	  
-	  if (item.entityId == null)
-			return false;
+/*	  if (item.entityId == null)
+			return false;*/
+	  if (item.aggregateId == null)
+		return false;
 		
 
 	  if (item.IsTransient() || this.IsTransient())
 		  return false;
 	  else
-		  return item.entityId.equals(this.entityId);
+		  //return item.entityId.equals(this.entityId);
+		  return item.aggregateId.equals(this.aggregateId);
   
   }
 
@@ -89,7 +101,8 @@ private Integer _requestedHashCode;
 
 	public int GetHashCode()
 	{
-		return this.entityId.hashCode();
+		//return this.entityId.hashCode();
+		return this.aggregateId.hashCode();
 		/*if (!IsTransient())
 			{
 				if (!_requestedHashCode !=  null)
@@ -103,17 +116,28 @@ private Integer _requestedHashCode;
     
     //    getters - setters
     
-    private void setEntityId(Long entityId) {
+    /*private void setEntityId(Long entityId) {
 		this.entityId = entityId;
 	}
 
 	public Long getEntityId() {
         return entityId;
-    }
+    }*/
 
+	
     public EntityStatus getEntityStatus() {
         return entityStatus;
     }
+
+	public AggregateId getAggregateId() {
+		return aggregateId;
+	}
+
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
 
 	private void setEntityStatus(EntityStatus entityStatus) {
 		this.entityStatus = entityStatus;
