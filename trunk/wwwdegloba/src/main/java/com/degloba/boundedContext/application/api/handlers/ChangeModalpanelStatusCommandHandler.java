@@ -19,7 +19,7 @@ import command.handler.ICommandHandler;
 public class ChangeModalpanelStatusCommandHandler<K> implements ICommandHandler<ChangeModalpanelStatusCommand>{
 
 	@Inject
-	private IModalpanelRepository<K> modalpanelRepository; 
+	private IModalpanelRepository modalpanelRepository; 
 
 	@Override
 	public Void handle(ChangeModalpanelStatusCommand command) {

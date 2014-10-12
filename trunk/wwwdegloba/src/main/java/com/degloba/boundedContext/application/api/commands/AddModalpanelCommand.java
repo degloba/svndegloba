@@ -1,17 +1,19 @@
 package com.degloba.boundedContext.application.api.commands;
 
 import command.annotations.Command;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @Command()
-public class AddModalpanelCommand<K> {
+public class AddModalpanelCommand {
+	
+	private AggregateId modalpanelId;
 
-	private K modalpanelId;
-
-	public AddModalpanelCommand(K modalpanelId) {
-		this.modalpanelId = modalpanelId;
+	public AddModalpanelCommand(AggregateId aggregateId) {
+		// TODO Auto-generated constructor stub
+		this.modalpanelId=aggregateId;
 	}
 
-	public K getModalpanelId() {
+	public AggregateId getModalpanelId() {
 		return modalpanelId;
 	}
 
