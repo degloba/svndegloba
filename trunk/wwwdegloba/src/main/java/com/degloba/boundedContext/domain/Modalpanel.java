@@ -3,7 +3,7 @@ package com.degloba.boundedContext.domain;
 // JPA
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.jdo.spi.StateManager;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
