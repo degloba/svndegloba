@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 
 
 
+
 import domain.annotations.DomainEntity;
 import domain.support.BaseAggregateRoot;
 
@@ -19,5 +20,6 @@ import domain.support.BaseAggregateRoot;
 @DomainEntity
 public class Client extends BaseAggregateRoot {
 
+	
 	
 }
