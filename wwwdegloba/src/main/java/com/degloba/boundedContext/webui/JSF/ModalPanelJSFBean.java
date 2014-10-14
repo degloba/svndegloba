@@ -1,13 +1,10 @@
 package com.degloba.boundedContext.webui.JSF;
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.UUID;
 import java.util.logging.Logger;
-
 
 
 // JSF
@@ -85,7 +82,7 @@ public class ModalPanelJSFBean {
 		try {
 			
 			Modalpanel p = new Modalpanel();
-			p.setAggregateId(AggregateId.generate());
+			//p.setAggregateId(AggregateId.generate());
 			
 			List<Modalpanel> rs = modalpanelFinder.findAll();
 			
@@ -110,9 +107,8 @@ public class ModalPanelJSFBean {
 			    // handle any errors
 		}
 		
-		/////////AggregateId id = new AggregateId(UUID.randomUUID().toString());
 		
-		////modalpanelsService.addModalpanel((long) 1);
+		////modalpanelsService.addModalpanel(() 1);
 		
 		gate.dispatch(new AddModalpanelCommand(AggregateId.generate()));
 		
