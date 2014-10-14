@@ -11,7 +11,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @DomainRepositoryImpl
-public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<AggregateId,Modalpanel> implements IModalpanelRepository{
+public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Long,Modalpanel> implements IModalpanelRepository<Long>{
 
 
 	@Override
@@ -19,6 +19,12 @@ public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Aggr
 		// TODO Auto-generated method stub
 		
 		this.persist(modalpanel);
+		return null;
+	}
+
+	@Override
+	public Modalpanel load(Long aggregateId) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

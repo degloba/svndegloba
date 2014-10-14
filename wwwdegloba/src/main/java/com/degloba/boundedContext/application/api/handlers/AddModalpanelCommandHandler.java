@@ -13,17 +13,15 @@ import com.degloba.system.application.SystemContext;
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.ICommandHandler;
 
-// DDD
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @CommandHandlerAnnotation
-public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalpanelCommand>{ 
+public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpanelCommand>{ 
 
 	/*@Inject
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private IModalpanelRepository modalpanelRepository;
+	private IModalpanelRepository<Long> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
@@ -50,7 +48,7 @@ public class AddModalpanelCommandHandler<K> implements ICommandHandler<AddModalp
 		reservationRepository.save(reservation);*/
 		
 		Modalpanel modalpanel = new Modalpanel();
-		modalpanel.setAggregateId(command.getModalpanelId());
+		//modalpanel.setAggregateId(command.getModalpanelId());
 		modalpanel.setActiu(true);
 		modalpanel.setDescripcio("hola");
 		modalpanel.setTitol("titol hora");
