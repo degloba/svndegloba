@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+
 // Aggregate
 import domain.support.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
@@ -58,6 +59,8 @@ public class Modalpanel extends BaseAggregateRoot{
 		//Sample Case: give 10% rebate for all draft orders - communication via events with different Bounded Context to achieve decoupling
 		///////eventPublisher.publish(new CustomerStatusChangedEvent(getAggregateId(), status));
 	}
+
+	
 	
 	
 }
