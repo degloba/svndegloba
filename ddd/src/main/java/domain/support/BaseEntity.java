@@ -28,7 +28,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
  */
 @Entity
 @MappedSuperclass
-public class BaseEntity{
+public abstract class BaseEntity{
 
     // ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
     // annotated as ordinal in sake of performance
@@ -37,14 +37,14 @@ public class BaseEntity{
     }
 
     //entityId because ID can mean something (some domain concept) in some Bounded Context
-/*    @Id
+    @Id
     @GeneratedValue
-    private Long entityId;*/
+    private Long aggregateId;
     
-    @EmbeddedId
+/*    @EmbeddedId
 	@AttributeOverrides({
 		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-	private AggregateId aggregateId; 
+	private AggregateId aggregateId; */
 
 
 /*    @Version
@@ -128,20 +128,15 @@ private Integer _requestedHashCode;
     public EntityStatus getEntityStatus() {
         return entityStatus;
     }
-
-	public AggregateId getAggregateId() {
+    
+	public Long getAggregateId() {
 		return aggregateId;
 	}
 
-
-	public void setAggregateId(AggregateId aggregateId) {
+	public void setAggregateId(Long aggregateId) {
 		this.aggregateId = aggregateId;
 	}
 
-
-	private void setEntityStatus(EntityStatus entityStatus) {
-		this.entityStatus = entityStatus;
-	}
     
     
 }

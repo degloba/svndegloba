@@ -25,8 +25,6 @@ import javax.persistence.Transient;
 
 
 
-
-
 // SPRING
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -46,16 +44,18 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends BaseEntity {
+	public class BaseAggregateRoot {  //extends BaseEntity {
 	//public abstract class BaseAggregateRoot {
-		//@EmbeddedId
-		/*@AttributeOverrides({
+		
+		@Id
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		private Long aggregateId; 
+		
+		/*@EmbeddedId
+		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
 		private AggregateId aggregateId; */
 		
-		/*@Id
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private Long id; */
 		
 
 		/**
@@ -180,13 +180,14 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 		return domainEventPublisher;
 	}
 
-	/*public Long getId() {
-		return id;
+	public Long getAggregateId() {
+		return aggregateId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}*/
+	public void setAggregateId(Long aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
 
     
 }
