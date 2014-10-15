@@ -15,17 +15,17 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 @Command
 public class ChangeModalpanelStatusCommand{
 
-	private AggregateId modalpanelId;
+	private Long modalpanelId;
 
 	private ModalpanelStatus status;
 
-	public ChangeModalpanelStatusCommand(AggregateId modalpanelId, ModalpanelStatus status) {
+	public ChangeModalpanelStatusCommand(Long modalpanelId, ModalpanelStatus status) {
 		super();
 		this.modalpanelId = modalpanelId;
 		this.status = status;
 	}
 
-	public AggregateId getModalpanelId() {
+	public Long getModalpanelId() {
 		return modalpanelId;
 	}
 
