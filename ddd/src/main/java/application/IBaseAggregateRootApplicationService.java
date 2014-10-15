@@ -2,7 +2,6 @@ package application;
 
 import domain.annotations.DomainService;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 
 /**
  * @author degloba
