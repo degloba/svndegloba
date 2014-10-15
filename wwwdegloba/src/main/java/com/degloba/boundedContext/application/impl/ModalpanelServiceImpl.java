@@ -33,20 +33,20 @@ import application.annotations.ApplicationService;
  * @author degloba
  */
 @ApplicationService
-public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<AggregateId,Modalpanel> implements ModalpanelService<AggregateId> {
+public class ModalpanelServiceImpl  extends BaseAggregateRootApplicationService<Long,Modalpanel>  implements ModalpanelService<Long> {
 
-	@Inject
+/*	@Inject
 	private SystemContext systemContext;
 
 	@Inject
-	private IClientRepository<Long> clientRepository;
+	private IClientRepository<Long> clientRepository;*/
 
+/*
+	@Inject
+	private ModalpanelFactory modalpanelFactory;  */
 
 	@Inject
-	private ModalpanelFactory modalpanelFactory;
-
-	@Inject
-	private IModalpanelRepository modalpanelRepository;
+	private IModalpanelRepository<Long> modalpanelRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;*/
@@ -176,15 +176,23 @@ public class ModalpanelServiceImpl extends BaseAggregateRootApplicationService<A
 	}*/
 
 	@Override
-	public AggregateId createModalpanel() {
+	public Long createModalpanel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void addModalpanel(AggregateId modalpanelId) {
+	public void addModalpanel(Long modalpanelId) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public IModalpanelRepository<Long> getModalpanelRepository() {
+		return modalpanelRepository;
+	}
+
+	public void setModalpanelRepository(IModalpanelRepository<Long> modalpanelRepository) {
+		this.modalpanelRepository = modalpanelRepository;
 	}
 
 
