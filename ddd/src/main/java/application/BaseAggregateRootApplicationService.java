@@ -3,13 +3,12 @@ package application;
 // DDD
 import domain.IBaseAggregateRootDomainService;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 
 
 /**
  * @author degloba
  *
- * @category Defineix el Servei de Domini lligat a l'entitat del Domini (BaseEntity)
+ * @category Defineix el Servei de Domini lligat a l'entitat del Domini (BaseAggregateRoot)
  * 
  * @param <K>
  * @param <TEntity>
