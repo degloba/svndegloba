@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+
 // JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import query.PaginatedResult;
+
 
 // Entitat Domini
 import com.degloba.boundedContext.domain.Modalpanel;
@@ -21,6 +25,7 @@ import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
 import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
 
 
+
 // DDD
 import domain.annotations.FinderImpl;
 import domain.support.IDomainEvent;
@@ -30,7 +35,8 @@ import domain.support.IDomainEventPublisher;
 @FinderImpl
 public class JpaModalpanelFinder implements IModalpanelFinder {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactory")
 	private EntityManager entityManager;
 	
 	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
