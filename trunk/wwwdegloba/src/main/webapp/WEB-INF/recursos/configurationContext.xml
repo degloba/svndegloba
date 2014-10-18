@@ -58,8 +58,7 @@
 	
 	<!-- 8. SERVEIS D'APLICACIO 
 		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
-	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>
-	    <property name="modalpanelFactory" ref="modalpanelFactory"></property>
+	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>	    
 	</bean> -->
 	
 <!-- 	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
@@ -84,6 +83,15 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />    
 	</bean>
+	
+	
+ 	<bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+          <property name="persistenceUnitName" value="mongodb" />
+    </bean>  
+
+	<bean id="transactionManagerMongo" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactoryMongo" ref="entityManagerFactoryMongo" />    
+	</bean> 
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 		
