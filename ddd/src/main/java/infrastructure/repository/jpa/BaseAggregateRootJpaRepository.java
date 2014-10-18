@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import domain.support.BaseAggregateRoot;
 
 
@@ -18,7 +20,8 @@ import domain.support.BaseAggregateRoot;
  */
 public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<K>{
 
-    @PersistenceContext
+    @PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
 
     private Class<E> clazz;

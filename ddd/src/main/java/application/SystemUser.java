@@ -6,6 +6,7 @@ package application;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //import sales.domain.Client;
@@ -18,7 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SystemUser implements ISystemUser{
 
-	@PersistenceContext
+	@PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactory")
 	private EntityManager entityManager;
 
 	/**
