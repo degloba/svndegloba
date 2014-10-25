@@ -2,12 +2,25 @@ package com.degloba.boundedContext.application.api.handlers;
 
 import javax.inject.Inject;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.mongodb.core.MongoOperations;
+
+import com.degloba.SpringMongoConfig;
 import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.domain.Client;
 import com.degloba.boundedContext.domain.IClientRepository;
+import com.degloba.boundedContext.domain.IPersonRepository;
 import com.degloba.boundedContext.domain.Modalpanel;
 import com.degloba.boundedContext.domain.IModalpanelRepository;
+import com.degloba.boundedContext.domain.Person;
 import com.degloba.system.application.SystemContext;
+
+
+
+
+
+
 
 // CQRS
 import command.annotations.CommandHandlerAnnotation;
@@ -22,15 +35,18 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 */
 	@Inject
 	private IModalpanelRepository<Long> modalpanelRepository;
+	
+	@Inject
+	private IPersonRepository<Long> personRepository;
 
 	/*@Inject
 	private SuggestionService suggestionService;
 */
-	@Inject
+/*	@Inject
 	private IClientRepository<Long> clientRepository;
 
 	@Inject
-	private SystemContext systemContext;
+	private SystemContext systemContext;*/
 
 	@Override
 	public Void handle(AddModalpanelCommand command) {
@@ -54,8 +70,21 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		modalpanel.setTitol("titol hora");
 		modalpanel.changeStatus(Modalpanel.ModalpanelStatus.VIP);
 			
+		//this.modalpanelRepository.save(modalpanel);
 		
-		this.modalpanelRepository.save(modalpanel);
+		Person person = new Person();
+		person.setFirstName("pere");
+		person.setLastName("cots");
+		person.setLevel(0);
+		
+		
+		/*ApplicationContext ctx = 
+	             new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+		MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
+		
+		mongoOperation.save(person);*/
+		
+		this.personRepository.save(person);
 
 		return null;
 	}
