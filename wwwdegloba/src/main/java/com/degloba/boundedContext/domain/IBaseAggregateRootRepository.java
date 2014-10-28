@@ -1,5 +1,7 @@
 package com.degloba.boundedContext.domain;
 
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
+
 import domain.IRepository;
 import domain.support.BaseAggregateRoot;
 

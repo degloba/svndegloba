@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
 import com.degloba.boundedContext.domain.Client;
 import com.degloba.boundedContext.domain.IClientRepository;
-import com.degloba.boundedContext.domain.Modalpanel;
-import com.degloba.boundedContext.domain.ModalpanelFactory;
-import com.degloba.boundedContext.domain.IModalpanelRepository;
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modalpanel.ModalpanelFactory;
+import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
 import com.degloba.system.application.SystemContext;
 
 // DDD
