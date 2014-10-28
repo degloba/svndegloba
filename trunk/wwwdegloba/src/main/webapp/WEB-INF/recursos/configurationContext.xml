@@ -45,7 +45,7 @@
 
 	
 	<!-- 4. FACTORIES -->	
- 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.ModalpanelFactory" />  
+ 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.modalpanel.ModalpanelFactory" />  
 
 	
 	<!-- 5. SYSTEM USER -->
