@@ -15,7 +15,6 @@ import org.richfaces.application.push.TopicsContext;
 import org.richfaces.log.LogFactory;
 import org.richfaces.log.Logger;
 
-//import com.insacosa.vo.InmobleForm;
 
 /**
  * @author Nick Belaevski
