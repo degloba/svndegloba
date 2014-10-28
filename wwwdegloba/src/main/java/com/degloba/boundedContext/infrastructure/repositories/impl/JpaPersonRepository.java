@@ -1,21 +1,20 @@
 package com.degloba.boundedContext.infrastructure.repositories.impl;
 
-// DDD
-import com.degloba.boundedContext.domain.IModalpanelRepository;
+
 import com.degloba.boundedContext.domain.IPersonRepository;
-import com.degloba.boundedContext.domain.Modalpanel;
+
+// Entitats domini
 import com.degloba.boundedContext.domain.Person;
 
+//DDD
 import infrastructure.repository.jpa.BaseAggregateRootJpaMongoDBRepository;
 import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 import domain.annotations.DomainRepositoryImpl;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
-
 @DomainRepositoryImpl
 public class JpaPersonRepository extends BaseAggregateRootJpaMongoDBRepository<Long,Person> implements IPersonRepository<Long>{
-
 
 	@Override
 	public Person save(Person person) {

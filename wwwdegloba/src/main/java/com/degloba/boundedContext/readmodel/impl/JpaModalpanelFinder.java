@@ -14,16 +14,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import query.PaginatedResult;
 
-
 // Entitat Domini
-import com.degloba.boundedContext.domain.Modalpanel;
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 
 // 
 import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
 import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
-
 
 
 // DDD
@@ -64,7 +62,7 @@ public class JpaModalpanelFinder implements IModalpanelFinder {
 		
 		try {      
 			
-			Query q = entityManager.createQuery("select c FROM com.degloba.boundedContext.domain.Modalpanel c");
+			Query q = entityManager.createQuery("select c FROM com.degloba.boundedContext.domain.modalpanel.Modalpanel c");
 			
 			ret = (List<Modalpanel>)q.getResultList();
 			/*PersistenceUnitUtil util=entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
