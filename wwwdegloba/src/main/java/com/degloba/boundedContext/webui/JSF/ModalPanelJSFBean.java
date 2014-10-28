@@ -23,7 +23,7 @@ import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
 
 // Entitat Domini
-import com.degloba.boundedContext.domain.Modalpanel;
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 
 // Finder (CQRS)
