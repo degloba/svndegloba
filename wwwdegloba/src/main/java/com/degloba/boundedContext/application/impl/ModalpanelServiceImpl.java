@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.boundedContext.application.api.service.ModalpanelService;
-import com.degloba.boundedContext.domain.Client;
-import com.degloba.boundedContext.domain.IClientRepository;
+import com.degloba.boundedContext.domain.client.Client;
+import com.degloba.boundedContext.domain.client.IClientRepository;
 import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 import com.degloba.boundedContext.domain.modalpanel.ModalpanelFactory;
 import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
