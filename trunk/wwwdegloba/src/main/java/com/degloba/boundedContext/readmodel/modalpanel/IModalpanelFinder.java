@@ -5,7 +5,7 @@ import java.util.List;
 import query.PaginatedResult;
 import application.annotations.Finder;
 
-import com.degloba.boundedContext.domain.Modalpanel;
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 
 @Finder
 public interface IModalpanelFinder {
