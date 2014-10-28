@@ -11,10 +11,12 @@ import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.domain.Client;
 import com.degloba.boundedContext.domain.IClientRepository;
 import com.degloba.boundedContext.domain.IPersonRepository;
-import com.degloba.boundedContext.domain.Modalpanel;
-import com.degloba.boundedContext.domain.IModalpanelRepository;
 import com.degloba.boundedContext.domain.Person;
+import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
+import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 import com.degloba.system.application.SystemContext;
+
+
 
 
 
@@ -70,12 +72,13 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		modalpanel.setTitol("titol hora");
 		modalpanel.changeStatus(Modalpanel.ModalpanelStatus.VIP);
 			
-		//this.modalpanelRepository.save(modalpanel);
+		this.modalpanelRepository.save(modalpanel);
 		
 		Person person = new Person();
 		person.setFirstName("pere");
 		person.setLastName("cots");
 		person.setLevel(0);
+		
 		
 		
 		/*ApplicationContext ctx = 
@@ -85,8 +88,9 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		mongoOperation.save(person);*/
 		
 		this.personRepository.save(person);
-
+		
 		return null;
+
 	}
 
 /*	private Client loadClient() {
