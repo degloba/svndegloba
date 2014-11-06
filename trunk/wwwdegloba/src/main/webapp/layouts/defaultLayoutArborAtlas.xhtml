@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    
+<h:head>
+
+<title><ui:insert name="title" /> - deGloba Consulting - </title>
+<link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
+
+
+<script type="text/javascript" src="/_ah/channel/jsapi"></script>
+
+<script>
+
+sendMessage = function(path, opt_param) {  
+	path += '?g=' + state.game_key;  
+	if (opt_param) {    
+		path += '&' + opt_param;  
+	}  
+	var xhr = new XMLHttpRequest();  
+	xhr.open('POST', path, true);  xhr.send();
+};
+
+onOpened = function() {  
+	connected = true;  
+	sendMessage('opened');  
+	updateBoard();
+};
+
+moveInSquare = function(id) {  
+	if (isMyMove() && state.board[id] == ' ') {    
+		sendMessage('/move', 'i=' + id);  
+	}
+}
+
+</script>
+
+</h:head>
+
+
+<h:body>
+
+  <script>    
+	  channel = new goog.appengine.Channel('{{ token }}');    
+	  socket = channel.open();    
+	  socket.onopen = onOpened;    
+	  socket.onmessage = onMessage;    
+	  socket.onerror = onError;    
+	  socket.onclose = onClose;  
+  </script>
+  
+  
+  
+</h:body>
+
+
+</html>
+
