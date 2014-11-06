@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:h="http://java.sun.com/jsf/html" 
     xmlns:ui="http://java.sun.com/jsf/facelets">
+
     
 <h:head>
 
@@ -18,38 +19,18 @@
 <link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup.css"/> 
 <link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup_degloba.css"/> 
 
+<link rel="stylesheet" href="/resources/jQuery/arbor-v0.92/demos/echolalia/style/echolalia.css" type="text/css"></link>
 
   <style>
-    .toggler { width: 500px; height: 300px; position: relative; }
+    .toggler { width: 500px; height: 200px; position: relative; }
     #button { padding: .5em 1em; text-decoration: none; }
-    
-    #effect { width: 340px; height: 250px; padding: 0.4em; position: absolute; }
+    #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
     #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
-    
-    #effect2 { margin-left: 20px; margin-top: 0px; width: 340px; height: 250px; padding: 0.4em; position: relative; }
-    #effect2 h3 { margin: 0; padding: 0.4em; text-align: center; }
-    
-    #effect3 { margin-left: 20px; margin-top: 0px; width: 340px; height: 250px; padding: 0.4em; position: relative; }
-    #effect3 h3 { margin: 0; padding: 0.4em; text-align: center; }
-    
-    .ui-effects-transfer { border: 2px dotted red; }
-    
-    html, body {
-  margin: 0px;
-  border: 1px solid #aaaaaa;
-	background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 100% 50% repeat-x;
-	color: #111111;
-	font-weight: bold;
-}
-
-#content {
-  margin-top: 30px; // provide buffer for logo
-}
-
-   
-    
+    .ui-effects-transfer { border: 2px dotted gray; }
   </style>
 
+<!--  <script src="resources/jQuery/jquery-2.1.0.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-latest.js"/> -->
 
 
 <!-- 1.-  jQUERY -->
@@ -69,7 +50,7 @@ $newjquery(function() {
       // most effect types need no options passed by default
       var options = {};
       // some effects have required parameters
-      if ( "scale" === "scale" ) {
+      if ( selectedEffect === "scale" ) {
         options = { percent: 0 };
       } else if ( selectedEffect === "transfer" ) {
         options = { to: "#button", className: "ui-effects-transfer" };
@@ -78,7 +59,7 @@ $newjquery(function() {
       }
  
       // run the effect
-      $newjquery( "#effect" ).effect( "scale", options, 500, callback );
+      $newjquery( "#effect" ).effect( selectedEffect, options, 500, callback );
     };
  
     // callback function to bring a hidden box back
@@ -89,7 +70,7 @@ $newjquery(function() {
     };
  
     // set effect from select menu value
-    $newjquery( "#effect" ).click(function() {
+    $newjquery( "#button" ).click(function() {
       runEffect();
       return false;
     });
@@ -98,12 +79,23 @@ $newjquery(function() {
 </script>
 
 
+<!-- 3.-jQUERY -->
+<script type="text/javascript" src="http://use.typekit.com/mxh7kqd.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
 </h:head>
 
 
 <h:body>
  
 			
+<ui:include src="/panells_modals.xhtml" />
+
+
+<!-- 3.-  jQUERY -->
+<!-- *********** -->
+
 <!-- Magnific Popup core JS file -->
 <script src="/resources/jQuery/magnific-popup/jquery.magnific-popup.js"></script> 
 
@@ -125,50 +117,12 @@ $('.image-link').magnificPopup({
 
 </script>
 
+ <!-- <canvas id="viewport" width="800" height="600"></canvas>
 
-
-	<div id="content">
-	
-	  <div id="effect" class="ui-widget-content ui-corner-all">
-	    <h3 class="ui-widget-header ui-corner-all">Integración</h3>
-	    <p>
-	      <p class="descMenuItems">deGloba proporciona una solución OpenSource de WorkFlow utilitzando JBPM.</p>
-	      <p class="descMenuItems"><input type="image" name="" src="images/graph.gif"> Soporta la ejecución de procesos/WebServices </input><br/>
-	      <input type="image" name="" src="images/graph.gif"> Persistencia de las ejecuciones </input><br/>
-	      <input type="image" name="" src="images/graph.gif"> Soporte de diferentes lenguajes </input><br/></p> 
-	    </p>
-	    
-	    <div id="effect2" class="ui-widget-content ui-corner-all">
-		    <h3 class="ui-widget-header ui-corner-all">Movilidad</h3>
-		    <p>
-		      Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
-		    </p>
-	    
-	    	<div id="effect3" class="ui-widget-content ui-corner-all">
-			    <h3 class="ui-widget-header ui-corner-all">Cloud</h3>
-			    <p>
-			      <p class="descMenuItems">deGloba proporciona una solución OpenSource de WorkFlow utilitzando JBPM.</p>
-			      <p class="descMenuItems"><input type="image" name="" src="images/graph.gif"> Soporta la ejecución de procesos/WebServices </input><br/>
-			      <input type="image" name="" src="images/graph.gif"> Persistencia de las ejecuciones </input><br/>
-			      <input type="image" name="" src="images/graph.gif"> Soporte de diferentes lenguajes </input><br/></p> 
-			    </p>
-  			</div>
-	    </div>
-	    
-	  </div>
-	  	
-	</div>
-
-
-<!-- jQuery : http://jqueryui.com/effect/ -->                   
-<div class="toggler">
-
-  
-
-  
-  
-  
-</div>
+  <script src="/resources/jQuery/arbor-v0.92/demos/_/jquery-1.6.1.min.js"></script>
+  <script src="/resources/jQuery/arbor-v0.92/lib/arbor.js"></script>
+  <script src="/resources/jQuery/arbor-v0.92/demos/echolalia/echolalia.js"></script>
+ -->  
 
 </h:body>
 
