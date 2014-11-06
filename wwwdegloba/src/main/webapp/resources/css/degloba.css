@@ -1,0 +1,739 @@
+body {
+	 background-color: white: /*#f4faff;*/
+	 padding :0;
+	 margin:0;
+	 width:100%;
+	 height:100%;
+     font-size: 12px;	  
+     font-family: Verdana, Arial, Helvetica, sans-serif;   
+	}
+	
+.paragraf {
+	font-size: 12px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	}
+
+		
+
+
+/********************************/        
+/* enllacos dels panells modals */
+/********************************/
+        
+.enllac {
+	font-size: 12px;
+       	color:gray;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+        }
+        
+.enllac:hover {
+		color: black;
+		valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+        }
+
+.enllac2 {
+       	color:gray;
+       	font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+        }
+        
+.enllac2:hover {
+		color: black;
+		font-size: 12px;
+		valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+        }
+
+
+/********************************/        
+/* WIZARDS */
+/********************************/
+
+.titolWizard {
+		color:gray;
+		font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+.descWizard {
+		color:gray;
+		margin-left:0px;
+		font-size: 12px;
+       	valign : left;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}   
+	
+	
+	
+/********************************/        
+/* NOTICIES */
+/********************************/
+
+.titolNoticies {
+		color:#aaafff;
+		font-size: 14px;
+		font-weight : normal;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+.descNoticies{
+		color:gray;
+		font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}  
+	
+.bodyNoticies {
+   height: 300px;
+   overflow: auto;
+  }	
+  
+  
+	
+
+.div_near_spacer {
+ border-top-width: 0px;
+ border-left-width: 0px;
+ font-size: 0px;
+ border-bottom-width: 0px;
+ height: 5px;
+ background-color: #{a4jSkin.panelBorderColor};
+ border-right-width: 0px
+ }
+ 	
+
+/********************************/        
+/* DESCRIPCIO MENUITEMS */
+/********************************/
+
+.titolMenuItems {
+		color:orange;
+		font-size: 16px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+.descMenuItems {
+		color:gray;
+		font-size: 14px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 
+		
+.descMenuItemsOrange {
+		color:orange;
+		font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 	
+    
+/********************************/        
+/* DESCRIPCIO MODALPANELS */
+/********************************/
+
+.titolModalPanel {
+		color:orange;
+		font-size: 16px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+.descModalPanel  {
+		color:gray;
+		font-size: 14px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 
+		
+.descModalPanelOrange {
+		color:orange;
+		font-size: 14px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 
+	
+.descModalPanelGris {
+		color:gray;
+		font-size: 14px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 
+
+
+
+/********************************/        
+/* DESCRIPCIO TAULES */
+/********************************/
+
+
+.descTaula {
+		color:gray;
+		font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 
+		
+.descTaulaOrange {
+		color:orange;
+		font-size: 12px;
+       	valign : middle;
+       	text-decoration: none;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	} 	
+
+    
+        
+.capcaleraMapaWeb {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}    
+	
+.outPanel {
+	font-size: 30px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	color : orange;
+	}    
+        
+        
+/********************************/        
+/* wizards                      */
+/********************************/        
+        
+.wizard {
+       	text-decoration: none;
+       	color: black;
+       	font-size: 10px;
+       	margin-left:5px;
+       	font-family: Verdana, Arial, Helvetica, sans-serif;  
+        }
+        
+.wizard:hover {
+       	text-decoration: none;
+       	color: #{richSkin.generalBackgroundColor};
+       	font-size: 10px;
+     	font-family: Verdana, Arial, Helvetica, sans-serif;         	
+        }        
+        
+        
+     
+
+/********************************/        
+/* togglePanels                 */
+/********************************/        
+
+.infopanel  { border:1px solid #{richSkin.panelBorderColor}; }
+.row1       {   height:20px; }
+.row1 .col  { padding:0px; }
+.row2       {   height:20px; }
+.row3       {   height:20px; }
+.row3 .col  {text-align:left; }
+.col        { }
+        
+
+        
+    
+/********************************/        
+/* rich:panels                  */
+/********************************/        
+
+.rich-panel
+	{
+	border-color: red;
+	background-color:red;  /* fons de tots els rich:panel */
+	  
+	}
+
+
+.rich-panel-body
+	{
+	font-size :10px;
+	color:red;  /* fons de tots els rich:panel */
+	margin: 0px 0px ;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+
+.rich-panel-header
+	{
+	font-size :10px;
+	color : black;
+	font-weight: bold;
+	letter-spacing : 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+	
+.bodyPanelBar {
+   height: 620px;
+   width:800px;
+   overflow: auto;
+   background-color:white;  /* fons del panel que pertany als panelBar */
+  }		
+  
+  
+.texteOutput
+{
+	font-size :10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	letter-spacing : 0px;
+	 
+	}  
+	
+.texteOutput12
+{
+	font-size :12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	letter-spacing : 0px;
+	 
+	} 
+	
+.texteOutput12Black
+{
+	font-size :12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:black;
+	letter-spacing : 0px;
+	 
+	} 
+	
+.texteOutput14
+{
+	font-size :14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	letter-spacing : 0px;
+	 
+}
+
+.texteOutput16
+{
+	font-size :16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	letter-spacing : 0px;
+	 
+} 	
+
+	
+.texteOutput22
+{
+	font-size :20px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	letter-spacing : 0px;
+	 
+	} 	
+	
+.titolContingutPanelBar
+{
+	font-size :16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:orange;
+	letter-spacing : 0px;
+	font-weight: bold;
+	 
+	}  	
+
+.quefem
+{
+	font-size :16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:orange;
+	letter-spacing : 0px;
+	font-weight: bold;
+	text-decoration: none;
+	 
+	} 
+	
+	
+.titolModalPanel
+{
+	font-size :16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:orange;
+	letter-spacing : 0px;
+	font-weight: bold;
+	 
+	}  	
+	
+	
+/********************************/        
+/* rich:panelbar                  */
+/********************************/        
+	
+	
+.rich-panelbar {
+	background-color: white;  
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;   
+	 
+	}
+	
+.rich-panelbar-content {
+	font-style: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+	
+.rich-panelbar-header {
+	font-weight:normal;
+	color: black; /*#{richSkin.generalBackgroundColor};*/
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+			
+ 
+	}
+	
+/* la capçalera activa */
+.rich-panelbar-header-act {
+	font-weight:normal; 
+	color: gray; /*#{richSkin.generalBackgroundColor};*/
+	font-size: 14px;
+	font: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	
+	}
+
+
+/********************************/        
+/* toolTips                  */
+/********************************/        
+
+
+.rich-tool-tip{
+    color: #{richSkin.generalColor};
+    background-color: #f4faff;     /*#{richSkin.generalBackgroundColor};*/
+   /* border-color: #{richSkin.generalBorderColor};*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;  
+    border-width:0px;  
+    vertical-align: middle; 
+    font-weight:bold;
+    font-size: 10px;
+	}
+
+
+
+/********************************/        
+/* TOOLBAR */
+/********************************/
+.rich-toolbar {
+	
+	
+	}
+		
+.rich-toolbar-item {
+		background-color:#{richSkin.generalBackgroundColor};
+	
+	}
+			
+.rich-toolbar-item:hover {
+
+	        text-decoration: none; 
+	        
+	/*background-color:gray;*/
+	}
+        
+
+/********************************/        
+/* rich:menuItem                */
+/********************************/
+.rich-menu-item
+	{
+	height:20px;  /* OK = Alsada de cada menuitem */
+	color:gray; /* OK = Color del font del menuItem quan passem per sobre */
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	background-color:white; /* #f4faff;*/ 
+	border-color:white; /*#f4faff;*/ 
+	
+	}   
+	
+/* Defines styles for a wrapper <div> element of a hover item */	
+.rich-menu-item-hover {
+	height:20px;  /* OK = Alsada de cada menuitem */
+	color:black;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	background-color: red;
+	border-color:white; /*#f4faff;*/ 
+	}	
+	
+/* Defines styles for a label of an item */	
+.rich-menu-item-label	{
+	color: #{richSkin.generalColor};
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}
+	
+	
+.rich-menu-item-icon {
+	/*background-image: url(../images/92.png);*/
+	}
+	
+/* Defines styles for a wrapper <div> element of an item */	
+.rich-menu-item-disabled	{
+	color:orange;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	}
+	
+/* Defines styles for a wrapper <div> element of an enabled item */	
+.rich-menu-item-enabled	{
+	color:gray;  /* OK */
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	
+	}
+			
+/* Defines styles for a label of a disabled item */		
+.rich-menu-item-label-disabled {
+	color:gray;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	height:20px;  /* OK = Alsada de cada menuitem */
+	}
+		
+/* Defines styles for the left icon of a disabled item */		
+.rich-menu-item-icon-disabled {
+	color:orange;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	height:20px;  /* OK = Alsada de cada menuitem */
+	}	
+
+/* Defines styles for a label of an enabled item */
+.rich-menu-item-label-enabled	{
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	height:20px;  /* OK = Alsada de cada menuitem */
+	}
+	
+/* Defines styles for the left icon of an enabled item */	
+.rich-menu-item-icon-enabled	{
+     font-family: Verdana, Arial, Helvetica, sans-serif;  
+height:20px;  /* OK = Alsada de cada menuitem */
+	}
+	
+/* Defines styles for a label of a selected item */	
+.rich-menu-item-label-selected	{
+     font-family: Verdana, Arial, Helvetica, sans-serif;  
+     height:20px;  /* OK = Alsada de cada menuitem */
+    
+	color:black;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+
+	border-color:white; /*#f4faff;*/ 
+	}
+	
+/* Defines styles for the left icon of a selected item */	
+.rich-menu-item-icon-selected {
+	     font-family: Verdana, Arial, Helvetica, sans-serif; 
+	     border-color:white; 
+	     height:20px;  /* OK = Alsada de cada menuitem */
+	}	
+	
+	
+/********************************/        
+/* rich:menuGroup               */
+/********************************/ 		
+.rich-menu-group {
+	background-color : white;  /* OK Color de fons dels submenus */
+	color:gray; /* OK = Color del font del menuItem quan passem per sobre */
+	border-color:white;  /* OK */
+	height:20px;  /* OK = Alsada de cada menuitem */
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	}
+		
+.rich-menu-item-folder
+{
+	/*background-image: url(../images/92.png);  /* OK imatge del submenu */
+	}
+.rich-menu-group-hover {
+	color:black;
+	height:20px;  /* OK = Alsada de cada menuitem */
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	border-color:white;  /* OK */
+	}	
+	
+/********************************/        
+/* rich:dropDownMenu            */
+/********************************/ 	
+	
+/* Defines text style for a representation element */	
+.rich-label-text-decor	{
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:gray;
+	
+	
+	}
+
+.rich-label-text-decor:hover	{
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	color:black;
+	background-color:#dfefff;
+	}
+
+/* Defines styles for a wrapper <div> element of a representation element */	
+.rich-ddmenu-label {
+	
+	font-size:  #{richSkin.generalSizeFont};
+	font-weight: normal;
+	letter-spacing : 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	border-color:white; 
+	
+	}
+		
+/* Defines styles for a wrapper <div> element of a selected representation element */		
+.rich-ddmenu-label-select	{
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	background-color: #{richSkin.controlBackgroundColor};
+	background-colorcolor:#{richSkin.generalTextColor};
+	}
+	
+/* Defines styles for a wrapper <div> element of an unselected representation element */	
+.rich-ddmenu-label-unselect {
+	font-size: 12px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+background-color: #{richSkin.controlBackgroundColor};
+	}	
+
+/* Defines styles for a wrapper <div> element of a disabled representation element */
+.rich-ddmenu-label-disabled {
+	font-size: 10px;
+font-family: Verdana, Arial, Helvetica, sans-serif;  
+	}	
+	
+	
+	
+/*****************************************************/
+/* TEXTES                                            */
+/*****************************************************/	
+
+.menuBar {
+	font-size: 14px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	
+	} 
+
+	
+.inPanel {
+	font-size: 10px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	}   
+	
+
+.titolPanel {
+	font-size: 14px;
+/*	font-weight: bold;*/
+	color:orange;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	} 
+
+.dataTable {
+	font-size: 10px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	} 
+	
+.noticies {
+	font-size: 10px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	}
+	
+ .search .rich-menu-item-hover{
+        background-color: transparent;
+        border-color: transparent;
+    }	
+
+/**************/
+/* TREE       */
+/**************/
+
+.arbre {
+	font-size: 10px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	} 
+
+.wizard {
+	font-size: 10px;
+/*	font-weight: bold;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	} 
+	
+	
+	
+
+
+.contentplace { background-color:#e6eef2;color:#000000; width:600px; }
+.contentplace p { background-color:#e6eef2;margin: 0 10px 0 10px; }
+.topplace{ background: url(http://img571.imageshack.us/img571/1534/mlyzhpi1.png) no-repeat top right; }
+.bottomplace { background: url(http://img696.imageshack.us/img696/5151/ggkwvej2.png) no-repeat top right; }
+img.placeborder { width: 20px; height: 20px;border: none;display: block !important; }
+
+
+.contentplace2 { background-color:#e6eef2;color:#000000; width:400px; }
+.contentplace2 p { background-color:#e6eef2;margin: 0px 20px 0px 20px; }
+.topplace2{ background: url(http://img571.imageshack.us/img571/1534/mlyzhpi1.png) no-repeat top right; }
+.bottomplace2 { background: url(http://img696.imageshack.us/img696/5151/ggkwvej2.png) no-repeat top right; }
+img.placeborder2 { width: 20px; height: 20px;border: none;display: block !important; }
+
+.contentplace3 { background-color:#e6eef2;color:#000000; width:300px; }
+.contentplace3 p { background-color:#e6eef2;margin: 0px 5px 0px 5px; }
+.topplace3{ background: url(http://img571.imageshack.us/img571/1534/mlyzhpi1.png) no-repeat top right; }
+.bottomplace3 { background: url(http://img696.imageshack.us/img696/5151/ggkwvej2.png) no-repeat top right; }
+img.placeborder3 { width: 20px; height: 20px;border: none;display: block !important; }
+
+
+.orange {
+	color:orange;
+	}
+
+
+
+/**************/
+/* TWITTER    */
+/**************/
+.twtr-tweet-text {
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    }
+/*    
+   .twtr-hyperlink
+   .twtr-atreply
+   .twtr-hashtag
+   .twtr-tweet-wrap
+   .twtr-avatar
+   .twtr-img
+*/
+
