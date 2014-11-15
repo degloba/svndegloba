@@ -25,14 +25,21 @@
     </resource-files>
     
     <static-files> 
-	    <include path="/images/**.*"/> 
+	    <include path="/resources/images/**.*"/> 
+		<include path="/resources/css/*.css"/>
+		<include path="/resources/**.*"/>
+		
 	    <include path="/static-resources/**.*"/> 
-	    <include path="/*.ico"/> 
-	    <include path="/resources/**.*"/> 
+	    <include path="/*.ico"/> 	
+	        
 	    <include path="/js/*.js"/>
+	    <include path="/resources/js/lib/*.js"/>
+	    <include path="/js/lib/*.js"/>
+	    <include path="/library/*.json"/>
+	    
 	    <include path="/*.html"/>
-	    <include path="/css/*.css"/>
-	    <include path="/templates/**.*"/> 
+	    
+
 	    <exclude path="/**.xhtml" />
 	    <exclude path="/xhtml/*.xhtml" />
 	    <exclude path="/user/*.xhtml" />
