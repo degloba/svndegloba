@@ -1,0 +1,38 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j">
+
+
+<rich:tree value="#{documents.data}" var="document" 
+	nodeFace="#{document.type}" 
+	switchType="client" iconCollapsed="images/folderclosed.png" 
+	iconExpanded="http://img140.imageshack.us/img140/2198/folderopened.png" iconLeaf="http://img140.imageshack.us/img140/2198/folderopened.png"
+	icon="none">
+				        
+	<rich:treeNode type="entorn" >
+				
+		<f:facet name="icon">
+			<h:outputText value="" escape="false" />
+		</f:facet>
+		<h:outputText value="#{document.nomEntorn}" styleClass="enllac"/>
+						
+	</rich:treeNode>
+				
+	<rich:treeNode type="document"  iconLeaf="images/lupa.png">
+								
+		<a4j:commandLink id="cmlDocuments"  value="#{document.titol}" 
+			actionListener="#{documents.processAction}"
+			render="contingutPanelBars" styleClass="enllac">
+			<f:attribute name="descripcio" value="#{document.descripcio}"/>
+		</a4j:commandLink>						
+				
+	</rich:treeNode>
+								
+</rich:tree>
+
+</ui:composition>
+
+
