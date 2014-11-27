@@ -8,6 +8,7 @@ public interface ModalpanelService<K> {
 	// 2.
 	/*public void addModalpanel(AggregateId modalpanelId, AggregateId productId, int quantity);*/
 	public void addModalpanel(K modalpanelId);
+
 	
 /*	// 3. 
 	public Offer calculateOffer(AggregateId orderId);
