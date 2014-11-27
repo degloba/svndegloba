@@ -1,13 +1,14 @@
 package domain.support;
 
+import java.io.Serializable;
 import java.util.Date;
+
 
 
 
 
 // CDI Java EE 6
 import javax.inject.Inject;
-
 import javax.persistence.Entity;
 // JPA
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+
 
 
 
@@ -44,7 +46,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public class BaseAggregateRoot {  //extends BaseEntity {
+	public class BaseAggregateRoot {//extends BaseEntity {
 	//public abstract class BaseAggregateRoot {
 		
 		@Id
@@ -186,6 +188,11 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 	public void setAggregateId(Long aggregateId) {
 		this.aggregateId = aggregateId;
+	}
+
+	public Serializable getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
