@@ -1,6 +1,9 @@
 package com.degloba.boundedContext.domain;
 
-public class BaseAggregateService<K> implements IBaseAggregateService<K> {
+import domain.support.BaseAggregateRoot;
+import domain.support.BaseEntity;
 
-	IBaseAggregateRootRepository<K> i;
+public class BaseAggregateService<E extends BaseAggregateRoot> implements IBaseAggregateService<E> {
+
+	IBaseAggregateRootRepository i;
 }
