@@ -2,19 +2,20 @@ package com.degloba.boundedContext.domain;
 
 import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
 
-import domain.IRepository;
+import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
+import domain.support.BaseEntity;
 
 
-public interface IBaseAggregateRootRepository<K> extends IRepository<K, BaseAggregateRoot> {
+public interface IBaseAggregateRootRepository extends IRepository<BaseAggregateRoot> {
 	
-	public IRepository<K, BaseAggregateRoot>  createRepository();
+	public IRepository<BaseEntity>  createRepository();
 		
 	// Funcions,Query
 	
 	// Modalpanel
 	
-	public Modalpanel GetModalpanelByIdOnlyQuery(K id);
+	//public Modalpanel GetModalpanelByIdOnlyQuery(K id);
 	
 	
 	
