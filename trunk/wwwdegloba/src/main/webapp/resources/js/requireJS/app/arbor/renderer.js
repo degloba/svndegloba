@@ -1,4 +1,6 @@
-(function(){
+define(function(require){
+
+	var $ = require('jquery');
   
   Renderer = function(canvas){
     var canvas = $(canvas).get(0)
@@ -204,4 +206,4 @@
     return that
   }    
   
-})()
+});
