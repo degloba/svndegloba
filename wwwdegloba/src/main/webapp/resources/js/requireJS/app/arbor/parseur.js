@@ -1,4 +1,6 @@
-(function(){
+define(function(require){
+
+	var $ = require('jquery');
   
   //
   // quick, incomplete (and surely buggy) ‘parser’ for reading in the halftone source 
@@ -166,7 +168,5 @@
     return that
   }
 
-  
-
-  
-})()
+   
+});

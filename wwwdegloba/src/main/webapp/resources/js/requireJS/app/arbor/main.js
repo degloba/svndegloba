@@ -4,8 +4,11 @@
 //  A project template for using arbor.js
 //
 
-(function($){
+define(function(require){
 
+	var $ = require('jquery'),
+		arbor = require('./arbor');
+	
   var Renderer = function(canvas){
     var canvas = $(canvas).get(0)
     var ctx = canvas.getContext("2d");
@@ -153,4 +156,4 @@
     
   })
 
-})(this.jQuery)
+});
