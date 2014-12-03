@@ -3,8 +3,8 @@ package com.degloba.boundedContext.application.api.handlers;
 import javax.inject.Inject;
 
 import com.degloba.boundedContext.application.api.commands.ChangeModalpanelStatusCommand;
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
-import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
 
 // CQRS
 import command.annotations.CommandHandlerAnnotation;
