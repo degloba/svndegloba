@@ -3,21 +3,35 @@ package com.degloba.boundedContext.application.impl;
 
 import javax.inject.Inject;
 
+
+
+
 // SPRING
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.degloba.boundedContext.application.api.service.ModalpanelService;
-import com.degloba.boundedContext.domain.client.Client;
-import com.degloba.boundedContext.domain.client.IClientRepository;
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
-import com.degloba.boundedContext.domain.modalpanel.ModalpanelFactory;
-import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
+
+
+//
+import com.degloba.boundedContext.application.api.service.ICasinoApp;
+import com.degloba.boundedContext.domain.IEntityService;
+import com.degloba.boundedContext.domain.modules.client.Client;
+import com.degloba.boundedContext.domain.modules.client.IClientRepository;
+import com.degloba.boundedContext.domain.casino.ICasinoClasseService;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modules.modalpanel.ModalpanelFactory;
+import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
+
+
 import com.degloba.system.application.SystemContext;
+
+
+
 
 // DDD
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.sharedkernel.exceptions.DomainOperationException;
+import domain.support.BaseEntity;
 import application.BaseAggregateRootApplicationService;
 import application.annotations.ApplicationService;
 
@@ -33,8 +47,10 @@ import application.annotations.ApplicationService;
  * @author degloba
  */
 @ApplicationService
-public class ModalpanelServiceImpl  extends BaseAggregateRootApplicationService<Long,Modalpanel>  implements ModalpanelService<Long> {
+public class CasinoApp<K extends AggregateId>  extends BaseAggregateRootApplicationService<K,Modalpanel>  implements ICasinoApp<K> {
 
+	private ICasinoClasseService _casinoClasseService;
+	
 /*	@Inject
 	private SystemContext systemContext;
 
@@ -176,16 +192,11 @@ public class ModalpanelServiceImpl  extends BaseAggregateRootApplicationService<
 	}*/
 
 	@Override
-	public Long createModalpanel() {
+	public K createModalpanel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void addModalpanel(Long modalpanelId) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public IModalpanelRepository<Long> getModalpanelRepository() {
 		return modalpanelRepository;
@@ -194,6 +205,26 @@ public class ModalpanelServiceImpl  extends BaseAggregateRootApplicationService<
 	public void setModalpanelRepository(IModalpanelRepository<Long> modalpanelRepository) {
 		this.modalpanelRepository = modalpanelRepository;
 	}
+
+
+	@Override
+	public void addModalpanel(Modalpanel value) {
+		// TODO Auto-generated method stub
+		
+		IEntityService<Modalpanel> service = this._casinoClasseService.createService();
+		
+		service.Add(value);
+		
+	}
+
+
+	@Override
+	public void addModalpanelById(K value) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 
 }
