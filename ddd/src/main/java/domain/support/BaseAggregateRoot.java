@@ -46,12 +46,10 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public class BaseAggregateRoot {//extends BaseEntity {
+	public class BaseAggregateRoot extends BaseEntity {
 	//public abstract class BaseAggregateRoot {
 		
-		@Id
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private Long aggregateId; 
+	 
 		
 		/*@EmbeddedId
 		@AttributeOverrides({
@@ -182,13 +180,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 		return domainEventPublisher;
 	}
 
-	public Long getAggregateId() {
-		return aggregateId;
-	}
-
-	public void setAggregateId(Long aggregateId) {
-		this.aggregateId = aggregateId;
-	}
+	
 
 	public Serializable getId() {
 		// TODO Auto-generated method stub
