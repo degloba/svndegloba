@@ -26,7 +26,7 @@ import domain.support.SqlQuery;
  * 
  * Storage access interface . Access and query the database for various types of entities .
  */
-public interface IRepository<E> {  
+public interface IRepository<E extends Entity> {  
 	
 		void add(E entity);
 		
