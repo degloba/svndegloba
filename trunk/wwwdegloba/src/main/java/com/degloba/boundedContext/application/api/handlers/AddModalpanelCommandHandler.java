@@ -8,19 +8,11 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 import com.degloba.SpringMongoConfig;
 import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
-import com.degloba.boundedContext.domain.client.Client;
-import com.degloba.boundedContext.domain.client.IClientRepository;
-import com.degloba.boundedContext.domain.IPersonRepository;
-import com.degloba.boundedContext.domain.Person;
-import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modules.client.Client;
+import com.degloba.boundedContext.domain.modules.client.IClientRepository;
+import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 import com.degloba.system.application.SystemContext;
-
-
-
-
-
-
 
 
 
@@ -38,8 +30,8 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 	@Inject
 	private IModalpanelRepository<Long> modalpanelRepository;
 	
-	@Inject
-	private IPersonRepository<Long> personRepository;
+/*	@Inject
+	private IPersonRepository<Long> personRepository;*/
 
 	/*@Inject
 	private SuggestionService suggestionService;
@@ -74,11 +66,11 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 			
 		this.modalpanelRepository.save(modalpanel);
 		
-		Person person = new Person();
+/*		Person person = new Person();
 		person.setFirstName("pere");
 		person.setLastName("cots");
 		person.setLevel(0);
-		
+		*/
 		
 		
 		/*ApplicationContext ctx = 
@@ -87,7 +79,7 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		
 		mongoOperation.save(person);*/
 		
-		this.personRepository.save(person);
+		//////////this.personRepository.save(person);
 		
 		return null;
 
