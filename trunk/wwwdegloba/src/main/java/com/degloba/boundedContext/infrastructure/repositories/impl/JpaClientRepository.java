@@ -1,7 +1,7 @@
 package com.degloba.boundedContext.infrastructure.repositories.impl;
 
-import com.degloba.boundedContext.domain.client.Client;
-import com.degloba.boundedContext.domain.client.IClientRepository;
+import com.degloba.boundedContext.domain.modules.client.Client;
+import com.degloba.boundedContext.domain.modules.client.IClientRepository;
 
 import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 import domain.annotations.DomainRepositoryImpl;

@@ -1,8 +1,8 @@
 package com.degloba.boundedContext.infrastructure.repositories.impl;
 
 // 
-import com.degloba.boundedContext.domain.modalpanel.IModalpanelRepository;
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 
 // DDD
 import domain.annotations.DomainRepositoryImpl;
