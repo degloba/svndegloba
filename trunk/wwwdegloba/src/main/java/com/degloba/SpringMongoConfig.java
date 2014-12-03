@@ -11,7 +11,7 @@ import com.mongodb.MongoClient;
 
 // http://www.mkyong.com/mongodb/spring-data-mongodb-hello-world-example/
 
-@Configuration
+//////////////@Configuration
 public class SpringMongoConfig {
  
 	public @Bean
