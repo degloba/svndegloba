@@ -1,6 +1,6 @@
 package com.degloba.canonicalmodel.events;
 
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel.ModalpanelStatus;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel.ModalpanelStatus;
 
 public class ModalpanelStatusChangedEvent<K> {
 
