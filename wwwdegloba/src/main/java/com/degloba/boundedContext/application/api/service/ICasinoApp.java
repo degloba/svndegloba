@@ -1,13 +1,17 @@
 package com.degloba.boundedContext.application.api.service;
 
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 
-public interface ModalpanelService<K> {
+
+public interface ICasinoApp<K> {
 	
 	public K createModalpanel();
 
-	// 2.
-	/*public void addModalpanel(AggregateId modalpanelId, AggregateId productId, int quantity);*/
-	public void addModalpanel(K modalpanelId);
+	
+	
+	public void addModalpanel(Modalpanel value);
+	
+	public void addModalpanelById(K value);
 
 	
 /*	// 3. 
