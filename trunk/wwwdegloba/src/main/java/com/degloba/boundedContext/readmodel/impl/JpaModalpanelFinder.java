@@ -15,13 +15,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import query.PaginatedResult;
 
 // Entitat Domini
-import com.degloba.boundedContext.domain.modalpanel.Modalpanel;
+import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 
 // 
 import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
-import com.degloba.boundedContext.webui.JSF.ModalPanelJSFBean;
+import com.degloba.boundedContext.ui.webui.jsf.ModalPanelJSFBean;
 
 
 // DDD
