@@ -17,11 +17,6 @@ import javax.inject.Inject;
 // SPRING
 import org.springframework.stereotype.Component;
 
-import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
-
-// Application
-import com.degloba.boundedContext.application.api.service.ICasinoApp;
-
 // Entitat Domini
 import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
@@ -29,11 +24,25 @@ import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 // CQRS - client - read
 import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
 
+// CQRS - client - write
+import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
+
 // CQRS - server - write
 import command.IGate;
+
+//
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
+//Application
+import com.degloba.boundedContext.application.api.service.ICasinoApp;
 
+
+/**
+ * @author degloba
+ *
+ * JSF Bean
+ * 
+ */
 @Component
 @ManagedBean
 @SessionScoped
@@ -41,14 +50,20 @@ public class ModalPanelJSFBean {
 	
 	private static final Logger log = Logger.getLogger(ModalPanelJSFBean.class.getName());
 	
+	// CQRS - read
     @Inject
     private IModalpanelFinder modalpanelFinder;
     
+    // CQRS - write
+    @Inject
+    private IGate gate;
+    
+    
+    // 
     @Inject
     private ICasinoApp<AggregateId> modalpanelsService;
     
-    @Inject
-    private IGate gate;
+
     	
 	private  ArrayList<ModalpanelDto> items = new ArrayList<ModalpanelDto>();
 	ModalpanelDto mp;
@@ -108,9 +123,16 @@ public class ModalPanelJSFBean {
 			    // handle any errors
 		}
 		
-		
+		// 1
 		modalpanelsService.addModalpanelById(AggregateId.generate());
 		
+		// 2
+		Modalpanel modalpanel = new Modalpanel();
+		modalpanel.setAggregateId(AggregateId.generate());
+		modalpanel.setDescripcio("hola");
+		this.modalpanelsService.addModalpanel(modalpanel);
+		
+		// 3
 		gate.dispatch(new AddModalpanelCommand(AggregateId.generate()));
 		
 		return panells;
