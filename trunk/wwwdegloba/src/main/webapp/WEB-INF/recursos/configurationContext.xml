@@ -38,14 +38,13 @@
 
 	<!-- 2. REPOSITORIS -->
  	<bean id="modalpanelRepository" class="com.degloba.boundedContext.infrastructure.repositories.impl.JpaModalpanelRepository" />
-	<bean id="personRepository" class="com.degloba.boundedContext.infrastructure.repositories.impl.JpaPersonRepository" />	
-	
+		
 	<!-- 3. SERVEIS DE DOMINI -->
 
 
 	
 	<!-- 4. FACTORIES -->	
- 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.modalpanel.ModalpanelFactory" />  
+ 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.modules.modalpanel.ModalpanelFactory" />  
 
 	
 	<!-- 5. SYSTEM USER -->
@@ -59,6 +58,9 @@
 	<!-- 7. FINDERS -->
 	<bean id="modalpanelFinder" class="com.degloba.boundedContext.readmodel.impl.JpaModalpanelFinder"/>
 	
+	<bean id="facade" class="com.degloba.boundedContext.readmodel.modalpanel.ModalpanelFacade"/>
+	
+
 	<!-- 8. GATE - COMMANDS -->
 	<bean id="gate" class="command.impl.StandardGate"/>
 	
@@ -100,7 +102,7 @@
 <!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   
 
 	<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
-	<mongo:mongo host="localhost" port="27017" />
+	<!-- <mongo:mongo host="localhost" port="27017" />
 	
 	
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
@@ -110,7 +112,7 @@
 
   <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>  
 
-  <!--  Mongo cross-store aspect config   -->
+   Mongo cross-store aspect config  
   <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
         factory-method="aspectOf">
     <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
@@ -119,7 +121,7 @@
       class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
     <property name="mongoTemplate" ref="mongoTemplate"/>
     <property name="entityManagerFactory" ref="entityManagerFactoryMongo"/>  
-  </bean>  
+  </bean>   -->
 		
 	<tx:annotation-driven transaction-manager="transactionManager" />
 		
