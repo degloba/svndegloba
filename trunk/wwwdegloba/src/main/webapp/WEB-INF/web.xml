@@ -184,7 +184,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<description>Per connectar amb Facebook</description>
 	<display-name>clientFacebook</display-name>
 	<servlet-name>clientFacebook</servlet-name>
-	<servlet-class>com.degloba.boundedContext.webui.servlets.clientFacebook</servlet-class>
+	<servlet-class>com.degloba.boundedContext.ui.webui.servlets.clientFacebook</servlet-class>
 </servlet>
 <servlet-mapping>
 	<servlet-name>clientFacebook</servlet-name>
