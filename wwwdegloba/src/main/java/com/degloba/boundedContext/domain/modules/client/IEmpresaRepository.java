@@ -3,8 +3,8 @@ package com.degloba.boundedContext.domain.modules.client;
 import domain.annotations.DomainRepository;
 
 @DomainRepository
-public interface IClientRepository<K> {
+public interface IEmpresaRepository<K> {
        
-    Client save(Client client);
+    Empresa save(Empresa empresa);
 
 }
