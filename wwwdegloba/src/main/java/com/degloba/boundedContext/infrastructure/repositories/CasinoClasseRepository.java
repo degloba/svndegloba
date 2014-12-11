@@ -9,6 +9,7 @@ import com.degloba.boundedContext.domain.casino.ICasinoClasseRepository;
 
 import domain.seedwork.Entity;
 import domain.seedwork.IRepository;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
@@ -18,38 +19,38 @@ import domain.support.NamedQuery;
 import domain.support.SqlQuery;
 
 
-public class CasinoClasseRepository<E extends BaseEntity> extends Repository<E>
+public class CasinoClasseRepository<E extends BaseAggregateRoot> 
 			implements ICasinoClasseRepository {
 
 
 	@Override
-	public IRepository<BaseEntity> CreateRepository() {
+	public IRepository<BaseAggregateRoot> CreateRepository() {
 		// TODO Auto-generated method stub
-		IRepository<BaseEntity> rep =  (IRepository<BaseEntity>) new Repository();
+		IRepository<BaseAggregateRoot> rep =  (IRepository<BaseAggregateRoot>) new Repository();
 		return rep;
 	}
 	
 	
 	@Override
-	public void add(BaseEntity entity) {
+	public void add(BaseAggregateRoot entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public BaseEntity save(BaseEntity entity) {
+	public BaseAggregateRoot save(BaseAggregateRoot entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(BaseEntity entity) {
+	public void remove(BaseAggregateRoot entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<BaseEntity> findAll() {
+	public List<BaseAggregateRoot> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -61,7 +62,7 @@ public class CasinoClasseRepository<E extends BaseEntity> extends Repository<E>
 	}
 
 	@Override
-	public BaseEntity update(BaseEntity entity) {
+	public BaseAggregateRoot update(BaseAggregateRoot entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -91,14 +92,14 @@ public class CasinoClasseRepository<E extends BaseEntity> extends Repository<E>
 	}
 
 	@Override
-	public BaseEntity getByBusinessKeys(Class<BaseEntity> clazz,
+	public BaseAggregateRoot getByBusinessKeys(Class<BaseAggregateRoot> clazz,
 			NamedParameters keyValues) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<BaseEntity> findAll(Class<BaseEntity> clazz) {
+	public List<BaseAggregateRoot> findAll(Class<BaseAggregateRoot> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
