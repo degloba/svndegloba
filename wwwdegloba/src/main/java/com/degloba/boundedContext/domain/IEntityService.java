@@ -1,9 +1,10 @@
 package com.degloba.boundedContext.domain;
 
 import domain.seedwork.*;
+import domain.support.BaseAggregateRoot;
 
 
-public interface IEntityService<E extends Entity> {
+public interface IEntityService<E> {
 	
 	public void Add(E value);
 	public void remove(E value);
