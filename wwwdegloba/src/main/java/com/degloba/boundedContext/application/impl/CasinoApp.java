@@ -1,9 +1,6 @@
 package com.degloba.boundedContext.application.impl;
 
-
 import javax.inject.Inject;
-
-
 
 
 // SPRING
@@ -11,20 +8,17 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
 //
 import com.degloba.boundedContext.application.api.service.ICasinoApp;
 import com.degloba.boundedContext.domain.IEntityService;
-import com.degloba.boundedContext.domain.modules.client.Client;
-import com.degloba.boundedContext.domain.modules.client.IClientRepository;
+import com.degloba.boundedContext.domain.modules.client.Empresa;
+import com.degloba.boundedContext.domain.modules.client.IEmpresaRepository;
+import com.degloba.boundedContext.domain.modules.client.IEmpresaService;
 import com.degloba.boundedContext.domain.casino.ICasinoClasseService;
 import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 import com.degloba.boundedContext.domain.modules.modalpanel.ModalpanelFactory;
 import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
-
-
 import com.degloba.system.application.SystemContext;
-
 
 
 
@@ -42,30 +36,39 @@ import application.annotations.ApplicationService;
  * Notice that application language is different (simpler) than domain language, 
  * ex: we don'nt want to exposure domain concepts like Purchase and Reservation to the upper layers, 
  * we hide them under the Order term  
- * Technically App Service is just a bunch of procedures, therefore OO principles (ex: CqS, SOLID, GRASP) does not apply here  
+ * Technically App Service is just a bunch of procedures, therefore OO principles (ex: CqS, SOLID, GRASP) 
+ * does not apply here  
  *
  * @author degloba
  */
 @ApplicationService
-public class CasinoApp<K extends AggregateId>  extends BaseAggregateRootApplicationService<K,Modalpanel>  implements ICasinoApp<K> {
+public class CasinoApp<K> extends BaseAggregateRootApplicationService<K,Modalpanel>  
+							implements ICasinoApp<K> {
 
+	// SERVEIS DE DOMINI
+	@Inject
 	private ICasinoClasseService _casinoClasseService;
 	
+	@Inject
+	private IEmpresaService<Long> _empresaService;
+	
+	/*@Inject
+	private SuggestionService suggestionService;*/
+	
 /*	@Inject
-	private SystemContext systemContext;
+	private SystemContext systemContext; */
 
+	// REPOSITORIES
 	@Inject
-	private IClientRepository<Long> clientRepository;*/
-
-/*
-	@Inject
-	private ModalpanelFactory modalpanelFactory;  */
+	private IEmpresaRepository<Long> empresaRepository;
 
 	@Inject
 	private IModalpanelRepository<Long> modalpanelRepository;
+	
+	// FACTORIES
+	@Inject
+	private ModalpanelFactory modalpanelFactory;  
 
-	/*@Inject
-	private SuggestionService suggestionService;*/
 
 	// @Secured requires BUYER role
 /*	public AggregateId createOrder() {
@@ -206,12 +209,29 @@ public class CasinoApp<K extends AggregateId>  extends BaseAggregateRootApplicat
 		this.modalpanelRepository = modalpanelRepository;
 	}
 
+	
+
+	public IEmpresaRepository<Long> getEmpresaRepository() {
+		return empresaRepository;
+	}
+
+
+	public void setEmpresaRepository(IEmpresaRepository<Long> empresaRepository) {
+		this.empresaRepository = empresaRepository;
+	}
+
 
 	@Override
 	public void addModalpanel(Modalpanel value) {
 		// TODO Auto-generated method stub
 		
 		IEntityService<Modalpanel> service = this._casinoClasseService.createService();
+		IEntityService<Empresa> service2 = this._casinoClasseService.createService();
+		
+		
+		// Client = MODULE = NAMESPACE = PACKAGE
+		// ? = ENTITAT DINS DEL MODULE : CLIENT
+		IEntityService<Empresa> s = this._empresaService.createService();
 		
 		service.Add(value);
 		
