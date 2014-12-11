@@ -3,9 +3,10 @@ package com.degloba.boundedContext.domain.casino;
 import com.degloba.boundedContext.domain.IEntityService;
 
 import domain.seedwork.*;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
-public class EntityCasinoService<E extends BaseEntity> implements IEntityService<E> {
+public class EntityCasinoService<E extends BaseAggregateRoot> implements IEntityService<E> {
 
 	private IRepository<E> _repositori;
 		
