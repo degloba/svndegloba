@@ -14,12 +14,12 @@ import domain.support.BaseAggregateRoot;
  * @param <K>
  * @param <TEntity>
  */
-public class BaseAggregateRootDomainService<K,TEntity extends BaseAggregateRoot> implements IBaseAggregateRootDomainService<K,TEntity> {
+public class BaseAggregateRootDomainService<K,E extends BaseAggregateRoot> implements IBaseAggregateRootDomainService<K,E> {
 
-	private IBaseAggregateRootJpaRepository<K> repositori;
+	private IBaseAggregateRootJpaRepository<K,E> repositori;
 	//private IViewsGenericRepository views;
 	
-	public void Add(TEntity value) {
+	public void Add(E value) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -29,7 +29,7 @@ public class BaseAggregateRootDomainService<K,TEntity extends BaseAggregateRoot>
 		
 	}
 
-	public TEntity Get(K id) {
+	public E Get(K id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
