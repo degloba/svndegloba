@@ -32,23 +32,23 @@ public class BaseAggregateRootJpaMongoDBRepository<K, E>{
     }
 
     public E load(K id) {
-        return entityManager.find(clazz, id);
+        return this.entityManager.find(clazz, id);
     }
 
     public void delete(K id) {
-        entityManager.remove(load(id));
+        this.entityManager.remove(load(id));
     }
 
     public void persist(E entity) {
-        entityManager.persist(entity);
+        this.entityManager.persist(entity);
     }
 
     public E save(E entity) {
-        return entityManager.merge(entity);
+        return this.entityManager.merge(entity);
     }
 
 	public EntityManager getEntityManager() {
-		return entityManager;
+		return this.entityManager;
 	}
 
 	public void setEntityManager(EntityManager entityManager) {

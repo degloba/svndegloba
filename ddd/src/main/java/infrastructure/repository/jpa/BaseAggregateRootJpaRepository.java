@@ -2,12 +2,15 @@ package infrastructure.repository.jpa;
 
 import java.lang.reflect.ParameterizedType;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import domain.support.BaseAggregateRoot;
+import infrastructure.seedwork.Repository;
 
 
 /**
@@ -18,7 +21,7 @@ import domain.support.BaseAggregateRoot;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<K>{
+public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<K,E>{
 
     @PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactory")
@@ -31,28 +34,51 @@ public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> impl
         this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 
-    public E load(K id) {
-        return entityManager.find(clazz, id);
-    }
+    /* (non-Javadoc)
+     * @see infrastructure.repository.jpa.IBaseAggregateRootJpaRepository#load(java.lang.Object)
+     * Retorn una entitat BaseAggregateRoot a partir del seu id
+     */
+    @Override
+	public E load(K id) {
+    	return this.entityManager.find(clazz, id);
+	}
 
-    public void delete(K id) {
-        entityManager.remove(load(id));
-    }
+    
+	/* (non-Javadoc)
+	 * @see infrastructure.repository.jpa.IBaseAggregateRootJpaRepository#delete(java.lang.Object)
+	 * Esborra una entitat BaseAggregateRoot a partir del seu id
+	 */
+	@Override
+	public void delete(K id) {
+        this.entityManager.remove(load(id));
+	}
 
-    public void persist(E entity) {
-        entityManager.persist(entity);
-    }
+	/* (non-Javadoc)
+	 * @see infrastructure.repository.jpa.IBaseAggregateRootJpaRepository#persist(java.lang.Object)
+	 * Crea una entitat BaseAggregateRoot
+	 */
+	@Override
+	public void persist(E entitat) {
+		this.entityManager.persist(entitat);		
+	}
 
-    public E save(E entity) {
-        return entityManager.merge(entity);
-    }
+	/* (non-Javadoc)
+	 * @see infrastructure.repository.jpa.IBaseAggregateRootJpaRepository#save(java.lang.Object)
+	 * Modifica una entitat BaseAggregateRoot
+	 */
+	@Override
+	public E save(E entitat) {
+		return this.entityManager.merge(entitat);
+	}
 
+   
 	public EntityManager getEntityManager() {
-		return entityManager;
+		return this.entityManager;
 	}
 
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
+	
 }
