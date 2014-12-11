@@ -7,7 +7,7 @@ import domain.support.BaseEntity;
 
 public interface IBaseAggregateRootRepository extends IRepository<BaseAggregateRoot> {
 	
-	public IRepository<BaseEntity>  createRepository();
+	public IRepository<BaseAggregateRoot>  createRepository();
 		
 	// Funcions,Query
 	
