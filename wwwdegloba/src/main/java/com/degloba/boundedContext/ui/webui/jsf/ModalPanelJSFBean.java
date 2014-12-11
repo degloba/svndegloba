@@ -61,7 +61,7 @@ public class ModalPanelJSFBean {
     
     // 
     @Inject
-    private ICasinoApp<AggregateId> modalpanelsService;
+    private ICasinoApp<AggregateId> casinoApp;
     
 
     	
@@ -124,13 +124,13 @@ public class ModalPanelJSFBean {
 		}
 		
 		// 1
-		modalpanelsService.addModalpanelById(AggregateId.generate());
+		this.casinoApp.addModalpanelById(AggregateId.generate());
 		
 		// 2
 		Modalpanel modalpanel = new Modalpanel();
 		modalpanel.setAggregateId(AggregateId.generate());
 		modalpanel.setDescripcio("hola");
-		this.modalpanelsService.addModalpanel(modalpanel);
+		this.casinoApp.addModalpanel(modalpanel);
 		
 		// 3
 		gate.dispatch(new AddModalpanelCommand(AggregateId.generate()));
