@@ -5,6 +5,5 @@ import domain.annotations.DomainRepository;
 @DomainRepository
 public interface IEmpresaRepository<K> {
        
-    Empresa save(Empresa empresa);
 
 }

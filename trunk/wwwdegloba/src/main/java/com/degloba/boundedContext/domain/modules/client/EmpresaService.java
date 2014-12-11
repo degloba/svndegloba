@@ -2,13 +2,12 @@ package com.degloba.boundedContext.domain.modules.client;
 
 import com.degloba.boundedContext.domain.IEntityService;
 
-import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
-public class EmpresaService implements IEmpresaService {
+public class EmpresaService implements IEmpresaService<Long> {
 
-	IEmpresaRepository _repositori;
+	IEmpresaRepository<Long> _repositori;
 	
 
 	public EmpresaService() {
@@ -17,7 +16,7 @@ public class EmpresaService implements IEmpresaService {
 	}
 
 
-	public EmpresaService(IEmpresaRepository _repositori) {
+	public EmpresaService(IEmpresaRepository<Long> _repositori) {
 		super();
 		this._repositori = _repositori;
 	}
@@ -32,7 +31,7 @@ public class EmpresaService implements IEmpresaService {
 	}
 
 	
-	public IEmpresaRepository get_repositori() {
+	public IEmpresaRepository<?> get_repositori() {
 		return _repositori;
 	}
 	
