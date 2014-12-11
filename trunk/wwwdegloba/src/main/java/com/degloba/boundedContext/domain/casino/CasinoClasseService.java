@@ -3,25 +3,36 @@ package com.degloba.boundedContext.domain.casino;
 import com.degloba.boundedContext.domain.IEntityService;
 
 import domain.seedwork.IRepository;
+import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
 
 public class CasinoClasseService implements ICasinoClasseService {
 
 	ICasinoClasseRepository _repositori;
 	
+
+	public CasinoClasseService() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public CasinoClasseService(ICasinoClasseRepository _repositori) {
+		super();
+		this._repositori = _repositori;
+	}
+	
 	@Override
-	public IEntityService<BaseEntity> createService() {
+	public IEntityService<BaseAggregateRoot> createService() {
 		// 
 		
-		IRepository<BaseEntity> rep = this._repositori.CreateRepository();
-		return new EntityCasinoService<BaseEntity>(rep);
+		IRepository<BaseAggregateRoot> rep = this._repositori.CreateRepository();
+		return new EntityCasinoService<BaseAggregateRoot>(rep);
 	}
 
 	
 	public ICasinoClasseRepository get_repositori() {
 		return _repositori;
 	}
-
-	
 	
 }
