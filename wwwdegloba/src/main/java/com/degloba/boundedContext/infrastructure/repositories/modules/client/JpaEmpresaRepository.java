@@ -11,11 +11,5 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 public class JpaEmpresaRepository extends BaseAggregateRootJpaRepository<Long,Empresa> 
 									implements IEmpresaRepository<Long> {
 
-	@Override
-	public Empresa save(Empresa empresa) {
-		// 
-		this.persist(empresa);
-		return null;
-	}
 }
 
