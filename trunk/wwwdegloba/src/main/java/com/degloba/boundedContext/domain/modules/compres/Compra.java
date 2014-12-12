@@ -19,7 +19,7 @@ import org.hibernate.annotations.FetchMode;*/
 
 
 
-import com.degloba.canonicalmodel.events.OrderSubmittedEvent;
+//import com.degloba.canonicalmodel.events.OrderSubmittedEvent;
 
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
@@ -66,7 +66,7 @@ public class Compra extends BaseAggregateRoot{
 
 	Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
-		this.aggregateId = aggregateId;
+		//this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.items = items;
 		this.purchaseDate = purchaseDate;
