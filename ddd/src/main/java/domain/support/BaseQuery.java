@@ -29,15 +29,15 @@ import domain.seedwork.IRepository;
  * @param <E> 查询的类型
  */
 public abstract class BaseQuery<E extends BaseQuery<E>> {
-    private final IRepository<BaseEntity> repository;
+    private final IRepository<BaseAggregateRoot> repository;
     private QueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();
     private int firstResult;
     private int maxResults;
 
-    public BaseQuery(IRepository<BaseEntity> repository) {
-        Assert.notNull(repository);
-        this.repository = repository;
+    public BaseQuery(IRepository<BaseAggregateRoot> repository2) {
+        Assert.notNull(repository2);
+        this.repository = repository2;
     }
 
     /**

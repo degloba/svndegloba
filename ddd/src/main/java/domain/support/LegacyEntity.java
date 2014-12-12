@@ -24,14 +24,14 @@ public abstract class LegacyEntity extends BaseEntity {
      * 将实体本身持久化到数据库
      */
     public void save() {
-        getRepository().save(this);
+        //getRepository().save(this);
     }
 
     /**
      * 将实体本身从数据库中删除
      */
     public void remove() {
-        getRepository().remove(this);
+        //getRepository().remove(this);
     }
 
     /**

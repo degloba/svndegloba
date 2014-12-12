@@ -35,7 +35,7 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
      * @param repository 仓储
      * @param jpql JPQL查询语句
      */
-    public JpqlQuery(IRepository<BaseEntity> repository, String jpql) {
+    public JpqlQuery(IRepository<BaseAggregateRoot> repository, String jpql) {
         super(repository);
         Assert.notBlank(jpql);
         this.jpql = jpql;

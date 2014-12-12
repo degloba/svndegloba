@@ -38,7 +38,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param repository 仓储
      * @param sql SQL查询语句
      */
-    public SqlQuery(IRepository<BaseEntity> repository, String sql) {
+    public SqlQuery(IRepository<BaseAggregateRoot> repository, String sql) {
         super(repository);
         Assert.notBlank(sql);
         this.sql = sql;

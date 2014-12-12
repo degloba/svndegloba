@@ -21,7 +21,7 @@ import domain.support.NamedParameters;
  */
 public class CriteriaQuery {
 
-    private final IRepository<BaseEntity> repository;
+    private final IRepository<BaseAggregateRoot> repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
     private final Class<? extends Entity> entityClass;
     private int firstResult;
@@ -29,7 +29,7 @@ public class CriteriaQuery {
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(IRepository<BaseEntity> repository, Class<? extends Entity> entityClass) {
+    public CriteriaQuery(IRepository<BaseAggregateRoot> repository, Class<? extends Entity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

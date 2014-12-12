@@ -177,13 +177,13 @@ private Integer _requestedHashCode;
         return !existed();
     }
 
-    private static IRepository<BaseEntity> repository;
+    private static IRepository<BaseAggregateRoot> repository;
 
     /**
      * 获取仓储对象实例。如果尚未拥有仓储实例则通过InstanceFactory向IoC容器获取一个。
      * @return 仓储对象实例
      */
-    public static IRepository<BaseEntity> getRepository() {
+    public static IRepository<BaseAggregateRoot> getRepository() {
         if (repository == null) {
             repository = InstanceFactory.getInstance(IRepository.class);
         }
@@ -194,7 +194,7 @@ private Integer _requestedHashCode;
      * 设置仓储实例。该方法主要用于单元测试。产品系统中通常是通过IoC容器获取仓储实例。
      * @param repository 要设置的仓储对象实例
      */
-    public static void setRepository(IRepository<BaseEntity> repository) {
+    public static void setRepository(IRepository<BaseAggregateRoot> repository) {
         BaseEntity.repository = repository;
     }
     
