@@ -41,7 +41,7 @@ public class Client extends BaseAggregateRoot{
 	 */
 	public Pagament charge(Money amount) {
 		if (! canAfford(amount)){			
-			domainError("Can not afford: " + amount);
+			//domainError("Can not afford: " + amount);
 		}
 		// TODO facade to the payment module
 		
