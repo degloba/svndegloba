@@ -1,8 +1,10 @@
-package com.degloba.boundedContext.readmodel.impl;
+package com.degloba.boundedContext.modalpanel.readmodel.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+
+
 
 
 // JPA 
@@ -15,13 +17,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import query.PaginatedResult;
 
 // Entitat Domini
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 
+
+
+
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
+import com.degloba.boundedContext.modalpanel.readmodel.IModalpanelFinder;
+import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
+import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelQuery;
 // 
-import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
 import com.degloba.boundedContext.ui.webui.jsf.ModalPanelJSFBean;
+
+
 
 
 // DDD

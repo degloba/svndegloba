@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.readmodel.modalpanel;
+package com.degloba.boundedContext.modalpanel.readmodel;
 
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
