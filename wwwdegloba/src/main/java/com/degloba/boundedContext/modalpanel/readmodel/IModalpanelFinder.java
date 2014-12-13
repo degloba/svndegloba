@@ -1,11 +1,12 @@
-package com.degloba.boundedContext.readmodel.modalpanel;
+package com.degloba.boundedContext.modalpanel.readmodel;
 
 import java.util.List;
+
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 
 import query.PaginatedResult;
 import application.annotations.Finder;
 
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
 
 @Finder
 public interface IModalpanelFinder {

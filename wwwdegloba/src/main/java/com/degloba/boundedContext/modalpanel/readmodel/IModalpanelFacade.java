@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.degloba.boundedContext.readmodel.modalpanel;
+package com.degloba.boundedContext.modalpanel.readmodel;
 
 
 /**
