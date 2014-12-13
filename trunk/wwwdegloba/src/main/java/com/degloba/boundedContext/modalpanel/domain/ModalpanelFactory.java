@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.domain.modules.modalpanel;
+package com.degloba.boundedContext.modalpanel.domain;
 
 import javax.inject.Inject;
 

@@ -1,6 +1,7 @@
-package com.degloba.boundedContext.domain.modules.modalpanel;
+package com.degloba.boundedContext.modalpanel;
 
 import com.degloba.boundedContext.domain.IEntityService;
+import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
 
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;

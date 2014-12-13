@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.domain.modules.modalpanel;
+package com.degloba.boundedContext.modalpanel.domain;
 
 // JPA
 import javax.persistence.Inheritance;
