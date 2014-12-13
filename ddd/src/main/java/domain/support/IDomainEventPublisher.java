@@ -1,8 +1,11 @@
 package domain.support;
 
+import java.io.Serializable;
 
-public interface IDomainEventPublisher<T extends IDomainEvent> {
+
+public interface IDomainEventPublisher<T extends IDomainEvent<?>> {
     void publish(T event);
+    void publish(Serializable event);
 }
 
 /* ddd-leaven-v2

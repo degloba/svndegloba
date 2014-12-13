@@ -7,6 +7,7 @@ import java.util.Date;
 
 
 
+
 // CDI Java EE 6
 import javax.inject.Inject;
 import javax.persistence.Entity;
@@ -27,11 +28,13 @@ import javax.persistence.Transient;
 
 
 
+
 // SPRING
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import domain.canonicalmodel.publishedlanguage.AggregateId;
+import domain.sharedkernel.exceptions.DomainOperationException;
 
 
 /**
@@ -111,6 +114,10 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 		}	*/	
 		
 	
+		protected void domainError(String message) { 
+					throw new DomainOperationException(aggregateId, message); 
+				} 
+
 
     //    getters - setters
 	
