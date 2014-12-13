@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 
 
+
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -20,17 +21,15 @@ import javax.inject.Inject;
 
 
 
+
 // SPRING
 import org.springframework.stereotype.Component;
 
 // Entitat Domini
 
 
-
-
-
-import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.casino.application.api.service.ICasinoApp;
+import com.degloba.boundedContext.modalpanel.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.boundedContext.modalpanel.readmodel.IModalpanelFinder;
 import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
@@ -38,8 +37,6 @@ import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
 
 
 // CQRS - client - write
-
-
 
 
 
