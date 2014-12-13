@@ -12,7 +12,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Logger;
+
+
 
 // JSF
 import javax.faces.bean.ManagedBean;
@@ -23,13 +26,22 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 import javax.servlet.ServletContext;
 
+// Entitat domini
+
+
+
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 // GAE
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.EmbeddedEntity;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
+
+// DDD
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 import scala.actors.threadpool.Arrays;
 
 
@@ -62,8 +74,8 @@ public  class entitats implements ActionListener, Serializable {
 				
 		ServletContext ctx =(ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
 		
-		List<HashMap<String, String>> lblog = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Blog");
-		persistir("Blog",null, null, lblog,null);
+		/* List<HashMap<String, String>> lblog = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Blog");
+		persistir("Blog",null, null, lblog,null); */
 		
 		List<HashMap<String, String>> lmodalpanel = carregarCSVtoList(ctx.getRealPath("/") + "/dades/Modalpanel");
 		persistir("Modalpanel",null, null, lmodalpanel,null);
@@ -146,7 +158,16 @@ public  class entitats implements ActionListener, Serializable {
 					   						   		
 					   		pare.setProperty(pairs.getKey().toString(), valorConvertit);
 				       }
-						
+				   
+					// Entity employee = /*...*/;
+				   /*EmbeddedEntity embeddedContactInfo = new EmbeddedEntity();
+			   		embeddedContactInfo.setProperty("aggregateId", UUID.randomUUID().toString());			   	
+			   		pare.setProperty("aggregateId", embeddedContactInfo);*/
+				   
+				    Modalpanel m = new Modalpanel();
+			   		//m.setAggregateId(AggregateId.generate());
+					
+			   		
 				    }
 					// Persistim el pare	
 					log.warning("Persistim pare.!!!!!!!");
@@ -341,13 +362,13 @@ public  class entitats implements ActionListener, Serializable {
 			    // Deal with the line
 				
 				if (numlin == 0) {
-						columnes = Arrays.asList(line.split(","));
+						columnes = Arrays.asList(line.split(";"));
 						numlin = 1;
 				}
 				else {
 					
 					numlin = numlin + 1;
-					valors = Arrays.asList(line.split(","));
+					valors = Arrays.asList(line.split(";"));
 					HashMap<String,String> hm = new HashMap<String,String>();
 									
 					for (String columna : columnes) {
