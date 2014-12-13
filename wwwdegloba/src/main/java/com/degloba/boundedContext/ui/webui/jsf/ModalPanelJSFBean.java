@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 
 
+
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,7 @@ import javax.faces.bean.SessionScoped;
 
 // CDI Java EE 6
 import javax.inject.Inject;
+
 
 
 
@@ -26,6 +28,8 @@ import org.springframework.stereotype.Component;
 
 
 
+
+import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
 import com.degloba.boundedContext.casino.application.api.service.ICasinoApp;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.boundedContext.modalpanel.readmodel.IModalpanelFinder;
@@ -34,6 +38,7 @@ import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
 
 
 // CQRS - client - write
+
 
 
 
