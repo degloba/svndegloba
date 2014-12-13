@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.infrastructure.repositories;
+package com.degloba.boundedContext.casino.infrastructure.repositories;
 
 import java.io.Serializable;
 import java.util.List;
