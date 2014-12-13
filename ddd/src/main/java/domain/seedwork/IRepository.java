@@ -3,10 +3,9 @@ package domain.seedwork;
 import java.io.Serializable;
 import java.util.List;
 
-import domain.support.CriteriaQuery;
 import domain.seedwork.Entity;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
+import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;
 import domain.support.NamedParameters;
@@ -38,7 +37,7 @@ public interface IRepository<E extends BaseAggregateRoot> {
 		E update(E entity);
 	
 	    /**
-	     * 判断仓储中是否存在指定ID的实体实例。
+	     * Entity to determine whether there is an instance of the specified ID warehousing .
 	     *
 	     * @param <T> 实体类型
 	     * @param clazz 实体的类
