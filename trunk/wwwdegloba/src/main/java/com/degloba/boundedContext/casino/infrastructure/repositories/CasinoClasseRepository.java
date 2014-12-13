@@ -3,9 +3,11 @@ package com.degloba.boundedContext.casino.infrastructure.repositories;
 import java.io.Serializable;
 import java.util.List;
 
+import com.degloba.boundedContext.casino.domain.ICasinoClasseRepository;
+
 import infrastructure.seedwork.Repository;
 
-import com.degloba.boundedContext.domain.casino.ICasinoClasseRepository;
+
 
 import domain.seedwork.Entity;
 import domain.seedwork.IRepository;
