@@ -7,9 +7,13 @@ import javax.inject.Inject;
 
 import query.PaginatedResult;
 
-import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelQuery;
+
+
+
+
+import com.degloba.boundedContext.modalpanel.readmodel.IModalpanelFinder;
+import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
+import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelQuery;
 import com.degloba.canonicalmodel.events.ModalpanelStatusChangedEvent;
 
 /**

@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 import com.degloba.SpringMongoConfig;
 import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
-import com.degloba.boundedContext.domain.modules.client.Empresa;
-import com.degloba.boundedContext.domain.modules.client.IEmpresaRepository;
-import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
+import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.system.application.SystemContext;
+
+
 
 
 

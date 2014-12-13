@@ -3,22 +3,27 @@ package com.degloba.boundedContext.application.impl;
 import javax.inject.Inject;
 
 
+
+
 // SPRING
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
+
 //
 import com.degloba.boundedContext.application.api.service.ICasinoApp;
+import com.degloba.boundedContext.clients.domain.Empresa;
+import com.degloba.boundedContext.clients.domain.IEmpresaRepository;
+import com.degloba.boundedContext.clients.domain.IEmpresaService;
 import com.degloba.boundedContext.domain.IEntityService;
-import com.degloba.boundedContext.domain.modules.client.Empresa;
-import com.degloba.boundedContext.domain.modules.client.IEmpresaRepository;
-import com.degloba.boundedContext.domain.modules.client.IEmpresaService;
 import com.degloba.boundedContext.domain.casino.ICasinoClasseService;
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
-import com.degloba.boundedContext.domain.modules.modalpanel.ModalpanelFactory;
-import com.degloba.boundedContext.domain.modules.modalpanel.IModalpanelRepository;
+import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
+import com.degloba.boundedContext.modalpanel.domain.ModalpanelFactory;
 import com.degloba.system.application.SystemContext;
+
 
 
 

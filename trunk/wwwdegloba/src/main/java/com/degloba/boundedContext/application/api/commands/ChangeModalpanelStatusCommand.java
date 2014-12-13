@@ -3,8 +3,6 @@ package com.degloba.boundedContext.application.api.commands;
 // DDD
 import command.annotations.Command;
 
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel.ModalpanelStatus;
-
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 /**

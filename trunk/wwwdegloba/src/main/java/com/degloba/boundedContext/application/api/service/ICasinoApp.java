@@ -1,6 +1,8 @@
 package com.degloba.boundedContext.application.api.service;
 
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
+
+
 
 
 public interface ICasinoApp<K> {
