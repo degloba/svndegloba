@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.application.listeners;
+package com.degloba.boundedContext.modalpanel.application.listeners;
 
 import infrastructure.events.annotations.EventListener;
 import infrastructure.events.annotations.EventListeners;
