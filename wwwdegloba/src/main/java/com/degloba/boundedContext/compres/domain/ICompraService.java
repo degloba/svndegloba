@@ -1,6 +1,7 @@
 package com.degloba.boundedContext.compres.domain;
 
-import com.degloba.boundedContext.domain.IEntityService;
+
+import com.degloba.boundedContext.casino.domain.IEntityService;
 
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
