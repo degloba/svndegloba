@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
+
 import com.degloba.boundedContext.ui.webui.controller.BaseController;
 
 /**

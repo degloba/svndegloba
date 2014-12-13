@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+
+
 // JSF
 import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
@@ -14,18 +16,27 @@ import javax.faces.bean.SessionScoped;
 // CDI Java EE 6
 import javax.inject.Inject;
 
+
+
 // SPRING
 import org.springframework.stereotype.Component;
 
 // Entitat Domini
-import com.degloba.boundedContext.domain.modules.modalpanel.Modalpanel;
-import com.degloba.boundedContext.readmodel.modalpanel.ModalpanelDto;
 
+
+
+
+import com.degloba.boundedContext.casino.application.api.service.ICasinoApp;
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
+import com.degloba.boundedContext.modalpanel.readmodel.IModalpanelFinder;
+import com.degloba.boundedContext.modalpanel.readmodel.ModalpanelDto;
 // CQRS - client - read
-import com.degloba.boundedContext.readmodel.modalpanel.IModalpanelFinder;
+
 
 // CQRS - client - write
-import com.degloba.boundedContext.application.api.commands.AddModalpanelCommand;
+
+
+
 
 // CQRS - server - write
 import command.IGate;
@@ -34,7 +45,7 @@ import command.IGate;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 //Application
-import com.degloba.boundedContext.application.api.service.ICasinoApp;
+
 
 
 /**
