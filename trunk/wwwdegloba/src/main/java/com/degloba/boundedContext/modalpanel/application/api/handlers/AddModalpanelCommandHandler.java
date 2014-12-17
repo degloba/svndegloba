@@ -17,9 +17,11 @@ import com.degloba.system.application.SystemContext;
 
 
 
+
 // CQRS
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.ICommandHandler;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @CommandHandlerAnnotation
@@ -29,7 +31,7 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 	private ReservationRepository reservationRepository;
 */
 	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository;
+	private IModalpanelRepository<AggregateId> modalpanelRepository;
 	
 /*	@Inject
 	private IPersonRepository<Long> personRepository;*/

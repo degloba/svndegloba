@@ -27,9 +27,10 @@ import javax.persistence.Embedded;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import com.degloba.sharedkernel.Money;
+
 import domain.annotations.ValueObject;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.sharedkernel.Money;
 
 
 
@@ -55,7 +56,7 @@ public class ProducteData {
 
 	
 	@SuppressWarnings("unused")
-	private ProducteData(){}
+	protected ProducteData(){}
 	
 	ProducteData(AggregateId productId, Money price, String name, ProducteType type, 
 			Date snapshotDate) {

@@ -1,4 +1,4 @@
-package com.degloba.canonicalmodel.events;
+package com.degloba.boundedContext.enviaments.domain.events;
 
 import java.io.Serializable;
 

@@ -15,8 +15,8 @@ import com.degloba.boundedContext.ui.webui.controller.BaseController;
 @RequestMapping("/post")
 public class ModalpanelController extends BaseController {
 
-    @RequestMapping(value = "{modalpanelId}")
+/*    @RequestMapping(value = "{modalpanelId}")
     public ModalpanelDto ModalpanelDto(@PathVariable long modalpanelId) {
         return facade.getPost(modalpanelId);
-    }
+    }*/
 }

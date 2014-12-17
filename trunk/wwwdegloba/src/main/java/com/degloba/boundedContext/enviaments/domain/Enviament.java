@@ -5,7 +5,11 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import com.degloba.canonicalmodel.events.EnviamentEntregatEvent;
+
+
+
+import com.degloba.boundedContext.enviaments.domain.events.EnviamentEntregatEvent;
+import com.degloba.boundedContext.enviaments.domain.events.OrdreEnviadaEvent;
 
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
@@ -28,10 +32,10 @@ import domain.support.IDomainEvent;
 
 	    
 	    @SuppressWarnings("unused")
-		private Enviament() {}
+		public Enviament() {}
 
 	    Enviament(AggregateId enviamentId, AggregateId orderId) {
-	        this.aggregateId = enviamentId;
+	        //this.aggregateId = enviamentId;
 	    	this.orderId = orderId;
 	        this.status = EnviamentStatus.WAITING;
 	    }
@@ -44,7 +48,7 @@ import domain.support.IDomainEvent;
 	            throw new IllegalStateException("cannot ship in status " + status);
 	        }
 	        status = EnviamentStatus.SENT;
-	        domainEventPublisher.publish(new OrdreShippedEvent(orderId, getAggregateId()));
+	        domainEventPublisher.publish(new OrdreEnviadaEvent(orderId, getAggregateId()));
 	    }
 
 	    /**

@@ -68,11 +68,11 @@ public class CasinoApp<K> extends BaseAggregateRootApplicationService<K,Modalpan
 	private SystemContext systemContext; */
 
 	// REPOSITORIES
-	@Inject
-	private IEmpresaRepository<Long> empresaRepository;
+/*	@Inject
+	private IEmpresaRepository<Long> empresaRepository;*/
 
-	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository;
+/*	@Inject
+	private IModalpanelRepository<Long> modalpanelRepository;*/
 	
 	// FACTORIES
 	@Inject
@@ -210,24 +210,24 @@ public class CasinoApp<K> extends BaseAggregateRootApplicationService<K,Modalpan
 	}
 
 
-	public IModalpanelRepository<Long> getModalpanelRepository() {
+/*	public IModalpanelRepository<Long> getModalpanelRepository() {
 		return modalpanelRepository;
 	}
 
 	public void setModalpanelRepository(IModalpanelRepository<Long> modalpanelRepository) {
 		this.modalpanelRepository = modalpanelRepository;
-	}
+	}*/
 
 	
 
-	public IEmpresaRepository<Long> getEmpresaRepository() {
+/*	public IEmpresaRepository<Long> getEmpresaRepository() {
 		return empresaRepository;
 	}
 
 
 	public void setEmpresaRepository(IEmpresaRepository<Long> empresaRepository) {
 		this.empresaRepository = empresaRepository;
-	}
+	}*/
 
 
 	@Override

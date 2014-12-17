@@ -12,5 +12,10 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 public class JpaEmpresaRepository extends BaseAggregateRootJpaRepository<AggregateId,Empresa> 
 									implements IEmpresaRepository<AggregateId> {
 
+	public JpaEmpresaRepository() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 }
 

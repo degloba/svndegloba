@@ -1,7 +1,13 @@
 package com.degloba.boundedContext.modalpanel.readmodel;
 
-public  class ModalpanelDto  {
+import java.io.Serializable;
+
+public  class ModalpanelDto  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String titol;
 	private String definicio;
