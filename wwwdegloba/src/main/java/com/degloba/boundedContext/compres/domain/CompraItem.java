@@ -9,10 +9,11 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 
+
 import com.degloba.boundedContext.vendes.domain.ProducteData;
+import com.degloba.sharedkernel.Money;
 
 import domain.annotations.ValueObject;
-import domain.sharedkernel.Money;
 import domain.support.BaseEntity;
 
 
@@ -37,7 +38,7 @@ public class CompraItem extends BaseEntity{
 	private Money totalCost;
 	
 	@SuppressWarnings("unused")
-	private CompraItem() {}
+	protected CompraItem() {}
 	
 	public CompraItem(ProducteData productData, int quantity, Money totalCost) {
 		this.productData = productData;

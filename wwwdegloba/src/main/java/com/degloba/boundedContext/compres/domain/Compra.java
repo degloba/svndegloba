@@ -21,10 +21,12 @@ import org.hibernate.annotations.FetchMode;*/
 
 //import com.degloba.canonicalmodel.events.OrderSubmittedEvent;
 
+
+import com.degloba.sharedkernel.Money;
+
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.canonicalmodel.publishedlanguage.ClientData;
-import domain.sharedkernel.Money;
 import domain.support.BaseAggregateRoot;
 import domain.support.DomainEventPublisher;
 
@@ -58,7 +60,7 @@ public class Compra extends BaseAggregateRoot{
 
 	
 	@SuppressWarnings("unused")
-	private  Compra() {}
+	public  Compra() {}
 	
 /*	
 	@Inject

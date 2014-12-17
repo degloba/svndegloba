@@ -1,8 +1,10 @@
 package com.degloba.boundedContext.compres.domain;
 
 
+import com.degloba.sharedkernel.Money;
+
 import domain.annotations.ValueObject;
-import domain.sharedkernel.Money;
+
 
 
 @ValueObject

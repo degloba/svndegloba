@@ -1,6 +1,11 @@
 package com.degloba.boundedContext.casino.domain;
 
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseEntity;
@@ -25,7 +30,16 @@ public class CasinoClasseService implements ICasinoClasseService {
 	public IEntityService<BaseAggregateRoot> createService() {
 		// 
 		
-		IRepository<BaseAggregateRoot> rep = this._repositori.CreateRepository();
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("configurationContext.xml");
+		
+	
+		//ApplicationContext ctx =   new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+		//MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
+		
+		
+		ICasinoClasseRepository repositori = (ICasinoClasseRepository) applicationContext.getBean("casinoRepository");
+		
+		IRepository<BaseAggregateRoot> rep = repositori.CreateRepository();
 		return new EntityCasinoService<BaseAggregateRoot>(rep);
 	}
 

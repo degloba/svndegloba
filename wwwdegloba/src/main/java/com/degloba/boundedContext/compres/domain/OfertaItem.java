@@ -3,9 +3,10 @@ package com.degloba.boundedContext.compres.domain;
 
 
 import com.degloba.boundedContext.vendes.domain.ProducteData;
+import com.degloba.sharedkernel.Money;
 
 import domain.annotations.ValueObject;
-import domain.sharedkernel.Money;
+
 
 @ValueObject
 public class OfertaItem {

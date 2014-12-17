@@ -8,13 +8,15 @@ import javax.persistence.Transient;
 
 
 
+
 import com.degloba.boundedContext.vendes.domain.Pagament;
 import com.degloba.boundedContext.vendes.domain.PagamentFactory;
+import com.degloba.sharedkernel.Money;
 
 import domain.support.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.ClientData;
-import domain.sharedkernel.Money;
+
 
 @Entity
 @AggregateRoot

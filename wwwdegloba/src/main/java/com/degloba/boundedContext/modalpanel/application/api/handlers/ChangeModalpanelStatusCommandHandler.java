@@ -4,14 +4,17 @@ import javax.inject.Inject;
 
 
 
+
 import com.degloba.boundedContext.modalpanel.application.api.commands.ChangeModalpanelStatusCommand;
 import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 
 
+
 // CQRS
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.ICommandHandler;
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**
@@ -22,7 +25,7 @@ import command.handler.ICommandHandler;
 public class ChangeModalpanelStatusCommandHandler<K> implements ICommandHandler<ChangeModalpanelStatusCommand>{
 
 	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository; 
+	private IModalpanelRepository<AggregateId> modalpanelRepository; 
 
 	@Override
 	public Void handle(ChangeModalpanelStatusCommand command) {

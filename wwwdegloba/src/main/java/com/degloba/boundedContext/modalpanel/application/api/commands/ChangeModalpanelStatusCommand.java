@@ -5,6 +5,8 @@ import command.annotations.Command;
 
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
+import com.degloba.boundedContext.modalpanel.domain.Modalpanel.ModalpanelStatus;
+
 /**
  * @author degloba
  *
@@ -13,17 +15,17 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 @Command
 public class ChangeModalpanelStatusCommand{
 
-	private Long modalpanelId;
+	private AggregateId modalpanelId;
 
 	private ModalpanelStatus status;
 
-	public ChangeModalpanelStatusCommand(Long modalpanelId, ModalpanelStatus status) {
+	public ChangeModalpanelStatusCommand(AggregateId modalpanelId, ModalpanelStatus status) {
 		super();
 		this.modalpanelId = modalpanelId;
 		this.status = status;
 	}
 
-	public Long getModalpanelId() {
+	public AggregateId getModalpanelId() {
 		return modalpanelId;
 	}
 

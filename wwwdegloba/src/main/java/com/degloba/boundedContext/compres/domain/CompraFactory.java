@@ -11,11 +11,12 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 
 
+
 import com.degloba.boundedContext.clients.domain.Client;
+import com.degloba.sharedkernel.Money;
 
 import domain.annotations.DomainFactory;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.sharedkernel.Money;
 import domain.sharedkernel.exceptions.DomainOperationException;
 import domain.support.DomainEventPublisher;
 
