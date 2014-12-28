@@ -54,12 +54,13 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		
 	 
 		
-		@EmbeddedId
+/*		@EmbeddedId
 		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-		private AggregateId aggregateId; 
+		private AggregateId aggregateId; */
 		
-		
+		@Id
+		private Long aggregateId;
 
 		/**
 		 * control de concurrencia
@@ -114,9 +115,9 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		}	*/	
 		
 	
-		protected void domainError(String message) { 
+	/*	protected void domainError(String message) { 
 					throw new DomainOperationException(aggregateId, message); 
-				} 
+				} */
 
 
     //    getters - setters
@@ -194,11 +195,11 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		return null;
 	}
 
-	public AggregateId getAggregateId() {
+	public Long getAggregateId() {
 		return aggregateId;
 	}
 
-	public void setAggregateId(AggregateId aggregateId) {
+	public void setAggregateId(Long aggregateId) {
 		this.aggregateId = aggregateId;
 	}
 
