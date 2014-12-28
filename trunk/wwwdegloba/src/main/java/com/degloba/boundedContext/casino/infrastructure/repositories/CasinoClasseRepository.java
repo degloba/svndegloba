@@ -28,7 +28,7 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	@Override
 	public IRepository<BaseAggregateRoot> CreateRepository() {
 		// TODO Auto-generated method stub
-		IRepository<BaseAggregateRoot> rep =  (IRepository<BaseAggregateRoot>) new Repository();
+		IRepository<BaseAggregateRoot> rep =  new Repository<BaseAggregateRoot>();
 		return rep;
 	}
 	
