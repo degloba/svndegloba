@@ -29,7 +29,8 @@ public class Client extends BaseAggregateRoot{
 	private PagamentFactory paymentFactory;
 	
 	public ClientData generateSnapshot(){
-		return new ClientData(this.getAggregateId(), name);
+		//return new ClientData(this.getAggregateId(), name);
+		return null;
 	}
 
 	public boolean canAfford(Money amount) {		
@@ -46,7 +47,7 @@ public class Client extends BaseAggregateRoot{
 	 */
 	public Pagament charge(Money amount) {
 		if (! canAfford(amount)){			
-			domainError("Can not afford: " + amount);
+			//domainError("Can not afford: " + amount);
 		}
 		// TODO facade to the payment module
 		
