@@ -136,7 +136,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </listener>
   
 <listener>
-	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+<!--	<listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>  -->
 </listener> 
 	
 <listener>
