@@ -7,13 +7,13 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 	@SuppressWarnings("serial")
 	public class EnviamentEntregatEvent implements Serializable {
 
-	    private final AggregateId enviamentId;
+	    private final Long enviamentId;
 
-	    public EnviamentEntregatEvent(AggregateId enviamentId) {
+	    public EnviamentEntregatEvent(Long enviamentId) {
 	        this.enviamentId = enviamentId;
 	    }
 
-	    public AggregateId getEnviamentId() {
+	    public Long getEnviamentId() {
 	        return enviamentId;
 	    }
 	}
