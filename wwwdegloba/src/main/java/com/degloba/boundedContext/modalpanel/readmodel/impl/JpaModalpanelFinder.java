@@ -76,7 +76,7 @@ public class JpaModalpanelFinder implements IModalpanelFinder {
 			Object projectId = util.getIdentifier(ret.get(0));*/
 			
 			ret.size();	
-			IDomainEventPublisher<IDomainEvent> de =ret.get(0).getDomainEventPublisher();
+			IDomainEventPublisher<?> de =ret.get(0).getDomainEventPublisher();
 						    
 		} catch (RuntimeException e) {
 			log.warning("Modalpanel error" + e.getMessage() );

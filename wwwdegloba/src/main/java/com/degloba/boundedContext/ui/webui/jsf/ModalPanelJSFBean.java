@@ -141,7 +141,7 @@ public class ModalPanelJSFBean {
 		
 		// 2
 		Modalpanel modalpanel = new Modalpanel();
-		modalpanel.setAggregateId(AggregateId.generate());
+		//modalpanel.setAggregateId(AggregateId.generate());
 		modalpanel.setDescripcio("hola");
 		this.casinoApp.addModalpanel(modalpanel);
 		
