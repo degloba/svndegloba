@@ -37,17 +37,19 @@
 
 
 	<!-- 2. REPOSITORIS -->
- 	<bean id="modalpanelRepository" class="com.degloba.boundedContext.infrastructure.repositories.modules.modalpanel.JpaModalpanelRepository" />
+ 	<bean id="modalpanelRepository" class="com.degloba.boundedContext.modalpanel.infrastructure.JpaModalpanelRepository" />  
  	
+ 	<bean id="empresaRepository" class="com.degloba.boundedContext.clients.infrastructure.JpaEmpresaRepository"/>  
+	
  	
- 	<bean id="casinoRepository" class="com.degloba.boundedContext.infrastructure.repositories.CasinoClasseRepository" />
+ 	<bean id="casinoRepository" class="com.degloba.boundedContext.casino.infrastructure.repositories.CasinoClasseRepository" />
 		
 	<!-- 3. SERVEIS DE DOMINI -->
 
 
 	
 	<!-- 4. FACTORIES -->	
- 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.domain.modules.modalpanel.ModalpanelFactory" />  
+ 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.modalpanel.domain.ModalpanelFactory" />  
 
 	
 	<!-- 5. SYSTEM USER -->
@@ -59,9 +61,12 @@
 	
 		
 	<!-- 7. FINDERS -->
-	<bean id="modalpanelFinder" class="com.degloba.boundedContext.readmodel.impl.JpaModalpanelFinder"/>
+	<bean id="modalpanelFinder" class="com.degloba.boundedContext.modalpanel.readmodel.impl.JpaModalpanelFinder"/>
+			
+	<bean id="enviamentFinder" class="com.degloba.boundedContext.enviaments.readmodel.impl.JpaEnviamentFinder"/>
 	
-	<bean id="facade" class="com.degloba.boundedContext.readmodel.modalpanel.ModalpanelFacade"/>
+	
+	<bean id="facade" class="com.degloba.boundedContext.modalpanel.readmodel.ModalpanelFacade"/>
 	
 
 	<!-- 8. GATE - COMMANDS -->
@@ -82,11 +87,11 @@
 		<property name="eventPublisher" ref="eventPublisher" />
 	</bean>	 -->
 	
-	<bean id="_casinoClasseService" class="com.degloba.boundedContext.domain.casino.CasinoClasseService" />
-	<bean id="_empresaService" class="com.degloba.boundedContext.domain.modules.client.EmpresaService" />
+	<bean id="_casinoClasseService" class="com.degloba.boundedContext.casino.domain.CasinoClasseService" />
+	<bean id="_empresaService" class="com.degloba.boundedContext.clients.domain.EmpresaService" />
 	
 	
-	<bean id="_repositori" class="com.degloba.boundedContext.domain.casino.CasinoClasseService">
+	<bean id="_repositori" class="com.degloba.boundedContext.casino.domain.CasinoClasseService">
         <constructor-arg ref="casinoRepository" />
     </bean>
 	
@@ -135,11 +140,6 @@
   </bean>   -->
 		
 	<tx:annotation-driven transaction-manager="transactionManager" />
-		
 	
-	
-	<bean id="empresaRepository"
-		class="com.degloba.boundedContext.infrastructure.repositories.modules.client.JpaEmpresaRepository">
-	</bean>
-	
+
 </beans>
