@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+						http://www.springframework.org/schema/data/mongo
+				        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+	<context:component-scan base-package="command,query,com.degloba,domain,infrastructure,application"/>
+	
+	<!-- <context:annotation-config/> -->
+
+	<!-- 1. BEANS JSF GESTIONAT PER SPRING 	
+	<bean id="simpleEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" />
+	
+	<bean id="modalPanels" class="com.degloba.boundedContext.webui.JSF.ModalPanels" scope="request">
+		<property name="modalpanelsFinder">
+			<ref bean="modalpanelsFinder"/>
+		</property>
+	</bean>
+	
+	<bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
+		scope="request">
+		<property name="domainEventPublisher">
+			<ref bean="simpleEventPublisher"/>
+		</property>
+	 </bean> -->
+	 
+	 <bean id="carregarEntitats" class="com.degloba.entitats" />
+
+
+	<!-- 2. REPOSITORIS -->
+ 	<bean id="modalpanelRepository" class="com.degloba.boundedContext.modalpanel.infrastructure.JpaModalpanelRepository" />  
+ 	
+ 	<bean id="empresaRepository" class="com.degloba.boundedContext.clients.infrastructure.JpaEmpresaRepository"/>  
+	
+ 	
+ 	<bean id="casinoRepository" class="com.degloba.boundedContext.casino.infrastructure.repositories.CasinoClasseRepository" />
+		
+	<!-- 3. SERVEIS DE DOMINI -->
+
+
+	
+	<!-- 4. FACTORIES -->	
+ 	<bean id="modalpanelFactory" class="com.degloba.boundedContext.modalpanel.domain.ModalpanelFactory" />  
+
+	
+	<!-- 5. SYSTEM USER -->
+ 	<bean id="systemUser" class="application.SystemUser" />
+ 	
+	
+	<!-- 6. EVENT PUBLISHER 
+ 	<bean id="domainEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> -->
+	
+		
+	<!-- 7. FINDERS -->
+	<bean id="modalpanelFinder" class="com.degloba.boundedContext.modalpanel.readmodel.impl.JpaModalpanelFinder"/>
+			
+	<bean id="enviamentFinder" class="com.degloba.boundedContext.enviaments.readmodel.impl.JpaEnviamentFinder"/>
+	
+	
+	<bean id="facade" class="com.degloba.boundedContext.modalpanel.readmodel.ModalpanelFacade"/>
+	
+
+	<!-- 8. GATE - COMMANDS -->
+	<bean id="gate" class="command.impl.StandardGate"/>
+	
+	<!-- 8. SERVEIS D'APLICACIO 
+		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
+	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>	    
+	</bean> -->
+	
+<!-- 	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
+		<property name="orderRepository" ref="orderRepository" />
+		<property name="orderFactory" ref="orderFactory" />
+		<property name="productRepository" ref="productRepository" />
+		<property name="invoiceRepository" ref="invoiceRepository" />
+		<property name="invoicingService" ref="invoicingService" />
+		<property name="systemUser" ref="systemUser" />
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>	 -->
+	
+	<bean id="_casinoClasseService" class="com.degloba.boundedContext.casino.domain.CasinoClasseService" />
+	<bean id="_empresaService" class="com.degloba.boundedContext.clients.domain.EmpresaService" />
+	
+	
+	<bean id="_repositori" class="com.degloba.boundedContext.casino.domain.CasinoClasseService">
+        <constructor-arg ref="casinoRepository" />
+    </bean>
+	
+
+	<!-- 9. BEANS RELACIONAT AMB LA PERSISTENCIA -->
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+          <property name="persistenceUnitName" value="transactions-optional" />
+    </bean>  
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />    
+	</bean>
+	
+	
+ 	<bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+          <property name="persistenceUnitName" value="mongodb" />
+    </bean>  
+
+
+
+<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   
+
+	<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
+	<!-- <mongo:mongo host="localhost" port="27017" />
+	
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    <constructor-arg name="mongo" ref="mongo"/>
+    <constructor-arg name="databaseName" value="degloba"/>
+  </bean>
+
+  <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>  
+
+   Mongo cross-store aspect config  
+  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
+        factory-method="aspectOf">
+    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
+  </bean>
+  <bean id="mongoChangeSetPersister"
+      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
+    <property name="mongoTemplate" ref="mongoTemplate"/>
+    <property name="entityManagerFactory" ref="entityManagerFactoryMongo"/>  
+  </bean>   -->
+		
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+
+</beans>
