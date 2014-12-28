@@ -30,7 +30,7 @@ public class CasinoClasseService implements ICasinoClasseService {
 	public IEntityService<BaseAggregateRoot> createService() {
 		// 
 		
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("configurationContext.xml");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cconfigurationContext.xml");
 		
 	
 		//ApplicationContext ctx =   new AnnotationConfigApplicationContext(SpringMongoConfig.class);
