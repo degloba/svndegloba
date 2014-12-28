@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"    
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">    
+ 
+	<persistence-unit name="transactions-optional">        
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+		<class>com.degloba.boundedContext.modalpanel.domain.Modalpanel</class>
+		<class>com.degloba.boundedContext.enviaments.domain.Enviament</class>
+		<class>com.degloba.boundedContext.compres.domain.Compra</class>
+		<class>com.degloba.boundedContext.clients.domain.Client</class>
+		<class>com.degloba.boundedContext.clients.domain.Empresa</class>
+		<class>com.degloba.boundedContext.vendes.domain.Pagament</class>
+		<class>com.degloba.boundedContext.compres.domain.CompraItem</class>
+		<class>com.degloba.boundedContext.vendes.domain.ProducteData</class>
+		<class>com.degloba.sharedkernel.Money</class> 
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>            
+			<property name="datanucleus.NontransactionalRead" value="true"/>            
+			<property name="datanucleus.NontransactionalWrite" value="false"/>            
+			<property name="datanucleus.ConnectionURL" value="appengine"/>  			
+			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>		
+			      
+		</properties>    
+	</persistence-unit>
+	
+ 	<persistence-unit name="mongodb">
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+		<class>com.degloba.boundedContext.domain.Person</class> 
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>  
+            <!-- <property name="javax.persistence.jdbc.url" value="mongodb://ds039960.mongolab.com:39960/degloba"/>   
+            <property name="javax.persistence.jdbc.url" value="mongodb://localhost/test"/>  
+            <property name="datanucleus.schema.autoCreateAll" value="true"/>
+            <property name="datanucleus.schema.validateTables" value="false"/>
+            <property name="datanucleus.schema.validateConstraints" value="false"/> -->
+          
+            
+            <property name="datanucleus.ConnectionURL" value="mongodb:/local"/>  
+            <property name="datanucleus.storeManagerType" value="mongodb" />  
+           	<property name="datanucleus.autoCreateSchema" value="true" />  
+        
+        </properties>  	
+	</persistence-unit> 
+	
+</persistence>
