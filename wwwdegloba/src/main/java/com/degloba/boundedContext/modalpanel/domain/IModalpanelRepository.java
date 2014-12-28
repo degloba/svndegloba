@@ -11,4 +11,6 @@ public interface IModalpanelRepository<K> {
 
 	public Modalpanel save(Modalpanel modalpanel);
 	
+	public void persist(Modalpanel modalpanel);
+	
 }

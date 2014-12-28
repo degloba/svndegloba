@@ -61,13 +61,13 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		reservationRepository.save(reservation);*/
 		
 		Modalpanel modalpanel = new Modalpanel();
-		//modalpanel.setAggregateId(command.getModalpanelId());
+		//modalpanel.setAggregateId(AggregateId.generate());
 		modalpanel.setActiu(true);
 		modalpanel.setDescripcio("hola");
 		modalpanel.setTitol("titol hora");
 		modalpanel.changeStatus(Modalpanel.ModalpanelStatus.VIP);
 			
-		this.modalpanelRepository.save(modalpanel);
+		this.modalpanelRepository.persist(modalpanel);
 		
 /*		Person person = new Person();
 		person.setFirstName("pere");
