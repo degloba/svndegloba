@@ -48,9 +48,10 @@ import domain.support.IDomainEvent;
 	            throw new IllegalStateException("cannot ship in status " + status);
 	        }
 	        status = EnviamentStatus.SENT;
-	        domainEventPublisher.publish(new OrdreEnviadaEvent(orderId, getAggregateId()));
+	        //domainEventPublisher.publish(new OrdreEnviadaEvent(orderId, getAggregateId()));	        
 	    }
 
+	    
 	    /**
 	     * Enviament has been confirmed received by the customer.
 	     */

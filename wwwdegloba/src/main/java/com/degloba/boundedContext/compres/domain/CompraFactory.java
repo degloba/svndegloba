@@ -38,8 +38,9 @@ public class CompraFactory {
 	 */
 	public Compra create(AggregateId orderId, Client client, Oferta oferta){
 		if (! canPurchse(client, oferta.getAvailabeItems()))
-			throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
-
+			//throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
+throw null;
+			
 		ArrayList<CompraItem> items = new ArrayList<CompraItem>(oferta.getAvailabeItems().size());
 		Money purchaseTotlCost = Money.ZERO;
 
