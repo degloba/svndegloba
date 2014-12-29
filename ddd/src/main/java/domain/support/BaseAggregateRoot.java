@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-
-
-
-
 // CDI Java EE 6
 import javax.inject.Inject;
 import javax.persistence.Entity;
@@ -24,9 +20,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
-
-
-
 
 
 // SPRING
@@ -51,8 +44,7 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 	@MappedSuperclass
 	//public class BaseAggregateRoot {  //extends BaseEntity {
 	public abstract class BaseAggregateRoot {
-		
-	 
+		 
 		
 /*		@EmbeddedId
 		@AttributeOverrides({
@@ -81,7 +73,6 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		protected IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher;
 		
 		
-
 /*		public AggregateId getAggregateId() {
 			return aggregateId;
 		}
