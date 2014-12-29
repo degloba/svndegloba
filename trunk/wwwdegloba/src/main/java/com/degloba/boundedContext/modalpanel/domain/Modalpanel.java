@@ -28,9 +28,6 @@ public class Modalpanel extends BaseAggregateRoot{
 	
 	public Modalpanel() {}
 	
-/*	@EmbeddedId
-	private AggregateId aggregateId;*/
-	
 	/*@Embedded
 	private ClientData clientData; */
 	
