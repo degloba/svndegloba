@@ -61,7 +61,7 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 		reservationRepository.save(reservation);*/
 		
 		Modalpanel modalpanel = new Modalpanel();
-		//modalpanel.setAggregateId(AggregateId.generate());
+		//modalpanel.setAggregateId((long) 33.0);
 		modalpanel.setActiu(true);
 		modalpanel.setDescripcio("hola");
 		modalpanel.setTitol("titol hora");
