@@ -55,7 +55,7 @@ public abstract class BaseQuery<E extends BaseQuery<E>> {
      */
     public E setParameters(Object... parameters) {
         this.parameters = PositionalParameters.create(parameters);
-        return (E)this;
+        return (E) this;
     }
 
     /**

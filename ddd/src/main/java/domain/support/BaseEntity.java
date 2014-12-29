@@ -29,8 +29,6 @@ import org.springframework.stereotype.Component;
 
 import com.degloba.utils.BeanUtils;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-
 
 /**
  * @author degloba
