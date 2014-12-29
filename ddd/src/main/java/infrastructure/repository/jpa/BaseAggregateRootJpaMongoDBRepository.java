@@ -7,8 +7,6 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import domain.support.BaseAggregateRoot;
-
 
 /**
  * 
