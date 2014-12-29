@@ -49,8 +49,8 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public class BaseAggregateRoot {  //extends BaseEntity {
-	//public abstract class BaseAggregateRoot {
+	//public class BaseAggregateRoot {  //extends BaseEntity {
+	public abstract class BaseAggregateRoot {
 		
 	 
 		
@@ -60,6 +60,7 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 		private AggregateId aggregateId; */
 		
 		@Id
+		@GeneratedValue(strategy= GenerationType.IDENTITY)
 		private Long aggregateId;
 
 		/**
@@ -77,7 +78,7 @@ import domain.sharedkernel.exceptions.DomainOperationException;
 
 		@Transient
 		@Inject
-		protected IDomainEventPublisher<IDomainEvent> domainEventPublisher;
+		protected IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher;
 		
 		
 
@@ -178,13 +179,13 @@ import domain.sharedkernel.exceptions.DomainOperationException;
      * Can be called only once by Factory/Repository<br>
      * Visible for package (Factory/Repository)
      */
-   public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent> domainEventPublisher) {
+   public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher) {
         if (this.domainEventPublisher != null)
             throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
         this.domainEventPublisher = domainEventPublisher;
     }
 
-	public IDomainEventPublisher<IDomainEvent> getDomainEventPublisher() {
+	public IDomainEventPublisher<IDomainEvent<Object>> getDomainEventPublisher() {
 		return domainEventPublisher;
 	}
 
