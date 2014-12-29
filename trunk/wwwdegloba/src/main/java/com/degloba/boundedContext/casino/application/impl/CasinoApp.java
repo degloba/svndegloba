@@ -3,35 +3,14 @@ package com.degloba.boundedContext.casino.application.impl;
 import javax.inject.Inject;
 
 
-
-
-
-// SPRING
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
-
-
 //
-
-
-
-
 import com.degloba.boundedContext.casino.application.api.service.ICasinoApp;
 import com.degloba.boundedContext.casino.domain.ICasinoClasseService;
 import com.degloba.boundedContext.casino.domain.IEntityService;
 import com.degloba.boundedContext.clients.domain.Empresa;
-import com.degloba.boundedContext.clients.domain.IEmpresaRepository;
 import com.degloba.boundedContext.clients.domain.IEmpresaService;
-import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.boundedContext.modalpanel.domain.ModalpanelFactory;
-import com.degloba.system.application.SystemContext;
-
-
-// DDD
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.sharedkernel.exceptions.DomainOperationException;
-import domain.support.BaseEntity;
 import application.BaseAggregateRootApplicationService;
 import application.annotations.ApplicationService;
 

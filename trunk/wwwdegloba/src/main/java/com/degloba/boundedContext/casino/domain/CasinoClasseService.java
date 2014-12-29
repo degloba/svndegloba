@@ -2,13 +2,11 @@ package com.degloba.boundedContext.casino.domain;
 
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
+
 
 public class CasinoClasseService implements ICasinoClasseService {
 

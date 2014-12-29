@@ -1,7 +1,6 @@
 package com.degloba.boundedContext.casino.domain;
 
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 
 
 public interface ICasinoClasseService {
