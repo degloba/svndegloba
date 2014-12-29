@@ -14,10 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
-/*import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;*/
-
-
 
 //import com.degloba.canonicalmodel.events.OrderSubmittedEvent;
 
@@ -59,7 +55,6 @@ public class Compra extends BaseAggregateRoot{
 	private Money totalCost;
 
 	
-	@SuppressWarnings("unused")
 	public  Compra() {}
 	
 /*	

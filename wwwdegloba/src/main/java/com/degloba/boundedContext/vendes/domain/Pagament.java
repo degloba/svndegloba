@@ -17,7 +17,6 @@ import domain.canonicalmodel.publishedlanguage.ClientData;
 
 @AggregateRoot
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pagament extends BaseAggregateRoot{
 	
 	private String descripcio;
