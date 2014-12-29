@@ -37,7 +37,6 @@ public class CompraItem extends BaseEntity{
 		@AttributeOverride(name = "currencyCode", column = @Column(name = "purchaseTotalCost_currencyCode")) })
 	private Money totalCost;
 	
-	@SuppressWarnings("unused")
 	protected CompraItem() {}
 	
 	public CompraItem(ProducteData productData, int quantity, Money totalCost) {

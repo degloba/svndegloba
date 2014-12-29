@@ -2,9 +2,8 @@ package com.degloba.boundedContext.clients.domain;
 
 
 import com.degloba.boundedContext.casino.domain.IEntityService;
-
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
+
 
 public class EmpresaService implements IEmpresaService<Long> {
 

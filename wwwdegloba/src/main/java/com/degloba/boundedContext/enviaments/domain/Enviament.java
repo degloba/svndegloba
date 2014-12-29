@@ -6,8 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 
-
-
 import com.degloba.boundedContext.enviaments.domain.events.EnviamentEntregatEvent;
 import com.degloba.boundedContext.enviaments.domain.events.OrdreEnviadaEvent;
 
@@ -31,7 +29,6 @@ import domain.support.IDomainEvent;
 	    private EnviamentStatus status;
 
 	    
-	    @SuppressWarnings("unused")
 		public Enviament() {}
 
 	    Enviament(AggregateId enviamentId, AggregateId orderId) {

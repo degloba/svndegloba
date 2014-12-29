@@ -2,7 +2,6 @@ package com.degloba.boundedContext.casino.domain;
 
 import domain.seedwork.*;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 
 public class EntityCasinoService<E extends BaseAggregateRoot> implements IEntityService<E> {
 

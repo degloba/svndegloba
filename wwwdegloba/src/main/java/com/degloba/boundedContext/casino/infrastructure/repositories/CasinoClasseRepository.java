@@ -8,11 +8,9 @@ import com.degloba.boundedContext.casino.domain.ICasinoClasseRepository;
 import infrastructure.seedwork.Repository;
 
 
-
 import domain.seedwork.Entity;
 import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;

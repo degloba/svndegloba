@@ -1,8 +1,6 @@
 package com.degloba.boundedContext.casino.domain;
 
 import domain.seedwork.*;
-import domain.support.BaseAggregateRoot;
-
 
 public interface IEntityService<E> {
 	
