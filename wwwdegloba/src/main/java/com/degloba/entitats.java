@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 
@@ -28,20 +27,16 @@ import javax.servlet.ServletContext;
 
 // Entitat domini
 
-
-
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 // GAE
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.EmbeddedEntity;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
 
 // DDD
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 import scala.actors.threadpool.Arrays;
 
 
