@@ -13,11 +13,6 @@ import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.system.application.SystemContext;
 
 
-
-
-
-
-
 // CQRS
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.ICommandHandler;
