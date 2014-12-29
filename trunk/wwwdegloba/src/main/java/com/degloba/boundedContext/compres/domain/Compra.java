@@ -50,8 +50,8 @@ public class Compra extends BaseAggregateRoot{
 	
 	private boolean paid;
 
-	@Embedded
-	private ClientData clientData;
+/*	@Embedded
+	private ClientData clientData;*/
 
 	private Date purchaseDate;
 
@@ -69,7 +69,7 @@ public class Compra extends BaseAggregateRoot{
 	Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
 		//this.aggregateId = aggregateId;
-		this.clientData = clientData;
+		//this.clientData = clientData;
 		this.items = items;
 		this.purchaseDate = purchaseDate;
 		this.paid = paid;
@@ -93,9 +93,9 @@ public class Compra extends BaseAggregateRoot{
 		return purchaseDate;
 	}
 
-	public ClientData getClientData() {
+/*	public ClientData getClientData() {
 		return clientData;
-	}
+	}*/
 	
 	public Collection<CompraItem> getItems() {
 		return (Collection<CompraItem>) Collections.unmodifiableCollection(items);
