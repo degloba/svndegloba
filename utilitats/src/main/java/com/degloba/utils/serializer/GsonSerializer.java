@@ -3,12 +3,6 @@ package com.degloba.utils.serializer;
 import com.google.gson.*;
 import com.degloba.utils.ObjectSerializer;
 
-import java.lang.reflect.Type;
-import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Created by yyang on 14-9-16.
  */
