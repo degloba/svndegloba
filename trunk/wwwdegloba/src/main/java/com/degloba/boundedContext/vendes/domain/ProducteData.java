@@ -38,7 +38,7 @@ import domain.canonicalmodel.publishedlanguage.AggregateId;
 @ValueObject
 public class ProducteData {
 
-	@Embedded
+
 	private AggregateId productId;
 	
 	@Embedded
