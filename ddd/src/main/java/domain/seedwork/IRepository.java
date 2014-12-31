@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import domain.seedwork.Entity;
-import domain.support.BaseAggregateRoot;
 import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;
