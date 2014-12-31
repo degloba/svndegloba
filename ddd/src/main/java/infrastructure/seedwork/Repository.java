@@ -12,28 +12,27 @@ import domain.support.NamedParameters;
 import domain.support.NamedQuery;
 import domain.support.SqlQuery;
 
-public class Repository<E extends BaseAggregateRoot> implements IRepository<BaseAggregateRoot> {
+public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 
 	@Override
-	public void add(BaseAggregateRoot entity) {
-		// TODO Auto-generated method stub
-		
+	public void add(E entity) {
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
-	public BaseAggregateRoot save(BaseAggregateRoot entity) {
+	public E save(E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(BaseAggregateRoot entity) {
+	public void remove(E entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<BaseAggregateRoot> findAll() {
+	public List<E> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,7 +44,7 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<Base
 	}
 
 	@Override
-	public BaseAggregateRoot update(BaseAggregateRoot entity) {
+	public E update(E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -75,14 +74,14 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<Base
 	}
 
 	@Override
-	public BaseAggregateRoot getByBusinessKeys(Class<BaseAggregateRoot> clazz,
+	public E getByBusinessKeys(Class<E> clazz,
 			NamedParameters keyValues) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<BaseAggregateRoot> findAll(Class<BaseAggregateRoot> clazz) {
+	public List<E> findAll(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
