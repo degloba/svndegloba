@@ -25,7 +25,7 @@ import domain.support.SqlQuery;
  * 
  * Storage access interface . Access and query the database for various types of entities .
  */
-public interface IRepository<E extends BaseAggregateRoot> {  
+public interface IRepository<E> {  
 	
 		void add(E entity);
 		
@@ -280,6 +280,6 @@ public interface IRepository<E extends BaseAggregateRoot> {
 	     * 清空持久化缓存
 	     */
 	    void clear();
-	
+
 	
 }
