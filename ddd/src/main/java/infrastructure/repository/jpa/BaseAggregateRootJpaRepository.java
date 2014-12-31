@@ -1,16 +1,29 @@
 package infrastructure.repository.jpa;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+
+
+import java.util.List;
+
 
 // JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import javax.persistence.NamedQuery;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+
+
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
+
 import domain.support.BaseAggregateRoot;
-import infrastructure.seedwork.Repository;
+import domain.support.ExampleSettings;
+import domain.support.JpqlQuery;
+import domain.support.NamedParameters;
 
 
 /**
@@ -70,14 +83,195 @@ public class BaseAggregateRootJpaRepository<K, E extends BaseAggregateRoot> impl
 	public E save(E entitat) {
 		return this.entityManager.merge(entitat);
 	}
-
-   
+	
+  
 	public EntityManager getEntityManager() {
 		return this.entityManager;
 	}
 
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+
+	@Override
+	public boolean exists(Class<?> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E> E get(Class<E> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E load(Class<E> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E getUnmodified(Class<E> clazz, E entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> findAll(Class<E> clazz) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> List<E> find(CriteriaQuery criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E getSingleResult(CriteriaQuery criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JpqlQuery createJpqlQuery(String jpql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> List<E> find(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E getSingleResult(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public <E> List<E> find(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E getSingleResult(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Query createSqlQuery(String sql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> List<E> find(Query sqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> E getSingleResult(Query sqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(Query sqlQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public <E extends BaseAggregateRoot, E2 extends E> List<E> findByExample(E2 example,
+			ExampleSettings<E> settings) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+/*	@Override
+	public <E> List<E> findByProperty(Class<E> clazz, String propertyName,
+			Object propertyValue) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
+
+/*	@Override
+	public <E> List<E> findByProperties(Class<E> clazz,
+			NamedParameters properties) {
+		// TODO Auto-generated method stub
+		return this.entityManager.f;
+	}
+*/
+	@Override
+	public String getQueryStringOfNamedQuery(String queryName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void flush() {
+		this.entityManager.flush();		
+	}
+
+	@Override
+	public void refresh(BaseAggregateRoot entity) {
+		this.entityManager.refresh(entity);
+	}
+
+	@Override
+	public void clear() {
+		this.entityManager.clear();
+	}
+
+	@Override
+	public Query createNamedQuery(String queryName) {
+		return this.entityManager.createNamedQuery(queryName);
+	}
+
+	@Override
+	public <E> List<E> findByProperty(Class<E> clazz, String propertyName,
+			Object propertyValue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E> List<E> findByProperties(Class<E> clazz,
+			NamedParameters properties) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
