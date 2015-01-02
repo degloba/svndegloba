@@ -218,7 +218,7 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	     * @see org.dayatang.domain.EntityRepository#load(java.io.Serializable)
 	     */
 	    @Override
-	    public <E> E load(final Class<E> clazz, final Serializable id) {
+	    public E load(final Class<E> clazz, final Serializable id) {
 	        return getEntityManager().getReference(clazz, id);
 	    }
 

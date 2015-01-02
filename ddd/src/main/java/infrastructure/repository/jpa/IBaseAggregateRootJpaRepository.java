@@ -86,7 +86,7 @@ public interface IBaseAggregateRootJpaRepository<K,E> {
 	     * @param id 实体标识
 	     * @return 一个实体实例。
 	     */
-	    <E> E load(Class<E> clazz, Serializable id);
+	    E load(Class<E> clazz, Serializable id);
 	    //<T extends Entity> T load(Class<T> clazz, Serializable id);
 
 	    /**
