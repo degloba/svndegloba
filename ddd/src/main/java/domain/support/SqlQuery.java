@@ -20,6 +20,7 @@ import com.degloba.utils.Assert;
 import domain.seedwork.IRepository;
 import domain.support.BaseQuery;
 import domain.seedwork.Entity;
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 import java.util.List;
 
@@ -35,11 +36,11 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
 
     /**
      * 使用仓储和SQL语句创建SQL查询。
-     * @param repository 仓储
+     * @param baseAggregateRootJpaRepository 仓储
      * @param sql SQL查询语句
      */
-    public SqlQuery(IRepository<BaseAggregateRoot> repository, String sql) {
-        super(repository);
+    public SqlQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, String sql) {
+        super(baseAggregateRootJpaRepository);
         Assert.notBlank(sql);
         this.sql = sql;
     }
@@ -87,7 +88,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @return 查询结果。
      */
     @Override
-    public <T> T singleResult() {
+    public <E> E singleResult() {
         return getRepository().getSingleResult(this);
     }
 

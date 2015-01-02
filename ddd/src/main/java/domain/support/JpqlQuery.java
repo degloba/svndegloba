@@ -19,6 +19,7 @@ import com.degloba.utils.Assert;
 
 import domain.seedwork.IRepository;
 import domain.support.BaseQuery;
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 import java.util.List;
 
@@ -32,11 +33,11 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
 
     /**
      * 使用仓储和JPQL语句创建JPQL查询。
-     * @param repository 仓储
+     * @param baseAggregateRootJpaRepository 仓储
      * @param jpql JPQL查询语句
      */
-    public JpqlQuery(IRepository<BaseAggregateRoot> repository, String jpql) {
-        super(repository);
+    public JpqlQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, String jpql) {
+        super(baseAggregateRootJpaRepository);
         Assert.notBlank(jpql);
         this.jpql = jpql;
     }

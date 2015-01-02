@@ -2,6 +2,8 @@ package domain.support;
 
 
 
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
+
 import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,9 +21,10 @@ import domain.support.NamedParameters;
  * IntelliJ IDEA. User: yyang Date: 13-10-17 Time: 下午2:14 To change this
  * template use File | Settings | File Templates.
  */
-public class CriteriaQuery {
+public class CriteriaQuery<K,E> {
 
-    private final IRepository<BaseAggregateRoot> repository;
+    //private final IRepository<BaseAggregateRoot> repository;
+    private final BaseAggregateRootJpaRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
     private final Class<? extends Entity> entityClass;
     private int firstResult;
@@ -29,14 +32,15 @@ public class CriteriaQuery {
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(IRepository<BaseAggregateRoot> repository, Class<? extends Entity> entityClass) {
-        Assert.notNull(repository);
+    public CriteriaQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, Class<? extends Entity> entityClass) {
+        Assert.notNull(baseAggregateRootJpaRepository);
         Assert.notNull(entityClass);
-        this.repository = repository;
+        this.repository = baseAggregateRootJpaRepository;
         this.entityClass = entityClass;
     }
 
-    /**
+
+	/**
      * 获得查询根实体的类
      *
      * @return 查询的根实体的类

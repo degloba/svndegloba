@@ -16,6 +16,9 @@
 
 package domain.support;
 
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
+import infrastructure.repository.jpa.IBaseAggregateRootJpaRepository;
+
 import java.util.List;
 import java.util.Map;
 
@@ -29,15 +32,16 @@ import domain.seedwork.IRepository;
  * @param <E> 查询的类型
  */
 public abstract class BaseQuery<E extends BaseQuery<E>> {
-    private final IRepository<BaseAggregateRoot> repository;
+    //private final IRepository<BaseAggregateRoot> repository;
+    private final BaseAggregateRootJpaRepository repository;
     private QueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();
     private int firstResult;
     private int maxResults;
 
-    public BaseQuery(IRepository<BaseAggregateRoot> repository2) {
-        Assert.notNull(repository2);
-        this.repository = repository2;
+    public BaseQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository) {
+        Assert.notNull(baseAggregateRootJpaRepository);
+        this.repository = baseAggregateRootJpaRepository;
     }
 
     /**
@@ -166,7 +170,7 @@ public abstract class BaseQuery<E extends BaseQuery<E>> {
      * 获得仓储对象。
      * @return 仓储对象
      */
-    protected IRepository<?> getRepository() {
+    protected IBaseAggregateRootJpaRepository<?,?> getRepository() {
         return repository;
     }
     

@@ -18,6 +18,7 @@ package domain.support;
 import com.degloba.utils.Assert;
 
 import domain.seedwork.IRepository;
+import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 import java.util.List;
 
@@ -32,11 +33,11 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
 
     /**
      * 使用仓储和命名查询名字创建命名查询
-     * @param repository 仓储
+     * @param baseAggregateRootJpaRepository 仓储
      * @param queryName 命名查询的名称
      */
-    public NamedQuery(IRepository repository, String queryName) {
-        super(repository);
+    public NamedQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, String queryName) {
+        super(baseAggregateRootJpaRepository);
         Assert.notBlank(queryName);
         this.queryName = queryName;
     }

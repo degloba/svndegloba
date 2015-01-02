@@ -4,32 +4,57 @@ import java.io.Serializable;
 import java.util.List;
 
 
+
+
 // JPA
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
-
 
 import domain.support.BaseAggregateRoot;
+import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;
 import domain.support.NamedParameters;
+import domain.support.NamedQuery;
+import domain.support.SqlQuery;
 
 
-public interface IBaseAggregateRootJpaRepository <K,E>{
+public interface IBaseAggregateRootJpaRepository<K,E> {
 
-	 public E load(K id);
+	  E load(K id);
 
-	 public void delete(K id);
+/*	 <E> void delete(K id);*/
 
 	 public void persist(E entitat); 
+	 //<E> void  persist(E entitat);
 
-	 public E save(E entitat);
+	 //<E> E save(E entitat);
+	 E save(E entity);
+	 
+	 /**
+	     * å°†å®žä½“ï¼ˆæ— è®ºæ˜¯æ–°çš„è¿˜æ˜¯ä¿®æ”¹äº†çš„ï¼‰ä¿�å­˜åˆ°ä»“å‚¨ä¸­ã€‚
+	     *
+	     * @param <T> å®žä½“çš„ç±»åž‹
+	     * @param entity è¦�å­˜å‚¨çš„å®žä½“å®žä¾‹ã€‚
+	     * @return æŒ�ä¹…åŒ–å�Žçš„å½“å‰�å®žä½“
+	     */
+//	    <T extends E> T save(T entity);
 	    
 	 public EntityManager getEntityManager();
 
 	 public void setEntityManager(EntityManager entityManager); 
+	 
+	 
+	 
+	    /**
+	     * å°†å®žä½“ä»Žä»“å‚¨ä¸­åˆ é™¤ã€‚å¦‚æžœä»“å‚¨ä¸­ä¸�å­˜åœ¨æ­¤å®žä¾‹å°†æŠ›å‡ºEntityNotExistedExceptionå¼‚å¸¸ã€‚
+	     *
+	     * @param entity è¦�åˆ é™¤çš„å®žä½“å®žä¾‹ã€‚
+	     */
+	    <E> void remove(E entity);
+
+     
+	   	    	 
+	 /**********************************************************************************************************/
 	 
 	   /**
 	     * Entity to determine whether there is an instance of the specified ID warehousing .
@@ -39,7 +64,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param id 实体标识
 	     * @return 如果实体实例存在，返回true，否则返回false
 	     */
-	     boolean exists(Class<?> clazz, Serializable id);
+	     <E> boolean exists(Class<E> clazz, Serializable id);
+	     //<T extends E> boolean exists(Class<T> clazz, Serializable id);
 
 	    /**
 	     * 从仓储中获取指定类型、指定ID的实体
@@ -50,6 +76,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 一个实体实例。
 	     */
 	     <E> E get(Class<E> clazz, Serializable id);
+	     //<T extends Entity> T get(Class<T> clazz, Serializable id);
 
 	    /**
 	     * 从仓储中装载指定类型、指定ID的实体
@@ -60,6 +87,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 一个实体实例。
 	     */
 	    <E> E load(Class<E> clazz, Serializable id);
+	    //<T extends Entity> T load(Class<T> clazz, Serializable id);
 
 	    /**
 	     * 从仓储中获取entity参数所代表的未修改的实体
@@ -69,7 +97,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param entity 要查询的实体
 	     * @return 参数entity在仓储中的未修改版本
 	     */
-	    <E> E getUnmodified(Class<E> clazz, E entity);
+	    <E> BaseAggregateRoot getUnmodified(Class<BaseAggregateRoot> clazz, BaseAggregateRoot entity);
+	    //<T extends Entity> T getUnmodified(Class<T> clazz, T entity);
 	    
 	    /**
 	     * 根据业务主键从仓储中获取指定类型的实体
@@ -79,7 +108,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param keyValues 代表业务主键值的命名参数。key为主键属性名，value为主键属性值
 	     * @return 一个实体实例。
 	     */
-	     E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues);
+	     <E> E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues);
+	     //<T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
 	    /**
 	     * 查找指定类型的所有实体
@@ -88,7 +118,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param clazz 实体的类
 	     * @return 符合条件的实体集合
 	     */
-	    List<E> findAll(Class<E> clazz);
+	    <E> List<E> findAll(Class<E> clazz);
+	    //<T extends Entity> List<T> findAll(Class<T> clazz);
 
 	    /**
 	     * 创建条件查询
@@ -98,6 +129,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 一个条件查询
 	     */
 	    <E> CriteriaQuery createCriteriaQuery(Class<E> clazz);
+	    //<T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
 	    /**
 	     * 执行条件查询，返回符合条件的实体列表
@@ -107,6 +139,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的实体列表
 	     */
 	    <E> List<E> find(CriteriaQuery criteriaQuery);
+	    //<T> List<T> find(CriteriaQuery criteriaQuery);
 
 	    /**
 	     * 执行条件查询，返回符合条件的单个实体
@@ -116,6 +149,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的单个结果
 	     */
 	     <E> E getSingleResult(CriteriaQuery criteriaQuery);
+	     //<T> T getSingleResult(CriteriaQuery criteriaQuery);
 
 	    /**
 	     * 创建JPQL查询
@@ -133,6 +167,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的结果列表
 	     */
 	    <E> List<E> find(JpqlQuery jpqlQuery);
+	    //<T> List<T> find(JpqlQuery jpqlQuery);
 
 	    /**
 	     * 执行JPQL查询，返回符合条件的单个实体
@@ -142,6 +177,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的单个结果
 	     */
 	    <E> E getSingleResult(JpqlQuery jpqlQuery);
+	    //<T> T getSingleResult(JpqlQuery jpqlQuery);
 
 	    /**
 	     * 执行更新仓储的操作。
@@ -157,7 +193,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param queryName 命名查询的名字
 	     * @return 一个命名查询
 	     */
-	    Query createNamedQuery(String queryName);
+	    NamedQuery createNamedQuery(String queryName);
 
 	    /**
 	     * 执行命名查询，返回符合条件的实体列表
@@ -167,6 +203,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的结果列表
 	     */
 	    <E> List<E> find(NamedQuery namedQuery);
+	    //<T> List<T> find(NamedQuery namedQuery);
 
 	    /**
 	     * 执行命名查询，返回符合条件的单个实体
@@ -176,6 +213,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 符合查询条件的单个结果
 	     */
 	    <E> E getSingleResult(NamedQuery namedQuery);
+	    //<T> T getSingleResult(NamedQuery namedQuery);
 
 	    /**
 	     * 使用命名查询执行更新仓储的操作。
@@ -191,7 +229,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param sql SQL语句
 	     * @return 一个原生SQL查询
 	     */
-	    Query createSqlQuery(String sql);
+	    SqlQuery createSqlQuery(String sql);
 
 	    /**
 	     * 执行SQL查询，返回符合条件的实体列表
@@ -200,7 +238,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的结果列表
 	     */
-	    <E> List<E> find(Query sqlQuery);
+	    <E> List<E> find(SqlQuery sqlQuery);
+	    //<T> List<T> find(SqlQuery sqlQuery);
 
 	    /**
 	     * 执行SQL查询，返回符合条件的单个实体
@@ -209,7 +248,8 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	    <E> E getSingleResult(Query sqlQuery);
+	    <E> E getSingleResult(SqlQuery sqlQuery);
+	    //<T> List<T> find(SqlQuery sqlQuery);
 
 	    /**
 	     * 使用SQL查询执行更新仓储的操作。
@@ -217,7 +257,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @param sqlQuery 要执行的SQL查询。
 	     * @return 被更新或删除的实体的数量
 	     */
-	    int executeUpdate(Query sqlQuery);
+	    int executeUpdate(SqlQuery sqlQuery);
 
 	    /**
 	     * 按例查询。
@@ -229,6 +269,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 与example相似的T类型的范例
 	     */
 	    <E extends BaseAggregateRoot, E2 extends E> List<E> findByExample(E2 example, ExampleSettings<E> settings);
+	    //<T extends Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
 
 	    /**
 	     * 根据单一属性的值查找实体
@@ -240,6 +281,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 类型为clazz的、属性propertyName的值等于propertyValue的实体的集合
 	     */
 	    <E> List<E> findByProperty(Class<E> clazz, String propertyName, Object propertyValue);
+	    //<T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
 	    /**
 	     * 根据多个属性的值查找实体
@@ -250,6 +292,7 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     * @return 类型为clazz、多个属性分别等于指定的属性值的实体的集合。
 	     */
 	    <E> List<E> findByProperties(Class<E> clazz, NamedParameters properties);
+	    //<T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
 	    
 	    /**
 	     * 获取命名查询的查询字符串
@@ -269,13 +312,17 @@ public interface IBaseAggregateRootJpaRepository <K,E>{
 	     *
 	     * @param entity 要刷新的实体
 	     */
-	    void refresh(E entity);
+	    <E> void refresh(E entity);
 
 	    /**
 	     * 清空持久化缓存
 	     */
 	    void clear();
 
-	
+		
+
+		
+
+
 
 }
