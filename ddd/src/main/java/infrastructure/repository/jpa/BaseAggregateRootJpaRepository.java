@@ -174,12 +174,12 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 			this.namedQueryParser = namedQueryParser;
 		}
 
-		public EntityManager getEntityManager() {
+	    /*public EntityManager getEntityManager() {
 	        return entityManagerProvider.getEntityManager();
-	    }
-		/*public EntityManager getEntityManager() {
+	    }*/
+		public EntityManager getEntityManager() {
 			return this.entityManager;
-		}*/
+		}
 
 
 
