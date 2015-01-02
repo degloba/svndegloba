@@ -1,10 +1,5 @@
 package com.degloba.boundedContext.modalpanel.infrastructure;
 
-// 
-
-
-// DDD
-
 
 import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
@@ -21,20 +16,6 @@ public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Aggr
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public Modalpanel load(AggregateId aggregateId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Modalpanel save(Modalpanel modalpanel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 
 	
 }
