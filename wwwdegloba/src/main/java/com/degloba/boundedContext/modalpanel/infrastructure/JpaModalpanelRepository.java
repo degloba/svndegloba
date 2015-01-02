@@ -22,6 +22,20 @@ public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Aggr
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public Modalpanel load(AggregateId aggregateId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Modalpanel save(Modalpanel modalpanel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 	
 }
 
