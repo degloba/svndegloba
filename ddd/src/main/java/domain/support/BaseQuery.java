@@ -26,25 +26,29 @@ import com.degloba.utils.Assert;
 
 import domain.seedwork.IRepository;
 
+
+
 /**
  * 查询基类，为NamedQuery、JpqlQuery和SqlQuery提供共同行为。
  * @author yyang
  * @param <E> 查询的类型
  */
 public abstract class BaseQuery<E extends BaseQuery<E>> {
-    //private final IRepository<BaseAggregateRoot> repository;
-    private final BaseAggregateRootJpaRepository repository;
+    private final IRepository repository;
+    //private final BaseAggregateRootJpaRepository<?, ?> repository;
     private QueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();
     private int firstResult;
     private int maxResults;
 
-    public BaseQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository) {
+
+    public BaseQuery(IRepository baseAggregateRootJpaRepository) {
+		// TODO Auto-generated constructor stub
         Assert.notNull(baseAggregateRootJpaRepository);
         this.repository = baseAggregateRootJpaRepository;
-    }
+	}
 
-    /**
+	/**
      * 获取查询参数
      * @return 查询参数
      */
@@ -170,7 +174,7 @@ public abstract class BaseQuery<E extends BaseQuery<E>> {
      * 获得仓储对象。
      * @return 仓储对象
      */
-    protected IBaseAggregateRootJpaRepository<?,?> getRepository() {
+    protected IRepository getRepository() {
         return repository;
     }
     

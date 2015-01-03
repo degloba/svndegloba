@@ -31,9 +31,6 @@ import com.degloba.utils.BeanUtils;
 @MappedSuperclass
 public abstract class BaseEntity implements domain.seedwork.Entity {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
@@ -45,7 +42,7 @@ public abstract class BaseEntity implements domain.seedwork.Entity {
     //entityId because ID can mean something (some domain concept) in some Bounded Context
     @Id
     @GeneratedValue
-    private Long aggregateId;
+    protected Long aggregateId;
     
 /*    @EmbeddedId
 	@AttributeOverrides({
@@ -168,13 +165,13 @@ private Integer _requestedHashCode;
         return !existed();
     }
 
-    private static IRepository<BaseAggregateRoot> repository;
+    private static IRepository repository;
 
     /**
      * 获取仓储对象实例。如果尚未拥有仓储实例则通过InstanceFactory向IoC容器获取一个。
      * @return 仓储对象实例
      */
-    public static IRepository<BaseAggregateRoot> getRepository() {
+    public static IRepository getRepository() {
         if (repository == null) {
             repository = InstanceFactory.getInstance(IRepository.class);
         }
@@ -185,7 +182,7 @@ private Integer _requestedHashCode;
      * 设置仓储实例。该方法主要用于单元测试。产品系统中通常是通过IoC容器获取仓储实例。
      * @param repository 要设置的仓储对象实例
      */
-    public static void setRepository(IRepository<BaseAggregateRoot> repository) {
+    public static void setRepository(IRepository repository) {
         BaseEntity.repository = repository;
     }
     

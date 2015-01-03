@@ -2,38 +2,22 @@ package domain.support;
 
 import java.io.Serializable;
 import java.util.Date;
-
-
+import java.util.Map;
 
 // CDI Java EE 6
 import javax.inject.Inject;
-import javax.persistence.Entity;
+
 // JPA
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Entity;
 import javax.persistence.Version;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
-
-
 
 // SPRING
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.sharedkernel.exceptions.DomainOperationException;
 
-import java.util.Map;
-
-import javax.persistence.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -52,8 +36,8 @@ import com.degloba.utils.BeanUtils;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	//public class BaseAggregateRoot {  //extends BaseEntity {
-	public abstract class BaseAggregateRoot {
+	public class BaseAggregateRoot extends BaseEntity {
+	//public abstract class BaseAggregateRoot {
 		 
 		
 /*		@EmbeddedId
@@ -61,9 +45,12 @@ import com.degloba.utils.BeanUtils;
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
 		private AggregateId aggregateId; */
 		
-		@Id
+		/*@Id
 		@GeneratedValue(strategy= GenerationType.IDENTITY)
-		private Long aggregateId;
+		private Long aggregateId;*/
+
+
+		private static final long serialVersionUID = 1L;
 
 		/**
 		 * control de concurrencia
@@ -205,28 +192,6 @@ import com.degloba.utils.BeanUtils;
 		this.aggregateId = aggregateId;
 	}
 
-
-
-	    public boolean existed() {
-	        Object id = getId();
-	        if (id == null) {
-	            return false;
-	        }
-	        if (id instanceof Number && ((Number)id).intValue() == 0) {
-	            return false;
-	        }
-	        //return getRepository().exists(getClass(), getId());
-	        return false;
-	    }
-
-	    /**
-	     * åˆ¤æ–­è¯¥å®žä½“æ˜¯å�¦ä¸�å­˜åœ¨äºŽæ•°æ�®åº“ä¸­ã€‚
-	     * @return å¦‚æžœæ•°æ�®åº“ä¸­å·²ç»�å­˜åœ¨æ‹¥æœ‰è¯¥idçš„å®žä½“åˆ™è¿”å›žfalseï¼Œå�¦åˆ™è¿”å›žtrueã€‚
-	     */
-
-	    public boolean notExisted() {
-	        return !existed();
-	    }
 
 /*	    private static EntityRepository repository;
 
