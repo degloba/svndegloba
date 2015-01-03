@@ -42,8 +42,8 @@ public abstract class LegacyEntity extends BaseEntity {
      * @return 
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static <E extends BaseEntity> E get(Class<E> clazz, Serializable id) {
-        return getRepository().get(clazz, id);
+    public static <E extends domain.seedwork.Entity> E get(Class<E> clazz, Serializable id) {
+        return (E) getRepository().get(clazz, id);
     }
 
     /**
@@ -54,7 +54,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @return 实体的未修改版本。
      */
     public static <E extends domain.seedwork.Entity> E getUnmodified(Class<E> clazz, E entity) {
-        return getRepository().getUnmodified(clazz, entity);
+        return (E) getRepository().getUnmodified(clazz, entity);
     }
 
     /**
@@ -64,8 +64,8 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param id 实体的ID
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static <E extends BaseEntity> E load(Class<E> clazz, Serializable id) {
-        return getRepository().load(clazz, id);
+    public static <E extends domain.seedwork.Entity> E load(Class<E> clazz, Serializable id) {
+        return (E) getRepository().load(clazz, id);
     }
 
     /**
@@ -74,7 +74,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param clazz 实体所属的类
      * @return 符合条件的实体列表
      */
-    public static <E extends BaseEntity> List<E> findAll(Class<E> clazz) {
+    public static <E extends domain.seedwork.Entity> List<E> findAll(Class<E> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
