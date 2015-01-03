@@ -84,7 +84,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @return 类型为T或T的子类型，ID为id的实体。
      */
     public static  <E extends domain.seedwork.Entity> E get(Class<E> clazz, Serializable id) {
-        return getRepository().get(clazz, id);
+        return (E) getRepository().get(clazz, id);
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @return 实体的未修改版本。
      */
     public static <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
-        return getRepository().getUnmodified(clazz, entity);
+        return (T) getRepository().getUnmodified(clazz, entity);
     }
 
     /**
@@ -106,7 +106,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @return 类型为T或T的子类型，ID为id的实体。
      */
     public static <T extends BaseEntity> T load(Class<T> clazz, Serializable id) {
-        return getRepository().load(clazz, id);
+        return (T) getRepository().load(clazz, id);
     }
 
     /**
@@ -138,7 +138,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param propValues 属性值匹配条件
      * @return 符合条件的实体列表
      */
-    public static <E extends Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+    public static <E extends domain.seedwork.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
     }
 }
