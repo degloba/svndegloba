@@ -5,10 +5,10 @@ import domain.support.BaseAggregateRoot;
 
 public class EntityCasinoService<E extends BaseAggregateRoot> implements IEntityService<E> {
 
-	private IRepository<E> _repositori;
+	private IRepository _repositori;
 		
 	
-	public EntityCasinoService(IRepository<E> repositori) {
+	public EntityCasinoService(IRepository repositori) {
 		super();
 		this._repositori = repositori;
 	}

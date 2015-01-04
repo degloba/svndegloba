@@ -10,6 +10,6 @@ public interface IEntityService<E> {
 	public void update(E value);
 	public void merge(E persisted, E current);
 	
-	public IRepository<?> repositori=null;
+	public IRepository repositori=null;
 
 }

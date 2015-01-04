@@ -13,7 +13,7 @@ import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 
 @DomainRepositoryImpl
-public class JpaEnviamentRepository extends BaseAggregateRootJpaRepository<AggregateId,Enviament> implements IEnviamentRepository<AggregateId> {
+public class JpaEnviamentRepository extends BaseAggregateRootJpaRepository implements IEnviamentRepository<AggregateId> {
 
 	@Override
 	public Enviament load(AggregateId aggregateId) {

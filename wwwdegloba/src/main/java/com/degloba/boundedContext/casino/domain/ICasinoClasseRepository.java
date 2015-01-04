@@ -5,8 +5,8 @@ import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 
 
-public interface ICasinoClasseRepository extends IRepository<BaseAggregateRoot> {
+public interface ICasinoClasseRepository extends IRepository {
 
-	public IRepository<BaseAggregateRoot> CreateRepository();
+	public IRepository CreateRepository();
 
 }

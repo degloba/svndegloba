@@ -4,9 +4,9 @@ import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 
 
-public interface IBaseAggregateRootRepository extends IRepository<BaseAggregateRoot> {
+public interface IBaseAggregateRootRepository extends IRepository {
 	
-	public IRepository<BaseAggregateRoot>  createRepository();
+	public IRepository createRepository();
 		
 	// Funcions,Query
 	
