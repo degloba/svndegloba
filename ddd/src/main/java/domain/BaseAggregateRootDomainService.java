@@ -16,7 +16,7 @@ import domain.support.BaseAggregateRoot;
  */
 public class BaseAggregateRootDomainService<K,E extends BaseAggregateRoot> implements IBaseAggregateRootDomainService<K,E> {
 
-	private IBaseAggregateRootJpaRepository<K,E> repositori;
+	private IBaseAggregateRootJpaRepository repositori;
 	//private IViewsGenericRepository views;
 	
 	public void Add(E value) {

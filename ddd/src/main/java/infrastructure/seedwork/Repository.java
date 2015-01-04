@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import domain.seedwork.*;
-import domain.support.BaseAggregateRoot;
 import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;
@@ -12,27 +11,28 @@ import domain.support.NamedParameters;
 import domain.support.NamedQuery;
 import domain.support.SqlQuery;
 
-public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
+public class Repository implements IRepository {
 
 	@Override
-	public void add(E entity) {
-		// TODO Auto-generated method stub	
-	}
-
-	@Override
-	public E save(E entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void remove(E entity) {
+	public <E extends Entity> void add(E entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<E> findAll() {
+	public <E extends Entity> E save(E entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> void remove(E entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Entity> List<E> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -44,50 +44,50 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public E update(E entity) {
+	public <E extends Entity> E update(E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean exists(Class<?> clazz, Serializable id) {
+	public <E extends Entity> boolean exists(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <E> E get(Class<E> clazz, Serializable id) {
+	public <E extends Entity> E get(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E load(Class<E> clazz, Serializable id) {
+	public <E extends Entity> E load(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E getUnmodified(Class<E> clazz, E entity) {
+	public <E extends Entity> E getUnmodified(Class<E> clazz, E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public E getByBusinessKeys(Class<E> clazz,
+	public <E extends Entity> E getByBusinessKeys(Class<E> clazz,
 			NamedParameters keyValues) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<E> findAll(Class<E> clazz) {
+	public <E extends Entity> List<E> findAll(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+	public <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -99,7 +99,7 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public <E> E getSingleResult(CriteriaQuery criteriaQuery) {
+	public <E extends Entity> E getSingleResult(CriteriaQuery criteriaQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -117,7 +117,7 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public <E> E getSingleResult(JpqlQuery jpqlQuery) {
+	public <E extends Entity> E getSingleResult(JpqlQuery jpqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -141,7 +141,7 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public <E> E getSingleResult(NamedQuery namedQuery) {
+	public <E extends Entity> E getSingleResult(NamedQuery namedQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -159,13 +159,13 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public <E> List<E> find(SqlQuery sqlQuery) {
+	public <E extends Entity> List<E> find(SqlQuery sqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E getSingleResult(SqlQuery sqlQuery) {
+	public <E extends Entity> E getSingleResult(SqlQuery sqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -184,14 +184,216 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	}
 
 	@Override
-	public <E> List<E> findByProperty(Class<E> clazz, String propertyName,
-			Object propertyValue) {
+	public <E extends Entity> List<E> findByProperty(Class<E> clazz,
+			String propertyName, Object propertyValue) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> List<E> findByProperties(Class<E> clazz,
+	public <E extends Entity> List<E> findByProperties(Class<E> clazz,
+			NamedParameters properties) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getQueryStringOfNamedQuery(String queryName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void flush() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Entity> void refresh(E entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*@Override
+	public <E extends Entity> void add(E entity) {
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public <E extends Entity> E save(E entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> void remove(E entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public Long getTotalResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E update(E entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <E extends Entity> boolean exists(Class<E> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Entity> E get(Class<E> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E load(Class<E> clazz, Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getUnmodified(Class<E> clazz, E entity) {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+
+	//@Override
+	public <E extends Entity> E getByBusinessKeys(Class<E> clazz,
+			NamedParameters keyValues) {
+        List<E> results = findByProperties(clazz, keyValues);
+        return results.isEmpty() ? null : results.get(0);
+	}
+
+	@Override
+	public <E extends Entity> List<E> findAll(Class<E> clazz) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+		// TODO Auto-generated method stub
+        return new CriteriaQuery(this, clazz);
+	}
+
+	@Override
+	public <E extends Entity> List<E> find(CriteriaQuery criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getSingleResult(CriteriaQuery criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JpqlQuery createJpqlQuery(String jpql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> List<E> find(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getSingleResult(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(JpqlQuery jpqlQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public NamedQuery createNamedQuery(String queryName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> List<E> find(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getSingleResult(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(NamedQuery namedQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public SqlQuery createSqlQuery(String sql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> List<E> find(SqlQuery sqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getSingleResult(SqlQuery sqlQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int executeUpdate(SqlQuery sqlQuery) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public <E extends Entity, E2 extends E> List<E> findByExample(E2 example,
+			ExampleSettings<E> settings) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> List<E> findByProperty(Class<E> clazz, String propertyName,
+			Object propertyValue) {
+		// TODO Auto-generated method stub
+		return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
+	}
+
+	@Override
+	public <E extends Entity> List<E> findByProperties(Class<E> clazz,
 			NamedParameters properties) {
 		// TODO Auto-generated method stub
 		return null;
@@ -219,7 +421,8 @@ public class Repository<E extends BaseAggregateRoot> implements IRepository<E> {
 	public void clear() {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
+    	
 	
 }

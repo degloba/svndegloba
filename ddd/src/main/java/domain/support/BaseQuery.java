@@ -16,8 +16,6 @@
 
 package domain.support;
 
-import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
-import infrastructure.repository.jpa.IBaseAggregateRootJpaRepository;
 
 import java.util.List;
 import java.util.Map;

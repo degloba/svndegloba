@@ -36,13 +36,14 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
      * @param baseAggregateRootJpaRepository 仓储
      * @param queryName 命名查询的名称
      */
-    public NamedQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, String queryName) {
+    public NamedQuery(IRepository baseAggregateRootJpaRepository, String queryName) {
         super(baseAggregateRootJpaRepository);
         Assert.notBlank(queryName);
         this.queryName = queryName;
     }
 
-    /**
+
+	/**
      * 获取命名查询的名称
      * @return 命名查询名称
      */

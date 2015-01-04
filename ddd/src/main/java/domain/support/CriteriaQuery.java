@@ -1,17 +1,14 @@
 package domain.support;
 
 
-
-import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
-
 import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.degloba.utils.Assert;
 
-import domain.seedwork.IRepository;
 import domain.seedwork.Entity;
+import domain.seedwork.IRepository;
 import domain.support.InstanceFactory;
 import domain.support.NamedParameters;
 
@@ -21,21 +18,23 @@ import domain.support.NamedParameters;
  * IntelliJ IDEA. User: yyang Date: 13-10-17 Time: 下午2:14 To change this
  * template use File | Settings | File Templates.
  */
-public class CriteriaQuery<K,E> {
+public class CriteriaQuery {
 
     //private final IRepository<BaseAggregateRoot> repository;
-    private final BaseAggregateRootJpaRepository repository;
+	private final IRepository repository;
+    //private final BaseAggregateRootJpaRepository<?, ?> repository = null;   //PERE
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
-    private final Class<? extends Entity> entityClass;
+    private final Class<? extends Entity> entityClass; 
     private int firstResult;
     private int maxResults;
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(BaseAggregateRootJpaRepository baseAggregateRootJpaRepository, Class<? extends Entity> entityClass) {
-        Assert.notNull(baseAggregateRootJpaRepository);
+
+    public CriteriaQuery(IRepository repository, Class<? extends Entity> entityClass) {
+        Assert.notNull(repository);
         Assert.notNull(entityClass);
-        this.repository = baseAggregateRootJpaRepository;
+        this.repository = repository;
         this.entityClass = entityClass;
     }
 
@@ -607,7 +606,7 @@ public class CriteriaQuery<K,E> {
      * @return 查询结果。
      */
     public <E> E singleResult() {
-        return (E) repository.getSingleResult(this);
+        return repository.getSingleResult(this);
     }
 
 }

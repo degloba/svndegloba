@@ -3,11 +3,8 @@ package infrastructure.repository.jpa;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
-
 import java.util.List;
 import java.util.Map;
-
-
 
 
 // JPA
@@ -18,14 +15,14 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
+
+import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseQuery;
 import domain.support.CriteriaQuery;
@@ -47,25 +44,25 @@ import domain.support.SqlQuery;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<K,E>{
+public class BaseAggregateRootJpaRepository implements IBaseAggregateRootJpaRepository {
 	
-	 private static final Logger LOGGER = LoggerFactory.getLogger(BaseAggregateRootJpaRepository.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(BaseAggregateRootJpaRepository.class);
 
-	    //å‘½å��æŸ¥è¯¢è§£æž�å™¨ï¼Œå®ƒæ˜¯å�¯é€‰çš„
-	    private NamedQueryParser namedQueryParser;
-	    
-	    private EntityManagerProvider entityManagerProvider;
+    //å‘½å��æŸ¥è¯¢è§£æž�å™¨ï¼Œå®ƒæ˜¯å�¯é€‰çš„
+	private NamedQueryParser namedQueryParser;	    
+    
+	private EntityManagerProvider entityManagerProvider;
 
 
     @PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
 
-    private Class<E> clazz;
+     private Class<BaseAggregateRoot> clazz;
 
     @SuppressWarnings("unchecked")
     public BaseAggregateRootJpaRepository() {
-        this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+        this.clazz = ((Class<BaseAggregateRoot>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
     
 /*    public BaseAggregateRootJpaRepository() {
@@ -90,10 +87,10 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
      * @see infrastructure.repository.jpa.IBaseAggregateRootJpaRepository#load(java.lang.Object)
      * Retorn una entitat BaseAggregateRoot a partir del seu id
      */
-    @Override
-	public E load(K id) {
+/*    @Override
+	public <K load(K id) {
     	return this.entityManager.find(clazz, id);
-	}
+	}*/
 
     
 	/* (non-Javadoc)
@@ -106,7 +103,7 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	}
 */
 	@Override
-	public <E> void remove(E entity) {
+	public <E extends BaseAggregateRoot> void remove(E entity) {
 		this.entityManager.remove(entity);
 	}
     /*
@@ -127,7 +124,7 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	 * Crea una entitat BaseAggregateRoot
 	 */
 	@Override
-	public void persist(E entitat) {
+	public <E extends BaseAggregateRoot> void persist(E entitat) {
 		this.entityManager.persist(entitat);		
 	}
 
@@ -140,7 +137,7 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 		return this.entityManager.merge(entitat);
 	}*/
     @Override
-    public  BaseAggregateRoot save(BaseAggregateRoot entity) {
+    public BaseAggregateRoot save(BaseAggregateRoot entity) {
         if (entity.notExisted()) {
             getEntityManager().persist(entity);
             LOGGER.info("create a entity: " + entity.getClass() + "/"
@@ -181,10 +178,6 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 			return this.entityManager;
 		}
 
-
-
-
-
 	    /*
 	     * (non-Javadoc)
 	     * 
@@ -196,82 +189,61 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	        T entity = getEntityManager().find(clazz, id);
 	        return entity != null;
 	    }*/
-		@Override
-		public <E> boolean exists(Class<E> clazz, Serializable id) {
-	        E entity = getEntityManager().find(clazz, id);
-	        return entity != null;
-		}
+
 
 	    /*
 	     * (non-Javadoc)
 	     * 
 	     * @see org.dayatang.domain.EntityRepository#get(java.io.Serializable)
 	     */
-	    @Override
-	    public <E> E get(final Class<E> clazz, final Serializable id) {
+/*	    @Override
+	    public <E extends Entity> E get(final Class<E> clazz, final Serializable id) {
 	        return getEntityManager().find(clazz, id);
 	    }
-
+*/
 	    /*
 	     * (non-Javadoc)
 	     * 
 	     * @see org.dayatang.domain.EntityRepository#load(java.io.Serializable)
 	     */
-	    @Override
-	    public E load(final Class<E> clazz, final Serializable id) {
-	        return getEntityManager().getReference(clazz, id);
-	    }
+	
 
-	    @Override
-	    public <E> BaseAggregateRoot getUnmodified(final Class<BaseAggregateRoot> clazz,
-	                                              final BaseAggregateRoot entity) {
-	        getEntityManager().detach(entity);
-	        return get(clazz, entity.getId());
-	    }
 
-	    @Override
-	    public <E> E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues) {
-	        List<E> results = findByProperties(clazz, keyValues);
-	        return results.isEmpty() ? null : results.get(0);
-	    }
-
-	    @Override
-	    public <E> List<E> findAll(final Class<E> clazz) {
+/*	    @Override
+	    public <E extends BaseAggregateRoot> List<E> findAll(final Class<E> clazz) {
 	        String queryString = "select o from " + clazz.getName() + " as o";
 	        return getEntityManager().createQuery(queryString).getResultList();
-	    }
+	    }*/
 
 	    @Override
-	    public <E> CriteriaQuery createCriteriaQuery(Class<E> entityClass) {
-	        return new CriteriaQuery(this, entityClass);
-	    }
-
-	    @Override
-	    public <E> List<E> find(CriteriaQuery criteriaQuery) {
+	    public <E extends BaseAggregateRoot> List<E> find(CriteriaQuery criteriaQuery) {
 	        Query query = getEntityManager().createQuery(criteriaQuery.getQueryString());
 	        processQuery(query, criteriaQuery.getParameters(), 
 	                criteriaQuery.getFirstResult(), criteriaQuery.getMaxResults());
 	        return query.getResultList();
 	    }
 
-	    @Override
-	    public <E> E getSingleResult(CriteriaQuery dddQuery) {
-	        List<E> results = find(dddQuery);
-	        return results.isEmpty() ? null : results.get(0);
-	    }
+	   
 
 	    @Override
 	    public JpqlQuery createJpqlQuery(String jpql) {
-	        return new JpqlQuery(this, jpql);
+	        return new JpqlQuery((IRepository) this, jpql);
 	    }
 
 	    @Override
-	    public <E> List<E> find(JpqlQuery jpqlQuery) {
-	        return getQuery(jpqlQuery).getResultList();
+	    public <E extends BaseAggregateRoot> E get(Class<E> clazz, Serializable id)
+	    {
+	    	return null;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> E load(Class<E> clazz, Serializable id)
+	    {
+	    	return null;
 	    }
 
 	    @Override
-	    public <E> E getSingleResult(JpqlQuery jpqlQuery) {
+	    public <E extends BaseAggregateRoot> E getSingleResult(JpqlQuery jpqlQuery) {
 	        try {
 	            return (E) getQuery(jpqlQuery).getSingleResult();
 	        } catch (NoResultException e) {
@@ -285,24 +257,18 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 
 	    }
 
-	    private Query getQuery(JpqlQuery jpqlQuery) {
-	        Query query = getEntityManager().createQuery(jpqlQuery.getJpql());
-	        processQuery(query, jpqlQuery);
-	        return query;
-	    }
-
 	    @Override
 	    public NamedQuery createNamedQuery(String queryName) {
-	        return new NamedQuery(this, queryName);
+	        return new NamedQuery((IRepository) this, queryName);
 	    }
 
 	    @Override
-	    public <T> List<T> find(NamedQuery namedQuery) {
+	    public <E extends BaseAggregateRoot> List<E> find(NamedQuery namedQuery) {
 	        return getQuery(namedQuery).getResultList();
 	    }
 
 	    @Override
-	    public <E> E getSingleResult(NamedQuery namedQuery) {
+	    public <E extends BaseAggregateRoot> E getSingleResult(NamedQuery namedQuery) {
 	        try {
 	            return (E) getQuery(namedQuery).getSingleResult();
 	        } catch (NoResultException e) {
@@ -323,22 +289,72 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 
 	    @Override
 	    public SqlQuery createSqlQuery(String sql) {
-	        return new SqlQuery(this, sql);
+	        return new SqlQuery((IRepository) this, sql);
 	    }
 
 	    @Override
-	    public <T> List<T> find(SqlQuery sqlQuery) {
+	    public <E extends BaseAggregateRoot> List<E> find(SqlQuery sqlQuery) {
 	        return getQuery(sqlQuery).getResultList();
 	    }
 
 	    @Override
-	    public <T> T getSingleResult(SqlQuery sqlQuery) {
+	    public <E extends BaseAggregateRoot> E getSingleResult(SqlQuery sqlQuery) {
 	        try {
-	            return (T) getQuery(sqlQuery).getSingleResult();
+	            return (E) getQuery(sqlQuery).getSingleResult();
 	        } catch (NoResultException e) {
 	            return null;
 	        }
 	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> E getSingleResult(CriteriaQuery sqlQuery) {
+	        
+	            return null;
+	        
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> List<E> findAll(Class<E> clazz)
+	    {
+	    	return null;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> boolean exists(Class<E> clazz, Serializable id)
+	    {
+	    	return false;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> CriteriaQuery createCriteriaQuery(Class<E> clazz)
+	    {
+	    	return null;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> List<E> find(JpqlQuery jpqlQuery)
+	    {
+	    	return null;
+	    }
+	    
+	    public <E extends BaseAggregateRoot> List<E> findByProperties(Class<E> clazz, NamedParameters properties)
+	    {
+	    	return null;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> List<E> findByProperty(Class<E> clazz, String propertyName, Object propertyValue)
+	    {
+	    	return null;
+	    }
+	    
+	    @Override
+	    public <E extends BaseAggregateRoot> E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues)
+	    {
+	    	return null;
+	    }
+	    
+	    
 
 	    @Override
 	    public int executeUpdate(SqlQuery sqlQuery) {
@@ -357,19 +373,8 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	        return query;
 	    }
 
-	    @Override
-		public <E extends BaseAggregateRoot, E2 extends E> List<E> findByExample(
-				E2 example, ExampleSettings<E> settings) {
-	        throw new RuntimeException("not implemented yet!");
-	    }
+
 		
-
-	    @Override
-	    public <E> List<E> findByProperty(Class<E> clazz, String propertyName, Object propertyValue) {
-	        return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
-	    }
-
-
 	    @Override
 	    public String getQueryStringOfNamedQuery(String queryName) {
 	        return getNamedQueryParser().getQueryStringOfNamedQuery(queryName);
@@ -380,10 +385,7 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	        getEntityManager().flush();
 	    }
 
-	    @Override
-	    public <E> void refresh(E entity) {
-	        getEntityManager().refresh(entity);
-	    }
+	  
 
 	    @Override
 	    public void clear() {
@@ -431,14 +433,56 @@ public class BaseAggregateRootJpaRepository<K,E extends BaseAggregateRoot> imple
 	    }
 
 
-	    @Override
-	    public <E> List<E> findByProperties(Class<E> clazz, NamedParameters properties) {
-	        CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
-	        for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
-	            criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
-	        }
-	        return find(criteriaQuery);
+
+
+	    
+	    private Query getQuery(JpqlQuery jpqlQuery) {
+	        Query query = getEntityManager().createQuery(jpqlQuery.getJpql());
+	        processQuery(query, jpqlQuery);
+	        return query;
 	    }
 
+		
 
+			
+
+			
+
+		@Override
+		public <K, E> E load(K id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+				
+		@Override
+		public <E extends BaseAggregateRoot> E getUnmodified(Class<E> clazz, E entity) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		
+
+		@Override
+		public <E, E2 extends E> List<E> findByExample(E2 example,
+				ExampleSettings<E> settings) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		
+		
+
+		@Override
+		public <E> void refresh(E entity) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+	    
+	    /*************************************************/
+	    
+	    
+	    
 }
