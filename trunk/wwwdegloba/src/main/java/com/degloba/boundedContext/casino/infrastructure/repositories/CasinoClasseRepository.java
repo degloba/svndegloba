@@ -24,33 +24,32 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 
 
 	@Override
-	public IRepository<BaseAggregateRoot> CreateRepository() {
+	public IRepository CreateRepository() {
 		// TODO Auto-generated method stub
-		IRepository<BaseAggregateRoot> rep =  new Repository<BaseAggregateRoot>();
+		IRepository rep =  new Repository();
 		return rep;
 	}
-	
-	
+
 	@Override
-	public void add(BaseAggregateRoot entity) {
+	public <E extends Entity> void add(E entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public BaseAggregateRoot save(BaseAggregateRoot entity) {
+	public <E extends Entity> E save(E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(BaseAggregateRoot entity) {
+	public <E extends Entity> void remove(E entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<BaseAggregateRoot> findAll() {
+	public <E extends Entity> List<E> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -62,50 +61,50 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public BaseAggregateRoot update(BaseAggregateRoot entity) {
+	public <E extends Entity> E update(E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean exists(Class<?> clazz, Serializable id) {
+	public <E extends Entity> boolean exists(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <E> E get(Class<E> clazz, Serializable id) {
+	public <E extends Entity> E get(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E load(Class<E> clazz, Serializable id) {
+	public <E extends Entity> E load(Class<E> clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E getUnmodified(Class<E> clazz, E entity) {
+	public <E extends Entity> E getUnmodified(Class<E> clazz, E entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BaseAggregateRoot getByBusinessKeys(Class<BaseAggregateRoot> clazz,
+	public <E extends Entity> E getByBusinessKeys(Class<E> clazz,
 			NamedParameters keyValues) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<BaseAggregateRoot> findAll(Class<BaseAggregateRoot> clazz) {
+	public <E extends Entity> List<E> findAll(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+	public <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -117,7 +116,7 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public <E> E getSingleResult(CriteriaQuery criteriaQuery) {
+	public <E extends Entity> E getSingleResult(CriteriaQuery criteriaQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -135,7 +134,7 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public <E> E getSingleResult(JpqlQuery jpqlQuery) {
+	public <E extends Entity> E getSingleResult(JpqlQuery jpqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -159,7 +158,7 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public <E> E getSingleResult(NamedQuery namedQuery) {
+	public <E extends Entity> E getSingleResult(NamedQuery namedQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -177,13 +176,13 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public <E> List<E> find(SqlQuery sqlQuery) {
+	public <E extends Entity> List<E> find(SqlQuery sqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> E getSingleResult(SqlQuery sqlQuery) {
+	public <E extends Entity> E getSingleResult(SqlQuery sqlQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -202,14 +201,14 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public <E> List<E> findByProperty(Class<E> clazz, String propertyName,
-			Object propertyValue) {
+	public <E extends Entity> List<E> findByProperty(Class<E> clazz,
+			String propertyName, Object propertyValue) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <E> List<E> findByProperties(Class<E> clazz,
+	public <E extends Entity> List<E> findByProperties(Class<E> clazz,
 			NamedParameters properties) {
 		// TODO Auto-generated method stub
 		return null;
@@ -228,7 +227,7 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 	}
 
 	@Override
-	public void refresh(Entity entity) {
+	public <E extends Entity> void refresh(E entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -238,6 +237,8 @@ public class CasinoClasseRepository<E extends BaseAggregateRoot>
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 
 }

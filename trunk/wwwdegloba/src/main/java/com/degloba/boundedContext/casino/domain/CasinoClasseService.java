@@ -37,7 +37,7 @@ public class CasinoClasseService implements ICasinoClasseService {
 		
 		ICasinoClasseRepository repositori = (ICasinoClasseRepository) applicationContext.getBean("casinoRepository");
 		
-		IRepository<BaseAggregateRoot> rep = repositori.CreateRepository();
+		IRepository rep = (IRepository) repositori.CreateRepository();
 		return new EntityCasinoService<BaseAggregateRoot>(rep);
 	}
 

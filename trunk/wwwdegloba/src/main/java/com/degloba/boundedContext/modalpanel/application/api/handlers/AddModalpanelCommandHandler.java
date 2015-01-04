@@ -31,6 +31,10 @@ public class AddModalpanelCommandHandler implements ICommandHandler<AddModalpane
 			
 		this.modalpanelRepository.persist(modalpanel);
 		
+		
+		Modalpanel p = this.modalpanelRepository.load(Modalpanel.class, 1);
+		
+				
 /*		Person person = new Person();
 		person.setFirstName("pere");
 		person.setLastName("cots");
