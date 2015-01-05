@@ -9,8 +9,7 @@ import domain.annotations.DomainRepositoryImpl;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepositoryImpl
-public class JpaEmpresaRepository extends BaseAggregateRootJpaRepository 
-									implements IEmpresaRepository<AggregateId> {
+public class JpaEmpresaRepository extends BaseAggregateRootJpaRepository<Empresa> implements IEmpresaRepository<AggregateId> {
 
 	public JpaEmpresaRepository() {
 		super();

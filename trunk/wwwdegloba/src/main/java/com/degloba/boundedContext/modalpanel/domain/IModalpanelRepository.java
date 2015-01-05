@@ -1,20 +1,12 @@
 package com.degloba.boundedContext.modalpanel.domain;
 
-import java.io.Serializable;
+import infrastructure.repository.jpa.IBaseAggregateRootJpaRepository;
 
 import domain.annotations.DomainRepository;
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @DomainRepository
-public interface IModalpanelRepository<K> {
+public interface IModalpanelRepository<K> extends IBaseAggregateRootJpaRepository {
 
-	public Modalpanel load(AggregateId aggregateId);
-
-	public Modalpanel save(Modalpanel modalpanel);
-	
-	public void persist(Modalpanel modalpanel);
-	
-	public Modalpanel load(Class<Modalpanel> clazz, Serializable id);
 	
 }

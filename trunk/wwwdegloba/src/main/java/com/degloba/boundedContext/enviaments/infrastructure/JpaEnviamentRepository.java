@@ -1,9 +1,6 @@
 package com.degloba.boundedContext.enviaments.infrastructure;
 
-// 
 
-
-// DDD
 import com.degloba.boundedContext.enviaments.domain.Enviament;
 import com.degloba.boundedContext.enviaments.domain.IEnviamentRepository;
 
@@ -13,19 +10,14 @@ import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 
 @DomainRepositoryImpl
-public class JpaEnviamentRepository extends BaseAggregateRootJpaRepository implements IEnviamentRepository<AggregateId> {
+public class JpaEnviamentRepository extends BaseAggregateRootJpaRepository<Enviament> implements IEnviamentRepository<AggregateId> {
 
-	@Override
-	public Enviament load(AggregateId aggregateId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public JpaEnviamentRepository() {
+		super();
+		// TODO Auto-generated constructor stub
+	}  
 
-	@Override
-	public Enviament save(Enviament modalpanel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
   
 }
