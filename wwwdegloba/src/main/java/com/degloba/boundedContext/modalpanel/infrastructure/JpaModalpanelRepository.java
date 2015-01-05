@@ -6,17 +6,24 @@ import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 
 import domain.annotations.DomainRepositoryImpl;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
+
 import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 
 @DomainRepositoryImpl
-public class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<AggregateId,Modalpanel> implements IModalpanelRepository<AggregateId>{
+public  class JpaModalpanelRepository extends BaseAggregateRootJpaRepository<Modalpanel>  implements IModalpanelRepository<AggregateId>{
 
 	public JpaModalpanelRepository() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+
+	
+
+
+
+	
 	
 }
 
