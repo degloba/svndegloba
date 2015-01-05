@@ -4,15 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 
-
-
-
 // JPA
 import javax.persistence.EntityManager;
 
-
-
-import domain.seedwork.Entity;
 //
 import domain.support.BaseAggregateRoot;
 import domain.support.CriteriaQuery;
