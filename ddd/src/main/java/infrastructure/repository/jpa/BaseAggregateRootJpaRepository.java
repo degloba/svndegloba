@@ -47,7 +47,7 @@ import domain.support.SqlQuery;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class BaseAggregateRootJpaRepository implements IBaseAggregateRootJpaRepository {
+public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseAggregateRootJpaRepository.class);
 
@@ -61,11 +61,11 @@ public class BaseAggregateRootJpaRepository implements IBaseAggregateRootJpaRepo
     @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
 
-     private Class<BaseAggregateRoot> clazz;
+    private Class<E> clazz;
 
     @SuppressWarnings("unchecked")
     public BaseAggregateRootJpaRepository() {
-        this.clazz = ((Class<BaseAggregateRoot>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+        this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
     
 /*    public BaseAggregateRootJpaRepository() {
@@ -110,14 +110,14 @@ public class BaseAggregateRootJpaRepository implements IBaseAggregateRootJpaRepo
 	 * Modifica una entitat BaseAggregateRoot
 	 */
     @Override
-    public Entity save(Entity entity) {
+    public BaseAggregateRoot save(BaseAggregateRoot entity) {
         if (entity.notExisted()) {
             getEntityManager().persist(entity);
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
         }
-        Entity result = getEntityManager().merge(entity);
+        BaseAggregateRoot result = getEntityManager().merge(entity);
         LOGGER.info("update a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
         return result;

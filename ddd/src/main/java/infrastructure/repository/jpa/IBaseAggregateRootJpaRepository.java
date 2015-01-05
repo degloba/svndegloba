@@ -46,7 +46,7 @@ public interface IBaseAggregateRootJpaRepository {
 	 //<E> void  persist(E entitat);
 
 	 //<E> E save(E entitat);
-	<E extends Entity> E save(E entitat);
+	<E extends BaseAggregateRoot> E save(E entitat);
 	 
 	   /**
 	     * å°†å®žä½“ä»Žä»“å‚¨ä¸­åˆ é™¤ã€‚å¦‚æžœä»“å‚¨ä¸­ä¸�å­˜åœ¨æ­¤å®žä¾‹å°†æŠ›å‡ºEntityNotExistedExceptionå¼‚å¸¸ã€‚
