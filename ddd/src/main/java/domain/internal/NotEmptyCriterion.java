@@ -3,7 +3,6 @@ package domain.internal;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import domain.support.NamedParameters;
-import com.degloba.utils.Assert;
 
 /**
  * 判断某个集合属性值是否不为空集合的查询条件

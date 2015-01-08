@@ -18,7 +18,6 @@ package domain.support;
 import com.degloba.utils.Assert;
 
 import domain.seedwork.IRepository;
-import infrastructure.repository.jpa.BaseAggregateRootJpaRepository;
 
 import java.util.List;
 

@@ -103,7 +103,7 @@ public interface IRepository {
 	     * @param <T> 实体的类型
 	     * @return 一个条件查询
 	     */
-	     <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz);
+	     <E extends Entity> CriteriaQuery<?> createCriteriaQuery(Class<E> clazz);
 
 	    /**
 	     * 执行条件查询，返回符合条件的实体列表
@@ -112,7 +112,7 @@ public interface IRepository {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的实体列表
 	     */
-	     <E> List<E> find(CriteriaQuery criteriaQuery);
+	     <E> List<E> find(CriteriaQuery<?> criteriaQuery);
 
 	    /**
 	     * 执行条件查询，返回符合条件的单个实体
@@ -121,7 +121,7 @@ public interface IRepository {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	     <E extends Entity> E getSingleResult(CriteriaQuery criteriaQuery);
+	     <E extends Entity> E getSingleResult(CriteriaQuery<?> criteriaQuery);
 
 	    /**
 	     * 创建JPQL查询

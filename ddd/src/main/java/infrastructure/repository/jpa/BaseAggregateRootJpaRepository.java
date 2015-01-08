@@ -1,9 +1,9 @@
 package infrastructure.repository.jpa;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
+
 
 
 
@@ -14,17 +14,12 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-
-
-import domain.seedwork.Entity;
 import domain.seedwork.IRepository;
 import domain.support.BaseAggregateRoot;
 import domain.support.BaseQuery;
@@ -47,7 +42,7 @@ import domain.support.SqlQuery;
  * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
  *            
  */
-public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository {
+public class BaseAggregateRootJpaRepository implements IBaseAggregateRootJpaRepository {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseAggregateRootJpaRepository.class);
 
@@ -61,11 +56,11 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
     @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
 
-    private Class<E> clazz;
+    //private Class<E> clazz;
 
     @SuppressWarnings("unchecked")
     public BaseAggregateRootJpaRepository() {
-        this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+        //this.clazz = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
     
 /*    public BaseAggregateRootJpaRepository() {
@@ -196,7 +191,8 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	        return new JpqlQuery((IRepository) this, jpql);
 	    }
 
-	    @Override
+	    @SuppressWarnings("unchecked")
+		@Override
 	    public <E extends BaseAggregateRoot> E getSingleResult(JpqlQuery jpqlQuery) {
 	        try {
 	            return (E) getQuery(jpqlQuery).getSingleResult();
@@ -220,7 +216,8 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	        return getQuery(namedQuery).getResultList();
 	    }
 
-	    @Override
+	    @SuppressWarnings("unchecked")
+		@Override
 	    public <E extends BaseAggregateRoot> E getSingleResult(NamedQuery namedQuery) {
 	        try {
 	            return (E) getQuery(namedQuery).getSingleResult();
@@ -245,7 +242,8 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	        return getQuery(sqlQuery).getResultList();
 	    }
 
-	    @Override
+	    @SuppressWarnings("unchecked")
+		@Override
 	    public <E extends BaseAggregateRoot> E getSingleResult(SqlQuery sqlQuery) {
 	        try {
 	            return (E) getQuery(sqlQuery).getSingleResult();
@@ -268,9 +266,9 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	    }	    
 	    
 	    @Override
-	    public <E extends BaseAggregateRoot> CriteriaQuery createCriteriaQuery(Class<E> entityClass)
+	    public <E extends BaseAggregateRoot> CriteriaQuery<E> createCriteriaQuery(Class<E> entityClass)
 	    {
-	    	return new CriteriaQuery((IRepository)this, entityClass);
+	    	return new CriteriaQuery<E>((IRepository)this, entityClass);
 	    }
 	    
 	    @Override
@@ -282,9 +280,9 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	    @Override
 	    public <E extends BaseAggregateRoot> List<E> findByProperties(Class<E> clazz, NamedParameters properties)
 	    {
-	        CriteriaQuery criteriaQuery = new CriteriaQuery((IRepository)this, clazz);
+	        CriteriaQuery<E> criteriaQuery = new CriteriaQuery<E>((IRepository)this, clazz);
 	        for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
-	            criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
+	            criteriaQuery = (CriteriaQuery<E>) criteriaQuery.eq(each.getKey(), each.getValue());
 	        }
 	        return find(criteriaQuery);
 	    }
@@ -292,7 +290,7 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	    @Override
 	    public <E extends BaseAggregateRoot> List<E> findByProperty(Class<E> clazz, String propertyName, Object propertyValue)
 	    {
-	        return find(new CriteriaQuery((IRepository)this, clazz).eq(propertyName, propertyValue));
+	        return find(new CriteriaQuery<E>((IRepository)this, clazz).eq(propertyName, propertyValue));
 	    }
 	    
 	    @Override

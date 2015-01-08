@@ -4,6 +4,10 @@ import domain.support.BaseAggregateRoot;
 
 public abstract class Auxiliar extends BaseAggregateRoot {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String descripcio;
 	private String DescCurta;
 	private String codi;

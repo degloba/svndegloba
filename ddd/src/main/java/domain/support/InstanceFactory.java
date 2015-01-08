@@ -158,7 +158,8 @@ public class InstanceFactory {
      * @param annotationType 实现类的annotation类型
      * @return 指定类型的实例。
      */
-    public static <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
+    @SuppressWarnings("unchecked")
+	public static <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
         T result = null;
         if (instanceProvider != null) {
             result = getInstanceFromProvider(beanType, annotationType);

@@ -30,7 +30,7 @@ public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent<
         doPublish(event);
     }
 
-    public void publish(IDomainEvent event) {
+    public void publish(IDomainEvent<Object> event) {
         doPublish(event);
     }
 
