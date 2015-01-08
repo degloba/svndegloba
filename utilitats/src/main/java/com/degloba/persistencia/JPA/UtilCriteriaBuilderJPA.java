@@ -611,13 +611,13 @@ public class UtilCriteriaBuilderJPA<T> {
 	    	}
 	    	
 	    	cq.multiselect(lSelec);  //using metamodel
-	    	List<Tuple> tupleResult = em.createQuery(cq).getResultList();
+	    	/*List<Tuple> tupleResult = em.createQuery(cq).getResultList();
 	    	for (Tuple t : tupleResult) {
 	    			    		
 	    	    String nom = (String) t.get(0);
 	    	    String cognoms = (String) t.get(1);
 	    	    	    	    
-	    	}
+	    	}*/
 	    }
 	    
 	        
