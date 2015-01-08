@@ -4,7 +4,6 @@ package com.degloba.boundedContext.vendes.domain;
 import com.degloba.boundedContext.casino.domain.IEntityService;
 
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
 
 
 public interface IPagamentService {

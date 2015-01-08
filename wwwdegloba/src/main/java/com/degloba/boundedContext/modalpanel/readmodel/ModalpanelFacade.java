@@ -16,7 +16,6 @@
 
 package com.degloba.boundedContext.modalpanel.readmodel;
 
-import java.util.Date;
 
 /**
  * @author yyang

@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -24,7 +23,6 @@ import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.canonicalmodel.publishedlanguage.ClientData;
 import domain.support.BaseAggregateRoot;
-import domain.support.DomainEventPublisher;
 
 
 
@@ -37,6 +35,11 @@ import domain.support.DomainEventPublisher;
 @Entity
 @AggregateRoot
 public class Compra extends BaseAggregateRoot{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	//@Fetch(FetchMode.JOIN)

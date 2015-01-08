@@ -4,8 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-
 /*
  * Annotating a class with the @Configuration indicates that the class can be used 
  * by the Spring IoC container as a source of bean definitions. 

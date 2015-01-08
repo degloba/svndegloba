@@ -7,12 +7,10 @@ import javax.persistence.Entity;
 
 
 import com.degloba.boundedContext.enviaments.domain.events.EnviamentEntregatEvent;
-import com.degloba.boundedContext.enviaments.domain.events.OrdreEnviadaEvent;
 
 import domain.annotations.AggregateRoot;
 import domain.canonicalmodel.publishedlanguage.AggregateId;
 import domain.support.BaseAggregateRoot;
-import domain.support.IDomainEvent;
 
 
 	/**
@@ -21,6 +19,11 @@ import domain.support.IDomainEvent;
 	@Entity
 	@AggregateRoot
 	public class Enviament extends BaseAggregateRoot {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@AttributeOverrides({
 			@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})

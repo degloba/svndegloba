@@ -1,6 +1,5 @@
 package com.degloba.boundedContext.modalpanel.readmodel;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 public class ModalpanelQuery<K> {
 		

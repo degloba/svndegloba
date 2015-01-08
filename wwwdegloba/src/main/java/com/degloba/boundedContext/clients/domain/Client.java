@@ -22,6 +22,11 @@ import domain.canonicalmodel.publishedlanguage.ClientData;
 @AggregateRoot
 public class Client extends BaseAggregateRoot{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String name;
 	
 	@Inject
