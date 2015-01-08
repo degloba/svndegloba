@@ -30,10 +30,8 @@ import com.degloba.boundedContext.ui.webui.jsf.ModalPanelJSFBean;
 
 
 
-
 // DDD
 import domain.annotations.FinderImpl;
-import domain.support.IDomainEvent;
 import domain.support.IDomainEventPublisher;
 
 

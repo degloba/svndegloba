@@ -10,7 +10,6 @@ import infrastructure.seedwork.Repository;
 
 import domain.seedwork.Entity;
 import domain.seedwork.IRepository;
-import domain.support.BaseAggregateRoot;
 import domain.support.CriteriaQuery;
 import domain.support.ExampleSettings;
 import domain.support.JpqlQuery;
@@ -19,7 +18,7 @@ import domain.support.NamedQuery;
 import domain.support.SqlQuery;
 
 
-public class CasinoClasseRepository<E extends BaseAggregateRoot> 
+public class CasinoClasseRepository
 			implements ICasinoClasseRepository {
 
 

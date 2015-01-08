@@ -4,8 +4,6 @@ import com.degloba.boundedContext.casino.domain.IEntityService;
 import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
 
 import domain.support.BaseAggregateRoot;
-import domain.support.BaseEntity;
-
 
 public interface IModalpanelService {
 	

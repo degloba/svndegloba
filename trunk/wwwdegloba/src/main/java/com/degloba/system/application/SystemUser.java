@@ -1,7 +1,5 @@
 package com.degloba.system.application;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-
 
 public class SystemUser {   
 	

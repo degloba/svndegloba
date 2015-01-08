@@ -27,6 +27,11 @@ import domain.support.BaseEntity;
 @Entity
 public class CompraItem extends BaseEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Embedded
 	private ProducteData productData;
 	

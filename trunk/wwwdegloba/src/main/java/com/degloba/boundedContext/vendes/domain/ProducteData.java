@@ -54,8 +54,6 @@ public class ProducteData {
 	@Enumerated(EnumType.STRING)
 	private ProducteType type;
 
-	
-	@SuppressWarnings("unused")
 	protected ProducteData(){}
 	
 	ProducteData(AggregateId productId, Money price, String name, ProducteType type, 

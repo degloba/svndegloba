@@ -1,28 +1,23 @@
 package com.degloba.boundedContext.modalpanel.domain;
 
 // JPA
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-
-
-
-
 // Aggregate
 import domain.support.BaseAggregateRoot;
 import domain.annotations.AggregateRoot;
-import domain.canonicalmodel.publishedlanguage.AggregateId;
-import domain.canonicalmodel.publishedlanguage.ClientData;
 
 @AggregateRoot
 @Entity
 public class Modalpanel extends BaseAggregateRoot{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String descripcio;
 	private String titol;
 	

@@ -2,7 +2,6 @@ package com.degloba.boundedContext.enviaments.domain.events;
 
 import java.io.Serializable;
 
-import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 	@SuppressWarnings("serial")
 	public class EnviamentEntregatEvent implements Serializable {

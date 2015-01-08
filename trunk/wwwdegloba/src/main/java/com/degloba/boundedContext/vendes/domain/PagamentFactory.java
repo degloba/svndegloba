@@ -7,10 +7,9 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import com.degloba.sharedkernel.Money;
 
 import domain.annotations.DomainFactory;
-import domain.canonicalmodel.publishedlanguage.AggregateId;
+
 import domain.canonicalmodel.publishedlanguage.ClientData;
-import domain.sharedkernel.exceptions.DomainOperationException;
-import domain.support.DomainEventPublisher;
+
 
 @DomainFactory
 public class PagamentFactory {

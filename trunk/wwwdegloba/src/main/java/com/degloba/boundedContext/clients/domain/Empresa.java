@@ -12,6 +12,11 @@ import domain.support.BaseAggregateRoot;
 @Entity
 @DomainEntity
 public class Empresa extends BaseAggregateRoot {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	
 }

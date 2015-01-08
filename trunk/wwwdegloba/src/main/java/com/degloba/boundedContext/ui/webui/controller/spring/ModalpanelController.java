@@ -2,7 +2,6 @@ package com.degloba.boundedContext.ui.webui.controller.spring;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
