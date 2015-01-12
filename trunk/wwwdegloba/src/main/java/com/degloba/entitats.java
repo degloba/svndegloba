@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 
 
 
+
 // JSF
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,13 +28,16 @@ import javax.servlet.ServletContext;
 
 // Entitat domini
 
+
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
+import com.degloba.utils.Utils;
 // GAE
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+
 
 
 // DDD
@@ -357,13 +361,13 @@ public  class entitats implements ActionListener, Serializable {
 			    // Deal with the line
 				
 				if (numlin == 0) {
-						columnes = Arrays.asList(line.split(";"));
+						columnes = Utils.castList(String.class, Arrays.asList(line.split(";")));
 						numlin = 1;
 				}
 				else {
 					
 					numlin = numlin + 1;
-					valors = Arrays.asList(line.split(";"));
+					valors = Utils.castList(String.class,Arrays.asList(line.split(";")));
 					HashMap<String,String> hm = new HashMap<String,String>();
 									
 					for (String columna : columnes) {
