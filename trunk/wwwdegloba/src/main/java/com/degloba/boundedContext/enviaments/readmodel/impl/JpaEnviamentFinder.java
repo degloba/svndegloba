@@ -3,6 +3,7 @@ package com.degloba.boundedContext.enviaments.readmodel.impl;
 import java.util.List;
 
 
+
 // JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,9 +11,12 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 
+
 // Entitat Domini
 import com.degloba.boundedContext.enviaments.domain.Enviament;
+import com.degloba.boundedContext.enviaments.readmodel.EnviamentDto;
 import com.degloba.boundedContext.enviaments.readmodel.IEnviamentFinder;
+
 
 
 // DDD
@@ -28,6 +32,12 @@ public class JpaEnviamentFinder implements IEnviamentFinder {
 	
 	@Override
 	public List<Enviament> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EnviamentDto> findShipment() {
 		// TODO Auto-generated method stub
 		return null;
 	}
