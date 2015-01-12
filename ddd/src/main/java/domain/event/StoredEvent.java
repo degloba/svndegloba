@@ -1,12 +1,14 @@
 package domain.event;
 
 import domain.support.InstanceFactory;
+
 import com.degloba.utils.Assert;
 import com.degloba.utils.ObjectSerializer;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import java.util.Date;
 
 /**
@@ -70,7 +72,8 @@ public class StoredEvent {
                 getSerializer().serialize(event), event.getId());
     }
 
-    public <T extends DomainEvent> T toDomainEvent() {
+    @SuppressWarnings("unchecked")
+	public <T extends DomainEvent> T toDomainEvent() {
         Class<T> domainEventClass = null;
 
         try {

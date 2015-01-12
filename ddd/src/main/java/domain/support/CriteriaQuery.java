@@ -441,7 +441,7 @@ public class CriteriaQuery<E extends Entity> {
      * @param <E> 被比较的值的类型，也就是属性的兼容类型
      * @return 当前查询对象
      */
-    public <E> CriteriaQuery<?> between(String propName, Comparable<E> from, Comparable<E> to) {
+    public CriteriaQuery<?> between(String propName, Comparable<E> from, Comparable<E> to) {
         criterion = criterion.and(criterionBuilder.between(propName, from, to));
         return this;
     }
@@ -595,7 +595,7 @@ public class CriteriaQuery<E extends Entity> {
      * @param <T> 查询结果的列表元素类型
      * @return 查询结果。
      */
-    public <E> List<E> list() {
+    public List<E> list() {
         return repository.find(this);
     }
 
@@ -605,7 +605,7 @@ public class CriteriaQuery<E extends Entity> {
      * @param <T> 查询结果的类型
      * @return 查询结果。
      */
-    public <E> E singleResult() {
+    public E singleResult() {
         return repository.getSingleResult(this);
     }
 

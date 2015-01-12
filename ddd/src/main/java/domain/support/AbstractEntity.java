@@ -1,6 +1,9 @@
 package domain.support;
 
 import javax.persistence.*;
+
+import com.degloba.utils.Utils;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -116,7 +119,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @return 符合条件的实体列表
      */
     public static <E extends BaseEntity> List<E> findAll(Class<E> clazz) {
-        return getRepository().createCriteriaQuery(clazz).list();
+        return Utils.castList(clazz,  getRepository().createCriteriaQuery(clazz).list());
     }
 
     /**
