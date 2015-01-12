@@ -103,22 +103,11 @@ public class CasinoClasseRepository
 	}
 
 	@Override
-	public <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+	public <E extends Entity> CriteriaQuery<E> createCriteriaQuery(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public <E> List<E> find(CriteriaQuery criteriaQuery) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <E extends Entity> E getSingleResult(CriteriaQuery criteriaQuery) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public JpqlQuery createJpqlQuery(String jpql) {
@@ -235,6 +224,18 @@ public class CasinoClasseRepository
 	public void clear() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public <E> List<E> find(CriteriaQuery<?> criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <E extends Entity> E getSingleResult(CriteriaQuery<?> criteriaQuery) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

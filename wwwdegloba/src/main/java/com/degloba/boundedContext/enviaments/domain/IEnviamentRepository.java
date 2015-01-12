@@ -5,7 +5,7 @@ import domain.annotations.DomainRepository;
 
 
 @DomainRepository
-public interface IEnviamentRepository<K> extends IBaseAggregateRootJpaRepository  {
+public interface IEnviamentRepository<K> extends IBaseAggregateRootJpaRepository<Enviament>  {
 
 	
 }
