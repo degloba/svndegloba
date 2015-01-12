@@ -10,5 +10,7 @@ import application.annotations.Finder;
 public interface IEnviamentFinder {
 
 	List<Enviament> findAll();
+
+	List<EnviamentDto> findShipment();
     
 }
