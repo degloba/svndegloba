@@ -1,6 +1,10 @@
 package com.degloba.utils;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
@@ -86,5 +90,13 @@ public class Utils {
 			this.styleClass = styleClass;
 	}
 */
+    
+    
+    public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
+        List<T> r = new ArrayList<T>(c.size());
+        for(Object o: c)
+          r.add(clazz.cast(o));
+        return r;
+    }
 
 }
