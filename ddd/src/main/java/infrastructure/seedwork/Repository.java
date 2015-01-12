@@ -87,7 +87,7 @@ public class Repository implements IRepository {
 	}
 
 	@Override
-	public <E extends Entity> CriteriaQuery createCriteriaQuery(Class<E> clazz) {
+	public <E extends Entity> CriteriaQuery<E> createCriteriaQuery(Class<E> clazz) {
 		// TODO Auto-generated method stub
 		return null;
 	}
