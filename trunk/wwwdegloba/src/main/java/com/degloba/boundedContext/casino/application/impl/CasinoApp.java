@@ -3,6 +3,7 @@ package com.degloba.boundedContext.casino.application.impl;
 import javax.inject.Inject;
 
 
+
 //
 import com.degloba.boundedContext.casino.application.api.service.ICasinoApp;
 import com.degloba.boundedContext.casino.domain.ICasinoClasseService;
@@ -11,8 +12,13 @@ import com.degloba.boundedContext.clients.domain.Empresa;
 import com.degloba.boundedContext.clients.domain.IEmpresaService;
 import com.degloba.boundedContext.modalpanel.domain.Modalpanel;
 import com.degloba.boundedContext.modalpanel.domain.ModalpanelFactory;
+
 import application.BaseAggregateRootApplicationService;
 import application.annotations.ApplicationService;
+
+import com.degloba.boundedContext.modalpanel.domain.IModalpanelRepository;
+
+import domain.canonicalmodel.publishedlanguage.AggregateId;
 
 /**
  * Ordering Use Case steps<br>
@@ -47,8 +53,8 @@ public class CasinoApp<K> extends BaseAggregateRootApplicationService<K,Modalpan
 /*	@Inject
 	private IEmpresaRepository<Long> empresaRepository;*/
 
-/*	@Inject
-	private IModalpanelRepository<Long> modalpanelRepository;*/
+	@Inject
+	private IModalpanelRepository<AggregateId> modalpanelRepository;
 	
 	// FACTORIES
 	@Inject
@@ -225,7 +231,14 @@ public class CasinoApp<K> extends BaseAggregateRootApplicationService<K,Modalpan
 
 	@Override
 	public void addModalpanelById(K value) {
-		// TODO Auto-generated method stub
+		
+		Modalpanel modalpanel = new Modalpanel();
+		modalpanel.setActiu(true);
+		modalpanel.setDescripcio("holaserveicasino");
+		modalpanel.setTitol("titol hora");
+		modalpanel.changeStatus(Modalpanel.ModalpanelStatus.VIP);
+			
+		this.modalpanelRepository.persist(modalpanel);
 		
 	}
 	
