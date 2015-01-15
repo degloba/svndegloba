@@ -157,17 +157,17 @@ public abstract class BaseQuery<E extends BaseQuery<E>> {
 
     /**
      * 返回查询结果列表。
-     * @param <T> 查询结果的列表元素类型
+     * @param <E> 查询结果的列表元素类型
      * @return 查询结果。
      */
-    public abstract <T> List<T> list();
+    public abstract <E> List<E> list();
 
     /**
      * 返回单条查询结果。
-     * @param <T> 查询结果的类型
+     * @param <E> 查询结果的类型
      * @return 查询结果。
      */
-    public abstract <T> T singleResult();
+    //public abstract <E> E singleResult();
 
     /**
      * 执行更新仓储的操作。
