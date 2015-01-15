@@ -1,11 +1,12 @@
 package domain.seedwork;
 
 import java.io.Serializable;
-import java.util.UUID;
+
 
 /*
  * NOTA : tal i com està fet a Althaia
  */
+
 public abstract class Entity implements Serializable{
 	
 	/**
