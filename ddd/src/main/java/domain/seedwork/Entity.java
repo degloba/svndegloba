@@ -1,31 +1,79 @@
 package domain.seedwork;
 
 import java.io.Serializable;
+import java.util.UUID;
 
-/**
- * Domain entities interface. All entity classes must implement this interface either directly or indirectly . 
- * It is mainly from the tag role , in order to unify the processing system entities .
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- * 
+/*
+ * NOTA : tal i com està fet a Althaia
  */
-public interface Entity extends Serializable {
+public abstract class Entity implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 取得实体的Id。实体类的每个实例都必须有个唯一Id以标识自身。
-	 * 实体Id必须是可序列化的。
-	 * @return 实体实例的 Id.
-	 */
-	Serializable getId();
+	private Integer _requestedHashCode;
 	
-	/**
-	 * 是否在数据库中已经存在
-	 * @return 如果该实体以存在于数据库中，返回true，否则返回false
-	 */
-	boolean existed();
+	private Long _id;		
+	//private UUID _id;
 	
-	/**
-	 * 是否在数据库中不存在
-     * @return 如果该实体以存在于数据库中，返回false，否则返回true
-	 */
-	boolean notExisted();
+    public  Boolean IsTransient() {
+    	return this._id == null;
+    }
+    
+    
+    public int GetHashCode()
+	{
+    	if (!IsTransient())
+			{
+				if (_requestedHashCode !=  null)
+					_requestedHashCode = this.getId().hashCode() ^ 31;
+				return _requestedHashCode;
+			}
+		else
+			return super.hashCode();
+	}
+    
+    
+    public boolean equals(Object obj) {
+    	
+    	if (obj == null || (!(obj instanceof Entity)))
+    		return false;
+    	
+    	Entity item = (Entity)obj;
+    	
+    	if (item.IsTransient() || this.IsTransient())
+    		return false;
+    	else
+    		return item.getId()==this.getId();
+        
+    }
+
+
+// getters - setters
+
+	public Long getId() {
+		return _id;
+	}
+
+
+	public void setId(Long _id) {
+		this._id = _id;
+	}
+
+
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+   
+    
 }
