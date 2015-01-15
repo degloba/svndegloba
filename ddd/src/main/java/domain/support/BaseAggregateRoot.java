@@ -1,6 +1,6 @@
 package domain.support;
 
-import java.io.Serializable;
+
 import java.util.Date;
 import java.util.Map;
 
@@ -39,18 +39,11 @@ import com.degloba.utils.BeanUtils;
 	public class BaseAggregateRoot extends BaseEntity {
 	//public abstract class BaseAggregateRoot {
 		 
-		
-/*		@EmbeddedId
-		@AttributeOverrides({
-			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-		private AggregateId aggregateId; */
-		
-		/*@Id
-		@GeneratedValue(strategy= GenerationType.IDENTITY)
-		private Long aggregateId;*/
 
-
-		private static final long serialVersionUID = 1L;
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 		/**
 		 * control de concurrencia
@@ -82,26 +75,8 @@ import com.degloba.utils.BeanUtils;
 			throw new DomainOperationException(aggregateId, message);
 		}
 		
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (obj instanceof BaseAggregateRoot) {
-				BaseAggregateRoot other = (BaseAggregateRoot) obj;
-				if (other.aggregateId == null)
-					return false;
-				return other.aggregateId.equals(aggregateId);
-			}
-			
-			return false;
-		}
-		
-		@Override
-		public int hashCode() {	
-			return aggregateId.hashCode();
-		}	*/	
+				
+*/	
 		
 	
 	/*	protected void domainError(String message) { 
@@ -177,12 +152,6 @@ import com.degloba.utils.BeanUtils;
 		return domainEventPublisher;
 	}
 
-	
-
-	public Serializable getId() {
-		// TODO Auto-generated method stub
-		return this.getAggregateId();
-	}
 
 	public Long getAggregateId() {
 		return aggregateId;
