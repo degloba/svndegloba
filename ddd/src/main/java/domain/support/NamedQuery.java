@@ -79,4 +79,5 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
         return getRepository().executeUpdate(this);
     }
 
+
 }

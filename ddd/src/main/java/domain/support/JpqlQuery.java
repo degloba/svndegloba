@@ -77,4 +77,6 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
     public int executeUpdate() {
         return getRepository().executeUpdate(this);
     }
+
+
 }

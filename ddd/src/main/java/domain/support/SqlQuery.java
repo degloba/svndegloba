@@ -76,21 +76,21 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param <T> 查询结果的列表元素类型
      * @return 查询结果。
      */
-    @SuppressWarnings("unchecked")
+/*    @SuppressWarnings("unchecked")
 	@Override
     public <T> List<T> list() {
         return (List<T>) getRepository().find(this);
-    }
+    }*/
 
     /**
      * 返回单条查询结果。
      * @param <T> 查询结果的类型
      * @return 查询结果。
      */
-    @Override
+/*    @Override
     public <E> E singleResult() {
         return getRepository().getSingleResult(this);
-    }
+    }*/
 
     /**
      * 执行更新仓储的操作。
@@ -100,4 +100,16 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
     public int executeUpdate() {
         return getRepository().executeUpdate(this);
     }
+
+	@Override
+	public List<SqlQuery> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SqlQuery singleResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
