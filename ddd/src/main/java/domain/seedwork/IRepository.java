@@ -20,20 +20,20 @@ import domain.support.SqlQuery;
  * No lligat a les entitats de Domini
  * 
  * @param <K> = Tipus d'identificador
- * @param <E> = Tipus d'entitat que gestiona
+ * @param <T> = Tipus d'entitat que gestiona
  * 
  * Storage access interface . Access and query the database for various types of entities .
  */
 public interface IRepository {  
 	
-		<E extends Entity> void add(E entity);
+		<T extends Entity> void add(T entity);
 		
-		<E extends Entity> E save(E entity);          
-		<E extends Entity> void remove(E entity);     
+		<T extends Entity> T save(T entity);          
+		<T extends Entity> void remove(T entity);     
 		     
-		<E extends Entity> List<E> findAll();     
+		<T extends Entity> List<T> findAll();     
 		Long getTotalResult();
-		<E extends Entity> E update(E entity);
+		<T extends Entity> T update(T entity);
 	
 	    /**
 	     * Entity to determine whether there is an instance of the specified ID warehousing .
@@ -43,7 +43,7 @@ public interface IRepository {
 	     * @param id 实体标识
 	     * @return 如果实体实例存在，返回true，否则返回false
 	     */
-		<E extends Entity> boolean exists(Class<E> clazz, Serializable id);
+		<T extends Entity> boolean exists(Class<T> clazz, Long id);
 
 	    /**
 	     * 从仓储中获取指定类型、指定ID的实体
@@ -53,7 +53,7 @@ public interface IRepository {
 	     * @param id 实体标识
 	     * @return 一个实体实例。
 	     */
-	     <E extends Entity> E get(Class<E> clazz, Serializable id);
+	     <T extends Entity> T get(Class<T> clazz, Serializable id);
 
 	    /**
 	     * 从仓储中装载指定类型、指定ID的实体
@@ -63,7 +63,7 @@ public interface IRepository {
 	     * @param id 实体标识
 	     * @return 一个实体实例。
 	     */
-	     <E extends Entity> E load(final Class<E> clazz,Serializable id);
+	     <T extends Entity> T load(final Class<T> clazz,Serializable id);
 	     
 
 	    /**
@@ -74,7 +74,7 @@ public interface IRepository {
 	     * @param entity 要查询的实体
 	     * @return 参数entity在仓储中的未修改版本
 	     */
-	     <E extends Entity> E getUnmodified(Class<E> clazz, E entity);
+	     <T extends Entity> T getUnmodified(Class<T> clazz, T entity);
 	    
 	    /**
 	     * 根据业务主键从仓储中获取指定类型的实体
@@ -84,7 +84,7 @@ public interface IRepository {
 	     * @param keyValues 代表业务主键值的命名参数。key为主键属性名，value为主键属性值
 	     * @return 一个实体实例。
 	     */
-	     <E extends Entity> E getByBusinessKeys(Class<E> clazz, NamedParameters keyValues);
+	     <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
 	    /**
 	     * 查找指定类型的所有实体
@@ -93,7 +93,7 @@ public interface IRepository {
 	     * @param clazz 实体的类
 	     * @return 符合条件的实体集合
 	     */
-	     <E extends Entity> List<E> findAll(Class<E> clazz);
+	     <T extends Entity> List<T> findAll(Class<T> clazz);
 	     
 
 	    /**
@@ -103,7 +103,7 @@ public interface IRepository {
 	     * @param <T> 实体的类型
 	     * @return 一个条件查询
 	     */
-	     <E extends Entity> CriteriaQuery<?> createCriteriaQuery(Class<E> clazz);
+	     <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> clazz);
 
 	    /**
 	     * 执行条件查询，返回符合条件的实体列表
@@ -112,7 +112,7 @@ public interface IRepository {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的实体列表
 	     */
-	     <E> List<E> find(CriteriaQuery<?> criteriaQuery);
+	     <T> List<T> find(CriteriaQuery criteriaQuery);
 
 	    /**
 	     * 执行条件查询，返回符合条件的单个实体
@@ -121,7 +121,7 @@ public interface IRepository {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	     <E extends Entity> E getSingleResult(CriteriaQuery<?> criteriaQuery);
+	     <T> T getSingleResult(CriteriaQuery criteriaQuery);
 
 	    /**
 	     * 创建JPQL查询
@@ -138,7 +138,7 @@ public interface IRepository {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的结果列表
 	     */
-	    <E> List<E> find(JpqlQuery jpqlQuery);
+	    <T> List<T> find(JpqlQuery jpqlQuery);
 
 	    /**
 	     * 执行JPQL查询，返回符合条件的单个实体
@@ -147,7 +147,7 @@ public interface IRepository {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	    <E extends Entity> E getSingleResult(JpqlQuery jpqlQuery);
+	    <T> T getSingleResult(JpqlQuery jpqlQuery);
 
 	    /**
 	     * 执行更新仓储的操作。
@@ -172,7 +172,7 @@ public interface IRepository {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的结果列表
 	     */
-	    <E> List<E> find(NamedQuery namedQuery);
+	    <T> List<T> find(NamedQuery namedQuery);
 
 	    /**
 	     * 执行命名查询，返回符合条件的单个实体
@@ -181,7 +181,7 @@ public interface IRepository {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	    <E extends Entity> E getSingleResult(NamedQuery namedQuery);
+	    <T> T getSingleResult(NamedQuery namedQuery);
 
 	    /**
 	     * 使用命名查询执行更新仓储的操作。
@@ -206,7 +206,7 @@ public interface IRepository {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的结果列表
 	     */
-	    <E extends Entity> List<E> find(SqlQuery sqlQuery);
+	    <T extends Entity> List<T> find(SqlQuery sqlQuery);
 
 	    /**
 	     * 执行SQL查询，返回符合条件的单个实体
@@ -215,7 +215,7 @@ public interface IRepository {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	    <E extends Entity> E getSingleResult(SqlQuery sqlQuery);
+	    <T> T getSingleResult(SqlQuery sqlQuery);
 
 	    /**
 	     * 使用SQL查询执行更新仓储的操作。
@@ -229,12 +229,12 @@ public interface IRepository {
 	     * 按例查询。
 	     *
 	     * @param <T> 查询的目标实体类型
-	     * @param <E> 查询样例的类型
+	     * @param <T> 查询样例的类型
 	     * @param example 查询样例
 	     * @param settings 查询设置
 	     * @return 与example相似的T类型的范例
 	     */
-	    <E extends Entity, E2 extends E> List<E> findByExample(E2 example, ExampleSettings<E> settings);
+	    <T extends Entity, E2 extends T> List<T> findByExample(E2 example, ExampleSettings<T> settings);
 
 	    /**
 	     * 根据单一属性的值查找实体
@@ -245,7 +245,7 @@ public interface IRepository {
 	     * @param propertyValue 匹配的属性值
 	     * @return 类型为clazz的、属性propertyName的值等于propertyValue的实体的集合
 	     */
-	    <E extends Entity> List<E> findByProperty(Class<E> clazz, String propertyName, Object propertyValue);
+	    <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
 	    /**
 	     * 根据多个属性的值查找实体
@@ -255,7 +255,7 @@ public interface IRepository {
 	     * @param properties 命名参数，其中key为属性名，value为要匹配的属性值。
 	     * @return 类型为clazz、多个属性分别等于指定的属性值的实体的集合。
 	     */
-	    <E extends Entity> List<E> findByProperties(Class<E> clazz, NamedParameters properties);
+	    <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
 	    
 	    /**
 	     * 获取命名查询的查询字符串
