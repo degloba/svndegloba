@@ -124,7 +124,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * @param <T> 实体的类型
 	     * @return 一个条件查询
 	     */
-	    CriteriaQuery<?> createCriteriaQuery(Class<E> clazz);
+	    CriteriaQuery createCriteriaQuery(Class<E> clazz);
 	    //<T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
 	    /**
@@ -134,7 +134,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * @param <T> 返回结果元素类型
 	     * @return 符合查询条件的实体列表
 	     */
-	     List<E> find(CriteriaQuery<?> criteriaQuery);
+	     List<E> find(CriteriaQuery criteriaQuery);
 	    //<T> List<T> find(CriteriaQuery criteriaQuery);
 
 	    /**
@@ -144,7 +144,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * @param <T> 返回结果类型
 	     * @return 符合查询条件的单个结果
 	     */
-	     E getSingleResult(CriteriaQuery<?> criteriaQuery);
+	     E getSingleResult(CriteriaQuery criteriaQuery);
 	     //<T> T getSingleResult(CriteriaQuery criteriaQuery);
 
 	    /**
