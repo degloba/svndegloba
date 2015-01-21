@@ -39,10 +39,11 @@
 	<!-- 2. REPOSITORIS -->
  	<bean id="modalpanelRepository" class="com.degloba.boundedContext.modalpanel.infrastructure.JpaModalpanelRepository" />  
  	
- 	<bean id="empresaRepository" class="com.degloba.boundedContext.clients.infrastructure.JpaEmpresaRepository"/>  
-	
- 	
+ 	<!--<bean id="empresaRepository" class="com.degloba.boundedContext.clients.infrastructure.JpaEmpresaRepository"/>   
+		--> 
  	<bean id="casinoRepository" class="com.degloba.boundedContext.casino.infrastructure.repositories.CasinoClasseRepository" />
+ 	
+ 	
 		
 	<!-- 3. SERVEIS DE DOMINI -->
 
@@ -66,7 +67,9 @@
 	<bean id="enviamentFinder" class="com.degloba.boundedContext.enviaments.readmodel.impl.JpaEnviamentFinder"/>
 	
 	
-	<bean id="facade" class="com.degloba.boundedContext.modalpanel.readmodel.ModalpanelFacade"/>
+	<bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl"/>
+	
+	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl"/>
 	
 
 	<!-- 8. GATE - COMMANDS -->
