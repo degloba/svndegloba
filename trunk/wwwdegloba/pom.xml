@@ -403,7 +403,7 @@
 		 </dependency>
 				
 		<!-- DataNucleus v2 -->	
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
 			<exclusions>
@@ -413,16 +413,16 @@
 				</exclusion>	                
 			</exclusions>
 		</dependency>
-        <dependency>
+         <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
 			<type>jar</type>
 			<scope>compile</scope>			
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
-		</dependency>
+		</dependency>  -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
