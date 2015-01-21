@@ -98,14 +98,14 @@
                     <verbose>true</verbose>
                     <api>JPA</api>
                 </configuration>
-                <executions>
+                <!-- <executions>
                     <execution>
                         <phase>compile</phase>
                         <goals>
                             <goal>enhance</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>  
           
         
@@ -161,12 +161,12 @@
 		       
 <!-- Pel DataNucleus enhancer (Entitats : BaseEntity, BaseAggregateRoot,  -->	
 	
-	  	<dependency>
+	  	<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency> -->
 		 
 	
 		<dependency>
