@@ -14,7 +14,35 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.boundedContext.vendes.domain.Pagament</class>
 		<class>com.degloba.boundedContext.compres.domain.CompraItem</class>
 		<class>com.degloba.boundedContext.vendes.domain.ProducteData</class>
-		<class>com.degloba.sharedkernel.Money</class> 
+		<class>com.degloba.sharedkernel.Money</class>
+		<class>com.degloba.observer.Observer</class>
+		<class>com.degloba.observer.AbstractSubjectEntity</class>
+		<class>com.degloba.boundedContext.observers.FatherObserver</class>
+		<class>com.degloba.boundedContext.observers.MotherObserver</class>
+		<class>com.degloba.accountability.Party</class>
+		<class>com.degloba.accountability.Accountability</class>
+		<class>com.degloba.accountability.Email</class>
+		<class>com.degloba.accountability.Employee</class>
+		<class>com.degloba.accountability.Person</class>
+		<class>com.degloba.accountability.Organization</class>
+		<class>com.degloba.accountability.Post</class>
+		<class>com.degloba.accountability.PostHolding</class>
+		<class>com.degloba.accountability.OrgLineMgmt</class>
+		<class>com.degloba.accountability.PersonName</class>
+		<class>com.degloba.accountability.Job</class>
+		<class>com.degloba.accountability.Address</class>
+		<class>com.degloba.accountability.Company</class>
+		<class>com.degloba.accountability.Department</class>
+		<class>com.degloba.accountability.Employment</class>
+				<class>domain.canonicalmodel.publishedlanguage.AggregateId</class>
+		<class>domain.support.BaseAggregateRoot</class>
+		<class>domain.event.StoredEvent</class>
+		<class>domain.canonicalmodel.publishedlanguage.ClientData</class>
+		<class>domain.sharedkernel.Probability</class>
+		<class>domain.support.AbstractEntity</class>
+		<class>domain.support.LegacyEntity</class>
+		<class>domain.support.Value</class>	
+		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
