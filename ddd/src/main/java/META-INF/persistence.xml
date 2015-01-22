@@ -15,7 +15,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>domain.support.AbstractEntity</class>
 		<class>domain.support.BaseEntity</class>
 		<class>domain.support.LegacyEntity</class>
-		<class>domain.support.Value</class>		
+		<class>domain.support.Value</class>	
         <exclude-unlisted-classes/>  
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
