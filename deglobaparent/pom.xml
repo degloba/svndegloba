@@ -118,11 +118,11 @@
 		<dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>18.0</version>
+                <version>14.0</version>
             </dependency>
         
         
-        <!-- DataNucleus v2 -->	
+        <!-- DataNucleus v2 -->
 		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
@@ -147,7 +147,7 @@
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
 			<version>${datanucleus.jpa.version}</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -164,7 +164,7 @@
 			<version>3.1.1</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency> 
+		</dependency>	
 
 
 		<!--  Glassfish conté JSF 2.2 (Mojarra) 
