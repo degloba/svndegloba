@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>deglobaparent</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+    </parent> 
+    <artifactId>degloba-persistence</artifactId>
+    <packaging>pom</packaging>
+    <name>DDDLib Persistence API implementes</name>
+    <description>
+        DDDLib仓储接口实现。
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.degloba</groupId>
+            <artifactId>degloba-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+    <modules>
+        
+        <module>../degloba-persistence-jpa</module>
+        <module>../degloba-persistence-test</module>
+        <module>../degloba-persistence-datanucleus</module>
+    </modules>
+</project>
