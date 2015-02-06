@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.core.builders.enable.com.springsource.sts.maven.core.dataNucleusEnhancerProjectBuilder=true
+org.springframework.ide.eclipse.core.enable.project.preferences=true
