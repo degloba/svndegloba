@@ -1,0 +1,231 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>  
+  <artifactId>utilitats</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+  <description>classes d'utilitats</description>
+  
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>deglobaparent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+  
+	<properties> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gae.version>1.9.17</gae.version>
+        <poi.version>3.9</poi.version>
+	</properties>
+  
+  <build>
+   
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>com.degloba.utils</Export-Package>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-manifest</id>
+                        <goals>
+                            <goal>manifest</goal>
+                            <goal>bundle</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+                      
+                  
+         
+			<plugin>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>1.7</source>
+	                <target>1.7</target>
+	            </configuration>
+	        </plugin>
+		
+        </plugins>
+    
+    
+	<pluginManagement>
+
+	        <plugins>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <version>2.5</version>
+	            </plugin>
+		</plugins>
+	</pluginManagement>
+
+      	
+	</build>
+	
+  
+<dependencies>
+  
+	<!-- JPA persistencia 	
+	<dependency>  
+		<groupId>org.apache.geronimo.specs</groupId>  
+		<artifactId>geronimo-jpa_2.0_spec</artifactId>  
+	</dependency> -->
+
+	<dependency>
+		<groupId>javax.el</groupId>
+		<artifactId>el-api</artifactId>
+		<version>2.2</version> 
+	</dependency>    
+        
+	<dependency>
+		<groupId>commons-validator</groupId>
+		<artifactId>commons-validator</artifactId>
+	</dependency>
+        
+        
+            
+	<!-- Paypal -->		  	
+    <dependency>
+    	<groupId>com.paypal.sdk</groupId>
+    	<artifactId>paypal-core</artifactId>
+    	<version>1.5.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>com.paypal.sdk</groupId>
+    	<artifactId>rest-api-sdk</artifactId>
+    	<version>0.7.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    
+    
+    <!-- HornetQ -->
+	<dependency>
+		<groupId>org.hornetq</groupId>
+		<artifactId>hornetq-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.hornetq</groupId>
+		<artifactId>hornetq-jms</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.hornetq</groupId>
+		<artifactId>hornetq-logging</artifactId>
+	</dependency>
+
+        
+	<dependency>
+		<groupId>javax.jms</groupId>
+		<artifactId>jms</artifactId>
+		<version>1.1</version>
+	</dependency>
+        
+
+
+	<!-- NECESSARIES PERQUE UTILITZA GAE 
+	<dependency>
+		<groupId>com.google.appengine</groupId>
+		<artifactId>appengine-api-1.0-sdk</artifactId>
+		<version>${gae.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.jdo</groupId>
+		<artifactId>jdo-api</artifactId>
+	</dependency>  -->
+      
+        
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+	</dependency>
+		
+		
+	<!--  Spring -->				
+	<dependency>                         
+		<groupId>org.springframework</groupId> 
+		<artifactId>spring-webmvc</artifactId>                                       
+	</dependency>
+
+	<!--  JSF 
+	<dependency>
+		<groupId>org.glassfish</groupId>
+		<artifactId>javax.faces</artifactId>
+	</dependency> -->
+	
+	 	<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+	 
+	 	<!-- Canals -->
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-appengine</artifactId>
+			<version>3.0.5</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>appengine-api-1.0-sdk</artifactId>
+					<groupId>com.google.appengine</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>  
+		
+        <dependency>
+        	<groupId>rss4j</groupId>
+        	<artifactId>rss4j</artifactId>
+        	<version>0.92</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>	
+        
+        
+        <dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>	
+		
+		 <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3</version>
+        </dependency>	
+<dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>        
+	
+</dependencies>
+
+  
+</project>
