@@ -12,7 +12,7 @@
   
 	<properties> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gae.version>1.9.4</gae.version>
+        <gae.version>1.9.17</gae.version>
         <poi.version>3.9</poi.version>
 	</properties>
   
@@ -76,11 +76,11 @@
   
 <dependencies>
   
-	<!-- JPA persistencia -->	
+	<!-- JPA persistencia 	
 	<dependency>  
 		<groupId>org.apache.geronimo.specs</groupId>  
 		<artifactId>geronimo-jpa_2.0_spec</artifactId>  
-	</dependency>
+	</dependency> -->
 
 	<dependency>
 		<groupId>javax.el</groupId>
@@ -133,7 +133,7 @@
         
 
 
-	<!-- NECESSARIES PERQUE UTILITZA GAE -->
+	<!-- NECESSARIES PERQUE UTILITZA GAE 
 	<dependency>
 		<groupId>com.google.appengine</groupId>
 		<artifactId>appengine-api-1.0-sdk</artifactId>
@@ -142,7 +142,7 @@
 	<dependency>
 		<groupId>javax.jdo</groupId>
 		<artifactId>jdo-api</artifactId>
-	</dependency>
+	</dependency>  -->
       
         
 	<dependency>
@@ -179,6 +179,12 @@
 			<version>3.0.5</version>
 			<type>jar</type>
 			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>appengine-api-1.0-sdk</artifactId>
+					<groupId>com.google.appengine</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>  
 		
         <dependency>
