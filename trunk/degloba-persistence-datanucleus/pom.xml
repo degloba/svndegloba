@@ -8,9 +8,9 @@
     </parent>
     <artifactId>degloba-persistence-datanucleus</artifactId>
     <packaging>jar</packaging>
-    <name>DDDLib Persistence API implemented by Datanucleus</name>
+    <name>deGloba Persistence API implemented by Datanucleus</name>
     <description>
-        DDDLib仓储接口EntityRepository的Datanucleus实现。
+        Interfície d'emmagatzematge EntityRepository d'aplicació DataNucleus.
     </description>
 
     <dependencies>
@@ -96,7 +96,6 @@
         <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
             </dependency>
         
         
@@ -132,6 +131,14 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <plugin>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>1.7</source>
+	                <target>1.7</target>
+	            </configuration>
+	        </plugin>
         </plugins>
     </build>
 </project>
