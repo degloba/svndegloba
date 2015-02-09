@@ -57,7 +57,7 @@
             
                   <dependency>
                 <groupId>com.degloba</groupId>
-                <artifactId>utilitats</artifactId>
+                <artifactId>degloba-utilitats</artifactId>
                   <version>0.0.3-SNAPSHOT</version>
             </dependency>
 
