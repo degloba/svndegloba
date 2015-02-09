@@ -63,7 +63,7 @@
         <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>	
-			<version>3.1.3</version>		 <!-- afegit pere -->
+			<!-- afegit pere -->
 		</dependency>        
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
