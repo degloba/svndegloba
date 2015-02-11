@@ -5,8 +5,8 @@
   
   <parent>
 		<groupId>com.degloba</groupId>
-		<artifactId>deglobaparent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
 	</parent>
 	
 	<properties> 
