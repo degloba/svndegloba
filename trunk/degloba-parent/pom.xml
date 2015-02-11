@@ -1,0 +1,299 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>degloba-parent</artifactId>
+  <packaging>pom</packaging>
+  <groupId>com.degloba</groupId>
+  <version>4.4.3-SNAPSHOT</version>
+  
+<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<spring.version>4.1.4.RELEASE</spring.version>    
+	<hornetq.version>2.1.2.Final</hornetq.version> 	
+	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>	
+	<slf4j.version>1.7.10</slf4j.version>
+</properties>
+  
+<repositories>   
+             
+	<repository>                         
+		<id>org.springframework.maven.milestone</id>                         
+		<url>http://maven.springframework.org/milestone </url>                 
+	</repository>   
+	<repository>             
+		<id>DataNucleus</id>             
+		<url>http://www.datanucleus.org/downloads/maven2/</url>         
+	</repository>  
+	<repository>             
+       		<id>google-maven-repo</id>             
+       		<name>Google Maven Repository</name>             
+       		<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
+       	</repository>
+</repositories> 
+
+
+
+ <!--  <modules>   
+          <module>../degloba-persistence</module>
+          <module>../casino</module>
+    </modules>
+ -->
+
+       
+<dependencyManagement>
+       
+	<dependencies>
+	
+	<!-- <dependency>            
+		<groupId>org.springframework</groupId>            
+		<artifactId>spring-framework-bom</artifactId>            
+		<version>${spring.version}</version>            
+		<type>pom</type>            
+		<scope>import</scope>        
+	</dependency> -->
+       
+       <!--  Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+        </dependency>       
+		<dependency>
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>     
+       
+		<dependency>                         
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-tx</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-orm</artifactId>                         
+			<version>${spring.version}</version>                 
+		</dependency> 
+		
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>             
+        </dependency>
+		<dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>        
+	
+		<!--  -->
+		<dependency>                         
+	  		<groupId>javax.inject</groupId>                         
+	  		<artifactId>javax.inject</artifactId>                         
+	  		<version>1</version>                 
+		</dependency> 
+		
+		
+		<!-- HornetQ -->
+		<dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-core</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-jms</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-logging</artifactId>
+            <version>${hornetq.version}</version>
+        </dependency>
+ 		
+		
+		<!--  -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		
+		<!--  -->
+		<dependency>
+        	<groupId>commons-validator</groupId>
+        	<artifactId>commons-validator</artifactId>
+        	<version>1.4.0</version>
+        </dependency>		
+        
+
+		<!--  The Guava project contains several of Google's core libraries that we rely on in our Java-based projects: 
+		collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, and so forth. -->
+		<dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>14.0</version>
+            </dependency>
+        
+        
+        <!-- DataNucleus v2 -->
+		<dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>
+			<version>2.1.2</version>
+			<exclusions>	
+				<exclusion>
+					<groupId>com.google.appengine</groupId>
+					<artifactId>appengine-api-1.0-sdk</artifactId>						
+				</exclusion>
+				<exclusion>
+					<groupId>org.datanucleus</groupId>
+					<artifactId>datanucleus-enhancer</artifactId>		                					
+				</exclusion>	                
+			</exclusions>
+		</dependency>
+        <dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jpa</artifactId>			
+            <version>${datanucleus.jpa.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+			<version>${datanucleus.jpa.version}</version>
+			<scope>runtime</scope>
+		</dependency>  -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.1</version>			
+		</dependency>
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-json</artifactId>
+			<version>3.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>	
+
+
+		<!--  Glassfish conté JSF 2.2 (Mojarra) 
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.4</version>  
+		</dependency>     -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.1.7</version>
+		</dependency>  
+				
+		
+		<!-- Unified Expression Language (JSF 2.2)  
+		<dependency>
+			<groupId>org.jboss.spec.javax.el</groupId>
+			<artifactId>jboss-el-api_2.2_spec</artifactId>
+			<version>1.0.2.Final</version>
+		</dependency>  
+		<dependency>
+			<groupId>org.jboss.el</groupId>
+			<artifactId>jboss-el</artifactId>
+			<version>1.0_02.CR6</version>
+		</dependency>-->
+		
+		
+		
+		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
+		(e.g. java.util.logging, logback, log4j) 
+		allowing the end user to plug in the desired logging framework at deployment time. -->
+		<dependency>
+		   	<groupId>org.slf4j</groupId>
+		   	<artifactId>slf4j-simple</artifactId>
+		   	<version>${slf4j.version}</version>
+		   	<type>jar</type>
+		   	<scope>compile</scope>
+	    </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+		<dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>1.9.5</version>
+                <scope>test</scope>
+            </dependency>    
+            
+	<dependency>
+		<groupId>javax.el</groupId>
+		<artifactId>el-api</artifactId>
+		<version>2.2</version> 
+	</dependency>         
+	
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			 <version>5.0.3.Final</version>
+		</dependency> 
+		
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+	
+	 <dependency>
+	    	<groupId>javassist</groupId>
+	    	<artifactId>javassist</artifactId>
+	    	<version>3.12.1.GA</version>
+	    </dependency>
+	
+		
+	</dependencies>
+	
+
+	
+	</dependencyManagement>
+	
+	<dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+<dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>        
+        
+    </dependencies>
+
+
+</project>
