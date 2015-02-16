@@ -144,7 +144,7 @@
                 </executions>
             </plugin>
             
-             <!-- DataNucleus Enhancer (versions 3.1.x)-->   
+             <!-- DataNucleus Enhancer (versions 3.1.x)  --> 
              <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
@@ -189,7 +189,30 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>  
+            
+            <!--  <plugin>
+	            <groupId>org.datanucleus</groupId>
+	            <artifactId>datanucleus-maven-plugin</artifactId>
+	            <version>4.0.0-release</version>
+	            <configuration>
+	               <api>JPA</api>
+	               <props>${basedir}/datanucleus-maven-plugin-jdo.properties</props>
+	               <outputFile>schema.ddl</outputFile>
+	               <completeDdl>true</completeDdl>
+	               <log4jConfiguration>${basedir}/datanucleus-maven-plugin-log4j.properties</log4jConfiguration>
+	               <verbose>true</verbose>
+	               <fork>true</fork>
+	            </configuration>
+	            <executions>
+	               <execution>
+	                  <phase>process-classes</phase>
+	                  <goals>
+	                     <goal>enhance</goal>
+	                  </goals>
+	               </execution>
+	            </executions>
+	         </plugin> -->
         </plugins>
     </build>
 </project>
