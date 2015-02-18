@@ -144,7 +144,8 @@ public class EntityRepositoryDatanucleus implements EntityRepository {
      * @see com.degloba.domain.EntityRepository#createCriteriaQuery(java.lang.Class)
      */
     public <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
-        return new CriteriaQuery(this, entityClass);
+       // return new CriteriaQuery(this, entityClass);
+    	return null;
     }
 
     /*
@@ -303,7 +304,8 @@ public class EntityRepositoryDatanucleus implements EntityRepository {
      * @see com.degloba.domain.EntityRepository#findByProperty(java.lang.Class, java.lang.String, java.lang.Object)
      */
     public <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
-        return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
+        //return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
+        return null;
     }
 
     /*
@@ -311,11 +313,12 @@ public class EntityRepositoryDatanucleus implements EntityRepository {
      * @see com.degloba.domain.EntityRepository#findByProperties(java.lang.Class, java.util.Map)
      */
     public <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
-        CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
+/*        CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
         }
-        return find(criteriaQuery);
+        return find(criteriaQuery);*/
+    	return null;
     }
 
     public String getQueryStringOfNamedQuery(String queryName) {
