@@ -133,13 +133,13 @@
         
 
 
-	<!-- NECESSARIES PERQUE UTILITZA GAE 
+	<!-- NECESSARIES PERQUE UTILITZA GAE -->
 	<dependency>
 		<groupId>com.google.appengine</groupId>
 		<artifactId>appengine-api-1.0-sdk</artifactId>
 		<version>${gae.version}</version>
 	</dependency>
-	<dependency>
+	<!-- <dependency>
 		<groupId>javax.jdo</groupId>
 		<artifactId>jdo-api</artifactId>
 	</dependency>  -->
