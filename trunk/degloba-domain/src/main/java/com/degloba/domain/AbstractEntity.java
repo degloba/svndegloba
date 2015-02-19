@@ -11,14 +11,14 @@ import java.util.Map;
  *
  */
 @MappedSuperclass
-public abstract class AbstractEntity extends BaseEntity {
+public abstract class AbstractEntity extends com.degloba.domain.support.BaseEntity {
 
     private static final long serialVersionUID = 8882145540383345037L;
 
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long id;
+    private Long id;*/
 
     @Version
     @Column(name = "version")
@@ -29,18 +29,18 @@ public abstract class AbstractEntity extends BaseEntity {
      *
      * @return 实体的标识
      */
-    public Long getId() {
+   /* public Long getId() {
         return id;
-    }
+    }*/
 
     /**
      * 设置实体的标识
      *
      * @param id 要设置的实体标识
      */
-    public void setId(Long id) {
+  /*  public void setId(Long id) {
         this.id = id;
-    }
+    }*/
 
     /**
      * 获得实体的版本号。持久化框架以此实现乐观锁。
@@ -81,7 +81,10 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param id 实体的ID
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
+/*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
+        return getRepository().get(clazz, id);
+    }*/
+    public static <T extends com.degloba.domain.seedwork.Entity> T get(Class<T> clazz, Long id) {
         return getRepository().get(clazz, id);
     }
 
@@ -92,7 +95,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param entity  实体
      * @return 实体的未修改版本。
      */
-    public static <T extends Entity> T getUnmodified(Class<T> clazz, T entity) {
+    public static <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(Class<T> clazz, T entity) {
         return getRepository().getUnmodified(clazz, entity);
     }
 
@@ -103,7 +106,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param id 实体的ID
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static <T extends Entity> T load(Class<T> clazz, Serializable id) {
+    public static <T extends com.degloba.domain.seedwork.Entity> T load(Class<T> clazz, Serializable id) {
         return getRepository().load(clazz, id);
     }
 
@@ -113,7 +116,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param clazz 实体所属的类
      * @return 符合条件的实体列表
      */
-    public static <T extends Entity> List<T> findAll(Class<T> clazz) {
+    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(Class<T> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
@@ -125,7 +128,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param value 匹配的属性值
      * @return 符合条件的实体列表
      */
-    public static <T extends Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
         return getRepository().findByProperty(clazz, propName, value);
     }
 
@@ -136,7 +139,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param propValues 属性值匹配条件
      * @return 符合条件的实体列表
      */
-    public static <T extends Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
+    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
     }
 }

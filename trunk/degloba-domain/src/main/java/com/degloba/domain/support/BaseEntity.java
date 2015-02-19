@@ -2,6 +2,7 @@ package com.degloba.domain.support;
 
 // JPA
 
+import com.degloba.domain.EntityRepository;
 import com.degloba.domain.InstanceFactory;
 import com.degloba.domain.seedwork.IRepository;
 
@@ -102,16 +103,16 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
         return !existed();
     }
 
-    private static IRepository repository;
+    private static EntityRepository repository;
 
     /**
      * Obtiene la instancia del objeto. 
      * Si usted no tiene un almacén para obtener una instancia del contenedor IoC través InstanceFactory .
      * @return 仓储对象实例
      */
-    public static IRepository getRepository() {
+    public static EntityRepository getRepository() {
         if (repository == null) {
-            repository = InstanceFactory.getInstance(IRepository.class);
+            repository = InstanceFactory.getInstance(EntityRepository.class);
         }
         return repository;
     }
@@ -120,7 +121,7 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
      * 设置仓储实例。该方法主要用于单元测试。产品系统中通常是通过IoC容器获取仓储实例。
      * @param repository 要设置的仓储对象实例
      */
-    public static void setRepository(IRepository repository) {
+    public static void setRepository(EntityRepository repository) {
         BaseEntity.repository = repository;
     }
     
@@ -199,6 +200,20 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	 /**
+     * 将实体本身持久化到数据库
+     */
+    public void save() {
+        getRepository().save(this);
+    }
+
+    /**
+     * 将实体本身从数据库中删除
+     */
+    public void remove() {
+        getRepository().remove(this);
+    }
    
     
 }

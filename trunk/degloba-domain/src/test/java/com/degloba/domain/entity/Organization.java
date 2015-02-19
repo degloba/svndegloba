@@ -5,23 +5,23 @@ import java.util.Random;
 import com.degloba.domain.BaseEntity;
 
 //public abstract class Organization extends com.degloba.domain.support.BaseEntity {
-public abstract class Organization extends com.degloba.domain.BaseEntity {
+public abstract class Organization extends com.degloba.domain.support.BaseEntity {
 
 	private static final long serialVersionUID = -545941352163679365L;
-	private Integer id;
+	private Long id;
 	private String name;
 	private boolean disabled = false;
 
 	public Organization(String name) {
-		id = new Random().nextInt();
+		id = new Random().nextLong();
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
