@@ -141,16 +141,18 @@
             <scope>test</scope>
         </dependency>
         
-<!--         <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>ddd</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>	 -->
+
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>	
+		
+		
+		        <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>                
+            </dependency>
 
     </dependencies>
     <build>
