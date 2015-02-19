@@ -76,7 +76,7 @@ public class EntityRepositoryJpa implements EntityRepository {
     }
 
     @Override
-    public <T extends Entity> T save(T entity) {
+    public <T extends com.degloba.domain.seedwork.Entity> T save(T entity) {
         if (entity.notExisted()) {
             getEntityManager().persist(entity);
             LOGGER.info("create a entity: " + entity.getClass() + "/"
@@ -96,7 +96,7 @@ public class EntityRepositoryJpa implements EntityRepository {
      * com.degloba.domain.EntityRepository#remove(com.degloba.domain.Entity)
      */
     @Override
-    public void remove(Entity entity) {
+    public void remove(com.degloba.domain.seedwork.Entity entity) {
         getEntityManager().remove(get(entity.getClass(), entity.getId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
@@ -108,8 +108,8 @@ public class EntityRepositoryJpa implements EntityRepository {
      * @see com.degloba.domain.EntityRepository#exists(java.io.Serializable)
      */
     @Override
-    public <T extends Entity> boolean exists(final Class<T> clazz,
-                                             final Serializable id) {
+    public <T extends com.degloba.domain.seedwork.Entity> boolean exists(final Class<T> clazz,
+                                             final Long id) {
         T entity = getEntityManager().find(clazz, id);
         return entity != null;
     }
@@ -119,8 +119,12 @@ public class EntityRepositoryJpa implements EntityRepository {
      * 
      * @see com.degloba.domain.EntityRepository#get(java.io.Serializable)
      */
-    @Override
+/*    @Override
     public <T extends Entity> T get(final Class<T> clazz, final Serializable id) {
+        return getEntityManager().find(clazz, id);
+    }*/
+    @Override
+    public <T extends com.degloba.domain.seedwork.Entity> T get(final Class<T> clazz, final Long id) {
         return getEntityManager().find(clazz, id);
     }
 
@@ -130,33 +134,32 @@ public class EntityRepositoryJpa implements EntityRepository {
      * @see com.degloba.domain.EntityRepository#load(java.io.Serializable)
      */
     @Override
-    public <T extends Entity> T load(final Class<T> clazz, final Serializable id) {
+    public <T extends com.degloba.domain.seedwork.Entity> T load(final Class<T> clazz, final Serializable id) {
         return getEntityManager().getReference(clazz, id);
     }
 
     @Override
-    public <T extends Entity> T getUnmodified(final Class<T> clazz,
+    public <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(final Class<T> clazz,
                                               final T entity) {
         getEntityManager().detach(entity);
         return get(clazz, entity.getId());
     }
 
     @Override
-    public <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
+    public <T extends com.degloba.domain.seedwork.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
         List<T> results = findByProperties(clazz, keyValues);
         return results.isEmpty() ? null : results.get(0);
     }
 
     @Override
-    public <T extends Entity> List<T> findAll(final Class<T> clazz) {
+    public <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(final Class<T> clazz) {
         String queryString = "select o from " + clazz.getName() + " as o";
         return getEntityManager().createQuery(queryString).getResultList();
     }
 
     @Override
-    public <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
-        //return new CriteriaQuery(this, entityClass);
-    	return null;
+    public <T extends com.degloba.domain.seedwork.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
+        return new CriteriaQuery(this, entityClass);
     }
 
     @Override
@@ -271,19 +274,19 @@ public class EntityRepositoryJpa implements EntityRepository {
     }
 
     @Override
-    public <T extends Entity, E extends T> List<T> findByExample(
+    public <T extends com.degloba.domain.seedwork.Entity, E extends T> List<T> findByExample(
             final E example, final ExampleSettings<T> settings) {
         throw new RuntimeException("not implemented yet!");
     }
 
     @Override
-    public <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
+    public <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
         //return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
     	return null;
     }
 
     @Override
-    public <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
+    public <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
         /*CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
@@ -303,7 +306,7 @@ public class EntityRepositoryJpa implements EntityRepository {
     }
 
     @Override
-    public void refresh(Entity entity) {
+    public void refresh(com.degloba.domain.seedwork.Entity entity) {
         getEntityManager().refresh(entity);
     }
 
