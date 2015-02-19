@@ -17,8 +17,6 @@ import javax.persistence.Transient;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

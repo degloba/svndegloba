@@ -14,7 +14,7 @@ public interface Entity extends Serializable {
 	 * 实体Id必须是可序列化的。
 	 * @return 实体实例的 Id.
 	 */
-	Serializable getId();
+	Long getId();
 	
 	/**
 	 * 是否在数据库中已经存在

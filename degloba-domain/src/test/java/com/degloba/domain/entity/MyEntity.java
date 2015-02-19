@@ -17,14 +17,17 @@
 package com.degloba.domain.entity;
 
 import javax.persistence.Entity;
+
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.support.BaseAggregateRoot;
 
 /**
  *
  * @author yyang
  */
 @Entity
-public class MyEntity extends AbstractEntity {
+//public class MyEntity extends AbstractEntity {
+public class MyEntity	extends BaseAggregateRoot{
     private String name;
 
     public MyEntity() {

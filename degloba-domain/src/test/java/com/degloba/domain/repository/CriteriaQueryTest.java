@@ -74,7 +74,7 @@ public class CriteriaQueryTest {
     @Before
     public void setUp() {
         repository = mock(EntityRepository.class);
-        //instance = new CriteriaQuery(repository, entityClass);
+        instance = new CriteriaQuery(repository, entityClass);
     }
 
     /**

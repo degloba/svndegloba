@@ -87,7 +87,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param id 实体的ID
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static  <E extends com.degloba.domain.seedwork.Entity> E get(Class<E> clazz, Serializable id) {
+    public static  <E extends com.degloba.domain.seedwork.Entity> E get(Class<E> clazz, Long id) {
         return (E) getRepository().get(clazz, id);
     }
 
