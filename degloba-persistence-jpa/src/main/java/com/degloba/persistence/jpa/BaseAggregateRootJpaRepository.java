@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-
-
-
 // JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,8 +17,7 @@ import org.slf4j.LoggerFactory;
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.domain.seedwork.IRepository;
-import com.degloba.domain.support.BaseAggregateRoot;
+import com.degloba.domain.BaseAggregateRoot;
 import com.degloba.domain.BaseQuery;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.EntityRepository;

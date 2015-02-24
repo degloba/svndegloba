@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * 根据JPA实现的不同，要在IoC容器中配置相应的NamedQueryParser实现。
  * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  */
-public class EntityRepositoryJpa implements EntityRepository {
+public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
 
