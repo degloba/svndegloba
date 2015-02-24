@@ -140,19 +140,11 @@
             <version>4.16.6.Final</version>
             <scope>test</scope>
         </dependency>
-        
-
+    		
 		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>	
-		
-		
-		        <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>                
-            </dependency>
+        </dependency>
 
     </dependencies>
     <build>
@@ -187,11 +179,8 @@
             </plugin>
             
 	        <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
-	            <configuration>
-	                <source>1.7</source>
-	                <target>1.7</target>
-	            </configuration>
 	        </plugin>
             
         </plugins>

@@ -37,7 +37,7 @@ import com.degloba.domain.SqlQuery;
  *
  */
 @SuppressWarnings({"unchecked"})
-public class EntityRepositoryDatanucleus implements EntityRepository {
+public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryDatanucleus.class);
 

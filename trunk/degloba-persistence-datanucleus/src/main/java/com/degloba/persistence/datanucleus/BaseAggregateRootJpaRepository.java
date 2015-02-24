@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
 // JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +29,7 @@ import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.QueryParameters;
 import com.degloba.domain.SqlQuery;
-import com.degloba.domain.support.BaseAggregateRoot;
+import com.degloba.domain.BaseAggregateRoot;
 
 
 /**
