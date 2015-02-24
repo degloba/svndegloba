@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.degloba.IApplicationEventPublisher;
-import com.degloba.domain.support.IDomainEvent;
-import com.degloba.domain.support.IDomainEventPublisher;
+import com.degloba.domain.IDomainEvent;
+import com.degloba.domain.IDomainEventPublisher;
 import com.degloba.infrastructure.events.impl.handlers.EventHandler;
 
 @Component
