@@ -3,7 +3,7 @@ package com.degloba.domain;
 
 
 //DDD
-import com.degloba.domain.support.BaseAggregateRoot;
+import com.degloba.domain.BaseAggregateRoot;
 
 
 /**
