@@ -4,27 +4,19 @@ import java.util.List;
 
 
 
-
-
-
 // JPA 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-
-
 // Entitat Domini
 
 
-
-
-
-
+import com.degloba.annotations.FinderImpl;
 import com.degloba.casino.enviaments.Enviament;
 // DDD
-import com.degloba.domain.annotations.FinderImpl;
+
 import com.degloba.enviaments.application.readmodel.EnviamentDto;
 import com.degloba.enviaments.application.readmodel.IEnviamentFinder;
 

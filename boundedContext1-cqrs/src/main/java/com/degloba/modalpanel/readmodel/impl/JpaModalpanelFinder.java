@@ -2,12 +2,6 @@ package com.degloba.modalpanel.readmodel.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-
-
-
-
-
 
 
 // JPA 
@@ -24,11 +18,12 @@ import query.PaginatedResult;
 // 
 //import com.degloba.boundedContext.ui.webui.jsf.ModalPanelJSFBean;
 
+import com.degloba.annotations.FinderImpl;
 import com.degloba.casino.modalpanel.Modalpanel;
 
 // DDD
-import com.degloba.domain.annotations.FinderImpl;
-import com.degloba.domain.support.IDomainEventPublisher;
+
+import com.degloba.domain.IDomainEventPublisher;
 import com.degloba.modalpanel.readmodel.IModalpanelFinder;
 import com.degloba.modalpanel.readmodel.ModalpanelDto;
 import com.degloba.modalpanel.readmodel.ModalpanelQuery;
