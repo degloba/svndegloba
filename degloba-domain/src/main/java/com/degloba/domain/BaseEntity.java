@@ -12,7 +12,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.dayatang.utils.BeanUtils;
 
-import com.degloba.domain.BaseEntity.EntityStatus;
 
 /**
 * 抽象实体类，可作为所有领域实体的基类。
