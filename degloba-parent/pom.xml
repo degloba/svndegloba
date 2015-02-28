@@ -79,19 +79,18 @@
 
 
 
-<!--    <modules>   
+    <modules>   
           <module>../degloba-persistence</module>
-          
+          <module>../degloba-utilitats</module> 
           <module>../degloba-cqrs</module>
-          <module>../degloba-domain</module>
+          
+          <!-- <module>../degloba-domain</module> -->
           <module>../degloba-infrastructure</module>
           <module>../degloba-ioc-spring</module>
           <module>../degloba-ioc-test</module>
-          <module>../degloba-persistence-datanucleus</module>
-          <module>../degloba-persistence-jpa</module>
-          <module>../degloba-persistence-test</module>
-          <module>../degloba-utilitats</module>
-  </modules>  -->
+
+          <module>../casino</module>
+    </modules>  
 
 
        
