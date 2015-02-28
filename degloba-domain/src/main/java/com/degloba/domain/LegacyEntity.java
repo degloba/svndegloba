@@ -12,7 +12,7 @@ import java.util.Map;
  *
  */
 @MappedSuperclass
-public abstract class LegacyEntity extends com.degloba.domain.support.BaseEntity {
+public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
 
     private static final long serialVersionUID = 8882145540383345037L;
 
