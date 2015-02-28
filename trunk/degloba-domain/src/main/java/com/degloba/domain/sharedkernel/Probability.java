@@ -6,7 +6,7 @@ import java.math.MathContext;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
-import com.degloba.domain.annotations.ValueObject;
+import com.degloba.annotations.ValueObject;
 
 @ValueObject
 @Embeddable

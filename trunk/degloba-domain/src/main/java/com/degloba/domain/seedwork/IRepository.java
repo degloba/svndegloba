@@ -3,7 +3,7 @@ package com.degloba.domain.seedwork;
 import java.io.Serializable;
 import java.util.List;
 
-import com.degloba.domain.seedwork.Entity;
+import com.degloba.domain.Entity;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.ExampleSettings;
 import com.degloba.domain.JpqlQuery;

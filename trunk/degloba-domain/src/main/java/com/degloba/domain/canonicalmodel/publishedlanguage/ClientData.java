@@ -22,7 +22,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
-import com.degloba.domain.annotations.ValueObject;
+import com.degloba.annotations.ValueObject;
 
 /**
  * Client's snapshot
