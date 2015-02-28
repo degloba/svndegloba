@@ -19,7 +19,7 @@ package com.degloba.domain.entity;
 import javax.persistence.Entity;
 
 import com.degloba.domain.AbstractEntity;
-import com.degloba.domain.support.BaseAggregateRoot;
+import com.degloba.domain.BaseAggregateRoot;
 
 /**
  *
@@ -54,5 +54,11 @@ public class MyEntity	extends BaseAggregateRoot{
     public String[] businessKeys() {
         return new String [] {"name"};
     }
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

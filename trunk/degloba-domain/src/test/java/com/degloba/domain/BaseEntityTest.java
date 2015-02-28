@@ -59,20 +59,20 @@ public class BaseEntityTest {
 
     @Test
     public void testExistedIdIsZero() {
-        guangdong.setId((long) 0);
+        guangdong.setId((long)0);
         assertFalse(guangdong.existed());
     }
 
     @Test
     public void testExistedRepositoryNotFound() {
-        guangdong.setId((long) 3);
+        guangdong.setId((long)3);
         when(repository.exists(Organization.class,(long) 3)).thenReturn(false);
         assertFalse(guangdong.existed());
     }
 
     @Test
     public void testExistedRepositoryFound() {
-        guangdong.setId((long) 3);
+        guangdong.setId((long)3);
         when(repository.exists(Company.class, (long) 3)).thenReturn(true);
         assertTrue(guangdong.existed());
     }
@@ -85,20 +85,20 @@ public class BaseEntityTest {
 
     @Test
     public void testNotExistedIdIsZero() {
-        guangdong.setId((long) 0);
+        guangdong.setId((long)0);
         assertTrue(guangdong.notExisted());
     }
 
     @Test
     public void testNotExistedRepositoryNotFound() {
-        guangdong.setId((long) 3);
+        guangdong.setId((long)3);
         when(repository.exists(Company.class,(long) 3)).thenReturn(false);
         assertTrue(guangdong.notExisted());
     }
 
     @Test
     public void testNotExistedRepositoryFound() {
-        guangdong.setId((long) 3);
+        guangdong.setId((long)3);
         when(repository.exists(Company.class,(long) 3)).thenReturn(true);
         assertFalse(guangdong.notExisted());
     }
@@ -108,10 +108,10 @@ public class BaseEntityTest {
         guangdong.setId(null);
         assertTrue(guangdong.notExisted());
 
-        guangdong.setId((long) 0);
+        guangdong.setId((long)0);
         assertTrue(guangdong.notExisted());
 
-        guangdong.setId((long) 3);
+        guangdong.setId((long)3);
         when(repository.exists(Company.class,(long) 3)).thenReturn(false);
         assertTrue(guangdong.notExisted());
 

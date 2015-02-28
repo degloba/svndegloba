@@ -5,7 +5,7 @@ import java.util.Random;
 import com.degloba.domain.BaseEntity;
 
 //public abstract class Organization extends com.degloba.domain.support.BaseEntity {
-public abstract class Organization extends com.degloba.domain.support.BaseEntity {
+public abstract class Organization extends com.degloba.domain.BaseEntity {
 
 	private static final long serialVersionUID = -545941352163679365L;
 	private Long id;

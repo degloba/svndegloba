@@ -8,18 +8,16 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 	<persistence-unit name="transactions-optional">        
 	<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId</class>
-		<class>com.degloba.domain.support.BaseAggregateRoot</class>
 		<class>com.degloba.domain.canonicalmodel.publishedlanguage.ClientData</class>
 		<class>com.degloba.domain.sharedkernel.Probability</class>
-		<class>com.degloba.domain.BaseEntity</class>	
-		<class>com.degloba.domain.support.BaseEntity</class>
-		<class>com.degloba.domain.support.AbstractEntity</class>
+		<class>com.degloba.domain.BaseEntity</class>
 		<class>com.degloba.domain.AbstractEntity</class>
 		<class>com.degloba.domain.LegacyEntity</class>
 		<class>com.degloba.domain.event.StoredEvent</class>
 		<class>com.degloba.domain.Value</class>
-		<class>com.degloba.domain.entity.MyEntity</class>
 		<class>com.degloba.domain.sharedkernel.Money</class>
+		<class>com.degloba.domain.BaseAggregateRoot</class>
+		<class>com.degloba.domain.entity.MyEntity</class>
         <exclude-unlisted-classes/>  
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
