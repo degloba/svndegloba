@@ -4,10 +4,15 @@
 package com.degloba.domain;
 
 import java.util.Map;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.dayatang.utils.BeanUtils;
+
+import com.degloba.domain.BaseEntity.EntityStatus;
 
 /**
 * 抽象实体类，可作为所有领域实体的基类。
@@ -15,10 +20,55 @@ import org.dayatang.utils.BeanUtils;
 * @author yang
 *
 */
+@Entity
 @MappedSuperclass
-public abstract class BaseEntity implements Entity {
+public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
+//public abstract class BaseEntity implements Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
+   
+
+	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
+   // annotated as ordinal in sake of performance
+   public static enum EntityStatus {
+       ACTIVE, ARCHIVE
+   }
+
+   //entityId because ID can mean something (some domain concept) in some Bounded Context
+   @Id
+   @GeneratedValue
+   protected Long aggregateId;
+   
+   /*    @EmbeddedId
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+	private AggregateId aggregateId; */
+   
+   /*    @Version
+   private Long version;*/
+
+   @Enumerated(EnumType.ORDINAL)
+   private EntityStatus entityStatus = EntityStatus.ACTIVE;
+
+   public void markAsRemoved() {
+       entityStatus = EntityStatus.ARCHIVE;
+   }
+   
+   
+   //    getters - setters
+   
+	
+   public EntityStatus getEntityStatus() {
+       return entityStatus;
+   }
+   
+	public Long getAggregateId() {
+		return aggregateId;
+	}
+
+	public void setAggregateId(Long aggregateId) {
+		this.aggregateId = aggregateId;
+	}
 
    /**
     * 判断该实体是否已经存在于数据库中。
@@ -32,7 +82,8 @@ public abstract class BaseEntity implements Entity {
        if (id instanceof Number && ((Number)id).intValue() == 0) {
            return false;
        }
-       return getRepository().exists(getClass(), getId());
+       ////return getRepository().exists(getClass(), getId());
+       return false;
    }
 
    /**
@@ -116,5 +167,40 @@ public abstract class BaseEntity implements Entity {
            builder.append(thisPropValues.get(businessKey), otherPropValues.get(businessKey));
        }
        return builder.isEquals();
+   }
+   
+   @Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Boolean IsTransient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public int GetHashCode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+/*	 *//**
+    * 将实体本身持久化到数据库
+    */
+   public void save() {
+       getRepository().save(this);
+   }
+
+   /**
+    * 将实体本身从数据库中删除
+    */
+   public void remove() {
+       getRepository().remove(this);
    }
 }
