@@ -28,12 +28,58 @@
        		<id>google-maven-repo</id>             
        		<name>Google Maven Repository</name>             
        		<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
-       	</repository>
-</repositories> 
+	</repository>
+       	
+ 	<repository>
+            <id>dayatang-releases</id>
+            <url>http://nexus.dayatang.org/content/groups/public-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>dayatang-snapshots</id>
+            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>       	
+</repositories>  
+     
+  
+    
+<pluginRepositories>
+        <pluginRepository>
+            <id>dayatang-releases</id>
+            <url>http://nexus.dayatang.org/content/groups/public-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>dayatang-snapshots</id>
+            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>    
 
 
 
-   <modules>   
+<!--    <modules>   
           <module>../degloba-persistence</module>
           
           <module>../degloba-cqrs</module>
@@ -45,7 +91,7 @@
           <module>../degloba-persistence-jpa</module>
           <module>../degloba-persistence-test</module>
           <module>../degloba-utilitats</module>
-  </modules> 
+  </modules>  -->
 
 
        
