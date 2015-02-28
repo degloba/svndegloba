@@ -29,6 +29,7 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
         </dependency> -->
+        <!-- Versio Datanucleus per JPA -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -44,43 +45,33 @@
             <version>2.3</version>
         </dependency>
         
-             <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-		<dependency>                         
+	 	<dependency>                         
 			<groupId>org.springframework</groupId>                         
 			<artifactId>spring-context</artifactId>                                        
-		</dependency> 
+		</dependency>  
+  
 		<dependency>                         
 			<groupId>org.springframework</groupId>                         
 			<artifactId>spring-tx</artifactId>                                        
 		</dependency>    
 
-
-                  <dependency>
-                  	<groupId>javax.jdo</groupId>
-                  	<artifactId>jdo-api</artifactId>
-                  </dependency>
-                  
-                  
-					<dependency>
-                  	<groupId>com.degloba</groupId>
-                  	<artifactId>degloba-utilitats</artifactId>
-                  	<version>0.0.3-SNAPSHOT</version>
-                  </dependency>
+		<!-- necessari per les entitats abstractes -->                  
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+		</dependency>
+                    
+		<!-- llibreries -->                          
+		<dependency>
+           	<groupId>com.degloba</groupId>
+           	<artifactId>degloba-utilitats</artifactId>
+           	<version>0.0.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 
     <build>
       <pluginManagement>
         <plugins>
-            <!-- <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-            </plugin> -->
             <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -114,14 +105,14 @@
                 </configuration>
             </plugin>          
         </plugins>
-    </pluginManagement> 
-        <plugins>
+    </pluginManagement>
+    
+     
+	<plugins>
+	
         	<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
-	            <configuration>
-	                <source>1.7</source>
-	                <target>1.7</target>
-	            </configuration>
 	        </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>

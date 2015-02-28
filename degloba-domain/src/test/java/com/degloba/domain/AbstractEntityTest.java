@@ -45,9 +45,8 @@ public class AbstractEntityTest {
 
     @Test
     public void testVersionAccessor() {
-        //int version = 10;
-    	Long version = (long) 10;
-        instance.setVersion(version);
+        Long version = (long)10;    	
+        instance.setVersion((long)version);
         assertEquals(version, instance.getVersion());
     }
 
