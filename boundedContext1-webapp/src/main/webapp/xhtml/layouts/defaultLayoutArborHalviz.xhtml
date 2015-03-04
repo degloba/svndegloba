@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    
+<h:head>
+
+<title><ui:insert name="title" /> - deGloba Consulting - </title>
+<link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" media="all" href="/resources/css/degloba.css" />
+
+<link rel="stylesheet" href="/resources/css/halfviz.css" type="text/css" />
+  
+  <!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="/resources/css/magnific-popup.css"/> 
+<link rel="stylesheet" href="/resources/css/magnific-popup_degloba.css"/> 
+
+</h:head>
+
+<h:body>
+
+ 
+ 	
+  <div id="halfviz">
+    <canvas id="viewport" width="800" height="600"></canvas>
+    <div id="grabber"></div>  
+  </div>   
+
+
+<!-- REQUIREJS page1 
+  <script data-main="/resources/js/requireJS/app.js" src="/resources/js/requireJS/lib/require.js"></script>
+  -->
+  
+  <script src="/resources/js/jQuery/_/jquery-1.6.1.min.js"></script>
+  <script src="/resources/js/jQuery/_/jquery.address-1.4.min.js"></script>
+  
+  <script src="/resources/js/jQuery/arbor-v0.92/lib/arbor.js"></script>
+  <script src="/resources/js/jQuery/_/graphics.js"></script>
+
+  <!-- the halfviz source, broken out one ‘class’ per file 
+  <script src="/resources/js/src/dashboard.js"></script>
+  <script src="/resources/js/src/help.js"></script>
+  <script src="/resources/js/src/io.js"></script>  -->
+  <script src="/resources/js/jQuery/arbor-v0.92/halfviz/src/parseur.js"></script>
+  <script src="/resources/js/jQuery/arbor-v0.92/halfviz/src/renderer.js"></script>
+  
+  <!-- the main driver code: start here -->
+  <script src="/resources/js/jQuery/arbor-v0.92/halfviz/src/halfviz.js"></script> 
+  
+
+ 
+    
+<!--    <p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<button>Click me</button>
+	
+
+	<a class="test-popup-link" href="/resources/images/Arquitectura.png">Open popup</a> -->
+	
+</h:body>
+
+
+</html>
+

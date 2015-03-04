@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <parent>
+	    <artifactId>casino-boundedContext1</artifactId>
+	    <groupId>com.degloba</groupId>
+	    <version>4.4.3-SNAPSHOT</version>
+	</parent>
+  
+	<modelVersion>4.0.0</modelVersion>
+    <artifactId>boundedContext1-webapp</artifactId>
+    <packaging>war</packaging>
+	<name>casino - boundedContext1- Structure - Webapp</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <gae.version>1.9.17</gae.version>   
+    </properties>
+    
+    
+    <dependencies>
+    
+        <!--Compile-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-facade</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-cqrs</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <!--Runtime-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-application</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-domain</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-facade-impl</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.degloba</groupId>
+            <artifactId>degloba-ioc-spring</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+         <dependency>
+            <groupId>com.degloba</groupId>
+            <artifactId>degloba-persistence-datanucleus</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency> 
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+<!--         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <scope>runtime</scope>
+        </dependency> -->
+        
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>            
+        </dependency>
+
+        <!--Provided-->
+        <!-- <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency> -->
+        
+        
+        <!-- Google Appengine -->
+		<!--  <dependency>            
+			<groupId>com.google.appengine</groupId>            
+			<artifactId>appengine-testing</artifactId>            
+			<version>${gae.version}</version>            
+			<scope>test</scope>        
+		</dependency>     -->  		 
+		<dependency>            
+			<groupId>com.google.appengine</groupId>            
+			<artifactId>appengine-api-stubs</artifactId>            
+			<version>${gae.version}</version>            
+			<scope>test</scope>        
+		</dependency>		
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-remote-api</artifactId>
+			<version>${gae.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-jsr107cache</artifactId>
+			<version>${gae.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${gae.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency> 
+        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>  
+            <scope>provided</scope>
+        </dependency>        		
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency> 
+        
+        <!-- Spring --> 
+		<dependency>                         
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>   			                                 
+		</dependency> 
+		<dependency>                         
+			<groupId>org.springframework.webflow</groupId> 
+			<artifactId>spring-faces</artifactId>  					                               
+		</dependency>  
+		
+				
+		<!-- Referencies Llibreries -->			
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-cqrs</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>		
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>	 	
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-utilitats</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>	
+ 		 <dependency>
+		 	<groupId>com.degloba</groupId>
+		 	<artifactId>degloba-persistence-datanucleus</artifactId>
+		 	<version>4.4.3-SNAPSHOT</version>
+		</dependency> 
+	
+	
+        <!-- JPA -->
+        <dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+			<version>3.1.3</version>
+		</dependency>  
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+		</dependency>		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-json</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+                        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.apache.maven.plugins
+        								</groupId>
+        								<artifactId>
+        									maven-dependency-plugin
+        								</artifactId>
+        								<versionRange>
+        									[2.6,)
+        								</versionRange>
+        								<goals>
+        									<goal>copy</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
+    </build>
+
+</project>
