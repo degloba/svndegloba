@@ -16,7 +16,7 @@ public class ExampleSettings<T> {
 	private boolean excludeNone = false;
 	private boolean excludeZeroes = false;
 
-	public static <T extends Entity> ExampleSettings<T> create(Class<T> entityClass) {
+	public static <T extends com.degloba.domain.seedwork.Entity> ExampleSettings<T> create(Class<T> entityClass) {
 		return new ExampleSettings<T>(entityClass);
 	}
 	

@@ -27,7 +27,7 @@ import java.util.List;
 public class SqlQuery extends BaseQuery<SqlQuery> {
 
     private final String sql;
-    private Class<? extends Entity> resultEntityClass;
+    private Class<? extends com.degloba.domain.seedwork.Entity> resultEntityClass;
 
     /**
      * 使用仓储和SQL语句创建SQL查询。
@@ -52,7 +52,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * 返回查询结果实体类型。适用于返回结果是实体或实体列表的情形。
      * @return 查询结果的实体类型（如果结果是个集合，就是集合元素的类型）
      */
-    public Class<? extends Entity> getResultEntityClass() {
+    public Class<? extends com.degloba.domain.seedwork.Entity> getResultEntityClass() {
         return resultEntityClass;
     }
 
@@ -62,7 +62,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param resultEntityClass 要设置的查询结果类型
      * @return 该对象本身
      */
-    public SqlQuery setResultEntityClass(Class<? extends Entity> resultEntityClass) {
+    public SqlQuery setResultEntityClass(Class<? extends com.degloba.domain.seedwork.Entity> resultEntityClass) {
         this.resultEntityClass = resultEntityClass;
         return this;
     }
