@@ -12,6 +12,7 @@
 	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>	
 	<slf4j.version>1.7.10</slf4j.version>
 	<jdk.version>1.7</jdk.version>
+	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
 </properties>
   
 <repositories>   
@@ -39,8 +40,8 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
-        <repository>
+	</repository>
+    <repository>
             <id>dayatang-snapshots</id>
             <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
             <releases>
@@ -49,11 +50,9 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>       	
+    </repository>       	
 </repositories>  
-     
-  
-    
+      
 <pluginRepositories>
         <pluginRepository>
             <id>dayatang-releases</id>
@@ -84,13 +83,13 @@
           <module>../degloba-utilitats</module> 
           <module>../degloba-cqrs</module>
           
-          <!-- <module>../degloba-domain</module> -->
+          <module>../degloba-domain</module>
           <module>../degloba-infrastructure</module>
           <module>../degloba-ioc-spring</module>
           <module>../degloba-ioc-test</module>
 
           <module>../casino</module>
-    </modules>  
+    </modules>   
 
 
        
@@ -141,7 +140,17 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
-		</dependency>        
+		</dependency>  
+		<dependency>                         
+			<groupId>org.springframework.webflow</groupId> 
+			<artifactId>spring-faces</artifactId>   	
+			<version>${springwebflow.version}</version>		                                 
+		</dependency> 
+		<dependency>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>
+		 	<version>1.6.0.RELEASE</version>
+		 </dependency>
 	
 		<!--  -->
 		<dependency>                         
