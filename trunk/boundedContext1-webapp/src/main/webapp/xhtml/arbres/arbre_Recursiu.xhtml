@@ -1,0 +1,42 @@
+ <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:c2="http://java.sun.com/jsp/jstl/core">
+     
+<a4j:outputPanel id="pnlArbre">
+
+<!-- ARBRE RECURSIU -->
+
+	<rich:panel>
+	
+		<f:facet name="header">
+			<h:outputText value="Documents"/>
+		</f:facet>
+		
+	    <rich:tree  style="height:348px;overflow: auto" switchType="ajax">
+	    	<rich:treeModelRecursiveAdaptor roots="#{FileSystemBean.sourceRoots}"
+	         	var="filesystem" nodes="#{filesystem.nodes}" >
+	         	<rich:treeNode>
+	         	    <a4j:commandLink id="fs"  value="#{filesystem.shortPath}" 
+	         	    	actionListener="#{documents.processAction}" 
+				  		render="output23">
+	        	    		<f:attribute name="idDoc" value="13"/>
+							<f:attribute name="doc" value="2343"/>
+							<f:attribute name="embedCode" value="3"/>
+							<f:attribute name="tags" value="4"/>
+							
+					</a4j:commandLink>
+				
+	            </rich:treeNode>
+	   	 </rich:treeModelRecursiveAdaptor>
+	    </rich:tree>
+	    
+    </rich:panel>	
+ 	
+	</a4j:outputPanel>
+	
+</ui:composition>

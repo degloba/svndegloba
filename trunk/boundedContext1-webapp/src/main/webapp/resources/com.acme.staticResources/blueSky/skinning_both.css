@@ -1,0 +1,81 @@
+input,select,textarea,button,keygen,isindex,legend,a{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+fieldset{border-width:1px;border-style:solid;padding:10px;border-color:#BED6F8;}
+hr{border-width:1px;border-style:solid;border-color:#BED6F8;}
+a{color:#0078D0;}
+a:hover{color:#0090FF;}
+a:visited{color:#0090FF;}
+input,select,textarea,button,keygen,isindex{border-width:1px;border-color:#BED6F8;color:#000;}
+button,input[type="reset"],input[type="submit"],input[type="button"]{border-width:1px;border-color:#BED6F8;font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;background-repeat:repeat-x;background-position:top left;background-color:#BED6F8;background-image:url(org.richfaces.images/buttonBackgroundImage.png);}
+button:hover,input[type="reset"]:hover,input[type="submit"]:hover,input[type="button"]:hover{background-position:bottom left;background-repeat:repeat-x;background-image:url(org.richfaces.images/buttonHoverBackgroundImage.png);}
+button[disabled],input[type="reset"][disabled],input[type="submit"][disabled],input[type="button"][disabled]{color:#8DB7F3;border-color:#ccc;background-color:#ccc;background-image:url(org.richfaces.images/buttonDisabledBackgroundImage.png);background-position:top left;}
+textarea,input[type="text"],input[type="password"],select{border-width:1px;border-style:solid;border-color:#BED6F8;font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;background-repeat:no-repeat;background-position:1px 1px;background-color:#fff;background-image:url(org.richfaces.images/inputBackgroundImage.png);}
+textarea[disabled],input[type="text"][disabled],input[type="password"][disabled],select[disabled]{color:#BED6F8;cursor:default;}
+*.rfs-ctn input,*.rfs-input,*.rfs-ctn select,*.rfs-select,*.rfs-ctn textarea,*.rfs-textarea,*.rfs-ctn button,*.rfs-btn,*.rfs-ctn keygen,*.rfs-keygen,*.rfs-ctn isindex,*.rfs-isindex,*.rfs-ctn legend,*.rfs-legend,*.rfs-ctn a,*.rfs-link,*.rfs-ctn fieldset,*.rfs-fieldset,*.rfs-field,*.rfs-field-edit,*.rfs-field-error,*.rfs-btn,*.rfs-btn-disabled,*.rfs-btn-over,*.rfs-btn-press{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+*.rfs-ctn fieldset,*.rfs-fieldset{border-width:1px;border-style:solid;padding:10px;}
+*.rfs-ctn hr,*.rfs-hr{border-width:1px;border-style:solid;}
+*.rfs-ctn legend,*.rfs-legend{font-weight:bold;}
+*.rfs-ctn form,*.rfs-form{padding:0;margin:0;}
+*.rfs-ctn fieldset,*.rfs-fieldset{border-color:#BED6F8;}
+*.rfs-ctn hr,*.rfs-hr{border-color:#BED6F8;}
+*.rfs-ctn a,*.rfs-link{color:#0078D0;}
+*.rfs-ctn a:hover,*.rfs-link:hover{color:#0090FF;}
+*.rfs-ctn a:visited,*.rfs-link:visited{color:#0090FF;}
+*.rfs-field,*.rfs-field-edit,*.rfs-field-error{border-width:1px;border-style:inset;border-color:#BED6F8;}
+*.rfs-field{background-color:#fff;background-image:url(org.richfaces.images/buttonBackgroundImage.png);background-repeat:no-repeat;background-position:1px 1px;}
+*.rfs-field-edit{background-color:#FEFFDA;}
+*.rfs-field-error{background-color:#FFE6E6;background-image:url(org.richfaces.images/inputErrorIcon.png.gif);background-repeat:no-repeat;background-position:center left;padding-left:7px;}
+*.rfs-btn,*.rfs-btn-disabled,*.rfs-btn-over,*.rfs-btn-press{border-width:1px;border-style:solid;border-color:#BED6F8;background-color:#D6E6FB;padding:2px 10px 2px 10px;text-align:center;cursor:pointer;background-repeat:repeat-x;background-position:top left;}
+*.rfs-btn{background-image:url(org.richfaces.images/standardButtonBgImage.png);}
+*.rfs-btn-disabled{background-image:url(org.richfaces.images/standardButtonBgImage.png);}
+*.rfs-btn-over{background-image:url(org.richfaces.images/standardButtonBgImage.png);}
+*.rfs-btn-press{background-image:url(org.richfaces.images/standardButtonPressedBgImage.png);background-position:bottom left;}
+*.rfs-box-border-color-control-select{border-color:#E79A00;}
+*.rfs-box-border-color-subborder{border-color:#fff;}
+*.rfs-box-border-color-header{border-color:#BED6F8;}
+*.rfs-box-border-color-general{border-color:#FFF;}
+*.rfs-box-border-color-additional{border-color:#ECF4FE;}
+*.rfs-box-border-color-panel{border-color:#BED6F8;}
+*.rfs-box-border-color-tip{border-color:#E5973E;}
+*.rfs-box-border-color-table{border-color:#C0C0C0;}
+*.rfs-box-border-control-select,*.rfs-box-border-subborder,*.rfs-box-border-header,*.rfs-box-border-general,*.rfs-box-border-additional,*.rfs-box-border-panel,*.rfs-box-border-tip,*.rfs-box-border-table{border-style:solid;border-width:1px;}
+*.rfs-box-border-control-select{border-color:#E79A00;}
+*.rfs-box-border-subborder{border-color:#fff;}
+*.rfs-box-border-header{border-color:#BED6F8;}
+*.rfs-box-border-general{border-color:#FFF;}
+*.rfs-box-border-additional{border-color:#ECF4FE;}
+*.rfs-box-border-panel{border-color:#BED6F8;}
+*.rfs-box-border-tip{border-color:#E5973E;}
+*.rfs-box-border-table{border-color:#C0C0C0;}
+*.rfs-box-bgcolor-header{background-color:#BED6F8;}
+*.rfs-box-bgcolor-general{background-color:#FFF;}
+*.rfs-box-bgcolor-additional{background-color:#ECF4FE;}
+*.rfs-box-bgcolor-panel{background-color:#BED6F8;}
+*.rfs-box-bgcolor-tab{background-color:#C6DEFF;}
+*.rfs-box-bgcolor-trim{background-color:#D6E6FB;}
+*.rfs-box-bgcolor-tip{background-color:#FAE6B0;}
+*.rfs-box-bgcolor-table{background-color:#FFF;}
+*.rfs-box-bgcolor-table-footer{background-color:#ccc;}
+*.rfs-box-bgcolor-table-subfooter{background-color:#f1f1f1;}
+*.rfs-box-bgcolor-editor{background-color:#F1F1F1;}
+*.rfs-box-bgcolor-edit{background-color:#FEFFDA;}
+*.rfs-txt-color-header{color:#000;}
+*.rfs-txt-color-general{color:#000;}
+*.rfs-txt-color-tab-disabled{color:#8DB7F3;}
+*.rfs-txt-color-select{color:#E79A00;}
+*.rfs-txt-color-link-general{color:#0078D0;}
+*.rfs-txt-color-link-hover{color:#0090FF;}
+*.rfs-txt-color-link-visited{color:#0090FF;}
+*.rfs-font-size-general{font-size:11px;}
+*.rfs-font-size-header{font-size:11px;}
+*.rfs-font-family-general{font-family:Arial,Verdana,sans-serif;}
+*.rfs-font-family-header{font-family:Arial,Verdana,sans-serif;}
+*.rfs-txt-general{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+*.rfs-txt-header{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+*.rfs-txt-tab-disabled{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#8DB7F3;}
+*.rfs-txt-control-select{font-size:11px;font-family:Arial,Verdana,sans-serif;color:#E79A00;}
+*.rfs-ctn input,*.rfs-input,*.rfs-ctn select,*.rfs-select,*.rfs-ctn textarea,*.rfs-textarea,*.rfs-ctn button,*.rfs-btn,*.rfs-ctn keygen,*.rfs-keygen,*.rfs-ctn isindex,*.rfs-isindex{border-width:1px;border-color:#BED6F8;color:#000;}
+*.rfs-ctn button,*.rfs-btn,*.rfs-btn-btn,*.rfs-btn-reset,*.rfs-btn-submit,*.rfs-ctn input[type="reset"],*.rfs-input-reset,*.rfs-ctn input[type="submit"],*.rfs-input-submit,*.rfs-ctn input[type="button"],*.rfs-input-btn{border-width:1px;border-color:#BED6F8;background-repeat:repeat-x;background-position:top left;background-color:#BED6F8;background-image:url(org.richfaces.images/buttonBackgroundImage.png);font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+*.rfs-ctn button:hover,*.rfs-btn:hover,*.rfs-btn-btn:hover,*.rfs-btn-reset:hover,*.rfs-btn-submit:hover,*.rfs-ctn input[type="reset"]:hover,*.rfs-input-reset:hover,*.rfs-ctn input[type="submit"]:hover,*.rfs-input-submit:hover,*.rfs-ctn input[type="button"]:hover,*.rfs-input-btn:hover{background-position:bottom left;background-repeat:repeat-x;background-image:url(org.richfaces.images/buttonHoverBackgroundImage.png);}
+*.rfs-ctn button[disabled],*.rfs-btn-disabled,*.rfs-btn-btn[disabled],*.rfs-btn-btn-disabled,*.rfs-btn-reset[disabled],*.rfs-btn-reset-disabled,*.rfs-btn-submit[disabled],*.rfs-btn-submit-disabled,*.rfs-ctn input[type="reset"][disabled],*.rfs-input-reset[disabled],*.rfs-input-reset-disabled,*.rfs-ctn input[type="submit"][disabled],*.rfs-input-submit[disabled],*.rfs-input-submit-disabled,*.rfs-ctn input[type="button"][disabled],*.rfs-input-btn[disabled],*.rfs-input-btn-disabled{color:#8DB7F3;background-color:#ccc;border-color:#ccc;background-image:url(org.richfaces.images/buttonDisabledBackgroundImage.png);background-position:top left;}
+*.rfs-ctn textarea,*.rfs-textarea,*.rfs-textarea-textarea,*.rfs-ctn input[type="text"],*.rfs-input-txt,*.rfs-ctn input[type="password"],*.rfs-input-password,*.rfs-ctn select,*.rfs-select{border-width:1px;border-style:inset;border-color:#BED6F8;background-repeat:no-repeat;background-position:1px 1px;background-color:#fff;background-image:url(org.richfaces.images/inputBackgroundImage.png);font-size:11px;font-family:Arial,Verdana,sans-serif;color:#000;}
+*.rfs-ctn textarea[disabled],*.rfs-textarea-disabled,*.rfs-textarea-textarea-disabled,*.rfs-ctn input[type="text"][disabled],*.rfs-input-txt-disabled,*.rfs-ctn input[type="password"][disabled],*.rfs-input-password-disabled,*.rfs-ctn select[disabled],*.rfs-select-disabled{color:#BED6F8;}
