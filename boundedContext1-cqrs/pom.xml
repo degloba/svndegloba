@@ -34,5 +34,10 @@
 			<artifactId>degloba-infrastructure</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-persistence-datanucleus</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 </project>
