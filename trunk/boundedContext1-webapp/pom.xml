@@ -15,9 +15,32 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         <gae.version>1.9.17</gae.version>   
+        <gae.version>1.9.17</gae.version>  
+        <primefaces-version>5.0</primefaces-version> 
+          
+        <!-- Setting this property using archetype-metadata.xml requiredPorperty
+             so that generated project uses correct version of richfaces.
+         -->
+        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
+        
+        <springsecurity-version>3.2.4.RELEASE</springsecurity-version>
     </properties>
     
+    <repositories>
+		<repository>
+			<id>spring</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/milestone</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
+		<repository>
+			<id>primefaces-repository</id>
+			<name>Prime Technology Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>		
+	</repositories>
     
     <dependencies>
     
@@ -27,7 +50,7 @@
             <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
+		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-cqrs</artifactId>
             <version>${project.version}</version>
@@ -60,7 +83,7 @@
             <scope>runtime</scope>
         </dependency>
          <dependency>
-            <groupId>com.degloba</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
@@ -125,17 +148,17 @@
 			<scope>compile</scope>
 		</dependency> 
         
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>  
-      <scope>provided</scope>
-    </dependency>        		
-    <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>jstl</artifactId>
-        <version>1.2</version>
-      </dependency> 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>  
+            <scope>provided</scope>
+        </dependency>        		
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency> 
         
         <!-- Spring --> 
 		<dependency>                         
@@ -146,6 +169,47 @@
 			<groupId>org.springframework.webflow</groupId> 
 			<artifactId>spring-faces</artifactId>  					                               
 		</dependency>  
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity-version}</version>
+        </dependency>	
+		
+		<!-- Primafaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces-version}</version>
+		</dependency>
+		
+		<!-- Richfaces -->
+		<dependency>
+    		<groupId>org.richfaces.core</groupId>
+    		<artifactId>richfaces-core-api</artifactId>
+    		<type>jar</type>
+    		<scope>compile</scope>
+    	</dependency>
+        <dependency>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-components-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.richfaces.core</groupId>
+            <artifactId>richfaces-core-impl</artifactId>
+        </dependency>
+		<dependency>
+	    	<groupId>org.richfaces.cdk</groupId>
+	    	<artifactId>annotations</artifactId>
+	    	<version>${org.richfaces.bom.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+    	</dependency>        
+		
 		
 				
 		<!-- Referencies Llibreries -->			
@@ -193,6 +257,18 @@
 		</dependency>
                         
     </dependencies>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${org.richfaces.bom.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -273,6 +349,73 @@
         				</lifecycleMappingMetadata>
         			</configuration>
         		</plugin>
+        		
+				<plugin>
+	                <groupId>org.richfaces.cdk</groupId>
+	                <artifactId>maven-richfaces-resources-plugin</artifactId>
+	                <version>${org.richfaces.bom.version}</version>
+	                <configuration>
+	                
+		                <skins>
+				            <skin>blueSky</skin>
+				        </skins>
+		 		        <!--   <excludedFiles>
+				            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
+				            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
+				        </excludedFiles> -->
+				        <includedContentTypes>
+				            <include>application/javascript</include>
+				            <include>text/css</include>
+				            <include>image/.+</include>
+				        </includedContentTypes>
+				        <fileNameMappings>
+				            <property>
+				                <name>^.*showcase.*/([^/]+\.css)$</name>
+				                <value>org.richfaces.showcase.css/$1</value>
+				            </property>
+				            <property>
+				                <name>^.+/([^/]+\.(png|gif|jpg))$</name>
+				                <value>org.richfaces.images/$1</value>
+				            </property>
+				            <property>
+				                <name>^.+/([^/]+\.css)$</name>
+				                <value>org.richfaces.css/$1</value>
+				            </property>
+				        </fileNameMappings>
+	                
+	                </configuration>
+	                <executions>
+		                <execution>
+				            <id>process-resources</id>
+				            <goals>
+				                <goal>process</goal>
+				            </goals>
+				            <configuration>
+				            
+				                <!-- default RichFaces mapping file, can be anywhere on the classpath, but then you will
+				                     will need to configure Resource Mapping configuration file location in web.xml,
+				                     refer to RichFaces Developer Guide -->
+				                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
+				                
+				                <!-- resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
+				                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
+				                     depending on packaging of this project -->
+				                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
+				                
+				                <!-- resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources) -->
+				                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
+				                
+				                <!-- resources will be packaged, refer to RichFaces Developer Guide -->
+				                <pack>true</pack>
+				                
+				                <!-- resources will be compressed, refer to RichFaces Developer Guide -->
+				                <compress>true</compress>
+				                
+				            </configuration>
+				        </execution>
+		                                   
+                	</executions>
+            	</plugin>	                    		
         	</plugins>
         </pluginManagement>
     </build>
