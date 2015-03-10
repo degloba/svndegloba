@@ -9,6 +9,11 @@
 
  <application>     
      
+     <!-- ************************************************************************
+     					SpringMvc + JSF 2.0 
+      ************************************************************************ -->
+	<message-bundle>JsfMessageResources</message-bundle>
+          
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	<resource-handler>com.degloba.boundedContext.ui.webui.jsf.CustomResourceHandler</resource-handler>
         <locale-config>
@@ -17,6 +22,10 @@
             <base-name>idioma_es</base-name>
             <var>messages</var>
         </resource-bundle>
+        
+     <!-- ************************************************************************
+     				Fi	SpringMvc + JSF 2.0 
+      ************************************************************************ -->        
 		
 	<locale-config>
 		<default-locale>es</default-locale>
