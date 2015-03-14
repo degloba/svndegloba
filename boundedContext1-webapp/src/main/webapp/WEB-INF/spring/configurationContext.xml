@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<!-- <context:component-scan base-package="command,query,com.degloba,domain,infrastructure,application"/>
+	 -->
+	<!-- map all requests to /resources/** to the container default servlet (ie, don't let Spring handle them) -->
+     
+ <!--    <bean id="defaultServletHttpRequestHandler" class="org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler" />
+     
+    <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+        <map>
+            <entry key="/resources/**" value-ref="defaultServletHttpRequestHandler" />
+        </map>
+        </property>
+    </bean>
+     
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+     
+    <mvc:annotation-driven/>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="cache" value="false" />
+        <property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".xhtml" />
+    </bean> -->
+	
+	
+	<!-- <context:annotation-config/> -->
+
+	<!-- 1. BEANS JSF GESTIONAT PER SPRING 	
+	<bean id="simpleEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" />
+		
+	<bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
+		scope="request">
+		<property name="domainEventPublisher">
+			<ref bean="simpleEventPublisher"/>
+		</property>
+	 </bean> -->
+	 
+
+	<!-- 2. REPOSITORIS -->
+ 	<!-- <bean id="modalpanelRepository" class="com.degloba.casino.modalpanel.infrastructure.JpaModalpanelRepository" />  
+ 	 -->
+
+		
+	<!-- 3. SERVEIS DE DOMINI -->
+
+	
+	<!-- 4. FACTORIES -->	
+ 	<!-- <bean id="modalpanelFactory" class="com.degloba.casino.modalpanel.ModalpanelFactory" />  
+ -->
+	
+	<!-- 5. SYSTEM USER -->
+ 	<bean id="systemUser" class="com.degloba.system.application.SystemUser" />
+ 	
+	
+	<!-- 6. EVENT PUBLISHER 
+ 	<bean id="domainEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> -->
+	
+		
+	<!-- 7. FINDERS -->		
+	<bean id="jpaEnviamentFinder" class="com.degloba.enviaments.application.readmodel.impl.JpaEnviamentFinder"/>
+	 
+	
+	<!-- <bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl"/>
+	
+	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl"/>
+	 -->
+
+	<!-- 8. GATE - COMMANDS -->
+	<bean id="gate" class="command.impl.StandardGate"/>
+	
+	<!-- 8. SERVEIS D'APLICACIO 
+		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
+	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>	    
+	</bean> -->
+	
+<!-- 	<bean id="purchaseApplicationService" class="com.insacosa.application.services.PurchaseApplicationService">
+		<property name="orderRepository" ref="orderRepository" />
+		<property name="orderFactory" ref="orderFactory" />
+		<property name="productRepository" ref="productRepository" />
+		<property name="invoiceRepository" ref="invoiceRepository" />
+		<property name="invoicingService" ref="invoicingService" />
+		<property name="systemUser" ref="systemUser" />
+		<property name="eventPublisher" ref="eventPublisher" />
+	</bean>	 -->
+	
+
+	<!-- 9. BEANS RELACIONAT AMB LA PERSISTENCIA -->
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+          <property name="persistenceUnitName" value="transactions-optional" />
+    </bean>  
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />    
+	</bean>
+	
+	
+ 	<bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+          <property name="persistenceUnitName" value="mongodb" />
+    </bean>  
+
+
+
+<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   
+
+	<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
+	<!-- <mongo:mongo host="localhost" port="27017" />
+	
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    <constructor-arg name="mongo" ref="mongo"/>
+    <constructor-arg name="databaseName" value="degloba"/>
+  </bean>
+
+  <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>  
+
+   Mongo cross-store aspect config  
+  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
+        factory-method="aspectOf">
+    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
+  </bean>
+  <bean id="mongoChangeSetPersister"
+      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
+    <property name="mongoTemplate" ref="mongoTemplate"/>
+    <property name="entityManagerFactory" ref="entityManagerFactoryMongo"/>  
+  </bean>   -->
+		
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+
+	<bean id="helloWorld" class="com.degloba.HelloWorld"></bean>
+</beans>
