@@ -1,1 +1,1 @@
-Projecte ddegloba
+degloba libraries for DDD technology
