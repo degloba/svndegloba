@@ -1,5 +1,25 @@
 Manifest-Version: 1.0
+Implementation-Title: deGloba Persistence Test
+Implementation-Version: 4.4.3-SNAPSHOT
 Built-By: degloba
+Implementation-Vendor-Id: com.degloba
+Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
+ 124.103126-11.jar slf4j-api-1.7.10.jar guava-14.0.jar commons-lang3-3
+ .0.1.jar geronimo-jpa_2.0_spec-1.1.jar javax.inject-1.jar gson-2.3.ja
+ r spring-context-4.1.4.RELEASE.jar spring-aop-4.1.4.RELEASE.jar aopal
+ liance-1.0.jar spring-beans-4.1.4.RELEASE.jar spring-core-4.1.4.RELEA
+ SE.jar commons-logging-1.2.jar spring-expression-4.1.4.RELEASE.jar sp
+ ring-tx-4.1.4.RELEASE.jar jdo-api-3.0.1.jar jta-1.1.jar degloba-utili
+ tats-0.0.3-SNAPSHOT.jar el-api-2.2.jar commons-validator-1.4.0.jar co
+ mmons-beanutils-1.8.3.jar commons-digester-1.8.jar paypal-core-1.5.0.
+ jar rest-api-sdk-0.7.0.jar hornetq-core-2.1.2.Final.jar hornetq-jms-2
+ .1.2.Final.jar hornetq-logging-2.1.2.Final.jar jms-1.1.jar appengine-
+ api-1.0-sdk-1.9.17.jar jsf-api-2.1.7.jar jsf-impl-2.1.7.jar twitter4j
+ -appengine-3.0.5.jar twitter4j-core-3.0.5.jar rss4j-0.92.jar poi-3.9.
+ jar commons-codec-1.5.jar poi-ooxml-3.9.jar poi-ooxml-schemas-3.9.jar
+  xmlbeans-2.3.0.jar stax-api-1.0.1.jar dom4j-1.6.1.jar xml-apis-1.0.b
+ 2.jar slf4j-log4j12-1.7.10.jar log4j-1.2.17.jar junit-4.11.jar hamcre
+ st-core-1.3.jar validation-api-1.1.0.Final.jar
 Build-Jdk: 1.8.0_31
 Created-By: Maven Integration for Eclipse
 
