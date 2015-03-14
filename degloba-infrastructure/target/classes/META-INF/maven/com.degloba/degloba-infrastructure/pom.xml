@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.degloba</groupId>
-        <artifactId>deglobaparent</artifactId>
+        <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>degloba-infrastructure</artifactId>
@@ -46,12 +46,10 @@
         <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
             </dependency>
         <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
             </dependency>     
             
             <dependency>
@@ -63,6 +61,10 @@
 
     <build>
         <plugins>
+        	<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	        </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
