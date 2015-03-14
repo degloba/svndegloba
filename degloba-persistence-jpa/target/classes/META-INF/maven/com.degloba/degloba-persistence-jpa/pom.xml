@@ -22,8 +22,6 @@
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
-            <version>2.2</version> <!-- afegit pere -->
-            <scope>test</scope>
         </dependency>
      <!--    <dependency>
             <groupId>org.glassfish.web</groupId>
@@ -63,7 +61,6 @@
         <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>	
-			<version>3.1.3</version>		 <!-- afegit pere -->
 		</dependency>        
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -80,12 +77,10 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.7</version>  <!-- afegit pere -->
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.7</version>  <!-- afegit pere -->
         </dependency>
        <!--  <dependency>
             <groupId>org.aspectj</groupId>
@@ -104,13 +99,11 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-             <version>1.1.0.Final</version> <!-- afegit pere -->
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.0.3.Final</version>  <!-- afegit pere -->
             <scope>test</scope>
         </dependency>
 
@@ -147,17 +140,11 @@
             <version>4.16.6.Final</version>
             <scope>test</scope>
         </dependency>
-        
-<!--         <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>ddd</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>	 -->
+    		
 		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>	
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>   
+        </dependency>
 
     </dependencies>
     <build>
@@ -190,6 +177,12 @@
                     </execution>
                 </executions>
             </plugin>
+            
+	        <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	        </plugin>
+            
         </plugins>
     </build>
     <properties>
