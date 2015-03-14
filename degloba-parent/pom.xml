@@ -78,7 +78,7 @@
 
 
 
-    <modules>   
+  <!--   <modules>   
           <module>../degloba-persistence</module>
           <module>../degloba-utilitats</module> 
           <module>../degloba-cqrs</module>
@@ -89,7 +89,7 @@
           <module>../degloba-ioc-test</module>
 
           <module>../casino</module>
-    </modules>   
+    </modules>    -->
 
 
        
