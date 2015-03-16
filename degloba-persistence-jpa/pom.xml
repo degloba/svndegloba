@@ -8,12 +8,14 @@
     </parent>
     <artifactId>degloba-persistence-jpa</artifactId>
     <packaging>jar</packaging>
-    <name>DDDLib Persistence API implemented by JPA</name>
+    <name>API de persistencia implementada amb JPA</name>
     <description>
-        DDDLib仓储接口EntityRepository的JPA实现。
+        Interfaz de almacenamiento de la aplicación.EntityRepository JPA .
     </description>
 
     <dependencies>
+    	
+    	<!-- Llibreries degloba -->
         <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-domain</artifactId>
@@ -34,6 +36,8 @@
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Llibreries dayatang -->
          <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-db</artifactId>
@@ -141,12 +145,15 @@
             <scope>test</scope>
         </dependency>
     		
+		<!-- Spring -->
 		<dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>   
+			<groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>   
         </dependency>
 
     </dependencies>
+    
+    
     <build>
         <testResources>
             <testResource>
