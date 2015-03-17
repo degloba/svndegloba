@@ -10,11 +10,14 @@
     <name>deGloba Persistence Test</name>
     
     <dependencies>
+    
+    	<!-- Llibreries degloba -->
         <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -24,6 +27,7 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
         </dependency>
+        
     </dependencies>
     
     <build>

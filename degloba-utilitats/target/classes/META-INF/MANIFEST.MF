@@ -12,7 +12,13 @@ Class-Path: el-api-2.2.jar commons-validator-1.4.0.jar commons-beanuti
  ore-3.0.5.jar rss4j-0.92.jar poi-3.9.jar commons-codec-1.5.jar poi-oo
  xml-3.9.jar poi-ooxml-schemas-3.9.jar xmlbeans-2.3.0.jar stax-api-1.0
  .1.jar dom4j-1.6.1.jar xml-apis-1.0.b2.jar slf4j-api-1.7.10.jar slf4j
- -log4j12-1.7.10.jar log4j-1.2.17.jar gson-2.3.jar guava-14.0.jar
+ -log4j12-1.7.10.jar log4j-1.2.17.jar gson-2.3.jar guava-14.0.jar spri
+ ng-context-4.1.4.RELEASE.jar spring-aop-4.1.4.RELEASE.jar aopalliance
+ -1.0.jar spring-core-4.1.4.RELEASE.jar spring-expression-4.1.4.RELEAS
+ E.jar spring-webmvc-4.1.4.RELEASE.jar spring-web-4.1.4.RELEASE.jar sp
+ ring-tx-4.1.4.RELEASE.jar spring-orm-4.1.4.RELEASE.jar spring-jdbc-4.
+ 1.4.RELEASE.jar spring-test-4.1.4.RELEASE.jar spring-beans-4.1.4.RELE
+ ASE.jar
 Build-Jdk: 1.8.0_31
 Created-By: Maven Integration for Eclipse
 

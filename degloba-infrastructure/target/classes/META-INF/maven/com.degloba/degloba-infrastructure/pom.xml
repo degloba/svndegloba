@@ -10,15 +10,20 @@
     <packaging>jar</packaging>
     <name>DDDLib API Interfaces and Base Classes</name>
     <description>
-        DDDLib中最重要的模块，为基于DDD的开发提供核心接口和基类。
+        Módulo más importante , 
+        Proporciona las interfaces principales y clases base sobre las que se basa 
+        el desarrollo sobre DDD .
     </description>
 
     <dependencies>
+    
+    	<!-- Llibreries dayatang -->
         <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -43,17 +48,19 @@
             <version>2.3</version>
         </dependency>
         
+        <!--  Spring -->
         <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-            </dependency>
+			<groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+		</dependency>
         <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-            </dependency>     
+        	<groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+		</dependency>     
             
-            <dependency>
-            <groupId>com.degloba</groupId>
+		<!-- Llibreries degloba -->            
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>       
