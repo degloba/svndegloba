@@ -13,7 +13,6 @@
 	<properties> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.version>1.9.17</gae.version>
-        <poi.version>3.9</poi.version>
 	</properties>
   
   <build>
@@ -45,32 +44,23 @@
                     </execution>
                 </executions>
             </plugin>
-                      
-                  
-         
+                    
 			<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
 	        </plugin>
 		
         </plugins>
-    
           	
 	</build>
 	
   
 <dependencies>
   
-	<!-- JPA persistencia 	
-	<dependency>  
-		<groupId>org.apache.geronimo.specs</groupId>  
-		<artifactId>geronimo-jpa_2.0_spec</artifactId>  
-	</dependency> -->
-
+  	<!-- Unified Expression Language (JSF) -->
 	<dependency>
 		<groupId>javax.el</groupId>
 		<artifactId>el-api</artifactId>
-		<version>2.2</version> 
 	</dependency>    
         
 	<dependency>
@@ -78,8 +68,7 @@
 		<artifactId>commons-validator</artifactId>
 	</dependency>
         
-        
-            
+                    
 	<!-- Paypal -->		  	
     <dependency>
     	<groupId>com.paypal.sdk</groupId>
@@ -130,10 +119,6 @@
 		<artifactId>appengine-api-1.0-sdk</artifactId>
 		<version>${gae.version}</version>
 	</dependency>
-	<!-- <dependency>
-		<groupId>javax.jdo</groupId>
-		<artifactId>jdo-api</artifactId>
-	</dependency>  -->
       
         
 	<dependency>
@@ -141,19 +126,7 @@
 		<artifactId>commons-lang3</artifactId>
 	</dependency>
 		
-		
-	<!--  Spring -->				
-<!-- 	<dependency>                         
-		<groupId>org.springframework</groupId> 
-		<artifactId>spring-webmvc</artifactId>                                       
-	</dependency> -->
-
-	<!--  JSF 
-	<dependency>
-		<groupId>org.glassfish</groupId>
-		<artifactId>javax.faces</artifactId>
-	</dependency> -->
-	
+		<!--  JSF (Mojarra) -->
 	 	<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -163,7 +136,7 @@
 			<artifactId>jsf-impl</artifactId>
 		</dependency>
 	 
-	 	<!-- Canals -->
+	 	<!-- Canals (twitter, RSS,...)-->
 		<dependency>
 			<groupId>org.twitter4j</groupId>
 			<artifactId>twitter4j-appengine</artifactId>
@@ -177,26 +150,26 @@
 				</exclusion>
 			</exclusions>
 		</dependency>  
-		
+
         <dependency>
         	<groupId>rss4j</groupId>
         	<artifactId>rss4j</artifactId>
         	<version>0.92</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
         </dependency>	
         
-        
+        <!-- Java API for Microsoft Documents -->
         <dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>${poi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>${poi.version}</version>
 		</dependency>	
+		
+		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
+		(e.g. java.util.logging, logback, log4j) 
+		allowing the end user to plug in the desired logging framework at deployment time. -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -211,7 +184,7 @@
             <artifactId>gson</artifactId>
             <version>2.3</version>
         </dependency>	
-<dependency>
+		<dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>        
