@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"    
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">    
+ 
+	<persistence-unit name="transactions-optional">        
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+		<class>com.degloba.organisation.domain.Party</class>
+		<class>com.degloba.organisation.domain.Accountability</class>
+		<class>com.degloba.organisation.domain.Email</class>
+		<class>com.degloba.organisation.domain.Employee</class>
+		<class>com.degloba.organisation.domain.Person</class>
+		<class>com.degloba.organisation.domain.Organization</class>
+		<class>com.degloba.organisation.domain.Post</class>
+		<class>com.degloba.organisation.domain.PostHolding</class>
+		<class>com.degloba.organisation.domain.OrgLineMgmt</class>
+		<class>com.degloba.organisation.domain.PersonName</class>
+		<class>com.degloba.organisation.domain.Job</class>
+		<class>com.degloba.organisation.domain.Address</class>
+		<class>com.degloba.organisation.domain.Company</class>
+		<class>com.degloba.organisation.domain.Department</class>
+		<class>com.degloba.organisation.domain.Employment</class>
+		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
+		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
+		<class>com.degloba.casino.enviaments.Enviament</class>
+		<class>com.degloba.casino.vendes.ProducteData</class>
+		<class>com.degloba.casino.clients.Client</class>
+		<class>com.degloba.casino.compres.Compra</class>
+		<class>com.degloba.casino.compres.CompraItem</class>
+		<class>com.degloba.casino.clients.Empresa</class>
+		<class>com.degloba.casino.vendes.Pagament</class>
+		<class>com.degloba.domain.sharedkernel.Money</class>
+		<class>com.degloba.casino.hotel.Hotel</class>
+		<class>com.degloba.casino.hotel.Booking</class>
+		<class>com.degloba.casino.hotel.User</class>
+				
+		
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>            
+			<property name="datanucleus.NontransactionalRead" value="true"/>            
+			<property name="datanucleus.NontransactionalWrite" value="false"/>            
+			<property name="datanucleus.ConnectionURL" value="googlestorage"/>  			
+			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	
+			<!-- <property name="datanucleus.storeManagerType" value="transactions-optional" /> 	 -->
+			      
+		</properties>    
+	</persistence-unit>
+	
+ 	<persistence-unit name="mongodb">
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+		<class>com.degloba.boundedContext.domain.Person</class> 
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>  
+            <!-- <property name="javax.persistence.jdbc.url" value="mongodb://ds039960.mongolab.com:39960/degloba"/>   
+            <property name="javax.persistence.jdbc.url" value="mongodb://localhost/test"/>  
+            <property name="datanucleus.schema.autoCreateAll" value="true"/>
+            <property name="datanucleus.schema.validateTables" value="false"/>
+            <property name="datanucleus.schema.validateConstraints" value="false"/> -->
+          
+            
+            <property name="datanucleus.ConnectionURL" value="mongodb:/local"/>  
+            <property name="datanucleus.storeManagerType" value="mongodb" />  
+           	<property name="datanucleus.autoCreateSchema" value="true" />  
+        
+        </properties>  	
+	</persistence-unit> 
+	
+</persistence>
