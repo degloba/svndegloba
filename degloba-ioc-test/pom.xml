@@ -12,16 +12,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <scope>compile</scope>
         </dependency>
         
         <!-- afegit pere -->
          <dependency>
-            <groupId>com.degloba</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>

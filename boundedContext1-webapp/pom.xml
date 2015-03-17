@@ -213,22 +213,22 @@
 				
 		<!-- Referencies Llibreries -->			
 		<dependency>
-			<groupId>com.degloba</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-cqrs</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.degloba</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-domain</artifactId>		
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>	 	
 		<dependency>
-			<groupId>com.degloba</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
 		</dependency>	
  		 <dependency>
-		 	<groupId>com.degloba</groupId>
+		 	<groupId>${project.groupId}</groupId>
 		 	<artifactId>degloba-persistence-datanucleus</artifactId>
 		 	<version>4.4.3-SNAPSHOT</version>
 		</dependency> 
@@ -238,7 +238,7 @@
          <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
-			<version>3.1.3</version>
+			<version>${datanucleus.jpa.version}</version>
 		</dependency>  
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
@@ -251,8 +251,6 @@
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-json</artifactId>
-			<type>jar</type>
-			<scope>compile</scope>
 		</dependency> 
                    
 <!--                    
@@ -293,7 +291,6 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
 		</dependency>
 	 
     </dependencies>

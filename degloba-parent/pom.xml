@@ -13,6 +13,9 @@
 	<slf4j.version>1.7.10</slf4j.version>
 	<jdk.version>1.7</jdk.version>
 	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
+	<mojarra.version>2.1.7</mojarra.version>
+	<uel.version>2.2</uel.version>
+	<poi.version>3.9</poi.version>
 </properties>
   
 <repositories>   
@@ -26,30 +29,30 @@
 		<url>http://www.datanucleus.org/downloads/maven2/</url>         
 	</repository>  
 	<repository>             
-       		<id>google-maven-repo</id>             
-       		<name>Google Maven Repository</name>             
-       		<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
+		<id>google-maven-repo</id>             
+       	<name>Google Maven Repository</name>             
+       	<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
 	</repository>
        	
  	<repository>
-            <id>dayatang-releases</id>
-            <url>http://nexus.dayatang.org/content/groups/public-release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+        <id>dayatang-releases</id>
+        <url>http://nexus.dayatang.org/content/groups/public-release</url>
+        <releases>
+        	<enabled>true</enabled>
+		</releases>
+        <snapshots>
+        	<enabled>false</enabled>
+		</snapshots>
 	</repository>
     <repository>
-            <id>dayatang-snapshots</id>
-            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+        <id>dayatang-snapshots</id>
+        <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
+        <releases>
+        	<enabled>false</enabled>
+		</releases>
+        <snapshots>
+        	<enabled>true</enabled>
+		</snapshots>
     </repository>       	
 </repositories>  
       
@@ -94,58 +97,27 @@
 
        
 <dependencyManagement>
-       
+
+	<!--  Spring -->
 	<dependencies>
-	
-	<!-- <dependency>            
-		<groupId>org.springframework</groupId>            
-		<artifactId>spring-framework-bom</artifactId>            
-		<version>${spring.version}</version>            
-		<type>pom</type>            
-		<scope>import</scope>        
-	</dependency> -->
-       
-       <!--  Spring -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-        </dependency>       
-		<dependency>
-			<groupId>org.springframework</groupId> 
-			<artifactId>spring-web</artifactId>                         
-			<version>${spring.version}</version>                 
-		</dependency>            
-		<dependency>                         
-			<groupId>org.springframework</groupId> 
-			<artifactId>spring-webmvc</artifactId>                         
-			<version>${spring.version}</version>                 
-		</dependency>                 
-		<dependency>                         
-			<groupId>org.springframework</groupId>                         
-			<artifactId>spring-tx</artifactId>                         
-			<version>${spring.version}</version>                 
-		</dependency>                 
-		<dependency>                         
-			<groupId>org.springframework</groupId>                         
-			<artifactId>spring-orm</artifactId>                         
-			<version>${spring.version}</version>                 
-		</dependency> 		
-		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>             
-        </dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>  
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+		</dependency>
+       		
 		<dependency>                         
 			<groupId>org.springframework.webflow</groupId> 
 			<artifactId>spring-faces</artifactId>   	
 			<version>${springwebflow.version}</version>		                                 
 		</dependency> 
+		<dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-binding</artifactId>
+             <version>${springwebflow.version}</version>
+        </dependency>
 		<dependency>
 		 	<groupId>org.springframework.data</groupId>
 		 	<artifactId>spring-data-mongodb</artifactId>
@@ -196,17 +168,17 @@
 		<!--  The Guava project contains several of Google's core libraries that we rely on in our Java-based projects: 
 		collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, and so forth. -->
 		<dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>14.0</version>
-            </dependency>
+			<groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>14.0</version>
+		</dependency>
             
             
-            <dependency>
-                <groupId>commons-dbcp</groupId>
-                <artifactId>commons-dbcp</artifactId>
-                <version>1.4</version>
-            </dependency> 
+        <dependency>
+        	<groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+		</dependency> 
         
         
         <!-- DataNucleus v2 -->
@@ -230,12 +202,8 @@
 			<artifactId>datanucleus-api-jpa</artifactId>			
             <version>${datanucleus.jpa.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-core</artifactId>
-			<version>${datanucleus.jpa.version}</version>
-			<scope>runtime</scope>
-		</dependency>  -->
+		
+		
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -264,12 +232,12 @@
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>2.1.7</version>
+			<version>${mojarra.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.1.7</version>
+			<version>${mojarra.version}</version>
 		</dependency>  
 				
 		
@@ -284,8 +252,12 @@
 			<artifactId>jboss-el</artifactId>
 			<version>1.0_02.CR6</version>
 		</dependency>-->
-		
-		
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>${uel.version}</version> 
+		</dependency> 
+				
 		
 		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
 		(e.g. java.util.logging, logback, log4j) 
@@ -309,23 +281,18 @@
 		</dependency>
 		
 		<dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.11</version>
-                <scope>test</scope>
-            </dependency>
+			<groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+			<version>4.11</version>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>1.9.5</version>
-                <scope>test</scope>
-            </dependency>    
-            
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>el-api</artifactId>
-			<version>2.2</version> 
-		</dependency>         
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+		</dependency>    
+                   
 	
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -344,13 +311,53 @@
 	    	<artifactId>javassist</artifactId>
 	    	<version>3.12.1.GA</version>
 	    </dependency>
+	    
+	    <!-- Java API for Microsoft Documents -->
+	    <dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>			
+		</dependency>	
 			
 	</dependencies>
 	
 	
-	</dependencyManagement>
+</dependencyManagement>
 	
 	<dependencies>
+	
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>			
+        </dependency>       		       
+		<dependency>                         
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>                         			            
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-tx</artifactId>                         			              
+		</dependency>                 
+		<dependency>                         
+			<groupId>org.springframework</groupId>                         
+			<artifactId>spring-orm</artifactId>                         			            
+		</dependency> 		
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>            
+        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>			
+		</dependency>  
+
+		 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

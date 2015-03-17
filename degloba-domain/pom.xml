@@ -8,7 +8,7 @@
     </parent>
     <artifactId>degloba-domain</artifactId>
     <packaging>jar</packaging>
-    <name>DDDLib API Interfaces and Base Classes</name>
+    <name>API Interfaces and Base Classes</name>
     <description>
         El mòdul més important, proporciona les interfícies centrals i les classes base 
         Es basa en el desenvolupament de DDD.
@@ -45,11 +45,11 @@
             <version>2.3</version>
         </dependency>
         
+        <!-- Spring -->
 	 	<dependency>                         
 			<groupId>org.springframework</groupId>                         
 			<artifactId>spring-context</artifactId>                                        
 		</dependency>  
-  
 		<dependency>                         
 			<groupId>org.springframework</groupId>                         
 			<artifactId>spring-tx</artifactId>                                        
@@ -61,9 +61,9 @@
 			<artifactId>jdo-api</artifactId>
 		</dependency>
                     
-		<!-- llibreries -->                          
+		<!-- Llibreries degloba -->                        
 		<dependency>
-           	<groupId>com.degloba</groupId>
+           	<groupId>${project.groupId}</groupId>
            	<artifactId>degloba-utilitats</artifactId>
            	<version>0.0.3-SNAPSHOT</version>
 		</dependency>
