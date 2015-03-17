@@ -28,3 +28,333 @@
 18:22:41,986 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
 18:22:41,988 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
 18:22:41,990 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=2844 ms, enhance=376 ms, total=3220 ms. Consult the log for full details
+19:03:44,867 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:03:45,373 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:03:45,636 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:03:45,637 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:03:48,919 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\AbstractEntity.class" with enhanced definition
+19:03:48,939 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\BaseAggregateRoot.class" with enhanced definition
+19:03:48,994 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\BaseEntity.class" with enhanced definition
+19:03:49,026 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\canonicalmodel\publishedlanguage\AggregateId.class" with enhanced definition
+19:03:49,049 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\canonicalmodel\publishedlanguage\ClientData.class" with enhanced definition
+19:03:49,067 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\event\StoredEvent.class" with enhanced definition
+19:03:49,083 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\LegacyEntity.class" with enhanced definition
+19:03:49,107 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\sharedkernel\Money.class" with enhanced definition
+19:03:49,125 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\sharedkernel\Probability.class" with enhanced definition
+19:03:49,144 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\degloba\git\svndegloba\degloba-domain\target\classes\com\degloba\domain\Value.class" with enhanced definition
+19:03:49,162 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=3456 ms, enhance=330 ms, total=3786 ms. Consult the log for full details
+19:03:49,614 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:03:49,782 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:03:49,876 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:03:49,877 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:03:50,347 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:03:50,348 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:03:50,389 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:03:50,393 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:03:50,397 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:03:50,398 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:03:50,400 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:03:50,402 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:03:50,404 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:03:50,406 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:03:50,407 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=542 ms, enhance=80 ms, total=622 ms. Consult the log for full details
+19:05:48,874 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:05:49,151 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:05:49,303 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:05:49,304 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:05:49,968 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:05:49,974 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:05:50,086 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:05:50,089 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:05:50,093 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:05:50,095 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:05:50,097 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:05:50,101 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:05:50,105 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:05:50,108 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:05:50,110 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=751 ms, enhance=205 ms, total=956 ms. Consult the log for full details
+19:05:51,012 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:05:51,665 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:05:51,989 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:05:51,990 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:05:53,200 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:05:53,202 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:05:53,270 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:05:53,274 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:05:53,278 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:05:53,280 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:05:53,281 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:05:53,301 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:05:53,303 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:05:53,305 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:05:53,306 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=1471 ms, enhance=168 ms, total=1639 ms. Consult the log for full details
+19:10:42,963 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:10:43,331 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:10:43,446 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:10:43,446 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:10:43,955 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:10:43,956 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:10:43,987 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:10:43,989 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:10:43,992 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:10:43,995 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:10:43,996 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:10:43,997 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:10:43,998 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:10:44,000 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:10:44,000 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=601 ms, enhance=67 ms, total=668 ms. Consult the log for full details
+19:10:44,379 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:10:44,538 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:10:44,632 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:10:44,633 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:10:45,076 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:10:45,077 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:10:45,106 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:10:45,108 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:10:45,111 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:10:45,112 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:10:45,114 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:10:45,115 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:10:45,117 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:10:45,119 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:10:45,119 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=514 ms, enhance=65 ms, total=579 ms. Consult the log for full details
+19:11:57,029 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:11:57,385 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:11:57,489 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:11:57,490 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:11:57,977 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:11:57,978 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:11:58,007 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:11:58,009 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:11:58,011 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:11:58,014 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:11:58,015 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:11:58,016 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:11:58,018 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:11:58,019 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:11:58,020 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=568 ms, enhance=64 ms, total=632 ms. Consult the log for full details
+19:11:58,414 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:11:58,588 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:11:58,686 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:11:58,687 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:11:59,125 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:11:59,126 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:11:59,155 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:11:59,157 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:11:59,159 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:11:59,162 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:11:59,163 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:11:59,165 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:11:59,167 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:11:59,168 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:11:59,168 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=514 ms, enhance=65 ms, total=579 ms. Consult the log for full details
+19:13:55,778 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:13:56,317 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:13:56,432 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:13:56,434 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:13:56,914 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:13:56,916 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:13:56,944 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:13:56,947 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:13:56,950 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:13:56,952 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:13:56,953 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:13:56,954 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:13:56,956 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:13:56,957 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:13:56,958 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=574 ms, enhance=65 ms, total=639 ms. Consult the log for full details
+19:13:57,329 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:13:57,483 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:13:57,576 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:13:57,576 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:13:58,029 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:13:58,030 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:13:58,061 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:13:58,063 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:13:58,065 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:13:58,068 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:13:58,069 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:13:58,071 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:13:58,073 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:13:58,074 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:13:58,075 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=524 ms, enhance=67 ms, total=591 ms. Consult the log for full details
+19:15:11,627 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:15:11,993 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:15:12,101 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:15:12,102 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:15:12,590 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:15:12,591 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:15:12,620 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:15:12,622 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:15:12,625 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:15:12,626 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:15:12,627 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:15:12,629 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:15:12,630 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:15:12,631 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:15:12,632 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=574 ms, enhance=63 ms, total=637 ms. Consult the log for full details
+19:15:13,009 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:15:13,166 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:15:13,260 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:15:13,261 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:15:13,710 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:15:13,712 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:15:13,741 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:15:13,743 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:15:13,745 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:15:13,748 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:15:13,749 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:15:13,751 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:15:13,752 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:15:13,754 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:15:13,754 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=520 ms, enhance=67 ms, total=587 ms. Consult the log for full details
+19:16:46,060 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:16:46,289 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:16:46,410 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:16:46,411 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:16:46,920 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:16:46,922 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:16:46,952 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:16:46,954 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:16:46,957 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:16:46,959 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:16:46,960 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:16:46,961 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:16:46,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:16:46,964 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:16:46,965 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=608 ms, enhance=66 ms, total=674 ms. Consult the log for full details
+19:16:47,348 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:16:47,505 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:16:47,604 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:16:47,605 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:16:48,258 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:16:48,259 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:16:48,292 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:16:48,295 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:16:48,297 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:16:48,300 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:16:48,301 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:16:48,303 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:16:48,305 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:16:48,306 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:16:48,306 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=725 ms, enhance=74 ms, total=799 ms. Consult the log for full details
+19:18:34,844 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:18:35,061 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:18:35,196 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:18:35,197 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:18:35,764 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:18:35,765 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:18:35,797 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:18:35,805 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:18:35,808 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:18:35,809 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:18:35,810 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:18:35,812 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:18:35,813 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:18:35,815 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:18:35,815 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=680 ms, enhance=73 ms, total=753 ms. Consult the log for full details
+19:18:36,222 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:18:36,387 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:18:36,483 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:18:36,484 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:18:36,961 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:18:36,962 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:18:37,009 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:18:37,011 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:18:37,013 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:18:37,017 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:18:37,019 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:18:37,023 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:18:37,025 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:18:37,027 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:18:37,028 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=551 ms, enhance=88 ms, total=639 ms. Consult the log for full details
+19:21:25,547 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:21:25,878 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:21:25,996 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:21:25,997 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:21:26,493 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:21:26,495 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:21:26,524 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:21:26,526 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:21:26,528 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:21:26,531 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:21:26,532 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:21:26,533 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:21:26,534 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:21:26,536 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:21:26,537 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=591 ms, enhance=65 ms, total=656 ms. Consult the log for full details
+19:21:26,910 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:21:27,085 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:21:27,181 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:21:27,182 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:21:27,690 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:21:27,692 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:21:27,736 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:21:27,738 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:21:27,741 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:21:27,743 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:21:27,744 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:21:27,747 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:21:27,748 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:21:27,749 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:21:27,750 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=579 ms, enhance=84 ms, total=663 ms. Consult the log for full details
+19:22:29,555 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:22:29,897 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:22:30,020 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:22:30,020 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:22:30,504 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:22:30,505 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:22:30,533 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:22:30,536 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:22:30,538 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:22:30,540 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:22:30,541 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:22:30,542 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:22:30,543 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:22:30,545 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:22:30,545 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=584 ms, enhance=63 ms, total=647 ms. Consult the log for full details
+19:22:30,906 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:22:31,066 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:22:31,163 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:22:31,163 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:22:31,594 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:22:31,596 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:22:31,624 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:22:31,627 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:22:31,629 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:22:31,631 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:22:31,632 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:22:31,634 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:22:31,636 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:22:31,637 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:22:31,638 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=506 ms, enhance=64 ms, total=570 ms. Consult the log for full details
+19:22:55,497 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:22:55,829 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:22:55,935 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:22:55,936 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:22:56,419 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:22:56,421 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:22:56,466 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:22:56,468 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:22:56,470 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:22:56,475 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:22:56,476 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:22:56,479 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:22:56,480 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:22:56,482 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:22:56,483 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=549 ms, enhance=104 ms, total=653 ms. Consult the log for full details
+19:22:56,847 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:22:57,015 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:22:57,112 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:22:57,113 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:22:57,617 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.AbstractEntity" is already enhanced.
+19:22:57,619 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseAggregateRoot" is already enhanced.
+19:22:57,649 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.BaseEntity" is already enhanced.
+19:22:57,651 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:22:57,654 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:22:57,656 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.event.StoredEvent" is already enhanced.
+19:22:57,658 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.LegacyEntity" is already enhanced.
+19:22:57,661 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Money" is already enhanced.
+19:22:57,663 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.sharedkernel.Probability" is already enhanced.
+19:22:57,665 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.domain.Value" is already enhanced.
+19:22:57,666 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 10 classes. Timings : input=580 ms, enhance=69 ms, total=649 ms. Consult the log for full details
