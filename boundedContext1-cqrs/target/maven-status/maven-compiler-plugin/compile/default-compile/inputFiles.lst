@@ -1,2 +1,5 @@
-D:\workspace\boundedContext1-application\src\main\java\com\degloba\organisation\application\impl\OrganisationApplicationImpl.java
-D:\workspace\boundedContext1-application\src\main\java\com\degloba\organisation\application\OrganisationApplication.java
+D:\workspace\boundedContext1-cqrs\src\main\java\com\degloba\enviaments\application\readmodel\EnviamentDto.java
+D:\workspace\boundedContext1-cqrs\src\main\java\com\degloba\enviaments\application\api\commands\LliuramentEnviamentCommand.java
+D:\workspace\boundedContext1-cqrs\src\main\java\com\degloba\enviaments\application\readmodel\IEnviamentFinder.java
+D:\workspace\boundedContext1-cqrs\src\main\java\com\degloba\enviaments\application\api\commands\EnviarEnviamentCommand.java
+D:\workspace\boundedContext1-cqrs\src\main\java\com\degloba\enviaments\application\readmodel\impl\JpaEnviamentFinder.java

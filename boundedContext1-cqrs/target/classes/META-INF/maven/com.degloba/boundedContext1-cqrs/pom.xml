@@ -12,27 +12,31 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
     <dependencies>
+        	
         <dependency>
-            <groupId>com.degloba</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>4.4.3-SNAPSHOT</version>
         </dependency>
+        
+        <!-- Llibreries degloba -->
 		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.degloba</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-cqrs</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
+		<!-- <dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-infrastructure</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency> -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>degloba-persistence-datanucleus</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
     </dependencies>
+    
 </project>
