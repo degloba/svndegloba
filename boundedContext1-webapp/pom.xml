@@ -233,25 +233,6 @@
 		 	<version>4.4.3-SNAPSHOT</version>
 		</dependency> 
 	
-	
-        <!-- JPA -->
-         <dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-core</artifactId>
-			<version>${datanucleus.jpa.version}</version>
-		</dependency>  
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-		</dependency>		
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-json</artifactId>
-		</dependency> 
                    
 <!--                    
                    <dependency>
