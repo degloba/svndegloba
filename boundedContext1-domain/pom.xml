@@ -138,19 +138,8 @@
             <artifactId>derby</artifactId>
             <version>10.10.2.0</version>
         </dependency> -->
-        		
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-		</dependency>
-
- 			        
+			        
     </dependencies>
-    
     
     <build>
     

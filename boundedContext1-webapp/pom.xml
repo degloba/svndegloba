@@ -149,10 +149,10 @@
             <scope>runtime</scope>
         </dependency> -->
         
-		<dependency>
+<!-- 		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>            
-        </dependency>
+        </dependency> -->
 		<dependency>                         
 			<groupId>org.springframework.webflow</groupId> 
 			<artifactId>spring-faces</artifactId>  					                               
@@ -199,11 +199,6 @@
 		
 				
 		<!-- Referencies Llibreries -->			
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>degloba-cqrs</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-domain</artifactId>		
