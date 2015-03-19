@@ -13,6 +13,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
       	
+      	
+<dependencies>
+  
+	<dependency>                         
+	    <groupId>javax.inject</groupId>                         
+	    <artifactId>javax.inject</artifactId>                         
+	</dependency> 
+
+</dependencies>
+      	
 	<build>
 	
 		<plugins>
@@ -23,15 +33,5 @@
 		</plugins>
       	
 	</build>
-	
-	
-<dependencies>
-  
-	<dependency>                         
-    <groupId>javax.inject</groupId>                         
-    <artifactId>javax.inject</artifactId>                         
-	</dependency> 
-
-</dependencies>
-	
+		
 </project>
