@@ -13,7 +13,7 @@
     
     	<!-- Llibreries degloba -->
         <dependency>
-            <groupId>com.degloba</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
