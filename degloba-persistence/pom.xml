@@ -8,14 +8,14 @@
     </parent> 
     <artifactId>degloba-persistence</artifactId>
     <packaging>pom</packaging>
-    <name>DDDLib Persistence API implementes</name>
+    <name>Implementa el API de Persistencia</name>
     <description>
-        DDDLib仓储接口实现。
+        Interfaz de almacenamiento 
     </description>
 
     <dependencies>
         <dependency>
-            <groupId>com.degloba</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
