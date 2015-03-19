@@ -34,52 +34,21 @@
         
         <!-- Llibreries degloba -->
         <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-domain</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
-            <exclusions>
-            	<exclusion>
-            		<artifactId>spring-beans</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>spring-context</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>spring-tx</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-            	
-            </exclusions>
+            <scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-domain</artifactId>
+            <version>${project.version}</version>     
         </dependency>
 		<dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
-            <scope>test</scope>
-            <exclusions>
-            	<exclusion>
-            		<artifactId>spring-context</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>spring-test</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>spring-tx</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>  
-				<exclusion>
-            		<artifactId>spring-beans</artifactId>
-            		<groupId>org.springframework</groupId>
-            	</exclusion>
-				<exclusion>
-					<artifactId>spring-binding</artifactId>
-					<groupId>org.springframework.webflow</groupId>
-				</exclusion>
-            </exclusions>
+            <scope>test</scope>           
          </dependency>         
 
 
@@ -104,18 +73,29 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-        </dependency>        
+            <scope>test</scope>
+        </dependency>       
+          <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
+            <scope>test</scope>
         </dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>        
         
+         <!-- Spring Webflow -->  
         <dependency>
         	<artifactId>spring-binding</artifactId>
             <groupId>org.springframework.webflow</groupId>
 		</dependency>
-        
-        <!-- Spring Webflow -->        
          
          <dependency>
             <groupId>commons-dbcp</groupId>
