@@ -17,6 +17,6 @@
 
 	<mvc:view-controller path="/home" />
 	
-	<context:component-scan base-package="com.degloba.boundedContext.ui.webui.spring.webflow" />
+	<context:component-scan base-package="com.degloba.boundedContext.ui.webui.spring" />
 	 
 </beans>
