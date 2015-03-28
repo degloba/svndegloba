@@ -1,0 +1,216 @@
+18:22:24,429 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:22:25,251 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:22:25,719 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:22:25,720 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:22:26,863 (main) ERROR [DataNucleus.MetaData] - Class "com.degloba.casino.clients.infrastructure.JpaEmpresaRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+org.datanucleus.exceptions.ClassNotResolvedException: Class "com.degloba.casino.clients.infrastructure.JpaEmpresaRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:245)
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:410)
+	at org.datanucleus.metadata.MetaDataManager.loadClasses(MetaDataManager.java:490)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:734)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:525)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1258)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.executeInJvm(AbstractDataNucleusMojo.java:333)
+	at org.datanucleus.maven.AbstractEnhancerMojo.enhance(AbstractEnhancerMojo.java:259)
+	at org.datanucleus.maven.AbstractEnhancerMojo.executeDataNucleusTool(AbstractEnhancerMojo.java:72)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.execute(AbstractDataNucleusMojo.java:126)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+18:22:27,022 (main) ERROR [DataNucleus.MetaData] - Class "com.degloba.casino.enviaments.infrastructure.JpaEnviamentRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+org.datanucleus.exceptions.ClassNotResolvedException: Class "com.degloba.casino.enviaments.infrastructure.JpaEnviamentRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:245)
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:410)
+	at org.datanucleus.metadata.MetaDataManager.loadClasses(MetaDataManager.java:490)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:734)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:525)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1258)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.executeInJvm(AbstractDataNucleusMojo.java:333)
+	at org.datanucleus.maven.AbstractEnhancerMojo.enhance(AbstractEnhancerMojo.java:259)
+	at org.datanucleus.maven.AbstractEnhancerMojo.executeDataNucleusTool(AbstractEnhancerMojo.java:72)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.execute(AbstractDataNucleusMojo.java:126)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+18:22:27,674 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\clients\Client.class" with enhanced definition
+18:22:27,764 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\clients\Empresa.class" with enhanced definition
+18:22:27,832 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\compres\Compra.class" with enhanced definition
+18:22:27,869 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\compres\CompraItem.class" with enhanced definition
+18:22:27,931 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\enviaments\Enviament.class" with enhanced definition
+18:22:28,101 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\hotel\Booking.class" with enhanced definition
+18:22:28,233 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\hotel\Hotel.class" with enhanced definition
+18:22:28,389 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\hotel\User.class" with enhanced definition
+18:22:28,419 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\vendes\Pagament.class" with enhanced definition
+18:22:28,503 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\casino\vendes\ProducteData.class" with enhanced definition
+18:22:28,620 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Accountability.class" with enhanced definition
+18:22:28,677 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Address.class" with enhanced definition
+18:22:28,750 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Company.class" with enhanced definition
+18:22:28,816 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Department.class" with enhanced definition
+18:22:28,889 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Email.class" with enhanced definition
+18:22:28,973 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Employee.class" with enhanced definition
+18:22:29,152 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\EmployeeArchieve.class" with enhanced definition
+18:22:29,215 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Employment.class" with enhanced definition
+18:22:29,234 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Job.class" with enhanced definition
+18:22:29,255 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Organization.class" with enhanced definition
+18:22:29,279 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\OrgLineMgmt.class" with enhanced definition
+18:22:29,343 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Party.class" with enhanced definition
+18:22:29,435 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Person.class" with enhanced definition
+18:22:29,467 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PersonEducationInfo.class" with enhanced definition
+18:22:29,556 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PersonName.class" with enhanced definition
+18:22:29,595 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Post.class" with enhanced definition
+18:22:29,667 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\workspace\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PostHolding.class" with enhanced definition
+18:22:29,688 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 27 classes. Timings : input=2248 ms, enhance=2187 ms, total=4435 ms. Consult the log for full details
+18:22:30,811 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:22:31,235 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:22:31,566 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:22:31,568 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:22:32,535 (main) ERROR [DataNucleus.MetaData] - Class "com.degloba.casino.clients.infrastructure.JpaEmpresaRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+org.datanucleus.exceptions.ClassNotResolvedException: Class "com.degloba.casino.clients.infrastructure.JpaEmpresaRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:245)
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:410)
+	at org.datanucleus.metadata.MetaDataManager.loadClasses(MetaDataManager.java:490)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:734)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:525)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1258)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.executeInJvm(AbstractDataNucleusMojo.java:333)
+	at org.datanucleus.maven.AbstractEnhancerMojo.enhance(AbstractEnhancerMojo.java:259)
+	at org.datanucleus.maven.AbstractEnhancerMojo.executeDataNucleusTool(AbstractEnhancerMojo.java:72)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.execute(AbstractDataNucleusMojo.java:126)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+18:22:32,741 (main) ERROR [DataNucleus.MetaData] - Class "com.degloba.casino.enviaments.infrastructure.JpaEnviamentRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+org.datanucleus.exceptions.ClassNotResolvedException: Class "com.degloba.casino.enviaments.infrastructure.JpaEnviamentRepository" was not found in the CLASSPATH. Please check your specification and your CLASSPATH.
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:245)
+	at org.datanucleus.JDOClassLoaderResolver.classForName(JDOClassLoaderResolver.java:410)
+	at org.datanucleus.metadata.MetaDataManager.loadClasses(MetaDataManager.java:490)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:734)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:525)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1258)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.executeInJvm(AbstractDataNucleusMojo.java:333)
+	at org.datanucleus.maven.AbstractEnhancerMojo.enhance(AbstractEnhancerMojo.java:259)
+	at org.datanucleus.maven.AbstractEnhancerMojo.executeDataNucleusTool(AbstractEnhancerMojo.java:72)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.execute(AbstractDataNucleusMojo.java:126)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+18:22:33,449 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.clients.Client" is already enhanced.
+18:22:33,459 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.clients.Empresa" is already enhanced.
+18:22:33,481 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.compres.Compra" is already enhanced.
+18:22:33,482 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.compres.CompraItem" is already enhanced.
+18:22:33,486 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.enviaments.Enviament" is already enhanced.
+18:22:33,679 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.hotel.Booking" is already enhanced.
+18:22:33,682 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.hotel.Hotel" is already enhanced.
+18:22:33,684 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.hotel.User" is already enhanced.
+18:22:33,688 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.vendes.Pagament" is already enhanced.
+18:22:33,690 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.casino.vendes.ProducteData" is already enhanced.
+18:22:33,693 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+18:22:33,696 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+18:22:33,698 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+18:22:33,792 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+18:22:33,794 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+18:22:33,796 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+18:22:33,800 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+18:22:33,803 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+18:22:33,805 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+18:22:33,810 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+18:22:33,814 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+18:22:33,815 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+18:22:33,817 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+18:22:33,820 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+18:22:33,825 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+18:22:33,827 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+18:22:33,828 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+18:22:33,829 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 27 classes. Timings : input=2116 ms, enhance=476 ms, total=2592 ms. Consult the log for full details
