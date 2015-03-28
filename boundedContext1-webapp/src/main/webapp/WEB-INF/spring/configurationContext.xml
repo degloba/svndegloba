@@ -51,9 +51,7 @@
 	 </bean> -->
 	 
 
-	<!-- 2. REPOSITORIS -->
- 	<!-- <bean id="modalpanelRepository" class="com.degloba.casino.modalpanel.infrastructure.JpaModalpanelRepository" />  
- 	 -->
+		
 
 		
 	<!-- 3. SERVEIS DE DOMINI -->
@@ -70,12 +68,15 @@
 	<!-- 6. EVENT PUBLISHER 
  	<bean id="domainEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" /> -->
 	
+	<!-- 2. REPOSITORIS -->
+ 	 <bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />  
+ 
 		
 	<!-- 7. FINDERS -->		
 	<bean id="jpaEnviamentFinder" class="com.degloba.enviaments.application.readmodel.impl.JpaEnviamentFinder"/>
 	 
 	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl">
-	<property name="repository"></property>
+	<property name="repository" ref="repository"></property>
 	</bean>  
 	 
 	<bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
