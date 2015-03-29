@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.degloba.domain.BaseQuery;
@@ -21,8 +22,10 @@ import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.QueryParameters;
 import com.degloba.domain.SqlQuery;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * 通用仓储接口的JPA实现。
@@ -41,8 +44,13 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     
     private EntityManagerProvider entityManagerProvider;
 
+    
+    @PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactory")
+    protected EntityManager entityManager;
+    
     public EntityRepositoryJpa() {
-        entityManagerProvider = new EntityManagerProvider();
+        //entityManagerProvider = new EntityManagerProvider();
     }
 
     public EntityRepositoryJpa(EntityManager entityManager) {
@@ -71,19 +79,19 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 		this.namedQueryParser = namedQueryParser;
 	}
 
-	EntityManager getEntityManager() {
-        return entityManagerProvider.getEntityManager();
-    }
+/*	EntityManager entityManager {
+        return entityManagerProvider.entityManager;
+    }*/
 
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> T save(T entity) {
         if (entity.notExisted()) {
-            getEntityManager().persist(entity);
+            entityManager.persist(entity);
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
         }
-        T result = getEntityManager().merge(entity);
+        T result = entityManager.merge(entity);
         LOGGER.info("update a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
         return result;
@@ -97,7 +105,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      */
     @Override
     public void remove(com.degloba.domain.seedwork.Entity entity) {
-        getEntityManager().remove(get(entity.getClass(), entity.getId()));
+    	entityManager.remove(get(entity.getClass(), entity.getId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
     }
@@ -110,7 +118,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> boolean exists(final Class<T> clazz,
                                              final Long id) {
-        T entity = getEntityManager().find(clazz, id);
+        T entity = entityManager.find(clazz, id);
         return entity != null;
     }
 
@@ -121,11 +129,11 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      */
 /*    @Override
     public <T extends Entity> T get(final Class<T> clazz, final Serializable id) {
-        return getEntityManager().find(clazz, id);
+        return entityManager.find(clazz, id);
     }*/
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> T get(final Class<T> clazz, final Long id) {
-        return getEntityManager().find(clazz, id);
+        return entityManager.find(clazz, id);
     }
 
     /*
@@ -135,13 +143,13 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      */
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> T load(final Class<T> clazz, final Serializable id) {
-        return getEntityManager().getReference(clazz, id);
+        return entityManager.getReference(clazz, id);
     }
 
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(final Class<T> clazz,
                                               final T entity) {
-        getEntityManager().detach(entity);
+        entityManager.detach(entity);
         return get(clazz, entity.getId());
     }
 
@@ -154,7 +162,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(final Class<T> clazz) {
         String queryString = "select o from " + clazz.getName() + " as o";
-        return getEntityManager().createQuery(queryString).getResultList();
+        return entityManager.createQuery(queryString).getResultList();
     }
 
     @Override
@@ -164,7 +172,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 
     @Override
     public <T> List<T> find(CriteriaQuery criteriaQuery) {
-        Query query = getEntityManager().createQuery(criteriaQuery.getQueryString());
+        Query query = entityManager.createQuery(criteriaQuery.getQueryString());
         processQuery(query, criteriaQuery.getParameters(), 
                 criteriaQuery.getFirstResult(), criteriaQuery.getMaxResults());
         return query.getResultList();
@@ -202,7 +210,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     private Query getQuery(JpqlQuery jpqlQuery) {
-        Query query = getEntityManager().createQuery(jpqlQuery.getJpql());
+        Query query = entityManager.createQuery(jpqlQuery.getJpql());
         processQuery(query, jpqlQuery);
         return query;
     }
@@ -232,7 +240,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     private Query getQuery(NamedQuery namedQuery) {
-        Query query = getEntityManager().createNamedQuery(namedQuery.getQueryName());
+        Query query = entityManager.createNamedQuery(namedQuery.getQueryName());
         processQuery(query, namedQuery);
         return query;
     }
@@ -264,9 +272,9 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 	private Query getQuery(SqlQuery sqlQuery) {
         Query query;
         if (sqlQuery.getResultEntityClass() == null) {
-            query = getEntityManager().createNativeQuery(sqlQuery.getSql());
+            query = entityManager.createNativeQuery(sqlQuery.getSql());
         } else {
-            query = getEntityManager().createNativeQuery(sqlQuery.getSql(),
+            query = entityManager.createNativeQuery(sqlQuery.getSql(),
                     sqlQuery.getResultEntityClass());
         }
         processQuery(query, sqlQuery);
@@ -302,17 +310,17 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 
     @Override
     public void flush() {
-        getEntityManager().flush();
+        entityManager.flush();
     }
 
     @Override
     public void refresh(com.degloba.domain.seedwork.Entity entity) {
-        getEntityManager().refresh(entity);
+        entityManager.refresh(entity);
     }
 
     @Override
     public void clear() {
-        getEntityManager().clear();
+        entityManager.clear();
     }
 
     private void processQuery(Query query, BaseQuery<?> originQuery) {
