@@ -60,6 +60,16 @@ public class OrganisationApplicationImpl implements OrganisationApplication {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
+	public EntityRepository getRepository() {
+		return repository;
+	}
+
+
+	public void setRepository(EntityRepository repository) {
+		this.repository = repository;
+	}
     
     
 
