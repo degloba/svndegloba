@@ -47,7 +47,7 @@ public class AbstractIntegrationTest {
         InstanceFactory.bind(EntityManagerFactory.class, emf);
         repository = new EntityRepositoryJpa(emf);
         AbstractEntity.setRepository(repository);
-        entityManager = repository.getEntityManager();
+        entityManager = repository.entityManager;
         tx = entityManager.getTransaction();
         tx.begin();
     }
