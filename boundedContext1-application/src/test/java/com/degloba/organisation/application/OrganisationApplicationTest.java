@@ -49,12 +49,12 @@ public abstract class OrganisationApplicationTest {
     public void setUp() {
         instance = createInstance();
         repository = mock(EntityRepository.class);
-        AbstractEntity.setRepository(repository);
+        //AbstractEntity.setRepository(repository);
     }
 
     @After
     public void tearDown() {
-        AbstractEntity.setRepository(null);
+        //AbstractEntity.setRepository(null);
     }
 
     /**
@@ -68,8 +68,8 @@ public abstract class OrganisationApplicationTest {
         Date date = DateUtils.date(2012, 1, 1);
         instance.createOrganization(orgToCreate, parent, date);
         assertThat(orgToCreate.getCreateDate(), is(date));
-       // verify(repository).save(orgToCreate);
-       // verify(repository).save(new OrgLineMgmt(parent, orgToCreate, date));
+        verify(repository).save(orgToCreate);
+        verify(repository).save(new OrgLineMgmt(parent, orgToCreate, date));
     }
 
     /**
