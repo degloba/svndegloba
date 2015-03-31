@@ -139,8 +139,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </listener>
   
 <listener> 	
-<!--	<listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class> -->
-  <listener-class>com.degloba.ioc.spring.webapp.DayatangContextLoaderListener</listener-class>  
+	<listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class> 
+<!--   <listener-class>com.degloba.ioc.spring.webapp.DayatangContextLoaderListener</listener-class> --> 
 </listener> 
 	
 <listener>
