@@ -22,7 +22,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
 			<property name="datanucleus.NontransactionalWrite" value="false"/>            
-			<property name="datanucleus.ConnectionURL" value="appengine"/>  			
+			<property name="datanucleus.ConnectionURL" value="googlestorage"/>  			
 			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	    	      
 		</properties>    
 		
