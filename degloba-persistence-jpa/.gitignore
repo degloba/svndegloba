@@ -1,2 +1,5 @@
 /target
 *.tlog
+/.settings/
+/.classpath
+/.project
