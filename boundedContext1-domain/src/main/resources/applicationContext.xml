@@ -63,6 +63,9 @@
         </bean> -->
         
         
+                	<!-- 2. REPOSITORIS -->
+ 	 <bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />  
+        
         <!-- 9. BEANS RELACIONAT AMB LA PERSISTENCIA -->
 
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
