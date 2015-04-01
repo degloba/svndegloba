@@ -118,7 +118,7 @@ public abstract class AbstractEntity extends BaseEntity {
     * @return 符合条件的实体列表
     */
    public static <E extends BaseEntity> List<E> findAll(Class<E> clazz) {
-       return Utils.castList(clazz,  getRepository().createCriteriaQuery(clazz).list());
+       return getRepository().createCriteriaQuery(clazz).list();
    }
 
    /**

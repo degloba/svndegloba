@@ -81,8 +81,7 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
        if (id instanceof Number && ((Number)id).intValue() == 0) {
            return false;
        }
-       ////return getRepository().exists(getClass(), getId());
-       return false;
+       return getRepository().exists(getClass(), getId());
    }
 
    /**
