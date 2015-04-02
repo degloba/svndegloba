@@ -62,10 +62,8 @@
             <version>2.3.0</version>
             <optional>true</optional>
         </dependency> -->
-        <dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-api-jpa</artifactId>	
-		</dependency>        
+        
+       
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
