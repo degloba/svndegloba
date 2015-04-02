@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"    
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">    
+ 
+	<persistence-unit name="default">  
+		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  
+		<class>com.degloba.persistence.test.domain.Dictionary</class>
+		<class>com.degloba.persistence.test.domain.DictionaryCategory</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>            
+			<property name="datanucleus.NontransactionalRead" value="true"/>            
+			<property name="datanucleus.NontransactionalWrite" value="false"/>            
+			<property name="datanucleus.ConnectionURL" value="googlestorage"/>  			
+			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	
+			<property name="datanucleus.storeManagerType" value="transactions-optional" /> 	
+			      
+		</properties>    
+	</persistence-unit>
+</persistence>
