@@ -26,11 +26,12 @@ import com.degloba.domain.BaseAggregateRoot;
  * @author yyang
  */
 @Entity
-//public class MyEntity extends AbstractEntity {
-public class MyEntity	extends BaseAggregateRoot{
+public class MyEntity extends AbstractEntity {
+//public class MyEntity	extends BaseAggregateRoot{
     private String name;
 
     public MyEntity() {
+    	this.name="prova";
     }
 
     public MyEntity(String name) {
@@ -55,10 +56,6 @@ public class MyEntity	extends BaseAggregateRoot{
         return new String [] {"name"};
     }
 
-	@Override
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

@@ -152,11 +152,11 @@ import com.degloba.utils.BeanUtils;
 
 
 	public Long getAggregateId() {
-		return aggregateId;
+		return aggregateIddd;
 	}
 
 	public void setAggregateId(Long aggregateId) {
-		this.aggregateId = aggregateId;
+		this.aggregateIddd = aggregateId;
 	}
 
 

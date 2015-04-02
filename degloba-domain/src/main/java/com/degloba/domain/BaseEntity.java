@@ -36,7 +36,7 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
    //entityId because ID can mean something (some domain concept) in some Bounded Context
    @Id
    @GeneratedValue
-   protected Long aggregateId;
+   protected Long aggregateIddd;
    
    /*    @EmbeddedId
 	@AttributeOverrides({
@@ -62,11 +62,11 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
    }
    
 	public Long getAggregateId() {
-		return aggregateId;
+		return aggregateIddd;
 	}
 
 	public void setAggregateId(Long aggregateId) {
-		this.aggregateId = aggregateId;
+		this.aggregateIddd = aggregateId;
 	}
 
    /**
