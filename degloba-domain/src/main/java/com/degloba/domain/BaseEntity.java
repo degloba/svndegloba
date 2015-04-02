@@ -21,7 +21,7 @@ import org.dayatang.utils.BeanUtils;
 */
 @Entity
 @MappedSuperclass
-public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
+public class BaseEntity extends com.degloba.domain.seedwork.Entity {
 //public abstract class BaseEntity implements Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
@@ -35,7 +35,7 @@ public abstract class BaseEntity extends com.degloba.domain.seedwork.Entity {
 
    //entityId because ID can mean something (some domain concept) in some Bounded Context
    @Id
-   @GeneratedValue
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    protected Long aggregateIddd;
    
    /*    @EmbeddedId
