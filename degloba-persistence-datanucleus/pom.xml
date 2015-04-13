@@ -92,7 +92,11 @@
             <version>2.5.1</version>
             <optional>true</optional>
         </dependency>
-        
+
+        <dependency>
+        	<groupId>com.google.appengine.orm</groupId>
+        	<artifactId>datanucleus-appengine</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
