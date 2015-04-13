@@ -42,7 +42,7 @@
 	 <bean id="txManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> 
+	</bean> -->
 
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
@@ -56,7 +56,7 @@
 		<aop:pointcut id="repositoryOperation"
 			expression="execution(* com.degloba.domain.EntityRepository.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="repositoryOperation" />
-	</aop:config> -->
+	</aop:config> 
 
 	<!-- <bean id="repository" class="org.dayatang.persistence.hibernate.EntityRepositoryHibernate">
             <constructor-arg ref="sessionFactory"/>
@@ -70,8 +70,8 @@
 
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
-          <property name="persistenceUnitName" value="transactions-optional" />
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true"> 
+		        <property name="persistenceUnitName" value="transactions-optional" />
     </bean>  
 
 	<bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -79,9 +79,9 @@
 	</bean>
 	
 	
- 	<bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
+ 	<!-- <bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">        
           <property name="persistenceUnitName" value="mongodb" />
-    </bean>  
+    </bean>   -->
     
     <tx:annotation-driven transaction-manager="txManager" />
         
