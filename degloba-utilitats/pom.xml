@@ -113,11 +113,29 @@
         
 
 
-	<!-- NECESSARIES PERQUE UTILITZA GAE -->
+	<!-- NECESSARIES PERQUE UTILITZA GAE (tests, ...)-->
 	<dependency>
 		<groupId>com.google.appengine</groupId>
 		<artifactId>appengine-api-1.0-sdk</artifactId>
 		<version>${gae.version}</version>
+	</dependency>
+	<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-labs</artifactId>
+			<version>${gae.version}</version>
+			<scope>test</scope>
+	</dependency>
+	<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-stubs</artifactId>
+			<version>${gae.version}</version>
+			<scope>test</scope>
+	</dependency>
+	<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api</artifactId>
+			<version>1.3.5</version>
+			<scope>test</scope>
 	</dependency>
       
         
@@ -189,6 +207,7 @@
             <artifactId>guava</artifactId>
         </dependency>        
 	
+
 </dependencies>
 
   
