@@ -26,7 +26,7 @@ import com.degloba.domain.BaseAggregateRoot;
  * @author yyang
  */
 @Entity
-public class MyEntity extends AbstractEntity {
+public class MyEntity extends BaseAggregateRoot {
 //public class MyEntity	extends BaseAggregateRoot{
     private String name;
 

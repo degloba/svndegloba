@@ -27,6 +27,7 @@ import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.QueryParameters;
 import com.degloba.domain.SqlQuery;
+import com.google.appengine.api.datastore.Key;
 
 /**
  * 通用仓储接口的Hibernate实现。
@@ -70,7 +71,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#save(com.degloba.domain.Entity)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> T save(T entity) {
+    public <T extends com.degloba.domain.Entity> T save(T entity) {
         if (entity.notExisted()) {
         	this.entityManager.persist(entity);
             LOGGER.info("create a entity: " + entity.getClass() + "/" + entity.getId() + ".");
@@ -86,7 +87,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#remove(com.degloba.domain.Entity)
      */
-    public void remove(com.degloba.domain.seedwork.Entity entity) {
+    public void remove(com.degloba.domain.Entity entity) {
     	this.entityManager.remove(entity);
         LOGGER.info("remove a entity: " + entity.getClass() + "/" + entity.getId() + ".");
     }
@@ -95,7 +96,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#exists(java.lang.Class, java.io.Serializable)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> boolean exists(final Class<T> clazz, final Serializable id) {
+    public <T extends com.degloba.domain.Entity> boolean exists(final Class<T> clazz, final Serializable id) {
         return get(clazz, id) != null;
     }
 
@@ -104,7 +105,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * 
      * @see com.degloba.domain.EntityRepository#get(java.io.Serializable)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> T get(final Class<T> clazz, final Serializable id) {
+    public <T extends com.degloba.domain.Entity> T get(final Class<T> clazz, final Serializable id) {
         return (T) this.entityManager.find(clazz, id);
     }
 
@@ -112,7 +113,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#load(java.lang.Class, java.io.Serializable)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> T load(final Class<T> clazz, final Serializable id) {
+    public <T extends com.degloba.domain.Entity> T load(final Class<T> clazz, final Serializable id) {
         return (T) this.entityManager.getReference(clazz, id);
     }
 
@@ -120,12 +121,12 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#getUnmodified(java.lang.Class, com.degloba.domain.Entity)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(Class<T> clazz, T entity) {
+    public <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity) {
     	this.entityManager.detach(entity);
         return get(clazz, entity.getId());
     }
 
-    public <T extends com.degloba.domain.seedwork.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
+    public <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
         List<T> results = findByProperties(clazz, keyValues);
         return results.isEmpty() ? null : results.get(0);
     }
@@ -134,7 +135,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#findAll(java.lang.Class)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(Class<T> clazz) {
+    public <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz) {
     	  String queryString = "select o from " + clazz.getName() + " as o";
 	      return this.entityManager.createQuery(queryString).getResultList();
     }
@@ -143,7 +144,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#createCriteriaQuery(java.lang.Class)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
+    public <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
        // return new CriteriaQuery(this, entityClass);
     	return null;
     }
@@ -278,7 +279,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#findByExample(com.degloba.domain.Entity, com.degloba.domain.ExampleSettings)
      */
-    public <T extends com.degloba.domain.seedwork.Entity, E extends T> List<T> findByExample(final E example, final ExampleSettings<T> settings) {
+    public <T extends com.degloba.domain.Entity, E extends T> List<T> findByExample(final E example, final ExampleSettings<T> settings) {
      /*   Example theExample = Example.create(example);
         if (settings.isLikeEnabled()) {
             theExample.enableLike(MatchMode.ANYWHERE);
@@ -303,7 +304,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#findByProperty(java.lang.Class, java.lang.String, java.lang.Object)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
+    public <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
         //return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
         return null;
     }
@@ -312,7 +313,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#findByProperties(java.lang.Class, java.util.Map)
      */
-    public <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
+    public <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
 /*        CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
@@ -337,7 +338,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
      * (non-Javadoc)
      * @see com.degloba.domain.EntityRepository#refresh(com.degloba.domain.Entity)
      */
-    public void refresh(com.degloba.domain.seedwork.Entity entity) {
+    public void refresh(com.degloba.domain.Entity entity) {
     	this.entityManager.refresh(entity);
     }
 
@@ -408,16 +409,16 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
 
 
 	@Override
-	public <T extends com.degloba.domain.seedwork.Entity> boolean exists(
-			Class<T> clazz, Long id) {
+	public <T extends com.degloba.domain.Entity> boolean exists(
+			Class<T> clazz, Key id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
-	public <T extends com.degloba.domain.seedwork.Entity> T get(Class<T> clazz,
-			Long id) {
+	public <T extends com.degloba.domain.Entity> T get(Class<T> clazz,
+			Key id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

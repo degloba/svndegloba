@@ -36,7 +36,7 @@ public class AbstractEntityTest {
         AbstractEntity.setRepository(null);
     }
 
-    @Test
+   /* @Test
     public void testIdAccessor() {
         Long id = 3L;
         instance.setId(id);
@@ -49,11 +49,11 @@ public class AbstractEntityTest {
         instance.setVersion(version);
         assertEquals(version, instance.getVersion());
     }
-
+*/
     /**
      * Test of existed method, of class AbstractEntity.
      */
-    @Test
+  /*  @Test
     public void testExisted() {
         assertFalse(instance.existed());
 
@@ -61,19 +61,19 @@ public class AbstractEntityTest {
         MyEntity newEntity = new MyEntity("abc");
         when(repository.get(MyEntity.class, 3L)).thenReturn(newEntity);
         //assertTrue(instance.existed());
-    }
+    }*/
 
     /**
      * Test of notExisted method, of class AbstractEntity.
      */
-    @Test
+   /* @Test
     public void testNotExisted() {
         assertTrue(instance.notExisted());
 
         instance.setId(3L);
         when(repository.get(MyEntity.class, 3L)).thenReturn(null);
         assertTrue(instance.notExisted());
-    }
+    }*/
 
 
     /**
@@ -109,12 +109,12 @@ public class AbstractEntityTest {
     /**
      * Test of get method, of class AbstractEntity.
      */
-    @Test
+  /*  @Test
     public void testGet() {
         when(repository.get(MyEntity.class, 3L)).thenReturn(instance);
         assertEquals(instance, AbstractEntity.get(MyEntity.class, 3L));
     }
-
+*/
     /**
      * Test of getUnmodified method, of class AbstractEntity.
      */

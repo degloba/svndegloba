@@ -51,7 +51,7 @@ public class BaseEntityTest {
         BaseEntity.setRepository(null);
     }
 
-    @Test
+ /*   @Test
     public void testExistedIdIsNull() {
         guangdong.setId(null);
         assertFalse(guangdong.existed());
@@ -124,7 +124,7 @@ public class BaseEntityTest {
     public void testHashCode() {
         assertEquals(guangdong.hashCode(), new Company("Guangdong", 1).hashCode());
     }
-
+*/
     @Test
     public void testEquals() {
         //对象永远等价于自身

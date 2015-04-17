@@ -3,10 +3,14 @@ package com.degloba.persistence.test.domain;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.BaseAggregateRoot;
+import com.google.appengine.api.datastore.Key;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+
 import java.util.List;
 
 @Entity
@@ -17,7 +21,7 @@ import java.util.List;
     @NamedQuery(name = "Dictionay.findByCategoryAndCode", query = "select o from Dictionary as o where o.disabled = false and o.category = ? and o.code = ?"),
     @NamedQuery(name = "Dictionay.updateDescription", query = "update Dictionary set description = :description where category = :category"),
     @NamedQuery(name = "Dictionay.findNameAndOrder", query = "select o.code, o.text from  Dictionary o where o.category = :category")})
-public class Dictionary extends AbstractEntity {
+public class Dictionary extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 5429887402331650527L;
 
@@ -154,7 +158,7 @@ public class Dictionary extends AbstractEntity {
         save();
     }
 
-    public static Dictionary get(Long id) {
+    public static Dictionary get(Key id) {
         return getRepository().get(Dictionary.class, id);
     }
 

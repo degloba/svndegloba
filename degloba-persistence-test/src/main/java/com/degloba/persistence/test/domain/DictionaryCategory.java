@@ -2,15 +2,19 @@ package com.degloba.persistence.test.domain;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.BaseAggregateRoot;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -19,7 +23,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries(
 @NamedQuery(name = "DictionaryCategory.getCount", 
         query = "select count (*) from DictionaryCategory o where o.name =:name"))
-public class DictionaryCategory extends AbstractEntity {
+public class DictionaryCategory extends BaseAggregateRoot {
 
     private static final long serialVersionUID = -2820088186350505379L;
 
