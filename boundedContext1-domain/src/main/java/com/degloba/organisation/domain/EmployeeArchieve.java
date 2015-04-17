@@ -9,14 +9,16 @@ package com.degloba.organisation.domain;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.BaseAggregateRoot;
 
 /**
  *
  * @author yyang
  */
 @Entity
-public class EmployeeArchieve extends AbstractEntity {
+public class EmployeeArchieve extends BaseAggregateRoot {
     
     
     @OneToOne

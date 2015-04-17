@@ -1,13 +1,15 @@
 package com.degloba.organisation.domain;
 
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.BaseAggregateRoot;
 
 import javax.persistence.*;
+
 import java.util.*;
 
 @Entity
 @Table(name = "persons")
-public class Person extends AbstractEntity {
+public class Person extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 4180083929142881138L;
 

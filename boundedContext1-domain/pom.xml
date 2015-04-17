@@ -124,6 +124,29 @@
             <artifactId>derby</artifactId>
             <version>10.10.2.0</version>
         </dependency> -->
+        
+        
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>    
+        
+            <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>     
+        
 			        
     </dependencies>
     

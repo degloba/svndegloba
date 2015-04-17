@@ -1,16 +1,19 @@
 package com.degloba.organisation.domain;
 
 import com.degloba.domain.AbstractEntity;
+import com.degloba.domain.BaseAggregateRoot;
+
 import org.dayatang.utils.Assert;
 import org.dayatang.utils.DateUtils;
 
 import javax.persistence.*;
+
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
-public abstract class Party extends AbstractEntity {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
+public abstract class Party extends BaseAggregateRoot {
 
     private static final long serialVersionUID = -6083088250263550905L;
 
