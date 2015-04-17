@@ -2,6 +2,7 @@ package com.degloba.domain;
 import javax.persistence.*;
 
 import com.degloba.utils.Utils;
+import com.google.appengine.api.datastore.Key;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,7 +22,7 @@ public abstract class AbstractEntity extends BaseEntity {
    //@Id  //ELIMINAT PER PERE
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name = "id")
-   private Long id;
+   private Key id;
 
    @Version
    @Column(name = "version")
@@ -33,7 +34,7 @@ public abstract class AbstractEntity extends BaseEntity {
     * @return 实体的标识
     */
    @Override
-   public Long getId() {
+   public Key getId() {
        return id;
    }
 
@@ -42,7 +43,7 @@ public abstract class AbstractEntity extends BaseEntity {
     *
     * @param id 要设置的实体标识
     */
-   public void setId(Long id) {
+   public void setId(Key id) {
        this.id = id;
    }
 
@@ -85,7 +86,7 @@ public abstract class AbstractEntity extends BaseEntity {
     * @param id 实体的ID
     * @return 类型为T或T的子类型，ID为id的实体。
     */
-   public static  <E extends com.degloba.domain.seedwork.Entity> E get(Class<E> clazz, Long id) {
+   public static  <E extends com.degloba.domain.Entity> E get(Class<E> clazz, Key id) {
        return (E) getRepository().get(clazz, id);
    }
 
@@ -140,7 +141,7 @@ public abstract class AbstractEntity extends BaseEntity {
     * @param propValues 属性值匹配条件
     * @return 符合条件的实体列表
     */
-    public static <E extends com.degloba.domain.seedwork.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+    public static <E extends com.degloba.domain.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
        return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
    }
 }

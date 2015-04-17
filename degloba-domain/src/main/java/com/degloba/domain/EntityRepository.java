@@ -3,6 +3,8 @@ package com.degloba.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import com.google.appengine.api.datastore.Key;
+
 
 /**
  * 仓储访问接口。用于存取和查询数据库中的各种类型的实体。
@@ -20,7 +22,7 @@ public interface EntityRepository {
      * @return 持久化后的当前实体
      */
     /////////<T extends Entity> T save(T entity);
-    <T extends com.degloba.domain.seedwork.Entity> T save(T entity);
+    <T extends com.degloba.domain.Entity> T save(T entity);
     
 
     /**
@@ -28,7 +30,7 @@ public interface EntityRepository {
      *
      * @param entity 要删除的实体实例。
      */
-    void remove(com.degloba.domain.seedwork.Entity entity);
+    void remove(com.degloba.domain.Entity entity);
 
     /**
      * 判断仓储中是否存在指定ID的实体实例。
@@ -38,7 +40,7 @@ public interface EntityRepository {
      * @param id 实体标识
      * @return 如果实体实例存在，返回true，否则返回false
      */
-    <T extends com.degloba.domain.seedwork.Entity> boolean exists(Class<T> clazz, Long id);
+    <T extends com.degloba.domain.Entity> boolean exists(Class<T> clazz, Key id);
 
     /**
      * 从仓储中获取指定类型、指定ID的实体
@@ -49,7 +51,7 @@ public interface EntityRepository {
      * @return 一个实体实例。
      */
     ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
-    <T extends com.degloba.domain.seedwork.Entity> T get(Class<T> clazz, Long id);
+    <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id);
 
     /**
      * 从仓储中装载指定类型、指定ID的实体
@@ -59,7 +61,7 @@ public interface EntityRepository {
      * @param id 实体标识
      * @return 一个实体实例。
      */
-    <T extends com.degloba.domain.seedwork.Entity> T load(Class<T> clazz, Serializable id);
+    <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id);
 
     /**
      * 从仓储中获取entity参数所代表的未修改的实体
@@ -69,7 +71,7 @@ public interface EntityRepository {
      * @param entity 要查询的实体
      * @return 参数entity在仓储中的未修改版本
      */
-    <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(Class<T> clazz, T entity);
+    <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity);
     
     /**
      * 根据业务主键从仓储中获取指定类型的实体
@@ -79,7 +81,7 @@ public interface EntityRepository {
      * @param keyValues 代表业务主键值的命名参数。key为主键属性名，value为主键属性值
      * @return 一个实体实例。
      */
-    <T extends com.degloba.domain.seedwork.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
+    <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
      * 查找指定类型的所有实体
@@ -88,7 +90,7 @@ public interface EntityRepository {
      * @param clazz 实体的类
      * @return 符合条件的实体集合
      */
-    <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(Class<T> clazz);
+    <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz);
 
     /**
      * 创建条件查询
@@ -98,7 +100,7 @@ public interface EntityRepository {
      * @return 一个条件查询
      */
     ///////////<T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
-    <T extends com.degloba.domain.seedwork.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
+    <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
     /**
      * 执行条件查询，返回符合条件的实体列表
@@ -229,7 +231,7 @@ public interface EntityRepository {
      * @param settings 查询设置
      * @return 与example相似的T类型的范例
      */
-    <T extends com.degloba.domain.seedwork.Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
+    <T extends com.degloba.domain.Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
 
     /**
      * 根据单一属性的值查找实体
@@ -240,7 +242,7 @@ public interface EntityRepository {
      * @param propertyValue 匹配的属性值
      * @return 类型为clazz的、属性propertyName的值等于propertyValue的实体的集合
      */
-    <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
+    <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
     /**
      * 根据多个属性的值查找实体
@@ -250,7 +252,7 @@ public interface EntityRepository {
      * @param properties 命名参数，其中key为属性名，value为要匹配的属性值。
      * @return 类型为clazz、多个属性分别等于指定的属性值的实体的集合。
      */
-    <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
+    <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
     
     /**
      * 获取命名查询的查询字符串
@@ -270,7 +272,7 @@ public interface EntityRepository {
      *
      * @param entity 要刷新的实体
      */
-    void refresh(com.degloba.domain.seedwork.Entity entity);
+    void refresh(com.degloba.domain.Entity entity);
 
     /**
      * 清空持久化缓存

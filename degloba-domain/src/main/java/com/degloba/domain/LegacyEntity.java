@@ -1,6 +1,9 @@
 package com.degloba.domain;
 
 import javax.persistence.*;
+
+import com.google.appengine.api.datastore.Key;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +43,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
 /*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
         return getRepository().get(clazz, id);
     }*/
-    public static <T extends com.degloba.domain.seedwork.Entity> T get(Class<T> clazz, Long id) {
+    public static <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id) {
         return getRepository().get(clazz, id);
     }    
 
@@ -51,7 +54,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
      * @param entity  实体
      * @return 实体的未修改版本。
      */
-    public static <T extends com.degloba.domain.seedwork.Entity> T getUnmodified(Class<T> clazz, T entity) {
+    public static <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity) {
         return getRepository().getUnmodified(clazz, entity);
     }
 
@@ -62,7 +65,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
      * @param id 实体的ID
      * @return 类型为T或T的子类型，ID为id的实体。
      */
-    public static <T extends com.degloba.domain.seedwork.Entity> T load(Class<T> clazz, Serializable id) {
+    public static <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id) {
         return getRepository().load(clazz, id);
     }
 
@@ -72,7 +75,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
      * @param clazz 实体所属的类
      * @return 符合条件的实体列表
      */
-    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findAll(Class<T> clazz) {
+    public static <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
@@ -84,7 +87,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
      * @param value 匹配的属性值
      * @return 符合条件的实体列表
      */
-    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+    public static <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
         return getRepository().findByProperty(clazz, propName, value);
     }
 
@@ -95,7 +98,7 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
      * @param propValues 属性值匹配条件
      * @return 符合条件的实体列表
      */
-    public static <T extends com.degloba.domain.seedwork.Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
+    public static <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
     }
 }

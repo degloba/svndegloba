@@ -14,13 +14,13 @@ public class CriteriaQuery {
 
     private final EntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
-    private final Class<? extends com.degloba.domain.seedwork.Entity> entityClass;
+    private final Class<? extends com.degloba.domain.Entity> entityClass;
     private int firstResult;
     private int maxResults;
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(EntityRepository repository, Class<? extends com.degloba.domain.seedwork.Entity> entityClass) {
+    public CriteriaQuery(EntityRepository repository, Class<? extends com.degloba.domain.Entity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

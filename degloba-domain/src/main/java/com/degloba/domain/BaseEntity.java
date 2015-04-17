@@ -12,6 +12,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.dayatang.utils.BeanUtils;
 
+import com.google.appengine.api.datastore.Key;
+
 
 /**
 * 抽象实体类，可作为所有领域实体的基类。
@@ -21,7 +23,7 @@ import org.dayatang.utils.BeanUtils;
 */
 @Entity
 @MappedSuperclass
-public class BaseEntity extends com.degloba.domain.seedwork.Entity {
+public class BaseEntity implements com.degloba.domain.Entity {
 //public abstract class BaseEntity implements Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
@@ -167,28 +169,9 @@ public class BaseEntity extends com.degloba.domain.seedwork.Entity {
        return builder.isEquals();
    }
    
-   @Override
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Boolean IsTransient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+  
 	
-
-	@Override
-	public int GetHashCode() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-/*	 *//**
+/**
     * 将实体本身持久化到数据库
     */
    public void save() {
@@ -201,4 +184,14 @@ public class BaseEntity extends com.degloba.domain.seedwork.Entity {
    public void remove() {
        getRepository().remove(this);
    }
+
+
+@Override
+public Key getId() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+
 }
