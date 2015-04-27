@@ -4,7 +4,7 @@ Implementation-Version: 4.4.3-SNAPSHOT
 Built-By: degloba
 Implementation-Vendor-Id: com.degloba
 Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
- 124.103126-11.jar guava-14.0.jar commons-lang3-3.0.1.jar geronimo-jpa
+ 423.163151-12.jar guava-14.0.jar commons-lang3-3.0.1.jar geronimo-jpa
  _2.0_spec-1.1.jar javax.inject-1.jar gson-2.3.jar jdo-api-3.0.1.jar j
  ta-1.1.jar degloba-utilitats-0.0.3-SNAPSHOT.jar commons-validator-1.4
  .0.jar commons-beanutils-1.8.3.jar commons-digester-1.8.jar paypal-co
