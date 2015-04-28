@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 抽象遗留实体类。适用于那些数据库先于程序存在的对象。它的ID的类型是未知的，而且可能没有version属性。
+ * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
  *
- * @author yang
+ * @author degloba
  *
  */
 @MappedSuperclass
@@ -20,25 +20,25 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
     private static final long serialVersionUID = 8882145540383345037L;
 
     /**
-     * 将实体本身持久化到数据库
+     * The entity itself persisted to the database
      */
     public void save() {
         getRepository().save(this);
     }
 
     /**
-     * 将实体本身从数据库中删除
+     * Entity itself will be deleted from the database
      */
     public void remove() {
         getRepository().remove(this);
     }
 
     /**
-     * 根据实体类型和ID从仓储中获取实体
-     * @param <T> 实体类型
-     * @param clazz 实体的类
-     * @param id 实体的ID
-     * @return 类型为T或T的子类型，ID为id的实体。
+     * According to the entity type and entity ID from the Get Warehousing
+     * @param <T> Entity Type
+     * @param clazz Class entities
+     * @param id ID entity
+     * @return Type T or T subtypes, ID for the entity id.
      */
 /*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
         return getRepository().get(clazz, id);
@@ -48,55 +48,55 @@ public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
     }    
 
     /**
-     * 查找实体在数据库中的未修改版本
-     * @param <T> 实体类型
-     * @param clazz 实体的类
-     * @param entity  实体
-     * @return 实体的未修改版本。
+     * Locate an entity unmodified version in the database
+     * @param <T> Entity Type
+     * @param clazz Class entities
+     * @param entity  Entity
+     * @return Entity Unmodified version.
      */
     public static <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity) {
         return getRepository().getUnmodified(clazz, entity);
     }
 
     /**
-     * 根据实体类型和ID从仓储中加载实体(与get()方法的区别在于除id外所有的属性值都未填充)
-     * @param <T> 实体类型
-     * @param clazz 实体的类
-     * @param id 实体的ID
-     * @return 类型为T或T的子类型，ID为id的实体。
+     * Load Entity based on Entity Type and ID from Warehousing (the difference between the get () method is that none of filling all the attribute values except id outside)
+     * @param <T> Entity Type
+     * @param clazz Class entities
+     * @param id ID entity
+     * @return Type T or T subtypes, ID is the id Entity.
      */
     public static <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id) {
         return getRepository().load(clazz, id);
     }
 
     /**
-     * 查找指定类型的所有实体
-     * @param <T> 实体所属的类型
-     * @param clazz 实体所属的类
-     * @return 符合条件的实体列表
+     * Find all Entity specified type
+     * @param <T> Entity type belongs
+     * @param clazz Entity Class belongs
+     * @return Eligible Entity List
      */
     public static <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
     /**
-     * 根据单个属性值以“属性=属性值”的方式查找实体
-     * @param <T> 实体所属的类型
-     * @param clazz 实体所属的类
-     * @param propName 属性名
-     * @param value 匹配的属性值
-     * @return 符合条件的实体列表
+     * To "attribute = attribute value" approach based on a single attribute value lookup Entity
+     * @param <T> Entity Type genus
+     * @param clazz Entity Class belongs
+     * @param propName Property name
+     * @param value Property values match
+     * @return Eligible Entity List
      */
     public static <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
         return getRepository().findByProperty(clazz, propName, value);
     }
 
     /**
-     * 根据多个属性值以“属性=属性值”的方式查找实体，例如查找name="张三", age=35的员工。
-     * @param <T> 实体所属的类型
-     * @param clazz 实体所属的类
-     * @param propValues 属性值匹配条件
-     * @return 符合条件的实体列表
+     * To "attribute = attribute value" approach based on multiple attribute values Entity find, for example, look for name = "Joe Smith", age = 35 employees.
+     * @param <T> Entity Type belongs
+     * @param clazz Entity Class belongs
+     * @param propValues Attribute value matching conditions
+     * @return Eligible Entity List
      */
     public static <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));

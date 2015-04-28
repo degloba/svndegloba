@@ -8,7 +8,7 @@ import org.dayatang.utils.Assert;
 
 /**
  * 代表某个查询条件的取反的查询条件
- * @author yyang
+ * @author degloba
  */
 public class NotCriterion extends AbstractCriterion {
 

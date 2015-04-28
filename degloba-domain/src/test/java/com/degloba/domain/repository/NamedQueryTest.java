@@ -33,7 +33,7 @@ import static org.mockito.Mockito.when;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 public class NamedQueryTest {
     

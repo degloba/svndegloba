@@ -5,8 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.dayatang.utils.Assert;
 
 /**
- * 键值对数据类型
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * Key data types
+ * @author degloba 
  */
 public class KeyValue<K, V> {
 	
@@ -15,9 +15,9 @@ public class KeyValue<K, V> {
 	private V value;
 
 	/**
-	 * 生成键值对
-	 * @param key 键
-	 * @param value 值
+	 * Generated key pair
+	 * @param key Bond
+	 * @param value Value
 	 */
 	public KeyValue(K key, V value) {
 		Assert.notNull(key, "Key must not be null!");
@@ -26,16 +26,16 @@ public class KeyValue<K, V> {
 	}
 
 	/**
-	 * 获得键
-	 * @return 键
+	 * Get key
+	 * @return Bond
 	 */
 	public K getKey() {
 		return key;
 	}
 
 	/**
-	 * 获得值
-	 * @return 值
+	 * Get value
+	 * @return Value
 	 */
 	public V getValue() {
 		return value;

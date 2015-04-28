@@ -24,7 +24,7 @@ public abstract class ValueCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取匹配值
+     * Get匹配值
      *
      * @return 匹配值
      */

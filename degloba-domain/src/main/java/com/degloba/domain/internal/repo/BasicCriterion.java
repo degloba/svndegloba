@@ -20,7 +20,7 @@ import org.dayatang.utils.Assert;
 /**
  * 基本查询条件，指除AND/OR/NOT查询条件以外的大多数查询条件，基本上都是判断某个属性值是否符合 某种条件
  *
- * @author yyang
+ * @author degloba
  */
 public abstract class BasicCriterion extends AbstractCriterion {
 
@@ -32,18 +32,18 @@ public abstract class BasicCriterion extends AbstractCriterion {
     }
 
     /**
-     * 获取属性名
+     * GetProperty name
      *
-     * @return 属性名
+     * @return Property name
      */
     public String getPropName() {
         return propName;
     }
 
     /**
-     * 获取带别名前缀的属性名
+     * Get带别名前缀的Property name
      *
-     * @return 带别名前缀的属性名
+     * @return 带别名前缀的Property name
      */
     protected String getPropNameWithAlias() {
         return ROOT_ALIAS + "." + propName;

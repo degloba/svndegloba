@@ -23,7 +23,7 @@ import com.degloba.domain.BaseAggregateRoot;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 @Entity
 public class MyEntity extends BaseAggregateRoot {

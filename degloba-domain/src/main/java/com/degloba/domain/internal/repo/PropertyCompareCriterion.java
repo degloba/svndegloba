@@ -25,8 +25,8 @@ public abstract class PropertyCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * 获得另一个属性名
-     * @return 另一个属性名
+     * 获得Another attribute name
+     * @return Another attribute name
      */
     public String getOtherPropName() {
         return otherPropName;

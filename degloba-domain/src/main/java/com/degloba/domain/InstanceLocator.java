@@ -3,8 +3,7 @@ package com.degloba.domain;
 import java.lang.annotation.Annotation;
 
 /**
- * Bean实例定位
- * Created by yyang on 15/1/14.
+ * Bean Examples positioning
  */
 public interface InstanceLocator {
 

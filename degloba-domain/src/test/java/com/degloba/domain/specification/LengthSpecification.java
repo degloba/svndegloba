@@ -18,7 +18,7 @@ package com.degloba.domain.specification;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 public class LengthSpecification extends AbstractSpecification<String> {
 

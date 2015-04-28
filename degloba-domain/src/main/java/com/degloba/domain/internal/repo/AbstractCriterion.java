@@ -8,7 +8,7 @@ import com.degloba.domain.QueryCriterion;
 /**
  * 查询条件的抽象基类，实现了AND、OR、NOT操作。
  *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  */
 public abstract class AbstractCriterion implements QueryCriterion {
     

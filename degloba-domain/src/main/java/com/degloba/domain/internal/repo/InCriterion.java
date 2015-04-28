@@ -17,7 +17,7 @@ import com.degloba.domain.NamedParameters;
 /**
  * 代表某个属性的值包含在指定集合或数组中的查询条件
  *
- * @author yyang
+ * @author degloba
  */
 public class InCriterion extends BasicCriterion {
 
@@ -25,7 +25,7 @@ public class InCriterion extends BasicCriterion {
 
     /**
      * 创建查询条件
-     * @param propName 属性名
+     * @param propName Property name
      * @param value 集合值
      */
     public InCriterion(String propName, Collection<? extends Object> value) {
@@ -37,7 +37,7 @@ public class InCriterion extends BasicCriterion {
 
     /**
      * 创建查询条件
-     * @param propName 属性名
+     * @param propName Property name
      * @param value 数组值
      */
     public InCriterion(String propName, Object[] value) {

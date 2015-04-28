@@ -13,7 +13,7 @@ import org.dayatang.utils.Assert;
 
 /**
  * 代表两个或两个以上的查询条件OR操作结果的查询条件
- * @author yyang
+ * @author degloba
  */
 public class OrCriterion extends AbstractCriterion {
 

@@ -29,9 +29,9 @@ public abstract class AbstractEntity extends BaseEntity {
    private int version;
 
    /**
-    * 获得实体的标识
+    * 获得Entity的标识
     *
-    * @return 实体的标识
+    * @return Entity的标识
     */
    @Override
    public Key getId() {
@@ -39,25 +39,25 @@ public abstract class AbstractEntity extends BaseEntity {
    }
 
    /**
-    * 设置实体的标识
+    * 设置Entity的标识
     *
-    * @param id 要设置的实体标识
+    * @param id 要设置的Entity标识
     */
    public void setId(Key id) {
        this.id = id;
    }
 
    /**
-    * 获得实体的版本号。持久化框架以此实现乐观锁。
+    * 获得Entity的版本号。持久化框架以此实现乐观锁。
     *
-    * @return 实体的版本号
+    * @return Entity的版本号
     */
    public int getVersion() {
        return version;
    }
 
    /**
-    * 设置实体的版本号。持久化框架以此实现乐观锁。
+    * 设置Entity的版本号。持久化框架以此实现乐观锁。
     *
     * @param version 要设置的版本号
     */
@@ -66,80 +66,80 @@ public abstract class AbstractEntity extends BaseEntity {
    }
 
    /**
-    * 将实体本身持久化到数据库
+    * 将Entity本身持久化到数据库
     */
    public void save() {
        getRepository().save(this);
    }
 
    /**
-    * 将实体本身从数据库中删除
+    * 将Entity本身从数据库中删除
     */
    public void remove() {
        getRepository().remove(this);
    }
 
    /**
-    * 根据实体类型和ID从仓储中获取实体
-    * @param <T> 实体类型
-    * @param clazz 实体的类
-    * @param id 实体的ID
-    * @return 类型为T或T的子类型，ID为id的实体。
+    * 根据Entity Type和ID从Warehousing中GetEntity
+    * @param <T> Entity Type
+    * @param clazz Class entities
+    * @param id ID entity
+    * @return 类型为T或T的子类型，ID为id的Entity。
     */
    public static  <E extends com.degloba.domain.Entity> E get(Class<E> clazz, Key id) {
        return (E) getRepository().get(clazz, id);
    }
 
    /**
-    * 查找实体在数据库中的未修改版本
-    * @param <T> 实体类型
-    * @param clazz 实体的类
-    * @param entity  实体
-    * @return 实体的未修改版本。
+    * 查找Entity在数据库中的未修改版本
+    * @param <T> Entity Type
+    * @param clazz Class entities
+    * @param entity  Entity
+    * @return Entity的未修改版本。
     */
    public static <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
        return (T) getRepository().getUnmodified(clazz, entity);
    }
 
    /**
-    * 根据实体类型和ID从仓储中加载实体(与get()方法的区别在于除id外所有的属性值都未填充)
-    * @param <T> 实体类型
-    * @param clazz 实体的类
-    * @param id 实体的ID
-    * @return 类型为T或T的子类型，ID为id的实体。
+    * 根据Entity Type和ID从Warehousing中加载Entity(与get()方法的区别在于除id外所有的属性值都未填充)
+    * @param <T> Entity Type
+    * @param clazz Class entities
+    * @param id ID entity
+    * @return 类型为T或T的子类型，ID为id的Entity。
     */
    public static <T extends BaseEntity> T load(Class<T> clazz, Serializable id) {
        return (T) getRepository().load(clazz, id);
    }
 
    /**
-    * 查找指定类型的所有实体
-    * @param <T> 实体所属的类型
-    * @param clazz 实体所属的类
-    * @return 符合条件的实体列表
+    * 查找指定类型的所有Entity
+    * @param <T> Entity Class belongs型
+    * @param clazz Entity Class belongs
+    * @return Eligible Entity List
     */
    public static <E extends BaseEntity> List<E> findAll(Class<E> clazz) {
        return getRepository().createCriteriaQuery(clazz).list();
    }
 
    /**
-    * 根据单个属性值以“属性=属性值”的方式查找实体
-    * @param <T> 实体所属的类型
-    * @param clazz 实体所属的类
-    * @param propName 属性名
+    * 根据单个属性值以“属性=属性值”的方式查找Entity
+    * @param <T> Entity Class belongs型
+    * @param clazz Entity Class belongs
+    * @param propName Property name
     * @param value 匹配的属性值
-    * @return 符合条件的实体列表
+    * @return Eligible Entity List
     */
    public static <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
        return getRepository().findByProperty(clazz, propName, value);
    }
 
    /**
-    * 根据多个属性值以“属性=属性值”的方式查找实体，例如查找name="张三", age=35的员工。
-    * @param <T> 实体所属的类型
-    * @param clazz 实体所属的类
+    * 根据多个属性值以“属性=属性值”的方式查找Entity，例如查找name="张三", age=35的员工。
+    * @param <T> Entity Class belongs型
+    * @param clazz Entity Class belongs
     * @param propValues 属性值匹配条件
-    * @return 符合条件的实体列表
+    * @return Eligible Entity List
     */
     public static <E extends com.degloba.domain.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
        return getRepository().findByProperties(clazz, NamedParameters.create(propValues));

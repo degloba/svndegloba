@@ -23,7 +23,7 @@ import java.util.*;
   * The examples provided); (3) If you still can not find an instance Bean, Bean instance will be returned to those () method set by the bind of. (4) If you still can not find the final, to throw
   * IocInstanceNotFoundException exception.
  *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  */
 public class InstanceFactory {
 

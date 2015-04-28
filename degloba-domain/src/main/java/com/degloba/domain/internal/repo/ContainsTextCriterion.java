@@ -7,7 +7,7 @@ import org.dayatang.utils.Assert;
 
 /**
  * 判断某个属性的值是否包含指定文本内容的查询条件
- * @author yyang
+ * @author degloba
  */
 public class ContainsTextCriterion extends BasicCriterion {
 
@@ -15,7 +15,7 @@ public class ContainsTextCriterion extends BasicCriterion {
 
     /**
      * 创建查询条件
-     * @param propName 属性名
+     * @param propName Property name
      * @param value 要包含在属性值中的子字符串
      */
     public ContainsTextCriterion(String propName, String value) {
@@ -26,7 +26,7 @@ public class ContainsTextCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取匹配值
+     * Get匹配值
      * @return 匹配值
      */
     public String getValue() {

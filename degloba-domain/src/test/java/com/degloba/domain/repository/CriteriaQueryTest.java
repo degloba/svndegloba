@@ -64,7 +64,7 @@ import org.junit.Test;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 public class CriteriaQueryTest {
     private CriteriaQuery instance;

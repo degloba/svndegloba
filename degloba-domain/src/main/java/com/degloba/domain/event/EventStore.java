@@ -10,7 +10,7 @@ import java.util.List;
 public interface EventStore {
 
     /**
-     * 获取指定时间范围发生的历史事件的集合，时间范围包含occurredFrom，不包含occurredTo。
+     * Get指定时间范围发生的历史事件的集合，时间范围包含occurredFrom，不包含occurredTo。
      *
      * @param occurredFrom 事件发生时间的下限
      * @param occurredTo   事件发生时间的上限
@@ -19,7 +19,7 @@ public interface EventStore {
     public List<StoredEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
 
     /**
-     * 获取指定时间及其之后发生的历史事件的集合。
+     * Get指定时间及其之后发生的历史事件的集合。
      *
      * @param occurredFrom 事件发生时间的下限
      * @return 指定时间及其之后发生的事件的集合，按发生时间升序排序。

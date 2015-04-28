@@ -6,9 +6,8 @@ import java.util.*;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 条件查询。DDDLib支持的四种查询形式之一。 通过DSL针对特定实体指定查询条件、排序属性和针对结果取子集等。 Created with
- * IntelliJ IDEA. User: yyang Date: 13-10-17 Time: 下午2:14 To change this
- * template use File | Settings | File Templates.
+ * Conditions queries. One of the four inquiries form DDDLib support. 
+ * Specify the query criteria, sorting properties and for taking a subset of the results for a specific entity, such as via DSL.
  */
 public class CriteriaQuery {
 
@@ -28,28 +27,28 @@ public class CriteriaQuery {
     }
 
     /**
-     * 获得查询根实体的类
+     * Get the query root entity class
      *
-     * @return 查询的根实体的类
+     * @return Class root entity queries
      */
-    public Class getEntityClass() {
+    public Class<? extends Entity> getEntityClass() {
         return entityClass;
     }
 
     /**
-     * 对于从大结果集中选取部分的查询，获得数据集的起始位置（0代表第一条记录）
+     * For centralized choose from a large part of the query result, the data set starting position (0 represents the first record)
      *
-     * @return 一个数字，代表从大结果集的第几条记录开始选取子集
+     * @return A number that represents a large result set from the first few records began to select a subset of
      */
     public int getFirstResult() {
         return firstResult;
     }
 
     /**
-     * 对于从大结果集中选取部分的查询，设置数据集的起始获取位置（0代表第一条记录）
+     * For centralized choose from a large part of the query result, the initial set of data sets to obtain the position (0 represents the first record)
      *
-     * @param firstResult 一个数字，代表从大结果集的第几条记录开始选取子集
-     * @return 当前查询对象
+     * @param firstResult A number that represents a large result set from the first few records began to select a subset of
+     * @return The current query object
      */
     public CriteriaQuery setFirstResult(int firstResult) {
         this.firstResult = firstResult;
@@ -57,19 +56,19 @@ public class CriteriaQuery {
     }
 
     /**
-     * 对于从大结果集中选取部分的查询，获得本次查询返回的记录的最大数量
+     * For centralized choose from a large part of the query result, this query returns the maximum number of records
      *
-     * @return 一个数字，代表从大数据集中最多选取多少条记录
+     * @return A number that represents the number of records selected from a large data set up to
      */
     public int getMaxResults() {
         return maxResults;
     }
 
     /**
-     * 对于从大结果集中选取部分的查询，获得本次查询返回的记录的最大数量
+     * For centralized choose from a large part of the query result, this query returns the maximum number of records
      *
-     * @param maxResults 一个数字，代表从大数据集中最多选取多少条记录
-     * @return 当前查询对象
+     * @param maxResults A number that represents the number of records selected from a large data set up to
+     * @return The current query object
      */
     public CriteriaQuery setMaxResults(int maxResults) {
         this.maxResults = maxResults;
@@ -77,27 +76,27 @@ public class CriteriaQuery {
     }
 
     /**
-     * 获得查询条件
+     * Get the query
      *
-     * @return 本次查询指定的查询条件
+     * @return The query specifies the query conditions
      */
     public QueryCriterion getQueryCriterion() {
         return criterion;
     }
 
     /**
-     * 获得排序选项
+     * Get sort options
      *
-     * @return 本次查询指定的排序选项
+     * @return The query specifies sorting options
      */
     public OrderSettings getOrderSettings() {
         return orderSettings;
     }
 
     /**
-     * 获得JPQL查询字符串
+     * Get JPQL query string
      *
-     * @return 该查询对应的JPQL查询字符串
+     * @return JPQL query string corresponding to the query
      */
     public String getQueryString() {
         String result = String.format("select distinct(%s) from %s as %s ",
@@ -122,20 +121,20 @@ public class CriteriaQuery {
     }
 
     /**
-     * 获取查询参数
+     * Get query parameters
      *
-     * @return 查询参数
+     * @return Query parameters
      */
     public NamedParameters getParameters() {
         return criterion.getParameters();
     }
 
     /**
-     * 添加一个“属性名 = 属性值”的查询条件
+     * Adding an "attribute name = attribute value" of the query
      *
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery eq(String propName, Object value) {
         criterion = criterion.and(criterionBuilder.eq(propName, value));
@@ -143,11 +142,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性名 != 属性值”的查询条件
+     * Adding an "attribute name! = Attribute value" of the query
      *
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery notEq(String propName, Object value) {
         criterion = criterion.and(criterionBuilder.notEq(propName, value));
@@ -155,11 +154,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性名 大于 属性值”的查询条件
+     * Adding an "attribute name is greater than the property value," the query conditions
      *
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery gt(String propName, Comparable<?> value) {
         criterion = criterion.and(criterionBuilder.gt(propName, value));
@@ -167,11 +166,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性名 大于或等于 属性值”的查询条件
+     * The query to add a "greater than or equal to the attribute name attribute value"
      *
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery ge(String propName, Comparable<?> value) {
         criterion = criterion.and(criterionBuilder.ge(propName, value));
@@ -179,10 +178,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性名 小于 属性值”的查询条件
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * Adding an "attribute name is less than the property value," the query conditions
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery lt(String propName, Comparable<?> value) {
         criterion = criterion.and(criterionBuilder.lt(propName, value));
@@ -190,10 +189,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性名 小于或等于 属性值”的查询条件
-     * @param propName 属性名
-     * @param value 属性值
-     * @return 当前查询对象
+     * Adding an "attribute name attribute value is less than or equal to" the query conditions
+     * @param propName Property name
+     * @param value Property Value
+     * @return The current query object
      */
     public CriteriaQuery le(String propName, Comparable<?> value) {
         criterion = criterion.and(criterionBuilder.le(propName, value));
@@ -201,11 +200,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性1 等于 属性2”的查询条件
+     * Adding an "attribute an equal attribute 2" query criteria
      *
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery eqProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.eqProp(propName, otherProp));
@@ -213,11 +212,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性1 不等于 属性2”的查询条件
+     * Adding an "attribute is not equal to a property 2" query criteria
      *
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery notEqProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.notEqProp(propName, otherProp));
@@ -225,11 +224,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性1 大于 属性2”的查询条件
+     * Adding an "attribute is greater than attribute 2" query condition
      *
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery gtProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.gtProp(propName, otherProp));
@@ -239,9 +238,9 @@ public class CriteriaQuery {
     /**
      * 添加一个“属性1 大于或等于 属性2”的查询条件
      *
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery geProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.geProp(propName, otherProp));
@@ -249,10 +248,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性1 小于 属性2”的查询条件
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * Adding an "attribute a property is less than 2" of the query
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery ltProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.ltProp(propName, otherProp));
@@ -260,10 +259,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性1 小于或等于 属性2”的查询条件
-     * @param propName 属性名
-     * @param otherProp 另一个属性名
-     * @return 当前查询对象
+     * Adding a "less than or equal to attribute an attribute 2" query condition
+     * @param propName Property name
+     * @param otherProp Another attribute name
+     * @return The current query object
      */
     public CriteriaQuery leProp(String propName, String otherProp) {
         criterion = criterion.and(criterionBuilder.leProp(propName, otherProp));
@@ -271,12 +270,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 等于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了5种物品的订单，则propName为items，size为5.
+     * Add a "result set property is equal to the number of size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query the order five kinds of items ordered, the propName for the items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeEq(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeEq(propName, size));
@@ -284,12 +283,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 不等于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了不是5种物品的订单，则propName为items，size为5.
+     * Adding a "The results set the number of attributes is not equal size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query the order was not ordered five kinds of goods, the propName for items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeNotEq(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeNotEq(propName, size));
@@ -297,12 +296,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 大于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了超过5种物品的订单，则propName为items，size为5.
+     * Adding a "The results set the number of attributes is greater than the size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query more than five kinds of ordered goods orders, the propName for items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeGt(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeGt(propName, size));
@@ -310,12 +309,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 大于或等于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了5种或5种以上物品的订单，则propName为items，size为5.
+     * Adding a "The results set the number of attributes is greater than or equal to size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query ordered five kinds of orders or five or more items, then propName for the items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeGe(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeGe(propName, size));
@@ -323,12 +322,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 小于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了少于5种物品的订单，则propName为items，size为5.
+     * Adding a "The results set the number of attributes is less than size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query ordered goods orders less than five, the propName for items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeLt(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeLt(propName, size));
@@ -336,12 +335,12 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合属性的结果数量 小于或等于 size”的查询条件。例如Order对象有个类型为List&lt;OrderItem&gt;的
-     * 集合属性items，我们要查询订购了5种或5种以下物品的订单，则propName为items，size为5.
+     * Adding a "The results set the number of attributes is less than or equal to size" of the query. For example, there is a type of object Order List & lt; OrderItem & gt; the
+     * Collection property items, we want to query ordered five kinds of orders or five kinds of the following items, then propName for items, size 5.
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @param size 集合属性的结果数量
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @param size The results set the number of attributes
+     * @return The current query object
      */
     public CriteriaQuery sizeLe(String propName, int size) {
         criterion = criterion.and(criterionBuilder.sizeLe(propName, size));
@@ -349,11 +348,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性包含指定文本”的查询条件
+     * Adding a query condition "attribute contains the specified text," the
      *
-     * @param propName 属性名，该属性必须是字符串类型
-     * @param value 文本内容
-     * @return 当前查询对象
+     * @param propName Property name，The property must be a string type
+     * @param value Text content
+     * @return The current query object
      */
     public CriteriaQuery containsText(String propName, String value) {
         criterion = criterion.and(criterionBuilder.containsText(propName, value));
@@ -361,11 +360,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性以指定文本开头”的查询条件
+     * Add a "property specifies the text beginning with" query criteria
      *
-     * @param propName 属性名，该属性必须是字符串类型
-     * @param value 文本内容
-     * @return 当前查询对象
+     * @param propName Property name，The property must be a string type
+     * @param value Text content
+     * @return The current query object
      */
     public CriteriaQuery startsWithText(String propName, String value) {
         criterion = criterion.and(criterionBuilder.startsWithText(propName, value));
@@ -373,11 +372,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值包含在指定的集合内”的查询条件
+     * The query to add a "property values contained in the specified collection," the
      *
-     * @param propName 属性名
-     * @param value 一个集合，符合查询条件的属性值必须包含在该集合内
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value A collection of property values that satisfy the query conditions must be included in the collection within
+     * @return The current query object
      */
     public CriteriaQuery in(String propName, Collection<? extends Object> value) {
         criterion = criterion.and(criterionBuilder.in(propName, value));
@@ -385,11 +384,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值包含在指定的数组内”的查询条件
+     * The query to add a "property values contained in the specified array" of
      *
-     * @param propName 属性名
-     * @param value 一个数组，符合查询条件的属性值必须包含在该数组内
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value An array of property values that satisfy the query conditions must be included in the array within
+     * @return The current query object
      */
     public CriteriaQuery in(String propName, Object[] value) {
         criterion = criterion.and(criterionBuilder.in(propName, value));
@@ -397,11 +396,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值不包含在指定的集合内”的查询条件
+     * The query to add a "property value is not included in the specified collections"
      *
-     * @param propName 属性名
-     * @param value 一个集合，符合查询条件的属性值必须不包含在该集合内
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value A collection of property values that satisfy the query conditions must not be included in the collection within
+     * @return The current query object
      */
     public CriteriaQuery notIn(String propName, Collection<? extends Object> value) {
         criterion = criterion.and(criterionBuilder.notIn(propName, value));
@@ -409,11 +408,11 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值不包含在指定的数组内”的查询条件
+     * Adding a query condition "attribute value is not included in the specified array" of
      *
-     * @param propName 属性名
-     * @param value 一个数组，符合查询条件的属性值必须不包含在该数组内
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param value An array of property values match the query must not be included in the array within
+     * @return The current query object
      */
     public CriteriaQuery notIn(String propName, Object[] value) {
         criterion = criterion.and(criterionBuilder.notIn(propName, value));
@@ -421,13 +420,13 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值介于两个值之间（包含左右边界）”的查询条件
+     * Add a "property value between two values (including left and right borders)" query conditions
      *
-     * @param propName 属性名
-     * @param from 第一个边界值
-     * @param to 第二个边界值
-     * @param <E> 被比较的值的类型，也就是属性的兼容类型
-     * @return 当前查询对象
+     * @param propName Property name
+     * @param from The first boundary value
+     * @param to The second boundary value
+     * @param <E> Type is the value of comparison, that is compatible with the type of attribute
+     * @return The current query object
      */
     public <E> CriteriaQuery between(String propName, Comparable<E> from, Comparable<E> to) {
         criterion = criterion.and(criterionBuilder.between(propName, from, to));
@@ -435,10 +434,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值是Null”的查询条件
+     * Adding an "attribute value is Null" query criteria
      *
-     * @param propName 属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @return The current query object
      */
     public CriteriaQuery isNull(String propName) {
         criterion = criterion.and(criterionBuilder.isNull(propName));
@@ -446,10 +445,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值不是Null”的查询条件
+     * Adding an "attribute value is not Null" query criteria
      *
-     * @param propName 属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @return The current query object
      */
     public CriteriaQuery notNull(String propName) {
         criterion = criterion.and(criterionBuilder.notNull(propName));
@@ -457,10 +456,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合类型属性值为空集合”的查询条件
+     * Adding an "empty set type attribute value" of the query
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @return The current query object
      */
     public CriteriaQuery isEmpty(String propName) {
         criterion = criterion.and(criterionBuilder.isEmpty(propName));
@@ -468,10 +467,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“集合类型属性值不是空集合”的查询条件
+     * Add a "set type attribute value is not empty," the query conditions
      *
-     * @param propName 属性名，必须是集合属性（x-to-many或ElementCollection）
-     * @return 当前查询对象
+     * @param propName Property name，Must be a set of attributes (x-to-many or ElementCollection)
+     * @return The current query object
      */
     public CriteriaQuery notEmpty(String propName) {
         criterion = criterion.and(criterionBuilder.notEmpty(propName));
@@ -479,10 +478,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值为true”的查询条件
+     * Adding an "attribute value true" query criteria
      *
-     * @param propName 属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @return The current query object
      */
     public CriteriaQuery isTrue(String propName) {
         criterion = criterion.and(criterionBuilder.isTrue(propName));
@@ -490,10 +489,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值为false”的查询条件
+     * Adding an "attribute value true" query criteria
      *
-     * @param propName 属性名
-     * @return 当前查询对象
+     * @param propName Property name
+     * @return The current query object
      */
     public CriteriaQuery isFalse(String propName) {
         criterion = criterion.and(criterionBuilder.isFalse(propName));
@@ -501,10 +500,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值为空白，即Null或空字符串”的查询条件
+     * Adding a "property value is blank, that Null or empty string" query criteria
      *
-     * @param propName 属性名，必须是字符串型属性
-     * @return 当前查询对象
+     * @param propName Property name，Must be a string type attribute
+     * @return The current query object
      */
     public CriteriaQuery isBlank(String propName) {
         criterion = criterion.and(criterionBuilder.isBlank(propName));
@@ -512,10 +511,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“属性值非空”的查询条件
+     * Adding an "attribute value is not empty," the query conditions
      *
-     * @param propName 属性名，必须是字符串型属性
-     * @return 当前查询对象
+     * @param propName Property name，Must be a string type attribute
+     * @return The current query object
      */
     public CriteriaQuery notBlank(String propName) {
         criterion = criterion.and(criterionBuilder.notBlank(propName));
@@ -523,10 +522,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“取反”的查询条件
+     * Adding a "negation" of the query
      *
-     * @param otherCriterion 原本的查询条件
-     * @return 当前查询对象
+     * @param otherCriterion The original query conditions
+     * @return The current query object
      */
     public CriteriaQuery not(QueryCriterion otherCriterion) {
         criterion = criterion.and(criterionBuilder.not(otherCriterion));
@@ -534,10 +533,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“与”的查询条件，即同时符合指定的几个查询条件
+     * Adding an "and" query condition that several queries at the same time meet specified conditions
      *
-     * @param queryCriterions 多个基本查询条件
-     * @return 当前查询对象
+     * @param queryCriterions Multiple basic query conditions
+     * @return The current query object
      */
     public CriteriaQuery and(QueryCriterion... queryCriterions) {
         criterion = criterion.and(criterionBuilder.and(queryCriterions));
@@ -545,10 +544,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 添加一个“或”的查询条件，即符合指定的几个查询条件之一
+     * Add a "or" query criteria, one of the conditions specified in line with several queries
      *
-     * @param queryCriterions 多个基本查询条件
-     * @return 当前查询对象
+     * @param queryCriterions Multiple basic query conditions
+     * @return The current query object
      */
     public CriteriaQuery or(QueryCriterion... queryCriterions) {
         criterion = criterion.and(criterionBuilder.or(queryCriterions));
@@ -556,10 +555,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 按指定的属性的升序对结果集排序
+     * The result set in ascending order of the specified property
      *
-     * @param propName 要排序的属性名
-     * @return 当前查询对象
+     * @param propName To sort of Property name
+     * @return The current query object
      */
     public CriteriaQuery asc(String propName) {
         orderSettings.asc(propName);
@@ -567,10 +566,10 @@ public class CriteriaQuery {
     }
 
     /**
-     * 按指定的属性的降序对结果集排序
+     * The result set to sort in descending order specified attribute
      *
-     * @param propName 要排序的属性名
-     * @return 当前查询对象
+     * @param propName To sort of Property name
+     * @return The current query object
      */
     public CriteriaQuery desc(String propName) {
         orderSettings.desc(propName);
@@ -578,20 +577,20 @@ public class CriteriaQuery {
     }
 
     /**
-     * 返回查询结果列表。
+     * Return query results list.
      *
-     * @param <T> 查询结果的列表元素类型
-     * @return 查询结果。
+     * @param <T> Query results list element type
+     * @return Query results.
      */
     public <T> List<T> list() {
         return repository.find(this);
     }
 
     /**
-     * 返回单条查询结果。
+     * Returns single Query results.
      *
-     * @param <T> 查询结果的类型
-     * @return 查询结果。
+     * @param <T> Type of query results
+     * @return Query results.
      */
     public <T> T singleResult() {
         return repository.getSingleResult(this);

@@ -25,7 +25,7 @@ public abstract class SizeCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取匹配值
+     * Get匹配值
      *
      * @return 匹配值
      */

@@ -2,51 +2,51 @@ package com.degloba.domain;
 
 
 /**
- * 查询条件接口
+ * The query interface
  *
- * @author yyang
+ * @author degloba
  */
 public interface QueryCriterion {
 
     static final String ROOT_ALIAS = "rootEntity";
 
     /**
-     * 执行AND操作，返回代表两个QueryCriterion的“与”操作结果的一个新的QueryCriterion
+     * AND operation is performed, the return on behalf of two QueryCriterion "and" Operating Results of a new QueryCriterion
      *
-     * @param criterion 另一个QueryCriterion
-     * @return 当前对象与criterion的“与”操作的结果
+     * @param criterion Another QueryCriterion
+     * @return The results of the current object with the criterion of "and" action
      */
     QueryCriterion and(QueryCriterion criterion);
 
     /**
-     * 执行OR操作，返回代表两个QueryCriterion的“或”操作结果的一个新的QueryCriterion
+     * Perform OR operation, return on behalf of two QueryCriterion "or" operating results of a new QueryCriterion
      *
-     * @param criterion 另一个QueryCriterion
-     * @return 当前对象与criterion的“或”操作的结果
+     * @param criterion Another QueryCriterion
+     * @return The results of the current object with the criterion of "or" action
      */
     QueryCriterion or(QueryCriterion criterion);
 
     /**
-     * 执行NOT操作，返回代表当前对象的“非”操作的一个新的QueryCriterion
-     * @return 当前对象的“非”操作的结果
+     * NOT perform the operation, the return on behalf of the current object "not" operate a new QueryCriterion
+     * @return The results "not" current object operations
      */
     QueryCriterion not();
 
     /**
-     * 是否空条件，即EmptyCriterion的实例
-     * @return 如果是空条件就返回true，否则返回false
+     * Are empty condition that instance EmptyCriterion of
+     * @return If it is empty condition returns true, otherwise false
      */
     boolean isEmpty();
 
     /**
-     * 转换成JPQL字符串
-     * @return 查询字符串
+     * Convert string JPQL
+     * @return Query String
      */
     String toQueryString();
 
     /**
-     * 获得查询参数
-     * @return 查询的参数集
+     * Get query parameters
+     * @return Parameter set of a query
      */
     NamedParameters getParameters();
 

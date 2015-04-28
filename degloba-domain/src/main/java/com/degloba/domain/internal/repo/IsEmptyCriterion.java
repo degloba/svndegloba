@@ -6,7 +6,7 @@ import com.degloba.domain.NamedParameters;
 
 /**
  * 判断某个集合属性值是否为空集合的查询条件
- * @author yyang
+ * @author degloba
  */
 public class IsEmptyCriterion extends BasicCriterion {
 

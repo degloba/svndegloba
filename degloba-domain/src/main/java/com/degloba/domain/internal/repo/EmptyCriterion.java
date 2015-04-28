@@ -7,7 +7,7 @@ import com.degloba.domain.QueryCriterion;
 /**
  * "空"条件，什么也不做。为了简化条件之间的运算
  *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  */
 public class EmptyCriterion extends AbstractCriterion {
 

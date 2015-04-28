@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 public class ContainsTextCriterionTest {
     

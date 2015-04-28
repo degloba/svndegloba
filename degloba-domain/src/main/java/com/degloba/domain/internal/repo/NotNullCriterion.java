@@ -6,7 +6,7 @@ import com.degloba.domain.NamedParameters;
 
 /**
  * 判断某个属性值是否为不null的查询条件
- * @author yyang
+ * @author degloba
  */
 public class NotNullCriterion extends BasicCriterion {
 

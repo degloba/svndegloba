@@ -7,7 +7,7 @@ import org.dayatang.utils.Assert;
 
 /**
  * 判断某个属性的值是否位于指定的值空间范围的查询条件
- * @author yyang
+ * @author degloba
  */
 public class BetweenCriterion extends BasicCriterion {
 
@@ -17,7 +17,7 @@ public class BetweenCriterion extends BasicCriterion {
 
     /**
      * 创建查询条件实例
-     * @param propName 属性名称
+     * @param propName Property name称
      * @param from 值的下限
      * @param to 值的上限
      */
@@ -30,7 +30,7 @@ public class BetweenCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取属性值上限
+     * Get属性值上限
      * @return 属性值上限
      */
     public Comparable<?> getFrom() {
@@ -38,7 +38,7 @@ public class BetweenCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取属性值下限
+     * Get属性值下限
      * @return 属性值下限
      */
     public Comparable<?> getTo() {

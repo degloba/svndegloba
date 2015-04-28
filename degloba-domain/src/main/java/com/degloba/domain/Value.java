@@ -14,9 +14,9 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 值。这个类主要用于实体类的自定义属性，例如动态地给Employee类添加一批属性， 每个属性都记录数据类型和字符串形式的值
+ * Value. The value of this type is mainly used for custom attributes Entity class, for example, the Employee class to dynamically add a number of attributes, each type of data is recorded and a string
  *
- * @author chencao
+ * @author degloba
  *
  */
 @Embeddable
@@ -39,90 +39,90 @@ public class Value implements ValueObject {
     private String value = "";
 
     /**
-     * 创建字符串值
+     * Create a string value
      *
-     * @param value 字符串形式的值
-     * @return 一个字符串类型的值
+     * @param value String value
+     * @return The value of a string type
      */
     public static Value stringValue(String value) {
         return new Value(DataType.STRING, value);
     }
 
     /**
-     * 创建整数值
+     * Creating an integer value
      *
-     * @param value 字符串形式的值
-     * @return 一个整数类型的值
+     * @param value String value
+     * @return The value of an integer type
      */
     public static Value intValue(String value) {
         return new Value(DataType.INT, value);
     }
 
     /**
-     * 创建长整型值
+     * Create a long integer value
      *
-     * @param value 字符串形式的值
-     * @return 一个长整数类型的值
+     * @param value String value
+     * @return The value of a long integer type
      */
     public static Value longValue(String value) {
         return new Value(DataType.LONG, value);
     }
 
     /**
-     * 创建浮点值
+     * Create a floating point value
      *
-     * @param value 字符串形式的值
-     * @return 一个小数类型的值
+     * @param value String value
+     * @return A value of type decimal
      */
     public static Value doubleValue(String value) {
         return new Value(DataType.DOUBLE, value);
     }
 
     /**
-     * 创建BigDecimal值
+     * Create a BigDecimal value
      *
-     * @param value 字符串形式的值
-     * @return 一个BigDecimal类型的值
+     * @param value String value
+     * @return A value of type BigDecimal
      */
     public static Value bigDecimalValue(String value) {
         return new Value(DataType.BIG_DECIMAL, value);
     }
 
     /**
-     * 创建布尔型值
+     * Create a Boolean value
      *
-     * @param value 字符串形式的值
-     * @return 一个布尔类型的值
+     * @param value String value
+     * @return A boolean value
      */
     public static Value booleanValue(String value) {
         return new Value(DataType.BOOLEAN, value);
     }
 
     /**
-     * 创建日期型值（无时间部分）
+     * Creation date type value (without time part)
      *
-     * @param value 字符串形式的值
-     * @return 一个日期类型的值
+     * @param value String value
+     * @return The value of a date type
      */
     public static Value dateValue(String value) {
         return new Value(DataType.DATE, value);
     }
 
     /**
-     * 创建时间型值（无日期部分）
+     * Create a time type value (no date part)
      *
-     * @param value 字符串形式的值
-     * @return 一个时间类型的值
+     * @param value String value
+     * @return The value of a time type
      */
     public static Value timeValue(String value) {
         return new Value(DataType.TIME, value);
     }
 
     /**
-     * 创建时间戳型值（包含日期和时间部分）
+     * Create a timestamp type value (including the date and time parts)
      *
-     * @param value 字符串形式的值
-     * @return 一个时间戳类型的值
+     * @param value String value
+     * @return A value of type timestamp
      */
     public static Value dateTimeValue(String value) {
         return new Value(DataType.DATE_TIME, value);
@@ -140,72 +140,72 @@ public class Value implements ValueObject {
     }
 
     /**
-     * 获取数据类型
-     * @return 值所属的数据类型
+     * Get Data Types
+     * @return Data type value belongs
      */
     public DataType getDataType() {
         return dataType;
     }
 
     /**
-     * 获取原始字符串值
-     * @return 原始字符串值
+     * Get The original string value
+     * @return The original string value
      */
     public String getStringValue() {
         return value;
     }
 
     /**
-     * 获取字符串值
-     * @return 字符串形式的值
+     * Get String value
+     * @return String value
      */
     public String getString() {
         return (String) DataType.STRING.getValue(value);
     }
 
     /**
-     * 获取整数值
-     * @return 整数形式的值 
+     * Get Integer
+     * @return Integer values
      */
     public int getInt() {
         return (Integer) DataType.INT.getValue(value);
     }
 
     /**
-     * 获取长整数值
-     * @return 长整数形式的值
+     * Get Long integer value
+     * @return Long integer value
      */
     public long getLong() {
         return (Long) DataType.LONG.getValue(value);
     }
     
     /**
-     * 获取浮点数值
-     * @return 浮点数形式的值
+     * Get Floating-point values
+     * @return Floating point values
      */
     public double getDouble() {
         return (Double) DataType.DOUBLE.getValue(value);
     }
 
     /**
-     * 获取BigDecimal值
-     * @return BigDecimal形式的值。
+     * GetBigDecimal Value
+     * @return BigDecimal In the form of value.
      */
     public BigDecimal getBigDecimal() {
         return (BigDecimal) DataType.BIG_DECIMAL.getValue(value);
     }
 
     /**
-     * 获取布尔值
-     * @return 布尔形式的值
+     * Get Boolean value
+     * @return Boolean values form
      */
     public boolean getBoolean() {
         return (Boolean) DataType.BOOLEAN.getValue(value);
     }
 
     /**
-     * 获取日期/时间值
-     * @return 日期形式的值
+     * Get Date / time values
+     * @return Date in the form of value
      */
     public Date getDate() {
         if (StringUtils.isBlank(value)) {
@@ -219,8 +219,8 @@ public class Value implements ValueObject {
     }
 
     /**
-     * 获得转换为相应数据类型的值
-     * @return 由原始字符串转换为相应数据类型的值。
+     * Converted to the corresponding values obtained data types
+     * @return Converted from the original string value of the corresponding data type.
      */
     public Object getValue() {
         return dataType.getValue(value);

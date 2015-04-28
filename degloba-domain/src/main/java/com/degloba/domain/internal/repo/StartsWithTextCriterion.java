@@ -16,7 +16,7 @@ public class StartsWithTextCriterion extends BasicCriterion {
     }
 
     /**
-     * 获取匹配值
+     * Get匹配值
      * @return 匹配值
      */
     public String getValue() {

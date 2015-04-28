@@ -1,18 +1,3 @@
-/*
- * Copyright 2014 Dayatang Open Source..
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.degloba.domain;
 
 import org.dayatang.utils.Assert;
@@ -20,18 +5,18 @@ import org.dayatang.utils.Assert;
 import java.util.List;
 
 /**
- * 基于命名查询的查询对象。DDDLib支持的四种查询形式之一。
- * 可以指定定位查询参数或命名查询参数，也可以针对查询结果取子集。
- * @author yyang
+ * Based on the query object named query. One of the four inquiries form DDDLib support.
+ * You can specify the location query parameters or named query parameters can also be taken for a subset of the query results.
+ * @author degloba
  */
 public class NamedQuery extends BaseQuery<NamedQuery> {
 
     private final String queryName;
 
     /**
-     * 使用仓储和命名查询名字创建命名查询
-     * @param repository 仓储
-     * @param queryName 命名查询的名称
+     * Create a named query using the name of warehousing and named queries
+     * @param repository Warehousing
+     * @param queryName Naming names query
      */
     public NamedQuery(EntityRepository repository, String queryName) {
         super(repository);
@@ -40,17 +25,17 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     }
 
     /**
-     * 获取命名查询的名称
-     * @return 命名查询名称
+     * Get the name of the named query
+     * @return Named Query Name
      */
     public String getQueryName() {
         return queryName;
     }
 
     /**
-     * 返回查询结果列表。
-     * @param <T> 查询结果的列表元素类型
-     * @return 查询结果。
+     * Return query results list.
+     * @param <T> Query results list element type
+     * @return Query results.
      */
     @Override
     public <T> List<T> list() {
@@ -58,9 +43,9 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     }
 
     /**
-     * 返回单条查询结果。
-     * @param <T> 查询结果的类型
-     * @return 查询结果。
+     * Returns singleQuery results.
+     * @param <T> Type of query results
+     * @return Query results.
      */
     @Override
     public <T> T singleResult() {
@@ -68,8 +53,8 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     }
 
     /**
-     * 执行更新仓储的操作。
-     * @return 被更新或删除的实体的数量
+     * Perform the update warehousing operation.
+     * @return Number of updated or deleted entities
      */
     @Override
     public int executeUpdate() {

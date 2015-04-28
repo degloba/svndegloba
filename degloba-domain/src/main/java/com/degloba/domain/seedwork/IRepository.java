@@ -38,60 +38,60 @@ public interface IRepository {
 	    /**
 	     * Entity to determine whether there is an instance of the specified ID warehousing .
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @param id 实体标识
-	     * @return 如果实体实例存在，返回true，否则返回false
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @param id Entity标识
+	     * @return 如果Entity实例存在，返回true，否则返回false
 	     */
 		<T extends Entity> boolean exists(Class<T> clazz, Long id);
 
 	    /**
-	     * 从仓储中获取指定类型、指定ID的实体
+	     * 从Warehousing中Get指定类型、指定ID的Entity
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @param id 实体标识
-	     * @return 一个实体实例。
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @param id Entity标识
+	     * @return 一个Entity实例。
 	     */
 	     <T extends Entity> T get(Class<T> clazz, Serializable id);
 
 	    /**
-	     * 从仓储中装载指定类型、指定ID的实体
+	     * 从Warehousing中装载指定类型、指定ID的Entity
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @param id 实体标识
-	     * @return 一个实体实例。
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @param id Entity标识
+	     * @return 一个Entity实例。
 	     */
 	     <T extends Entity> T load(final Class<T> clazz,Serializable id);
 	     
 
 	    /**
-	     * 从仓储中获取entity参数所代表的未修改的实体
+	     * 从Warehousing中Getentity参数所代表的未修改的Entity
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @param entity 要查询的实体
-	     * @return 参数entity在仓储中的未修改版本
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @param entity 要查询的Entity
+	     * @return 参数entity在Warehousing中的未修改版本
 	     */
 	     <T extends Entity> T getUnmodified(Class<T> clazz, T entity);
 	    
 	    /**
-	     * 根据业务主键从仓储中获取指定类型的实体
+	     * 根据业务主键从Warehousing中Get指定类型的Entity
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @param keyValues 代表业务主键值的命名参数。key为主键属性名，value为主键属性值
-	     * @return 一个实体实例。
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @param keyValues 代表业务主键值的命名参数。key为主键Property name，value为主键属性值
+	     * @return 一个Entity实例。
 	     */
 	     <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
 	    /**
-	     * 查找指定类型的所有实体
+	     * 查找指定类型的所有Entity
 	     *
-	     * @param <T> 实体类型
-	     * @param clazz 实体的类
-	     * @return 符合条件的实体集合
+	     * @param <T> Entity Type
+	     * @param clazz Class entities
+	     * @return 符合条件的Entity集合
 	     */
 	     <T extends Entity> List<T> findAll(Class<T> clazz);
 	     
@@ -99,23 +99,23 @@ public interface IRepository {
 	    /**
 	     * 创建条件查询
 	     *
-	     * @param entityClass 要查询的实体类
-	     * @param <T> 实体的类型
+	     * @param entityClass 要查询的Entity类
+	     * @param <T> Class entities型
 	     * @return 一个条件查询
 	     */
 	     <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> clazz);
 
 	    /**
-	     * 执行条件查询，返回符合条件的实体列表
+	     * 执行条件查询，返回Eligible Entity List
 	     *
 	     * @param criteriaQuery 要执行的条件查询
 	     * @param <T> 返回结果元素类型
-	     * @return 符合查询条件的实体列表
+	     * @return 符合查询条件的Entity列表
 	     */
 	     <T> List<T> find(CriteriaQuery criteriaQuery);
 
 	    /**
-	     * 执行条件查询，返回符合条件的单个实体
+	     * 执行条件查询，返回符合条件的单个Entity
 	     *
 	     * @param criteriaQuery 要执行的条件查询
 	     * @param <T> 返回结果类型
@@ -132,7 +132,7 @@ public interface IRepository {
 	    JpqlQuery createJpqlQuery(String jpql);
 
 	    /**
-	     * 执行JPQL查询，返回符合条件的实体列表
+	     * 执行JPQL查询，返回Eligible Entity List
 	     *
 	     * @param jpqlQuery 要执行的JPQL查询
 	     * @param <T> 返回结果元素类型
@@ -141,7 +141,7 @@ public interface IRepository {
 	    <T> List<T> find(JpqlQuery jpqlQuery);
 
 	    /**
-	     * 执行JPQL查询，返回符合条件的单个实体
+	     * 执行JPQL查询，返回符合条件的单个Entity
 	     *
 	     * @param jpqlQuery 要执行的JPQL查询
 	     * @param <T> 返回结果类型
@@ -150,10 +150,10 @@ public interface IRepository {
 	    <T> T getSingleResult(JpqlQuery jpqlQuery);
 
 	    /**
-	     * 执行更新仓储的操作。
+	     * Perform the update warehousing operation.
 	     *
 	     * @param jpqlQuery 要执行的JPQL查询。
-	     * @return 被更新或删除的实体的数量
+	     * @return Number of updated or deleted entities
 	     */
 	    int executeUpdate(JpqlQuery jpqlQuery);
 
@@ -166,7 +166,7 @@ public interface IRepository {
 	    NamedQuery createNamedQuery(String queryName);
 
 	    /**
-	     * 执行命名查询，返回符合条件的实体列表
+	     * 执行命名查询，返回Eligible Entity List
 	     *
 	     * @param namedQuery 要执行的命名查询
 	     * @param <T> 返回结果元素类型
@@ -175,7 +175,7 @@ public interface IRepository {
 	    <T> List<T> find(NamedQuery namedQuery);
 
 	    /**
-	     * 执行命名查询，返回符合条件的单个实体
+	     * 执行命名查询，返回符合条件的单个Entity
 	     *
 	     * @param namedQuery 要执行的命名查询
 	     * @param <T> 返回结果类型
@@ -184,10 +184,10 @@ public interface IRepository {
 	    <T> T getSingleResult(NamedQuery namedQuery);
 
 	    /**
-	     * 使用命名查询执行更新仓储的操作。
+	     * 使用命名查询Perform the update warehousing operation.
 	     *
 	     * @param namedQuery 要执行的命名查询。
-	     * @return 被更新或删除的实体的数量
+	     * @return Number of updated or deleted entities
 	     */
 	    int executeUpdate(NamedQuery namedQuery);
 
@@ -200,7 +200,7 @@ public interface IRepository {
 	    SqlQuery createSqlQuery(String sql);
 
 	    /**
-	     * 执行SQL查询，返回符合条件的实体列表
+	     * 执行SQL查询，返回Eligible Entity List
 	     *
 	     * @param sqlQuery 要执行的SQL查询。
 	     * @param <T> 返回结果元素类型
@@ -209,7 +209,7 @@ public interface IRepository {
 	    <T extends Entity> List<T> find(SqlQuery sqlQuery);
 
 	    /**
-	     * 执行SQL查询，返回符合条件的单个实体
+	     * 执行SQL查询，返回符合条件的单个Entity
 	     *
 	     * @param sqlQuery 要执行的SQL查询。
 	     * @param <T> 返回结果类型
@@ -218,17 +218,17 @@ public interface IRepository {
 	    <T> T getSingleResult(SqlQuery sqlQuery);
 
 	    /**
-	     * 使用SQL查询执行更新仓储的操作。
+	     * 使用SQL查询Perform the update warehousing operation.
 	     *
 	     * @param sqlQuery 要执行的SQL查询。
-	     * @return 被更新或删除的实体的数量
+	     * @return Number of updated or deleted entities
 	     */
 	    int executeUpdate(SqlQuery sqlQuery);
 
 	    /**
 	     * 按例查询。
 	     *
-	     * @param <T> 查询的目标实体类型
+	     * @param <T> 查询的目标Entity Type
 	     * @param <T> 查询样例的类型
 	     * @param example 查询样例
 	     * @param settings 查询设置
@@ -237,28 +237,28 @@ public interface IRepository {
 	    <T extends Entity, E2 extends T> List<T> findByExample(E2 example, ExampleSettings<T> settings);
 
 	    /**
-	     * 根据单一属性的值查找实体
+	     * 根据单一属性的值查找Entity
 	     *
-	     * @param <T> 要查询的实体的类型
-	     * @param clazz 要查询的实体的类
+	     * @param <T> 要查询的Class entities型
+	     * @param clazz 要查询的Class entities
 	     * @param propertyName 要查询的属性
 	     * @param propertyValue 匹配的属性值
-	     * @return 类型为clazz的、属性propertyName的值等于propertyValue的实体的集合
+	     * @return 类型为clazz的、属性propertyName的值等于propertyValue的Entity的集合
 	     */
 	    <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
 	    /**
-	     * 根据多个属性的值查找实体
+	     * 根据多个属性的值查找Entity
 	     *
-	     * @param <T> 要查询的实体的类型
-	     * @param clazz 要查询的实体的类
-	     * @param properties 命名参数，其中key为属性名，value为要匹配的属性值。
-	     * @return 类型为clazz、多个属性分别等于指定的属性值的实体的集合。
+	     * @param <T> 要查询的Class entities型
+	     * @param clazz 要查询的Class entities
+	     * @param properties 命名参数，其中key为Property name，value为要匹配的属性值。
+	     * @return 类型为clazz、多个属性分别等于指定的属性值的Entity的集合。
 	     */
 	    <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
 	    
 	    /**
-	     * 获取命名查询的查询字符串
+	     * Get命名查询的查询字符串
 	     * @param queryName 命名查询的名字
 	     * @return 命名查询对应的JPQL字符串
 	     */
@@ -271,9 +271,9 @@ public interface IRepository {
 	    void flush();
 
 	    /**
-	     * 使用数据库中的最新数据更新实体的当前状态。实体中的任何已改变但未持久化的属性值将被数据库中的最新值覆盖。
+	     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的属性值将被数据库中的最新值覆盖。
 	     *
-	     * @param entity 要刷新的实体
+	     * @param entity 要刷新的Entity
 	     */
 	    <E extends Entity> void refresh(E entity);
 

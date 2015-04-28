@@ -1,19 +1,3 @@
-/*
- * Copyright 2014 Dayatang Open Source..
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.degloba.domain;
 
 import java.util.Arrays;
@@ -25,7 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * 查询语言或命名查询的定位参数集。JPA、Hibernate和SQL等都支持定位
  * 参数(如"... where e.name = ?")和命名参数(如"... where name = :name")两种形式。<br>
  * 尽可能采用命名参数的形式，定位参数是落后的形式。
- * @author yyang
+ * @author degloba
  */
 public class PositionalParameters implements QueryParameters {
     

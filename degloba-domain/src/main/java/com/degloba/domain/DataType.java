@@ -8,8 +8,8 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 数据类型枚举。
- * @author yyang
+ * Enum data type.
+ * @author degloba
  */
 public enum DataType {
 
@@ -81,24 +81,24 @@ public enum DataType {
             };
 
     /**
-     * 转换字符串值为相应数据类型形式的值。
-     * @param value 字符串格式的值
-     * @return 对象值
+     * Convert a string value of the corresponding data type in the form of value.
+     * @param value Value of the string format
+     * @return Object value
      */
     public abstract Object getValue(String value);
 
     /**
-     * 日期格式
+     * Date Format
      */
     protected static final String DATE_FORMAT = "yyyy-MM-dd";
 
     /**
-     * 时间格式
+     * Time Format
      */
     protected static final String TIME_FORMAT = "hh:mm:ss";
 
     /**
-     * 时间戳格式
+     * Timestamp format
      */
     protected static final String DATE_TIME_FORMAT = "yyyy-MM-dd hh:mm:ss";
 }

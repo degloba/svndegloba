@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.degloba.domain;
 
 import java.util.Map;

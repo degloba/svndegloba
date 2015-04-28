@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * 按例查询设置类。
- * @author yyang
+ * @author degloba
  * @param <T> 范例的类型
  */
 public class ExampleSettings<T> {

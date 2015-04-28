@@ -27,7 +27,7 @@ import static org.mockito.Mockito.*;
 
 /**
  *
- * @author yyang
+ * @author degloba
  */
 public class BaseEntityTest {
 
