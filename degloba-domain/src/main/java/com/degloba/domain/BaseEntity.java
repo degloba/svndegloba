@@ -5,29 +5,31 @@ package com.degloba.domain;
 
 import java.util.Map;
 
+// JPA
 import javax.persistence.*;
-import javax.persistence.Entity;
 
+//
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+// Dayatang Utils
 import org.dayatang.utils.BeanUtils;
 
+// Appengine
 import com.google.appengine.api.datastore.Key;
 
 
 /**
-* 抽象实体类，可作为所有领域实体的基类。
+* Abstract entity class can be used as the base class for all areas of the entity.
 *
-* @author yang
+* @author degloba
 *
 */
-@Entity
+
 @MappedSuperclass
-public class BaseEntity implements com.degloba.domain.Entity {
-//public abstract class BaseEntity implements Entity {
+public abstract class BaseEntity implements com.degloba.domain.Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
-   
 
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
    // annotated as ordinal in sake of performance
@@ -35,18 +37,17 @@ public class BaseEntity implements com.degloba.domain.Entity {
        ACTIVE, ARCHIVE
    }
 
-   //entityId because ID can mean something (some domain concept) in some Bounded Context
-   @Id
+
+   @Id  
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   protected Long aggregateIddd;
+   private Key id;
+   
    
    /*    @EmbeddedId
 	@AttributeOverrides({
 		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
 	private AggregateId aggregateId; */
    
-   /*    @Version
-   private Long version;*/
 
    @Enumerated(EnumType.ORDINAL)
    private EntityStatus entityStatus = EntityStatus.ACTIVE;
@@ -56,24 +57,24 @@ public class BaseEntity implements com.degloba.domain.Entity {
    }
    
    
-   //    getters - setters
+   // getters - setters
    
-	
+   public Key getId() {
+		return id;
+	}
+
+	public void setId(Key id) {
+		this.id = id;
+	}
+ 	
    public EntityStatus getEntityStatus() {
        return entityStatus;
    }
    
-	public Long getAggregateId() {
-		return aggregateIddd;
-	}
-
-	public void setAggregateId(Long aggregateId) {
-		this.aggregateIddd = aggregateId;
-	}
 
    /**
-    * 判断该实体是否已经存在于数据库中。
-    * @return 如果数据库中已经存在拥有该id的实体则返回true，否则返回false。
+    * Determine whether the entity already exists in the database.
+    * @return If the entity that owns the id of the database already exists returns true, otherwise false.
     */
    public boolean existed() {
        Object id = getId();
@@ -87,8 +88,8 @@ public class BaseEntity implements com.degloba.domain.Entity {
    }
 
    /**
-    * 判断该实体是否不存在于数据库中。
-    * @return 如果数据库中已经存在拥有该id的实体则返回false，否则返回true。
+    * Determines whether the entity does not exist in the database.
+    * @return If the entity that owns the id is already in the database returns false, otherwise it returns true.
     */
    public boolean notExisted() {
        return !existed();
@@ -97,8 +98,8 @@ public class BaseEntity implements com.degloba.domain.Entity {
    private static EntityRepository repository;
 
    /**
-    * 获取仓储对象实例。如果尚未拥有仓储实例则通过InstanceFactory向IoC容器获取一个。
-    * @return 仓储对象实例
+    * Get warehousing object instance. If you do not have a warehouse to get an instance of the IoC container through InstanceFactory.
+    * @return Warehousing object instance
     */
    public static EntityRepository getRepository() {
        if (repository == null) {
@@ -108,27 +109,27 @@ public class BaseEntity implements com.degloba.domain.Entity {
    }
 
    /**
-    * 设置仓储实例。该方法主要用于单元测试。产品系统中通常是通过IoC容器获取仓储实例。
-    * @param repository 要设置的仓储对象实例
+    * Set warehousing instance. This method is mainly used for unit testing. Product warehousing systems usually get through IoC container instance.
+    * @param repository To set up an instance of an object storage
     */
    public static void setRepository(EntityRepository repository) {
        BaseEntity.repository = repository;
    }
    
    /**
-    * 获取业务主键。业务主键是判断相同类型的两个实体在业务上的等价性的依据。如果相同类型的两个
-    * 实体的业务主键相同，则认为两个实体是相同的，代表同一个实体。
-    * <p>业务主键由实体的一个或多个属性组成。
-    * @return 组成业务主键的属性的数组。
+    * Get Natural key. Natural key is to determine the two entities of the same type on the basis of operational equivalence. If the same type of two
+    * Business entities the same primary key, then that the two entities are identical, represent the same entity.
+    * Natural key by one or more entities, attributes.
+    * @return Consisting of an array of attributes of Natural key.
     */
    public String[] businessKeys() {
        return new String[] {};
    }
 
    /**
-    * 依据业务主键获取哈希值。用于判定两个实体是否等价。
-    * 等价的两个实体的hashCode相同，不等价的两个实体hashCode不同。
-    * @return 实体的哈希值
+    * Gets a hash value based Natural key. Used to determine whether two entities equivalent.
+    * The equivalent of two different hashCode same entity, the two entities are not equivalent hashCode.
+    * @return Hashes entities
     */
    @Override
    public int hashCode() {
@@ -142,9 +143,9 @@ public class BaseEntity implements com.degloba.domain.Entity {
    }
 
    /**
-    * 依据业务主键判断两个实体是否等价。
-    * @param other 另一个实体
-    * @return 如果本实体和other等价则返回true,否则返回false
+    * Natural key judgments based on two entities are equal.
+    * @param other Another entity
+    * @return If this is the equivalent entities and other returns true, otherwise false
     */
    @Override
    public boolean equals(Object other) {
@@ -172,25 +173,18 @@ public class BaseEntity implements com.degloba.domain.Entity {
   
 	
 /**
-    * 将实体本身持久化到数据库
+    * The entity itself persisted to the database
     */
    public void save() {
        getRepository().save(this);
    }
 
    /**
-    * 将实体本身从数据库中删除
+    * Entity itself will be deleted from the database
     */
    public void remove() {
        getRepository().remove(this);
    }
-
-
-@Override
-public Key getId() {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 
 
