@@ -26,7 +26,7 @@ Mientras tanto , por conveniencia, hay una gran cantidad de desarrolladores est�
 
 ### persistencia
 
-* [EntityRepository](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/EntityRepository.html)：这是持久化的核心接口，代表DDD中的“仓储”概念。实体以及从属于实体的值对象通过仓储接口持久化到仓储（一般是数据库）里面，通过仓储接口可以以各种各样的方式查找实体。仓储接口功能上约等于JPA的EntityManager和Hibernate的Session。dddlib-persistence-jpa和dddlib-persistence-hibernate两个模块分别为该仓储接口提供了不同的实现。
+* [EntityRepository](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/EntityRepository.html)：这是持久化的核心接口，代表DDD中的“Warehousing”概念。Entity以及从属于Entity的值对象通过Warehousing接口持久化到Warehousing（一般是数据库）里面，通过Warehousing接口可以以各种各样的方式查找Entity。Warehousing接口功能上约等于JPA的EntityManager和Hibernate的Session。dddlib-persistence-jpa和dddlib-persistence-hibernate两个模块分别为该Warehousing接口提供了不同的实现。
 
 dddlib支持四种查询方式：条件查询、命名查询、JPQL查询和原生SQL查询，可以分别用EntityRepository的createCriteriaQuery()、createJpqlQuery()、createNamedQuery()和createSqlQuery()方法创建。这些查询分别由下面的类和接口支持：
 
@@ -36,7 +36,7 @@ dddlib支持四种查询方式：条件查询、命名查询、JPQL查询和原�
 
 * [NamedQuery](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/NamedQuery.html)：命名查询。根据预定义的查询的名称来进行查询。
 
-* [SqlQuery](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/SqlQuery.html)：原生SQL查询。根据原生SQL语句进行查询。查询的结果可以是标量的，也可以映射到一个实体类型。
+* [SqlQuery](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/SqlQuery.html)：原生SQL查询。根据原生SQL语句进行查询。查询的结果可以是标量的，也可以映射到一个Entity Type。
 
 除CriteriaQuery之外，其他三种查询往往需要指定查询参数。查询参数集由下面的接口和类代表：
 
@@ -63,7 +63,7 @@ dddlib支持四种查询方式：条件查询、命名查询、JPQL查询和原�
 
 DDDLib的依赖查找功能由InstanceFactory代表。它通过InstanceProvider策略接口将对象查找请求委托给具体的后端IoC容器，如Spring或Google Guice等。
 
-* [InstanceFactory](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceFactory.html)：实例工厂，代表DDD中的“工厂”概念。它是IoC容器的门面，为系统中的其他类提供所需的依赖对象的实例。InstanceFactor顺序通过三种途径获取Bean实例。（1）如果已经给InstanceFactory设置了InstanceProvider，那么就通过后者 查找Bean；（2）如果没有设置InstanceProvider，或者通过InstanceProvider无法找到Bean，就通过JDK6的ServiceLoader机制查找（通 过在类路径或jar中的/META-INF/services/a.b.c.Abc文件中设定内容为x.y.z.Xyz，就表明类型a.b.c.Abc将通过类x.y.z.Xyz 的实例提供）；（3）如果仍然没找到Bean实例，那么将返回那些通过bind()方法设置的Bean实例。（4）如果最终仍然找不到，就抛出 IocInstanceNotFoundException异常。
+* [InstanceFactory](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceFactory.html)：实例工厂，代表DDD中的“工厂”概念。它是IoC容器的门面，为系统中的其他类提供所需的依赖对象的实例。InstanceFactor顺序通过三种途径GetBean实例。（1）如果已经给InstanceFactory设置了InstanceProvider，那么就通过后者 查找Bean；（2）如果没有设置InstanceProvider，或者通过InstanceProvider无法找到Bean，就通过JDK6的ServiceLoader机制查找（通 过在类路径或jar中的/META-INF/services/a.b.c.Abc文件中设定内容为x.y.z.Xyz，就表明类型a.b.c.Abc将通过类x.y.z.Xyz 的实例提供）；（3）如果仍然没找到Bean实例，那么将返回那些通过bind()方法设置的Bean实例。（4）如果最终仍然找不到，就抛出 IocInstanceNotFoundException异常。
 
 * [InstanceProvider](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceProvider.html)：实例提供者接口。这是一个策略接口，封装了IoC的功能。DDDLib的另外三个模块dddlib-ioc-spring，dddlib-ioc-guice和dddlib-ioc-tapestry分别为该接口提供了不同的实现，将Bean实例请求适配到具体的IoC容器，如SpringIoC、Google Guice和TapestryIoC等。
 
@@ -72,11 +72,11 @@ DDDLib的依赖查找功能由InstanceFactory代表。它通过InstanceProvider�
 
 ### 值和数据类型
 
-在很多业务领域中(尤其是在SaaS的环境下)，为了适应不同类型租户的需要，除了定义实体类共同的静态属性（即JavaBean属性）之外，每个租户或用户往往需要定义一批自己专用的动态属性，例如给员工Employee类加入Date类型的"转正日期"和String类型的“护照编号”属性。DDDLib对此提供下面的API支持：
+在很多业务领域中(尤其是在SaaS的环境下)，为了适应不同类型租户的需要，除了定义Entity类共同的静态属性（即JavaBean属性）之外，每个租户或用户往往需要定义一批自己专用的动态属性，例如给员工Employee类加入Date类型的"转正日期"和String类型的“护照编号”属性。DDDLib对此提供下面的API支持：
 
 * [Value](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/Value.html)：代表一个值类型，可以用来代表一个动态属性值。它包括两部分：代表数据类型的[DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)和代表具体内容的字符串值。
 
-* [DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)：数据类型枚举。代表值的数据类型。它负责将字符串形式的值转换为指定的数据类型。
+* [DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)：数据类型枚举。代表值的数据类型。它负责将String value转换为指定的数据类型。
 
 
 ### 领域规范
@@ -110,20 +110,20 @@ DDDLIB-DOMAIN的基本设计思想是：**应用依赖倒置和面向接口编�
 
 在DDDLib中，依赖倒置的原则表现在：在代表领域层的dddlib-domain模块中定义持久化接口EntityRepository和IoC接口InstanceProvider，而将它们的技术实现推给属于基础设施层的其他模块。由领域层定义和控制接口，由基础设施层实现接口，这样做的结果是：虽然在运行时是由领域层调用基础设施层的对象实例来在技术上实现持久化和IoC等功能，但是在编译时却是基础设施层依赖于领域层，而不是领域层依赖于基础设施层———编译时依赖的方向和运行时调用的方向反转了过来。是技术依赖于业务，而不是业务依赖于技术。在保持业务逻辑不变的前提下，可以轻易替换技术实现，例如用Guice代替Spring作为IoC基础设施。
 
-### 仓储与DAO模式比较
+### Warehousing与DAO模式比较
 
-领域驱动设计（DDD）范式与传统的“以数据库为中心的增删改查(CRUD)”范式的最大不同在于：DDD是以对象模型（领域模型）为中心的，而CRUD是以关系模型（数据库表）为中心的。DDD中的实体代表现实世界（问题域）中的一个业务实体，具有问题域中业务实体相似的属性和行为；CRUD中的实体代表数据库中的一行记录，没有任何行为。DDD认为软件是对现实的模拟，CRUD认为软件就是数据的存储和展示。
+领域驱动设计（DDD）范式与传统的“以数据库为中心的增删改查(CRUD)”范式的最大不同在于：DDD是以对象模型（领域模型）为中心的，而CRUD是以关系模型（数据库表）为中心的。DDD中的Entity代表现实世界（问题域）中的一个业务Entity，具有问题域中业务Entity相似的属性和行为；CRUD中的Entity代表数据库中的一行记录，没有任何行为。DDD认为软件是对现实的模拟，CRUD认为软件就是数据的存储和展示。
 
 由于设计思想的不同，使得两种范式在持久化设计上有着巨大的分歧。DDD认为软件开发最重要的活动是领域建模，最重要的产物是领域模型。在确定领域模型之后再考虑如何将它持久化到数据库。Robert C. Martin在其经典名作《敏捷软件开发：原则、模式、实践》中说：“数据库是技术实现细节，应尽可能推迟数据库的设计”。CRUD范式则相反，认为数据库关系模型是软件开发的中心，应先设计数据库结构，然后才开发其余的内容。
 
 采用以数据库为中心的开发范式的典型做法是：首先建立数据库结构，然后针对数据库设计DAO接口和实现。业务逻辑层调用和依赖代表数据库的DAO接口，这种做法直接违反依赖倒置原则，让业务逻辑层依赖于技术实现。
 
-DDD中的仓储接口（在DDDLib中是EntityReposotory）在作用上是DAO接口的等价物，但是与DAO接口有很大的不同：它位于领域层，属于领域对象的一种，由领域层定义和控制。而DAO接口属于基础设施层，由基础设施层定义和控制。Robert C. Martin在《敏捷软件开发：原则、模式、实践》中说：“接口属于客户，不属于它所在的类层次结构……接口应该跟它的客户一起打包，而不是跟它的实现类一起打包”。Eric Evans的《领域驱动设计———软件核心复杂性的应对之道》一书以及后来的访谈中，也是将仓储视为领域对象的一种。所以在DDDLib中，仓储接口位于代表领域层的dddlib-domain模块。
+DDD中的Warehousing接口（在DDDLib中是EntityReposotory）在作用上是DAO接口的等价物，但是与DAO接口有很大的不同：它位于领域层，属于领域对象的一种，由领域层定义和控制。而DAO接口属于基础设施层，由基础设施层定义和控制。Robert C. Martin在《敏捷软件开发：原则、模式、实践》中说：“接口属于客户，不属于它所在的类层次结构……接口应该跟它的客户一起打包，而不是跟它的实现类一起打包”。Eric Evans的《领域驱动设计———软件核心复杂性的应对之道》一书以及后来的访谈中，也是将Warehousing视为领域对象的一种。所以在DDDLib中，Warehousing接口位于代表领域层的dddlib-domain模块。
 
-另一个选择是：是像DAO模式那样，为每一个实体类单独提供一个DAO；还是像JPA的EntityManager那样，用一个统一的仓储应对所有实体的持久化需求？我决定采用单一仓储的形式。这样做的好处至少有如下两个：
+另一个选择是：是像DAO模式那样，为每一个Entity类单独提供一个DAO；还是像JPA的EntityManager那样，用一个统一的Warehousing应对所有Entity的持久化需求？我决定采用单一Warehousing的形式。这样做的好处至少有如下两个：
 
-* 通过采用单一仓储接口并为其提供实现类，用户项目中将不再需要做任何持久层的开发工作：既不需要定义DAO接口，也不需要开发DAO实现类。开发人员完全节省掉了开发持久层的工作，可以把精力集中在开发业务逻辑层（领域层和应用层）上。
-* 采用单一仓储接口的另一个好处更大。传统的DAO模式有一个很大的缺陷是：由DAO实现类具体处理对象查询语言来执行仓储查询，而对象查询语言与领域模型紧密相关，代表的是问题域的领域语义，因此属于业务逻辑。这样做的结果是业务逻辑泄露到代表技术的基础设施层，没能做到业务逻辑和技术实现的彻底分离。其后果是一旦领域模型发生了变动，必须在领域层和基础设施层两个地方同时修改代码，这直接违反了单一职责原则，大大降低软件的可维护性。单一仓储接口的方式有效避免了这种问题：由领域层负责定义查询语言的内容，并且当领域模型发生变动时，只需要在领域层一个地方修改代码。
+* 通过采用单一Warehousing接口并为其提供实现类，用户项目中将不再需要做任何持久层的开发工作：既不需要定义DAO接口，也不需要开发DAO实现类。开发人员完全节省掉了开发持久层的工作，可以把精力集中在开发业务逻辑层（领域层和应用层）上。
+* 采用单一Warehousing接口的另一个好处更大。传统的DAO模式有一个很大的缺陷是：由DAO实现类具体处理对象查询语言来执行Warehousing查询，而对象查询语言与领域模型紧密相关，代表的是问题域的领域语义，因此属于业务逻辑。这样做的结果是业务逻辑泄露到代表技术的基础设施层，没能做到业务逻辑和技术实现的彻底分离。其后果是一旦领域模型发生了变动，必须在领域层和基础设施层两个地方同时修改代码，这直接违反了单一职责原则，大大降低软件的可维护性。单一Warehousing接口的方式有效避免了这种问题：由领域层负责定义查询语言的内容，并且当领域模型发生变动时，只需要在领域层一个地方修改代码。
 
 
 ### 依赖查找 vs 依赖注入
