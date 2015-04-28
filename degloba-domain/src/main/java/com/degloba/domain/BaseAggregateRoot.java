@@ -13,14 +13,14 @@ import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
-// SPRING
+// Spring
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.utils.BeanUtils;
+
 
 /**
  * @author degloba
@@ -34,15 +34,10 @@ import com.degloba.utils.BeanUtils;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public class BaseAggregateRoot extends com.degloba.domain.BaseEntity {
-	//public abstract class BaseAggregateRoot {
-		 
+	public abstract class BaseAggregateRoot extends com.degloba.domain.BaseEntity {
 
-		/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+		private static final long serialVersionUID = 1L;
+		   
 		/**
 		 * control de concurrencia
 		 */
@@ -82,7 +77,7 @@ import com.degloba.utils.BeanUtils;
 				} */
 
 
-    //    getters - setters
+    // getters - setters
 	
 	public Boolean getActiu() {
 		return actiu;
@@ -151,51 +146,11 @@ import com.degloba.utils.BeanUtils;
 	}
 
 
-	public Long getAggregateId() {
-		return aggregateIddd;
-	}
-
-	public void setAggregateId(Long aggregateId) {
-		this.aggregateIddd = aggregateId;
-	}
-
-
-/*	    private static EntityRepository repository;
-
-	    *//**
-	     * èŽ·å�–ä»“å‚¨å¯¹è±¡å®žä¾‹ã€‚å¦‚æžœå°šæœªæ‹¥æœ‰ä»“å‚¨å®žä¾‹åˆ™é€šè¿‡InstanceFactoryå�‘IoCå®¹å™¨èŽ·å�–ä¸€ä¸ªã€‚
-	     * @return ä»“å‚¨å¯¹è±¡å®žä¾‹
-	     *//*
-	    public static EntityRepository getRepository() {
-	        if (repository == null) {
-	            repository = InstanceFactory.getInstance(EntityRepository.class);
-	        }
-	        return repository;
-	    }
-
-	    *//**
-	     * è®¾ç½®ä»“å‚¨å®žä¾‹ã€‚è¯¥æ–¹æ³•ä¸»è¦�ç”¨äºŽå�•å…ƒæµ‹è¯•ã€‚äº§å“�ç³»ç»Ÿä¸­é€šå¸¸æ˜¯é€šè¿‡IoCå®¹å™¨èŽ·å�–ä»“å‚¨å®žä¾‹ã€‚
-	     * @param repository è¦�è®¾ç½®çš„ä»“å‚¨å¯¹è±¡å®žä¾‹
-	     *//*
-	    public static void setRepository(EntityRepository repository) {
-	        BaseEntity.repository = repository;
-	    }*/
-	    
-	    /**
-	     * èŽ·å�–ä¸šåŠ¡ä¸»é”®ã€‚ä¸šåŠ¡ä¸»é”®æ˜¯åˆ¤æ–­ç›¸å�Œç±»åž‹çš„ä¸¤ä¸ªå®žä½“åœ¨ä¸šåŠ¡ä¸Šçš„ç­‰ä»·æ€§çš„ä¾�æ�®ã€‚å¦‚æžœç›¸å�Œç±»åž‹çš„ä¸¤ä¸ª
-	     * å®žä½“çš„ä¸šåŠ¡ä¸»é”®ç›¸å�Œï¼Œåˆ™è®¤ä¸ºä¸¤ä¸ªå®žä½“æ˜¯ç›¸å�Œçš„ï¼Œä»£è¡¨å�Œä¸€ä¸ªå®žä½“ã€‚
-	     * <p>ä¸šåŠ¡ä¸»é”®ç”±å®žä½“çš„ä¸€ä¸ªæˆ–å¤šä¸ªå±žæ€§ç»„æˆ�ã€‚
-	     * @return ç»„æˆ�ä¸šåŠ¡ä¸»é”®çš„å±žæ€§çš„æ•°ç»„ã€‚
-	     */
 	    public String[] businessKeys() {
 	        return new String[] {};
 	    }
 
-	    /**
-	     * ä¾�æ�®ä¸šåŠ¡ä¸»é”®èŽ·å�–å“ˆå¸Œå€¼ã€‚ç”¨äºŽåˆ¤å®šä¸¤ä¸ªå®žä½“æ˜¯å�¦ç­‰ä»·ã€‚
-	     * ç­‰ä»·çš„ä¸¤ä¸ªå®žä½“çš„hashCodeç›¸å�Œï¼Œä¸�ç­‰ä»·çš„ä¸¤ä¸ªå®žä½“hashCodeä¸�å�Œã€‚
-	     * @return å®žä½“çš„å“ˆå¸Œå€¼
-	     */
+
 	    @Override
 	    public int hashCode() {
 	        HashCodeBuilder builder = new HashCodeBuilder(13, 37);
@@ -207,11 +162,7 @@ import com.degloba.utils.BeanUtils;
 	        return builder.toHashCode();
 	    }
 
-	    /**
-	     * ä¾�æ�®ä¸šåŠ¡ä¸»é”®åˆ¤æ–­ä¸¤ä¸ªå®žä½“æ˜¯å�¦ç­‰ä»·ã€‚
-	     * @param other å�¦ä¸€ä¸ªå®žä½“
-	     * @return å¦‚æžœæœ¬å®žä½“å’Œotherç­‰ä»·åˆ™è¿”å›žtrue,å�¦åˆ™è¿”å›žfalse
-	     */
+	
 	    @Override
 	    public boolean equals(Object other) {
 	        if (this == other) {
@@ -234,5 +185,6 @@ import com.degloba.utils.BeanUtils;
 	        }
 	        return builder.isEquals();
 	    }
-    
+	    
+	   
 }
