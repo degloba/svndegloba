@@ -7,7 +7,7 @@ import com.degloba.domain.InstanceProvider;
 import java.util.Map;
 
 /**
- * Created by yyang on 15/1/14.
+ * 
  */
 public class InstanceLocatorFactoryImpl implements InstanceLocatorFactory {
     public InstanceLocator create(InstanceProvider instanceProvider) {

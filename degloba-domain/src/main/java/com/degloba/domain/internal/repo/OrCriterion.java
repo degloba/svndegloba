@@ -12,7 +12,7 @@ import org.dayatang.utils.Assert;
 
 
 /**
- * 代表两个或两个以上的查询条件OR操作结果的查询条件
+ * On behalf of two or more of the query results query criteria OR operation
  * @author degloba
  */
 public class OrCriterion extends AbstractCriterion {
@@ -20,9 +20,10 @@ public class OrCriterion extends AbstractCriterion {
     private final List<QueryCriterion> criterions;
 
     /**
-     * 根据多个查询条件创建OR查询条件。创建过程中会去除为null或EmptyCriterion的查询条件。如果
-     * 剩余查询条件不足两个，则抛出异常。
-     * @param criterions 要用来执行OR操作的查询条件
+     * Create OR query condition based on multiple search criteria. 
+     * Creation process removes the null or EmptyCriterion query criteria. In case
+     * The remaining two less than the query, an exception is thrown.
+     * @param criterions To be used to perform an OR operation of the query
      */
     public OrCriterion(QueryCriterion... criterions) {
         Assert.notNull(criterions, "Criterions to \"OR\" is null!");
@@ -31,8 +32,9 @@ public class OrCriterion extends AbstractCriterion {
     }
 
     /**
-     * 获得要用来执行OR操作的查询条件
-     * @return 要用来执行AND操作的查询条件，去除了Null和EmptyCriterion类型的元素。
+     * Get the query to be used to perform an OR operation
+     * @return To be used to perform an AND operation of query conditions, 
+     * in addition to Null and EmptyCriterion types of elements.
      */
     public List<QueryCriterion> getCriterons() {
         return criterions;
@@ -56,9 +58,9 @@ public class OrCriterion extends AbstractCriterion {
 	}
 
 	/**
-     * 判断等价性
-     * @param other 要用来判等的另一个对象
-     * @return 如果当前对象和other等价，则返回true，否则返回false
+     * Equivalence of judgment
+     * @param other To be used to convict like another object
+     * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
     public boolean equals(final Object other) {
@@ -75,8 +77,8 @@ public class OrCriterion extends AbstractCriterion {
     }
 
     /**
-     * 计算哈希值
-     * @return 当前对象实例的哈希值
+     * Calculate the hash value
+     * @return The hash value of the object instance
      */
     @Override
     public int hashCode() {

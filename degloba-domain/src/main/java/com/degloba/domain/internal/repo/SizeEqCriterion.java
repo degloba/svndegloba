@@ -1,15 +1,15 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 判断某个集合属性的记录数等于指定值的查询条件
+ * Analyzing a set of attribute values equal to a specified number of records the query
  * @author degloba
  */
 public class SizeEqCriterion extends SizeCompareCriterion {
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
-     * @param value 属性值
+     * @param value Property Value
      */
     public SizeEqCriterion(String propName, int value) {
         super(propName, value);

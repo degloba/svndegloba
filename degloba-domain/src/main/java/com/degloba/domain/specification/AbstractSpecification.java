@@ -1,9 +1,9 @@
 package com.degloba.domain.specification;
 
 /**
- * 抽象规范实现，实现了规范的“与”、“或”、“非”操作。
+ * Abstract norms to achieve, achieve the standard, "and," "or," "not" operation.
  *
- * @param <T> 泛型参数
+ * @param <T> Generic parameters
  */
 public abstract class AbstractSpecification<T> implements com.degloba.domain.specification.Specification<T> {
 

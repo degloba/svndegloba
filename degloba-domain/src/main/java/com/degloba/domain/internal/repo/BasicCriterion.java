@@ -1,24 +1,10 @@
-/*
- * Copyright 2014 Dayatang Open Source..
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.degloba.domain.internal.repo;
 
 import org.dayatang.utils.Assert;
 
 /**
- * 基本查询条件，指除AND/OR/NOT查询条件以外的大多数查询条件，基本上都是判断某个属性值是否符合 某种条件
+ * Basic query, meaning a majority of query conditions except AND / OR / NOT query criteria, 
+ * basically determine the value of a property meets certain conditions
  *
  * @author degloba
  */
@@ -41,18 +27,18 @@ public abstract class BasicCriterion extends AbstractCriterion {
     }
 
     /**
-     * Get带别名前缀的Property name
+     * Get Property name prefixed with an alias
      *
-     * @return 带别名前缀的Property name
+     * @return Aliased prefix Property name
      */
     protected String getPropNameWithAlias() {
         return ROOT_ALIAS + "." + propName;
     }
 
     /**
-     * 获得参数名
+     * Get parameter name
      *
-     * @return 参数名
+     * @return Parameter name
      */
     protected String getParamName() {
         String result = ROOT_ALIAS + "_" + propName + hashCode();
@@ -62,9 +48,9 @@ public abstract class BasicCriterion extends AbstractCriterion {
     }
 
     /**
-     * 获得带冒号前缀的参数名
+     * Get a colon prefix Parameter name
      *
-     * @return 带冒号前缀的参数名
+     * @return Prefixed with a colon Parameter name
      */
     protected String getParamNameWithColon() {
         return ":" + getParamName();

@@ -6,7 +6,7 @@ import com.degloba.domain.NamedParameters;
 import org.dayatang.utils.Assert;
 
 /**
- * 判断某个属性的值是否包含指定文本内容的查询条件
+ * The value of a property with a judgment whether the query contains the specified text content
  * @author degloba
  */
 public class ContainsTextCriterion extends BasicCriterion {
@@ -14,9 +14,9 @@ public class ContainsTextCriterion extends BasicCriterion {
     private final String value;
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
-     * @param value 要包含在属性值中的子字符串
+     * @param value To include substring in property values
      */
     public ContainsTextCriterion(String propName, String value) {
         super(propName);
@@ -26,8 +26,8 @@ public class ContainsTextCriterion extends BasicCriterion {
     }
 
     /**
-     * Get匹配值
-     * @return 匹配值
+     * Get Match value
+     * @return  Match value
      */
     public String getValue() {
         return value;

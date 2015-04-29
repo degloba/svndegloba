@@ -10,8 +10,7 @@ import java.util.Map;
 
 /**
  * 
- * 代表判断集合属性的大小比较的一类查询条件
- * Created by yyang on 14-2-23.
+ * Analyzing collection of properties on behalf of a class size comparison search criteria
  */
 public abstract class SizeCompareCriterion extends BasicCriterion {
     protected final int value;
@@ -25,9 +24,9 @@ public abstract class SizeCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * Get匹配值
+     * Get Match value
      *
-     * @return 匹配值
+     * @return  Match value
      */
     public Object getValue() {
         return value;

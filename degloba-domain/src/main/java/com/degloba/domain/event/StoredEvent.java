@@ -1,27 +1,28 @@
 package com.degloba.domain.event;
 
 import com.degloba.domain.InstanceFactory;
+
 import org.dayatang.utils.Assert;
 import org.dayatang.utils.ObjectSerializer;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import java.util.Date;
 
 /**
- * 事件的存储形式。
- * Created by yyang on 14-9-14.
+ * Stored in the form of the event.
  */
 @Entity
 @Table(name = "stored_events")
 public class StoredEvent {
 
     @Id
-    private String eventId;       //事件ID，关联领域事件DomainEvent的ID
-    private String typeName;    //事件类型名称
-    private Date occurredOn;    //事件发生时间
-    private String eventBody;   //用字符串表示的事件体
+    private String eventId;       //Event ID, the ID associated with the field event DomainEvent
+    private String typeName;    //Event Type Name
+    private Date occurredOn;    //Event time
+    private String eventBody;   //A string representation of the body with the incident
 
     private static ObjectSerializer serializer;
 
@@ -70,7 +71,8 @@ public class StoredEvent {
                 getSerializer().serialize(event), event.getId());
     }
 
-    public <T extends DomainEvent> T toDomainEvent() {
+    @SuppressWarnings("unchecked")
+	public <T extends DomainEvent> T toDomainEvent() {
         Class<T> domainEventClass = null;
 
         try {

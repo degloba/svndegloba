@@ -1,7 +1,7 @@
 package com.degloba.domain;
+
 import javax.persistence.*;
 
-import com.degloba.utils.Utils;
 import com.google.appengine.api.datastore.Key;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
 * An abstract entity class , provide ID and release properties , as well as the basic method of persistence
 *
-* @author yang
+* @author degloba
 *
 */
 @MappedSuperclass
@@ -41,7 +41,7 @@ public abstract class AbstractEntity extends BaseEntity {
    /**
     * 设置Entity的标识
     *
-    * @param id 要设置的Entity标识
+    * @param id 要设置的Entity identification
     */
    public void setId(Key id) {
        this.id = id;
@@ -102,7 +102,7 @@ public abstract class AbstractEntity extends BaseEntity {
    }
 
    /**
-    * 根据Entity Type和ID从Warehousing中加载Entity(与get()方法的区别在于除id外所有的属性值都未填充)
+    * 根据Entity Type和ID从Warehousing中加载Entity(与get()方法的区别在于除id外所有的 Property Value都未填充)
     * @param <T> Entity Type
     * @param clazz Class entities
     * @param id ID entity
@@ -123,11 +123,11 @@ public abstract class AbstractEntity extends BaseEntity {
    }
 
    /**
-    * 根据单个属性值以“属性=属性值”的方式查找Entity
+    * 根据单个 Property Value以“属性= Property Value”的方式查找Entity
     * @param <T> Entity Class belongs型
     * @param clazz Entity Class belongs
     * @param propName Property name
-    * @param value 匹配的属性值
+    * @param value 匹配的 Property Value
     * @return Eligible Entity List
     */
    public static <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
@@ -135,10 +135,10 @@ public abstract class AbstractEntity extends BaseEntity {
    }
 
    /**
-    * 根据多个属性值以“属性=属性值”的方式查找Entity，例如查找name="张三", age=35的员工。
+    * 根据多个 Property Value以“属性= Property Value”的方式查找Entity，例如查找name="张三", age=35的员工。
     * @param <T> Entity Class belongs型
     * @param clazz Entity Class belongs
-    * @param propValues 属性值匹配条件
+    * @param propValues  Property Value匹配条件
     * @return Eligible Entity List
     */
     public static <E extends com.degloba.domain.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {

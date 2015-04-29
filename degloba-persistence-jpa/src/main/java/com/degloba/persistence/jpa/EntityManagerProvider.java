@@ -21,12 +21,12 @@ import javax.persistence.EntityManagerFactory;
 import com.degloba.domain.IocInstanceNotFoundException;
 
 /**
- * JPA 实体管理器提供者。如果当前线程中尚未存在entityManager线程变量，则从IoC容器中获取一个并存入当前线程，
+ * JPA Entity管理器提供者。如果当前线程中尚未存在entityManager线程变量，则从IoC容器中Get一个并存入当前线程，
  * 如果当前线程已经存在entityManager线程变量，直接返回。
  * <p>
  * 本类的存在，主要是为了在当前线程中，每次请求都返回相同的entityManager对象。避免事务和“会话已关闭”问题。
  *
- * @author yyang
+ * @author degloba
  */
 public class EntityManagerProvider {
 

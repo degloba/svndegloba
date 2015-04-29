@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 按例查询设置类。
+ * Example Query Settings category.
  * @author degloba
- * @param <T> 范例的类型
+ * @param <T> Examples of the type of
  */
 public class ExampleSettings<T> {
 	private Class<T> entityClass;

@@ -1,36 +1,37 @@
 package com.degloba.domain.specification;
 
 /**
- * 业务规范接口，对应于DDD一书中的“规范”概念，用于判断业务规则是否得到满足。
- * @param <T> 类型参数，表示规范所应用到的目标对象类型
+ * Business norms interface corresponds to the DDD "norms" concept of a book, used to determine business rules are met.
+ * @param <T> Type parameter that indicates specification applied to the target object type
  */
 public interface Specification<T> {
 
   /**
-   * 检查 {@code t} 是否由本规范满足.
+   * Check {code t} is satisfied by this specification.
    *
-   * @param t 要测试的对象.
-   * @return 如果{@code t}满足此规范则返回{@code true}。
+   * @param t To test object.
+   * @return If {code t} meet this specification returns {code true}.
    */
   boolean isSatisfiedBy(T t);
 
   /**
-   * 创建一个新规范，作为本规范{@code this}和另一个规范{@code specification}的“与（AND）”操作的结果
-   * @param specification 另一个规范。
-   * @return 一个新规范。
+   * The results create a new specification, 
+   * the present specification {code this} and {code specification} Another specification of "and (AND)" operation
+   * @param specification Another specification.
+   * @return A new specification.
    */
   Specification<T> and(Specification<T> specification);
 
   /**
-   * 创建一个新规范，作为本规范{@code this}和另一个规范{@code specification}的“或（OR）”操作的结果
-   * @param specification 另一个规范。
-   * @return 一个新规范。
+   * Create a new specification, the present specification {code this} and {code specification} Another specification of "or (OR)" Operating Results
+   * @param specification Another specification.
+   * @return Another new norm.
    */
   Specification<T> or(Specification<T> specification);
 
   /**
-   * 创建一个新规范，作为本规范的“非（NOT）”操作的结果
-   * @return 一个新规范。
+   * Create a new specification, the present specification, "non-(NOT)" Operating Results
+   * @return A new specification.
    */
   Specification<T> not();
 }

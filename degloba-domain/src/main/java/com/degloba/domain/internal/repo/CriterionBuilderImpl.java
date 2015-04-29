@@ -7,9 +7,9 @@ import java.util.Collection;
 
 
 /**
- * 一个工具类，作为各种查询条件的工厂
+ * A utility class, as a variety of search criteria factory
  *
- * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba 
  */
 public class CriterionBuilderImpl implements CriterionBuilder {
 

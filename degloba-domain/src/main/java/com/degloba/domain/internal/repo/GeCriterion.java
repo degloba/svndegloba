@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表属性小于或等于指定值的查询条件
+ * Representative property is less than or equal to the specified value of the query
  * @author degloba
  */
 public class GeCriterion extends ValueCompareCriterion {

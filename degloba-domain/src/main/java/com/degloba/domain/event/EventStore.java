@@ -4,45 +4,46 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 事件存储接口
- * Created by yyang on 14-9-15.
+ * Event Storage Interface
  */
 public interface EventStore {
 
     /**
-     * Get指定时间范围发生的历史事件的集合，时间范围包含occurredFrom，不包含occurredTo。
+     * GetA collection of historical events occurred specified time range, 
+     * the time range includes occurredFrom, does not contain occurredTo.
      *
-     * @param occurredFrom 事件发生时间的下限
-     * @param occurredTo   事件发生时间的上限
-     * @return 指定时间范围发生的事件的集合，按发生时间升序排序。
+     * @param occurredFrom Event time limit
+     * @param occurredTo   The upper limit time of the incident
+     * @return Collection event occurred a specified time frame, according to time of occurrence in ascending order.
      */
     public List<StoredEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
 
     /**
-     * Get指定时间及其之后发生的历史事件的集合。
+     * Get A collection of historical events that occur after the specified time and the.
      *
-     * @param occurredFrom 事件发生时间的下限
-     * @return 指定时间及其之后发生的事件的集合，按发生时间升序排序。
+     * @param occurredFrom Event time limit
+     * @return Its collection of events that occur after the specified time, 
+     * according to time of occurrence in ascending order.
      */
     public List<StoredEvent> findStoredEventsSince(Date occurredFrom);
 
     /**
-     * 向事件存储中插入一个新的领域事件
+     * Insert a new field events to the event store
      *
-     * @param domainEvent 一个领域事件
-     * @return 代表领域事件的存储的事件
+     * @param domainEvent A field event
+     * @return Field events stored on behalf of the event
      */
     public StoredEvent append(DomainEvent domainEvent);
 
     /**
-     * 关闭事件存储
+     * Close event storage
      */
     public void close();
 
     /**
-     * 统计存储的事件的数量
+     * Statistics of stored events
      *
-     * @return 已存储的事件的数量
+     * @return Number of stored events
      */
     public long countStoredEvents();
 

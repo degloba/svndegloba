@@ -15,7 +15,7 @@ import com.degloba.domain.Entity;
 import com.degloba.domain.NamedParameters;
 
 /**
- * 代表某个属性的值包含在指定集合或数组中的查询条件
+ * Query condition values represent a property contained in the specified collection or array
  *
  * @author degloba
  */
@@ -24,9 +24,9 @@ public class InCriterion extends BasicCriterion {
     private Collection<? extends Object> value = new ArrayList<Object>();
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
-     * @param value 集合值
+     * @param value Collection value
      */
     public InCriterion(String propName, Collection<? extends Object> value) {
         super(propName);
@@ -36,9 +36,9 @@ public class InCriterion extends BasicCriterion {
     }
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
-     * @param value 数组值
+     * @param value An array of values
      */
     public InCriterion(String propName, Object[] value) {
         super(propName);
@@ -48,8 +48,8 @@ public class InCriterion extends BasicCriterion {
     }
 
     /**
-     * 获得集合值
-     * @return 集合值
+     * Get Collection value
+     * @return Collection value
      */
     public Collection<? extends Object> getValue() {
         return value;

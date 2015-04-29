@@ -5,9 +5,9 @@ import com.degloba.domain.NamedParameters;
 import com.degloba.domain.QueryCriterion;
 
 /**
- * "空"条件，什么也不做。为了简化条件之间的运算
+ * "Empty" conditions, do nothing. To simplify operation between conditions
  *
- * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba 
  */
 public class EmptyCriterion extends AbstractCriterion {
 

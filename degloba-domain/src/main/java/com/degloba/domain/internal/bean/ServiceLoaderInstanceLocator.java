@@ -12,7 +12,7 @@ import java.util.ServiceLoader;
 import java.util.Set;
 
 /**
- * Created by yyang on 15/1/14.
+ * 
  */
 public class ServiceLoaderInstanceLocator implements InstanceLocator {
 

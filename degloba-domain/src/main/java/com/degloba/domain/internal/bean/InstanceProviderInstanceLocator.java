@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.annotation.Annotation;
 
 /**
- * Created by yyang on 15/1/14.
+ * 
  */
 public class InstanceProviderInstanceLocator implements InstanceLocator {
 

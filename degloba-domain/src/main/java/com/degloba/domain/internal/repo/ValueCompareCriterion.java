@@ -9,8 +9,7 @@ import org.dayatang.utils.BeanUtils;
 import java.util.Map;
 
 /**
- * 代表属性值与指定值比较的一类查询条件
- * Created by yyang on 14-2-23.
+ * Representative Property Value compared to the value of a specified class of query conditions
  */
 public abstract class ValueCompareCriterion extends BasicCriterion {
     protected final Object value;
@@ -24,9 +23,9 @@ public abstract class ValueCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * Get匹配值
+     * Get Match value
      *
-     * @return 匹配值
+     * @return  Match value
      */
     public Object getValue() {
         return value;

@@ -1,13 +1,13 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表一个属性大于另一个属性的查询条件
+ * On behalf of a property is greater than another attribute query criteria
  * @author degloba
  */
 public class GtPropCriterion extends PropertyCompareCriterion {
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
      * @param otherPropName Another attribute name
      */

@@ -3,18 +3,18 @@ package com.degloba.domain.specification;
 import org.dayatang.utils.Assert;
 
 /**
- * NOT规范，用于创建一个新规范，作为另一个规范的"非（NOT）"操作的结果。
+ * NOT specification for creating a new norm, as another specification "non-(NOT)" results of operations.
  *
- * @param <T> 类型参数，表示规范所应用到的目标对象类型。
+ * @param <T> Type parameter that indicates specification applied to the target object type.
  */
 public class NotSpecification<T> extends AbstractSpecification<T> {
 
     private final Specification<T> spec1;
 
     /**
-     * 基于另一个规范创建它对应的“非(NOT)”规范。
+     * Another specification to create it based on the corresponding "non-(NOT)" specification.
      *
-     * @param spec1 要执行“非（NOT)"操作的规范.
+     * @param spec1 To perform a "non-(NOT)" operations specification.
      */
     public NotSpecification(final Specification<T> spec1) {
         Assert.notNull(spec1, "Specification " + spec1 + " is null!");
@@ -24,8 +24,8 @@ public class NotSpecification<T> extends AbstractSpecification<T> {
     /**
      * {@inheritDoc}
      *
-     * @param t 要用来执行“非(NOT)”操作的规范。
-     * @return 如果t满足规范t，则返回false，否则返回true。
+     * @param t To be used to perform "non-(NOT)" operations specification.
+     * @return If t meet the specification t, it returns false, otherwise it returns true.
      */
     @Override
     public boolean isSatisfiedBy(final T t) {

@@ -43,7 +43,7 @@ public class NamedParameters implements QueryParameters {
     
     /**
      * 创建一个查询参数集
-     * @param params 要设置的查询参数的map，Key为参数名，Value为参数值
+     * @param params 要设置的查询参数的map，Key为Parameter name，Value为参数值
      * @return 一个基于Map的查询参数集
      */
     public static NamedParameters create(Map<String, Object> params) {
@@ -57,7 +57,7 @@ public class NamedParameters implements QueryParameters {
     
     /**
      * 添加一个命名参数
-     * @param key 参数名称
+     * @param key Parameter name称
      * @param value 参数值
      * @return 当前对象本身
      */

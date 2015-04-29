@@ -10,7 +10,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * Created by yyang on 14-7-1.
  */
 public class IocInitializeListener implements ServletContextListener {
 

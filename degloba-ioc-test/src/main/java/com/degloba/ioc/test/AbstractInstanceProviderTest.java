@@ -7,9 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * 公共的InstanceProvider测试
- * @author Administrator
- *
+ * Public InstanceProvider test
  */
 public abstract class AbstractInstanceProviderTest {
 

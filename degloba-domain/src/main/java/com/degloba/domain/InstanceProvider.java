@@ -11,7 +11,7 @@ import java.lang.annotation.Annotation;
 public interface InstanceProvider {
 
 	/**
-     * 根据类型Get对象实例。返回的对象实例 Class belongs是T或它的实现类或子类。如果找不到该类型的实例则抛出异常。
+     * 根据类型Get对象实例。返回的对象实例 Class belongs是T或它的实现类或子类。如果找不到该类型的实例则抛出Exception.
 	 * @param <T> 类型参数
 	 * @param beanType 实例的类型
 	 * @return 指定类型的实例。
@@ -21,7 +21,7 @@ public interface InstanceProvider {
 	/**
      * 根据类型和名称Get对象实例。返回的对象实例 Class belongs是T或它的实现类或子类。不同的IoC容器用不同的方式解释beanName。
      * 具体的解释方式请参见各种InstanceProvider实现类的Javadoc。
-     * 如果找不到该类型的实例则抛出异常。
+     * 如果找不到该类型的实例则抛出Exception.
 	 * @param <T> 类型参数
 	 * @param beanName 实现类在容器中配置的名字
 	 * @param beanType 实例的类型
@@ -32,7 +32,7 @@ public interface InstanceProvider {
     /**
      * 根据类型和AnnotationGet对象实例。返回的对象实例 Class belongs是T或它的实现类或子类。不同的IoC容器用不同的方式解释annotation。
      * 具体的解释方式请参见各种InstanceProvider实现类的Javadoc。
-     * 如果找不到该类型的实例则抛出异常。
+     * 如果找不到该类型的实例则抛出Exception.
      * @param <T> 类型参数
      * @param beanType 实例的类型
      * @param annotationType 实现类的annotation类型

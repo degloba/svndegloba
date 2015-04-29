@@ -1,5 +1,4 @@
 /**
- * 测试实体
- * Created by yyang on 14-2-5.
+ * Testing Entity
  */
 package com.degloba.persistence.test.domain;

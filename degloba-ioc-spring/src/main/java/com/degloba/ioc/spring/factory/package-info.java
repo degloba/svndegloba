@@ -1,5 +1,4 @@
 /**
- * IoC实例提供者接口的Spring IoC实现
- * Created by yyang on 14-2-5.
+ * IoC ArrayUtils
  */
 package com.degloba.ioc.spring.factory;

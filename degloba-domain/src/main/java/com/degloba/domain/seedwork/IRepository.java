@@ -40,8 +40,8 @@ public interface IRepository {
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
-	     * @param id Entity标识
-	     * @return 如果Entity实例存在，返回true，否则返回false
+	     * @param id Entity identification
+	     * @return If the Entity instance exists, returns true, otherwise false
 	     */
 		<T extends Entity> boolean exists(Class<T> clazz, Long id);
 
@@ -50,8 +50,8 @@ public interface IRepository {
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
-	     * @param id Entity标识
-	     * @return 一个Entity实例。
+	     * @param id Entity identification
+	     * @return An Entity instance.
 	     */
 	     <T extends Entity> T get(Class<T> clazz, Serializable id);
 
@@ -60,8 +60,8 @@ public interface IRepository {
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
-	     * @param id Entity标识
-	     * @return 一个Entity实例。
+	     * @param id Entity identification
+	     * @return An Entity instance.
 	     */
 	     <T extends Entity> T load(final Class<T> clazz,Serializable id);
 	     
@@ -81,8 +81,8 @@ public interface IRepository {
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
-	     * @param keyValues 代表业务主键值的命名参数。key为主键Property name，value为主键属性值
-	     * @return 一个Entity实例。
+	     * @param keyValues 代表业务主键值的命名参数。key为主键Property name，value为主键 Property Value
+	     * @return An Entity instance.
 	     */
 	     <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
@@ -242,7 +242,7 @@ public interface IRepository {
 	     * @param <T> 要查询的Class entities型
 	     * @param clazz 要查询的Class entities
 	     * @param propertyName 要查询的属性
-	     * @param propertyValue 匹配的属性值
+	     * @param propertyValue 匹配的 Property Value
 	     * @return 类型为clazz的、属性propertyName的值等于propertyValue的Entity的集合
 	     */
 	    <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
@@ -252,8 +252,8 @@ public interface IRepository {
 	     *
 	     * @param <T> 要查询的Class entities型
 	     * @param clazz 要查询的Class entities
-	     * @param properties 命名参数，其中key为Property name，value为要匹配的属性值。
-	     * @return 类型为clazz、多个属性分别等于指定的属性值的Entity的集合。
+	     * @param properties 命名参数，其中key为Property name，value为要匹配的 Property Value。
+	     * @return 类型为clazz、多个属性分别等于指定的 Property Value的Entity的集合。
 	     */
 	    <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
 	    
@@ -271,7 +271,7 @@ public interface IRepository {
 	    void flush();
 
 	    /**
-	     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的属性值将被数据库中的最新值覆盖。
+	     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的 Property Value将被数据库中的最新值覆盖。
 	     *
 	     * @param entity 要刷新的Entity
 	     */

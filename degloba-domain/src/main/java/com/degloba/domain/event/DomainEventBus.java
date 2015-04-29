@@ -1,30 +1,29 @@
 package com.degloba.domain.event;
 
 /**
- * 事件总线接口。事件发布者创建事件对象，然后以事件对象为参数调用post()方法，将事件发布到事件总线；
- * 通过调用register()方法将事件订阅者注册到事件总线，事件订阅者提供一个或多个以某种类型的领域事件
- * 为唯一参数，且标记为@Subscribe的方法，当事件总线中有新的事件发布且匹配该方法的参数类型时，事件
- * 总线将以该事件对象为参数调用事件订阅者的订阅方法。
- * Created by yyang on 14-10-4.
+ * Event bus interface. Event Publisher to create an event object, then the object as a parameter to the event call post () method, the event is published to the event bus;
+ * Method to register by calling the register () event subscriber to the event bus, the event subscriber to provide one or more areas of a certain type of event
+ * When the only parameter, and markedSubscribe the way, when the bus in the event there is a new type of event publishing and the matching parameter of the method, the event
+ * Bus will be the event object as an argument to call the event a subscriber subscription method.
  */
 public interface DomainEventBus {
 
     /**
-     * 将领域事件发布给所有注册的事件订阅者
-     * @param event 要发布的事件
+     * The field event to all registered event subscriber
+     * @param event To publish an event
      */
     void publishEvent(DomainEvent event);
 
     /**
-     * 注册一个事件订阅者的所有订阅方法注册到事件总线以接收事件。
-     * @param subscriber 事件订阅者。事件订阅者必须实现一个或多个以某个领域事件的子类实例为唯一参数
-     *                   且标注为@Subscribe的方法。
+     * Register an event subscription method all subscribers registered to receive events to the event bus.
+     * @param subscriber Event subscribers. Event subscriber must implement one or more instances of a sub-class of a field event as the only parameter
+     * And labeled asSubscribe approach.
      */
     void registerSubscriber(Object subscriber);
 
     /**
-     * 撤销注册一个已注册到事件总线的事件订阅者的所有订阅方法。
-     * @param subscriber 事件订阅者。
+     * Deregistration a registered events to the event bus subscribers all subscription methods.
+     * @param subscriber Event subscribers.
      */
     void unregisterSubscriber(Object subscriber);
 }

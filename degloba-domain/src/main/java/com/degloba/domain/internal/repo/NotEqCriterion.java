@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表属性不等于指定值的查询条件
+ * On behalf of property is not equal to the specified value of the query
  * @author degloba
  */
 public class NotEqCriterion extends ValueCompareCriterion {

@@ -6,9 +6,6 @@ import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by yyang on 15/1/14.
- */
 public class MapInstanceLocator implements InstanceLocator {
 
     private Map<Object, Object> instances = new HashMap<Object, Object>();
@@ -17,15 +14,18 @@ public class MapInstanceLocator implements InstanceLocator {
         this.instances = instances;
     }
 
-    public <T> T getInstance(Class<T> beanType) {
+    @SuppressWarnings("unchecked")
+	public <T> T getInstance(Class<T> beanType) {
         return (T) instances.get(beanType);
     }
 
-    public <T> T getInstance(Class<T> beanType, String beanName) {
+    @SuppressWarnings("unchecked")
+	public <T> T getInstance(Class<T> beanType, String beanName) {
         return (T) instances.get(toName(beanType, beanName));
     }
 
-    public <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
+    @SuppressWarnings("unchecked")
+	public <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
         return (T) instances.get(toName(beanType, annotationType));
     }
 

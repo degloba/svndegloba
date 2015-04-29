@@ -3,9 +3,6 @@ package com.degloba.domain.event;
 import com.google.common.eventbus.EventBus;
 import org.dayatang.utils.Assert;
 
-/**
- * Created by yyang on 14-10-4.
- */
 public class DomainEventBusImpl implements DomainEventBus {
 
     private EventBus eventBus;

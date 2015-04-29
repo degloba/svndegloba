@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表属性等于指定值的查询条件
+ * On behalf of property equal to the specified value of the query
  * @author degloba
  */
 public class EqCriterion extends ValueCompareCriterion {

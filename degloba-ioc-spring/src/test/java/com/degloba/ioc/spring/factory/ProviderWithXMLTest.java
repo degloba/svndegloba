@@ -8,9 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by yyang on 14-6-11.
- */
+
 public class ProviderWithXMLTest extends AbstractInstanceProviderTest {
 
     @Override

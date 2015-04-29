@@ -44,7 +44,7 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseAggregateRootJpaRepository.class);
 
-    //å‘½å��æŸ¥è¯¢è§£æž�å™¨ï¼Œå®ƒæ˜¯å�¯é€‰çš„
+    //Named query parser, it is optional
 	private NamedQueryParser namedQueryParser;	    
     
 	private EntityManagerProvider entityManagerProvider;
@@ -280,7 +280,6 @@ public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> impleme
 	    	return getQuery(jpqlQuery).getResultList();
 	    }
 	    
-	    @SuppressWarnings("unchecked")
 		@Override
 	    public List<E> findByProperties(Class<E> clazz, NamedParameters properties)
 	    {

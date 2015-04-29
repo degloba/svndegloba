@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.NamedParameters;
 
 /**
- * 判断某个属性值是否为null的查询条件
+ * Determine if a property value is null query criteria
  * @author degloba
  */
 public class IsNullCriterion extends BasicCriterion {

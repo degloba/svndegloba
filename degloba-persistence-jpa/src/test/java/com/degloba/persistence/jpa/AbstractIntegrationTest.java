@@ -39,7 +39,7 @@ public class AbstractIntegrationTest {
         btmUtils.closeDataSource();
         btmUtils = null;
         System.out.println("================================================");
-        System.out.println("关闭BTM");
+        System.out.println("Close BTM");
     }
 
     @Before

@@ -1,7 +1,7 @@
 package com.degloba.domain.sharedkernel.exceptions;
 
 /**
- * 当试图Get在IoC容器中不存在的Bean实例时抛出此异常。
+ * 当试图Get在IoC容器中不存在的Bean实例时抛出此Exception.
  */
 public class IocInstanceNotUniqueException extends IocException {
 

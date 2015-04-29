@@ -6,8 +6,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * 领域事件基类，领域事件代表具有业务含义的事件，例如员工调动或者机构调整
- * Created by yyang on 14-9-12.
+ * Event base class field event areas event represents a business meaning, such as employee mobility or restructuring
  */
 public abstract class DomainEvent {
 
@@ -23,7 +22,7 @@ public abstract class DomainEvent {
 
     /**
      *
-     * @param occurredOn 发生时间
+     * @param occurredOn Time of occurrence
      */
     public DomainEvent(Date occurredOn) {
         this(occurredOn, 1);
@@ -31,8 +30,8 @@ public abstract class DomainEvent {
 
     /**
      *
-     * @param occurredOn 发生时间
-     * @param version 版本
+     * @param occurredOn Time of occurrence
+     * @param version Version
      */
     public DomainEvent(Date occurredOn, int version) {
         Assert.notNull(occurredOn);
@@ -41,8 +40,8 @@ public abstract class DomainEvent {
     }
 
     /**
-     * 获得事件ID
-     * @return 事件的ID
+     * Get event ID
+     * @return ID event
      */
     public String getId() {
         return id;
@@ -50,23 +49,23 @@ public abstract class DomainEvent {
 
     /**
      * For test only
-     * @param id 要设置的ID
+     * @param id To set the ID
      */
     protected void setId(String id) {
         this.id = id;
     }
 
     /**
-     * 获得事件发生时间
-     * @return 事件发生时间
+     * Time to get the event
+     * @return Event time
      */
     public Date getOccurredOn() {
         return occurredOn;
     }
 
     /**
-     * 获得版本
-     * @return 事件的版本
+     * Obtain version
+     * @return Version of events
      */
     public int getVersion() {
         return version;

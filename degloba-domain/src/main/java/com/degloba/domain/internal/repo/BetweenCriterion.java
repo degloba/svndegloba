@@ -16,7 +16,7 @@ public class BetweenCriterion extends BasicCriterion {
     private final Comparable<?> to;
 
     /**
-     * 创建查询条件实例
+     * Create a query condition实例
      * @param propName Property name称
      * @param from 值的下限
      * @param to 值的上限
@@ -30,16 +30,16 @@ public class BetweenCriterion extends BasicCriterion {
     }
 
     /**
-     * Get属性值上限
-     * @return 属性值上限
+     * Get Property Value上限
+     * @return  Property Value上限
      */
     public Comparable<?> getFrom() {
         return from;
     }
 
     /**
-     * Get属性值下限
-     * @return 属性值下限
+     * Get Property Value下限
+     * @return  Property Value下限
      */
     public Comparable<?> getTo() {
         return to;
@@ -60,9 +60,9 @@ public class BetweenCriterion extends BasicCriterion {
     }
 
     /**
-     * 判断等价性
+     * Equivalence of judgment
      * @param other 要用来判等的另一个对象
-     * @return 如果当前对象和other等价，则返回true，否则返回false
+     * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
     public boolean equals(final Object other) {
@@ -81,7 +81,7 @@ public class BetweenCriterion extends BasicCriterion {
     }
 
     /**
-     * 计算哈希值
+     * Calculate the hash value
      * @return 当前对象实例的哈希值
      */
     @Override

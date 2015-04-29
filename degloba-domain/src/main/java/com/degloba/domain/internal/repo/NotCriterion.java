@@ -7,7 +7,7 @@ import com.degloba.domain.QueryCriterion;
 import org.dayatang.utils.Assert;
 
 /**
- * 代表某个查询条件的取反的查询条件
+ * On behalf of a query condition negated query conditions
  * @author degloba
  */
 public class NotCriterion extends AbstractCriterion {
@@ -15,8 +15,8 @@ public class NotCriterion extends AbstractCriterion {
     private final QueryCriterion criterion;
 
     /**
-     * 根据一个查询条件创建它的取反查询条件
-     * @param criterion 原本的查询条件
+     * Create it negated query conditions based on a query condition
+     * @param criterion The original search criteria
      */
     public NotCriterion(QueryCriterion criterion) {
         Assert.notNull(criterion, "Query criterion is null!");
@@ -24,8 +24,8 @@ public class NotCriterion extends AbstractCriterion {
     }
 
     /**
-     * 返回原本的查询条件
-     * @return 原本的查询条件
+     * Return to the original query condition
+     * @return The original search criteria
      */
     public QueryCriterion getCriteron() {
         return criterion;
@@ -41,9 +41,9 @@ public class NotCriterion extends AbstractCriterion {
     }
 
     /**
-     * 判断等价性
-     * @param other 要用来判等的另一个对象
-     * @return 如果当前对象和other等价，则返回true，否则返回false
+     * Equivalence of judgment
+     * @param other To be used to convict like another object
+     * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
     public boolean equals(final Object other) {
@@ -60,8 +60,8 @@ public class NotCriterion extends AbstractCriterion {
     }
 
     /**
-     * 计算哈希值
-     * @return 当前对象实例的哈希值
+     * Calculate the hash value
+     * @return The hash value of the object instance
      */
     @Override
     public int hashCode() {

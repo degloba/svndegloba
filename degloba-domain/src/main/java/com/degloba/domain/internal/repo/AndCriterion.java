@@ -20,7 +20,7 @@ public class AndCriterion extends AbstractCriterion {
 
     /**
      * 根据多个查询条件创建AND查询条件。创建过程中会去除为null或EmptyCriterion的查询条件。如果
-     * 剩余查询条件不足两个，则抛出异常。
+     * 剩余查询条件不足两个，则抛出Exception.
      * @param criterions 要用来执行AND操作的查询条件
      */
     public AndCriterion(QueryCriterion... criterions) {
@@ -55,9 +55,9 @@ public class AndCriterion extends AbstractCriterion {
 	}
 
 	/**
-     * 判断等价性
+     * Equivalence of judgment
      * @param other 要用来判等的另一个对象
-     * @return 如果当前对象和other等价，则返回true，否则返回false
+     * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
     public boolean equals(final Object other) {
@@ -74,7 +74,7 @@ public class AndCriterion extends AbstractCriterion {
     }
 
     /**
-     * 计算哈希值
+     * Calculate the hash value
      * @return 当前对象实例的哈希值
      */
     @Override

@@ -29,18 +29,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
- * 通用仓储接口的JPA实现。
- * <p> EntityRepositoryJpa通过EntityManagerProvider获取EntityManager，以保证在当前线程和事务中
- * 对数据库的多次访问都是由同一个EntityManager来进行。
- * <p>为了根据命名查询的名称获得对应的JPQL，需要提供一个NamedQueryParser。JPA规范没有强制实现这个需求，
- * 根据JPA实现的不同，要在IoC容器中配置相应的NamedQueryParser实现。
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * JPA General Warehousing interface.
+ * <p> EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
+ * Multiple access to the database are performed by the same EntityManager.
+ * <p>In order to obtain the corresponding JPQL named query based on the name, we need to provide a NamedQueryParser. 
+ * JPA specification does not enforce this requirement,
+ * Depending on the JPA implementation, to configure the NamedQueryParser achieve IoC container.
+ * @author degloba 
  */
 public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
 
-    //命名查询解析器，它是可选的
+    //Named query parser, it is optional
     private NamedQueryParser namedQueryParser;
     
     private EntityManagerProvider entityManagerProvider;
@@ -195,7 +196,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return getQuery(jpqlQuery).getResultList();
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> T getSingleResult(JpqlQuery jpqlQuery) {
         try {
             return (T) getQuery(jpqlQuery).getSingleResult();
@@ -226,7 +228,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return getQuery(namedQuery).getResultList();
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> T getSingleResult(NamedQuery namedQuery) {
         try {
             return (T) getQuery(namedQuery).getSingleResult();
@@ -256,7 +259,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return getQuery(sqlQuery).getResultList();
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> T getSingleResult(SqlQuery sqlQuery) {
         try {
             return (T) getQuery(sqlQuery).getSingleResult();
@@ -290,18 +294,16 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 
     @Override
     public <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
-        //return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
-    	return null;
+        return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
     }
 
     @Override
     public <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
-        /*CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
+        CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
         }
-        return find(criteriaQuery);*/
-    	return null;
+        return find(criteriaQuery);
     }
 
     @Override
@@ -347,7 +349,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         } else if (params instanceof NamedParameters) {
             fillParameters(query, (NamedParameters) params);
         } else {
-            throw new UnsupportedOperationException("不支持的参数形式");
+            throw new UnsupportedOperationException("An argument that is not supported");
         }
     }
 

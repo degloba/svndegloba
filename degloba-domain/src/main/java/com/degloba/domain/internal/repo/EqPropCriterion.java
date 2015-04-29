@@ -1,13 +1,13 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表一个属性等于另一个属性的查询条件
+ * On behalf of a property is equal to another attribute query criteria
  * @author degloba
  */
 public class EqPropCriterion extends PropertyCompareCriterion {
 
     /**
-     * 创建查询条件
+     * Create a query condition
      * @param propName Property name
      * @param otherPropName Another attribute name
      */

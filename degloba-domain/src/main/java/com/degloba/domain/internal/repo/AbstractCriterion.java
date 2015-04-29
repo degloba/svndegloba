@@ -6,54 +6,55 @@ import java.util.List;
 import com.degloba.domain.QueryCriterion;
 
 /**
- * 查询条件的抽象基类，实现了AND、OR、NOT操作。
+ * Query conditions abstract base class that implements the AND, OR, NOT operation.
  *
- * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba 
  */
 public abstract class AbstractCriterion implements QueryCriterion {
     
     protected String queryString;
 
     /**
-     * 执行AND操作，返回代表两个QueryCriterion的“与”操作结果的一个新的QueryCriterion
+     * AND operation is performed, the return on behalf of two QueryCriterion "and" Operating Results of a new QueryCriterion
      *
-     * @param criterion 另一个QueryCriterion
-     * @return 当前对象与criterion的“与”操作的结果
+     * @param criterion Another QueryCriterion
+     * @return The results of the current object with the criterion "and" action
      */
     public QueryCriterion and(QueryCriterion criterion) {
         return new AndCriterion(this, criterion);
     }
 
     /**
-     * 执行OR操作，返回代表两个QueryCriterion的“或”操作结果的一个新的QueryCriterion
+     * Perform an OR operation, returns on behalf of two QueryCriterion "or" operating results of a new QueryCriterion
      *
-     * @param criterion 另一个QueryCriterion
-     * @return 当前对象与criterion的“或”操作的结果
+     * @param criterion Another QueryCriterion
+     * @return The results of the current object and criterion of "or" action
      */
     public QueryCriterion or(QueryCriterion criterion) {
         return new OrCriterion(this, criterion);
     }
 
     /**
-     * 执行NOT操作，返回代表当前对象的“非”操作的一个新的QueryCriterion
-     * @return 当前对象的“非”操作的结果
+     * Do NOT operation, return on behalf of the current object "not" operation a new QueryCriterion
+     * @return Results "not" operation of the current object
      */
     public QueryCriterion not() {
         return new NotCriterion(this);
     }
 
     /**
-     * 判断是否属于“空”条件对象，即EmptyCriterion的实例。主要用于生成查询串时进行判断
-     * @return 除了EmptyCriterion子类返回true外，默认返回false。
+     * Determine whether they are "empty" condition object that is an instance EmptyCriterion. 
+     * When judged mainly used to generate a query string
+     * @return In addition EmptyCriterion subclass returns true, the default return false.
      */
     public boolean isEmpty() {
         return false;
     }
 
     /**
-     * 从数组中去除为Null的或EmptyCriterion的成员，返回剩余元素的列表
-     * @param criterions 原始条件数组
-     * @return 去除空条件对象后的剩余的成员的列表
+     * Removed from the array to Null or members of EmptyCriterion returns the remaining elements of the list
+     * @param criterions Original condition array
+     * @return List to remove air condition object after the remaining members of the
      */
     protected List<QueryCriterion> removeNullOrEmptyCriterion(QueryCriterion[] criterions) {
         List<QueryCriterion> results = new ArrayList<QueryCriterion>();
@@ -67,8 +68,8 @@ public abstract class AbstractCriterion implements QueryCriterion {
     }
 
     /**
-     * 获得查询条件对应的查询字符串
-     * @return 查询字符串
+     * Get the query corresponding query string
+     * @return Query String
      */
     public String toQueryString() {
         return queryString;
@@ -76,16 +77,16 @@ public abstract class AbstractCriterion implements QueryCriterion {
     
     
     /**
-     * 判断等价性
-     * @param other 要用来判等的另一个对象
-     * @return 如果当前对象和other等价，则返回true，否则返回false
+     * Equivalence of judgment
+     * @param other To be used to convict like another object
+     * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
     public abstract boolean equals(final Object other);
 
     /**
-     * 计算哈希值
-     * @return 当前对象实例的哈希值
+     * Calculate the hash value
+     * @return The hash value of the object instance
      */
     @Override
     public abstract int hashCode();

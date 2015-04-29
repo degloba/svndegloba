@@ -3,7 +3,6 @@ package com.degloba.domain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Named;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
@@ -22,8 +21,6 @@ import java.util.*;
   * Over the classpath or jar the / META-INF / services / abcAbc document set content xyzXyz, it indicates the type of abcAbc xyzXyz by category
   * The examples provided); (3) If you still can not find an instance Bean, Bean instance will be returned to those () method set by the bind of. (4) If you still can not find the final, to throw
   * IocInstanceNotFoundException exception.
- *
- * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  */
 public class InstanceFactory {
 

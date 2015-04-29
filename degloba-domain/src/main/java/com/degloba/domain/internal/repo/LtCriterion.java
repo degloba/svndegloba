@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表属性小于指定值的查询条件
+ * Representative attribute is less than the specified value query condition
  * @author degloba
  */
 public class LtCriterion extends ValueCompareCriterion {

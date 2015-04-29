@@ -9,8 +9,7 @@ import org.dayatang.utils.BeanUtils;
 import java.util.Map;
 
 /**
- * 代表属性值与另一个属性值比较的一类查询条件
- * Created by yyang on 14-2-23.
+ * On behalf of the property value compared to the value of another attribute of a class query conditions
  */
 public abstract class PropertyCompareCriterion extends BasicCriterion {
 
@@ -25,7 +24,7 @@ public abstract class PropertyCompareCriterion extends BasicCriterion {
     }
 
     /**
-     * 获得Another attribute name
+     * Get Another attribute name
      * @return Another attribute name
      */
     public String getOtherPropName() {

@@ -9,10 +9,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletContextEvent;
 
 /**
- * Una escucha Web , ampliar y sustituir el ContextLoaderListener Spring , 
- * se integrará en InstanceFactory en SpringIoC .
- * 
- * @author degloba
+ * A Web listener, expand and replace the Spring of ContextLoaderListener, 
+ * will be integrated into InstanceFactory in SpringIoC.
  */
 public class DeglobaContextLoaderListener extends ContextLoaderListener {
 

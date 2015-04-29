@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.NamedParameters;
 
 /**
- * 判断某个集合属性值是否不为空集合的查询条件
+ * Determine whether a collection attribute value is not an empty set of search criteria
  * @author degloba
  */
 public class NotEmptyCriterion extends BasicCriterion {

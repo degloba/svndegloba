@@ -45,7 +45,7 @@ dddlib支持四种查询方式：条件查询、命名查询、JPQL查询和原�
 
 * [PositionalParameters](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/PositionalParameters.html)：代表定位参数集，如"... where e.name = ?"。在对象的内部用一个数组来保存参数。
 
-* [NamedParameters](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/NamedParameters.html)：代表命名参数集，如"... where name = :name"。在对象内部用一个Map来保存参数，Key代表参数名，Value代表参数值。
+* [NamedParameters](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/NamedParameters.html)：代表命名参数集，如"... where name = :name"。在对象内部用一个Map来保存参数，Key代表Parameter name，Value代表参数值。
 
 每种查询都定义有下面两种方法：
 
@@ -63,7 +63,7 @@ dddlib支持四种查询方式：条件查询、命名查询、JPQL查询和原�
 
 DDDLib的依赖查找功能由InstanceFactory代表。它通过InstanceProvider策略接口将对象查找请求委托给具体的后端IoC容器，如Spring或Google Guice等。
 
-* [InstanceFactory](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceFactory.html)：实例工厂，代表DDD中的“工厂”概念。它是IoC容器的门面，为系统中的其他类提供所需的依赖对象的实例。InstanceFactor顺序通过三种途径GetBean实例。（1）如果已经给InstanceFactory设置了InstanceProvider，那么就通过后者 查找Bean；（2）如果没有设置InstanceProvider，或者通过InstanceProvider无法找到Bean，就通过JDK6的ServiceLoader机制查找（通 过在类路径或jar中的/META-INF/services/a.b.c.Abc文件中设定内容为x.y.z.Xyz，就表明类型a.b.c.Abc将通过类x.y.z.Xyz 的实例提供）；（3）如果仍然没找到Bean实例，那么将返回那些通过bind()方法设置的Bean实例。（4）如果最终仍然找不到，就抛出 IocInstanceNotFoundException异常。
+* [InstanceFactory](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceFactory.html)：实例工厂，代表DDD中的“工厂”概念。它是IoC容器的门面，为系统中的其他类提供所需的依赖对象的实例。InstanceFactor顺序通过三种途径GetBean实例。（1）如果已经给InstanceFactory设置了InstanceProvider，那么就通过后者 查找Bean；（2）如果没有设置InstanceProvider，或者通过InstanceProvider无法找到Bean，就通过JDK6的ServiceLoader机制查找（通 过在类路径或jar中的/META-INF/services/a.b.c.Abc文件中设定内容为x.y.z.Xyz，就表明类型a.b.c.Abc将通过类x.y.z.Xyz 的实例提供）；（3）如果仍然没找到Bean实例，那么将返回那些通过bind()方法设置的Bean实例。（4）如果最终仍然找不到，就抛出 IocInstanceNotFoundExceptionException.
 
 * [InstanceProvider](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/InstanceProvider.html)：实例提供者接口。这是一个策略接口，封装了IoC的功能。DDDLib的另外三个模块dddlib-ioc-spring，dddlib-ioc-guice和dddlib-ioc-tapestry分别为该接口提供了不同的实现，将Bean实例请求适配到具体的IoC容器，如SpringIoC、Google Guice和TapestryIoC等。
 
@@ -74,7 +74,7 @@ DDDLib的依赖查找功能由InstanceFactory代表。它通过InstanceProvider�
 
 在很多业务领域中(尤其是在SaaS的环境下)，为了适应不同类型租户的需要，除了定义Entity类共同的静态属性（即JavaBean属性）之外，每个租户或用户往往需要定义一批自己专用的动态属性，例如给员工Employee类加入Date类型的"转正日期"和String类型的“护照编号”属性。DDDLib对此提供下面的API支持：
 
-* [Value](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/Value.html)：代表一个值类型，可以用来代表一个动态属性值。它包括两部分：代表数据类型的[DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)和代表具体内容的字符串值。
+* [Value](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/Value.html)：代表一个值类型，可以用来代表一个动态 Property Value。它包括两部分：代表数据类型的[DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)和代表具体内容的字符串值。
 
 * [DataType](http://www.dayatang.org/dddlib/apidocs/org/dayatang/domain/DataType.html)：数据类型枚举。代表值的数据类型。它负责将String value转换为指定的数据类型。
 

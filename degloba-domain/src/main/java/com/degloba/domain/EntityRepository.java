@@ -17,89 +17,87 @@ public interface EntityRepository {
     /**
      * The Entity (either new or modified) is saved to the Warehousing in.
      *
-     * @param <T> Class entities型
-     * @param entity 要存储的Entity实例。
-     * @return 持久化后的当前Entity
+     * @param <T> Class entities Type
+     * @param entity To store the Entity instance.
+     * @return After persistent current Entity
      */
-    /////////<T extends Entity> T save(T entity);
-    <T extends com.degloba.domain.Entity> T save(T entity);
+     <T extends com.degloba.domain.Entity> T save(T entity);
     
 
     /**
-     * 将Entity从Warehousing中删除。如果Warehousing中不存在此实例将抛出EntityNotExistedException异常。
+     * Warehousing will be removed from the Entity. If Warehousing does not exist in this instance EntityNotExistedException will throw an exception.
      *
-     * @param entity 要删除的Entity实例。
+     * @param entity To delete the Entity instance.
      */
     void remove(com.degloba.domain.Entity entity);
 
     /**
-     * 判断Warehousing中是否存在指定ID的Entity实例。
+     * Determine whether there is a specified ID Warehousing in Entity instance.
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @param id Entity标识
-     * @return 如果Entity实例存在，返回true，否则返回false
+     * @param id Entity identification
+     * @return If the Entity instance exists, returns true, otherwise false
      */
     <T extends com.degloba.domain.Entity> boolean exists(Class<T> clazz, Key id);
 
     /**
-     * 从Warehousing中Get指定类型、指定ID的Entity
+     * Get the Entity Warehousing in the specified type, the specified ID
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @param id Entity标识
-     * @return 一个Entity实例。
+     * @param id Entity identification
+     * @return An Entity instance.
      */
     ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
     <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id);
 
     /**
-     * 从Warehousing中装载指定类型、指定ID的Entity
+     * Load the specified type from Warehousing, specify the ID of the Entity
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @param id Entity标识
-     * @return 一个Entity实例。
+     * @param id Entity identification
+     * @return An Entity instance.
      */
     <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id);
 
     /**
-     * 从Warehousing中Getentity参数所代表的未修改的Entity
+     * From Warehousing in Getentity parameters represent unmodified Entity
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @param entity 要查询的Entity
-     * @return 参数entity在Warehousing中的未修改版本
+     * @param entity To query the Entity
+     * @return Parameter entity in the unmodified version Warehousing
      */
     <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity);
     
     /**
-     * 根据业务主键从Warehousing中Get指定类型的Entity
+     * Entity specified type from the Get Warehousing according to Natural key
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @param keyValues 代表业务主键值的命名参数。key为主键Property name，value为主键属性值
-     * @return 一个Entity实例。
+     * @param keyValues Representatives named primary key business parameters. key primary key Property name, value as a primary key attribute values
+     * @return An Entity instance.
      */
     <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
-     * 查找指定类型的所有Entity
+     * Find all Entity specified type
      *
      * @param <T> Entity Type
      * @param clazz Class entities
-     * @return 符合条件的Entity集合
+     * @return Eligible Entity collection
      */
     <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz);
 
     /**
-     * 创建条件查询
+     * Creating conditions for inquiry
      *
-     * @param entityClass 要查询的Entity类
-     * @param <T> Class entities型
-     * @return 一个条件查询
+     * @param entityClass Creative Entity class to query
+     * @param <T> Class type entities
+     * @return A conditional query
      */
-    ///////////<T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
     <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
     /**
@@ -239,7 +237,7 @@ public interface EntityRepository {
      * @param <T> 要查询的Class entities型
      * @param clazz 要查询的Class entities
      * @param propertyName 要查询的属性
-     * @param propertyValue 匹配的属性值
+     * @param propertyValue 匹配的 Property Value
      * @return 类型为clazz的、属性propertyName的值等于propertyValue的Entity的集合
      */
     <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
@@ -249,8 +247,8 @@ public interface EntityRepository {
      *
      * @param <T> 要查询的Class entities型
      * @param clazz 要查询的Class entities
-     * @param properties 命名参数，其中key为Property name，value为要匹配的属性值。
-     * @return 类型为clazz、多个属性分别等于指定的属性值的Entity的集合。
+     * @param properties 命名参数，其中key为Property name，value为要匹配的 Property Value。
+     * @return 类型为clazz、多个属性分别等于指定的 Property Value的Entity的集合。
      */
     <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
     
@@ -268,7 +266,7 @@ public interface EntityRepository {
     void flush();
 
     /**
-     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的属性值将被数据库中的最新值覆盖。
+     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的 Property Value将被数据库中的最新值覆盖。
      *
      * @param entity 要刷新的Entity
      */

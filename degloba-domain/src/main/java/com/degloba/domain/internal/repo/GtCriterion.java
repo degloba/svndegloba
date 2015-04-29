@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 /**
- * 代表属性大于指定值的查询条件
+ * Representative property is greater than the specified value of the query
  * @author degloba
  */
 public class GtCriterion extends ValueCompareCriterion {

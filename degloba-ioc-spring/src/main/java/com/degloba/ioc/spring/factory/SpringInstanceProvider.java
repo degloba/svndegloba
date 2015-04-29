@@ -14,26 +14,24 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 实例提供者接口的Spring实现。
- * SpringProvider内部通过Spring IoC的ApplicationContext实现对象创建。
- *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * Examples of the Spring provider interface implementation.
+ * SpringProvider The internal implementation of objects created by Spring IoC ApplicationContext.
  */
 public class SpringInstanceProvider implements InstanceProvider {
 
     private ApplicationContext applicationContext;
 
     /**
-     * 以一批spring配置文件的路径初始化spring实例提供者。
+     * In the path of the configuration file to initialize a number of spring spring instance of the provider.
      *
-     * @param locations spring配置文件的路径的集合。spring将从类路径开始获取这批资源文件。
+     * @param locations spring Set the configuration file path. spring from the classpath start getting these resource files.
      */
     public SpringInstanceProvider(String... locations) {
         applicationContext = new ClassPathXmlApplicationContext(locations);
     }
 
     /**
-     * 从ApplicationContext生成SpringProvider
+     * SpringProvider generated from ApplicationContext
      *
      * @param applicationContext
      */
@@ -42,7 +40,7 @@ public class SpringInstanceProvider implements InstanceProvider {
     }
 
     /**
-     * 根据一批Spring配置文件初始化spring实例提供者。
+     * Initializes spring according to a number of examples provided by the Spring configuration file.
      *
      * @param annotatedClasses
      */
@@ -51,12 +49,14 @@ public class SpringInstanceProvider implements InstanceProvider {
     }
 
     /**
-     * 根据类型获取对象实例。返回的对象实例所属的类是T或它的实现类或子类。如果找不到该类型的实例则返回null。
-     * 如果有部署了多个类型为T的Bean则抛出NoUniqueBeanDefinitionException异常。
+     * Get in accordance with the type of the object instance. 
+     * Returns an instance of the class object belongs is T or its implementation class or sub-class. 
+     * If you can not find an instance of the type of returns null.
+     * If you have deployed multiple types of Bean T NoUniqueBeanDefinitionException exception is thrown.
      *
-     * @param <T>      类型参数
-     * @param beanType 实例的类型
-     * @return 指定类型的实例。
+     * @param <T>      Type Parameter
+     * @param beanType Type instance
+     * @return Examples of the specified type.
      */
     public <T> T getInstance(Class<T> beanType) {
         try {
@@ -69,22 +69,22 @@ public class SpringInstanceProvider implements InstanceProvider {
     }
 
     /**
-     * 根据类型和Bean id获取对象实例。如果找不到该类型的实例则返回null。
-     * 假如有两个类MyService1和MyService2都实现了接口Service，在applicationContext中这样部署：
+     * Id Gets an object instance based on the type and Bean. If you can not find an instance of the type of returns null.
+     * If there are two classes MyService1 and MyService2 implements the interface Service, so that the deployment in applicationContext:
      * <blockquote>
      * <pre>
      * <bean id="service1" class="MyService1"/>
      * <bean id="service2" class="MyService2"/>
      * </pre>
      * </blockquote>
-     * 或者以配置类的方式部署：
+     * Or to configure classes deployed:
      * <blockquote>
      * <pre>
      *
-     * @param <T>      类型参数
-     * @param beanName 实现类在容器中配置的名字
-     * @param beanType 实例的类型
-     * @return 指定类型的实例。
+     * @param <T>      Type Parameter
+     * @param beanName Implementation class name in the container configuration
+     * @param beanType Type instance
+     * @return Examples of the specified type.
      * @Configuration public class SpringConfiguration {
      * <p/>
      * @Bean(name = "service1")
@@ -99,7 +99,7 @@ public class SpringInstanceProvider implements InstanceProvider {
      * }
      * </pre>
      * </blockquote>
-     * 那么getInstance(Service.class, "service2")将返回MyService2的实例。
+     * ThengetInstance(Service.class, "service2")MyService2 will return an instance of.
      */
     public <T> T getInstance(Class<T> beanType, String beanName) {
         try {
@@ -113,15 +113,15 @@ public class SpringInstanceProvider implements InstanceProvider {
 
 
     /**
-     * 根据类型和Annotation获取对象实例。如果找不到该类型的实例则返回null。
-     * 假如有两个类MyService1和MyService2都实现了接口Service，其中MyService2标记为
-     * TheAnnotation，那么getInstance(Service.class, TheAnnotation.class)将返回
-     * MyService2的实例。
+     * Get object instance based on the type and Annotation. If you can not find an instance of the type of returns null.
+     * If there are two classes MyService1 and MyService2 implements the interface Service, which marked MyService2
+     * TheAnnotation, so getInstance (Service.class, TheAnnotation.class) will return
+     * Examples MyService2 of.
      *
-     * @param <T>            类型参数
-     * @param beanType       实例的类型
-     * @param annotationType 实现类的annotation类型
-     * @return 指定类型的实例。
+     * @param <T>            Type Parameter
+     * @param beanType       Type instance
+     * @param annotationType Annotation type class implementation
+     * @return Examples of the specified type.
      */
     public <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
         if (annotationType == null) {
