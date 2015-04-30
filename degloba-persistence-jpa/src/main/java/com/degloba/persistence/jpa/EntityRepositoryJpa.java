@@ -29,13 +29,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
- * JPA General Warehousing interface.
- * <p> EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
+ * EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
+ * 
  * Multiple access to the database are performed by the same EntityManager.
- * <p>In order to obtain the corresponding JPQL named query based on the name, we need to provide a NamedQueryParser. 
+ * 
+ * In order to obtain the corresponding JPQL named query based on the name, we need to provide a NamedQueryParser. 
  * JPA specification does not enforce this requirement,
  * Depending on the JPA implementation, to configure the NamedQueryParser achieve IoC container.
- * @author degloba 
  */
 public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository {
 

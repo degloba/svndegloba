@@ -37,7 +37,7 @@ import com.degloba.domain.SqlQuery;
  * @author degloba
  * 
  * @param <E> JPA Entity Type (DDD: Aggregate, Entity)
- * @param <K>  Tipus de la clau (Long,String,aggregateId, ..) de l'entitat del domini
+ * @param <K> Key type (Long,String,aggregateId, ..) of JPA Entity
  *            
  */
 public class BaseAggregateRootJpaRepository<E extends BaseAggregateRoot> implements IBaseAggregateRootJpaRepository<E> {

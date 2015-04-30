@@ -9,8 +9,7 @@ import org.hibernate.Session;
 
 
 /**
- * NamedQueryParser Hibernate implementation of the interface
- * @author degloba
+ * Hibernate implementation of the NamedQueryParser interface
  */
 public class NamedQueryParserHibernate extends NamedQueryParser {
 

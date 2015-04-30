@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
  * Get named query query strings. Because JPA specification does not directly support this feature, 
  * so it is achieved by the use of local JPA API
  * Achieve it.
- * @author degloba
  */
 public abstract class NamedQueryParser {
     

@@ -8,10 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
-/**
- *
- * @author degloba
- */
+
 public class EntityManagerProviderTest {
 
     private EntityManagerFactory entityManagerFactory;
