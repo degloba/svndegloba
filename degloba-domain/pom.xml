@@ -10,8 +10,7 @@
     <packaging>jar</packaging>
     <name>API Interfaces and Base Classes</name>
     <description>
-        El mòdul més important, proporciona les interfícies centrals i les classes base 
-        Es basa en el desenvolupament de DDD.
+        Most important module that provides the core interfaces and base classes.
     </description>
 
     <dependencies>
