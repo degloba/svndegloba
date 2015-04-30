@@ -44,12 +44,12 @@
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>     
         </dependency>
-		 <dependency>
+		 <!-- <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>           
-         </dependency>     
+         </dependency>  -->    
 		<dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>

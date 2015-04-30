@@ -2,17 +2,19 @@ package com.degloba.casino.enviaments.events;
 
 import java.io.Serializable;
 
+import com.google.appengine.api.datastore.Key;
+
 
 	@SuppressWarnings("serial")
 	public class EnviamentEntregatEvent implements Serializable {
 
-	    private final Long enviamentId;
+	    private final Key enviamentId;
 
-	    public EnviamentEntregatEvent(Long enviamentId) {
+	    public EnviamentEntregatEvent(Key enviamentId) {
 	        this.enviamentId = enviamentId;
 	    }
 
-	    public Long getEnviamentId() {
+	    public Key getEnviamentId() {
 	        return enviamentId;
 	    }
 	}

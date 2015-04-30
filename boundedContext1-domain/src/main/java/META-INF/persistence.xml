@@ -34,15 +34,23 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.casino.hotel.Hotel</class>
 		<class>com.degloba.casino.hotel.Booking</class>
 		<class>com.degloba.casino.hotel.User</class>
+		<class>com.degloba.organisation.domain.CompanyDepartment</class>
+		<class>com.degloba.organisation.domain.demo.Base1</class>
+		<class>com.degloba.organisation.domain.demo.Base2</class>
+		<class>com.degloba.organisation.domain.demo.Concrete1</class>
+		<class>com.degloba.organisation.domain.demo.Concrete2</class>
+		<class>com.degloba.organisation.domain.demo.Concrete3</class>
+		<class>com.degloba.organisation.domain.demo.Concrete4</class>
+
 				
 		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
-			<property name="datanucleus.NontransactionalWrite" value="false"/>            
-			<property name="datanucleus.ConnectionURL" value="googlestorage"/>  			
-			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	
-			<!-- <property name="datanucleus.storeManagerType" value="transactions-optional" /> 	 -->
+			<property name="datanucleus.NontransactionalWrite" value="true"/>            
+			<property name="datanucleus.ConnectionURL" value="appengine"/>  			
+	<!--		<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	
+			 <property name="datanucleus.storeManagerType" value="transactions-optional" /> 	 -->
 			      
 		</properties>    
 	</persistence-unit>

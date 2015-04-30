@@ -11,13 +11,14 @@ import com.degloba.domain.BaseAggregateRoot;
 import org.dayatang.utils.DateUtils;
 
 @Entity
-//@Table(name = "accountabilities")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "accountabilities")
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
 @NamedNativeQueries({
     @NamedNativeQuery(name = "Accountability.findAccountabilitiesByParty",
             query = "select o from Accountability o where (o.commissioner = :party or o.responsible = :party) and o.fromDate <= :date and o.toDate > :date")})
-public abstract class Accountability<C extends Party, R extends Party> extends BaseAggregateRoot {
+@MappedSuperclass
+public abstract class Accountability<C extends CompanyDepartment, R extends CompanyDepartment> extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 3456398163374995470L;
 

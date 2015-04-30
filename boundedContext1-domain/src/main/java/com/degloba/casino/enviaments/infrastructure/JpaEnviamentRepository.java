@@ -4,7 +4,8 @@ package com.degloba.casino.enviaments.infrastructure;
 import com.degloba.casino.enviaments.Enviament;
 import com.degloba.casino.enviaments.IEnviamentRepository;
 import com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.persistence.datanucleus.BaseAggregateRootJpaRepository;
+import com.degloba.persistence.jpa.BaseAggregateRootJpaRepository;
+
 
 
 //@DomainRepositoryImpl

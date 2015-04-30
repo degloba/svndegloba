@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import com.degloba.casino.vendes.ProducteData;
 import com.degloba.annotations.ValueObject;
 import com.degloba.domain.sharedkernel.Money;
+import com.degloba.domain.BaseAggregateRoot;
 import com.degloba.domain.BaseEntity;
 
 
@@ -19,7 +20,7 @@ import com.degloba.domain.BaseEntity;
  */
 @ValueObject
 @Entity
-public class CompraItem extends BaseEntity{
+public class CompraItem extends BaseAggregateRoot{
 	
 	/**
 	 * 

@@ -59,7 +59,7 @@ import com.degloba.domain.BaseAggregateRoot;
 	            throw new IllegalStateException("cannot deliver in status " + status);
 	        }
 	        status = EnviamentStatus.DELIVERED;
-	        domainEventPublisher.publish(new EnviamentEntregatEvent(getAggregateId()));
+	        //domainEventPublisher.publish(new EnviamentEntregatEvent(getAggregateId()));
 	    }
 
 	    public AggregateId getOrderId() {

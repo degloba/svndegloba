@@ -2,17 +2,6 @@ package com.degloba.domain;
 
 import javax.inject.Inject;
 
-
-
-
-
-
-
-
-
-
-
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,10 +28,7 @@ import com.google.appengine.api.datastore.Entity;
 import static com.google.appengine.api.datastore.FetchOptions.Builder.withLimit;
 
 /**
- * 集成测试基类。用于管理持久化和IoC基础设施
- * 
- * @author yyang
- * 
+ * Integration testing base class. For managing persistence and IoC infrastructure
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)

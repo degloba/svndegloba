@@ -5,24 +5,27 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 
 @Entity
-@DiscriminatorValue("OrgLineMgmt")
+//@DiscriminatorValue("OrgLineMgmt")
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({
 		@NamedQuery(name = "OrgLineMgmt.getParentOfOrganization", query = "select o.commissioner from OrgLineMgmt o where o.responsible = :organization and o.fromDate <= :date and o.toDate > :date"),
 		@NamedQuery(name = "OrgLineMgmt.findChildrenOfOrganization", query = "select o.responsible from OrgLineMgmt o where o.commissioner = :organization and o.fromDate <= :date and o.toDate > :date"),
 		@NamedQuery(name = "OrgLineMgmt.findByResponsible", query = "select o from OrgLineMgmt o where o.responsible = :organization and o.fromDate <= :date and o.toDate > :date") })
-public class OrgLineMgmt extends Accountability<Organization, Organization> {
+public class OrgLineMgmt extends Accountability<CompanyDepartment, CompanyDepartment> {
 
 	private static final long serialVersionUID = 7390804525640459582L;
 
 	protected OrgLineMgmt() {
 	}
 
-	public OrgLineMgmt(Organization parent, Organization child, Date date) {
+	public OrgLineMgmt(CompanyDepartment parent, CompanyDepartment child, Date date) {
 		super(parent, child, date);
 	}
 
@@ -33,7 +36,7 @@ public class OrgLineMgmt extends Accountability<Organization, Organization> {
 	}
 
 	public static List<Organization> findChildrenOfOrganization(
-			Organization organization, Date date) {
+			Party organization, Date date) {
 		return getRepository().createNamedQuery("OrgLineMgmt.findChildrenOfOrganization")
 				.addParameter("organization", organization).addParameter("date", date).list();
 	}
@@ -42,7 +45,7 @@ public class OrgLineMgmt extends Accountability<Organization, Organization> {
 		return getRepository().findAll(OrgLineMgmt.class);
 	}
 
-	public static OrgLineMgmt getByResponsible(Organization responsible, Date date) {
+	public static OrgLineMgmt getByResponsible(CompanyDepartment responsible, Date date) {
 		return getRepository().createNamedQuery("OrgLineMgmt.findByResponsible")
 				.addParameter("organization", responsible).addParameter("date", date).singleResult();
 	}
