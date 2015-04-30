@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Examples of the Spring provider interface implementation.
- * SpringProvider The internal implementation of objects created by Spring IoC ApplicationContext.
+ * The internal implementation of objects created by Spring IoC ApplicationContext.
  */
 public class SpringInstanceProvider implements InstanceProvider {
 
