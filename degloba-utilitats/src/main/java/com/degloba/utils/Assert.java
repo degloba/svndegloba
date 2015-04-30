@@ -1,6 +1,7 @@
 /**
- * 一个通用的断言类，主要用于参数检查等。通过采用Assert类，可以省去写很多try...catch...语句的麻烦，
- * 使得代码更加简单清晰，同时可以提高单元测试分支覆盖率。
+ * A common assertion class, mainly for the parameter checks. 
+ * By using Assert class, eliminating the need to write a lot of try ... catch ... trouble statement
+ * It makes the code more simple and clear, and can improve unit testing branch coverage.
  */
 package com.degloba.utils;
 
@@ -10,28 +11,26 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * @author chencao
  *
- * 2011-5-25
  */
 @SuppressWarnings("rawtypes")
 public class Assert {
 
-    //私有构造函数，防止客户代码实例化Assert。
+    //Private constructor to prevent client code instantiates Assert.
     private Assert() {
     }
 
     /**
-     * 断言表达式{@code expression}的值为真。如果表达式的值为假则抛出
-     * <code>IllegalArgumentException</code>异常。
+     * {code Expression} assertion expression is true. If the expression is false Throws
+     * <code>IllegalArgumentException</code>Exception.
      *
      * <pre class="code">
      * Assert.isTrue(i &gt; 0, &quot;The value must be greater than zero&quot;);
      * </pre>
      *
-     * @param expression 一个布尔表达式
-     * @param message 断言失败时呈现的异常消息
-     * @throws IllegalArgumentException 如果表达式的值是<code>false</code>
+     * @param expression A Boolean expression
+     * @param message The exception message assertion fails presentation
+     * @throws IllegalArgumentException If the value of the expression is<code>false</code>
      */
     public static void isTrue(boolean expression, String message) {
         if (!expression) {
@@ -40,31 +39,31 @@ public class Assert {
     }
 
     /**
-     * 断言表达式{@code expression}的值为真。如果表达式的值为假则抛出
-     * <code>IllegalArgumentException</code>异常。
+     * {code Expression} assertion expression is true. If the expression is false Throws
+     * <code>IllegalArgumentException</code>Exception.
      *
      * <pre class="code">
      * Assert.isTrue(i &gt; 0);
      * </pre>
      *
-     * @param expression 一个布尔表达式
-     * @throws IllegalArgumentException 如果表达式的值是<code>false</code>
+     * @param expression A Boolean expression
+     * @throws IllegalArgumentException If the value of the expression is<code>false</code>
      */
     public static void isTrue(boolean expression) {
         isTrue(expression, "[Assertion failed] - this expression must be true");
     }
 
     /**
-     * 断言表达式{@code expression}的值为假。如果表达式的值为真则抛出
-     * <code>IllegalArgumentException</code>异常。
+     * Assertion expression {code expression} is false. If the value expression is true Throws
+     * <code>IllegalArgumentException</code>Exception.
      *
      * <pre class="code">
      * Assert.isFalse(i &gt; 0, &quot;The value must be smaller than zero&quot;);
      * </pre>
      *
-     * @param expression 一个布尔表达式
-     * @param message 断言失败时呈现的异常消息
-     * @throws IllegalArgumentException 如果表达式的值是<code>true</code>
+     * @param expression A Boolean expression
+     * @param message The exception message assertion fails presentation
+     * @throws IllegalArgumentException If the value of the expression is<code>true</code>
      */
     public static void isFalse(boolean expression, String message) {
         if (expression) {
@@ -73,15 +72,15 @@ public class Assert {
     }
 
     /**
-     * 断言表达式{@code expression}的值为假。如果表达式的值为真则抛出
-     * <code>IllegalArgumentException</code>异常。
+     * Assertion expression {code expression} is false. If the value expression is true Throws
+     * <code>IllegalArgumentException</code>Exception.
      *
      * <pre class="code">
      * Assert.isFalse(i &gt; 0);
      * </pre>
      *
-     * @param expression 一个布尔表达式
-     * @throws IllegalArgumentException 如果表达式的值是<code>true</code>
+     * @param expression A Boolean expression
+     * @throws IllegalArgumentException If the value of the expression is<code>true</code>
      */
     public static void isFalse(boolean expression) {
         isFalse(expression, "[Assertion failed] - this expression must be false");
@@ -385,8 +384,8 @@ public class Assert {
     }
 
     /**
-     * 断言字符串为<code>null</code>、空字符串或者只包含空白字符串（空格、回车、换行、tab等字符） Assert that a
-     * character sequence is null, empty or contains blank characters only.
+     * String to assert<code>null</code>、Empty string or contains only empty string (space, carriage return, line feed, tab characters such as） 
+     * Assert that a character sequence is null, empty or contains blank characters only.
      *
      * @param text the character sequence to be checked
      * @param message the exception message to display when the assertion failed
@@ -398,7 +397,7 @@ public class Assert {
     }
 
     /**
-     * 断言字符串为<code>null</code>、空字符串或者只包含空白字符串（空格、回车、换行、tab等字符） Assert that a
+     * Assertion string is <code> null </ code>, an empty string or contains only empty string (space, carriage return, line feed, tab characters, etc.) Assert that a
      * character sequence is null, empty or contains blank characters only.
      *
      * @param text the character sequence to be checked
@@ -408,7 +407,7 @@ public class Assert {
     }
 
     /**
-     * 断言字符串text至少包含一个非空白字符串（空格、回车、换行、tab等空白字符之外的字符） Assert that a character
+     * Assertion text string containing at least one non-empty string (space, carriage return, line feed, tab, etc. character other than blank characters) Assert that a character
      * sequence must have at least one not blank character.
      *
      * @param text the character sequence to be checked
@@ -421,7 +420,7 @@ public class Assert {
     }
 
     /**
-     * 断言字符串text至少包含一个非空白字符串（空格、回车、换行、tab等空白字符之外的字符） Assert that a character
+     * Assertion text string containing at least one non-empty string (space, carriage return, line feed, tab, etc. character other than blank characters) Assert that a character
      * sequence must have at least one not blank character.
      *
      * @param text the character sequence to be checked

@@ -9,18 +9,16 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
- * 针对JavaBean Class的工具类。
- *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * JavaBean Class of tools for.
  */
 public class BeanClassUtils {
 
     private final Class<?> clazz;
 
     /**
-     * 接受一个类，生成BeanClassUtils实例
+     * Takes a class, generate instances BeanClassUtils
      *
-     * @param clazz 原始类
+     * @param clazz Original class
      */
     public BeanClassUtils(final Class<?> clazz) {
         //Assert.notNull(clazz);
@@ -28,9 +26,9 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得所有属性的类型，包括从父类继承的属性
+     * Access to all types of property, including property inherited from the parent class
      *
-     * @return 一个Map，Key为属性名， Value为属性所属的类
+     * @return A Map, Key for the Property name, Value Class belongs to the property
      */
     public Map<String, Class<?>> getPropTypes() {
         Map<String, Class<?>> results = new HashMap<String, Class<?>>();
@@ -41,18 +39,18 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得指定JavaBean类型的所有属性的名字，包括从父类继承的属性
+     * Get the names of all the properties of the specified JavaBean type, including inherited from the parent class property
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getPropNames() {
         return getPropertyDescriptors().keySet();
     }
 
     /**
-     * 获得指定JavaBean类型的所有可读属性的名字，包括从父类继承的属性
+     * Get the names of all the properties of the specified JavaBean readable type, including inherited from the parent class property
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getReadablePropNames() {
         Set<String> results = new HashSet<String>();
@@ -66,9 +64,9 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得指定JavaBean类型的所有可写属性的名字，包括从父类继承的属性
+     * Get all writable JavaBean property name specified type, including inherited from the parent class properties
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getWritablePropNames() {
         Set<String> results = new HashSet<String>();
@@ -82,10 +80,10 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得JavaBean的属性值的值，包括从父类继承的属性，不包含指定的属性。
+     * Get the JavaBean Property Value values, including property inherited from a parent class, it does not contain the specified property.
      *
-     * @param excludePropNames 要排除的属性名
-     * @return 一个Map，其中Key为属性名，Value为属性值。
+     * @param excludePropNames To exclude Property name
+     * @return A Map, which Key to Property name, Value of Property Value.
      */
     public Set<String> getReadablePropNamesExclude(String... excludePropNames) {
         List<String> propNamesExclude = Arrays.asList(excludePropNames);
@@ -100,10 +98,10 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得JavaBean的属性值的值，包括从父类继承的属性，不包含指定由指定Annotation标记的的属性。
+     * Get the JavaBean Property Value values, including property inherited from a parent class, it does not contain the property designated by the specified Annotation labeled.
      *
-     * @param excludeAnnotations 一批Annotation，被这些Annotation标注的属性将被排除
-     * @return 一个Map，其中Key为属性名，Value为属性值。
+     * @param excludeAnnotations Shipment Annotation, Annotation indexed these attributes will be excluded
+     * @return A Map, which Key to Property name, Value of Property Value.
      */
     public Set<String> getReadablePropNamesExclude(Class<? extends Annotation>... excludeAnnotations) {
         List<Class<? extends Annotation>> annotationsExclude = Arrays.asList(excludeAnnotations);
@@ -124,9 +122,9 @@ public class BeanClassUtils {
     }
 
     /**
-     * 获得类的属性描述
+     * Property Description obtain class
      *
-     * @return 类的属性描述的Map，Key为属性名，Value为属性描述对象
+     * @return Property described in Class Map, Key to Property name, Value for the property describes the object
      */
     Map<String, PropertyDescriptor> getPropertyDescriptors() {
         Map<String, PropertyDescriptor> results = new HashMap<String, PropertyDescriptor>();

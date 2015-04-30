@@ -4,7 +4,6 @@ import com.degloba.utils.Assert;
 
 /**
  * ExcelCell
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  *
  */
 public class ExcelCell {
@@ -14,7 +13,7 @@ public class ExcelCell {
 	private int columnIndex;
 	
 	/**
-	 * 指定工作表序号，生成ExcelCell实例
+	 * Specifies the worksheet numbers, generate ExcelCell examples
 	 * @param sheetIndex
 	 * @return
 	 */
@@ -30,7 +29,7 @@ public class ExcelCell {
 	}
 	
 	/**
-	 * 指定工作表名称，生成ExcelCell实例
+	 * Specifies the worksheet name, generate ExcelCell examples
 	 * @param sheetName
 	 * @return
 	 */
@@ -39,7 +38,7 @@ public class ExcelCell {
 	}
 
 	private ExcelCell(String sheetName) {
-		//Assert.notBlank(sheetName, "Sheet name cannot be null or blank!");
+		Assert.notBlank(sheetName, "Sheet name cannot be null or blank!");
 		this.sheetName = sheetName;
 		this.sheetIndex = -1;
 	}

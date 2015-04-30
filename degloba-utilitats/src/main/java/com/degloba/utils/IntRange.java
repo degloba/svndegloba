@@ -6,15 +6,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.io.Serializable;
 
 /**
- * 整数范围类。包括左右边界值。
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- *
+ * Integer range class. Including about boundary value.
  */
 public class IntRange implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8864945948923971061L;
 
 	private int min;
@@ -22,8 +17,8 @@ public class IntRange implements Serializable{
 	private int max;
 
 	/**
-     * @param min 下限
-     * @param max 上限
+     * @param min Lower limit
+     * @param max Upper limit
      */
 	public IntRange(int min, int max) {
 		super();

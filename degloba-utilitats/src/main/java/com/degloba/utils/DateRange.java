@@ -8,16 +8,10 @@ import java.text.DateFormat;
 import java.util.Date;
 
 /**
- * 日期范围类。包括左右边界值。忽略时间部分。
- *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- *
+ * Date range class. Including about boundary value. Omit the time portion.
  */
 public class DateRange implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -2800351591055572549L;
 
     private Date from;
@@ -25,8 +19,8 @@ public class DateRange implements Serializable {
     private Date to;
 
     /**
-     * @param from 起始日期
-     * @param to 结束日期
+     * @param from Start Date
+     * @param to End Date
      */
     public DateRange(Date from, Date to) {
         Assert.notNull(from, "From date is null!");

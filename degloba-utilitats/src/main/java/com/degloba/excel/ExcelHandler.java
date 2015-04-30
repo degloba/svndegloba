@@ -10,10 +10,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Excel读写类
- * 
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- * 
+ * Excel Literacy class
  */
 public class ExcelHandler {
 
@@ -48,7 +45,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从指定的工作表范围读取数据
+	 * Reads data from the specified worksheet range
 	 * 
 	 * @param excelRange
 	 * @return
@@ -120,7 +117,7 @@ public class ExcelHandler {
 					break;
 				}
 			}
-			if (isBlankRow) { // 代码进入此处说明整行为空行，
+			if (isBlankRow) { // Enter the code described here the whole row is empty,
 				return row - 1;
 			}
 		}
@@ -128,7 +125,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取字符串数据
+	 * Reads a string from the specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -137,7 +134,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取整数数据
+	 * Read integer data from a specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -146,7 +143,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取长整数数据
+	 * Long integer data read from the specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -155,7 +152,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取Double数据
+	 * Double reads data from a specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -164,7 +161,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取布尔数据
+	 * Reads a Boolean data from a specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -173,7 +170,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 从工作表的指定单元格中读取日期数据
+	 * Date data is read from the specified cell in the worksheet
 	 * @param excelCell
 	 * @return
 	 */
@@ -186,7 +183,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 检测Excel工作簿是否采用1904日期系统
+	 * Excel workbook is detected using the 1904 date system
 	 */
 	private boolean isDate1904() {
 		Sheet sheet = workbook.createSheet();
@@ -244,7 +241,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 以指定ExcelCell代表的单元格为左上角，将一批数据写入工作表
+	 * ExcelCell representative specified cell is the upper left corner, a batch of data is written to a worksheet
 	 * 
 	 * @param topLeftCell
 	 * @param data
@@ -268,7 +265,7 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * 将数据写入指定的Excel单元格中。
+	 * The data is written to the specified Excel cells.
 	 * 
 	 * @param excelCell
 	 * @param value

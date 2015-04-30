@@ -4,10 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * SLF4J日志记录器。编写此类以取代裸SLF4J的API是为了：
- * (1)使得客户代码中不必做日志级别检测，简化代码。
- * (2)将SLF4J中的日志记录的几个重载方法（无参数，一个参数，两个参数，参数数组）合并为一个（用变长参数实现）。
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * SLF4J logger. Such written to replace the bare SLF4J the API is to:
+ * (1)Making the client code does not have to do the log level detection, to simplify the code.
+ * (2)Several overloaded method (no parameters, one, two arguments, the array) SLF4J Logging into one (with a variable-length parameters to achieve).
  *
  */
 public class Slf4JLogger implements com.degloba.utils.Logger {

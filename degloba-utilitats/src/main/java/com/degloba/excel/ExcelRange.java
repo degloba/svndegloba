@@ -3,9 +3,7 @@ package com.degloba.excel;
 import com.degloba.utils.Assert;
 
 /**
- * Excel工作表范围，代表指定工作表中的一个矩形区域
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- *
+ * Excel Worksheet range, on behalf of the specified worksheet in a rectangular region
  */
 public class ExcelRange {
 	private int sheetIndex = 0;

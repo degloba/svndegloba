@@ -6,9 +6,7 @@ import com.degloba.utils.Assert;
 import java.util.Date;
 
 /**
- * Excel工具类
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- *
+ * Excel Tools
  */
 public class ExcelUtils {
 
@@ -16,9 +14,9 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * 将列名转换为列索引，例如将列"A"转换为0
-	 * @param columnName 要转换的列名
-	 * @return 参数columnName代表的列的索引
+	 * The column names to the column index, for example, the column "A" is converted to 0
+	 * @param columnName To convert the column names
+	 * @return Index column parameters columnName representatives
 	 */
 	public static int convertColumnNameToIndex(String columnName) {
 		Assert.notBlank(columnName);
@@ -44,7 +42,7 @@ public class ExcelUtils {
 			return null;
 		}
 		if (! (data instanceof Double)) {
-			throw new IllegalStateException("数据类型错误：单元格中的数据不是数值类型");
+			throw new IllegalStateException("Data type error: The data in the cell is not a numeric type");
 		}
 		return (Double) data;
 	}
@@ -64,7 +62,7 @@ public class ExcelUtils {
 			return null;
 		}
 		if (! (data instanceof Boolean)) {
-			throw new IllegalStateException("数据类型错误：单元格中的数据不是布尔类型");
+			throw new IllegalStateException("Data type error: The data in the cell is not a Boolean");
 		}
 		return (Boolean) data;
 	}

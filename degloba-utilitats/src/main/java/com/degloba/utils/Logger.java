@@ -2,8 +2,7 @@ package com.degloba.utils;
 
 
 /**
- * 通用日志接口
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * Commons logging
  *
  */
 public interface Logger {

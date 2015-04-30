@@ -4,9 +4,7 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * 从类路径资源、磁盘文件和输入流中读取属性配置。
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
- *
+ * Read the resource from the classpath attribute configuration, disk files and input stream.
  */
 public class PropertiesReader {
 

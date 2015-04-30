@@ -12,9 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * JavaBean工具类。
- *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * JavaBean class tools.
  */
 public class BeanUtils {
 
@@ -28,10 +26,10 @@ public class BeanUtils {
     }
 
     /**
-     * 在两个Bean之间复制属性值
+     * Bean replication between two Property Value
      *
-     * @param fromBean 作为复制源的Bean
-     * @param toBean   作为复制目标的Bean
+     * @param fromBean As the copy source Bean
+     * @param toBean   Bean as a replication target
      */
     private static void copyProperties(Object fromBean, Object toBean, String... excludeProps) {
         BeanUtils from = new BeanUtils(fromBean);
@@ -49,38 +47,38 @@ public class BeanUtils {
     }
 
     /**
-     * 获得指定的JavaBean类型的所有属性的类型，包括从父类继承的属性
+     * Types Get all the attributes specified JavaBean type, including inherited from the parent class properties
      *
-     * @return 一个Map，Key为属性名， Value为属性所属的类
+     * @return A Map, Key for the Property name, Value Class belongs to the property
      */
     public Map<String, Class<?>> getPropTypes() {
         return beanClassUtils.getPropTypes();
     }
 
     /**
-     * 获得JavaBean的所有属性值，包括从父类继承的属性
+     * JavaBean get all the Property Value, including inherited from the parent class properties
      *
-     * @return 一个Map，其中Key为属性名，Value为属性值。
+     * @return A Map, which Key to Property name, Value of Property Value.
      */
     public Map<String, Object> getPropValues() {
         return getPropValues(getReadablePropNames());
     }
 
     /**
-     * 获得JavaBean的属性值的值，包括从父类继承的属性，不包含指定的属性。
+     * Get the JavaBean Property Value values, including property inherited from a parent class, it does not contain the specified property.
      *
-     * @param excludePropNames 要排除的属性名
-     * @return 一个Map，其中Key为属性名，Value为属性值。
+     * @param excludePropNames To exclude Property name
+     * @return A Map, which Key to Property name, Value of Property Value.
      */
     public Map<String, Object> getPropValuesExclude(String... excludePropNames) {
         return getPropValues(beanClassUtils.getReadablePropNamesExclude(excludePropNames));
     }
 
     /**
-     * 获得JavaBean的属性值的值，包括从父类继承的属性，不包含指定的属性。
+     * Get the JavaBean Property Value values, including property inherited from a parent class, it does not contain the specified property.
      *
-     * @param excludeAnnotations 一批Annotation，被这些Annotation标注的属性将被排除
-     * @return 一个Map，其中Key为属性名，Value为属性值。
+     * @param excludeAnnotations Shipment Annotation, Annotation indexed these attributes will be excluded.
+     * @return A Map, which Key to Property name, Value of Property Value.
      */
     public Map<String, Object> getPropValuesExclude(Class<? extends Annotation>... excludeAnnotations) {
         return getPropValues(beanClassUtils.getReadablePropNamesExclude(excludeAnnotations));
@@ -106,47 +104,47 @@ public class BeanUtils {
     }
 
     /**
-     * 获得指定JavaBean类型的所有属性的名字，包括从父类继承的属性
+     * Get the names of all the properties of the specified JavaBean type, including inherited from the parent class property
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getPropNames() {
         return beanClassUtils.getPropNames();
     }
 
     /**
-     * 获得指定JavaBean类型的所有可读属性的名字，包括从父类继承的属性
+     * Get the names of all the properties of the specified JavaBean readable type, including inherited from the parent class property
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getReadablePropNames() {
         return beanClassUtils.getReadablePropNames();
     }
 
     /**
-     * 获得指定JavaBean类型的所有可读属性的名字，包括从父类继承的属性
+     * Get the names of all the properties of the specified JavaBean readable type, including inherited from the parent class property
      *
-     * @return JavaBean的属性名的集合
+     * @return Property name of the JavaBean collection
      */
     public Set<String> getWritablePropNames() {
         return beanClassUtils.getWritablePropNames();
     }
 
     /**
-     * 获得指定属性的值
+     * The value for the specified attribute
      *
-     * @param propName 属性名
-     * @return 属性值
+     * @param propName Property name
+     * @return  Property Value
      */
     public Object getPropValue(String propName) {
         return getPropValues().get(propName);
     }
 
     /**
-     * 设置属性值
+     * Set up Property Value
      *
-     * @param key   要设置值的属性名
-     * @param value 要设置的值
+     * @param key   To set the value of the Property name
+     * @param value Value to be set
      */
     public void setPropValue(String key, Object value) {
         for (Map.Entry<String, PropertyDescriptor> entry : beanClassUtils.getPropertyDescriptors().entrySet()) {
@@ -171,9 +169,9 @@ public class BeanUtils {
     }
 
     /**
-     * 从properties填充属性值
+     * Property Value from filling properties
      *
-     * @param properties 表示一批属性值的Map，Key为属性名，Value为属性值
+     * @param properties Property Value represents a group of the Map, Key for the Property name, Value of Property Value
      */
     public void populate(Map<String, ? extends Object> properties) {
         for (Map.Entry<String, ? extends Object> entry : properties.entrySet()) {
@@ -182,38 +180,38 @@ public class BeanUtils {
     }
 
     /**
-     * 从另一个Bean提取属性值，填充当前Bean的同名属性
+     * Property Value extracted from another Bean, Bean fill current properties of the same name
      *
-     * @param otherBean 另外的JavaBean
+     * @param otherBean Another JavaBean
      */
     public void copyPropertiesFrom(Object otherBean) {
         copyProperties(otherBean, bean);
     }
 
     /**
-     * 将当前Bean的属性值填充到另一个Bean的同名属性
+     * Property Value of the current Bean Bean filled another property of the same name
      *
-     * @param otherBean 另外的JavaBean
+     * @param otherBean Another JavaBean
      */
     public void copyPropertiesTo(Object otherBean) {
         copyProperties(bean, otherBean);
     }
 
     /**
-     * 从另一个Bean提取属性值，填充当前Bean的同名属性
+     * Property Value extracted from another Bean, Bean fill current properties of the same name
      *
-     * @param otherBean    另外的JavaBean
-     * @param excludeProps 不参与复制的属性名
+     * @param otherBean    Another JavaBean
+     * @param excludeProps Property name does not participate in replication
      */
     public void copyPropertiesFrom(Object otherBean, String... excludeProps) {
         copyProperties(otherBean, bean, excludeProps);
     }
 
     /**
-     * 将当前Bean的属性值填充到另一个Bean的同名属性
+     * Property Value of the current Bean Bean filled another property of the same name
      *
-     * @param otherBean    另外的JavaBean
-     * @param excludeProps 不参与复制的属性名
+     * @param otherBean    Another JavaBean
+     * @param excludeProps Property name does not participate in replication
      */
     public void copyPropertiesTo(Object otherBean, String... excludeProps) {
         copyProperties(bean, otherBean, excludeProps);

@@ -8,11 +8,11 @@ import java.util.Date;
 public class DateUtils {
 
     /**
-     * 最小日期，设定为1000年1月1日
+     * The minimum date is set to January 1, 1000
      */
     public static final Date MIN_DATE = date(1000, 1, 1);
     /**
-     * 最大日期，设定为8888年1月1日
+     * The maximum date, set on January 1 8888
      */
     public static final Date MAX_DATE = date(8888, 1, 1);
     private static final long MILLIS_IN_A_SECOND = 1000;
@@ -29,12 +29,12 @@ public class DateUtils {
     }
 
     /**
-     * 根据年月日构建日期对象。注意月份是从1开始计数的，即month为1代表1月份。
+     * According to date build date objects. Note that month is counted from the beginning, that month is 1 for January.
      *
-     * @param year 年
-     * @param month 月。注意1代表1月份，依此类推。
-     * @param day 日
-     * @return 一个日期
+     * @param year Year
+     * @param month Months. Note 1 for January, and so on.
+     * @param day Japan
+     * @return A date
      */
     public static Date date(int year, int month, int day) {
         Calendar calendar = Calendar.getInstance();
@@ -44,15 +44,15 @@ public class DateUtils {
     }
 
     /**
-     * 根据年月日构建日期对象。注意月份是从1开始计数的，即month为1代表1月份。
+     * According to date build date objects. Note that month is counted from the beginning, that month is 1 for January.
      *
-     * @param year 年
-     * @param month 月。注意1代表1月份，依此类推。
-     * @param day 日
-     * @param hour 时
-     * @param minute 分
-     * @param second 秒
-     * @return 一个日期
+     * @param year Year
+     * @param month Months. Note 1 for January, and so on.
+     * @param day Japan
+     * @param hour Time
+     * @param minute Minute
+     * @param second Second
+     * @return A date
      */
     public static Date date(int year, int month, int day,
             int hour, int minute, int second) {
@@ -63,11 +63,11 @@ public class DateUtils {
     }
 
     /**
-     * 计算两个日期（不包括时间）之间相差的周年数
+     * The difference between the number of years two dates (excluding time)
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 两个日期之间相隔的周年数
+     * @param date1 First date
+     * @param date2 The second date
+     * @return Number of years between the two dates separated
      */
     public static int getYearDiff(Date date1, Date date2) {
         if (date1 == null || date2 == null) {
@@ -99,11 +99,11 @@ public class DateUtils {
     }
 
     /**
-     * 计算两个日期（不包括时间）之间相差的整月数
+     * The difference between the number of whole months between two dates (excluding time)
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 两个日期之间相隔的整月数
+     * @param date1 First date
+     * @param date2 The second date
+     * @return Number of whole months between the two dates separated
      */
     public static int getMonthDiff(Date date1, Date date2) {
         if (date1 == null || date2 == null) {
@@ -135,11 +135,11 @@ public class DateUtils {
     }
 
     /**
-     * 统计两个日期之间包含的天数。包含date1，但不包含date2
+     * The number of days between the statistics contain two dates. It contains date1, but does not include date2
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 两个日期之间相隔的整天数
+     * @param date1 First date
+     * @param date2 The second date
+     * @return Several day interval between the two dates
      */
     public static int getDayDiff(Date date1, Date date2) {
         if (date1 == null || date2 == null) {
@@ -159,11 +159,11 @@ public class DateUtils {
     }
 
     /**
-     * 计算time2比time1晚多少分钟，忽略日期部分
+     * Time1 time2 ratio calculated how many minutes late, ignoring the date portion
      *
-     * @param time1 第一个时间
-     * @param time2 第二个时间
-     * @return 两个时间之间相隔的分钟数
+     * @param time1 First time
+     * @param time2 The second time
+     * @return The number of minutes between the two time intervals
      */
     public static int getMinuteDiffByTime(Date time1, Date time2) {
         long startMil = 0;
@@ -179,31 +179,31 @@ public class DateUtils {
     }
 
     /**
-     * 计算指定日期的前一天
+     * Calculate the day before the specified date
      *
-     * @param date 一个日期
-     * @return 代表date前一天的日期
+     * @param date A date
+     * @return Date the day before the date of the representative
      */
     public static Date getPrevDay(Date date) {
         return org.apache.commons.lang3.time.DateUtils.addDays(date, -1);
     }
 
     /**
-     * 计算指定日期的后一天
+     * After calculating the date specified day
      *
-     * @param date 一个日期
-     * @return 代表date后一天的日期
+     * @param date A date
+     * @return After the day's date on behalf of date
      */
     public static Date getNextDay(Date date) {
         return org.apache.commons.lang3.time.DateUtils.addDays(date, 1);
     }
 
     /**
-     * 判断date1是否在date2之后，忽略时间部分
+     * Analyzing date1 is after date2, omit the time portion
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 如果date1处于date2之后，返回true，否则返回false
+     * @param date1 First date
+     * @param date2 The second date
+     * @return If after date1 in date2, it returns true, false otherwise
      */
     public static boolean isDateAfter(Date date1, Date date2) {
         Date theDate1 = org.apache.commons.lang3.time.DateUtils.truncate(date1,
@@ -214,22 +214,22 @@ public class DateUtils {
     }
 
     /**
-     * 判断date1是否在date2之前，忽略时间部分
+     * Analyzing date1 is before date2, omit the time portion
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 如果date1处于date2之前，返回true，否则返回false
+     * @param date1 First date
+     * @param date2 The second date
+     * @return If date1 in before date2, returns true, false otherwise
      */
     public static boolean isDateBefore(Date date1, Date date2) {
         return isDateAfter(date2, date1);
     }
 
     /**
-     * 判断time1是否在time2之后，忽略日期部分
+     * Analyzing time1 is after time2, ignoring the date portion
      *
-     * @param time1 第一个时间
-     * @param time2 第二个时间
-     * @return 如果time1位于time2之后，返回true，否则返回false
+     * @param time1 First time
+     * @param time2 The second time
+     * @return If time1 time2 located after returns true, false otherwise
      */
     public static boolean isTimeAfter(Date time1, Date time2) {
         Calendar calendar1 = Calendar.getInstance();
@@ -242,43 +242,43 @@ public class DateUtils {
     }
 
     /**
-     * 判断time1是否在time2之前，忽略日期部分
+     * Analyzing time1 is before time2, ignoring the date portion
      *
-     * @param time1 第一个时间
-     * @param time2 第二个时间
-     * @return 如果time1位于time2之前，返回true，否则返回false
+     * @param time1 First time
+     * @param time2 The second time
+     * @return If located before time1 time2, returns true, false otherwise
      */
     public static boolean isTimeBefore(Date time1, Date time2) {
         return isTimeAfter(time2, time1);
     }
 
     /**
-     * 判断两个日期是否同一天（忽略时间部分）
+     * Determine whether the same day two dates (ignoring the time part)
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 如果date1和date2代表相同的日期，返回true，否则返回false
+     * @param date1 First date
+     * @param date2 The second date
+     * @return If date1 and date2 represent the same date, returns true, false otherwise
      */
     public static boolean isSameDay(Date date1, Date date2) {
         return org.apache.commons.lang3.time.DateUtils.isSameDay(date1, date2);
     }
 
     /**
-     * 判断两个日历天是否同一天（忽略时间部分）
+     * Determine whether the same day two calendar days (ignoring the time part)
      *
-     * @param date1 第一个日期
-     * @param date2 第二个日期
-     * @return 如果date1和date2代表相同的日期，返回true，否则返回false
+     * @param date1 First date
+     * @param date2 The second date
+     * @return If date1 and date2 represent the same date, returns true, false otherwise
      */
     public static boolean isSameDay(Calendar date1, Calendar date2) {
         return org.apache.commons.lang3.time.DateUtils.isSameDay(date1, date2);
     }
 
     /**
-     * 将字符串形式的日期表示解析为日期对象
+     * The string of dates expressed resolve to date objects
      *
-     * @param dateString 代表日期的字符串
-     * @return 一个日期
+     * @param dateString String representing the date
+     * @return A date
      */
     public static Date parseDate(String dateString) {
         try {
@@ -291,10 +291,10 @@ public class DateUtils {
     }
 
     /**
-     * 将字符串形式的时间表示解析为时间对象
+     * The string representation of time to resolve as time target
      *
-     * @param timeString 代表时间的字符串
-     * @return 一个日期
+     * @param timeString String that represents the time
+     * @return A date
      */
     public static Date parseTime(String timeString) {
         try {
@@ -307,10 +307,10 @@ public class DateUtils {
     }
 
     /**
-     * 将字符串形式的日期时间表示解析为时间对象
+     * The string representation of the date and time resolved to time objects
      *
-     * @param timeString 代表时间的字符串
-     * @return 一个日期
+     * @param timeString String that represents the time
+     * @return A date
      */
     public static Date parseDateTime(String timeString) {
         try {
@@ -324,12 +324,12 @@ public class DateUtils {
     }
 
     /**
-     * 计算两个日期之间包含的星期X的天数。
+     * Calculated from the number of days between two dates a week contains X's.
      *
-     * @param fromDate 起始日期
-     * @param toDate 结束日期
-     * @param dayOfWeek 星期，例如星期三，星期四
-     * @return 两个日期之间包含的星期X的数量
+     * @param fromDate Start Date
+     * @param toDate End Date
+     * @param dayOfWeekWeek, for example, Wednesday, Thursday
+     * @return The number of weeks between the two dates contain X's
      */
     public static int getWeekDaysBetween(Date fromDate, Date toDate,
             int dayOfWeek) {
@@ -348,12 +348,12 @@ public class DateUtils {
     }
 
     /**
-     * 获取在两个日期之间的第一个星期X
+     * Get between the two dates the first week X
      *
-     * @param fromDate 起始日期
-     * @param toDate 结束日期
-     * @param dayOfWeek 星期，例如星期三，星期四
-     * @return 两个日期之间的第一个星期X
+     * @param fromDate Start Date
+     * @param toDate End Date
+     * @param dayOfWeek Week, for example, Wednesday, Thursday
+     * @return Between the two dates the first week X
      */
     public static Date getFirstWeekdayBetween(Date fromDate, Date toDate,
             int dayOfWeek) {
@@ -369,10 +369,10 @@ public class DateUtils {
     }
 
     /**
-     * 取得参数year指定的年份的总天数
+     * Get parameter specifies the number of the year year total day
      *
-     * @param year 年份
-     * @return 当年的总天数
+     * @param year Years
+     * @return The total number of days the year
      */
     public static int getDaysInYear(int year) {
         Calendar aDay = Calendar.getInstance();
@@ -384,11 +384,11 @@ public class DateUtils {
     }
 
     /**
-     * 取得指定年月的总天数
+     * Made of the total number of days specified date
      *
-     * @param year 年份
-     * @param month 月份
-     * @return 当月的总天数
+     * @param year Years
+     * @param month Month
+     * @return The total number of days of the month
      */
     public static int getDaysInMonth(int year, int month) {
         Calendar aDay = Calendar.getInstance();
@@ -404,50 +404,50 @@ public class DateUtils {
     }
 
     /**
-     * 获得指定日期的年份
+     * The year for the specified date
      *
-     * @param date 一个日期
-     * @return 日期所属的年份
+     * @param date A date
+     * @return Year date falls
      */
     public static int getYear(Date date) {
         return getFieldValue(date, Calendar.YEAR);
     }
 
     /**
-     * 获得指定日期的月份
+     * Month obtain the specified date
      *
-     * @param date 一个日期
-     * @return 日期所属的月份
+     * @param date A date
+     * @return Month date falls
      */
     public static int getMonth(Date date) {
         return getFieldValue(date, Calendar.MONTH) + 1;
     }
 
     /**
-     * 获得指定日期是当年的第几天
+     * For the specified date is the day of the year
      *
-     * @param date 一个日期
-     * @return 日期在当年中是第几天
+     * @param date A date
+     * @return Date is the first year in a few days
      */
     public static int getDayOfYear(Date date) {
         return getFieldValue(date, Calendar.DAY_OF_YEAR);
     }
 
     /**
-     * 获得指定日期是当月的第几天
+     * For the specified date is the day of the month
      *
-     * @param date 一个日期
-     * @return 日期在当月中是第几天
+     * @param date A date
+     * @return Date is the first few days of the month in
      */
     public static int getDayOfMonth(Date date) {
         return getFieldValue(date, Calendar.DAY_OF_MONTH);
     }
 
     /**
-     * 获得指定日期是当周的第几天
+     * For the specified date is the day of the week
      *
-     * @param date 一个日期
-     * @return 日期在本周中是第几天
+     * @param date A date
+     * @return Date is the day in the week
      */
     public static int getDayOfWeek(Date date) {
         return getFieldValue(date, Calendar.DAY_OF_WEEK);
@@ -463,12 +463,12 @@ public class DateUtils {
     }
 
     /**
-     * 获得指定日期之后一段时期的日期。例如某日期之后3天的日期等。
+     * The date for the specified period of time after the date. For example, three days after a date date.
      *
-     * @param origDate 基准日期
-     * @param amount 时间数量
-     * @param timeUnit 时间单位，如年、月、日等。用Calendar中的常量代表
-     * @return 一个日期
+     * @param origDate Base Date
+     * @param amount Number
+     * @param timeUnit Time units, such as year, month, date and so on. Calendar of constant use on behalf of
+     * @return A date
      */
     public static final Date dateAfter(Date origDate, int amount, int timeUnit) {
         Calendar calendar = Calendar.getInstance();
@@ -478,12 +478,12 @@ public class DateUtils {
     }
 
     /**
-     * 获得指定日期之前一段时期的日期。例如某日期之前3天的日期等。
+     * Obtain a specified date prior to the date a period. For example, a date three days before the date.
      *
-     * @param origDate 基准日期
-     * @param amount 时间数量
-     * @param timeUnit 时间单位，如年、月、日等。用Calendar中的常量代表
-     * @return 一个日期
+     * @param origDate Base Date
+     * @param amount Number
+     * @param timeUnit Time units, such as year, month, date and so on. Calendar of constant use on behalf of
+     * @return A date
      */
     public static final Date dateBefore(Date origDate, int amount, int timeUnit) {
         Calendar calendar = Calendar.getInstance();
