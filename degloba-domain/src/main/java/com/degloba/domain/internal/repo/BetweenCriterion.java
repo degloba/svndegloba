@@ -6,8 +6,7 @@ import com.degloba.domain.NamedParameters;
 import org.dayatang.utils.Assert;
 
 /**
- * 判断某个属性的值是否位于指定的值空间范围的查询条件
- * @author degloba
+ * Determine whether the value of a property located in a specified range of values of spatial query criteria
  */
 public class BetweenCriterion extends BasicCriterion {
 
@@ -16,10 +15,10 @@ public class BetweenCriterion extends BasicCriterion {
     private final Comparable<?> to;
 
     /**
-     * Create a query condition实例
-     * @param propName Property name称
-     * @param from 值的下限
-     * @param to 值的上限
+     * Create a query condition Examples
+     * @param propName Property name Say
+     * @param from The lower limit value
+     * @param to The upper limit value
      */
     public BetweenCriterion(String propName, Comparable<?> from, Comparable<?> to) {
         super(propName);
@@ -82,7 +81,7 @@ public class BetweenCriterion extends BasicCriterion {
 
     /**
      * Calculate the hash value
-     * @return 当前对象实例的哈希值
+     * @return The hash value of the object instance
      */
     @Override
     public int hashCode() {

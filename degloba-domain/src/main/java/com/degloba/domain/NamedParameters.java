@@ -1,19 +1,3 @@
-/*
- * Copyright 2014 Dayatang Open Source..
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.degloba.domain;
 
 import org.dayatang.utils.Assert;
@@ -25,26 +9,25 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * 查询语言或命名查询的命名参数集。JPA、Hibernate和SQL等都支持定位
- * 参数(如"... where e.name = ?")和命名参数(如"... where name = :name")两种形式。<br>
- * 尽可能采用命名参数的形式，定位参数是落后的形式。
- * @author degloba
+ * Naming the current query language or parameter set of a query. JPA, Hibernate and SQL are all support positioning
+ * Parameters (such as "? ... Where e.name =") and named parameters (such as "... where name =: name") forms. <br>
+ * As far as possible in the form of named parameters, positional parameters are behind the form.
  */
 public class NamedParameters implements QueryParameters {
     private Map<String, Object> params = new HashMap<String, Object>();
     
     /**
-     * 创建一个空查询参数集
-     * @return 一个基于Map的查询参数集
+     * Create an empty set of query parameters
+     * @return Map-based set of query parameters
      */
     public static NamedParameters create() {
         return new NamedParameters(new HashMap<String, Object>());
     }
     
     /**
-     * 创建一个查询参数集
-     * @param params 要设置的查询参数的map，Key为Parameter name，Value为参数值
-     * @return 一个基于Map的查询参数集
+     * Create a set of query parameters
+     * @param params Map query parameters to be set, Key for the Parameter name, Value for the parameter values
+     * @return Map-based set of query parameters
      */
     public static NamedParameters create(Map<String, Object> params) {
         return new NamedParameters(params);
@@ -56,10 +39,10 @@ public class NamedParameters implements QueryParameters {
     }
     
     /**
-     * 添加一个命名参数
-     * @param key Parameter name称
-     * @param value 参数值
-     * @return 当前对象本身
+     * Add a named parameter
+     * @param key Parameter name Adding said
+     * @param value Parameter Value
+     * @return The current object itself
      */
     public NamedParameters add(String key, Object value) {
         Assert.notBlank(key);
@@ -69,9 +52,10 @@ public class NamedParameters implements QueryParameters {
     }
 
     /**
-     * 将另一个NamedParameters合并进来。
-     * @param other 要合并的参数集
-     * @return 该对象本身。其参数集是原有的参数集与另一个参数集合并后的结果
+     * The merger came another NamedParameters.
+     * @param other The set of parameters to be merged
+     * @return The object itself. 
+     * Its parameter set is the result of the original parameter set and another set of parameters and after
      */
     public NamedParameters add(NamedParameters other) {
         Assert.notNull(other);
@@ -80,16 +64,16 @@ public class NamedParameters implements QueryParameters {
     }
 
     /**
-     * 获得参数Map
-     * @return 参数Map
+     * Obtain parameters Map
+     * @return Parameters Map
      */
     public Map<String, Object> getParams() {
         return Collections.unmodifiableMap(params);
     }
 
     /**
-     * 获得对象的哈希值
-     * @return 对象的哈希值
+     * Get the object hash
+     * @return The hash value of the object
      */
     @Override
     public int hashCode() {
@@ -97,9 +81,10 @@ public class NamedParameters implements QueryParameters {
     }
 
     /**
-     * 判断参数集对象的等价性。当且仅当两个NamedParameters包含的参数Map相同时，两个对象才是等价的。
-     * @param other 另一个对象
-     * @return 如果当前对象等价于other则返回true，否则返回false。
+     * Analyzing parameters set object Equivalence. 
+     * If and only if the argument phase two NamedParameters Map contains the same time, the two objects is equivalent.
+     * @param other Another object
+     * @return If the current object is equivalent to the other returns true, otherwise it returns false.
      */
     @Override
     public boolean equals(Object other) {
@@ -115,8 +100,8 @@ public class NamedParameters implements QueryParameters {
     }
 
     /**
-     * 获得参数集的字符串表示形式
-     * @return 当前对象的字符串表示形式
+     * String parameter set obtained representation
+     * @return The current string representation of the object
      */
     @Override
     public String toString() {

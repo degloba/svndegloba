@@ -6,7 +6,6 @@ import com.degloba.domain.NamedParameters;
 
 /**
  * Determine if a property value is not null query criteria
- * @author degloba
  */
 public class NotNullCriterion extends BasicCriterion {
 

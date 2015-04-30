@@ -7,7 +7,6 @@ import java.util.List;
 /**
  * Based on the query object named query. One of the four inquiries form DDDLib support.
  * You can specify the location query parameters or named query parameters can also be taken for a subset of the query results.
- * @author degloba
  */
 public class NamedQuery extends BaseQuery<NamedQuery> {
 

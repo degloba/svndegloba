@@ -6,36 +6,35 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * 查询语言或命名查询的定位参数集。JPA、Hibernate和SQL等都支持定位
- * 参数(如"... where e.name = ?")和命名参数(如"... where name = :name")两种形式。<br>
- * 尽可能采用命名参数的形式，定位参数是落后的形式。
- * @author degloba
+ * Value or named query language localization parameter set of a query. JPA, Hibernate and SQL are all support positioning
+ * Parameter (such as "? ... Where e.name =") and named parameters (such as "... where name =: name") forms. <br>
+ * As far as possible in the form of named parameters, positional parameters are behind the form.
  */
 public class PositionalParameters implements QueryParameters {
     
     private Object[] params;
     
     /**
-     * 创建一个空查询参数集
-     * @return 一个基于数组的查询参数集
+     * Create an empty set of query parameters
+     * @return An array-based query parameter set
      */
     public static PositionalParameters create() {
         return new PositionalParameters(new Object[]{});
     }
     
     /**
-     * 创建一个查询参数集，用数组填充参数值
-     * @param params 参数值数组
-     * @return 一个基于数组的参数集
+     * Create a query parameter set, filled with an array of parameter values
+     * @param params Parameter value array
+     * @return Senate based on parameters set array
      */
     public static PositionalParameters create(Object... params) {
         return new PositionalParameters(params);
     }
     
     /**
-     * 创建一个查询参数集，用列表填充参数值
-     * @param params 参数值列表
-     * @return 一个基于数组的参数集
+     * Create a set of query parameters, filling parameter values list
+     * @param params List of parameter values
+     * @return An array based on the parameters set
      */
     public static PositionalParameters create(List<Object> params) {
         return new PositionalParameters(params.toArray());
@@ -50,16 +49,16 @@ public class PositionalParameters implements QueryParameters {
     }
 
     /**
-     * 获得参数值数组
-     * @return 参数数组
+     * Get the parameter value array
+     * @return Parameter array
      */
     public Object[] getParams() {
         return Arrays.copyOf(params, params.length);
     }
 
     /**
-     * 获得对象的哈希值
-     * @return 对象的哈希值
+     * Get the object hash
+     * @return The hash value of the object
      */
     @Override
     public int hashCode() {
@@ -67,9 +66,10 @@ public class PositionalParameters implements QueryParameters {
     }
 
     /**
-     * 判断参数集对象的等价性。当且仅当两个PositionalParameters包含的参数数组相同时，两个对象才是等价的。
-     * @param other 另一个对象
-     * @return 如果当前对象等价于other则返回true，否则返回false。
+     * Analyzing parameters set object Equivalence. 
+     * If and only if the argument is an array of two PositionalParameters contain the same, the two objects is equivalent.
+     * @param other Another object
+     * @return If the current object is equivalent to the other returns true, otherwise it returns false.
      */
     @Override
     public boolean equals(Object other) {
@@ -84,8 +84,8 @@ public class PositionalParameters implements QueryParameters {
     }
 
     /**
-     * 获得参数集的字符串表示形式
-     * @return 当前对象的字符串表示形式
+     * String parameter set obtained representation
+     * @return The current string representation of the object
      */
     @Override
     public String toString() {

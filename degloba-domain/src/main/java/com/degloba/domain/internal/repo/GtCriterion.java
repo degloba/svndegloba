@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * Representative property is greater than the specified value of the query
- * @author degloba
  */
 public class GtCriterion extends ValueCompareCriterion {
 

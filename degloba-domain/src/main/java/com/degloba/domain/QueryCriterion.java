@@ -3,8 +3,6 @@ package com.degloba.domain;
 
 /**
  * The query interface
- *
- * @author degloba
  */
 public interface QueryCriterion {
 

@@ -11,17 +11,17 @@ import com.degloba.domain.QueryCriterion;
 import org.dayatang.utils.Assert;
 
 /**
- * 代表两个或两个以上的查询条件AND操作结果的查询条件
- * @author degloba
+ * On behalf of two or more of the query results query criteria AND operation
  */
 public class AndCriterion extends AbstractCriterion {
 
     private final List<QueryCriterion> criterions;
 
     /**
-     * 根据多个查询条件创建AND查询条件。创建过程中会去除为null或EmptyCriterion的查询条件。如果
-     * 剩余查询条件不足两个，则抛出Exception.
-     * @param criterions 要用来执行AND操作的查询条件
+     * Create AND query conditions based on multiple search criteria. 
+     * Creation process removes the null or EmptyCriterion query criteria. In case
+     * The remaining two less than the query throws Exception.
+     * @param criterions To be used to perform an AND operation of query conditions
      */
     public AndCriterion(QueryCriterion... criterions) {
         Assert.notNull(criterions, "Criterions to \"AND\" is null!");
@@ -30,8 +30,9 @@ public class AndCriterion extends AbstractCriterion {
     }
 
     /**
-     * 获得要用来执行AND操作的查询条件
-     * @return 要用来执行AND操作的查询条件，去除了Null和EmptyCriterion类型的元素。
+     * To get the query to perform the AND operation
+     * @return To be used to perform an AND operation of query conditions, 
+     * in addition to Null and EmptyCriterion types of elements.
      */
     public List<QueryCriterion> getCriterons() {
         return criterions;
@@ -56,7 +57,7 @@ public class AndCriterion extends AbstractCriterion {
 
 	/**
      * Equivalence of judgment
-     * @param other 要用来判等的另一个对象
+     * @param other To be used to convict like another object
      * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
@@ -75,7 +76,7 @@ public class AndCriterion extends AbstractCriterion {
 
     /**
      * Calculate the hash value
-     * @return 当前对象实例的哈希值
+     * @return The hash value of the object instance
      */
     @Override
     public int hashCode() {

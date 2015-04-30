@@ -6,8 +6,6 @@ import com.degloba.domain.QueryCriterion;
 
 /**
  * "Empty" conditions, do nothing. To simplify operation between conditions
- *
- * @author degloba 
  */
 public class EmptyCriterion extends AbstractCriterion {
 

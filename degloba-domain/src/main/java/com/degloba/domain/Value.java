@@ -15,9 +15,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * Value. The value of this type is mainly used for custom attributes Entity class, for example, the Employee class to dynamically add a number of attributes, each type of data is recorded and a string
- *
- * @author degloba
- *
  */
 @Embeddable
 public class Value implements ValueObject {

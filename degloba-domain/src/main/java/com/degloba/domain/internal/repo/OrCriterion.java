@@ -13,7 +13,6 @@ import org.dayatang.utils.Assert;
 
 /**
  * On behalf of two or more of the query results query criteria OR operation
- * @author degloba
  */
 public class OrCriterion extends AbstractCriterion {
 

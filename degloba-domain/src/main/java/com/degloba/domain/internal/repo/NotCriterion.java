@@ -8,7 +8,6 @@ import org.dayatang.utils.Assert;
 
 /**
  * On behalf of a query condition negated query conditions
- * @author degloba
  */
 public class NotCriterion extends AbstractCriterion {
 

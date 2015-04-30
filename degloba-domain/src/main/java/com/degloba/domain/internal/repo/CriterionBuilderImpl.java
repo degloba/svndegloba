@@ -8,8 +8,6 @@ import java.util.Collection;
 
 /**
  * A utility class, as a variety of search criteria factory
- *
- * @author degloba 
  */
 public class CriterionBuilderImpl implements CriterionBuilder {
 

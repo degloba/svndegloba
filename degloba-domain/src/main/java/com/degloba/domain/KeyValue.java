@@ -6,7 +6,6 @@ import org.dayatang.utils.Assert;
 
 /**
  * Key data types
- * @author degloba 
  */
 public class KeyValue<K, V> {
 	

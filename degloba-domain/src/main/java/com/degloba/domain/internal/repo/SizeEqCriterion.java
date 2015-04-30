@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * Analyzing a set of attribute values equal to a specified number of records the query
- * @author degloba
  */
 public class SizeEqCriterion extends SizeCompareCriterion {
 

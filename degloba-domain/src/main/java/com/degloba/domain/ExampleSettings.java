@@ -5,7 +5,6 @@ import java.util.Set;
 
 /**
  * Example Query Settings category.
- * @author degloba
  * @param <T> Examples of the type of
  */
 public class ExampleSettings<T> {

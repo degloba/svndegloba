@@ -7,7 +7,6 @@ import org.dayatang.utils.Assert;
 
 /**
  * Query base class for NamedQuery, JpqlQuery and SqlQuery provide common behavior.
- * @author degloba
  * @param <E> Types of queries
  */
 public abstract class BaseQuery<E extends BaseQuery<?>> {

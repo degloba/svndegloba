@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * Records determine whether a property is greater than the specified value set query criteria
- * @author degloba
  */
 public class SizeGtCriterion extends SizeCompareCriterion {
 

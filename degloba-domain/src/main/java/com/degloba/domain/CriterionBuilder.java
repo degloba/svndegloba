@@ -4,9 +4,6 @@ import java.util.Collection;
 
 /**
  * A utility class, as a variety of query conditions factory
- *
- * @author degloba 
- *
  */
 public interface CriterionBuilder {
 

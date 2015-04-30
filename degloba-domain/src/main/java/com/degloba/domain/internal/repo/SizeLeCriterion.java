@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * Analyzing a collection of attributes the number of records is less than or equal to the specified value of the query
- * @author degloba
  */
 public class SizeLeCriterion extends SizeCompareCriterion {
 

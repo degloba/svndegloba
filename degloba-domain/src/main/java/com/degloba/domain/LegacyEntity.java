@@ -10,9 +10,6 @@ import java.util.Map;
 
 /**
  * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
- *
- * @author degloba
- *
  */
 @MappedSuperclass
 public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {

@@ -67,7 +67,7 @@ public class AbstractCriterionTest {
 
     @Test
     public void testAnd() {
-        //assertEquals(new AndCriterion(criterion1, criterion2), criterion1.and(criterion2));
+       // assertEquals(new AndCriterion(criterion1, criterion2), criterion1.and(criterion2));
     }
 
     @Test

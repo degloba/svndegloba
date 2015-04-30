@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * On behalf of a property is greater than another attribute query criteria
- * @author degloba
  */
 public class GtPropCriterion extends PropertyCompareCriterion {
 

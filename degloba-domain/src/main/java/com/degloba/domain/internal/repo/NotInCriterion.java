@@ -16,8 +16,6 @@ import com.degloba.domain.NamedParameters;
 
 /**
  * Query condition values represent a property is not included in the specified collection or array
- *
- * @author degloba
  */
 public class NotInCriterion extends BasicCriterion {
 

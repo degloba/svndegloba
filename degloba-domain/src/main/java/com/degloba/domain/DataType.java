@@ -9,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * Enum data type.
- * @author degloba
  */
 public enum DataType {
 

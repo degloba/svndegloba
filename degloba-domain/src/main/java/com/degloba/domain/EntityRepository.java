@@ -8,9 +8,6 @@ import com.google.appengine.api.datastore.Key;
 
 /**
  * Warehousing access interface. Access and query the database for various types of Entity.
- *
- * @author degloba 
- *
  */
 public interface EntityRepository {
 

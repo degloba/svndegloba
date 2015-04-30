@@ -7,8 +7,6 @@ import com.degloba.domain.QueryCriterion;
 
 /**
  * Query conditions abstract base class that implements the AND, OR, NOT operation.
- *
- * @author degloba 
  */
 public abstract class AbstractCriterion implements QueryCriterion {
     

@@ -7,7 +7,6 @@ import org.dayatang.utils.Assert;
 
 /**
  * The value of a property with a judgment whether the query contains the specified text content
- * @author degloba
  */
 public class ContainsTextCriterion extends BasicCriterion {
 

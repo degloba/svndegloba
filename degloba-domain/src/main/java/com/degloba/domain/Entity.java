@@ -6,8 +6,6 @@ import com.google.appengine.api.datastore.Key;
 
 /**
  * Entity interface areas. All Entity class must implement this interface either directly or indirectly. It is mainly from the tag role, in order to unify the processing system Entity like.
- * @author degloba 
- * 
  */
 public interface Entity extends Serializable {
 

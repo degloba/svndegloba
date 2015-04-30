@@ -2,7 +2,6 @@ package com.degloba.domain.internal.repo;
 
 /**
  * On behalf of property is not equal to the specified value of the query
- * @author degloba
  */
 public class NotEqCriterion extends ValueCompareCriterion {
 

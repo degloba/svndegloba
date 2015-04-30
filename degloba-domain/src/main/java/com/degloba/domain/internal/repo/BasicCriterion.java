@@ -5,8 +5,6 @@ import org.dayatang.utils.Assert;
 /**
  * Basic query, meaning a majority of query conditions except AND / OR / NOT query criteria, 
  * basically determine the value of a property meets certain conditions
- *
- * @author degloba
  */
 public abstract class BasicCriterion extends AbstractCriterion {
 

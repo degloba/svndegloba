@@ -6,7 +6,6 @@ import com.degloba.domain.NamedParameters;
 
 /**
  * Determine whether a collection attribute value is not an empty set of search criteria
- * @author degloba
  */
 public class NotEmptyCriterion extends BasicCriterion {
 

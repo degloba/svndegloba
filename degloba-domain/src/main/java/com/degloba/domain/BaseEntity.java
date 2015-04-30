@@ -18,9 +18,6 @@ import com.google.appengine.api.datastore.Key;
 
 /**
 * Abstract entity class can be used as the base class for all areas of the entity.
-*
-* @author degloba
-*
 */
 
 @MappedSuperclass

@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Query string-based object query language. One of the four inquiries form DDDLib support.
  * You can specify the location query parameters or named query parameters can also be taken for a subset of the query results.
- * @author degloba
  */
 public class JpqlQuery extends BaseQuery<JpqlQuery> {
     private final String jpql;
