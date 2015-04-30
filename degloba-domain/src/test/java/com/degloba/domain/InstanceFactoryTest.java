@@ -29,7 +29,7 @@ public class InstanceFactoryTest {
 	}
 
     /**
-     * 设置了InstanceProvider，并且可通过InstanceProvider找到Bean
+     * Set InstanceProvider, and can be found by InstanceProvider Bean
      */
     @Test
     public void testGetInstanceByInstanceProvider() {
@@ -43,7 +43,7 @@ public class InstanceFactoryTest {
     }
 
     /**
-     * 设置了InstanceProvider，并且可通过InstanceProvider找到Bean
+     * Set InstanceProvider, and can be found by InstanceProvider Bean
      */
     @Test
     public void testGetInstanceByServiceLoaderWithoutInstanceProvider() {
@@ -53,7 +53,7 @@ public class InstanceFactoryTest {
     }
 
     /**
-     * 设置了InstanceProvider，并且可通过InstanceProvider找到Bean
+     * Set InstanceProvider, and can be found by InstanceProvider Bean
      */
     @Test
     public void testGetInstanceByServiceLoaderWithInstanceProvider() {
@@ -68,7 +68,7 @@ public class InstanceFactoryTest {
 
 
     /**
-     * 通过Bind方法注册的Bean
+     * Register by Bind method Bean
      */
     @Test
     public void testGetInstanceByBinder() {
