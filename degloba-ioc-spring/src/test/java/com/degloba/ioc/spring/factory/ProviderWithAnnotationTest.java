@@ -10,8 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class ProviderWithAnnotationTest extends AbstractInstanceProviderTest {
 	
-	private SpringInstanceProvider instance;
-
 	@Override
 	protected InstanceProvider createInstanceProvider() {
 		return new com.degloba.ioc.spring.factory.SpringInstanceProvider(SpringConfiguration.class);
