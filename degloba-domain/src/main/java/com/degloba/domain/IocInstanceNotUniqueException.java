@@ -1,7 +1,7 @@
 package com.degloba.domain;
 
 /**
- * 当试图Get在IoC容器中不存在的Bean实例时抛出此Exception.
+ * Exception thrown when attempting to Get Bean instance IoC container does not exist.
  */
 public class IocInstanceNotUniqueException extends IocException {
 
