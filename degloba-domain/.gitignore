@@ -1,2 +1,4 @@
 /target
 /datanucleus.log
+/.classpath
+/.project
