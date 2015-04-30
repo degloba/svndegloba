@@ -141,7 +141,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * 执行条件查询，返回符合条件的单个Entity
 	     *
 	     * @param criteriaQuery 要执行的条件查询
-	     * @param <T> 返回结果类型
+	     * @param <T> To return the result type
 	     * @return 符合查询条件的单个结果
 	     */
 	     E getSingleResult(CriteriaQuery criteriaQuery);
@@ -160,7 +160,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     *
 	     * @param jpqlQuery 要执行的JPQL查询
 	     * @param <T> 返回结果元素类型
-	     * @return 符合查询条件的结果列表
+	     * @return The results match the query returns a list of
 	     */
 	     List<E> find(JpqlQuery jpqlQuery);
 	    //<T> List<T> find(JpqlQuery jpqlQuery);
@@ -169,7 +169,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * 执行JPQL查询，返回符合条件的单个Entity
 	     *
 	     * @param jpqlQuery 要执行的JPQL查询
-	     * @param <T> 返回结果类型
+	     * @param <T> To return the result type
 	     * @return 符合查询条件的单个结果
 	     */
 	     E getSingleResult(JpqlQuery jpqlQuery);
@@ -178,7 +178,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	    /**
 	     * Perform the update warehousing operation.
 	     *
-	     * @param jpqlQuery 要执行的JPQL查询。
+	     * @param jpqlQuery JPQL to execute the query.
 	     * @return Number of updated or deleted entities
 	     */
 	    int executeUpdate(JpqlQuery jpqlQuery);
@@ -187,7 +187,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * 创建命名查询
 	     *
 	     * @param queryName 命名查询的名字
-	     * @return 一个命名查询
+	     * @return A named query
 	     */
 	    NamedQuery createNamedQuery(String queryName);
 
@@ -196,7 +196,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     *
 	     * @param namedQuery 要执行的命名查询
 	     * @param <T> 返回结果元素类型
-	     * @return 符合查询条件的结果列表
+	     * @return The results match the query returns a list of
 	     */
 	     List<E> find(NamedQuery namedQuery);
 	    //<T> List<T> find(NamedQuery namedQuery);
@@ -205,7 +205,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * 执行命名查询，返回符合条件的单个Entity
 	     *
 	     * @param namedQuery 要执行的命名查询
-	     * @param <T> 返回结果类型
+	     * @param <T> To return the result type
 	     * @return 符合查询条件的单个结果
 	     */
 	     E getSingleResult(NamedQuery namedQuery);
@@ -232,7 +232,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     *
 	     * @param sqlQuery 要执行的SQL查询。
 	     * @param <T> 返回结果元素类型
-	     * @return 符合查询条件的结果列表
+	     * @return The results match the query returns a list of
 	     */
 	     List<E> find(SqlQuery sqlQuery);
 	    //<T> List<T> find(SqlQuery sqlQuery);
@@ -241,7 +241,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     * 执行SQL查询，返回符合条件的单个Entity
 	     *
 	     * @param sqlQuery 要执行的SQL查询。
-	     * @param <T> 返回结果类型
+	     * @param <T> To return the result type
 	     * @return 符合查询条件的单个结果
 	     */
 	     E getSingleResult(SqlQuery sqlQuery);

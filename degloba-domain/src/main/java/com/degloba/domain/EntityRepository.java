@@ -7,7 +7,7 @@ import com.google.appengine.api.datastore.Key;
 
 
 /**
- * Warehousing access interface. Access and query the database for various types of Entity.
+ * Repository interface. Access and query the database for various types of Entity.
  */
 public interface EntityRepository {
 
@@ -22,14 +22,15 @@ public interface EntityRepository {
     
 
     /**
-     * Warehousing will be removed from the Entity. If Warehousing does not exist in this instance EntityNotExistedException will throw an exception.
+     * Entity will be removed from the Repository. 
+     * If this instance does not exist in Repository , will throw an exception EntityNotExistedException.
      *
      * @param entity To delete the Entity instance.
      */
     void remove(com.degloba.domain.Entity entity);
 
     /**
-     * Determine whether there is a specified ID Warehousing in Entity instance.
+     * Determine whether there is a specified ID Entity instance in Repository.
      *
      * @param <T> Entity Type
      * @param clazz Class entities
@@ -39,7 +40,7 @@ public interface EntityRepository {
     <T extends com.degloba.domain.Entity> boolean exists(Class<T> clazz, Key id);
 
     /**
-     * Get the Entity Warehousing in the specified type, the specified ID
+     * Get the Entity in the specified type, the specified ID
      *
      * @param <T> Entity Type
      * @param clazz Class entities
@@ -50,7 +51,7 @@ public interface EntityRepository {
     <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id);
 
     /**
-     * Load the specified type from Warehousing, specify the ID of the Entity
+     * Load the specified type, specify the ID of the Entity
      *
      * @param <T> Entity Type
      * @param clazz Class entities
@@ -80,7 +81,7 @@ public interface EntityRepository {
     <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
-     * Find all Entity specified type
+     * Find all Entity of specified type
      *
      * @param <T> Entity Type
      * @param clazz Class entities
@@ -98,179 +99,180 @@ public interface EntityRepository {
     <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
     /**
-     * 执行条件查询，返回Eligible Entity List
+     *Execution condition query returns Eligible Entity List
      *
-     * @param criteriaQuery 要执行的条件查询
-     * @param <T> 返回结果元素类型
-     * @return 符合查询条件的Entity列表
+     * @param criteriaQuery Conditions to execute a query
+     * @param <T> Return result element type
+     * @return Entity match the query returns a list of
      */
     <T> List<T> find(CriteriaQuery criteriaQuery);
 
     /**
-     * 执行条件查询，返回符合条件的单个Entity
+     * Execution condition query returns qualified individual Entity
      *
-     * @param criteriaQuery 要执行的条件查询
-     * @param <T> 返回结果类型
-     * @return 符合查询条件的单个结果
+     * @param criteriaQuery Conditions to execute a query
+     * @param <T> Return result type to be performed
+     * @return Individual results matching the query conditions
      */
     <T> T getSingleResult(CriteriaQuery criteriaQuery);
 
     /**
-     * 创建JPQL查询
+     * Create a query in line JPQL
      *
-     * @param jpql JPQL语句
-     * @return 一个JPQL查询
+     * @param jpql JPQL statement
+     * @return A JPQL inquiry
      */
     JpqlQuery createJpqlQuery(String jpql);
 
     /**
-     * 执行JPQL查询，返回Eligible Entity List
+     * JPQL execute the query and return Eligible Entity List
      *
-     * @param jpqlQuery 要执行的JPQL查询
-     * @param <T> 返回结果元素类型
-     * @return 符合查询条件的结果列表
+     * @param jpqlQuery JPQL query to be executed
+     * @param <T> Return result element type
+     * @return The results match the query list
      */
     <T> List<T> find(JpqlQuery jpqlQuery);
 
     /**
-     * 执行JPQL查询，返回符合条件的单个Entity
+     * Operators perform JPQL query returns qualified individual Entity
      *
-     * @param jpqlQuery 要执行的JPQL查询
-     * @param <T> 返回结果类型
-     * @return 符合查询条件的单个结果
+     * @param jpqlQuery JPQL query to be executed
+     * @param <T> To return the result type
+     * @return Individual results matching the query conditions
      */
     <T> T getSingleResult(JpqlQuery jpqlQuery);
 
     /**
      * Perform the update warehousing operation.
      *
-     * @param jpqlQuery 要执行的JPQL查询。
+     * @param jpqlQuery JPQL to execute the query.
      * @return Number of updated or deleted entities
      */
     int executeUpdate(JpqlQuery jpqlQuery);
 
     /**
-     * 创建命名查询
+     * Create named queries
      *
-     * @param queryName 命名查询的名字
-     * @return 一个命名查询
+     * @param queryName Named query's name
+     * @return A named query
      */
     NamedQuery createNamedQuery(String queryName);
 
     /**
-     * 执行命名查询，返回Eligible Entity List
+     * Execute named queries return Eligible Entity List
      *
-     * @param namedQuery 要执行的命名查询
-     * @param <T> 返回结果元素类型
-     * @return 符合查询条件的结果列表
+     * @param namedQuery Named queries to be executed
+     * @param <T> Return result element type
+     * @return The results match the query returns a list of
      */
     <T> List<T> find(NamedQuery namedQuery);
 
     /**
-     * 执行命名查询，返回符合条件的单个Entity
+     * Back to execute a named query and returns the qualified individual Entity
      *
-     * @param namedQuery 要执行的命名查询
-     * @param <T> 返回结果类型
-     * @return 符合查询条件的单个结果
+     * @param namedQuery Named queries to be executed
+     * @param <T> To return the result type
+     * @return Individual results matching the query conditions
      */
     <T> T getSingleResult(NamedQuery namedQuery);
 
     /**
-     * 使用命名查询Perform the update warehousing operation.
+     * In line with the use of named queries Perform the update warehousing operation.
      *
-     * @param namedQuery 要执行的命名查询。
+     * @param namedQuery Named to execute the query.
      * @return Number of updated or deleted entities
      */
     int executeUpdate(NamedQuery namedQuery);
 
     /**
-     * 创建原生SQL查询
+     * Create a native SQL query
      *
-     * @param sql SQL语句
-     * @return 一个原生SQL查询
+     * @param sql SQL statements
+     * @return A native SQL query
      */
     SqlQuery createSqlQuery(String sql);
 
     /**
-     * 执行SQL查询，返回Eligible Entity List
+     * Execute SQL queries and return Eligible Entity List
      *
-     * @param sqlQuery 要执行的SQL查询。
-     * @param <T> 返回结果元素类型
-     * @return 符合查询条件的结果列表
+     * @param sqlQuery SQL query to be executed.
+     * @param <T> Return result element type
+     * @return The results match the query returns a list of
      */
     <T> List<T> find(SqlQuery sqlQuery);
 
     /**
-     * 执行SQL查询，返回符合条件的单个Entity
+     * Execute SQL queries and return the qualified individual Entity
      *
-     * @param sqlQuery 要执行的SQL查询。
-     * @param <T> 返回结果类型
-     * @return 符合查询条件的单个结果
+     * @param sqlQuery SQL query to be executed.
+     * @param <T> To return the result type
+     * @return Individual results to match the query
      */
     <T> T getSingleResult(SqlQuery sqlQuery);
 
     /**
-     * 使用SQL查询Perform the update warehousing operation.
+     * To use SQL query operators Perform the update warehousing operation.
      *
-     * @param sqlQuery 要执行的SQL查询。
+     * @param sqlQuery SQL query to be executed.
      * @return Number of updated or deleted entities
      */
     int executeUpdate(SqlQuery sqlQuery);
 
     /**
-     * 按例查询。
+     * Example query.
      *
-     * @param <T> 查询的目标Entity Type
-     * @param <E> 查询样例的类型
-     * @param example 查询样例
-     * @param settings 查询设置
-     * @return 与example相似的T类型的范例
+     * @param <T> Target Entity Type query
+     * @param <E> The sample of the type of query
+     * @param example Sample Query
+     * @param settings Query Settings
+     * @return Examples and example of a similar type T
      */
     <T extends com.degloba.domain.Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
 
     /**
-     * 根据单一属性的值查找Entity
+     * Find Entity based on the value of a single attribute
      *
-     * @param <T> 要查询的Class entities型
-     * @param clazz 要查询的Class entities
-     * @param propertyName 要查询的属性
-     * @param propertyValue 匹配的 Property Value
-     * @return 类型为clazz的、属性propertyName的值等于propertyValue的Entity的集合
+     * @param <T> Class entities type to be queried
+     * @param clazz To Class entities query
+     * @param propertyName To attribute query
+     * @param propertyValue Match Property Value
+     * @return Clazz type, the value of property is equal to the set propertyName propertyValue of the Entity
      */
     <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
     /**
-     * 根据多个属性的值查找Entity
+     * Find more properties based on the value Entity
      *
-     * @param <T> 要查询的Class entities型
-     * @param clazz 要查询的Class entities
-     * @param properties 命名参数，其中key为Property name，value为要匹配的 Property Value。
-     * @return 类型为clazz、多个属性分别等于指定的 Property Value的Entity的集合。
+     * @param <T> Class entities type to be queried
+     * @param clazz To check the Class entities to query
+     * @param properties Named parameters, including key is Property name, value is to match Property Value.
+     * @return Type clazz, multiple attributes are equal to a specified set of Property Value of Entity.
      */
     <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
     
     /**
-     * Get命名查询的查询字符串
-     * @param queryName 命名查询的名字
-     * @return 命名查询对应的JPQL字符串
+     * GetNamed query string query
+     * @param queryName Named query's name
+     * @return Named query string corresponding JPQL
      */
     String getQueryStringOfNamedQuery(String queryName);
 
 
     /**
-     * 将内存中的持久化对象状态即时写入数据库
+     * The in-memory persistent object status instantly written to the database
      */
     void flush();
 
     /**
-     * 使用数据库中的最新数据更新Entity的当前状态。Entity中的任何已改变但未持久化的 Property Value将被数据库中的最新值覆盖。
+     * Entity of the current state of the database to update the latest data. 
+     * Entity any have changed but persistent Property Value will be overwritten by the new value in the database.
      *
-     * @param entity 要刷新的Entity
+     * @param entity To refresh the Entity
      */
     void refresh(com.degloba.domain.Entity entity);
 
     /**
-     * 清空持久化缓存
+     * Empty persistent cache
      */
     void clear();
 
