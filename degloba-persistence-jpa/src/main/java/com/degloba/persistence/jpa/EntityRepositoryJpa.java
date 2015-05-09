@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -27,6 +28,8 @@ import com.google.appengine.api.datastore.Key;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
@@ -37,6 +40,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * JPA specification does not enforce this requirement,
  * Depending on the JPA implementation, to configure the NamedQueryParser achieve IoC container.
  */
+@Repository
+@Transactional
 public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
@@ -88,7 +93,11 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends com.degloba.domain.Entity> T save(T entity) {
         if (entity.notExisted()) {
+        	//EntityTransaction tx = entityManager.getTransaction();
+        	//tx.begin();
             entityManager.persist(entity);
+            entityManager.flush();
+            //tx.commit();
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
