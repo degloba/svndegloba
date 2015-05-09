@@ -14,7 +14,7 @@ import com.degloba.domain.InstanceFactory;
  * <p>
  * æœ¬ç±»çš„å­˜åœ¨ï¼Œä¸»è¦�æ˜¯ä¸ºäº†åœ¨å½“å‰�çº¿ç¨‹ä¸­ï¼Œæ¯�æ¬¡è¯·æ±‚éƒ½è¿”å›žç›¸å�Œçš„entityManagerå¯¹è±¡ã€‚é�¿å…�äº‹åŠ¡å’Œâ€œä¼šè¯�å·²å…³é—­â€�é—®é¢˜ã€‚
  *
- * @author yyang
+ * @author degloba
  */
 public class EntityManagerProvider {
 
