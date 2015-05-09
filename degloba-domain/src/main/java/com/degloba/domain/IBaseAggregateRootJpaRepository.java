@@ -64,7 +64,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     //<T extends E> boolean exists(Class<T> clazz, Serializable id);
 
 	    /**
-	     * 从Warehousing中Get指定类型、指定ID的Entity
+	     * Get Entity 
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
@@ -75,7 +75,7 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	     //<T extends Entity> T get(Class<T> clazz, Serializable id);
 
 	    /**
-	     * 从Warehousing中装载指定类型、指定ID的Entity
+	     * Load specified type, specify the ID of the Entity
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
@@ -86,18 +86,18 @@ public interface IBaseAggregateRootJpaRepository<E> {
 	    //<T extends Entity> T load(Class<T> clazz, Serializable id);
 
 	    /**
-	     * 从Warehousing中Getentity参数所代表的未修改的Entity
+	     * From Warehousing in Getentity parameters represent unmodified Entity
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
-	     * @param entity 要查询的Entity
-	     * @return 参数entity在Warehousing中的未修改版本
+	     * @param entity To query Entity
+	     * @return Parameter entity in unmodified version Warehousing
 	     */
 	    E getUnmodified(Class<E> clazz, E entity);
 	    //<T extends Entity> T getUnmodified(Class<T> clazz, T entity);
 	    
 	    /**
-	     * 根据业务主键从Warehousing中Get指定类型的Entity
+	     * Entity specified type in the Get from Warehousing based on natural key
 	     *
 	     * @param <T> Entity Type
 	     * @param clazz Class entities
