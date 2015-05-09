@@ -46,6 +46,6 @@ Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
  LEASE.jar spring-web-4.1.4.RELEASE.jar spring-tx-4.1.4.RELEASE.jar sp
  ring-orm-4.1.4.RELEASE.jar spring-jdbc-4.1.4.RELEASE.jar spring-test-
  4.1.4.RELEASE.jar
-Build-Jdk: 1.8.0_31
+Build-Jdk: 1.8.0_45
 Created-By: Maven Integration for Eclipse
 

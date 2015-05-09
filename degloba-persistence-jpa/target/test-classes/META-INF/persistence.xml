@@ -15,7 +15,6 @@
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
 			<property name="datanucleus.ConnectionURL" value="appengine"/>  			
  			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>	
-<!--			<property name="datanucleus.storeManagerType" value="transactions-optional" /> -->
 			<property name="datanucleus.singletonEMFForName" value="true"/>	  	
 			      
 		</properties>    
