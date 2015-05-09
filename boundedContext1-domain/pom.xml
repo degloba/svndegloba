@@ -16,6 +16,12 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
         </dependency> -->
+        <!-- Compile/runtime dependencies -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.9.17</version>
+        </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -44,12 +50,12 @@
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>     
         </dependency>
-		 <!-- <dependency>
+		  <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>           
-         </dependency>  -->    
+         </dependency>     
 		<dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
@@ -138,16 +144,23 @@
             <artifactId>appengine-api-stubs</artifactId>
             <version>1.9.17</version>
             <scope>test</scope>
-        </dependency>    
+        </dependency>   
+          <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>  
         
             <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-testing</artifactId>
             <version>1.9.17</version>
             <scope>test</scope>
-        </dependency>     
-        
-			        
+        </dependency>
+
+
+            
     </dependencies>
     
     <build>

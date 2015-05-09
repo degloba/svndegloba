@@ -5,6 +5,8 @@ import org.junit.Test;
 
 
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.degloba.organisation.domain.Accountability;
 import com.degloba.organisation.domain.Company;
 import com.degloba.organisation.domain.CompanyDepartment;
@@ -24,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 
 public class AccountabilityTest extends AbstractIntegrationTest {
 
-    @SuppressWarnings("rawtypes")
+    //@Transactional
     @Test
     public final void testFindAccountabilities() {
         OrganisationUtils organisationUtils = new OrganisationUtils();
@@ -35,9 +37,10 @@ public class AccountabilityTest extends AbstractIntegrationTest {
         
         CompanyDepartment companyDepartment = organisationUtils.createCompanyDepartment("总公司", date);
         CompanyDepartment companyDepartment2 = organisationUtils.createCompanyDepartment("财务部",  date);
-       new OrgLineMgmt(companyDepartment, companyDepartment2, date).save();
+       //new OrgLineMgmt(companyDepartment, companyDepartment2, date).save();
         
        
+       // https://code.google.com/p/datanucleus-appengine/source/browse/
        Concrete1 c1 = new Concrete1();
        
        c1.setBase1Str("c1 base");
