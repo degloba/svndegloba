@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 /**
  * ç”¨äºŽèŽ·å�–å‘½å��æŸ¥è¯¢çš„æŸ¥è¯¢å­—ç¬¦ä¸²ã€‚ç”±äºŽJPAè§„èŒƒä¸�ç›´æŽ¥æ”¯æŒ�è¿™ä¸€åŠŸèƒ½ï¼Œæ‰€ä»¥è¦�ç”±ä½¿ç”¨JPAå®žçŽ°çš„æœ¬åœ°API
  * å®žçŽ°å®ƒã€‚
- * @author yyang
+ * @author degloba
  */
 public abstract class NamedQueryParser {
     

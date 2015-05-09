@@ -30,11 +30,11 @@ import com.degloba.domain.SqlQuery;
 import com.google.appengine.api.datastore.Key;
 
 /**
- * 通用仓储接口的Hibernate实现。
- * <p> EntityRepositoryHibernate通过SessionProvider获取Session，以保证在当前线程和事务中
- * 对数据库的多次访问都是由同一个Session来进行，防止出现“会话已关闭”异常。
+ * 通用Warehousing接口的Hibernate实现。
+ * <p> EntityRepositoryHibernate通过SessionProviderGetSession，以保证在当前线程和事务中
+ * 对数据库的多次访问都是由同一个Session来进行，防止出现“会话已关闭”Exception.
  *
- * @author yyang (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
+ * @author degloba (<a href="mailto:gdyangyu@gmail.com">gdyangyu@gmail.com</a>)
  *
  */
 @SuppressWarnings({"unchecked"})
