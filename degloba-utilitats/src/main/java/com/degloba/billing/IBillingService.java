@@ -12,5 +12,5 @@ public interface IBillingService {
 	 *      receipt will be successful. Otherwise, the receipt will contain a   
 	 *      decline note describing why the charge failed.   
 	 */  
-	Receipt chargeOrder(PizzaOrder order, CreditCard creditCard);
+	//Receipt chargeOrder(PizzaOrder order, CreditCard creditCard);
 }
