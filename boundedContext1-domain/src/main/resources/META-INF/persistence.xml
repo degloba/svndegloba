@@ -71,7 +71,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.ConnectionURL" value="appengine"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.storageVersion" value="PARENTS_DO_NOT_REFER_TO_CHILDREN"/>
         </properties>
@@ -83,7 +83,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.ConnectionURL" value="appengine"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
@@ -96,7 +96,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.NontransactionalWrite" value="true"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
@@ -108,7 +108,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
@@ -122,7 +122,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
@@ -137,7 +137,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false"/>
             <property name="datanucleus.metadata.allowLoadAtRuntime" value="true"/>
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="ERROR"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
@@ -151,7 +151,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.datastoreReadTimeout" value="5000"/>
             <property name="datanucleus.datastoreWriteTimeout" value="10000"/>
             <property name="datanucleus.appengine.datastoreReadConsistency" value="EVENTUAL"/>
-                    <property name="datanucleus.cache.level2.type" value="None"/>
+			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
