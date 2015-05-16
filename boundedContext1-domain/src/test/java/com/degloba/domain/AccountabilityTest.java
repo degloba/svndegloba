@@ -37,7 +37,7 @@ public class AccountabilityTest extends AbstractIntegrationTest {
         
         CompanyDepartment companyDepartment = organisationUtils.createCompanyDepartment("总公司", date);
         CompanyDepartment companyDepartment2 = organisationUtils.createCompanyDepartment("财务部",  date);
-       //new OrgLineMgmt(companyDepartment, companyDepartment2, date).save();
+       new OrgLineMgmt(companyDepartment, companyDepartment2, date).save();
         
        
        // https://code.google.com/p/datanucleus-appengine/source/browse/

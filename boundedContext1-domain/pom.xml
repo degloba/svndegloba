@@ -54,14 +54,19 @@
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
-            <scope>test</scope>           
+           <!--  <scope>test</scope>     -->       
          </dependency>     
-		<dependency>
+		 <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>           
-         </dependency>       
+         </dependency>    
+        <!--  <dependency>
+           	<groupId>${project.groupId}</groupId>
+           	<artifactId>degloba-utilitats</artifactId>
+           	<version>0.0.3-SNAPSHOT</version>
+		</dependency>   -->  
 
 
         <!-- Test -->
@@ -101,7 +106,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
-        </dependency>        
+        </dependency>   
+        
+         <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymockclassextension</artifactId>
+            <version>2.4</version>
+            <scope>test</scope>
+        </dependency>     
         
          <!-- Spring Webflow -->  
         <dependency>

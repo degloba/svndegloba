@@ -14,7 +14,7 @@ public class Employee extends Party {
 
     private static final long serialVersionUID = -7339118476080239701L;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private Person person;
 
@@ -39,5 +39,9 @@ public class Employee extends Party {
     public String toString() {
         return new ToStringBuilder(this).append(getName()).build();
     }
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
 }
