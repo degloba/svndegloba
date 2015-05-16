@@ -12,7 +12,7 @@ import com.google.appengine.api.datastore.Key;
 public interface EntityRepository {
 
     /**
-     * The Entity (either new or modified) is saved to the Warehousing in.
+     * The Entity (either new or modified) is saved to the Repository in.
      *
      * @param <T> Class entities Type
      * @param entity To store the Entity instance.
@@ -61,17 +61,17 @@ public interface EntityRepository {
     <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id);
 
     /**
-     * From Warehousing in Getentity parameters represent unmodified Entity
+     * From Repository in Getentity parameters represent unmodified Entity
      *
      * @param <T> Entity Type
      * @param clazz Class entities
      * @param entity To query the Entity
-     * @return Parameter entity in the unmodified version Warehousing
+     * @return Parameter entity in the unmodified version Repository
      */
     <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity);
     
     /**
-     * Entity specified type from the Get Warehousing according to Natural key
+     * Entity specified type from the Get Repository according to Natural key
      *
      * @param <T> Entity Type
      * @param clazz Class entities
@@ -143,7 +143,7 @@ public interface EntityRepository {
     <T> T getSingleResult(JpqlQuery jpqlQuery);
 
     /**
-     * Perform the update warehousing operation.
+     * Perform the update Repository operation.
      *
      * @param jpqlQuery JPQL to execute the query.
      * @return Number of updated or deleted entities
@@ -177,7 +177,7 @@ public interface EntityRepository {
     <T> T getSingleResult(NamedQuery namedQuery);
 
     /**
-     * In line with the use of named queries Perform the update warehousing operation.
+     * In line with the use of named queries Perform the update Repository operation.
      *
      * @param namedQuery Named to execute the query.
      * @return Number of updated or deleted entities
@@ -211,7 +211,7 @@ public interface EntityRepository {
     <T> T getSingleResult(SqlQuery sqlQuery);
 
     /**
-     * To use SQL query operators Perform the update warehousing operation.
+     * To use SQL query operators Perform the update Repository operation.
      *
      * @param sqlQuery SQL query to be executed.
      * @return Number of updated or deleted entities
