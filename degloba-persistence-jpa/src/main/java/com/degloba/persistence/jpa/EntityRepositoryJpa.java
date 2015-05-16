@@ -93,11 +93,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends com.degloba.domain.Entity> T save(T entity) {
         if (entity.notExisted()) {
-        	//EntityTransaction tx = entityManager.getTransaction();
-        	//tx.begin();
             entityManager.persist(entity);
             entityManager.flush();
-            //tx.commit();
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
@@ -170,7 +167,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return results.isEmpty() ? null : results.get(0);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T extends com.degloba.domain.Entity> List<T> findAll(final Class<T> clazz) {
         String queryString = "select o from " + clazz.getName() + " as o";
         return entityManager.createQuery(queryString).getResultList();
@@ -181,7 +179,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return new CriteriaQuery(this, entityClass);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> List<T> find(CriteriaQuery criteriaQuery) {
         Query query = entityManager.createQuery(criteriaQuery.getQueryString());
         processQuery(query, criteriaQuery.getParameters(), 
@@ -200,7 +199,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return new JpqlQuery(this, jpql);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> List<T> find(JpqlQuery jpqlQuery) {
         return getQuery(jpqlQuery).getResultList();
     }
