@@ -15,6 +15,7 @@
  */
 package com.degloba.persistence.datanucleus.jpa;
 
+import com.degloba.domain.BaseAggregateRoot;
 import com.google.appengine.api.datastore.Key;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class AbstractBaseClassesJPA {
 
   @Entity
   @MappedSuperclass
-  public abstract static class Base1 {
+  public abstract static class Base1 extends BaseAggregateRoot {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;

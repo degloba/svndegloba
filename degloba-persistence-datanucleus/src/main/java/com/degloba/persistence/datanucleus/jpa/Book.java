@@ -33,7 +33,7 @@ import javax.persistence.NamedQuery;
  * @author Max Ross <maxr@google.com>
  */
 @Entity(name = "bookalias")
-@NamedQuery(name="namedQuery", query = "SELECT from com.google.appengine.datanucleus.test.jpa.Book b where title = 'yam'")
+@NamedQuery(name="namedQuery", query = "SELECT from com.degloba.persistence.datanucleus.jpa.Book b where title = 'yam'")
 public class Book implements Serializable {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)

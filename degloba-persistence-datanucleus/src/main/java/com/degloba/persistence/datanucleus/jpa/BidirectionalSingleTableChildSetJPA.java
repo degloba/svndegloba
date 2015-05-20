@@ -44,7 +44,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import static com.degloba.PolymorphicTestUtils.getEntityKind;
+import static com.degloba.persistence.datanucleus.PolymorphicTestUtils.getEntityKind;
 
 public class BidirectionalSingleTableChildSetJPA {
   

@@ -410,7 +410,7 @@ public class EntityRepositoryDatanucleus implements com.degloba.domain.EntityRep
 
 	@Override
 	public <T extends com.degloba.domain.Entity> boolean exists(
-			Class<T> clazz, Key id) {
+			Class<T> clazz, Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}

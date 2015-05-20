@@ -258,7 +258,7 @@ public class SingleTableInheritanceJPA {
   @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.INTEGER)
   @NamedQueries(value = {
       @NamedQuery(name = "AllParentIntDiscriminatorObjects", 
-	  	  query = "select p from com.google.appengine.datanucleus.test.jpa.SingleTableInheritanceJPA$ParentIntDiscriminator p order by parentStr")
+	  	  query = "select p from com.degloba.persistence.datanucleus.jpa.SingleTableInheritanceJPA$ParentIntDiscriminator p order by parentStr")
   })
   public static class ParentIntDiscriminator {    
     @Id
