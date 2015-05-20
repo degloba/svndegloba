@@ -33,7 +33,7 @@ import com.degloba.persistence.datanucleus.jpa.HasPolymorphicRelationsSetJPA.Has
 import com.degloba.persistence.datanucleus.jpa.UnidirectionalSingeTableChildJPA.UnidirBottom;
 import com.degloba.persistence.datanucleus.jpa.UnidirectionalSingeTableChildJPA.UnidirMiddle;
 
-import static com.google.appengine.datanucleus.PolymorphicTestUtils.getEntityKind;
+import static com.degloba.persistence.datanucleus.PolymorphicTestUtils.getEntityKind;
 
 public class JPAOneToManyPolymorphicSetTest extends JPAOneToManyPolymorphicTestCase {
   

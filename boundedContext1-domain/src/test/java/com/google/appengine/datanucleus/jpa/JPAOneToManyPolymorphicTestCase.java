@@ -50,7 +50,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
-import static com.google.appengine.datanucleus.PolymorphicTestUtils.getEntityKind;
+import static com.degloba.persistence.datanucleus.PolymorphicTestUtils.getEntityKind;
 import static com.degloba.persistence.datanucleus.TestUtils.assertKeyParentEquals;
 
 abstract class JPAOneToManyPolymorphicTestCase extends JPATestCase {

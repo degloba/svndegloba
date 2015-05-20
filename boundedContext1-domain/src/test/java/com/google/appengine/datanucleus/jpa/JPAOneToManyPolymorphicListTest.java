@@ -52,8 +52,8 @@ import com.degloba.persistence.datanucleus.jpa.UnidirectionalSingeTableChildJPA.
 
 import java.util.Collections;
 
-import static com.google.appengine.datanucleus.PolymorphicTestUtils.assertKeyParentEquals;
-import static com.google.appengine.datanucleus.PolymorphicTestUtils.getEntityKind;
+import static com.degloba.persistence.datanucleus.PolymorphicTestUtils.assertKeyParentEquals;
+import static com.degloba.persistence.datanucleus.PolymorphicTestUtils.getEntityKind;
 
 public class JPAOneToManyPolymorphicListTest extends JPAOneToManyPolymorphicTestCase {
 

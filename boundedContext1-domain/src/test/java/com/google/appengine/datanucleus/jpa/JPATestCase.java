@@ -175,13 +175,12 @@ public class JPATestCase extends DatastoreTestCase {
     MetaDataManager mdm = nucContext.getMetaDataManager();
     MappedStoreManager storeMgr = (MappedStoreManager) nucContext.getStoreManager();
     ClassLoaderResolver clr = nucContext.getClassLoaderResolver(getClass().getClassLoader());
-    /*return EntityUtils.determineKind(
+    return EntityUtils.determineKind(
         mdm.getMetaDataForClass(
             clazz,
             nucContext.getClassLoaderResolver(getClass().getClassLoader())),
             storeMgr,
-            clr);*/
-    return null;
+            clr);
   }
 
   protected ExecutionContext getExecutionContext() {
