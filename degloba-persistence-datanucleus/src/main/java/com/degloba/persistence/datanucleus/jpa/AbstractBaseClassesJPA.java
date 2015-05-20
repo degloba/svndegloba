@@ -40,9 +40,9 @@ public class AbstractBaseClassesJPA {
   @Entity
   @MappedSuperclass
   public abstract static class Base1 extends BaseAggregateRoot {
-    @Id
+ /*   @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private Long id;*/
 
     private String base1Str;
 
@@ -52,13 +52,13 @@ public class AbstractBaseClassesJPA {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Concrete4> concrete4;
 
-    public Long getId() {
+/*    public Long getId() {
       return id;
     }
 
     public void setId(Long id) {
       this.id = id;
-    }
+    }*/
 
     public String getBase1Str() {
       return base1Str;
