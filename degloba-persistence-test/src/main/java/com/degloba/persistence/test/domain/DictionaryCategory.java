@@ -108,4 +108,8 @@ public class DictionaryCategory extends BaseAggregateRoot {
 		return false;
 	}
 
+	public DictionaryCategory() {
+		super();
+	}
+
 }

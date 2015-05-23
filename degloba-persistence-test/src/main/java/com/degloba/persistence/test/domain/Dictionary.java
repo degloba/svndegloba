@@ -47,6 +47,8 @@ public class Dictionary extends BaseAggregateRoot {
     private String parentCode;
 
     public Dictionary() {
+		super();
+		// TODO Auto-generated constructor stub
     }
 
     public Dictionary(String code, String text, DictionaryCategory category) {
