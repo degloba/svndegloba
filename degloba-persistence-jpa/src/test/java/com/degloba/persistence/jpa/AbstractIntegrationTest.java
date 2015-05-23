@@ -1,8 +1,12 @@
 package com.degloba.persistence.jpa;
 
 import org.dayatang.btm.BtmUtils;
+
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.InstanceFactory;
+import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
+import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -25,29 +29,35 @@ public class AbstractIntegrationTest {
     private EntityTransaction tx;
 
     protected EntityRepositoryJpa repository;
+    
+	private final LocalServiceTestHelper helper =
+	        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig()
+	        .setApplyAllHighRepJobPolicy());
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        btmUtils = BtmUtils.readConfigurationFromClasspath("/datasources.properties");
-        btmUtils.setupDataSource();
-        emf = Persistence.createEntityManagerFactory("default");
+        //btmUtils = BtmUtils.readConfigurationFromClasspath("/datasources.properties");
+        //btmUtils.setupDataSource();
+        emf = Persistence.createEntityManagerFactory("transactions-optional");
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
         emf.close();
-        btmUtils.closeDataSource();
-        btmUtils = null;
+        //btmUtils.closeDataSource();
+        //btmUtils = null;
         System.out.println("================================================");
         System.out.println("Close BTM");
     }
 
     @Before
     public void setUp() {
+    	helper.setUp();  
+    	
         InstanceFactory.bind(EntityManagerFactory.class, emf);
         repository = new EntityRepositoryJpa(emf);
         AbstractEntity.setRepository(repository);
-        entityManager = repository.entityManager;
+        entityManager = repository.getEntityManager();
         tx = entityManager.getTransaction();
         tx.begin();
     }
@@ -58,5 +68,7 @@ public class AbstractIntegrationTest {
         entityManager.close();
         repository = null;
         AbstractEntity.setRepository(null);
+        
+        helper.tearDown();
     }
 }

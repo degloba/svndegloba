@@ -84,20 +84,23 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
-       <!--  <dependency>
+         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
+            <version>1.7.4</version>
             <scope>test</scope>
-        </dependency> -->
-       <!--  <dependency>
+        </dependency> 
+         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-        </dependency> -->
-        <!-- <dependency> 
+            <version>1.9.1</version>
+        </dependency> 
+         <dependency> 
             <groupId>org.codehaus.btm</groupId>
             <artifactId>btm</artifactId>
+            <version>2.1.4</version>
             <scope>test</scope>
-        </dependency> -->
+        </dependency> 
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -148,6 +151,35 @@
 			<groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>   
         </dependency>
+        
+        <!-- Testejar appengine -->
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>   
+          <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>  
+        
+            <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>1.9.17</version>
+            <scope>test</scope>
+        </dependency>
+        
 
     </dependencies>
     

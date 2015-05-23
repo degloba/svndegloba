@@ -5,47 +5,48 @@ Built-By: degloba
 Implementation-Vendor-Id: com.degloba
 Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
  429.163220-14.jar guava-14.0.jar commons-lang3-3.0.1.jar geronimo-jpa
- _2.0_spec-1.1.jar javax.inject-1.jar gson-2.3.jar jdo-api-3.0.1.jar j
- ta-1.1.jar degloba-utilitats-0.0.3-SNAPSHOT.jar commons-validator-1.4
- .0.jar commons-beanutils-1.8.3.jar commons-digester-1.8.jar paypal-co
- re-1.5.0.jar rest-api-sdk-0.7.0.jar hornetq-core-2.1.2.Final.jar horn
- etq-jms-2.1.2.Final.jar hornetq-logging-2.1.2.Final.jar jms-1.1.jar a
- ppengine-api-1.0-sdk-1.9.17.jar jsf-api-2.1.7.jar jsf-impl-2.1.7.jar 
- twitter4j-appengine-3.0.5.jar twitter4j-core-3.0.5.jar rss4j-0.92.jar
-  poi-3.9.jar commons-codec-1.5.jar poi-ooxml-3.9.jar poi-ooxml-schema
- s-3.9.jar xmlbeans-2.3.0.jar stax-api-1.0.1.jar el-api-2.2.jar common
- s-lang-2.6.jar commons-logging-1.1.1.jar org.eclipse.persistence.jpa-
- 2.5.1.jar javax.persistence-2.1.0.jar org.eclipse.persistence.asm-2.5
- .1.jar org.eclipse.persistence.antlr-2.5.1.jar org.eclipse.persistenc
- e.jpa.jpql-2.5.1.jar org.eclipse.persistence.core-2.5.1.jar slf4j-api
- -1.7.10.jar slf4j-log4j12-1.7.10.jar log4j-1.2.17.jar jboss-logging-3
- .1.1.GA.jar classmate-1.0.0.jar hibernate-ogm-core-4.1.0.Beta1.jar hi
- bernate-core-4.3.1.Final.jar jboss-logging-annotations-1.2.0.Beta1.ja
- r dom4j-1.6.1.jar xml-apis-1.0.b2.jar hibernate-jpa-2.1-api-1.0.0.Fin
- al.jar antlr-2.7.7.jar jandex-1.1.0.Final.jar hibernate-entitymanager
- -4.3.1.Final.jar hibernate-commons-annotations-4.0.4.Final.jar hibern
- ate-hql-parser-1.0.0.Alpha6.jar antlr-runtime-3.4.jar stringtemplate-
- 3.2.1.jar hibernate-hql-lucene-1.0.0.Alpha6.jar hibernate-search-engi
- ne-4.5.0.CR1.jar hibernate-search-analyzers-4.5.0.CR1.jar lucene-anal
- yzers-3.6.2.jar solr-analysis-extras-3.6.2.jar solr-core-3.6.2.jar so
- lr-solrj-3.6.2.jar lucene-highlighter-3.6.2.jar lucene-kuromoji-3.6.2
- .jar lucene-memory-3.6.2.jar lucene-misc-3.6.2.jar lucene-phonetic-3.
- 6.2.jar lucene-spatial-3.6.2.jar lucene-spellchecker-3.6.2.jar lucene
- -grouping-3.6.2.jar commons-io-2.1.jar lucene-smartcn-3.6.2.jar lucen
- e-stempel-3.6.2.jar lucene-core-3.6.2.jar avro-1.7.5.jar jackson-core
- -asl-1.9.13.jar jackson-mapper-asl-1.9.13.jar paranamer-2.3.jar commo
- ns-compress-1.4.1.jar lucene-facet-3.6.2.jar javassist-3.18.1-GA.jar 
- hibernate-ogm-infinispan-4.1.0.Beta1.jar hibernate-search-orm-4.5.0.C
- R1.jar infinispan-core-6.0.0.Final.jar infinispan-commons-6.0.0.Final
- .jar jgroups-3.4.1.Final.jar jboss-transaction-api_1.1_spec-1.0.1.Fin
- al.jar jboss-marshalling-river-1.3.18.GA.jar jboss-marshalling-1.3.18
- .GA.jar hibernate-ogm-mongodb-4.1.0.Beta1.jar mongo-java-driver-2.10.
- 1.jar spring-beans-4.1.4.RELEASE.jar spring-core-4.1.4.RELEASE.jar sp
- ring-context-4.1.4.RELEASE.jar spring-aop-4.1.4.RELEASE.jar aopallian
- ce-1.0.jar spring-expression-4.1.4.RELEASE.jar spring-webmvc-4.1.4.RE
- LEASE.jar spring-web-4.1.4.RELEASE.jar spring-tx-4.1.4.RELEASE.jar sp
- ring-orm-4.1.4.RELEASE.jar spring-jdbc-4.1.4.RELEASE.jar spring-test-
- 4.1.4.RELEASE.jar
+ _2.0_spec-1.1.jar javax.inject-1.jar gson-2.3.jar jdo-api-3.0.1.jar d
+ egloba-utilitats-0.0.3-SNAPSHOT.jar commons-validator-1.4.0.jar commo
+ ns-digester-1.8.jar paypal-core-1.5.0.jar rest-api-sdk-0.7.0.jar horn
+ etq-core-2.1.2.Final.jar hornetq-jms-2.1.2.Final.jar hornetq-logging-
+ 2.1.2.Final.jar jms-1.1.jar appengine-api-1.0-sdk-1.9.17.jar jsf-api-
+ 2.1.7.jar jsf-impl-2.1.7.jar twitter4j-appengine-3.0.5.jar twitter4j-
+ core-3.0.5.jar rss4j-0.92.jar poi-3.9.jar commons-codec-1.5.jar poi-o
+ oxml-3.9.jar poi-ooxml-schemas-3.9.jar xmlbeans-2.3.0.jar stax-api-1.
+ 0.1.jar datanucleus-core-3.1.3.jar datanucleus-api-jpa-3.1.3.jar el-a
+ pi-2.2.jar commons-lang-2.6.jar org.eclipse.persistence.jpa-2.5.1.jar
+  javax.persistence-2.1.0.jar org.eclipse.persistence.asm-2.5.1.jar or
+ g.eclipse.persistence.antlr-2.5.1.jar org.eclipse.persistence.jpa.jpq
+ l-2.5.1.jar org.eclipse.persistence.core-2.5.1.jar slf4j-api-1.7.10.j
+ ar slf4j-log4j12-1.7.10.jar log4j-1.2.17.jar commons-beanutils-1.9.1.
+ jar commons-logging-1.1.1.jar commons-collections-3.2.1.jar jta-1.1.j
+ ar jboss-logging-3.1.1.GA.jar classmate-1.0.0.jar hibernate-ogm-core-
+ 4.1.0.Beta1.jar hibernate-core-4.3.1.Final.jar jboss-logging-annotati
+ ons-1.2.0.Beta1.jar dom4j-1.6.1.jar xml-apis-1.0.b2.jar hibernate-jpa
+ -2.1-api-1.0.0.Final.jar antlr-2.7.7.jar jandex-1.1.0.Final.jar hiber
+ nate-entitymanager-4.3.1.Final.jar hibernate-commons-annotations-4.0.
+ 4.Final.jar hibernate-hql-parser-1.0.0.Alpha6.jar antlr-runtime-3.4.j
+ ar stringtemplate-3.2.1.jar hibernate-hql-lucene-1.0.0.Alpha6.jar hib
+ ernate-search-engine-4.5.0.CR1.jar hibernate-search-analyzers-4.5.0.C
+ R1.jar lucene-analyzers-3.6.2.jar solr-analysis-extras-3.6.2.jar solr
+ -core-3.6.2.jar solr-solrj-3.6.2.jar lucene-highlighter-3.6.2.jar luc
+ ene-kuromoji-3.6.2.jar lucene-memory-3.6.2.jar lucene-misc-3.6.2.jar 
+ lucene-phonetic-3.6.2.jar lucene-spatial-3.6.2.jar lucene-spellchecke
+ r-3.6.2.jar lucene-grouping-3.6.2.jar commons-io-2.1.jar lucene-smart
+ cn-3.6.2.jar lucene-stempel-3.6.2.jar lucene-core-3.6.2.jar avro-1.7.
+ 5.jar jackson-core-asl-1.9.13.jar jackson-mapper-asl-1.9.13.jar paran
+ amer-2.3.jar commons-compress-1.4.1.jar lucene-facet-3.6.2.jar javass
+ ist-3.18.1-GA.jar hibernate-ogm-infinispan-4.1.0.Beta1.jar hibernate-
+ search-orm-4.5.0.CR1.jar infinispan-core-6.0.0.Final.jar infinispan-c
+ ommons-6.0.0.Final.jar jgroups-3.4.1.Final.jar jboss-transaction-api_
+ 1.1_spec-1.0.1.Final.jar jboss-marshalling-river-1.3.18.GA.jar jboss-
+ marshalling-1.3.18.GA.jar hibernate-ogm-mongodb-4.1.0.Beta1.jar mongo
+ -java-driver-2.10.1.jar spring-beans-4.1.4.RELEASE.jar spring-core-4.
+ 1.4.RELEASE.jar spring-context-4.1.4.RELEASE.jar spring-aop-4.1.4.REL
+ EASE.jar aopalliance-1.0.jar spring-expression-4.1.4.RELEASE.jar spri
+ ng-webmvc-4.1.4.RELEASE.jar spring-web-4.1.4.RELEASE.jar spring-tx-4.
+ 1.4.RELEASE.jar spring-orm-4.1.4.RELEASE.jar spring-jdbc-4.1.4.RELEAS
+ E.jar spring-test-4.1.4.RELEASE.jar
 Build-Jdk: 1.8.0_45
 Created-By: Maven Integration for Eclipse
 

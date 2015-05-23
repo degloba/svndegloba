@@ -56,8 +56,12 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
     
+	EntityManager getEntityManager() {
+        return entityManagerProvider.getEntityManager();
+    }
+    
     public EntityRepositoryJpa() {
-        //entityManagerProvider = new EntityManagerProvider();
+        entityManagerProvider = new EntityManagerProvider();
     }
 
     public EntityRepositoryJpa(EntityManager entityManager) {
@@ -86,20 +90,18 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 		this.namedQueryParser = namedQueryParser;
 	}
 
-/*	EntityManager entityManager {
-        return entityManagerProvider.entityManager;
-    }*/
+
 
     @Override
     public <T extends com.degloba.domain.Entity> T save(T entity) {
         if (entity.notExisted()) {
-            entityManager.persist(entity);
-            entityManager.flush();
+        	getEntityManager().persist(entity);
+        	getEntityManager().flush();
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
         }
-        T result = entityManager.merge(entity);
+        T result = getEntityManager().merge(entity);
         LOGGER.info("update a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
         return result;
@@ -113,7 +115,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      */
     @Override
     public void remove(com.degloba.domain.Entity entity) {
-    	entityManager.remove(get(entity.getClass(), entity.getId()));
+    	getEntityManager().remove(get(entity.getClass(), entity.getId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");
     }
@@ -126,7 +128,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends com.degloba.domain.Entity> boolean exists(final Class<T> clazz,
                                              final Key id) {
-        T entity = entityManager.find(clazz, id);
+        T entity = getEntityManager().find(clazz, id);
         return entity != null;
     }
 
@@ -141,7 +143,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }*/
     @Override
     public <T extends com.degloba.domain.Entity> T get(final Class<T> clazz, final Key id) {
-        return entityManager.find(clazz, id);
+        return getEntityManager().find(clazz, id);
     }
 
     /*
@@ -151,13 +153,13 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      */
     @Override
     public <T extends com.degloba.domain.Entity> T load(final Class<T> clazz, final Serializable id) {
-        return entityManager.getReference(clazz, id);
+        return getEntityManager().getReference(clazz, id);
     }
 
     @Override
     public <T extends com.degloba.domain.Entity> T getUnmodified(final Class<T> clazz,
                                               final T entity) {
-        entityManager.detach(entity);
+    	getEntityManager().detach(entity);
         return get(clazz, entity.getId());
     }
 
@@ -171,7 +173,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 	@Override
     public <T extends com.degloba.domain.Entity> List<T> findAll(final Class<T> clazz) {
         String queryString = "select o from " + clazz.getName() + " as o";
-        return entityManager.createQuery(queryString).getResultList();
+        return getEntityManager().createQuery(queryString).getResultList();
     }
 
     @Override
@@ -182,7 +184,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @SuppressWarnings("unchecked")
 	@Override
     public <T> List<T> find(CriteriaQuery criteriaQuery) {
-        Query query = entityManager.createQuery(criteriaQuery.getQueryString());
+        Query query = getEntityManager().createQuery(criteriaQuery.getQueryString());
         processQuery(query, criteriaQuery.getParameters(), 
                 criteriaQuery.getFirstResult(), criteriaQuery.getMaxResults());
         return query.getResultList();
@@ -222,7 +224,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     private Query getQuery(JpqlQuery jpqlQuery) {
-        Query query = entityManager.createQuery(jpqlQuery.getJpql());
+        Query query = getEntityManager().createQuery(jpqlQuery.getJpql());
         processQuery(query, jpqlQuery);
         return query;
     }
@@ -253,7 +255,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     private Query getQuery(NamedQuery namedQuery) {
-        Query query = entityManager.createNamedQuery(namedQuery.getQueryName());
+        Query query = getEntityManager().createNamedQuery(namedQuery.getQueryName());
         processQuery(query, namedQuery);
         return query;
     }
@@ -286,9 +288,9 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 	private Query getQuery(SqlQuery sqlQuery) {
         Query query;
         if (sqlQuery.getResultEntityClass() == null) {
-            query = entityManager.createNativeQuery(sqlQuery.getSql());
+            query = getEntityManager().createNativeQuery(sqlQuery.getSql());
         } else {
-            query = entityManager.createNativeQuery(sqlQuery.getSql(),
+            query = getEntityManager().createNativeQuery(sqlQuery.getSql(),
                     sqlQuery.getResultEntityClass());
         }
         processQuery(query, sqlQuery);
@@ -322,17 +324,17 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 
     @Override
     public void flush() {
-        entityManager.flush();
+    	getEntityManager().flush();
     }
 
     @Override
     public void refresh(com.degloba.domain.Entity entity) {
-        entityManager.refresh(entity);
+    	getEntityManager().refresh(entity);
     }
 
     @Override
     public void clear() {
-        entityManager.clear();
+    	getEntityManager().clear();
     }
 
     private void processQuery(Query query, BaseQuery<?> originQuery) {
