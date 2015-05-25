@@ -8,6 +8,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  
 		<class>com.degloba.persistence.test.domain.Dictionary</class>
 		<class>com.degloba.persistence.test.domain.DictionaryCategory</class>
+		<class>com.degloba.persistence.test.domain.jpa.Book</class>
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
