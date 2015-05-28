@@ -38,7 +38,7 @@ public class ContainsTextCriterion extends BasicCriterion {
     }
 
     public NamedParameters getParameters() {
-        return NamedParameters.create().add(getParamName(), "%" + value + "%");
+        return NamedParameters.create().add(getParamName(), value + "%");
     }
 
     @Override
