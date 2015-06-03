@@ -24,16 +24,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
 		<class>com.degloba.organisation.domain.CompanyDepartment</class>
-				
-		<!-- afegit ultim -->
-		<class>com.degloba.organisation.domain.demo.Base1</class>
-		<class>com.degloba.organisation.domain.demo.Base2</class>
-		<class>com.degloba.organisation.domain.demo.Concrete1</class>
-		<class>com.degloba.organisation.domain.demo.Concrete2</class>
-		<class>com.degloba.organisation.domain.demo.Concrete3</class>
-		<class>com.degloba.organisation.domain.demo.Concrete4</class>
-		
-		
+	
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
 			<property name="datanucleus.NontransactionalRead" value="true"/>            
