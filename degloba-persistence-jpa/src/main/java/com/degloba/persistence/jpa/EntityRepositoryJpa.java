@@ -57,11 +57,12 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     protected EntityManager entityManager;
     
 	EntityManager getEntityManager() {
-        return entityManagerProvider.getEntityManager();
+        //return entityManagerProvider.getEntityManager();
+		return entityManager;
     }
     
     public EntityRepositoryJpa() {
-        entityManagerProvider = new EntityManagerProvider();
+      //  entityManagerProvider = new EntityManagerProvider();
     }
 
     public EntityRepositoryJpa(EntityManager entityManager) {
@@ -93,7 +94,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
 
 
     @Override
-    public <T extends com.degloba.domain.Entity> T save(T entity) {
+    public <T extends Entity> T save(T entity) {
         if (entity.notExisted()) {
         	getEntityManager().persist(entity);
         	getEntityManager().flush();
@@ -126,7 +127,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      * @see com.degloba.domain.EntityRepository#exists(java.io.Serializable)
      */
     @Override
-    public <T extends com.degloba.domain.Entity> boolean exists(final Class<T> clazz,
+    public <T> boolean exists(final Class<T> clazz,
                                              final Key id) {
         T entity = getEntityManager().find(clazz, id);
         return entity != null;
@@ -142,7 +143,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
         return entityManager.find(clazz, id);
     }*/
     @Override
-    public <T extends com.degloba.domain.Entity> T get(final Class<T> clazz, final Key id) {
+    public <T> T get(final Class<T> clazz, final Key id) {
         return getEntityManager().find(clazz, id);
     }
 
@@ -152,38 +153,38 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
      * @see com.degloba.domain.EntityRepository#load(java.io.Serializable)
      */
     @Override
-    public <T extends com.degloba.domain.Entity> T load(final Class<T> clazz, final Serializable id) {
+    public <T> T load(final Class<T> clazz, final Serializable id) {
         return getEntityManager().getReference(clazz, id);
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity> T getUnmodified(final Class<T> clazz,
+    public <T extends Entity> T getUnmodified(final Class<T> clazz,
                                               final T entity) {
     	getEntityManager().detach(entity);
         return get(clazz, entity.getId());
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
+    public <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
         List<T> results = findByProperties(clazz, keyValues);
         return results.isEmpty() ? null : results.get(0);
     }
 
     @SuppressWarnings("unchecked")
 	@Override
-    public <T extends com.degloba.domain.Entity> List<T> findAll(final Class<T> clazz) {
+    public <T> List<T> findAll(final Class<T> clazz) {
         String queryString = "select o from " + clazz.getName() + " as o";
         return getEntityManager().createQuery(queryString).getResultList();
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
+    public <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
         return new CriteriaQuery(this, entityClass);
     }
 
-    @SuppressWarnings("unchecked")
+
 	@Override
-    public <T> List<T> find(CriteriaQuery criteriaQuery) {
+    public <T extends Entity> List<T> find(CriteriaQuery criteriaQuery) {
         Query query = getEntityManager().createQuery(criteriaQuery.getQueryString());
         processQuery(query, criteriaQuery.getParameters(), 
                 criteriaQuery.getFirstResult(), criteriaQuery.getMaxResults());
@@ -191,7 +192,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     @Override
-    public <T> T getSingleResult(CriteriaQuery dddQuery) {
+    public <T extends Entity> T getSingleResult(CriteriaQuery dddQuery) {
         List<T> results = find(dddQuery);
         return results.isEmpty() ? null : results.get(0);
     }
@@ -298,18 +299,18 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity, E extends T> List<T> findByExample(
+    public <T, E extends T> List<T> findByExample(
             final E example, final ExampleSettings<T> settings) {
         throw new RuntimeException("not implemented yet!");
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
+    public <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
         return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
     }
 
     @Override
-    public <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
+    public <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
@@ -345,10 +346,10 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     private void processQuery(Query query, QueryParameters parameters, 
             int firstResult, int maxResults) {
         fillParameters(query, parameters);
-        query.setFirstResult(firstResult);
+       /* query.setFirstResult(firstResult);
         if (maxResults > 0) {
             query.setMaxResults(maxResults);
-        }
+        }*/
     }
 
     private void fillParameters(Query query, QueryParameters params) {
