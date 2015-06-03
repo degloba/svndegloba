@@ -8,6 +8,8 @@ import org.dayatang.utils.Assert;
 
 /**
  * On behalf of a query condition negated query conditions
+ * 
+ * Not Supported by Datanucleus!!!!
  */
 public class NotCriterion extends AbstractCriterion {
 
