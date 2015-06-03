@@ -26,6 +26,8 @@ import com.google.appengine.datanucleus.DatastoreServiceFactoryInternal;
 import com.google.appengine.datanucleus.DatastoreServiceInterceptor;
 import com.degloba.persistence.TestUtils;
 import com.google.appengine.datanucleus.Utils;
+
+//Entitats de domini de test
 import com.degloba.persistence.test.domain.jpa.Book;
 import com.degloba.persistence.test.domain.jpa.HasEncodedStringPkJPA;
 import com.degloba.persistence.test.domain.jpa.HasKeyPkJPA;

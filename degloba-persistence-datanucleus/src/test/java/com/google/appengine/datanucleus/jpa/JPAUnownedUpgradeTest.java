@@ -19,11 +19,14 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.datanucleus.StorageVersion;
 import com.google.appengine.datanucleus.Utils;
+
+//Entitats de domini de test
 import com.degloba.persistence.test.domain.jpa.UnownedUpgradeJPA.HasOneToManyWithKey;
 import com.degloba.persistence.test.domain.jpa.UnownedUpgradeJPA.HasOneToManyWithUnowned;
 import com.degloba.persistence.test.domain.jpa.UnownedUpgradeJPA.HasOneToOneWithKey;
 import com.degloba.persistence.test.domain.jpa.UnownedUpgradeJPA.HasOneToOneWithUnowned;
 import com.degloba.persistence.test.domain.jpa.UnownedUpgradeJPA.SideB;
+
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 
 import java.util.Map;

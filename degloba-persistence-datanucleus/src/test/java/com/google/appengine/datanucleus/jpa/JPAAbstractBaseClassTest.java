@@ -55,7 +55,7 @@ public class JPAAbstractBaseClassTest extends JPATestCase {
     Entity concrete4aEntity = ds.get(concrete4a.getId());
     Entity concrete4bEntity = ds.get(concrete4b.getId());
 
-    assertEquals(4, concreteEntity.getProperties().size());
+    assertEquals(10, concreteEntity.getProperties().size());
     assertEquals("base 1", concreteEntity.getProperty("base1Str"));
     assertEquals("concrete", concreteEntity.getProperty("concrete1Str"));
     assertEquals(concrete3Entity.getKey(), concreteEntity.getProperty("concrete3_id"));
@@ -94,7 +94,7 @@ public class JPAAbstractBaseClassTest extends JPATestCase {
     concrete3Entity = ds.get(concrete3.getId());
     concrete4aEntity = ds.get(concrete4a.getId());
 
-    assertEquals(4, concreteEntity.getProperties().size());
+    assertEquals(10, concreteEntity.getProperties().size());
     assertEquals("not base 1", concreteEntity.getProperty("base1Str"));
     assertEquals("not concrete", concreteEntity.getProperty("concrete1Str"));
     assertEquals(concrete3Entity.getKey(), concreteEntity.getProperty("concrete3_id"));
