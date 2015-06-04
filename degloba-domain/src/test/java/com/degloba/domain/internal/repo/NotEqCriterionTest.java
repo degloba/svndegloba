@@ -23,7 +23,7 @@ public class NotEqCriterionTest {
 
     @Test
     public void testToQueryString() {
-        assertEquals("rootEntity.name != :rootEntity_name" + instance.hashCode(), 
+        assertEquals("rootEntity.name <> :rootEntity_name" + instance.hashCode(), 
                 instance.toQueryString());
     }
 
