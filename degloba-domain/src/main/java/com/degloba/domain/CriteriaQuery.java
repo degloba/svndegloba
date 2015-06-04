@@ -13,13 +13,13 @@ public class CriteriaQuery {
 
     private final EntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
-    private final Class<? extends com.degloba.domain.Entity> entityClass;
+    private final Class<? extends Entity> entityClass;
     private int firstResult;
     private int maxResults;
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(EntityRepository repository, Class<? extends com.degloba.domain.Entity> entityClass) {
+    public CriteriaQuery(EntityRepository repository, Class<? extends Entity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;
@@ -31,7 +31,7 @@ public class CriteriaQuery {
      *
      * @return Class root entity queries
      */
-    public Class<? extends Entity> getEntityClass() {
+    public Class getEntityClass() {
         return entityClass;
     }
 
@@ -99,8 +99,9 @@ public class CriteriaQuery {
      * @return JPQL query string corresponding to the query
      */
     public String getQueryString() {
-        String result = String.format("select distinct(%s) from %s as %s ",
-                QueryCriterion.ROOT_ALIAS, entityClass.getName(), QueryCriterion.ROOT_ALIAS);
+        //String result = String.format("select distinct(%s) from %s as %s ",
+        String result = String.format("select distinct %s from %s %s ",   // suporta DataNucleus
+        		QueryCriterion.ROOT_ALIAS, entityClass.getName(), QueryCriterion.ROOT_ALIAS);
         if (StringUtils.isNotEmpty(criterion.toQueryString())) {
             result += " where " + criterion.toQueryString();
         }
@@ -584,7 +585,7 @@ public class CriteriaQuery {
      */
     public <T> List<T> list() {
         return repository.find(this);
-    }
+     }
 
     /**
      * Returns single Query results.
