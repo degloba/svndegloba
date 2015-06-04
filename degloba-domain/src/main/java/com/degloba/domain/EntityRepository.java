@@ -18,7 +18,7 @@ public interface EntityRepository {
      * @param entity To store the Entity instance.
      * @return After persistent current Entity
      */
-     <T extends com.degloba.domain.Entity> T save(T entity);
+     <T extends Entity> T save(T entity);
     
 
     /**
@@ -37,7 +37,7 @@ public interface EntityRepository {
      * @param id Entity identification
      * @return If the Entity instance exists, returns true, otherwise false
      */
-    <T extends com.degloba.domain.Entity> boolean exists(Class<T> clazz, Key id);
+    <T extends Entity> boolean exists(Class<T> clazz, Key id);
 
     /**
      * Get the Entity in the specified type, the specified ID
@@ -48,7 +48,7 @@ public interface EntityRepository {
      * @return An Entity instance.
      */
     ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
-    <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id);
+    <T extends Entity> T get(Class<T> clazz, Key id);
 
     /**
      * Load the specified type, specify the ID of the Entity
@@ -58,7 +58,7 @@ public interface EntityRepository {
      * @param id Entity identification
      * @return An Entity instance.
      */
-    <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id);
+    <T extends Entity> T load(Class<T> clazz, Serializable id);
 
     /**
      * From Repository in Getentity parameters represent unmodified Entity
@@ -68,7 +68,7 @@ public interface EntityRepository {
      * @param entity To query the Entity
      * @return Parameter entity in the unmodified version Repository
      */
-    <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity);
+    <T extends Entity> T getUnmodified(Class<T> clazz, T entity);
     
     /**
      * Entity specified type from the Get Repository according to Natural key
@@ -78,7 +78,7 @@ public interface EntityRepository {
      * @param keyValues Representatives named primary key business parameters. key primary key Property name, value as a primary key attribute values
      * @return An Entity instance.
      */
-    <T extends com.degloba.domain.Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
+    <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
      * Find all Entity of specified type
@@ -87,7 +87,7 @@ public interface EntityRepository {
      * @param clazz Class entities
      * @return Eligible Entity collection
      */
-    <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz);
+    <T extends Entity> List<T> findAll(Class<T> clazz);
 
     /**
      * Creating conditions for inquiry
@@ -96,7 +96,7 @@ public interface EntityRepository {
      * @param <T> Class type entities
      * @return A conditional query
      */
-    <T extends com.degloba.domain.Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
+    <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
     /**
      *Execution condition query returns Eligible Entity List
@@ -227,7 +227,7 @@ public interface EntityRepository {
      * @param settings Query Settings
      * @return Examples and example of a similar type T
      */
-    <T extends com.degloba.domain.Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
+    <T extends Entity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
 
     /**
      * Find Entity based on the value of a single attribute
@@ -238,7 +238,7 @@ public interface EntityRepository {
      * @param propertyValue Match Property Value
      * @return Clazz type, the value of property is equal to the set propertyName propertyValue of the Entity
      */
-    <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
+    <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
     /**
      * Find more properties based on the value Entity
@@ -248,7 +248,7 @@ public interface EntityRepository {
      * @param properties Named parameters, including key is Property name, value is to match Property Value.
      * @return Type clazz, multiple attributes are equal to a specified set of Property Value of Entity.
      */
-    <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
+    <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
     
     /**
      * GetNamed query string query
@@ -269,11 +269,13 @@ public interface EntityRepository {
      *
      * @param entity To refresh the Entity
      */
-    void refresh(com.degloba.domain.Entity entity);
+    void refresh(Entity entity);
 
     /**
      * Empty persistent cache
      */
     void clear();
+
+
 
 }
