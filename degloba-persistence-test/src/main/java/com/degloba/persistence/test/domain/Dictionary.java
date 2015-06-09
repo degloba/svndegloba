@@ -31,8 +31,9 @@ public class Dictionary extends BaseAggregateRoot {
     @Size(min = 1)
     private String text;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "category_id")
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "category_id")
     private DictionaryCategory category;
 
     @Column(name = "sort_order")
@@ -181,17 +182,5 @@ public class Dictionary extends BaseAggregateRoot {
     public String[] businessKeys() {
         return new String[] {"code", "category"};
     }
-
-	@Override
-	public boolean existed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean notExisted() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

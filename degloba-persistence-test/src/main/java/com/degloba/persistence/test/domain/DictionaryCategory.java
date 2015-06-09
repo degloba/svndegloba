@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -54,7 +55,7 @@ public class DictionaryCategory extends BaseAggregateRoot {
     @Column(name = "sort_order")
     private int sortOrder;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Dictionary> dictionaries = new HashSet<Dictionary>();
 
     public String getName() {
@@ -96,20 +97,5 @@ public class DictionaryCategory extends BaseAggregateRoot {
         return name;
     }
 
-	@Override
-	public boolean existed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean notExisted() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public DictionaryCategory() {
-		super();
-	}
-
+	
 }

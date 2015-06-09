@@ -17,8 +17,7 @@ package com.degloba.persistence.test.domain.jpa;
 
 import org.datanucleus.api.jpa.annotations.Extension;
 
-
-import com.degloba.persistence.TestUtils;
+import com.google.appengine.datanucleus.TestUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
