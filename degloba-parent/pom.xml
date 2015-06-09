@@ -11,12 +11,14 @@
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
 	<datanucleus.core.version>3.1.3</datanucleus.core.version>
 	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
+	<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
 	<slf4j.version>1.7.10</slf4j.version>
 	<jdk.version>1.7</jdk.version>
 	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
 	<mojarra.version>2.1.7</mojarra.version>
 	<uel.version>2.2</uel.version>
 	<poi.version>3.9</poi.version>
+	<google.appengine>1.9.17</google.appengine>
 </properties>
   
 <repositories>   
@@ -101,14 +103,15 @@
 
 	<!--  Spring -->
 	<dependencies>
+	
 		<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-framework-bom</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
 		</dependency>
-       		
+		       		
 		<dependency>                         
 			<groupId>org.springframework.webflow</groupId> 
 			<artifactId>spring-faces</artifactId>   	
@@ -131,8 +134,7 @@
 	  		<artifactId>javax.inject</artifactId>                         
 	  		<version>1</version>                 
 		</dependency> 
-		
-		
+				
 		<!-- HornetQ -->
 		<dependency>
             <groupId>org.hornetq</groupId>
@@ -149,8 +151,7 @@
             <artifactId>hornetq-logging</artifactId>
             <version>${hornetq.version}</version>
         </dependency>
- 		
-		
+ 				
 		<!--  -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -174,7 +175,7 @@
             <version>14.0</version>
 		</dependency>
             
-            
+        <!-- Database Connection Pools  (https://cloud.google.com/sql/faq#connections) -->    
         <dependency>
         	<groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -208,8 +209,12 @@
 			<artifactId>datanucleus-api-jpa</artifactId>			
             <version>${datanucleus.jpa.version}</version>
 		</dependency>
-		
-		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-json</artifactId>
+			<version>3.1.1</version>			
+		</dependency>
+				
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -220,14 +225,7 @@
 			<artifactId>jdo-api</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-json</artifactId>
-			<version>3.1.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>	
-
+			
 
 		<!--  Glassfish conté JSF 2.2 (Mojarra) 
 		<dependency>
@@ -286,6 +284,7 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 		
+		<!-- Unit Testing -->
 		<dependency>
 			<groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -363,7 +362,7 @@
 			<artifactId>spring-beans</artifactId>			
 		</dependency>  
 
-		 
+		<!-- Unit Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -555,4 +554,8 @@
 	</build>
 
 
+	<organization>
+		<name>degloba</name>
+		<url>www.degloba.com</url>
+	</organization>
 </project>
