@@ -3,16 +3,12 @@
   <artifactId>degloba-cqrs</artifactId>
   <version>0.0.2-SNAPSHOT</version>
   
-  <parent>
+	<parent>
 		<groupId>com.degloba</groupId>
 		<artifactId>degloba-parent</artifactId>
 		<version>4.4.3-SNAPSHOT</version>
 	</parent>
-	
-	<properties> 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-      	
+	   	
       	
 <dependencies>
   
