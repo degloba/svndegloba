@@ -25,8 +25,8 @@ import com.degloba.persistence.test.domain.jpa.HasOneToOnesWithDifferentCascades
 import com.degloba.persistence.test.domain.jpa.HasStringAncestorKeyPkJPA;
 import com.degloba.persistence.test.domain.jpa.HasStringAncestorStringPkJPA;
 
-import static com.degloba.persistence.TestUtils.assertKeyParentEquals;
-import static com.degloba.persistence.TestUtils.assertKeyParentNull;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentEquals;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentNull;
 
 
 import javax.persistence.PersistenceException;

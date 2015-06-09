@@ -45,7 +45,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
-import static com.degloba.persistence.TestUtils.assertKeyParentEquals;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentEquals;
 
 /**
  * @author Max Ross <maxr@google.com>

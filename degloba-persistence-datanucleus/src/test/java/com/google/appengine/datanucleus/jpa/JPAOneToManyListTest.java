@@ -19,7 +19,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.degloba.persistence.TestUtils;
+import com.google.appengine.datanucleus.TestUtils;
 import com.google.appengine.datanucleus.Utils;
 import com.degloba.persistence.test.domain.jpa.BidirectionalChildListJPA;
 import com.degloba.persistence.test.domain.jpa.BidirectionalChildLongPkListJPA;
@@ -41,9 +41,10 @@ import com.degloba.persistence.test.domain.jpa.HasUnencodedStringPkOneToManyBidi
 
 
 
+
 import java.util.Collections;
 
-import static com.degloba.persistence.TestUtils.assertKeyParentEquals;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentEquals;
 
 /**
  * @author Max Ross <maxr@google.com>

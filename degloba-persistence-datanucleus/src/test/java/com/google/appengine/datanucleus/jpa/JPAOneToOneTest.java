@@ -24,7 +24,7 @@ import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 import com.google.appengine.datanucleus.DatastoreServiceFactoryInternal;
 import com.google.appengine.datanucleus.DatastoreServiceInterceptor;
-import com.degloba.persistence.TestUtils;
+import com.google.appengine.datanucleus.TestUtils;
 import com.google.appengine.datanucleus.Utils;
 
 //Entitats de domini de test
@@ -49,8 +49,8 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
-import static com.degloba.persistence.TestUtils.assertKeyParentEquals;
-import static com.degloba.persistence.TestUtils.assertKeyParentNull;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentEquals;
+import static com.google.appengine.datanucleus.TestUtils.assertKeyParentNull;
 
 /**
  * @author Max Ross <maxr@google.com>

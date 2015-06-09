@@ -19,7 +19,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.degloba.persistence.TestUtils;
+import com.google.appengine.datanucleus.TestUtils;
 import com.google.appengine.datanucleus.Utils;
 import com.degloba.persistence.test.domain.jpa.HasEncodedStringPkJPA;
 import com.degloba.persistence.test.domain.jpa.HasEncodedStringPkSeparateIdFieldJPA;
@@ -27,6 +27,7 @@ import com.degloba.persistence.test.domain.jpa.HasEncodedStringPkSeparateNameFie
 import com.degloba.persistence.test.domain.jpa.HasKeyPkJPA;
 import com.degloba.persistence.test.domain.jpa.HasLongPkJPA;
 import com.degloba.persistence.test.domain.jpa.HasUnencodedStringPkJPA;
+
 
 
 import java.util.List;

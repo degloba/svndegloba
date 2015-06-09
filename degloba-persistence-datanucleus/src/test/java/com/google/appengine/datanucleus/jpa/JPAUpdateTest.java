@@ -19,7 +19,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.degloba.persistence.TestUtils;
+import com.google.appengine.datanucleus.TestUtils;
 import com.google.appengine.datanucleus.Utils;
 import com.degloba.persistence.test.domain.jpa.Book;
 import com.degloba.persistence.test.domain.jpa.HasMultiValuePropsJPA;
