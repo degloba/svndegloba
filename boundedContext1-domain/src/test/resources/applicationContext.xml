@@ -15,7 +15,7 @@
         
 	<!-- <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
 	
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true"> 
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
 		<property name="persistenceUnitName" value="transactions-optional" />
     </bean>  
 
