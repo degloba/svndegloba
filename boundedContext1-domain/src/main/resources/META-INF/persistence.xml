@@ -4,7 +4,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">    
  
-	<persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">        
+	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.degloba.organisation.domain.Party</class>
 		<class>com.degloba.organisation.domain.Accountability</class>
@@ -34,8 +34,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
 			<property name="datanucleus.ConnectionURL" value="appengine"/> 
 			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			
- 							
- 	  <!--		<property name="datanucleus.singletonEMFForName" value="true"/>	 -->
+ 	  		<property name="datanucleus.singletonEMFForName" value="true"/>	 
 			      
 		</properties>    
 	</persistence-unit>
