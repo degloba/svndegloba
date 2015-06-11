@@ -49,4 +49,5 @@ Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
  E.jar spring-test-4.1.4.RELEASE.jar
 Build-Jdk: 1.8.0_45
 Created-By: Maven Integration for Eclipse
+Implementation-Vendor: degloba
 
