@@ -42,9 +42,10 @@ public class QueryTest extends AbstractIntegrationTest {
    @Before
    public void setUp() {
        super.setUp();
-       //instance = getRepository().createCriteriaQuery(Dictionary.class);
+
        gender = createCategory("gender", 1);
        education = createCategory("education", 2);
+       
        male = createDictionary("01", "Homes", gender, 100, "01");
        female = createDictionary("02", "Dones", gender, 150, "01");
        undergraduate = createDictionary("01", "Pregrau", education, 200, "05");
@@ -54,10 +55,14 @@ public class QueryTest extends AbstractIntegrationTest {
        
        education.getDictionaries().add(undergraduate);
        
-       BaseEntity.getRepository().save(gender);
-       BaseEntity.getRepository().save(education);
+       /*DictionaryCategory.getRepository().save(gender);
+       DictionaryCategory.getRepository().save(education);*/
+       gender.save();
+       education.save();
        
-       instance = BaseEntity.getRepository().createCriteriaQuery(Dictionary.class);
+       instance = DictionaryCategory.getRepository().createCriteriaQuery(DictionaryCategory.class);
+       instance = Dictionary.getRepository().createCriteriaQuery(Dictionary.class);
+      
    }
 
    @Test
@@ -306,7 +311,7 @@ public class QueryTest extends AbstractIntegrationTest {
 
    @Test
    public void testStartsWithText() {
-       List<Dictionary> results = instance.startsWithText("text", "Pregrau").list();
+	   List<Dictionary> results = instance.startsWithText("text", "Pregrau").list();
        Dictionary dictionary = results.get(0);
        assertEquals(dictionary, undergraduate);
        //assertTrue(results.contains(undergraduate));
