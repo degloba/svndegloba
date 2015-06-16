@@ -23,34 +23,23 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
-
-
 import javax.inject.Inject;
-// JPA
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+
 import javax.transaction.SystemException;
 
+/*
+ * RunWith = Indicates that the class should use Spring's JUnit facilities
+ * ContextConfiguration = defines class-level metadata that is used to determine how to load and configure an
+ *                        ApplicationContext for integration tests
+ 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
 @TransactionConfiguration(transactionManager = "transactionManager")
-//@Transactional
 @EnableTransactionManagement
 public class AbstractIntegrationTest {
-
-    //private static BtmUtils btmUtils;
-
-    //private static EntityManagerFactory emf;
-
-    protected EntityManager entityManager;
-
-    //private EntityTransaction tx;
-
-    protected EntityRepository repository;
     
+	//	Injectem l'ApplicationContext d'Spring gràcies a ContextConfiguration
     @Inject
     private ApplicationContext applicationContext;
     
@@ -60,18 +49,10 @@ public class AbstractIntegrationTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        //btmUtils = BtmUtils.readConfigurationFromClasspath("/datasources.properties");
-        //btmUtils.setupDataSource();
-        //emf = Persistence.createEntityManagerFactory("transactions-optional");
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        //emf.close();
-        //btmUtils.closeDataSource();
-        //btmUtils = null;
-        //System.out.println("================================================");
-        //System.out.println("Close BTM");
     }
 
     @Before
@@ -80,22 +61,10 @@ public class AbstractIntegrationTest {
         InstanceFactory.setInstanceProvider(provider);
         
     	helper.setUp();  
-    	
-        /*InstanceFactory.bind(EntityManagerFactory.class, emf);
-        repository = new EntityRepositoryJpa(emf);
-        AbstractEntity.setRepository(repository);
-        entityManager = repository.getEntityManager();
-        tx = entityManager.getTransaction();
-        tx.begin();*/
     }
 
     @After
     public void tearDown() throws IllegalStateException, SystemException {
-        /*tx.rollback();
-        entityManager.close();
-        repository = null;
-        BaseAggregateRoot.setRepository(null);
-        */
     	InstanceFactory.setInstanceProvider(null);
     	
         helper.tearDown();
