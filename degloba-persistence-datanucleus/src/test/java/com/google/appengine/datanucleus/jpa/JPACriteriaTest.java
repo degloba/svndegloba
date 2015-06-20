@@ -55,7 +55,7 @@ public class JPACriteriaTest extends JPATestCase {
     ds.put(Book.newBookEntity("Joe Blow", "12345", "Foo Book"));
 
     CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery cq = cb.createQuery();
+    CriteriaQuery<Book> cq = cb.createQuery(Book.class);
     Root<Book> candidate = cq.from(Book.class);
     candidate.alias("b");
     cq.select(candidate);
@@ -72,7 +72,7 @@ public class JPACriteriaTest extends JPATestCase {
     ds.put(Book.newBookEntity("Joe Blow", "12345", "Foo Book"));
 
     CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery cq = cb.createQuery();
+    CriteriaQuery<Book> cq = cb.createQuery(Book.class);
     Root<Book> candidate = cq.from(Book.class);
     candidate.alias("b");
     cq.select(candidate);
@@ -94,7 +94,7 @@ public class JPACriteriaTest extends JPATestCase {
     ds.put(Book.newBookEntity("Joe Blow", "12345", "Foo Book"));
 
     CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery cq = cb.createQuery();
+    CriteriaQuery<Book> cq = cb.createQuery(Book.class);
     Root<Book> candidate = cq.from(Book.class);
     candidate.alias("b");
     cq.select(candidate);
