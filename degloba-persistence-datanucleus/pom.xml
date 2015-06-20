@@ -20,19 +20,15 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-persistence-jpa</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>           
-         </dependency>  
+        </dependency>      
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>degloba-persistence-test</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Llibreries auxiliars -->
         <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-db</artifactId>
@@ -45,16 +41,7 @@
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
-         <!-- <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>hibernate-jpa-2.1-api</artifactId>
-                    <groupId>org.hibernate.javax.persistence</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>  -->
+        
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
@@ -71,6 +58,7 @@
             <scope>test</scope>
         </dependency>
         
+        <!-- Per executar tests contra Appengine (DataStore, Memcache, Task queue,... -->
 		<dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-labs</artifactId>
@@ -124,12 +112,11 @@
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-json</artifactId>
 		</dependency>    
-		
-		 <dependency>
+		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>	
 			<scope>test</scope>	
-			</dependency>
+		</dependency>
 			 
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
