@@ -3,11 +3,13 @@ package com.degloba.domain;
 import javax.inject.Inject;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+//import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -27,7 +29,7 @@ import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
-@TransactionConfiguration(transactionManager = "transactionManager")
+@TransactionConfiguration(transactionManager = "txManager")
 //@Transactional
 @EnableTransactionManagement
 public class AbstractIntegrationTest {
@@ -40,6 +42,15 @@ public class AbstractIntegrationTest {
     @Inject
     private ApplicationContext applicationContext;
 
+    
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+    
     @Before
     public void setUp() throws Exception {
         SpringInstanceProvider provider = new SpringInstanceProvider(applicationContext);
@@ -74,9 +85,9 @@ public class AbstractIntegrationTest {
         doTest();
     }*/
     	
-    	  @Test
+    	/*  @Test
     	    public void test() {
 
     	    }
-
+*/
 }
