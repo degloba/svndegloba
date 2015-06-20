@@ -51,18 +51,14 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     
     private EntityManagerProvider entityManagerProvider;
 
-    
-    @PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
     
 	EntityManager getEntityManager() {
-        //return entityManagerProvider.getEntityManager();
-		return entityManager;
+        return entityManagerProvider.getEntityManager();
     }
     
     public EntityRepositoryJpa() {
-      //  entityManagerProvider = new EntityManagerProvider();
+        entityManagerProvider = new EntityManagerProvider();
     }
 
     public EntityRepositoryJpa(EntityManager entityManager) {
@@ -96,8 +92,9 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     @Override
     public <T extends Entity> T save(T entity) {
         if (entity.notExisted()) {
-        	getEntityManager().persist(entity);
-        	getEntityManager().flush();
+        		getEntityManager().persist(entity);
+        	      
+        	//getEntityManager().flush();
             LOGGER.info("create a entity: " + entity.getClass() + "/"
                     + entity.getId() + ".");
             return entity;
