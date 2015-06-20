@@ -17,14 +17,17 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.transaction.SystemException;
 
 /*
@@ -35,17 +38,28 @@ import javax.transaction.SystemException;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
-@TransactionConfiguration(transactionManager = "transactionManager")
+@TransactionConfiguration(transactionManager = "txManager")
+//@Transactional
 @EnableTransactionManagement
 public class AbstractIntegrationTest {
+	
+	private static EntityManagerFactory emf;
+
+    protected EntityManager entityManager;
+    
+    protected EntityRepositoryJpa repository;
     
 	//	Injectem l'ApplicationContext d'Spring gràcies a ContextConfiguration
-    @Inject
+	@Inject
     private ApplicationContext applicationContext;
     
 	private final LocalServiceTestHelper helper =
 	        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig()
 	        .setApplyAllHighRepJobPolicy());
+	
+/*	No funciona private final LocalServiceTestHelper helper =
+            new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig()
+            .setDefaultHighRepJobPolicyUnappliedJobPercentage(100));*/
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -60,12 +74,21 @@ public class AbstractIntegrationTest {
         SpringInstanceProvider provider = new SpringInstanceProvider(applicationContext);
         InstanceFactory.setInstanceProvider(provider);
         
+        InstanceFactory.bind(EntityManagerFactory.class, emf);
+        repository = new EntityRepositoryJpa(emf);
+        AbstractEntity.setRepository(repository);
+        entityManager = repository.getEntityManager();
+        
     	helper.setUp();  
     }
 
     @After
     public void tearDown() throws IllegalStateException, SystemException {
     	InstanceFactory.setInstanceProvider(null);
+    	
+    	entityManager.close();
+        repository = null;
+        AbstractEntity.setRepository(null);
     	
         helper.tearDown();
     }
