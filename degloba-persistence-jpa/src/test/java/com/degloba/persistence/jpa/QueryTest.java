@@ -439,14 +439,17 @@ public class QueryTest extends AbstractIntegrationTest {
        assertFalse(results.contains(undergraduate));*/
    }
 
-   @Test
+   /*
+    * Not Supported by Datanucleus : OR amb varies propietats
+    */
+/*   @Test
    public void testOr() {
        List<Dictionary> results = instance.or(criterionBuilder.eq("text", "Homes"), criterionBuilder.eq("sortOrder", 150)).list();
        assertEquals(male, results.get(0));
-       /*assertTrue(results.contains(male));
+       assertTrue(results.contains(male));
        assertTrue(results.contains(female));
-       assertFalse(results.contains(undergraduate));*/
-   }
+       assertFalse(results.contains(undergraduate));
+   }*/
 
   /* Not Supported by Datanucleus
    * 
