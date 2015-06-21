@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>degloba-persistence</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+    </parent>
+    <artifactId>degloba-persistence-mongo</artifactId>
+    <packaging>jar</packaging>
+    <name>API de persistencia MongoDB implementada amb Spring-data</name>
+    <description>
+        
+    </description>
+
+    <dependencies>
+    	
+    	<!-- Llibreries degloba -->
+        <dependency>
+            <groupId>com.degloba</groupId>
+            <artifactId>degloba-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-ioc-spring</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+		</dependency>
+	      
+        <!-- Llibreries dayatang -->
+         <dependency>
+            <groupId>org.dayatang.dddlib</groupId>
+            <artifactId>dddlib-db</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency> 
+        <dependency>
+            <groupId>org.dayatang.dddlib</groupId>
+            <artifactId>dddlib-configuration</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+       
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+         <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.7.4</version>
+            <scope>test</scope>
+        </dependency> 
+         <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.1</version>
+        </dependency> 
+        
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Hibernate OGM部分，为NoSQL持久化提供支持-->
+        <dependency>
+            <groupId>org.hibernate.ogm</groupId>
+            <artifactId>hibernate-ogm-core</artifactId>
+            <version>4.1.0.Beta1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate.ogm</groupId>
+            <artifactId>hibernate-ogm-mongodb</artifactId>
+            <version>4.1.0.Beta1</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JBoss Transactions dependency -->
+        <dependency>
+            <groupId>org.jboss.jbossts</groupId>
+            <artifactId>jbossjta</artifactId>
+            <version>4.16.6.Final</version>
+            <scope>test</scope>
+        </dependency>
+    		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>   
+        </dependency>
+        
+        <!-- Testejar appengine -->
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+            <version>${google.appengine}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${google.appengine}</version>
+            <scope>test</scope>
+        </dependency>   
+		<dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>${google.appengine}</version>
+            <scope>test</scope>
+        </dependency>  
+		<dependency>
+         	<groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>${google.appengine}</version>
+            <scope>test</scope>
+        </dependency>
+        
+    </dependencies>
+    
+    
+    <build>
+    
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        
+        <plugins>
+         	<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+				<configuration>
+          			<skipTests>true</skipTests>
+       		 	</configuration> 
+            </plugin> 
+            
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            com.degloba.persistence.mongo
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-manifest</id>
+                        <goals>
+                            <goal>manifest</goal>
+                            <goal>bundle</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            
+	        <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	        </plugin>
+            
+        </plugins>
+    </build>
+
+</project>
