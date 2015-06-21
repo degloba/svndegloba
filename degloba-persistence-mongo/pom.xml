@@ -28,6 +28,13 @@
             <version>${project.version}</version>
             <scope>test</scope>
 		</dependency>
+		
+		<dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>degloba-persistence-test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
 	      
         <!-- Llibreries dayatang -->
          <dependency>
@@ -188,4 +195,13 @@
         </plugins>
     </build>
 
+    <dependencyManagement>
+    	<dependencies>
+    		<dependency>
+    			<groupId>com.degloba</groupId>
+    			<artifactId>degloba-persistence-test</artifactId>
+    			<version>4.4.3-SNAPSHOT</version>
+    		</dependency>
+    	</dependencies>
+    </dependencyManagement>
 </project>
