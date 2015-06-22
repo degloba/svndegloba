@@ -21,11 +21,11 @@ public class OrganisationUtils {
         return result;
     }
 
- /*   public Company createCompany(String name, Organization parent, Date date) {
+    public Company createCompany(String name, Organization parent, Date date) {
         Company result = createCompany(name, date);
         new OrgLineMgmt(parent, result, date).save();
         return result;
-    }*/
+    }
 
     public Department createDepartment(String name, Date date) {
         Department result = new Department(name);
@@ -34,11 +34,11 @@ public class OrganisationUtils {
         return result;
     }
 
-/*    public Department createDepartment(String name, Party parent, Date date) {
+    public Department createDepartment(String name, Organization parent, Date date) {
         Department result = createDepartment(name, date);
         new OrgLineMgmt(parent, result, date).save();
         return result;
-    }*/
+    }
 
     public Post createPost(String name, Organization organization, Date date) {
         Post result = new Post(name);
