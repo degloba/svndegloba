@@ -27,9 +27,9 @@ public abstract class BaseEntity implements com.degloba.domain.Entity {
 
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
    // annotated as ordinal in sake of performance
-   public static enum EntityStatus {
+ /*  public static enum EntityStatus {
        ACTIVE, ARCHIVE
-   }
+   }*/
 
 
    @Id  
@@ -43,12 +43,12 @@ public abstract class BaseEntity implements com.degloba.domain.Entity {
 	private AggregateId aggregateId; */
    
 
-   @Enumerated(EnumType.ORDINAL)
+/*   @Enumerated(EnumType.ORDINAL)
    private EntityStatus entityStatus = EntityStatus.ACTIVE;
 
    public void markAsRemoved() {
        entityStatus = EntityStatus.ARCHIVE;
-   }
+   }*/
    
    
    // getters - setters
@@ -61,9 +61,9 @@ public abstract class BaseEntity implements com.degloba.domain.Entity {
 		this.id = id;
 	}
  	
-   public EntityStatus getEntityStatus() {
+/*   public EntityStatus getEntityStatus() {
        return entityStatus;
-   }
+   }*/
    
 
    /**

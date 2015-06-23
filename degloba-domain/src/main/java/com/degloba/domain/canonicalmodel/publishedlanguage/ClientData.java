@@ -21,8 +21,12 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.degloba.annotations.ValueObject;
+import com.google.appengine.api.datastore.Key;
 
 /**
  * Client's snapshot
@@ -33,21 +37,21 @@ import com.degloba.annotations.ValueObject;
 @Embeddable
 public class ClientData {
 	
-	@Embedded
-	@AttributeOverrides({
+	//@Embedded
+	/*@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
-	private AggregateId aggregateId;
+*/	private Key aggregateId;
 	
 	private String name;
 
 	public ClientData(){}
 	
-	public ClientData(AggregateId aggregateId, String name) {
+	public ClientData(Key aggregateId, String name) {
 		this.aggregateId = aggregateId;
 		this.name = name;
 	}
 	
-	public AggregateId getAggregateId() {
+	public Key getAggregateId() {
 		return aggregateId;
 	}
 	

@@ -4,6 +4,8 @@ package com.degloba.domain;
 import java.util.Date;
 import java.util.Map;
 
+
+
 // CDI Java EE 6
 import javax.inject.Inject;
 
@@ -13,13 +15,17 @@ import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
+
+
 // Spring
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
+import com.google.appengine.api.datastore.Key;
 
 
 /**
@@ -53,23 +59,24 @@ import com.degloba.utils.BeanUtils;
 
 		@Transient
 		@Inject
-		protected IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher;
+		protected IDomainEventPublisher<IDomainEvent<Object>> eventPublisher;
 		
+		public void markAsRemoved() {
+			//aggregateStatus = AggregateStatus.ARCHIVE;
+		}
 		
-/*		public AggregateId getAggregateId() {
-			return aggregateId;
+		public Key getAggregateId() {
+			return getId();
 		}
 
 		public boolean isRemoved() {
-			return aggregateStatus == AggregateStatus.ARCHIVE;
+			return true;
+			////////////////return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
 		protected void domainError(String message) {
-			throw new DomainOperationException(aggregateId, message);
+			throw new DomainOperationException(getAggregateId(), message);
 		}
-		
-				
-*/	
 		
 	
 	/*	protected void domainError(String message) { 
@@ -136,13 +143,13 @@ import com.degloba.utils.BeanUtils;
      * Visible for package (Factory/Repository)
      */
    public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher) {
-        if (this.domainEventPublisher != null)
+        if (this.eventPublisher != null)
             throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
-        this.domainEventPublisher = domainEventPublisher;
+        this.eventPublisher = domainEventPublisher;
     }
 
 	public IDomainEventPublisher<IDomainEvent<Object>> getDomainEventPublisher() {
-		return domainEventPublisher;
+		return eventPublisher;
 	}
 
 
