@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.NamedParameters;
+import com.google.appengine.api.datastore.Key;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +61,7 @@ public abstract class Observer<T extends Subject> extends AbstractEntity {
 
 	public abstract void process(T subject);
 
-	public static Observer get(Long id) {
+	public static Observer get(Key id) {
 		return getRepository().get(Observer.class, id);
 	}
 

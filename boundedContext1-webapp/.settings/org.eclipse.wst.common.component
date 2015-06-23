@@ -11,9 +11,6 @@
         <dependent-module archiveName="boundedContext1-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-cqrs/boundedContext1-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="degloba-cqrs-0.0.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="boundedContext1-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-application/boundedContext1-application">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -36,6 +33,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-utilitats-0.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/wwwdegloba/target/classes"/>
