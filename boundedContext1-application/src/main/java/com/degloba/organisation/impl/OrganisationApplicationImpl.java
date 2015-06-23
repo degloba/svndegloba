@@ -1,17 +1,20 @@
-package com.degloba.organisation.application.impl;
+package com.degloba.organisation.impl;
 
-import com.degloba.organisation.application.OrganisationApplication;
+import com.degloba.organisation.api.OrganisationService;
 import com.degloba.organisation.domain.OrgLineMgmt;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
 import com.degloba.organisation.domain.Post;
 
 import java.util.Date;
+
 import javax.inject.Inject;
 
+import com.degloba.domain.Entity;
 import com.degloba.domain.EntityRepository;
+import com.google.appengine.api.datastore.Key;
 
-public class OrganisationApplicationImpl implements OrganisationApplication {
+public class OrganisationApplicationImpl implements OrganisationService {
 
     @Inject
     private EntityRepository repository;
@@ -19,10 +22,9 @@ public class OrganisationApplicationImpl implements OrganisationApplication {
     public OrganisationApplicationImpl(EntityRepository repository) {
         this.repository = repository;
     }
-    
-    
+ 
     @Override
-    public <T extends com.degloba.domain.seedwork.Entity> T getEntity(Class<T> entityClass, Long entityId) {
+    public <T extends Entity> T getEntity(Class<T> entityClass, Key entityId) {
         return repository.get(entityClass, entityId);
     }
 

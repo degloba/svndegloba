@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.degloba.organisation.application.impl;
+package com.degloba.organisation.impl;
 
-import com.degloba.organisation.application.OrganisationApplication;
-import com.degloba.organisation.application.OrganisationApplicationTest;
+import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.impl.OrganisationServiceTest;
 
 /**
  *
  * @author yyang
  */
-public class OrganisationApplicationImplTest extends OrganisationApplicationTest {
+public class OrganisationServiceImplTest extends OrganisationServiceTest {
 
     @Override
-    protected OrganisationApplication createInstance() {
+    protected OrganisationService createInstance() {
         return new OrganisationApplicationImpl(repository);
     }
  

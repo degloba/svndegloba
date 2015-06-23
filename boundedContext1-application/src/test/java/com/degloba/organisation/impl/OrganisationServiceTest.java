@@ -13,80 +13,89 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.degloba.organisation.impl;
 
-package com.degloba.organisation.application.impl;
 
 import java.util.Date;
 
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.EntityRepository;
-import com.degloba.organisation.application.OrganisationApplication;
+
+import org.dayatang.utils.DateUtils;
+
+import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.domain.Company;
+import com.degloba.organisation.domain.Department;
+import com.degloba.organisation.domain.OrgLineMgmt;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
 import com.degloba.organisation.domain.Post;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 
+import static org.hamcrest.CoreMatchers.*;
+
+import org.junit.After;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
+
+import static org.mockito.Mockito.*;
 
 /**
  *
  * @author yyang
  */
-public class OrganisationApplicationImplIntegratedTest {
+public abstract class OrganisationServiceTest {
 
-    private OrganisationApplication instance;
+    private OrganisationService instance;
 
     protected EntityRepository repository;
 
     @Before
     public void setUp() {
+        instance = createInstance();
         repository = mock(EntityRepository.class);
-        instance = new OrganisationApplicationImpl(repository);
-        AbstractEntity.setRepository(repository);
+        //AbstractEntity.setRepository(repository);
     }
 
     @After
     public void tearDown() {
-        AbstractEntity.setRepository(null);
+        //AbstractEntity.setRepository(null);
     }
 
     /**
-     * Test of createOrganization method, of class OrganisationApplicationImpl.
+     * Test of createOrganization method, of class OrganisationApplication.
      */
-    @Ignore
     @Test
     public void testCreateOrganization() {
         System.out.println("createOrganization");
-        Organization orgToCreate = null;
-        Organization parent = null;
-        Date date = null;
+        Organization orgToCreate = new Department("dept");
+        Organization parent = new Company("headquarter");
+        Date date = DateUtils.date(2012, 1, 1);
         instance.createOrganization(orgToCreate, parent, date);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertThat(orgToCreate.getCreateDate(), is(date));
+/*        verify(repository).save(orgToCreate);
+        verify(repository).save(new OrgLineMgmt(parent, orgToCreate, date));*/
     }
 
     /**
-     * Test of terminateParty method, of class OrganisationApplicationImpl.
+     * Test of terminateParty method, of class OrganisationApplication.
      */
     @Ignore
     @Test
     public void testTerminateParty() {
         System.out.println("terminateParty");
-        Party party = null;
-        Date date = null;
+        Party party = mock(Party.class);
+        Date date = DateUtils.date(2012, 1, 1);
         instance.terminateParty(party, date);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        verify(party).terminate(date);
     }
 
     /**
-     * Test of changeParentOfOrganization method, of class OrganisationApplicationImpl.
+     * Test of changeParentOfOrganization method, of class
+     * OrganisationApplication.
      */
     @Ignore
     @Test
@@ -101,7 +110,8 @@ public class OrganisationApplicationImplIntegratedTest {
     }
 
     /**
-     * Test of createPostUnderOrganization method, of class OrganisationApplicationImpl.
+     * Test of createPostUnderOrganization method, of class
+     * OrganisationApplication.
      */
     @Ignore
     @Test
@@ -114,5 +124,7 @@ public class OrganisationApplicationImplIntegratedTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
+    protected abstract OrganisationService createInstance();
+
 }

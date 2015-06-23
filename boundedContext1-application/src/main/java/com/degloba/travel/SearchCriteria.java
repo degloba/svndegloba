@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.casino.hotel;
+package com.degloba.travel;
 
 import java.io.Serializable;
 

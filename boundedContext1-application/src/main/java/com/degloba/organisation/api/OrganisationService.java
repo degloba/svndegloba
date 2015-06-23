@@ -1,15 +1,17 @@
-package com.degloba.organisation.application;
+package com.degloba.organisation.api;
 
+import com.degloba.domain.Entity;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
 import com.degloba.organisation.domain.Post;
+import com.google.appengine.api.datastore.Key;
 
 import java.util.Date;
 
-public interface OrganisationApplication {
+public interface OrganisationService {
 
-    public <T extends com.degloba.domain.seedwork.Entity> T getEntity(Class<T> entityClass, Long entityId);
-
+	<T extends Entity> T getEntity(Class<T> entityClass, Key entityId);
+	 
     void createOrganization(Organization orgToCreate, Organization parent, Date date);
 
     void terminateParty(Party party, Date date);

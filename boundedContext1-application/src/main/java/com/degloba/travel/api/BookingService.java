@@ -1,9 +1,14 @@
-package com.degloba.boundedContext.casino.hotel;
+package com.degloba.travel.api;
 
 import java.util.List;
 
-import com.degloba.casino.hotel.Booking;
-import com.degloba.casino.hotel.Hotel;
+import com.degloba.travel.Booking;
+import com.degloba.travel.Hotel;
+import com.degloba.travel.SearchCriteria;
+import com.degloba.travel.User;
+import com.google.appengine.api.datastore.Key;
+
+
 
 /**
  * A service interface for retrieving hotels and bookings from a backing repository. Also supports the ability to cancel
@@ -27,6 +32,8 @@ public interface BookingService {
      * @return a list of hotels meeting the criteria
      */
     public List<Hotel> findHotels(SearchCriteria criteria, int firstResult, String sortBy, boolean ascending);
+    
+    public List<Hotel> findHotels(SearchCriteria criteria);
 
     /**
      * Find hotels by their identifier.
@@ -54,6 +61,8 @@ public interface BookingService {
      * @param id the booking id
      */
     public void cancelBooking(Booking booking);
+    
+    public void cancelBooking(Long booking);
 
     /**
      * Return the total number of hotels for the given criteria.
@@ -62,4 +71,7 @@ public interface BookingService {
      */
     int getNumberOfHotels(SearchCriteria criteria);
 
+    User findUser(String username);
+
+	public User login(String usrname, String pw);
 }

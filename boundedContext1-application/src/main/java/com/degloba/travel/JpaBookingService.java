@@ -1,4 +1,4 @@
-package com.degloba.boundedContext.casino.hotel;
+package com.degloba.travel;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import com.degloba.casino.hotel.Booking;
-import com.degloba.casino.hotel.Hotel;
-import com.degloba.casino.hotel.User;
+import com.degloba.travel.Booking;
+import com.degloba.travel.Hotel;
+import com.degloba.travel.User;
+import com.degloba.travel.api.BookingService;
+import com.google.appengine.api.datastore.Key;
+
+
 
 /**
  * A JPA-based implementation of the Booking Service. Delegates to a JPA entity manager to issue data access calls
@@ -105,9 +109,28 @@ public class JpaBookingService implements BookingService, Serializable {
 		}
 	}
 
-	private User findUser(String username) {
+	@Override
+	public User findUser(String username) {
 		return (User) em.createQuery("select u from User u where u.username = :username")
 				.setParameter("username", username).getSingleResult();
+	}
+
+	@Override
+	public List<Hotel> findHotels(SearchCriteria criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void cancelBooking(Long booking) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User login(String usrname, String pw) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
