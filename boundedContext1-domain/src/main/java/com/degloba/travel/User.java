@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.travel;
+package com.degloba.travel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

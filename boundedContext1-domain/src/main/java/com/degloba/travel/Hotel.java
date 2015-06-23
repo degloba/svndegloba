@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.travel;
+package com.degloba.travel;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 

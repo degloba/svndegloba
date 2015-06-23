@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.travel;
+package com.degloba.travel;
 
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -6,7 +6,7 @@ import org.springframework.binding.validation.ValidationContext;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-import com.degloba.organisation.domain.travel.util.*;
+import com.degloba.travel.util.*;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;

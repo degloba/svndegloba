@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.travel;
+package com.degloba.travel;
 
 import javax.xml.bind.annotation.XmlEnum;
 

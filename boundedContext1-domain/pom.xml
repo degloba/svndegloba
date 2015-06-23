@@ -50,6 +50,11 @@
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>     
         </dependency>
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-cqrs</artifactId>
+            <version>${project.version}</version>     
+        </dependency>        
 	  <!-- <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>

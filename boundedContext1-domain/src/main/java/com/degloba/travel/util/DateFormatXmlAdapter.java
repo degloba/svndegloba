@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.travel.util;
+package com.degloba.travel.util;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.text.DateFormat;
