@@ -1,13 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>  
-  <artifactId>degloba-cqrs</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
-  
+   
 	<parent>
 		<groupId>com.degloba</groupId>
 		<artifactId>degloba-parent</artifactId>
 		<version>4.4.3-SNAPSHOT</version>
 	</parent>
+	<artifactId>degloba-cqrs</artifactId>
+    <packaging>jar</packaging>
+    <name>API Interfaces and Base Classes</name>
+    <description>
+        Most important module that provides the core interfaces and base classes.
+    </description>
 	   	
       	
 <dependencies>

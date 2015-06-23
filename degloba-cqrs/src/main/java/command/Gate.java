@@ -11,7 +11,7 @@ package command;
  * @author degloba
  *
  */
-public interface IGate {
+public interface Gate {
 
 	public abstract Object dispatch(Object command);
 
