@@ -20,15 +20,18 @@ import java.util.Date;
 
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.EntityRepository;
-import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.application.api.OrganisationService;
+import com.degloba.organisation.application.impl.OrganisationApplicationImpl;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
 import com.degloba.organisation.domain.Post;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 

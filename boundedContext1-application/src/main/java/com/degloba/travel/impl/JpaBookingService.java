@@ -1,4 +1,4 @@
-package com.degloba.travel;
+package com.degloba.travel.impl;
 
 import java.io.Serializable;
 import java.util.List;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.degloba.travel.Booking;
 import com.degloba.travel.Hotel;
-import com.degloba.travel.SearchCriteria;
+import com.degloba.travel.impl.SearchCriteria;
 import com.degloba.travel.User;
 import com.google.appengine.api.datastore.Key;
 

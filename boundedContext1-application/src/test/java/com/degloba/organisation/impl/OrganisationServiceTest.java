@@ -23,7 +23,7 @@ import com.degloba.domain.EntityRepository;
 
 import org.dayatang.utils.DateUtils;
 
-import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.application.api.OrganisationService;
 import com.degloba.organisation.domain.Company;
 import com.degloba.organisation.domain.Department;
 import com.degloba.organisation.domain.OrgLineMgmt;

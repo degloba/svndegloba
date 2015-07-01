@@ -1,4 +1,4 @@
-package com.degloba.organisation.api;
+package com.degloba.organisation.application.api;
 
 import com.degloba.domain.Entity;
 import com.degloba.organisation.domain.Organization;

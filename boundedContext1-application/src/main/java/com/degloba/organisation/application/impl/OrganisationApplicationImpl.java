@@ -1,6 +1,6 @@
-package com.degloba.organisation.impl;
+package com.degloba.organisation.application.impl;
 
-import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.application.api.OrganisationService;
 import com.degloba.organisation.domain.OrgLineMgmt;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;

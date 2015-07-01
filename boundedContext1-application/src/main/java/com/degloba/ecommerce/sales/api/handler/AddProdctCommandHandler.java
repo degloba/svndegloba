@@ -23,11 +23,18 @@ import command.handler.CommandHandler;
 import com.degloba.domain.EntityRepository;
 import com.degloba.ecommerce.sales.api.command.AddProdctCommand;
 import com.degloba.ecommerce.sales.client.Client;
-//import pl.com.bottega.ecommerce.sales.domain.client.ClientRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.productscatalog.Product;
-//import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductRepository;
 import com.degloba.ecommerce.sales.reservation.Reservation;
+
+
+
+
+//import pl.com.bottega.ecommerce.sales.domain.client.ClientRepository;
+
+
+//import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductRepository;
+
 //import pl.com.bottega.ecommerce.sales.domain.reservation.ReservationRepository;
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
