@@ -23,7 +23,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.degloba.organisation.api.OrganisationService;
+import com.degloba.organisation.application.api.OrganisationService;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;
