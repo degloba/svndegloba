@@ -71,7 +71,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 <context-param>
 	<param-name>contextConfigLocation</param-name>
 	<!-- <param-value>classpath*:applicationContext.xml</param-value> -->
-	<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	<param-value>classpath:/META-INF/spring/root-context.xml</param-value>
 </context-param> 
 	
  
@@ -153,7 +153,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value> 
+            <param-value>classpath:/META-INF/spring/travel/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value> 
             <!-- <param-value>classpath*:applicationContext.xml</param-value> -->
         </init-param>
        <!--  <load-on-startup>1</load-on-startup> -->

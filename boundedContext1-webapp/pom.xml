@@ -50,26 +50,26 @@
             <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
         </dependency>
-		<dependency>
+		<!-- <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-cqrs</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> -->
 
 
         <!--Runtime-->
-        <dependency>
+         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-application</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
+           <!--  <scope>runtime</scope> -->
+        </dependency> 
+         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+            <!-- <scope>runtime</scope> -->
+        </dependency> 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade-impl</artifactId>
@@ -205,11 +205,11 @@
 		
 				
 		<!-- Referencies Llibreries -->			
-		<dependency>
+		<!-- <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-domain</artifactId>		
 			<version>4.4.3-SNAPSHOT</version>
-		</dependency>	 	
+		</dependency> -->	 	
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-utilitats</artifactId>
@@ -259,6 +259,14 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
+		</dependency>
+	 
+	 
+	 
+	  <!-- Datanucleus Appengine -->
+        <dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>		
 		</dependency>
 	 
     </dependencies>

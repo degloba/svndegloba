@@ -8,10 +8,13 @@
         <dependent-module archiveName="boundedContext1-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-facade/boundedContext1-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="boundedContext1-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-cqrs/boundedContext1-cqrs">
+        <dependent-module archiveName="boundedContext1-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-application/boundedContext1-application">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="boundedContext1-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-application/boundedContext1-application">
+        <dependent-module archiveName="degloba-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-domain/degloba-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="boundedContext1-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-cqrs/boundedContext1-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="boundedContext1-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-domain/boundedContext1-domain">
@@ -20,16 +23,10 @@
         <dependent-module archiveName="boundedContext1-facade-impl-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-facade-impl/boundedContext1-facade-impl">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="degloba-persistence-datanucleus-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-datanucleus/degloba-persistence-datanucleus">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-persistence-jpa-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-jpa/degloba-persistence-jpa">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="degloba-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-domain/degloba-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-utilitats-0.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">

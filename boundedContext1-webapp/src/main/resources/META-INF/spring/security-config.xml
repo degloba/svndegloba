@@ -18,6 +18,15 @@
 		<security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
 		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />
 	</security:http>
+	
+	
+	<!-- de la web spring-travel -->
+	<!--  <security:http>
+        Authentication policy
+        <security:form-login login-page="/users/login" login-processing-url="/users/login/authenticate" default-target-url="/hotels" authentication-failure-url="/users/login?login_error=1"/>
+        <security:logout logout-url="/users/logout" logout-success-url="/users/logoutSuccess"/>
+    </security:http>
+ -->
 
 	<!--
 		Define local authentication provider, a real app would use an external provider (JDBC, LDAP, CAS, etc)
@@ -37,5 +46,22 @@
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>	
+
+
+
+	<!-- de la web spring-travel -->
+   <!--  <security:authentication-manager>
+        <security:authentication-provider>
+            <security:password-encoder hash="md5"/>
+            <security:user-service>
+                <security:user name="keith" password="417c7382b16c395bc25b5da1398cf076" authorities="ROLE_USER, ROLE_SUPERVISOR"/>
+                <security:user name="erwin" password="12430911a8af075c6f41c6976af22b09" authorities="ROLE_USER, ROLE_SUPERVISOR"/>
+                <security:user name="jeremy" password="57c6cbff0d421449be820763f03139eb" authorities="ROLE_USER"/>
+                <security:user name="scott" password="942f2339bf50796de535a384f0d1af3e" authorities="ROLE_USER"/>
+                <security:user name="josh" password="c9089f3c9adaf0186f6ffb1ee8d6501c" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+ -->
 
 </beans>

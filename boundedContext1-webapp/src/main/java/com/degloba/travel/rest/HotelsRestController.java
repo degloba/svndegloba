@@ -8,7 +8,7 @@ import com.degloba.travel.Hotel;
 import com.degloba.travel.Hotels;
 import com.degloba.travel.User;
 import com.degloba.travel.api.BookingService;
-import com.degloba.travel.SearchCriteria;
+import com.degloba.travel.impl.SearchCriteria;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
