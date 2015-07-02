@@ -67,13 +67,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </context-param>
 
   
- <!-- Spring Container shared by servlets and filters -->
+<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 <context-param>
 	<param-name>contextConfigLocation</param-name>
 	<!-- <param-value>classpath*:applicationContext.xml</param-value> -->
 	<param-value>classpath:/META-INF/spring/root-context.xml</param-value>
 </context-param> 
-	
+
+
  
 <!-- Facelets (llibreria d'etiquetes) --> 
 <context-param>
@@ -96,8 +97,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </context-param>
  
  
-<!-- Expression Language -->
- 
+<!-- Expression Language --> 
 <context-param> 
 	<param-name>com.sun.faces.expressionFactory</param-name> 
 	<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
@@ -121,9 +121,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </welcome-file-list>
  
  
- <!-- 
-		SPRING SECURITY
-	-->
+<!-- 	SPRING SECURITY	(TRAVEL)-->
 	<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -131,13 +129,27 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	 
     <filter-mapping>
       <filter-name>springSecurityFilterChain</filter-name>
-      <servlet-name>DispatcherServlet</servlet-name>
-    </filter-mapping>
+      <servlet-name>appServlet</servlet-name>
+    </filter-mapping> 
+    
+    <!-- dddlib -->
+<!-- <filter>
+	<filter-name>csrfFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <async-supported>true</async-supported>
+</filter>
+<filter-mapping>
+	<filter-name>csrfFilter</filter-name>
+	<servlet-name>appServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping> -->
+    
  
 <listener>
 	<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 </listener>
-  
+
+<!-- Creates the Spring Container shared by all Servlets and Filters -->  
 <listener> 	
 	<listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class> 
 <!--   <listener-class>com.degloba.ioc.spring.webapp.DayatangContextLoaderListener</listener-class> --> 
@@ -147,9 +159,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 </listener>
  
+ <!-- Processes application requests -->
  <!-- spring mvc servlet -->
 	<servlet>
-		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
             <param-name>contextConfigLocation</param-name>
@@ -160,8 +173,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
        <!--  <async-supported>true</async-supported> -->
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>DispatcherServlet</servlet-name>
-		<url-pattern>/app/*</url-pattern>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>  
  
 
@@ -221,30 +234,5 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <session-timeout>0</session-timeout>
 </session-config>
  
- 
-<!--  <servlet>
-		<servlet-name>TicTacToeServlet</servlet-name>
-		<servlet-class>com.degloba.servlets.channel.TicTacToeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TicTacToeServlet</servlet-name>
-		<url-pattern>/channel</url-pattern>
-	</servlet-mapping> -->
-  <!-- <servlet>
-    <servlet-name>OpenedServlet</servlet-name>
-    <servlet-class>com.degloba.servlets.channel.OpenedServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>OpenedServlet</servlet-name>
-    <url-pattern>/opened</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>MoveServlet</servlet-name>
-    <servlet-class>com.degloba.servlets.channel.MoveServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MoveServlet</servlet-name>
-    <url-pattern>/move</url-pattern>
-  </servlet-mapping> -->
  
 </web-app>
