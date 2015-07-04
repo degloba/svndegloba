@@ -98,8 +98,11 @@
 	</bean>   -->
 	
 	
-	<!-- 8. SERVEIS D'APLICACIO 
-		<bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
+	<!-- 8. SERVEIS D'APLICACIO -->
+	
+		<!-- <bean id="bookingService" class="com.degloba.travel.impl.JpaBookingService"/> -->
+	
+	<!-- <bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
 	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>	    
 	</bean> -->
 	

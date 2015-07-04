@@ -20,7 +20,7 @@
 	<import resource="webflow.xml" />
 
 	<!-- Scan for Spring beans declared via annotations. -->
-	<context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow,com.degloba.travel.ui.webui"/>
+	<context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow"/>
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
@@ -66,38 +66,38 @@
 <!--  Travel -->
 
  <!-- Configures the Spring MVC @Controller programming model -->
-    <mvc:annotation-driven/>
+  <!--   <mvc:annotation-driven/> -->
     
  <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+  <!--   <mvc:resources mapping="/resources/**" location="/resources/"/> -->
 
  <!-- Configures a handler for serving static resources by forwarding to the Servlet container's default Servlet. -->
-    <mvc:default-servlet-handler/>
+    <!-- <mvc:default-servlet-handler/> -->
     
    <!-- Executes flows: the entry point into the Spring Web Flow system -->
-    <wf:flow-executor id="flowExecutor">
+   <!--  <wf:flow-executor id="flowExecutor">
         <wf:flow-execution-listeners>
-            <!--<wf:listener ref="jpaFlowExecutionListener"/>-->
+            <wf:listener ref="jpaFlowExecutionListener"/>
             <wf:listener ref="securityFlowExecutionListener"/>
         </wf:flow-execution-listeners>
-    </wf:flow-executor>
+    </wf:flow-executor> -->
 
     <!-- The registry of executable flow definitions -->
-    <wf:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/views">
+    <!-- <wf:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/views">
         <wf:flow-location-pattern value="/**/*-flow.xml"/>
-    </wf:flow-registry>
+    </wf:flow-registry> -->
     
   <!-- Plugs in a custom creator for Web Flow views -->
-    <wf:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" development="true"/>
+   <!--  <wf:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" development="true"/> -->
     
  <!-- Configures transaction management around @Transactional components -->
 
     <!-- Imports the application controllers that process client requests -->
-    <mvc:view-controller path="/" view-name="home"/>
+  <!--   <mvc:view-controller path="/" view-name="home"/> -->
     
  <!-- Maps '/users/login' requests to the 'users/login' view -->
-    <mvc:view-controller path="/users/login"/>
+  <!--   <mvc:view-controller path="/users/login"/>
     <mvc:view-controller path="/users/logout"/>
-    <mvc:view-controller path="/users/logoutSuccess"/>
+    <mvc:view-controller path="/users/logoutSuccess"/> -->
 <!-- ********************************************************************************** -->
 </beans>
