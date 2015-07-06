@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="account" class="com.degloba.boundedContext.ui.webui.spring.webflow.validation.Account" />
+	<var name="account" class="com.degloba.organisation.ui.webui.spring.webflow.validation.Account" />
 
 	<view-state id="edit" model="account">
 		<transition on="next" to="review"/>

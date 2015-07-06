@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="formBean" class="com.degloba.boundedContext.ui.webui.spring.webflow.autocomplete.FormBean" />
+	<var name="formBean" class="com.degloba.organisation.ui.webui.spring.webflow.autocomplete.FormBean" />
 
 	<view-state id="view" />
 

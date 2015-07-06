@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="reservation" class="com.degloba.boundedContext.ui.webui.spring.webflow.validation.Reservation" />
+	<var name="reservation" class="com.degloba.organisation.ui.webui.spring.webflow.validation.Reservation" />
 
 	<view-state id="edit" model="reservation">
 		<transition on="next" to="review">

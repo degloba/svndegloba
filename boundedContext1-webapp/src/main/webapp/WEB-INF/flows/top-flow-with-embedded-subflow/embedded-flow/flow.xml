@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 	
-	<var name="userBean" class="com.degloba.boundedContext.ui.webui.spring.webflow.ajax.UserBean" />
+	<var name="userBean" class="com.degloba.organisation.ui.webui.spring.webflow.ajax.UserBean" />
 
 	<view-state id="main">
 		<transition on="suggest" to="confirmation">
