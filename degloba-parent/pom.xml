@@ -7,14 +7,19 @@
   
 <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<spring.version>4.1.4.RELEASE</spring.version>    
+	<spring.version>4.1.6.RELEASE</spring.version>  
+	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
+	<springsecurity-version>4.0.1.RELEASE</springsecurity-version>  
+	
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
+	
 	<datanucleus.core.version>3.1.3</datanucleus.core.version>
 	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
 	<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
+	
 	<slf4j.version>1.7.10</slf4j.version>
 	<jdk.version>1.7</jdk.version>
-	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
+
 	<mojarra.version>2.1.7</mojarra.version>
 	<uel.version>2.2</uel.version>
 	<poi.version>3.9</poi.version>
