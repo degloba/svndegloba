@@ -676,7 +676,7 @@
 
         <jdk.version>1.7</jdk.version>
         <slf4j.version>1.7.6</slf4j.version>
-        <spring.version>4.1.4.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <tapestry.version>5.3.7</tapestry.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
         <!-- Database settings, default to H2 database -->
@@ -720,8 +720,7 @@
         <hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
         <hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
         <hibernate.show_sql>true</hibernate.show_sql>
-        <hibernate.format_sql>true</hibernate.format_sql>
-        <spring.version>4.1.4.RELEASE</spring.version>
+        <hibernate.format_sql>true</hibernate.format_sql>        
     </properties>
 
     <profiles>
