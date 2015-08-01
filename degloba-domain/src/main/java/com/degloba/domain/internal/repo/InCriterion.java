@@ -58,7 +58,7 @@ public class InCriterion extends BasicCriterion {
         if (value == null || value.isEmpty()) {
             return "1 > 1";
         }
-        return getPropNameWithAlias() + " in " + getParamNameWithColon();
+        return getPropNameWithAlias() + " in (" + getParamNameWithColon() + ")";
     }
 
     public NamedParameters getParameters() {

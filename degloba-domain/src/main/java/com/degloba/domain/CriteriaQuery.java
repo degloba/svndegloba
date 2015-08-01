@@ -3,7 +3,9 @@ package com.degloba.domain;
 import org.dayatang.utils.Assert;
 
 import java.util.*;
+
 import org.apache.commons.lang3.StringUtils;
+
 
 /**
  * Conditions queries. One of the four inquiries form DDDLib support. 
