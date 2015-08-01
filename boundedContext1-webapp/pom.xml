@@ -15,7 +15,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gae.version>1.9.17</gae.version>  
         <primefaces-version>5.0</primefaces-version> 
           
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
@@ -56,50 +55,73 @@
             <artifactId>boundedContext1-cqrs</artifactId>
             <version>${project.version}</version>
         </dependency> -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>            
+        </dependency> 
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>  
+		<dependency>                         
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-webmvc</artifactId>   			                                 
+		</dependency> 
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>		
 
 
         <!--Runtime-->
-         <dependency>
+        <!--  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-application</artifactId>
             <version>${project.version}</version>
-           <!--  <scope>runtime</scope> -->
-        </dependency> 
-        <!--  <dependency>
+            <scope>runtime</scope> 
+        </dependency>  -->
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope> 
-        </dependency>  -->
+          <!--   <scope>runtime</scope>  -->
+        </dependency>  
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade-impl</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-         <dependency>
+         <!-- <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency> 
-<dependency>
+            <scope>runtime</scope> 
+        </dependency> -->
+		 <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope>
+           <!--  <scope>runtime</scope>  -->
         </dependency>         
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <scope>runtime</scope>
         </dependency>
+        
+         <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-enhancer</artifactId>
+                        <version>3.1.1</version>
+                    </dependency>
 
 
         <!--Provided-->
@@ -115,19 +137,19 @@
 		<!--  <dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-testing</artifactId>            
-			<version>${gae.version}</version>            
+			<version>${google.appengine}</version>            
 			<scope>test</scope>        
 		</dependency>     -->  		 
 		<dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-api-stubs</artifactId>            
-			<version>${gae.version}</version>            
+			<version>${google.appengine}</version>            
 			<scope>test</scope>        
 		</dependency>		
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-remote-api</artifactId>
-			<version>${gae.version}</version>
+			<version>${google.appengine}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>		
@@ -146,20 +168,13 @@
         </dependency> 
         
         <!-- Spring --> 
-		<dependency>                         
-			<groupId>org.springframework</groupId> 
-			<artifactId>spring-webmvc</artifactId>   			                                 
-		</dependency> 
-		<!--         <dependency>
+
+		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <scope>runtime</scope>
-        </dependency> -->
-        
-<!-- 		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>            
-        </dependency> -->
+        </dependency> 
+       
         
         <!-- Spring WebFlow -->
 		<dependency>                         
@@ -231,15 +246,11 @@
 			<artifactId>degloba-utilitats</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
 		</dependency>	
- 		 <dependency>
-		 	<groupId>${project.groupId}</groupId>
-		 	<artifactId>degloba-persistence-datanucleus</artifactId>
-		 	<version>4.4.3-SNAPSHOT</version>
-		</dependency> 
+ 		 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-cqrs</artifactId>		
-			<version>4.4.3-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>			
 	
                    
@@ -284,7 +295,12 @@
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>		
 		</dependency>
-	 
+
+        <dependency>
+        	<groupId>org.springframework.data</groupId>
+        	<artifactId>spring-data-jpa</artifactId>
+        	<version>1.7.1.RELEASE</version>
+        </dependency>
     </dependencies>
     
     <dependencyManagement>
