@@ -109,7 +109,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
-           <!--  <scope>runtime</scope>  -->
+          
         </dependency>         
         <dependency>
             <groupId>commons-dbcp</groupId>

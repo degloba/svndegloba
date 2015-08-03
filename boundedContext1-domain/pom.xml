@@ -61,12 +61,7 @@
             <version>${project.version}</version>
             <scope>test</scope>           
          </dependency>      -->
-		 <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-persistence-jpa</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>           
-         </dependency>    
+
         <!--  <dependency>
            	<groupId>${project.groupId}</groupId>
            	<artifactId>degloba-utilitats</artifactId>
@@ -95,12 +90,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-           <!--  <scope>test</scope> -->
+            <scope>test</scope> 
         </dependency>       
           <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <!-- <scope>test</scope> -->
+            <scope>test</scope> 
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
