@@ -80,8 +80,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 <!-- Facelets (llibreria d'etiquetes) --> 
 <context-param>
 	<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-	<param-value>/WEB-INF/degloba_tags.xml</param-value>
-	<!-- <param-value>/WEB-INF/springsecurity.taglib.xml</param-value> -->
+	<!-- <param-value>/WEB-INF/degloba_tags.xml</param-value> -->
+	 <param-value>/WEB-INF/springsecurity.taglib.xml</param-value> 
 </context-param>
 <context-param>
 	<param-name>javax.faces.CONFIG_FILES</param-name>
@@ -149,9 +149,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 <!-- SPRING -->
 <!-- Creates the Spring Container shared by all Servlets and Filters -->  
 <listener> 	
-	<!-- <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>  -->
-	<!--   <listener-class>com.degloba.ioc.spring.webapp.DayatangContextLoaderListener</listener-class> --> 
- 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	 <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>   
+ 	<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>   -->
 </listener> 
 	
 <listener>
@@ -169,7 +168,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
              <param-value>classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value> 
             <!-- <param-value>classpath*:applicationContext.xml</param-value> -->
         </init-param>
-       <!--  <load-on-startup>1</load-on-startup> -->
+         <load-on-startup>1</load-on-startup> 
        <!--  <async-supported>true</async-supported> -->
 	</servlet>
 	<servlet-mapping>
