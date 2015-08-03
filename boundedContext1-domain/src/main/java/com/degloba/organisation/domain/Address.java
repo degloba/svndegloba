@@ -4,9 +4,7 @@ import com.degloba.domain.ValueObject;
 
 import javax.persistence.Embeddable;
 
-/**
- * Created by yyang on 14-3-5.
- */
+
 @Embeddable
 public class Address implements ValueObject {
     private String province;
