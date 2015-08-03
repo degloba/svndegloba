@@ -5,12 +5,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.degloba.domain.PositionalParameters;
+
 import com.degloba.domain.EntityRepository;
+import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
