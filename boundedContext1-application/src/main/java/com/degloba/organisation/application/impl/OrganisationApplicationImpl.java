@@ -12,14 +12,16 @@ import javax.inject.Inject;
 
 import com.degloba.domain.Entity;
 import com.degloba.domain.EntityRepository;
+import com.degloba.ecommerce.sales.api.service.OrderingService;
 import com.google.appengine.api.datastore.Key;
 
 public class OrganisationApplicationImpl implements OrganisationService {
-
+	
+	
     @Inject
     private EntityRepository repository;
 
-    public OrganisationApplicationImpl(EntityRepository repository) {
+   public OrganisationApplicationImpl(EntityRepository repository) {
         this.repository = repository;
     }
  
@@ -63,16 +65,6 @@ public class OrganisationApplicationImpl implements OrganisationService {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public EntityRepository getRepository() {
-		return repository;
-	}
-
-
-	public void setRepository(EntityRepository repository) {
-		this.repository = repository;
-	}
-    
-    
+	
 
 }
