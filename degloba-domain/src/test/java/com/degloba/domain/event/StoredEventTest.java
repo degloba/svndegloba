@@ -15,9 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Date;
 
-/**
- * Created by yyang on 14-9-14.
- */
+
 public class StoredEventTest {
 
     private StoredEvent instance;

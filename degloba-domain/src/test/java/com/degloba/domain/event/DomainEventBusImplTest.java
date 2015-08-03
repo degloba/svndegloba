@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-/**
- * Created by yyang on 14-10-4.
- */
+
 public class DomainEventBusImplTest {
 
     private DomainEventBusImpl instance;

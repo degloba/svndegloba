@@ -2,9 +2,7 @@ package com.degloba.domain.event;
 
 import java.util.Date;
 
-/**
- * Created by yyang on 14-9-14.
- */
+
 public class DomainEventSub extends DomainEvent {
 
     private String prop1;

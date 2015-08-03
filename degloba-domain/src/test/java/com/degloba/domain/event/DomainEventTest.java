@@ -8,9 +8,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by yyang on 14-9-12.
- */
+
 public class DomainEventTest {
 
     private DomainEvent instance;
