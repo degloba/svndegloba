@@ -26,11 +26,11 @@
       	<property name="suffix" value=".jsp"/>
   	</bean> -->
                  
-	<bean id="viewResolver"                 
+	<!-- <bean id="viewResolver"                 
             class="org.springframework.web.servlet.view.UrlBasedViewResolver">                 
             <property name="viewClass"                         
                 value="org.springframework.web.servlet.view.tiles2.TilesView" />         
-	</bean>
+	</bean> -->
 	          
 	<bean id="tilesConfigurer"                 
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">                 
@@ -53,10 +53,8 @@
 	
 	<bean id="localeResolver"                 
 		class="org.springframework.web.servlet.i18n.FixedLocaleResolver">                 
-		<constructor-arg value="en" />
-         
+		<constructor-arg value="en" />         
 	</bean> 
-	
-  
+	  
   
 </beans>

@@ -17,10 +17,10 @@
 
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<import resource="controllers.xml" />
-	<import resource="webflow.xml" />
+	<!-- <import resource="webflow.xml" /> -->
 
 	<!-- Scan for Spring beans declared via annotations. -->
-	<context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow"/>
+	<!-- <context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow"/> -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
@@ -41,32 +41,34 @@
 		Maps request paths to flows in the flowRegistry; e.g. a path of
 		/hotels/booking looks for a flow with id "hotels/booking"
 	-->
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
-	</bean>
+	</bean> -->
 
 	<!--
 		Resolves views selected for rendering by @Controllers to .xhtml
 		resources in the /WEB-INF/views directory
 	-->
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+<!-- 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
 	</bean>
-
+ -->
 	<!--
 		Dispatches requests mapped to flows to FlowHandler implementations
 	-->
-	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+	<!-- <bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
-	</bean>
+	</bean> -->
 	
 <!-- ********************************************************************************** -->
 <!--  Travel -->
 
  <!-- Configures the Spring MVC @Controller programming model -->
   <!--   <mvc:annotation-driven/> -->
+  
+  <!--  <bean class="com.degloba.canonicalmodel.ui.webui.spring.WebConfiguration"/> -->
     
  <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
   <!--   <mvc:resources mapping="/resources/**" location="/resources/"/> -->
