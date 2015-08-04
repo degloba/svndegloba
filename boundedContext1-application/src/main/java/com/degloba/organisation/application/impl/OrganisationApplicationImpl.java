@@ -1,6 +1,8 @@
 package com.degloba.organisation.application.impl;
 
 import com.degloba.organisation.application.api.OrganisationService;
+
+// Domini - Entitats
 import com.degloba.organisation.domain.OrgLineMgmt;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
@@ -10,9 +12,10 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+// Domini
 import com.degloba.domain.Entity;
 import com.degloba.domain.EntityRepository;
-import com.degloba.ecommerce.sales.api.service.OrderingService;
+
 import com.google.appengine.api.datastore.Key;
 
 public class OrganisationApplicationImpl implements OrganisationService {
