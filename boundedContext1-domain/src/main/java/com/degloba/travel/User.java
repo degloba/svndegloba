@@ -1,5 +1,7 @@
 package com.degloba.travel;
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,54 +14,78 @@ import java.io.Serializable;
  */
 @XmlRootElement
 @Entity
-@Table(name = "Customer")
+@Table(name = "customers")
 public class User implements Serializable {
 
-	private String username;
+    private String username;
 
-	private String password;
+    // important for consideration in Spring Security
+    private boolean enabled;
+    private String email;
+    private String password;
+    private String name;
 
-	private String name;
+    @XmlAttribute
+    @Column
+    public boolean isEnabled() {
+        return enabled;
+    }
 
-	public User() {
-	}
+    @XmlAttribute
+    @Column
+    public String getEmail() {
+        return email;
+    }
 
-	public User(String username, String password, String name) {
-		this.username = username;
-		this.password = password;
-		this.name = name;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Id
-	@XmlAttribute
-	public String getUsername() {
-		return username;
-	}
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @XmlAttribute
+    @Column
+    public String getName() {
+        return name;
+    }
 
-	@XmlAttribute
-	public String getPassword() {
-		return password;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public User() {
+    }
 
-	@XmlAttribute
-	public String getName() {
-		return name;
-	}
+    public User(String username, String password, String name) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Id
+    @XmlAttribute
+    public String getUsername() {
+        return username;
+    }
 
-	@Override
-	public String toString() {
-		return "User(" + username + ")";
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Column
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User(" + username + ")";
+    }
 }
