@@ -20,6 +20,9 @@
 	<!-- proves 
 	<mvc:view-controller path="/post" /> -->
 	
+	
+	<mvc:view-controller path="/userHome" />
+	
 	 <!-- <context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow" />  -->
 	  <context:component-scan base-package="com.degloba.organisation.ui.webui.spring.controller" /> 
 	 

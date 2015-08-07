@@ -67,10 +67,14 @@
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-webmvc</artifactId>   			                                 
 		</dependency> 
-		<dependency>
+		<!-- <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-        </dependency>		
+        </dependency>	 -->
+        	<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
 
 
         <!--Runtime-->
@@ -301,7 +305,18 @@
         	<artifactId>spring-data-jpa</artifactId>
         	<version>1.7.1.RELEASE</version>
         </dependency>
+        
+        
+        <dependency>
+		  <groupId>com.github.leleuj.springframework.security</groupId>
+		  <artifactId>spring-security-oauth-client</artifactId>
+		  <version>1.1.0</version>
+		</dependency>
+        
     </dependencies>
+    
+
+
     
     <dependencyManagement>
         <dependencies>
@@ -463,6 +478,9 @@
             	</plugin>	                    		
         	</plugins>
         </pluginManagement>
+        
+         
     </build>
+    
 
 </project>

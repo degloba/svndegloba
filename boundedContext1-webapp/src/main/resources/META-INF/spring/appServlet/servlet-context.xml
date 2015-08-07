@@ -30,6 +30,10 @@
 		/webflow-primefaces-showcase/app/resources/styles/blueprint/print.css
 	-->
 	<mvc:resources location="/" mapping="/resources/**" />
+	<mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/img/*" location="/img/"/>
+    <mvc:resources mapping="**.html" location="/"/>
+    <mvc:resources mapping="/css/**" location="/css/"/>
 
 	<!-- 
 		Enable processing of JSF 2 resource requests. For example:
@@ -49,13 +53,14 @@
 		Resolves views selected for rendering by @Controllers to .xhtml
 		resources in the /WEB-INF/views directory
 	-->
-<!-- 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+ 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="cache" value="false" />
 		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
 	</bean>
- -->
+ 
  
  	<!-- (Travel) <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">                 
             <property name="viewClass"                         
