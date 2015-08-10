@@ -77,7 +77,20 @@
 	<!-- *********************** -->
 	<!-- GATE - COMMANDS/CQRS    -->
 	<!-- *********************** -->
-	<!-- <bean id="gate" class="command.impl.StandardGate"/> -->
+	<!-- <bean id="beanFactory" class="org.springframework.beans.factory.config.ConfigurableListableBeanFactory">
+	</bean> -->
+	
+	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider">
+		<!-- <property name="beanFactory" ref="beanFactory"></property>	 -->
+	</bean>
+	
+	<bean id="gate" class="command.impl.StandardGate">
+		<property name="runEnvironment" ref="runEnvironment"></property>
+	</bean>
+	
+	<bean id="runEnvironment" class="command.impl.RunEnvironment">
+		<property name="handlersProvider" ref="handlersProvider"></property>	
+	</bean> 
 	 
 	 
 	<!-- REPOSITORIS  --> 
@@ -102,9 +115,9 @@
 	</bean>  
 	
 	
-	<!-- <bean id="modalpanelService" class="com.degloba.boundedContext.application.impl.ModalpanelServiceImpl" >
-	    <property name="modalpanelRepository" ref="modalpanelRepository"></property>	    
-	</bean> -->
+	 <bean id="bookingService" class="com.degloba.travel.services.JpaBookingService" >
+	    <!-- <property name="modalpanelRepository" ref="modalpanelRepository"></property> -->	    
+	</bean>
 	
 	
 

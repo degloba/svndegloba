@@ -48,5 +48,13 @@ public class StandardGate implements Gate {
 		return commandAnnotation.asynchronous();		
 	}
 
+	public RunEnvironment getRunEnvironment() {
+		return runEnvironment;
+	}
+
+	public void setRunEnvironment(RunEnvironment runEnvironment) {
+		this.runEnvironment = runEnvironment;
+	}
+
 	
 }
