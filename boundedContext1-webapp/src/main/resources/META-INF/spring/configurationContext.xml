@@ -3,19 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"	
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
-		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-		http://www.springframework.org/schema/data/jpa 
-		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
 
 	<context:annotation-config /> 
@@ -34,25 +26,11 @@
             <entry key="/resources/**" value-ref="defaultServletHttpRequestHandler" />
         </map>
         </property>
-    </bean>
-     
-    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
-     -->
+	</bean>  -->
 	
-
-	<!--  	
-	<bean id="simpleEventPublisher" class="infrastructure.events.impl.SimpleEventPublisher" />
-		
-	<bean id="baseAggregateRoot" class="domain.BaseAggregateRoot"
-		scope="request">
-		<property name="domainEventPublisher">
-			<ref bean="simpleEventPublisher"/>
-		</property>
-	 </bean> -->
+	 	
+	<bean id="simpleEventPublisher" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />
 	 
-		
-	<!-- SERVEIS DE DOMINI -->
-
 	
 	<!-- FACTORIES -->	
  	<!-- <bean id="modalpanelFactory" class="com.degloba.casino.modalpanel.ModalpanelFactory" />  
@@ -63,41 +41,37 @@
 	<!-- ************** -->
  	<!-- <bean id="systemUser" class="com.degloba.system.application.SystemUser" /> -->
  	
-	
-	<!-- EVENT PUBLISHER  
- 	<bean id="domainevent" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />  -->
-	
-	 
+ 	
+	<!-- **************** -->
+	<!-- EVENT PUBLISHER  -->
+	<!-- **************** -->
+ 	<bean id="domainevent" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />  
+		 
  
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
-	<!-- <bean id="ShipmentFinder" class="com.degloba.ecommerce.shipping.readmodel.impl.JpaShipmentFinder"/>  -->
+	<bean id="finder" class="com.degloba.ecommerce.shipping.readmodel.impl.JpaShipmentFinder"/>  
 	
 	<!-- *********************** -->
 	<!-- GATE - COMMANDS/CQRS    -->
 	<!-- *********************** -->
-	<!-- <bean id="beanFactory" class="org.springframework.beans.factory.config.ConfigurableListableBeanFactory">
-	</bean> -->
+	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider"/>
 	
-	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider">
-		<!-- <property name="beanFactory" ref="beanFactory"></property>	 -->
-	</bean>
+	<bean id="runEnvironment" class="command.impl.RunEnvironment">
+		<property name="handlersProvider" ref="handlersProvider"></property>	
+	</bean> 
 	
 	<bean id="gate" class="command.impl.StandardGate">
 		<property name="runEnvironment" ref="runEnvironment"></property>
 	</bean>
 	
-	<bean id="runEnvironment" class="command.impl.RunEnvironment">
-		<property name="handlersProvider" ref="handlersProvider"></property>	
-	</bean> 
-	 
-	 
+	
+	<!-- ************ -->
 	<!-- REPOSITORIS  --> 
+	<!-- ************ -->
  	<bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />   
  	 
-	<!-- <bean id="orderingService" class="com.degloba.ecommerce.sales.impl.OrderingServiceImpl"/> -->
-	
 	
 	<!-- *********************** -->
 	<!-- APPLICATIONS            -->
@@ -115,71 +89,12 @@
 	</bean>  
 	
 	
+	<!-- *********************** -->
+	<!-- SERVICES                 -->
+	<!-- *********************** -->
 	 <bean id="bookingService" class="com.degloba.travel.services.JpaBookingService" >
-	    <!-- <property name="modalpanelRepository" ref="modalpanelRepository"></property> -->	    
 	</bean>
 	
-	
 
-	<!-- ************************************* -->
-	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA /SPRING -->
-	<!-- ************************************* -->
-
-<!-- 	 <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />   -->
-	 
-	 <!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean below) 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
-        <!-- the transactional semantics... -->
-        <!-- <tx:attributes> -->
-            <!-- all methods starting with 'get' are read-only -->
-            <!-- <tx:method name="get*" read-only="true"/>
-            other methods use the default transaction settings (see below)
-            <tx:method name="*"/>
-        </tx:attributes>
-    </tx:advice>  -->
-
-
-	<!-- EntityManagerFactoryS -->	
-	 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-          <property name="persistenceUnitName" value="transactions-optional" />          
-    </bean>   
-
- 	<!-- <bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" lazy-init="true">        
-          <property name="persistenceUnitName" value="mongodb" />
-    </bean>  --> 
-
-	<!-- TransactionManagerS -->
-	 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />    
-	</bean> 
-	
-
-    
-<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   
-
-	<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
-	<!-- <mongo:mongo host="localhost" port="27017" />
-	
-	
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-    <constructor-arg name="mongo" ref="mongo"/>
-    <constructor-arg name="databaseName" value="degloba"/>
-  </bean>
-
-  <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>  
-
-   Mongo cross-store aspect config  
-  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
-        factory-method="aspectOf">
-    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
-  </bean>
-  <bean id="mongoChangeSetPersister"
-      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
-    <property name="mongoTemplate" ref="mongoTemplate"/>
-    <property name="entityManagerFactory" ref="entityManagerFactoryMongo"/>  
-  </bean>   -->
-		
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	
 
 </beans>

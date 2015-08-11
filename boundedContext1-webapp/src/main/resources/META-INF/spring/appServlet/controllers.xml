@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
@@ -13,17 +13,32 @@
 			Incoming path '/home' is mapped maps to the view name 'home'
 			UrlBasedViewResolver in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml 
 	-->
-	<!-- <mvc:view-controller path="/login" />
-
-	<mvc:view-controller path="/home" /> -->
+	<mvc:view-controller path="/login" />
+	<mvc:view-controller path="/home" /> 
 	
 	<!-- proves 
 	<mvc:view-controller path="/post" /> -->
 	
-	
+	<!--  Proves amb security -->
 	<mvc:view-controller path="/userHome" />
 	
-	 <!-- <context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow" />  -->
-	  <context:component-scan base-package="com.degloba.organisation.ui.webui.spring.controller" /> 
+	<!-- Proves amb CQRS -->
+	<mvc:view-controller path="/shipping/shipment" />
+	
+	
+	<!-- Travel -->
+	<!-- Imports the application controllers that process client requests -->
+    <mvc:view-controller path="/" view-name="home"/>
+    
+    <mvc:view-controller path="/hotels"/>
+
+    <!-- Maps '/users/login' requests to the 'users/login' view  (es JSP !!!!!)-->
+    <mvc:view-controller path="/users/login"/>
+    <mvc:view-controller path="/users/logout"/>
+    <mvc:view-controller path="/users/logoutSuccess"/>
+	
+	
+	<!-- Scan for Spring beans declared via annotations. -->
+	<context:component-scan base-package="com.degloba.organisation.ui.webui.spring.webflow, com.degloba.organisation.ui.webui.spring.controller, com.degloba.ecommerce.shipping.ui.webui.spring.controller, com.degloba.travel.ui.webui.spring.controller" /> 
 	 
 </beans>
