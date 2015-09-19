@@ -22,13 +22,13 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.integration.transformer.Transformer;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-
+/*import org.springframework.samples.travel.services.BookingService;
+import org.springframework.samples.travel.services.integration.NotificationGateway;*/
+import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 // Domini
 
 import com.degloba.travel.services.integration.NotificationGateway;
 
-
-import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;

@@ -18,12 +18,12 @@
 	<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
 	
 	<slf4j.version>1.7.10</slf4j.version>
-	<jdk.version>1.7</jdk.version>
+	<jdk.version>1.8</jdk.version>
 
 	<mojarra.version>2.1.7</mojarra.version>
 	<uel.version>2.2</uel.version>
 	<poi.version>3.9</poi.version>
-	<google.appengine>1.9.17</google.appengine>
+	<google.appengine>1.9.25</google.appengine>
 </properties>
   
 <repositories>   

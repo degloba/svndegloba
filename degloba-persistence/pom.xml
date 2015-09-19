@@ -22,8 +22,8 @@
     </dependencies>
     <modules>
         
-        <module>../degloba-persistence-jpa</module>
+         <module>../degloba-persistence-jpa</module>
         <module>../degloba-persistence-test</module>
-        <module>../degloba-persistence-datanucleus</module>
+        <module>../degloba-persistence-datanucleus</module> 
     </modules>
 </project>

@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
     <name>Casino</name>
     <modules>       
-        <module>../casino-boundedContext1</module>
+        <!-- <module>../casino-boundedContext1</module> -->
     </modules>
 
      

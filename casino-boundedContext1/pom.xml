@@ -589,7 +589,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
-                    <targetJdk>1.7</targetJdk>
+                    <targetJdk>1.8</targetJdk>
                     <format>xml</format>
                     <linkXRef>true</linkXRef>
                     <minimumTokens>100</minimumTokens>
@@ -674,7 +674,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.6</slf4j.version>
         <spring.version>4.1.6.RELEASE</spring.version>
         <tapestry.version>5.3.7</tapestry.version>
@@ -867,11 +867,11 @@
         </profile>
     </profiles>
     <modules>
-    	<module>../boundedContext1-domain</module>
+     	<module>../boundedContext1-domain</module>
     	<module>../boundedContext1-cqrs</module>
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
     	<module>../boundedContext1-facade-impl</module>
-    	<module>../boundedContext1-webapp</module> 
+    	<module>../boundedContext1-webapp</module>  
     </modules>
 </project>

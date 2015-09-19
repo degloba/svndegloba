@@ -29,8 +29,8 @@
 	</bean>  -->
 	
 	 	
-	<bean id="simpleEventPublisher" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />
-	 
+	<!-- <bean id="simpleEventPublisher" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />
+	 --> 
 	
 	<!-- FACTORIES -->	
  	<!-- <bean id="modalpanelFactory" class="com.degloba.casino.modalpanel.ModalpanelFactory" />  
@@ -44,9 +44,9 @@
  	
 	<!-- **************** -->
 	<!-- EVENT PUBLISHER  -->
-	<!-- **************** -->
+	<!-- **************** 
  	<bean id="domainevent" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />  
-		 
+		 -->
  
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
