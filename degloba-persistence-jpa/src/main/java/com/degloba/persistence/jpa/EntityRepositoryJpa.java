@@ -42,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository {
+public class EntityRepositoryJpa implements EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
 
@@ -51,6 +51,8 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     
     private EntityManagerProvider entityManagerProvider;
 
+	@PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactory")
     protected EntityManager entityManager;
     
 	EntityManager getEntityManager() {
@@ -58,7 +60,7 @@ public class EntityRepositoryJpa implements com.degloba.domain.EntityRepository 
     }
     
     public EntityRepositoryJpa() {
-        entityManagerProvider = new EntityManagerProvider();
+        //entityManagerProvider = new EntityManagerProvider();
     }
 
     public EntityRepositoryJpa(EntityManager entityManager) {
