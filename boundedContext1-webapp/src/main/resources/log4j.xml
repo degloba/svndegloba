@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 	
-	<logger name="org.springframework.samples.webflow">
+	<logger name="com.degloba.webflow">
 		<level value="debug" />
 	</logger>
 	
