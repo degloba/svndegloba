@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 filesCopiedToWebInfLib=
 gaeDatanucleusEnabled=true
-gaeDatanucleusVersion=v2
+gaeDatanucleusVersion=
 gaeDeployDialogSettings=
 gaeDoJarClasses=false
 gaeEnableJarSplitting=true

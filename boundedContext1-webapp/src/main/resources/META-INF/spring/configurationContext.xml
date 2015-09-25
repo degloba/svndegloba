@@ -51,7 +51,7 @@
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
-	<bean id="finder" class="com.degloba.ecommerce.shipping.readmodel.impl.JpaShipmentFinder"/>  
+	<bean id="finder" class="com.degloba.ecommerce.shipping.readmodel.impl.JpaShipmentFinder"/>   
 	
 	<!-- *********************** -->
 	<!-- GATE - COMMANDS/CQRS    -->
@@ -70,7 +70,7 @@
 	<!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
- 	<!-- <bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />  -->  
+ 	 <bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />   
  	 
 	
 	<!-- *********************** -->

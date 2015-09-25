@@ -36,7 +36,7 @@ import com.google.appengine.api.datastore.Key;
  * 
  */
 
-	@Component
+	/////////////@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass

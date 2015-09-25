@@ -5,7 +5,7 @@ package com.degloba.persistence.jpa;
 // Classes de domini
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
-import com.degloba.domain.EntityRepository;
+
 import com.degloba.domain.InstanceFactory;
 import com.degloba.ioc.spring.factory.SpringInstanceProvider;
 // Per testejar appengine
