@@ -54,7 +54,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-cqrs</artifactId>
             <version>${project.version}</version>     
-        </dependency>        
+        </dependency>   
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-infrastructure</artifactId>
+            <version>${project.version}</version>        
+		</dependency>
 	  <!-- <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
