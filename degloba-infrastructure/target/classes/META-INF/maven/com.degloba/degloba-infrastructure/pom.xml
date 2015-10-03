@@ -56,7 +56,14 @@
         <dependency>
         	<groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-		</dependency>     
+		</dependency>    
+		
+		 <!-- Spring data mongodb -->
+		<dependency>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>		 
+		 </dependency>
+		  
             
 		<!-- Llibreries degloba -->            
         <dependency>
