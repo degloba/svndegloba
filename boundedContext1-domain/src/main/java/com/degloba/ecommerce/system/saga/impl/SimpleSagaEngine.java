@@ -27,13 +27,14 @@ import javax.persistence.NoResultException;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher;
+
 import com.degloba.ecommerce.system.infrastructure.events.impl.handlers.EventHandler;
 import com.degloba.ecommerce.system.saga.SagaEngine;
 import com.degloba.ecommerce.system.saga.SagaInstance;
 import com.degloba.ecommerce.system.saga.SagaManager;
 import com.degloba.ecommerce.system.saga.annotations.LoadSaga;
 import com.degloba.ecommerce.system.saga.annotations.SagaAction;
+import com.degloba.infrastructure.events.impl.SimpleEventPublisher;
 
 /**
  * @author Rafał Jamróz
@@ -53,7 +54,7 @@ public class SimpleSagaEngine implements SagaEngine {
 
     @PostConstruct
     public void registerEventHandler() {
-        eventPublisher.registerEventHandler(new SagaEventHandler(this));
+        //eventPublisher.registerEventHandler(new SagaEventHandler(this));
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
