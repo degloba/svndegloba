@@ -84,3 +84,433 @@
 20:27:25,259 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
 20:27:25,259 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
 20:27:25,259 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=157 ms, enhance=15 ms, total=172 ms. Consult the log for full details
+18:55:18,698 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:55:18,776 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:55:18,791 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:55:18,791 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+18:55:18,963 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=172 ms, enhance=15 ms, total=187 ms. Consult the log for full details
+18:55:19,057 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:55:19,088 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:55:19,120 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:55:19,120 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+18:55:19,260 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=157 ms, enhance=15 ms, total=172 ms. Consult the log for full details
+19:12:55,320 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:12:55,398 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:12:55,430 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:12:55,430 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:12:55,586 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:12:55,601 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:12:55,601 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:12:55,601 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:12:55,601 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:12:55,601 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=172 ms, enhance=31 ms, total=203 ms. Consult the log for full details
+19:12:55,680 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:12:55,726 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:12:55,742 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:12:55,742 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:12:55,898 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=157 ms, enhance=15 ms, total=172 ms. Consult the log for full details
+19:18:33,037 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:18:33,115 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:18:33,137 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:18:33,137 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:18:33,293 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:18:33,309 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=173 ms, enhance=16 ms, total=189 ms. Consult the log for full details
+19:18:33,387 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:18:33,434 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:18:33,449 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:18:33,449 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:18:33,606 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=156 ms, enhance=16 ms, total=172 ms. Consult the log for full details
+19:23:14,612 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:23:14,691 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:23:14,706 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:23:14,706 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:23:14,878 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:23:14,894 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=171 ms, enhance=32 ms, total=203 ms. Consult the log for full details
+19:23:14,988 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+19:23:15,019 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+19:23:15,050 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+19:23:15,050 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+19:23:15,191 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+19:23:15,206 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=172 ms, enhance=15 ms, total=187 ms. Consult the log for full details
+18:56:23,593 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:56:23,670 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:56:23,697 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:56:23,697 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:56:23,861 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\canonicalmodel\publishedlanguage\AggregateId.class" with enhanced definition
+18:56:23,867 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\canonicalmodel\publishedlanguage\ClientData.class" with enhanced definition
+18:56:23,875 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\crm\domain\Customer.class" with enhanced definition
+18:56:23,879 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\client\Client.class" with enhanced definition
+18:56:23,884 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\invoicing\Invoice.class" with enhanced definition
+18:56:23,888 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\invoicing\InvoiceLine.class" with enhanced definition
+18:56:23,892 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\invoicing\Tax.class" with enhanced definition
+18:56:23,896 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\payment\Payment.class" with enhanced definition
+18:56:23,900 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\productscatalog\Product.class" with enhanced definition
+18:56:23,905 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\productscatalog\ProductData.class" with enhanced definition
+18:56:23,910 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\purchase\Purchase.class" with enhanced definition
+18:56:23,914 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\purchase\PurchaseItem.class" with enhanced definition
+18:56:23,919 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\reservation\Reservation.class" with enhanced definition
+18:56:23,923 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\sales\reservation\ReservationItem.class" with enhanced definition
+18:56:23,926 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\ecommerce\shipping\domain\Shipment.class" with enhanced definition
+18:56:23,931 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Accountability.class" with enhanced definition
+18:56:23,935 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Address.class" with enhanced definition
+18:56:23,938 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\client\Client.class" with enhanced definition
+18:56:23,941 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Company.class" with enhanced definition
+18:56:23,944 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\CompanyDepartment.class" with enhanced definition
+18:56:23,947 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Department.class" with enhanced definition
+18:56:23,950 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Email.class" with enhanced definition
+18:56:23,954 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Employee.class" with enhanced definition
+18:56:23,958 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\EmployeeArchieve.class" with enhanced definition
+18:56:23,961 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Employment.class" with enhanced definition
+18:56:23,964 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Job.class" with enhanced definition
+18:56:23,968 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Organization.class" with enhanced definition
+18:56:23,971 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\OrgLineMgmt.class" with enhanced definition
+18:56:23,975 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Party.class" with enhanced definition
+18:56:23,978 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\payment\Payment.class" with enhanced definition
+18:56:23,982 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Person.class" with enhanced definition
+18:56:23,986 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PersonEducationInfo.class" with enhanced definition
+18:56:23,989 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PersonName.class" with enhanced definition
+18:56:23,992 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\Post.class" with enhanced definition
+18:56:23,995 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\organisation\domain\PostHolding.class" with enhanced definition
+18:56:24,002 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\travel\Booking.class" with enhanced definition
+18:56:24,007 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\travel\Hotel.class" with enhanced definition
+18:56:24,012 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\pere\git\svndegloba\boundedContext1-domain\target\classes\com\degloba\travel\User.class" with enhanced definition
+18:56:24,014 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=163 ms, enhance=180 ms, total=343 ms. Consult the log for full details
+18:56:24,095 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+18:56:24,134 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+18:56:24,158 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+18:56:24,158 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+18:56:24,311 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId" is already enhanced.
+18:56:24,312 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData" is already enhanced.
+18:56:24,312 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.crm.domain.Customer" is already enhanced.
+18:56:24,312 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.client.Client" is already enhanced.
+18:56:24,312 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Invoice" is already enhanced.
+18:56:24,313 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.InvoiceLine" is already enhanced.
+18:56:24,313 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.invoicing.Tax" is already enhanced.
+18:56:24,313 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.payment.Payment" is already enhanced.
+18:56:24,313 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.Product" is already enhanced.
+18:56:24,314 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.productscatalog.ProductData" is already enhanced.
+18:56:24,314 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.Purchase" is already enhanced.
+18:56:24,314 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.purchase.PurchaseItem" is already enhanced.
+18:56:24,315 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.Reservation" is already enhanced.
+18:56:24,315 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.sales.reservation.ReservationItem" is already enhanced.
+18:56:24,315 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.ecommerce.shipping.domain.Shipment" is already enhanced.
+18:56:24,315 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Accountability" is already enhanced.
+18:56:24,316 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Address" is already enhanced.
+18:56:24,316 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.client.Client" is already enhanced.
+18:56:24,316 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Company" is already enhanced.
+18:56:24,317 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.CompanyDepartment" is already enhanced.
+18:56:24,317 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Department" is already enhanced.
+18:56:24,317 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Email" is already enhanced.
+18:56:24,318 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employee" is already enhanced.
+18:56:24,318 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.EmployeeArchieve" is already enhanced.
+18:56:24,318 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Employment" is already enhanced.
+18:56:24,318 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Job" is already enhanced.
+18:56:24,318 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Organization" is already enhanced.
+18:56:24,319 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.OrgLineMgmt" is already enhanced.
+18:56:24,319 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Party" is already enhanced.
+18:56:24,319 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.payment.Payment" is already enhanced.
+18:56:24,319 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Person" is already enhanced.
+18:56:24,320 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonEducationInfo" is already enhanced.
+18:56:24,320 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PersonName" is already enhanced.
+18:56:24,321 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.Post" is already enhanced.
+18:56:24,321 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.organisation.domain.PostHolding" is already enhanced.
+18:56:24,321 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Booking" is already enhanced.
+18:56:24,322 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.Hotel" is already enhanced.
+18:56:24,322 (main) INFO  [DataNucleus.Enhancer] - Class "com.degloba.travel.User" is already enhanced.
+18:56:24,322 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 38 classes. Timings : input=165 ms, enhance=23 ms, total=188 ms. Consult the log for full details

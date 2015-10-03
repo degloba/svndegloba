@@ -23,11 +23,11 @@
 
     <context:annotation-config/>
 
-   <!--  COMENTAT PERE <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/> 
+  <!--   <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/>  -->
     <bean class="com.degloba.travel.config.services.ServicesConfiguration"/>  
-
-    <context:property-placeholder location="classpath:/ds.standalone.properties"/>  -->
-
+ 
+    <!-- <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
+ -->
 
 
 

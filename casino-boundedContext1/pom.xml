@@ -329,7 +329,7 @@
             <plugins>
                 <!--This plugin's configuration is used to store Eclipse m2e settings 
                 only. It has no influence on the Maven build itself. -->
-                <plugin>
+                <!-- <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.1</version>
@@ -340,7 +340,7 @@
                         <meminitial>128m</meminitial>
                         <maxmem>768m</maxmem>
                     </configuration>
-                </plugin>
+                </plugin> -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
@@ -483,10 +483,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>

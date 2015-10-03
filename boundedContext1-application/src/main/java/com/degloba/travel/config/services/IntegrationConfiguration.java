@@ -27,7 +27,7 @@ import org.springframework.samples.travel.services.integration.NotificationGatew
 import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 // Domini
 
-import com.degloba.travel.services.integration.NotificationGateway;
+//import com.degloba.travel.services.integration.NotificationGateway;
 
 
 import javax.annotation.PostConstruct;
@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:/ds.standalone.properties")
+@PropertySource("classpath:/META-INF/spring/ds.standalone.properties")
 public class IntegrationConfiguration {
 
 

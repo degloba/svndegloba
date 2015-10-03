@@ -139,7 +139,7 @@
 
   $(document).ready(function(){
     var mcp = HalfViz("#halfviz")  
-    mcp.getDoc("the-abominable-snowman")
+    mcp.getDoc("toc")
   })
 
   

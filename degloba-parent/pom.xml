@@ -24,6 +24,8 @@
 	<uel.version>2.2</uel.version>
 	<poi.version>3.9</poi.version>
 	<google.appengine>1.9.25</google.appengine>
+	
+	        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
 </properties>
   
 <repositories>   
@@ -368,6 +370,15 @@
             <artifactId>gson</artifactId>
             <version>2.2.4</version>
         </dependency>
+        
+        
+         <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${org.richfaces.bom.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
 			
 	</dependencies>
 	

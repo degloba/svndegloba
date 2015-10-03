@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-<display-name>wwwdegloba</display-name>
-    <description>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>wwwdegloba</display-name>
+  <description>
     	Aplicació web configurada per executar-se sobre Google AppEngine for Java.
    </description>
- 
+
 <!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
 <context-param>
 	<description>
@@ -34,7 +32,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 	<param-value>client</param-value>
 </context-param>
-  
+
 <!-- Configuracio dels "recursos" en Richfaces -->
 <!-- http://docs.jboss.org/richfaces/latest_4_1_X/Developer_Guide/en-US/html/chap-Developer_Guide-Advanced_features.html#sect-Developer_Guide-Advanced_features-Resource_mapping -->
 <context-param>
@@ -74,7 +72,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 </context-param> 
 	
  
-<!-- Facelets (llibreria d'etiquetes) --> 
+ <!-- Facelets (llibreria d'etiquetes) --> 
 <context-param>
 	<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
 	<param-value>/WEB-INF/degloba_tags.xml</param-value>
@@ -116,25 +114,22 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     
     
 <!-- Facebook -->
-<context-param>
-	<param-name>facebook_api_key</param-name>
-	<param-value>6bb68478ea37a1dc0a5b6066451841d5</param-value>
-</context-param>
-<context-param>
-	<param-name>facebook_secret</param-name>
-	<param-value>19454259f329a7b6857bb86b411f3dc5</param-value>
-</context-param>
-
-
-<welcome-file-list>
-	<welcome-file>index.jsf</welcome-file>
-</welcome-file-list>
- 
- 
+  <context-param>
+    <param-name>facebook_api_key</param-name>
+    <param-value>6bb68478ea37a1dc0a5b6066451841d5</param-value>
+  </context-param>
+  <context-param>
+    <param-name>facebook_secret</param-name>
+    <param-value>19454259f329a7b6857bb86b411f3dc5</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.jsf</welcome-file>
+  </welcome-file-list>
+  
 <listener>
 	<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 </listener>
-  
+
 <listener>
  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
 <!--	<listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>  -->
@@ -178,33 +173,31 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-name>Faces Servlet</servlet-name>
 	<url-pattern>*.jsf</url-pattern>
 </servlet-mapping>
- 
+
  
 <!-- Facebook -->
- <servlet>
-	<description>Per connectar amb Facebook</description>
-	<display-name>clientFacebook</display-name>
-	<servlet-name>clientFacebook</servlet-name>
-	<servlet-class>com.degloba.boundedContext.ui.webui.servlets.clientFacebook</servlet-class>
-</servlet>
-<servlet-mapping>
-	<servlet-name>clientFacebook</servlet-name>
-	<url-pattern>/servlets/clientFacebook</url-pattern>
-</servlet-mapping>
+ <!-- <servlet>
+    <description>Per connectar amb Facebook</description>
+    <display-name>clientFacebook</display-name>
+    <servlet-name>clientFacebook</servlet-name>
+    <servlet-class>com.degloba.boundedContext.ui.webui.servlets.clientFacebook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>clientFacebook</servlet-name>
+    <url-pattern>/servlets/clientFacebook</url-pattern>
+</servlet-mapping> -->
 
 <!-- GAE -->
-<servlet>
-	<display-name>Remote API Servlet</display-name>
-	<servlet-name>RemoteApiServlet</servlet-name>
-	<servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
-	<load-on-startup>1</load-on-startup>
-</servlet>
-<servlet-mapping>
-	<servlet-name>RemoteApiServlet</servlet-name>
-	<url-pattern>/remote_api</url-pattern>
-</servlet-mapping>
- 
- 
+  <servlet>
+    <display-name>Remote API Servlet</display-name>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <url-pattern>/remote_api</url-pattern>
+  </servlet-mapping>
 <!-- ***** Filter Definitions ***** 
 <filter>	
       <display-name>AppEngine Bug 8145 Work Around</display-name>
@@ -214,11 +207,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 <filter-mapping>
 	<filter-name>GAEBug8145WorkAround</filter-name>
 	<url-pattern>/*</url-pattern>
-</filter-mapping> -->
- 
- <session-config>
-  <session-timeout>0</session-timeout>
-</session-config>
+</filter-mapping> -->  
+
+  <session-config>
+    <session-timeout>0</session-timeout>
+  </session-config>
  
  
 <!--  <servlet>

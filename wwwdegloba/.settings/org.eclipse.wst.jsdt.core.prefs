@@ -1,4 +1,12 @@
 eclipse.preferences.version=1
+org.eclipse.wst.jsdt.core.codeComplete.argumentPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.argumentSuffixes=
+org.eclipse.wst.jsdt.core.codeComplete.fieldPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.fieldSuffixes=
+org.eclipse.wst.jsdt.core.codeComplete.localPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.localSuffixes=
+org.eclipse.wst.jsdt.core.codeComplete.staticFieldPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.staticFieldSuffixes=
 org.eclipse.wst.jsdt.core.compiler.problem.deprecation=warning
 org.eclipse.wst.jsdt.core.compiler.problem.deprecationInDeprecatedCode=disabled
 org.eclipse.wst.jsdt.core.compiler.problem.deprecationWhenOverridingDeprecatedMethod=disabled

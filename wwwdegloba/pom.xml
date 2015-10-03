@@ -1,14 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wwwdegloba</artifactId>
   <packaging>war</packaging>
   
-	<parent>
-		<groupId>com.degloba</groupId>
-		<artifactId>deglobaparent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-  
+   <properties>
+       
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+               
+        <gae.version>1.9.4</gae.version>                
+      	
+        <project.build.outputDirectory>wwwdegloba/WEB-INF</project.build.outputDirectory>
+                
+    </properties>
 
     <repositories>
     
@@ -31,19 +36,7 @@
        	         
     </repositories>
 
-    <properties>
-       
-       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-       
-        <!-- Setting this property using archetype-metadata.xml requiredPorperty
-             so that generated project uses correct version of richfaces.
-         -->
-        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
-        <gae.version>1.9.4</gae.version>                
-      	
-        <project.build.outputDirectory>wwwdegloba/WEB-INF</project.build.outputDirectory>
-                
-    </properties>
+   
 
     <build>
         <finalName>wwwdegloba</finalName>
@@ -191,7 +184,7 @@
     </build>
 
 
-    <dependencyManagement>
+    <!-- <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.richfaces</groupId>
@@ -201,44 +194,21 @@
                 <type>pom</type>
             </dependency>
         </dependencies>
-    </dependencyManagement>
+    </dependencyManagement> -->
 
       
     <dependencies>
-     
-    	<!-- Richfaces -->
-		<dependency>
-    		<groupId>org.richfaces.core</groupId>
-    		<artifactId>richfaces-core-api</artifactId>
-    		<type>jar</type>
-    		<scope>compile</scope>
-    	</dependency>
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
-		<dependency>
-	    	<groupId>org.richfaces.cdk</groupId>
-	    	<artifactId>annotations</artifactId>
-	    	<version>${org.richfaces.bom.version}</version>
-	    	<type>jar</type>
-	    	<scope>compile</scope>
-    	</dependency>        
-
-
+    
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>  
             <scope>provided</scope>
         </dependency>
-        <dependency>
+       <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -247,10 +217,10 @@
             <version>1.2</version>
         </dependency> 
         
-        <dependency>
+     <!--    <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-        </dependency>
+        </dependency> -->
         
         <!-- Tests -->
         <dependency>
@@ -272,12 +242,12 @@
 		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
 		(e.g. java.util.logging, logback, log4j) 
 		allowing the end user to plug in the desired logging framework at deployment time. -->		              
-		<dependency>
+		<!-- <dependency>
     		<groupId>org.slf4j</groupId>
     		<artifactId>slf4j-simple</artifactId>
     		<type>jar</type>
     		<scope>compile</scope>
-	    </dependency>
+	    </dependency> -->
 	    
 	    <dependency>
 	    	<groupId>javassist</groupId>
@@ -295,12 +265,8 @@
 	    </dependency>
 	
 	
-    	<dependency>
-        	<groupId>commons-validator</groupId>
-        	<artifactId>commons-validator</artifactId>
-        </dependency>
-
-	    <dependency>
+    	
+	   <!--  <dependency>
 	    	<groupId>javax.validation</groupId>
 	    	<artifactId>validation-api</artifactId>	    	
 	    </dependency>
@@ -310,7 +276,7 @@
         	<artifactId>atmosphere-runtime</artifactId>
         	<scope>compile</scope>
         </dependency>
-            
+             -->
         
         <!-- Google APIs -->
         <dependency>
@@ -344,20 +310,20 @@
 			<version>${gae.version}</version>            
 			<scope>test</scope>        
 		</dependency>     -->  		 
-		<dependency>            
+		<!-- <dependency>            
 			<groupId>com.google.appengine</groupId>            
 			<artifactId>appengine-api-stubs</artifactId>            
 			<version>${gae.version}</version>            
 			<scope>test</scope>        
-		</dependency>		
-		<dependency>
+		</dependency>		 -->
+		<!-- <dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-remote-api</artifactId>
 			<version>${gae.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>		
-		<dependency>
+		</dependency>	 -->	
+		<!-- <dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-jsr107cache</artifactId>
 			<version>${gae.version}</version>
@@ -370,7 +336,7 @@
 			<version>${gae.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency> 
+		</dependency>  -->
 		<dependency>
 			<groupId>net.sf.jsr107cache</groupId>
 			<artifactId>jsr107cache</artifactId>
@@ -380,27 +346,18 @@
 		</dependency>
 				
 
-		<!-- Spring -->
+<!-- Spring -->
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
-			<artifactId>spring-web</artifactId>                                        
+			<artifactId>spring-web</artifactId>    
+			<version>4.1.6.RELEASE</version>                                    
 		</dependency>    
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
-			<artifactId>spring-webmvc</artifactId>                                        
+			<artifactId>spring-webmvc</artifactId>  
+			<version>4.1.6.RELEASE</version>                                      
 		</dependency>                 
-		<dependency>                         
-			<groupId>org.springframework</groupId>                         
-			<artifactId>spring-tx</artifactId>                                          
-		</dependency>                 
-		<dependency>                         
-			<groupId>org.springframework</groupId>                         
-			<artifactId>spring-orm</artifactId>                                         
-		</dependency>   
-		<dependency>
-		 	<groupId>org.springframework</groupId>
-		 	<artifactId>spring-test</artifactId>
-		 </dependency>
+		
 				
 		<!-- DataNucleus v2 -->	
 		<!-- <dependency>
@@ -423,25 +380,7 @@
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
 		</dependency>  -->
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-json</artifactId>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency> 
-
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
+		
 		
 		<!--  JSF 
 		<dependency>
@@ -464,10 +403,12 @@
 	 	<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
+			<version>2.1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
+			<version>2.1.7</version>
 		</dependency>
 		
 		
@@ -482,21 +423,8 @@
 	
 	
 		<!-- Referencies Llibreries -->			
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>cqrs</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-			<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>ddd</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>		
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>utilitats</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
-		</dependency>
+		
+		
 		 <dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
@@ -522,8 +450,15 @@
 		 	<artifactId>spring-data-mongodb-cross-store</artifactId>
 		 	<version>1.6.0.RELEASE</version>
 		 </dependency>
-		 
+
+		 <dependency>
+		 	<groupId>com.degloba</groupId>
+		 	<artifactId>degloba-utilitats</artifactId>
+		 	<version>0.0.3-SNAPSHOT</version>
+		 </dependency>
     </dependencies>
     <url>www.degloba.com</url>
     <name>web degloba</name>
+    <groupId>com.degloba</groupId>
+    <version>1.0</version>
 </project>

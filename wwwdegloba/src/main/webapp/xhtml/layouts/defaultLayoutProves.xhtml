@@ -3,21 +3,23 @@
 	xmlns:h="http://java.sun.com/jsf/html" 
     xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    
+   
 <h:head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta charset="utf-8" />
 
 <title><ui:insert name="title" /> - deGloba Consulting - </title>
 <link rel="shortcut icon" href="http://localhost:8080/degloba/favicon.ico" />
 
 <link rel="stylesheet" type="text/css" media="all" href="/resources/css/degloba.css" />
+<link rel="stylesheet"  href="/resources/css/style.css" />  <!--  Cytoscape -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/> 	
 <link rel="stylesheet" href="/resources/jQuery/arbor-v0.92/style.css" type="text/css"/>
 
 <!-- Magnific Popup core CSS file -->
-<link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup.css"/> 
-<link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup_degloba.css"/> 
+<!-- <link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup.css"/> 
+<link rel="stylesheet" href="/resources/jQuery/magnific-popup/magnific-popup_degloba.css"/>  -->
 
 <link rel="stylesheet" href="/resources/jQuery/arbor-v0.92/demos/echolalia/style/echolalia.css" type="text/css"></link>
 
@@ -37,6 +39,11 @@
 <!-- *********** -->
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<!-- Cytoscape -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+<script src="/resources/js/cytoscape/imatges/code.js"></script>
 
 <script type="text/javascript">
 $newjquery = jQuery.noConflict();
@@ -89,17 +96,14 @@ $newjquery(function() {
 
 <h:body>
  
-			
-<ui:include src="/xhtml/panells_modals.xhtml" />
-
 
 <!-- 3.-  jQUERY -->
 <!-- *********** -->
 
 <!-- Magnific Popup core JS file -->
-<script src="/resources/jQuery/magnific-popup/jquery.magnific-popup.js"></script> 
+<!-- <script src="/resources/jQuery/magnific-popup/jquery.magnific-popup.js"></script>  -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 // Initialize popup as usual
 $('.image-link').magnificPopup({ 
@@ -115,7 +119,7 @@ $('.image-link').magnificPopup({
 
 });
 
-</script>
+</script> -->
 
  <!-- <canvas id="viewport" width="800" height="600"></canvas>
 
@@ -123,6 +127,9 @@ $('.image-link').magnificPopup({
   <script src="/resources/jQuery/arbor-v0.92/lib/arbor.js"></script>
   <script src="/resources/jQuery/arbor-v0.92/demos/echolalia/echolalia.js"></script>
  -->  
+
+
+<div id="cy"></div>
 
 </h:body>
 

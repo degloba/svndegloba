@@ -25,7 +25,9 @@
     </resource-files>
     
     <static-files> 
-	    <include path="/resources/images/**.*"/> 
+	    <include path="/resources/images/**.*"/>
+	    <include path="/images/**.*"/>  
+	    <include path="/styles/**.*"/> 
 		<include path="/resources/css/*.css"/>
 		<include path="/resources/**.*"/>
 		
