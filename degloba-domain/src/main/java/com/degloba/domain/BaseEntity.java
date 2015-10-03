@@ -28,6 +28,10 @@ public abstract class BaseEntity implements com.degloba.domain.Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
 
+public static final String FIND_ALL = null;
+
+public static final String TOTAL_RESULT = null;
+
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
    // annotated as ordinal in sake of performance
  /*  public static enum EntityStatus {
