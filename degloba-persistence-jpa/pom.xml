@@ -15,39 +15,35 @@
 
     <dependencies>
     	
+    	<!-- ****************** -->
     	<!-- Llibreries degloba -->
+    	<!-- ****************** -->
         <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        
+        </dependency>        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
 		</dependency>
-		
-		
-		
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>el-api</artifactId>
-        </dependency>
-     <!--    <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>el-impl</artifactId>
-            <scope>test</scope>
-        </dependency> -->
-        <dependency>
+		<dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>degloba-persistence-test</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
+		
+				
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+        </dependency>
+            
         
-        <!-- Llibreries dayatang -->
+        <!-- Llibreries auxiliars -->
          <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-db</artifactId>
@@ -60,32 +56,15 @@
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.openjpa</groupId>
-            <artifactId>openjpa-persistence</artifactId>
-            <version>2.3.0</version>
-            <optional>true</optional>
-        </dependency> -->
-        
-       
+               
+<!--        
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.5.1</version>
+            <version>${eclipseLink.version}</version>
             <optional>true</optional>
-        </dependency>
-       <!--  <dependency>
-            <groupId>${jdbc.groupId}</groupId>
-            <artifactId>${jdbc.artifactId}</artifactId>
-            <version>${jdbc.version}</version>
-            <scope>test</scope>
         </dependency> -->
+      
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -94,6 +73,8 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
+        
+        
          <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -156,13 +137,17 @@
             <scope>test</scope>
         </dependency>
     		
+		<!-- ****** -->    		
 		<!-- Spring -->
+		<!-- ****** -->
 		<dependency>
 			<groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>   
         </dependency>
         
+        <!-- ****************** -->
         <!-- Testejar appengine -->
+        <!-- ****************** -->
         <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-labs</artifactId>
@@ -233,16 +218,14 @@
                 </executions>
             </plugin> -->
             
-	        <!-- <plugin>
+	         <plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
-	        </plugin> -->
+	        </plugin> 
             
         </plugins>
     </build>
-    <properties>
-        <aspectj.weaver.version>1.6.9</aspectj.weaver.version>
-    </properties>
+    
     <profiles>
         <profile>
             <id>mongodb</id>

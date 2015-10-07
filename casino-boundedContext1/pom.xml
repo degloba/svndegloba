@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
     <parent>
         <groupId>com.degloba</groupId>
         <artifactId>casino</artifactId>
         <version>4.4.3-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
+    
     <artifactId>casino-boundedContext1</artifactId>
     <packaging>pom</packaging>
     <name>casino - boundedContext1 Structure</name>
@@ -199,11 +201,7 @@
                 <artifactId>aspectjrt</artifactId>
                 <version>1.7.4</version>
             </dependency>
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>1.7.4</version>
-            </dependency>
+           
            
             <dependency>
                 <groupId>org.quartz-scheduler</groupId>
@@ -231,6 +229,10 @@
                 <version>3.1.3.GA</version>
             </dependency>
             
+            
+            <!-- ****** -->
+            <!-- Spring -->
+            <!-- ****** -->
              <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
@@ -282,17 +284,18 @@
                 <version>1.0</version>
             </dependency>
             
+            <!-- ********************************** -->
+            <!-- The Simple Logging Facade for Java -->
+            <!-- ********************************** -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-  
+                <version>${slf4j.version}</version>  
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.version}</version>
-
             </dependency>
                         
             
@@ -867,11 +870,11 @@
         </profile>
     </profiles>
     <modules>
-     	<module>../boundedContext1-domain</module>
+     	 <module>../boundedContext1-domain</module> 
     	<module>../boundedContext1-cqrs</module>
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
     	<module>../boundedContext1-facade-impl</module>
-    	<module>../boundedContext1-webapp</module>  
+    	<!-- <module>../boundedContext1-webapp</module>   -->
     </modules>
 </project>

@@ -11,11 +11,7 @@
     <name>Casino - boundedContext1 - Structure - Domain</name>
 
     <dependencies>
-        <!-- Compile -->
-        <!-- <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-        </dependency> -->
+                
         <!-- Compile/runtime dependencies -->
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -31,19 +27,23 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         
-        <!-- Llibreries dayatang -->
+        <!-- ******************** -->
+        <!-- Llibreries auxiliars -->
+        <!-- ******************** -->
         <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
         
+        <!-- ****************** -->
         <!-- Llibreries degloba -->
+        <!-- ****************** -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
-            <scope>test</scope>
+          <!--   <scope>test</scope> -->
 		</dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -60,52 +60,36 @@
             <artifactId>degloba-infrastructure</artifactId>
             <version>${project.version}</version>        
 		</dependency>
-	  <!-- <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-persistence-datanucleus</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>           
-         </dependency>      -->
-
-        <!--  <dependency>
-           	<groupId>${project.groupId}</groupId>
-           	<artifactId>degloba-utilitats</artifactId>
-           	<version>0.0.3-SNAPSHOT</version>
-		</dependency>   -->  
 
 
-        <!-- Test -->
-        <!-- <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <scope>test</scope>
-        </dependency>  -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <scope>test</scope>
         </dependency>  
        
+       	<!-- ******* -->
         <!--  Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <scope>test</scope> 
-        </dependency>       
+        <!-- ******* -->       
           <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <scope>test</scope> 
-        </dependency>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>spring-beans</artifactId>
+            		<groupId>org.springframework</groupId>
+            	</exclusion>
+            </exclusions>
+          </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <scope>test</scope>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>spring-beans</artifactId>
+            		<groupId>org.springframework</groupId>
+            	</exclusion>
+            </exclusions>
         </dependency>
 		<dependency>
             <groupId>org.springframework</groupId>
@@ -113,36 +97,36 @@
             <scope>test</scope>
         </dependency>   
         
-        
-         <!-- Spring Webflow -->  
+        <!-- ************** -->
+        <!-- Spring Webflow -->
+        <!-- ************** -->  
         <dependency>
         	<artifactId>spring-binding</artifactId>
             <groupId>org.springframework.webflow</groupId>
-		</dependency>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>spring-beans</artifactId>
+            		<groupId>org.springframework</groupId>
+            	</exclusion>
+            </exclusions>
+        </dependency>
          
+         <!-- *********************************************************************** -->
          <!-- Database Connection Pools (https://cloud.google.com/sql/faq#connections) -->
+         <!-- *********************************************************************** -->
          <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <scope>test</scope>
         </dependency> 
+        
+        
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <scope>test</scope>
         </dependency> 
-        <!-- <dependency>
-            <groupId>${jdbc.groupId}</groupId>
-            <artifactId>${jdbc.artifactId}</artifactId>
-            <version>${jdbc.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.10.2.0</version>
-        </dependency> -->
-        
+       
         
         <!-- Appengine Google -->
         <dependency>
@@ -189,7 +173,27 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.4.2</version>
         </dependency>
-                    
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
     </dependencies>
     
     <build>
@@ -197,15 +201,7 @@
     <pluginManagement>
    	 
         <plugins>
-        	 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
-                <configuration>
-          			<skipTests>true</skipTests>
-       		 	</configuration>
-            </plugin>
-            
+        	             
 			<plugin>
             	<groupId>org.eclipse.m2e</groupId>
             	<artifactId>lifecycle-mapping</artifactId>
@@ -237,6 +233,19 @@
     </pluginManagement>
     
     <plugins>
+    
+    		<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+    
+    		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>            
+                <configuration>
+          			<skipTests>true</skipTests>
+       		 	</configuration>
+            </plugin> 
     
     <!-- DataNucleus Enhancer (versions 3.1.x)   -->
              <plugin>

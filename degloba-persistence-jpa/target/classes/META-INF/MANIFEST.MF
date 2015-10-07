@@ -17,39 +17,36 @@ Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar dddlib-utils-4.4.3-20150
  chfaces-core-api-4.3.1.Final.jar richfaces-components-ui-4.3.1.Final.
  jar richfaces-components-api-4.3.1.Final.jar richfaces-core-impl-4.3.
  1.Final.jar cssparser-0.9.5.jar sac-1.3.jar jstl-1.2.jar el-api-2.2.j
- ar commons-lang-2.6.jar org.eclipse.persistence.jpa-2.5.1.jar javax.p
- ersistence-2.1.0.jar org.eclipse.persistence.asm-2.5.1.jar org.eclips
- e.persistence.antlr-2.5.1.jar org.eclipse.persistence.jpa.jpql-2.5.1.
- jar org.eclipse.persistence.core-2.5.1.jar slf4j-api-1.7.10.jar slf4j
- -log4j12-1.7.10.jar log4j-1.2.17.jar commons-beanutils-1.9.1.jar comm
- ons-logging-1.1.1.jar commons-collections-3.2.1.jar jta-1.1.jar jboss
- -logging-3.1.1.GA.jar classmate-1.0.0.jar hibernate-ogm-core-4.1.0.Be
- ta1.jar hibernate-core-4.3.1.Final.jar jboss-logging-annotations-1.2.
- 0.Beta1.jar dom4j-1.6.1.jar xml-apis-1.0.b2.jar hibernate-jpa-2.1-api
- -1.0.0.Final.jar antlr-2.7.7.jar jandex-1.1.0.Final.jar hibernate-ent
- itymanager-4.3.1.Final.jar hibernate-commons-annotations-4.0.4.Final.
- jar hibernate-hql-parser-1.0.0.Alpha6.jar antlr-runtime-3.4.jar strin
- gtemplate-3.2.1.jar hibernate-hql-lucene-1.0.0.Alpha6.jar hibernate-s
- earch-engine-4.5.0.CR1.jar hibernate-search-analyzers-4.5.0.CR1.jar l
- ucene-analyzers-3.6.2.jar solr-analysis-extras-3.6.2.jar solr-core-3.
- 6.2.jar solr-solrj-3.6.2.jar lucene-highlighter-3.6.2.jar lucene-kuro
- moji-3.6.2.jar lucene-memory-3.6.2.jar lucene-misc-3.6.2.jar lucene-p
- honetic-3.6.2.jar lucene-spatial-3.6.2.jar lucene-spellchecker-3.6.2.
- jar lucene-grouping-3.6.2.jar commons-io-2.1.jar lucene-smartcn-3.6.2
- .jar lucene-stempel-3.6.2.jar lucene-core-3.6.2.jar avro-1.7.5.jar ja
- ckson-core-asl-1.9.13.jar jackson-mapper-asl-1.9.13.jar paranamer-2.3
- .jar commons-compress-1.4.1.jar lucene-facet-3.6.2.jar javassist-3.18
- .1-GA.jar hibernate-ogm-infinispan-4.1.0.Beta1.jar hibernate-search-o
- rm-4.5.0.CR1.jar infinispan-core-6.0.0.Final.jar infinispan-commons-6
- .0.0.Final.jar jgroups-3.4.1.Final.jar jboss-transaction-api_1.1_spec
- -1.0.1.Final.jar jboss-marshalling-river-1.3.18.GA.jar jboss-marshall
- ing-1.3.18.GA.jar hibernate-ogm-mongodb-4.1.0.Beta1.jar mongo-java-dr
- iver-2.11.0.jar spring-beans-4.1.6.RELEASE.jar spring-core-4.1.6.RELE
- ASE.jar spring-context-4.1.6.RELEASE.jar spring-aop-4.1.6.RELEASE.jar
-  aopalliance-1.0.jar spring-expression-4.1.6.RELEASE.jar spring-webmv
- c-4.1.6.RELEASE.jar spring-web-4.1.6.RELEASE.jar spring-tx-4.1.6.RELE
- ASE.jar spring-orm-4.1.6.RELEASE.jar spring-jdbc-4.1.6.RELEASE.jar sp
- ring-test-4.1.6.RELEASE.jar
+ ar commons-lang-2.6.jar slf4j-api-1.7.10.jar slf4j-log4j12-1.7.10.jar
+  log4j-1.2.17.jar commons-beanutils-1.9.1.jar commons-logging-1.1.1.j
+ ar commons-collections-3.2.1.jar jta-1.1.jar jboss-logging-3.1.1.GA.j
+ ar classmate-1.0.0.jar hibernate-ogm-core-4.1.0.Beta1.jar hibernate-c
+ ore-4.3.1.Final.jar jboss-logging-annotations-1.2.0.Beta1.jar dom4j-1
+ .6.1.jar xml-apis-1.0.b2.jar hibernate-jpa-2.1-api-1.0.0.Final.jar an
+ tlr-2.7.7.jar jandex-1.1.0.Final.jar hibernate-entitymanager-4.3.1.Fi
+ nal.jar hibernate-commons-annotations-4.0.4.Final.jar hibernate-hql-p
+ arser-1.0.0.Alpha6.jar antlr-runtime-3.4.jar stringtemplate-3.2.1.jar
+  hibernate-hql-lucene-1.0.0.Alpha6.jar hibernate-search-engine-4.5.0.
+ CR1.jar hibernate-search-analyzers-4.5.0.CR1.jar lucene-analyzers-3.6
+ .2.jar solr-analysis-extras-3.6.2.jar solr-core-3.6.2.jar solr-solrj-
+ 3.6.2.jar lucene-highlighter-3.6.2.jar lucene-kuromoji-3.6.2.jar luce
+ ne-memory-3.6.2.jar lucene-misc-3.6.2.jar lucene-phonetic-3.6.2.jar l
+ ucene-spatial-3.6.2.jar lucene-spellchecker-3.6.2.jar lucene-grouping
+ -3.6.2.jar commons-io-2.1.jar lucene-smartcn-3.6.2.jar lucene-stempel
+ -3.6.2.jar lucene-core-3.6.2.jar avro-1.7.5.jar jackson-core-asl-1.9.
+ 13.jar jackson-mapper-asl-1.9.13.jar paranamer-2.3.jar commons-compre
+ ss-1.4.1.jar lucene-facet-3.6.2.jar javassist-3.18.1-GA.jar hibernate
+ -ogm-infinispan-4.1.0.Beta1.jar hibernate-search-orm-4.5.0.CR1.jar in
+ finispan-core-6.0.0.Final.jar infinispan-commons-6.0.0.Final.jar jgro
+ ups-3.4.1.Final.jar jboss-transaction-api_1.1_spec-1.0.1.Final.jar jb
+ oss-marshalling-river-1.3.18.GA.jar jboss-marshalling-1.3.18.GA.jar h
+ ibernate-ogm-mongodb-4.1.0.Beta1.jar mongo-java-driver-2.11.0.jar spr
+ ing-beans-4.1.6.RELEASE.jar spring-core-4.1.6.RELEASE.jar spring-cont
+ ext-4.1.6.RELEASE.jar spring-aop-4.1.6.RELEASE.jar aopalliance-1.0.ja
+ r spring-expression-4.1.6.RELEASE.jar spring-webmvc-4.1.6.RELEASE.jar
+  spring-web-4.1.6.RELEASE.jar spring-tx-4.1.6.RELEASE.jar spring-orm-
+ 4.1.6.RELEASE.jar spring-jdbc-4.1.6.RELEASE.jar spring-test-4.1.6.REL
+ EASE.jar
 Build-Jdk: 1.8.0_60
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: degloba

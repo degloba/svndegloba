@@ -6,7 +6,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
  
 	<persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<class>com.degloba.organisation.domain.Party</class>
+		<!-- <class>com.degloba.organisation.domain.Party</class>
 		<class>com.degloba.organisation.domain.Accountability</class>
 		<class>com.degloba.organisation.domain.Email</class>
 		<class>com.degloba.organisation.domain.Employee</class>
@@ -23,7 +23,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.organisation.domain.Employment</class>
 		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
-		<class>com.degloba.organisation.domain.CompanyDepartment</class>
+		<class>com.degloba.organisation.domain.CompanyDepartment</class> -->
 	
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            

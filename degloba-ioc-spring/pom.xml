@@ -15,7 +15,9 @@
 
     <dependencies>
     
+    	<!-- ****************** -->
     	<!-- Llibreries degloba -->
+    	<!-- ****************** -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
@@ -28,7 +30,10 @@
             <scope>test</scope>
         </dependency>
         
+        
+        <!-- ****** -->
         <!-- Spring -->
+        <!-- ****** -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -44,7 +49,10 @@
             <artifactId>spring-web</artifactId>
             <optional>true</optional>
         </dependency>
-                
+              
+		<!-- ********************************** -->              
+		<!-- The Simple Logging Facade for Java -->
+		<!-- ********************************** -->                
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -55,6 +63,8 @@
             <scope>test</scope>
         </dependency>
         
+        
+        <!--  -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>

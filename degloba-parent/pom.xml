@@ -25,7 +25,12 @@
 	<poi.version>3.9</poi.version>
 	<google.appengine>1.9.25</google.appengine>
 	
-	        <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
+	<org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
+	
+	<eclipseLink.version>2.5.1</eclipseLink.version>
+	
+	<aspectjweaver.version>1.7.4</aspectjweaver.version>
+            
 </properties>
   
 <repositories>   
@@ -99,9 +104,9 @@
           <module>../degloba-domain</module>
           <module>../degloba-infrastructure</module>
           <module>../degloba-ioc-spring</module>
-          <module>../degloba-ioc-test</module>
+          <!-- <module>../degloba-ioc-test</module> -->
 
-          <module>../casino</module>
+         <!--  <module>../casino</module> -->
     </modules>    
 
 
@@ -379,6 +384,13 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            
+            <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+            <scope>test</scope>
+        </dependency> 
 			
 	</dependencies>
 	
@@ -407,11 +419,7 @@
 		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>            
-        </dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>			
-		</dependency>  
+        </dependency>  
 
 		<!-- Unit Testing -->
         <dependency>
@@ -434,13 +442,14 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>3.3</version>
                     <configuration>
                         <source>${jdk.version}</source>
                         <target>${jdk.version}</target>
                         <fork>true</fork>
                         <meminitial>128m</meminitial>
                         <maxmem>768m</maxmem>
+                        <useIncrementalCompilation>false</useIncrementalCompilation>
                     </configuration>
                 </plugin>
                 <plugin>

@@ -6,24 +6,30 @@
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
     </parent> 
+    
     <artifactId>degloba-persistence</artifactId>
     <packaging>pom</packaging>
     <name>Implementa el API de Persistencia</name>
-    <description>
-        Interfaz de almacenamiento 
-    </description>
+    <description>Interfaz de almacenamiento</description>
 
     <dependencies>
+    
+    	<!--  Llibreries degloba -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
     </dependencies>
+    
+    
     <modules>
         
-         <module>../degloba-persistence-jpa</module>
+		<module>../degloba-persistence-jpa</module>
         <module>../degloba-persistence-test</module>
-        <module>../degloba-persistence-datanucleus</module> 
+        <module>../degloba-persistence-datanucleus</module>
+         
     </modules>
+    
 </project>

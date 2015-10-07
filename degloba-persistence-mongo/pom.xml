@@ -15,20 +15,20 @@
 
     <dependencies>
     	
+    	<!-- ****************** -->
     	<!-- Llibreries degloba -->
+    	<!-- ****************** -->
         <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
-        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
 		</dependency>
-		
 		<dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>degloba-persistence-test</artifactId>
@@ -36,7 +36,9 @@
             <scope>test</scope>
         </dependency>
 	      
-        <!-- Llibreries dayatang -->
+		<!-- ******************** -->
+        <!-- Llibreries auxiliars -->
+        <!-- ******************** -->
          <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-db</artifactId>
@@ -50,6 +52,10 @@
             <scope>test</scope>
         </dependency>
        
+       
+ 		<!-- ********************************** -->
+            <!-- The Simple Logging Facade for Java -->
+            <!-- ********************************** -->       
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -58,12 +64,13 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
+        
          <dependency>
             <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.7.4</version>
+            <artifactId>aspectjweaver</artifactId>          	 
             <scope>test</scope>
         </dependency> 
+        
          <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
@@ -110,13 +117,18 @@
             <scope>test</scope>
         </dependency>
     		
+    		
+		<!-- ****** -->    		
 		<!-- Spring -->
+		<!-- ****** -->
 		<dependency>
 			<groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>   
         </dependency>
         
-        <!-- Testejar appengine -->
+        <!-- ************************************** -->
+        <!-- Google App Engine (Testejar appengine) -->
+        <!-- ************************************** -->
         <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-labs</artifactId>

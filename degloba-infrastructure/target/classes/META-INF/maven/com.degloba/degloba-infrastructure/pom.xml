@@ -6,33 +6,33 @@
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
     </parent>
+    
     <artifactId>degloba-infrastructure</artifactId>
     <packaging>jar</packaging>
-    <name>DDDLib API Interfaces and Base Classes</name>
+    <name>DDDLib API Interfaces and Base Classes by degloba</name>
     <description>
-        Módulo más importante , 
-        Proporciona las interfaces principales y clases base sobre las que se basa 
-        el desarrollo sobre DDD .
+        Proporciona les interfacies principals i classes base sobre les que se basa 
+        el desenvolupament sobre DDD .
     </description>
 
     <dependencies>
     
-    	<!-- Llibreries dayatang -->
+    	<!-- ******************** -->
+    	<!-- Llibreries auxiliars -->
+    	<!-- ******************** -->
         <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
         
+        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
         
-      <!--   <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-        </dependency> -->
+     
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -44,11 +44,12 @@
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.3</version>
+            <artifactId>gson</artifactId>     
         </dependency>
         
+        <!-- ******* -->
         <!--  Spring -->
+        <!-- ******* -->
         <dependency>
 			<groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -57,15 +58,14 @@
         	<groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
 		</dependency>    
-		
-		 <!-- Spring data mongodb -->
 		<dependency>
 		 	<groupId>org.springframework.data</groupId>
 		 	<artifactId>spring-data-mongodb</artifactId>		 
 		 </dependency>
 		  
-            
-		<!-- Llibreries degloba -->            
+		<!-- ****************** -->            
+		<!-- Llibreries degloba -->
+		<!-- ****************** -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
