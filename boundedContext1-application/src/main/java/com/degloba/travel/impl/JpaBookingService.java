@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 import com.degloba.travel.Booking;
 import com.degloba.travel.Hotel;
 import com.degloba.travel.User;
-import com.degloba.travel.api.BookingService;
+import com.degloba.travel.application.api.BookingService;
 import com.google.appengine.api.datastore.Key;
 
 
@@ -115,11 +115,11 @@ public class JpaBookingService implements BookingService, Serializable {
 				.setParameter("username", username).getSingleResult();
 	}
 
-	@Override
+/*	@Override
 	public List<Hotel> findHotels(SearchCriteria criteria) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	@Override
 	public void cancelBooking(Long booking) {
@@ -129,6 +129,18 @@ public class JpaBookingService implements BookingService, Serializable {
 
 	@Override
 	public User login(String usrname, String pw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Booking findBookingById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hotel> findHotels(com.degloba.travel.services.SearchCriteria criteria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
