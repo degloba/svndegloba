@@ -8,31 +8,36 @@
     </parent>
     <artifactId>degloba-domain</artifactId>
     <packaging>jar</packaging>
-    <name>API Interfaces and Base Classes</name>
+    <name>API Interfaces and Base Classes Domain</name>
     <description>
         Most important module that provides the core interfaces and base classes.
     </description>
 
     <dependencies>
+		
+		<!-- ******************** -->    
+    	<!-- Llibreries Auxiliars -->
+    	<!-- ******************** -->
         <dependency>
             <groupId>org.dayatang.dddlib</groupId>
             <artifactId>dddlib-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
+        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
         
-      <!--   <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-        </dependency> -->
+      
         <!-- Versio Datanucleus per JPA -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-		</dependency>		        
+		</dependency>	
+		
+			        
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
@@ -44,20 +49,18 @@
 			<groupId>javax.jdo</groupId>
 			<artifactId>jdo-api</artifactId>
 		</dependency>
-                    
-		<!-- Llibreries degloba -->                        
+           
+           
+		<!-- ****************** -->                    	
+		<!-- Llibreries degloba -->
+		<!-- ****************** -->                        
 		<dependency>
            	<groupId>${project.groupId}</groupId>
            	<artifactId>degloba-utilitats</artifactId>
            	<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 		
-		
-	<!-- 	 <dependency>
-        	<groupId>org.springframework.data</groupId>
-        	<artifactId>spring-data-jpa</artifactId>
-        	<version>1.7.1.RELEASE</version>
-        </dependency> -->
+	
     </dependencies>
 
     <build>
@@ -107,7 +110,8 @@
         	<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
-	        </plugin>
+	        </plugin> 
+	        
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
