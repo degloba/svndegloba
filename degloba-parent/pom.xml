@@ -106,7 +106,7 @@
           <module>../degloba-ioc-spring</module>
           <!-- <module>../degloba-ioc-test</module> -->
 
-         <!--  <module>../casino</module> -->
+           <module>../casino</module> 
     </modules>    
 
 
