@@ -875,6 +875,6 @@
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
     	<module>../boundedContext1-facade-impl</module>
-    	<!-- <module>../boundedContext1-webapp</module>   -->
+    	<module>../boundedContext1-webapp</module>   
     </modules>
 </project>
