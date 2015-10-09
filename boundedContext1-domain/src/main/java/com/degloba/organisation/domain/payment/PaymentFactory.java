@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import com.degloba.annotations.DomainFactory;
 import com.degloba.domain.DomainEventPublisher;
 import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
-import com.degloba.utils.Utils;
+//import com.degloba.utils.Utils;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;

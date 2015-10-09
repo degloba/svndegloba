@@ -1,17 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-<display-name>wwwdegloba</display-name>
-    <description>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>wwwdegloba</display-name>
+  <description>
     	Aplicació web configurada per executar-se sobre Google AppEngine for Java.
    </description>
- 
-<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
-<context-param>
-	<description>
+  <context-param>
+    <description>
             When enabled, the runtime initialization and default ResourceHandler
             implementation will use threads to perform their functions. Set this
             value to false if threads aren't desired (as in the case of running
@@ -20,224 +14,143 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
             Note that when this option is disabled, the ResourceHandler will not
             pick up new versions of resources when ProjectStage is development.
 	</description>
-	<param-name>com.sun.faces.enableThreading</param-name>
-	<param-value>false</param-value>
-</context-param>
-  
-<context-param>
-	<description>
+    <param-name>com.sun.faces.enableThreading</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <description>
 		Used to specify where the state should be saved.
 		If you want to save the state on the server (which is the default in the JavaServer Faces reference implementation), 
 		specify the param-value value as server
 		Otherwise to save the state on the client side we can specify client in the param-value. 
 	</description>
-	<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-	<param-value>client</param-value>
-</context-param>
-  
-<!-- Configuracio dels "recursos" en Richfaces -->
-<!-- http://docs.jboss.org/richfaces/latest_4_1_X/Developer_Guide/en-US/html/chap-Developer_Guide-Advanced_features.html#sect-Developer_Guide-Advanced_features-Resource_mapping -->
-<context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
     <param-name>org.richfaces.resourceMapping.enabled</param-name>
     <param-value>true</param-value>
-</context-param>
-<context-param>
+  </context-param>
+  <context-param>
     <param-name>org.richfaces.resourceMapping.mappingFile</param-name>
     <param-value>META-INF/richfaces/static-resource-mappings.properties</param-value>
-</context-param>
-<context-param>
+  </context-param>
+  <context-param>
     <param-name>org.richfaces.resourceMapping.location</param-name>
     <param-value>#{facesContext.externalContext.requestContextPath}/resources/#{resourceLocation}</param-value>
-</context-param>
-<context-param>
-  <param-name>org.richfaces.enableControlSkinning</param-name>
-  <param-value>true</param-value>
-</context-param>
-<context-param>
-	<param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
-	<param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
-</context-param>
-<context-param>
-  <param-name>org.richfaces.executeAWTInitializer</param-name>
-  <param-value>false</param-value>
-</context-param>
-<context-param>
-  <param-name>org.richfaces.skin</param-name>
-  <param-value>blueSky</param-value>
-</context-param>
-
-
-<!-- SPRING -->
-<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-<context-param>
-	<param-name>contextConfigLocation</param-name>
-	<!-- <param-value>classpath*:applicationContext.xml</param-value> -->
-	<param-value>classpath:/META-INF/spring/root-context.xml</param-value>
-</context-param> 
-
-
-<!-- JSF -->
-<!-- Facelets (llibreria d'etiquetes) --> 
-<context-param>
-	<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-	<!-- <param-value>/WEB-INF/degloba_tags.xml</param-value> -->
-	 <param-value>/WEB-INF/springsecurity.taglib.xml</param-value> 
-</context-param>
-<context-param>
-	<param-name>javax.faces.CONFIG_FILES</param-name>
-	<param-value></param-value>
-</context-param>    
-<context-param>
-	<param-name>javax.faces.PROJECT_STAGE</param-name>
-	<param-value>Production</param-value>
-</context-param>
-<context-param>
-	<param-name>javax.faces.SKIP_COMMENTS</param-name>
-	<param-value>true</param-value>
-</context-param>
- 
-<!-- Expression Language --> 
-<context-param> 
-	<param-name>com.sun.faces.expressionFactory</param-name> 
-	<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-</context-param>
-<!--  <context-param>
-        <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
-        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-</context-param> -->
-    
-<!-- ***** Specify JBoss Expression Language Over Default 
-<context-param>     
-	<param-name>com.sun.faces.expressionFactory</param-name>
-	<param-value>org.jboss.el.ExpressionFactoryImpl</param-value>   
-</context-param> -->
-    
-    
-<welcome-file-list>
-	<welcome-file>index.jsf</welcome-file>
-</welcome-file-list>
- 
- 
-<!-- 	SPRING SECURITY	(TRAVEL)-->
-	<filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-        <!-- <init-param>
-            <param-name>targetBeanName</param-name>
-            <param-value>springSecurityFilterChain</param-value>
-        </init-param> -->
-    </filter>
-	 
-	<filter-mapping>
-      <filter-name>springSecurityFilterChain</filter-name>
-      <servlet-name>springmvcservlet</servlet-name>
-      <url-pattern>/app/*</url-pattern>
-    </filter-mapping>
-    
-    <!-- dddlib -->
-<!-- <filter>
-	<filter-name>csrfFilter</filter-name>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.enableControlSkinning</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.ajax4jsf.cache.CACHE_MANAGER_FACTORY_CLASS</param-name>
+    <param-value>org.ajax4jsf.cache.lru.LRUMapCacheFactory</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.executeAWTInitializer</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.skin</param-name>
+    <param-value>blueSky</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+    <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.CONFIG_FILES</param-name>
+    <param-value></param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.sun.faces.expressionFactory</param-name>
+    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.jsf</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    <async-supported>true</async-supported>
-</filter>
-<filter-mapping>
-	<filter-name>csrfFilter</filter-name>
-	<servlet-name>appServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
-</filter-mapping> -->
-    
-<!-- JSF --> 
-<listener>
-	<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-</listener>
-
-<!-- SPRING -->
-<!-- Creates the Spring Container shared by all Servlets and Filters -->  
-<listener> 	
-	 <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>   
- 	<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>   -->
-</listener> 
-	
-<listener>
-	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-</listener>
- 
- <!-- Processes application requests -->
- <!-- spring mvc servlet -->
-	<servlet>
-		<servlet-name>springmvcservlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-            <param-name>contextConfigLocation</param-name>
-             <param-value>classpath:/META-INF/spring/travel/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>  
-             <!-- <param-value>classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value> --> 
-            <!-- <param-value>classpath*:applicationContext.xml</param-value> -->
-        </init-param>
-         <load-on-startup>1</load-on-startup> 
-       <!--  <async-supported>true</async-supported> -->
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>springmvcservlet</servlet-name>
-		 <url-pattern>/app/*</url-pattern> 
-		<!-- <url-pattern>/*</url-pattern>  -->
-	</servlet-mapping>  
- 
-
-<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
-	<servlet>
-		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	
-	<!-- Just here so the JSF implementation can initialize -->
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
-    
-    
-<!-- Per accedir als recursos de Richfaces (icones,images,js,...) --> 
-<servlet>
-	<servlet-name>Resource Servlet</servlet-name>
-	<servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
-	<!-- <load-on-startup>1</load-on-startup> -->
-</servlet>
-<servlet-mapping>
-	<servlet-name>Resource Servlet</servlet-name>
-	<url-pattern>/org.richfaces.resources/*</url-pattern>
-</servlet-mapping>
- 
- 
-
-
-<!-- GAE -->
-<servlet>
-	<display-name>Remote API Servlet</display-name>
-	<servlet-name>RemoteApiServlet</servlet-name>
-	<servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
-	<load-on-startup>1</load-on-startup>
-</servlet>
-<servlet-mapping>
-	<servlet-name>RemoteApiServlet</servlet-name>
-	<url-pattern>/remote_api</url-pattern>
-</servlet-mapping>
- 
- 
-<!-- ***** Filter Definitions ***** 
-<filter>	
-      <display-name>AppEngine Bug 8145 Work Around</display-name>
-      <filter-name>GAEBug8145WorkAround</filter-name>
-      <filter-class>com.degloba.gae.jsf22.HttpIfModifiedSinceFix</filter-class>
-</filter>
-<filter-mapping>
-	<filter-name>GAEBug8145WorkAround</filter-name>
-	<url-pattern>/*</url-pattern>
-</filter-mapping> -->
- 
- <session-config>
-  <session-timeout>0</session-timeout>
-</session-config>
- 
- 
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>springmvcservlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:/META-INF/spring/travel/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Resource Servlet</servlet-name>
+    <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Resource Servlet</servlet-name>
+    <url-pattern>/org.richfaces.resources/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Remote API Servlet</display-name>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <url-pattern>/remote_api</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>0</session-timeout>
+  </session-config>
+  <servlet>
+    <description>Sample Servlet</description>
+    <display-name>BoundedContext1_webappServlet</display-name>
+    <servlet-name>BoundedContext1_webappServlet</servlet-name>
+    <servlet-class>com.example.myproject.BoundedContext1_webappServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoundedContext1_webappServlet</servlet-name>
+    <url-pattern>/boundedcontext1_webapp</url-pattern>
+  </servlet-mapping>
 </web-app>

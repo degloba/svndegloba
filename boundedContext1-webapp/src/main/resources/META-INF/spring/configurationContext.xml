@@ -13,7 +13,7 @@
 	<context:annotation-config /> 
 	
 	 <!-- 	<context:component-scan base-package="command,query,com.degloba.organisation.facade,com.degloba.organisation.application,com.degloba.organisation.domain"/>  -->  
-	 <!-- 	<context:component-scan base-package="query, com.degloba.organisation.facade, com.degloba.organisation.application, com.degloba.domain, com.degloba.persistence.jpa"/> -->  
+	 <!--  	<context:component-scan base-package="query, com.degloba.organisation.facade, com.degloba.organisation.application, com.degloba.domain, com.degloba.persistence.jpa"/>  -->    
 	 <!--	<context:component-scan base-package="command,query"/> -->
 	 
 	<!-- map all requests to /resources/** to the container default servlet (ie, don't let Spring handle them) -->
@@ -76,8 +76,8 @@
 	<!-- *********************** -->
 	<!-- APPLICATIONS            -->
 	<!-- *********************** -->
-	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" autowire="byType">
-		<constructor-arg name="repository" ref="repository"/>  
+	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl">
+		 <constructor-arg name="repository" ref="repository"/>   
 	</bean>   
 	 
 	 

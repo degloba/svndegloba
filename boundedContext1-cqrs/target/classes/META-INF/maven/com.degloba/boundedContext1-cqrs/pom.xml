@@ -15,25 +15,18 @@
     
     <dependencies>
         	
-        <dependency>
+         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
-            <version>4.4.3-SNAPSHOT</version>
-        </dependency>
+            <version>${project.version}</version>
+        </dependency> 
         
         <!-- Llibreries degloba -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-cqrs</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
-		
-		
-		<dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>${google.appengine}</version>
-        </dependency>
 		
     </dependencies>
     

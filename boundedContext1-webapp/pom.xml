@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+    <modelVersion>4.0.0</modelVersion>
     <parent>
 	    <artifactId>casino-boundedContext1</artifactId>
 	    <groupId>com.degloba</groupId>
 	    <version>4.4.3-SNAPSHOT</version>
 	</parent>
   
-	<modelVersion>4.0.0</modelVersion>
+	
     <artifactId>boundedContext1-webapp</artifactId>
     <packaging>war</packaging>
 	<name>casino - boundedContext1- Structure - Webapp</name>
@@ -44,21 +44,28 @@
     
     <dependencies>
     
+            <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-facade-impl</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency> 
+    
         <!--Compile-->
-        <dependency>
+		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> 
 		<!-- <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-cqrs</artifactId>
             <version>${project.version}</version>
         </dependency> -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>            
-        </dependency> 
+        </dependency>  
 		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
@@ -66,7 +73,7 @@
 		<dependency>                         
 			<groupId>org.springframework</groupId> 
 			<artifactId>spring-webmvc</artifactId>   			                                 
-		</dependency> 
+		</dependency> -->
 		<!-- <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -78,24 +85,19 @@
 
 
         <!--Runtime-->
-        <!--  <dependency>
+          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-application</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope> 
-        </dependency>  -->
-        <dependency>
+             <scope>runtime</scope> 
+        </dependency>   
+       <!--  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
-          <!--   <scope>runtime</scope>  -->
-        </dependency>  
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-facade-impl</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+            <scope>runtime</scope> 
+        </dependency>   -->
+ 
         
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -113,6 +115,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
+            <scope>runtime</scope>
           
         </dependency>         
         <dependency>
@@ -337,17 +340,17 @@
 
     <build>
         <plugins>
-           <!--  <plugin>
+             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
+               <!--  <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
-                </configuration>
-            </plugin> -->
+                </configuration> -->
+            </plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
