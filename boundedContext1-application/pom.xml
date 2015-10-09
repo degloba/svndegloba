@@ -13,9 +13,8 @@
     <url>http://maven.apache.org</url>
     
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework-version>3.1.0.RC1</org.springframework-version>
-               <spring.integration.version>2.1.0.RC1</spring.integration.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>        
+		<spring.integration.version>2.1.0.RC1</spring.integration.version>
         <spring.integration.amqp.version>2.1.0.RC1</spring.integration.amqp.version>
     </properties>
     
@@ -45,20 +44,17 @@
 		<!-- ****** -->
 		<!-- Spring -->
 		<!-- ****** -->
-     	<dependency>
+     	<!-- <dependency>
 			<groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-amqp</artifactId>
 			<version>1.5.0.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-amqp</artifactId>
-			<version>${spring.integration.version}</version>
-		</dependency>
+		
+		
 		<dependency>
         	<groupId>org.springframework</groupId>
 			<artifactId>spring-jms</artifactId>                
@@ -67,6 +63,15 @@
         	<groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>                
 		</dependency>
+		
+		<!-- ****************** -->
+		<!-- Spring Integration -->
+		<!-- ****************** -->
+ 		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-amqp</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency> 		
         <dependency>
         	<groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-jms</artifactId>
@@ -82,11 +87,16 @@
             <artifactId>spring-integration-core</artifactId>
             <version>${spring.integration.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.data.gemfire</groupId>
 			<artifactId>spring-gemfire</artifactId>
 			<version>1.0.1.RELEASE</version>
 		</dependency>
+		
+		<!-- *********** -->
+		<!-- Spring Data -->
+		<!-- *********** -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-gemfire</artifactId>
