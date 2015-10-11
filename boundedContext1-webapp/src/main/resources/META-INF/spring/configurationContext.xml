@@ -70,23 +70,23 @@
 	<!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
- 	 <bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />   
+ <!-- 	<bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />   -->  
  	 
 	
 	<!-- *********************** -->
 	<!-- APPLICATIONS            -->
 	<!-- *********************** -->
-	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl">
-		 <constructor-arg name="repository" ref="repository"/>   
-	</bean>   
+	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" autowire="byType">
+		  <!-- <constructor-arg name="repository" ref="repository"/>     -->
+	</bean>    
 	 
 	 
 	<!-- *********************** -->
 	<!-- FACADES                 -->
 	<!-- *********************** -->
- 	  <bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
+ 	<bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
 		 <property name="application" ref="application"></property> 
-	</bean>  
+	</bean> 
 	
 	
 	<!-- *********************** -->
