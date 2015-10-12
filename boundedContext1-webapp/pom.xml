@@ -85,12 +85,12 @@
 
 
         <!--Runtime-->
-          <dependency>
+         <!--  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-application</artifactId>
             <version>${project.version}</version>
              <scope>runtime</scope> 
-        </dependency>   
+        </dependency>    -->
        <!--  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
@@ -105,19 +105,19 @@
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-         <!-- <dependency>
+          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope> 
-        </dependency> -->
-		 <dependency>
+        </dependency> 
+	  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
           
-        </dependency>         
+        </dependency>        
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -321,6 +321,7 @@
         	<artifactId>cache-api</artifactId>
         	<version>1.0.0</version>
         </dependency>
+        
     </dependencies>
     
 
