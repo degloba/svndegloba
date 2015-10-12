@@ -11,12 +11,14 @@
     <name>casino - boundedContext1 - Structure - Facade</name>
     
     <dependencies>
-    
-     <dependency>
+ 
+ 
+	<!-- Per utilitzar com.google.appengine.api.datastore.Key -->   
+    <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>${google.appengine}</version>
-        </dependency>
+        </dependency> 
         
     </dependencies>
     

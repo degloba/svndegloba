@@ -21,12 +21,17 @@ import com.google.appengine.api.datastore.Key;
 public class OrganisationApplicationImpl implements OrganisationService {
 	
 	
-    @Inject
+    //////@Inject
     private EntityRepository repository;
 
-   public OrganisationApplicationImpl(EntityRepository repository) {
-        this.repository = repository;
-    }
+   public EntityRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(EntityRepository repository) {
+		this.repository = repository;
+	}
+
  
     @Override
     public <T extends Entity> T getEntity(Class<T> entityClass, Key entityId) {
@@ -66,6 +71,11 @@ public class OrganisationApplicationImpl implements OrganisationService {
 	public OrganisationApplicationImpl() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public OrganisationApplicationImpl(EntityRepository repository) {
+		super();
+		this.repository = repository;
 	}
 
 	

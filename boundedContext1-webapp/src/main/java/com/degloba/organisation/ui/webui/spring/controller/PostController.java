@@ -18,6 +18,7 @@ public class PostController extends BaseController {
     @RequestMapping(value = "{postId}")
     public PostDto getPost(@PathVariable long postId) {
     	    	   	
-    	return facade.getPost(KeyFactory.createKey(Post.class.getSimpleName(), "1"));
+    	//return facade.getPost(KeyFactory.createKey(Post.class.getSimpleName(), "1"));
+    	return facade.getPost(KeyFactory.createKey("Post",postId));
     }
 }

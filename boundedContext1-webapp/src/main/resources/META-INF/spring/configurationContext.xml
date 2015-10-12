@@ -67,17 +67,11 @@
 	</bean>
 	
 	
-	<!-- ************ -->
-	<!-- REPOSITORIS  --> 
-	<!-- ************ -->
- <!-- 	<bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />   -->  
- 	 
-	
 	<!-- *********************** -->
 	<!-- APPLICATIONS            -->
 	<!-- *********************** -->
-	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" autowire="byType">
-		  <!-- <constructor-arg name="repository" ref="repository"/>     -->
+	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" >
+		    <constructor-arg name="repository" ref="repository"/>      	 
 	</bean>    
 	 
 	 
@@ -95,6 +89,10 @@
 	 <bean id="bookingService" class="com.degloba.travel.services.JpaBookingService" >
 	</bean>
 	
+	 <!-- ************ -->
+	<!-- REPOSITORIS  --> 
+	<!-- ************ -->
+  	  <bean id="repository" class="com.degloba.travel.services.EntityRepositoryJpa" />      
 
 
 </beans>
