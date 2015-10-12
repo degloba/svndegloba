@@ -143,14 +143,5 @@
   <session-config>
     <session-timeout>0</session-timeout>
   </session-config>
-  <servlet>
-    <description>Sample Servlet</description>
-    <display-name>BoundedContext1_webappServlet</display-name>
-    <servlet-name>BoundedContext1_webappServlet</servlet-name>
-    <servlet-class>com.example.myproject.BoundedContext1_webappServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BoundedContext1_webappServlet</servlet-name>
-    <url-pattern>/boundedcontext1_webapp</url-pattern>
-  </servlet-mapping>
+  
 </web-app>

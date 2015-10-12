@@ -30,6 +30,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/degloba-persistence-jpa"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
