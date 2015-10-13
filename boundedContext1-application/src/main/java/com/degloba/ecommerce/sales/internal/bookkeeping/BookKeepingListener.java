@@ -24,12 +24,12 @@ import com.degloba.ecommerce.sales.client.Client;
 import com.degloba.ecommerce.sales.client.ClientRepository;
 import com.degloba.ecommerce.sales.invoicing.BookKeeper;
 import com.degloba.ecommerce.sales.invoicing.Invoice;
-import com.degloba.ecommerce.sales.invoicing.InvoiceRepository;
+import com.degloba.ecommerce.sales.invoicing.IInvoiceRepository;
 import com.degloba.ecommerce.sales.invoicing.InvoiceRequest;
 import com.degloba.ecommerce.sales.invoicing.InvoiceRequestFactory;
 import com.degloba.ecommerce.sales.invoicing.TaxAdvisor;
 import com.degloba.ecommerce.sales.purchase.Purchase;
-import com.degloba.ecommerce.sales.purchase.PurchaseRepository;
+import com.degloba.ecommerce.sales.purchase.IPurchaseRepository;
 
 @EventListeners
 public class BookKeepingListener {
@@ -38,10 +38,10 @@ public class BookKeepingListener {
 	private BookKeeper bookKeeper;
 	
 	@Inject
-	private PurchaseRepository purchaseRepository;
+	private IPurchaseRepository purchaseRepository;
 	
 	@Inject
-	private InvoiceRepository invoiceRepository;
+	private IInvoiceRepository invoiceRepository;
 	
 	@Inject
 	private TaxAdvisor taxAdvisor;

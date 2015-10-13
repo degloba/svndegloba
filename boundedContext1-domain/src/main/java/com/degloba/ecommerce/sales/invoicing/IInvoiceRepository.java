@@ -13,20 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.degloba.ecommerce.sales.productscatalog;
+package com.degloba.ecommerce.sales.invoicing;
 
-import java.util.List;
+import com.degloba.annotations.DomainRepository;
 
-import org.springframework.stereotype.Repository;
+/**
+ * 
+ * @author Slawek
+ *
+ */
+@DomainRepository
+public interface IInvoiceRepository {
 
-import com.google.appengine.api.datastore.Key;
+	/**
+	 * @param invoice
+	 */
+	public void save(Invoice invoice);
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-
-@Repository
-public interface ProductRepository {
-
-	public Product load(Key productId);
-	
-	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
 }

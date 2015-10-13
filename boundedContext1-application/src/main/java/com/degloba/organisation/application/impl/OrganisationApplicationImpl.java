@@ -22,20 +22,20 @@ public class OrganisationApplicationImpl implements OrganisationService {
 	
 	
     //////@Inject
-    private EntityRepository repository;
+    private EntityRepository organisationRepository;
 
    public EntityRepository getRepository() {
-		return repository;
+		return organisationRepository;
 	}
 
-	public void setRepository(EntityRepository repository) {
-		this.repository = repository;
+	public void setRepository(EntityRepository organisationRepository) {
+		this.organisationRepository = organisationRepository;
 	}
 
  
     @Override
     public <T extends Entity> T getEntity(Class<T> entityClass, Key entityId) {
-        return repository.get(entityClass, entityId);
+        return organisationRepository.get(entityClass, entityId);
     }
 
     @Override
@@ -73,9 +73,9 @@ public class OrganisationApplicationImpl implements OrganisationService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrganisationApplicationImpl(EntityRepository repository) {
+	public OrganisationApplicationImpl(EntityRepository organisationRepository) {
 		super();
-		this.repository = repository;
+		this.organisationRepository = organisationRepository;
 	}
 
 	

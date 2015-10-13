@@ -13,24 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * 
- */
-package com.degloba.ecommerce.crm.domain;
+package com.degloba.ecommerce.sales.productscatalog;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
 
 import com.google.appengine.api.datastore.Key;
 
-import com.degloba.annotations.DomainRepository;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
-/**
- * @author Slawek
- * 
- */
-@DomainRepository
-public interface CustomerRepository {
+@Repository
+public interface IProductRepository {
 
-	public Customer load(Key id);
-
-	public void save(Customer entity);
+	public Product load(Key productId);
+	
+	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
 }

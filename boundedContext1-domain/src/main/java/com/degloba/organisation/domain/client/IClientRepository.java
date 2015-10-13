@@ -6,7 +6,7 @@ import com.google.appengine.api.datastore.Key;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 @DomainRepository
-public interface ClientRepository {
+public interface IClientRepository {
 
 	public Client load(Key id);
 

@@ -13,21 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * 
- */
-package com.degloba.ecommerce.crm.infrastructure.repositories.jpa;
+package com.degloba.ecommerce.shipping.domain;
 
-import com.degloba.annotations.DomainRepositoryImpl;
-import com.degloba.domain.GenericJpaRepository;
-import com.degloba.ecommerce.crm.domain.Customer;
-import com.degloba.ecommerce.crm.domain.CustomerRepository;
+import com.degloba.annotations.DomainRepository;
+//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+import com.google.appengine.api.datastore.Key;
 
 /**
- * @author Slawek
- *
+ * @author Rafał Jamróz
  */
-@DomainRepositoryImpl
-public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
+@DomainRepository
+public interface IShipmentRepository {
 
+    void save(Shipment order);
+
+    Shipment load(Key orderId);
 }

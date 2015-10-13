@@ -13,17 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.degloba.ecommerce.sales.purchase;
+package com.degloba.ecommerce.sales.reservation;
 
 import com.degloba.annotations.DomainRepository;
+//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-
 @DomainRepository
-public interface PurchaseRepository {
+public interface IReservationRepository {
 
-	Purchase load(Key orderId);
+	void save(Reservation reservation);
 
-	void save(Purchase purchase);
+	Reservation load(Key reservationId);
 }

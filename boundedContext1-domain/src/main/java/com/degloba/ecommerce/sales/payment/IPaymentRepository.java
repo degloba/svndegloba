@@ -20,7 +20,7 @@ import com.degloba.annotations.DomainRepository;
 import com.google.appengine.api.datastore.Key;
 
 @DomainRepository
-public interface PaymentRepository {
+public interface IPaymentRepository {
 
 	public Payment load(Key paymentId);
 	

@@ -22,7 +22,7 @@ import javax.inject.Inject;
 import com.degloba.annotations.DomainService;
 import com.degloba.ecommerce.sales.client.Client;
 import com.degloba.ecommerce.sales.productscatalog.Product;
-import com.degloba.ecommerce.sales.productscatalog.ProductRepository;
+import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
 //////////import com.degloba.ecommerce.sales.readmodel.offer.Offer;
 import com.degloba.domain.specification.Specification;
 
@@ -36,7 +36,7 @@ import com.degloba.domain.specification.Specification;
 public class SuggestionService {
 
 	@Inject
-	private ProductRepository productRepository;
+	private IProductRepository productRepository;
 	
 	//////////@Inject
 	//////////private Offer offer;

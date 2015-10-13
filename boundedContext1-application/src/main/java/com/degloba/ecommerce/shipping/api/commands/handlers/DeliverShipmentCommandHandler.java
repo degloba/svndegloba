@@ -21,13 +21,13 @@ import command.annotations.CommandHandlerAnnotation;
 import command.handler.CommandHandler;
 import com.degloba.ecommerce.shipping.api.commands.DeliverShipmentCommand;
 import com.degloba.ecommerce.shipping.domain.Shipment;
-import com.degloba.ecommerce.shipping.domain.ShipmentRepository;
+import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
 
 @CommandHandlerAnnotation
 public class DeliverShipmentCommandHandler implements CommandHandler<DeliverShipmentCommand, Void> {
 
     @Inject
-    private ShipmentRepository repository;
+    private IShipmentRepository repository;
 
     @Override
     public Void handle(DeliverShipmentCommand command) {

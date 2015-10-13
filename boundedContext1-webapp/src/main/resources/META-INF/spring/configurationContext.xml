@@ -71,7 +71,7 @@
 	<!-- APPLICATIONS            -->
 	<!-- *********************** -->
 	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" >
-		    <constructor-arg name="repository" ref="repository"/>      	 
+		    <constructor-arg name="organisationRepository" ref="organisationRepository"/>      	 
 	</bean>    
 	 
 	 
@@ -92,7 +92,12 @@
 	 <!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
-  	  <bean id="repository" class="com.degloba.travel.services.EntityRepositoryJpa" />      
+  <!-- 	  <bean id="repository" class="com.degloba.travel.services.EntityRepositoryJpa" />   -->
+  	  
+  	   <bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
+  	  
+  	  <bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
+  	  
 
 
 </beans>

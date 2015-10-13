@@ -18,7 +18,7 @@ package com.degloba.ecommerce.sales.invoicing;
 import javax.inject.Inject;
 
 import com.degloba.annotations.DomainService;
-import com.degloba.ecommerce.sales.productscatalog.ProductRepository;
+import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
 import com.degloba.domain.sharedkernel.Money;
 
 /**
@@ -38,7 +38,7 @@ import com.degloba.domain.sharedkernel.Money;
 public class BookKeeper {
 	
 	@Inject
-	private ProductRepository productRepository;
+	private IProductRepository productRepository;
 	
 	@Inject
 	private InvoiceFactory invoiceFactory;
