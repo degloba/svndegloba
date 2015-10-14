@@ -8,8 +8,11 @@ import command.handler.CommandHandler;
 import com.degloba.domain.EntityRepository;
 import com.degloba.ecommerce.sales.api.command.AddProdctCommand;
 import com.degloba.ecommerce.sales.client.Client;
+import com.degloba.ecommerce.sales.client.IClientRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
+import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.Product;
+import com.degloba.ecommerce.sales.reservation.IReservationRepository;
 import com.degloba.ecommerce.sales.reservation.Reservation;
 
 
@@ -24,14 +27,14 @@ public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand,
 	@Inject
 	private EntityRepository entityRepository;
 	
-/*	@Inject
-	private ReservationRepository reservationRepository;
+	@Inject
+	private IReservationRepository reservationRepository;   
 	
 	@Inject
-	private ProductRepository productRepository;
+	private IProductRepository productRepository; 
 	
 	@Inject
-	private ClientRepository clientRepository;*/
+	private IClientRepository clientRepository;
 	
 	
 	@Inject

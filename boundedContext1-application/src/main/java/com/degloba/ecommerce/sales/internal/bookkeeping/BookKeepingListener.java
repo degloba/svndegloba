@@ -6,7 +6,7 @@ import com.degloba.annotations.event.EventListener;
 import com.degloba.annotations.event.EventListeners;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
 import com.degloba.ecommerce.sales.client.Client;
-import com.degloba.ecommerce.sales.client.ClientRepository;
+import com.degloba.ecommerce.sales.client.IClientRepository;
 import com.degloba.ecommerce.sales.invoicing.BookKeeper;
 import com.degloba.ecommerce.sales.invoicing.Invoice;
 import com.degloba.ecommerce.sales.invoicing.IInvoiceRepository;
@@ -32,7 +32,7 @@ public class BookKeepingListener {
 	private TaxAdvisor taxAdvisor;
 	
 	@Inject
-	private ClientRepository clientRepository;
+	private IClientRepository clientRepository;
 	
 	@Inject
 	private InvoiceRequestFactory invoiceRequestFactory;

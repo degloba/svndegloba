@@ -13,17 +13,22 @@ import com.degloba.ecommerce.sales.api.command.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.api.service.OfferChangedExcpetion;
 import com.degloba.ecommerce.sales.api.service.OrderingService;
 import com.degloba.ecommerce.sales.client.Client;
+import com.degloba.ecommerce.sales.client.IClientRepository;
 //import pl.com.bottega.ecommerce.sales.domain.client.ClientRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.offer.DiscountFactory;
 import com.degloba.ecommerce.sales.offer.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.Offer;
+import com.degloba.ecommerce.sales.payment.IPaymentRepository;
 import com.degloba.ecommerce.sales.payment.Payment;
+import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
 //import pl.com.bottega.ecommerce.sales.domain.payment.PaymentRepository;
 import com.degloba.ecommerce.sales.productscatalog.Product;
+import com.degloba.ecommerce.sales.purchase.IPurchaseRepository;
 //import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductRepository;
 import com.degloba.ecommerce.sales.purchase.Purchase;
 import com.degloba.ecommerce.sales.purchase.PurchaseFactory;
+import com.degloba.ecommerce.sales.reservation.IReservationRepository;
 //import pl.com.bottega.ecommerce.sales.domain.purchase.PurchaseRepository;
 import com.degloba.ecommerce.sales.reservation.Reservation;
 import com.degloba.ecommerce.sales.reservation.ReservationFactory;
@@ -52,27 +57,27 @@ public class OrderingServiceImpl implements OrderingService {
 	@Inject
 	private EntityRepository entityRepository;
 	
-	/*@Inject
-	private ClientRepository clientRepository;
+	@Inject
+	private IClientRepository clientRepository;
 
 	@Inject
-	private ReservationRepository reservationRepository;
-*/
+	private IReservationRepository reservationRepository;
+
 	@Inject
 	private ReservationFactory reservationFactory;
 
 	@Inject
 	private PurchaseFactory purchaseFactory;
 
-	/*@Inject
-	private PurchaseRepository purchaseRepository;
+	@Inject
+	private IPurchaseRepository purchaseRepository;
 	
 	@Inject
-	private ProductRepository productRepository;*/
+	private IProductRepository productRepository;
 	
-	/*@Inject 
-	private PaymentRepository paymentRepository;
-*/
+	@Inject 
+	private IPaymentRepository paymentRepository;
+
 	@Inject
 	private DiscountFactory discountFactory;
 	
