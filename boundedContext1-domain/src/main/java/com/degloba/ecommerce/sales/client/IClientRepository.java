@@ -5,7 +5,7 @@ import com.degloba.annotations.DomainRepository;
 import com.google.appengine.api.datastore.Key;
 
 @DomainRepository
-public interface ClientRepository {
+public interface IClientRepository {
 
 	public Client load(Key id);
 
