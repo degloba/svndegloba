@@ -10,7 +10,7 @@ import org.springframework.beans.factory.BeanFactory;
 /**
  * TODO this is just a fake impl, based on standard synchronous impl
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 public class AsynchronousEventHandler extends SpringEventHandler{

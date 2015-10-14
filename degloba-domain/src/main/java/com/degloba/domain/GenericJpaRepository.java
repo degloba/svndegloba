@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  */
 public abstract class GenericJpaRepository<A extends BaseAggregateRoot> {
 

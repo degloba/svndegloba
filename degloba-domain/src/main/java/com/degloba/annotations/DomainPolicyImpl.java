@@ -2,7 +2,7 @@ package com.degloba.annotations;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 import java.lang.annotation.ElementType;

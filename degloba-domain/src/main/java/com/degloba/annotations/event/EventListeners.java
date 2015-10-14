@@ -6,7 +6,7 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Slawek
+ * @author degloba
  * 
  */
 @Component

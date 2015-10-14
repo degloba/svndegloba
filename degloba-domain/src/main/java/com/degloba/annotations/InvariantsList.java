@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * list of all invariants supported by aggregate
- * @author Slawek
+ * @author degloba
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

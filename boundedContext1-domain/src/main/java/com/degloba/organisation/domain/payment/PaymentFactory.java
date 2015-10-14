@@ -16,7 +16,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 @DomainFactory

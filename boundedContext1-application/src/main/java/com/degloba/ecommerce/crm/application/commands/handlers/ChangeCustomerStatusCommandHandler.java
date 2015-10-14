@@ -9,7 +9,7 @@ import com.degloba.ecommerce.crm.domain.Customer;
 import com.degloba.ecommerce.crm.domain.ICustomerRepository;
 
 /**
- * @author Slawek
+ * @author degloba
  *
  */
 @CommandHandlerAnnotation

@@ -3,7 +3,7 @@ package com.degloba.domain;
 import java.io.Serializable;
 
 /**
- * @author Slawek
+ * @author degloba
  */
 
 /**

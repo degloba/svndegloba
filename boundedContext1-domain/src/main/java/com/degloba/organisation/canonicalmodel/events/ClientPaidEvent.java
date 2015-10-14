@@ -11,7 +11,7 @@ import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;
 
 /**
- * @author Slawek
+ * @author degloba
  * 
  */
 @SuppressWarnings("serial")

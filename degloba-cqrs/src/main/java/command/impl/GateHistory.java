@@ -17,7 +17,7 @@ import command.annotations.Command;
  * <br>
  * Each command class has it's own entries in history - history length can be parameterized via constructor parameter. 
  * 
- * @author Slawek
+ * @author degloba
  * 
  */
 class GateHistory {

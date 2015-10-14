@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * List of Aggregate invariants implemented in method
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

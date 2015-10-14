@@ -2,7 +2,7 @@ package com.degloba.domain.specification;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  *
  * @param <T>
  */

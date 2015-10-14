@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Slawek
+ * @author degloba
  * 
  */
 @Retention(RetentionPolicy.RUNTIME)

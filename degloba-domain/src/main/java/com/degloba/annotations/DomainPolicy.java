@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 
- * @author Slawek
+ * @author degloba
  *
  */
 @Component
