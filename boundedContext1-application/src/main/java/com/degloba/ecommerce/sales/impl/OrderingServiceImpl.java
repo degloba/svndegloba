@@ -104,9 +104,9 @@ public class OrderingServiceImpl implements OrderingService {
 	@Override
 	public void addProduct(Key orderId, Key productId,
 			int quantity) {
-		Reservation reservation = entityRepository.load(Reservation.class,orderId);
+		Reservation reservation = reservationRepository.load(Reservation.class,orderId);
 		
-		Product product = entityRepository.load(Product.class,productId);
+		Product product = productRepository.load(Product.class,productId);
 		
 		if (! product.isAvailabe()){
 			Client client = loadClient();	
