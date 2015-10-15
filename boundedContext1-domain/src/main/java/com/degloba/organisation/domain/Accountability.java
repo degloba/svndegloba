@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
 
 import org.dayatang.utils.DateUtils;

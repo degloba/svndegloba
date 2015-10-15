@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
 
 

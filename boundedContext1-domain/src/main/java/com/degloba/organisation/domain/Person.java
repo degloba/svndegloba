@@ -1,6 +1,5 @@
 package com.degloba.organisation.domain;
 
-import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
 
 import javax.persistence.*;
