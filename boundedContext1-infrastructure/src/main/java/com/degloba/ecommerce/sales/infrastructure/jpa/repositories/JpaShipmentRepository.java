@@ -2,7 +2,6 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 import com.degloba.annotations.DomainRepositoryImpl;
 import com.degloba.domain.EntityRepositoryJpa;
-import com.degloba.domain.GenericJpaRepository;
 
 import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
 import com.degloba.ecommerce.shipping.domain.Shipment;
