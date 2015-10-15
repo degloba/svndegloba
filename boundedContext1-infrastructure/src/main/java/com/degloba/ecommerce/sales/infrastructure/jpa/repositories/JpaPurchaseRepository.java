@@ -13,7 +13,7 @@ import com.google.appengine.api.datastore.Key;
  */
 @DomainRepositoryImpl
 //public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaPurchaseRepository extends EntityRepositoryJpa implements IPurchaseRepository{
+public class JpaPurchaseRepository extends EntityRepositoryJpa<Purchase> implements IPurchaseRepository{
 
 	@Override
 	public Purchase load(Key id) {

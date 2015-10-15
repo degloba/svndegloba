@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
  */
 @DomainRepositoryImpl
 //public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaClientRepository extends EntityRepositoryJpa implements IClientRepository{
+public class JpaClientRepository extends EntityRepositoryJpa<Client> implements IClientRepository{
 
 	@Override
 	public Client load(Key id) {

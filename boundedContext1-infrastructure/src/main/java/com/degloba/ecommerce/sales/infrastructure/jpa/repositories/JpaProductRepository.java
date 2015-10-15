@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
  */
 @DomainRepositoryImpl
 //public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaProductRepository extends EntityRepositoryJpa implements IProductRepository{
+public class JpaProductRepository extends EntityRepositoryJpa<Product> implements IProductRepository{
 
 	@Override
 	public Product load(Key id) {
@@ -25,6 +25,12 @@ public class JpaProductRepository extends EntityRepositoryJpa implements IProduc
 
 	@Override
 	public List<Product> findProductWhereBestBeforeExpiredIn(int days) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product load(Class<Product> class1, Key productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
