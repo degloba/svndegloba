@@ -10,4 +10,6 @@ public interface IReservationRepository {
 	void save(Reservation reservation);
 
 	Reservation load(Key reservationId);
+
+	Reservation load(Class<Reservation> class1, Key orderId);
 }

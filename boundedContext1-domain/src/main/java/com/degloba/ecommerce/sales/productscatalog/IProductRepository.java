@@ -14,4 +14,6 @@ public interface IProductRepository {
 	public Product load(Key productId);
 	
 	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
+
+	public Product load(Class<Product> class1, Key productId);
 }
