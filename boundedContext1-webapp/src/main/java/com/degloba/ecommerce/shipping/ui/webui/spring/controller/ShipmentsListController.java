@@ -15,8 +15,8 @@ import command.Gate;
 
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.shipping.api.commands.DeliverShipmentCommand;
-import com.degloba.ecommerce.shipping.api.commands.SendShipmentCommand;
+import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
+import com.degloba.ecommerce.shipping.application.api.commands.SendShipmentCommand;
 import com.degloba.ecommerce.shipping.readmodel.ShipmentDto;
 import com.degloba.ecommerce.shipping.readmodel.ShipmentFinder;
 import com.google.appengine.api.datastore.Key;

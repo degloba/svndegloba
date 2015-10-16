@@ -2,14 +2,10 @@ package com.degloba.organisation.ui.webui.spring.webflow.ajax;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
-
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.util.StringUtils;
 import org.springframework.webflow.execution.RequestContext;
 
-//import com.degloba.enviaments.application.readmodel.IEnviamentFinder;
-import command.Gate;
 
 public class UserBean implements Serializable {
     

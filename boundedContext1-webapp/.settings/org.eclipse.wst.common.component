@@ -33,9 +33,6 @@
         <dependent-module archiveName="degloba-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-domain/degloba-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="degloba-persistence-datanucleus-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-datanucleus/degloba-persistence-datanucleus">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="degloba-persistence-jpa-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-jpa/degloba-persistence-jpa">
             <dependency-type>uses</dependency-type>
         </dependent-module>
