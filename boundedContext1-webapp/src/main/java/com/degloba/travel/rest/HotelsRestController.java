@@ -3,14 +3,19 @@ package com.degloba.travel.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
-import com.degloba.travel.Booking;
-import com.degloba.travel.Bookings;
-import com.degloba.travel.Hotel;
-import com.degloba.travel.Hotels;
-import com.degloba.travel.User;
+// Domain
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.Bookings;
+import com.degloba.travel.domain.Hotel;
+import com.degloba.travel.domain.Hotels;
+import com.degloba.travel.domain.User;
+
+// Application
 import com.degloba.travel.application.api.BookingService;
+
 import com.degloba.travel.services.SearchCriteria;
 
+// Spring
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
