@@ -2,7 +2,6 @@ package com.degloba.domain.entity;
 
 import javax.persistence.Entity;
 
-import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.BaseAggregateRoot;
 
 @Entity

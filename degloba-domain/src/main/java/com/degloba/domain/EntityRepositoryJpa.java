@@ -17,7 +17,6 @@ import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.Entity;
 import com.degloba.domain.EntityRepository;
 import com.degloba.domain.ExampleSettings;
-import com.degloba.domain.InstanceFactory;
 import com.degloba.domain.JpqlQuery;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
@@ -43,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class EntityRepositoryJpa implements EntityRepository {
+public class EntityRepositoryJpa<A extends BaseAggregateRoot> implements EntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
 
