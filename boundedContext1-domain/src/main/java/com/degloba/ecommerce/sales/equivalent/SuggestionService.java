@@ -5,9 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.degloba.annotations.DomainService;
-import com.degloba.ecommerce.sales.client.Client;
-import com.degloba.ecommerce.sales.productscatalog.Product;
-import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
+import com.degloba.ecommerce.sales.client.domain.Client;
+import com.degloba.ecommerce.sales.productscatalog.domain.Product;
+import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 //////////import com.degloba.ecommerce.sales.readmodel.offer.Offer;
 import com.degloba.domain.specification.Specification;
 

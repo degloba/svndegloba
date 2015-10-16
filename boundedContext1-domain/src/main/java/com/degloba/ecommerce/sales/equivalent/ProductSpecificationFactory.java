@@ -1,11 +1,11 @@
 package com.degloba.ecommerce.sales.equivalent;
 
 import com.degloba.annotations.DomainFactory;
-import com.degloba.ecommerce.sales.client.Client;
+import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.equivalent.specification.SameCategory;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarName;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarPrice;
-import com.degloba.ecommerce.sales.productscatalog.Product;
+import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.domain.specification.DisjunctionSpecification;
 import com.degloba.domain.specification.Specification;

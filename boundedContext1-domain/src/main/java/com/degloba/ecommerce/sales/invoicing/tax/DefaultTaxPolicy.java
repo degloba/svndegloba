@@ -3,9 +3,9 @@ package com.degloba.ecommerce.sales.invoicing.tax;
 import java.math.BigDecimal;
 
 import com.degloba.annotations.DomainPolicyImpl;
-import com.degloba.ecommerce.sales.invoicing.Tax;
-import com.degloba.ecommerce.sales.invoicing.TaxPolicy;
-import com.degloba.ecommerce.sales.productscatalog.ProductType;
+import com.degloba.ecommerce.sales.invoicing.domain.Tax;
+import com.degloba.ecommerce.sales.invoicing.domain.TaxPolicy;
+import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;
 import com.degloba.domain.sharedkernel.Money;
 
 /**

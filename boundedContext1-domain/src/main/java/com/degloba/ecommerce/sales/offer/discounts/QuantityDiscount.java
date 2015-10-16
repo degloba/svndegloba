@@ -1,8 +1,8 @@
 package com.degloba.ecommerce.sales.offer.discounts;
 
-import com.degloba.ecommerce.sales.offer.Discount;
-import com.degloba.ecommerce.sales.offer.DiscountPolicy;
-import com.degloba.ecommerce.sales.productscatalog.Product;
+import com.degloba.ecommerce.sales.offer.domain.Discount;
+import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
+import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.domain.sharedkernel.Money;
 
 public class QuantityDiscount implements DiscountPolicy{
