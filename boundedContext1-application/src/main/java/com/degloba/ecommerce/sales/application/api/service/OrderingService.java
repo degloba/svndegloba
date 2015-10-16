@@ -1,10 +1,10 @@
-package com.degloba.ecommerce.sales.api.service;
+package com.degloba.ecommerce.sales.application.api.service;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 
-import com.degloba.ecommerce.sales.api.command.OrderDetailsCommand;
-import com.degloba.ecommerce.sales.offer.Offer;
+import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
+import com.degloba.ecommerce.sales.offer.domain.Offer;
 
 
 public interface OrderingService {

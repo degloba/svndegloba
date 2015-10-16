@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.api.command;
+package com.degloba.ecommerce.sales.application.api.command;
 
 import com.google.appengine.api.datastore.Key;
 

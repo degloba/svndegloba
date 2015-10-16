@@ -4,7 +4,7 @@ import com.degloba.annotations.InternalApplicationService;
 import com.google.appengine.api.datastore.Key;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.sales.api.service.ShoppingCart;
+import com.degloba.ecommerce.sales.application.api.service.ShoppingCart;
 
 @InternalApplicationService
 public class ShoppingCartImpl implements ShoppingCart{

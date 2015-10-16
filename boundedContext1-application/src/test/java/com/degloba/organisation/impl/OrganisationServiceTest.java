@@ -3,7 +3,6 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
-import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.EntityRepository;
 
 import org.dayatang.utils.DateUtils;

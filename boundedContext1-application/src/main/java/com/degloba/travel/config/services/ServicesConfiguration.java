@@ -1,7 +1,7 @@
 package com.degloba.travel.config.services;
 
 import com.gemstone.gemfire.cache.Cache;
-import com.gemstone.gemfire.cache.Region;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

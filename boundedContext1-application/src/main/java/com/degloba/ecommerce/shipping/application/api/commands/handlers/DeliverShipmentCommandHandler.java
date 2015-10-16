@@ -1,10 +1,10 @@
-package com.degloba.ecommerce.shipping.api.commands.handlers;
+package com.degloba.ecommerce.shipping.application.api.commands.handlers;
 
 import javax.inject.Inject;
 
 import command.annotations.CommandHandlerAnnotation;
 import command.handler.CommandHandler;
-import com.degloba.ecommerce.shipping.api.commands.DeliverShipmentCommand;
+import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
 import com.degloba.ecommerce.shipping.domain.Shipment;
 import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
 

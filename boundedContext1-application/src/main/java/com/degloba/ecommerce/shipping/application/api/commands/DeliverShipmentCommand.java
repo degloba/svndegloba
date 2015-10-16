@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.api.commands;
+package com.degloba.ecommerce.shipping.application.api.commands;
 
 import java.io.Serializable;
 
@@ -9,11 +9,11 @@ import command.annotations.Command;
 
 @SuppressWarnings("serial")
 @Command
-public class SendShipmentCommand implements Serializable {
+public class DeliverShipmentCommand implements Serializable {
 
     private final Key shipmentId;
 
-    public SendShipmentCommand(Key shipmentId) {
+    public DeliverShipmentCommand(Key shipmentId) {
         this.shipmentId = shipmentId;
     }
 
