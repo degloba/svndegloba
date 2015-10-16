@@ -6,7 +6,7 @@ import com.degloba.organisation.facade.PostDto;
 
 public class PostAssembler {
     public Post toEntity(PostDto postDto) {
-        return null;
+    	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public PostDto toDto(Post post) {
