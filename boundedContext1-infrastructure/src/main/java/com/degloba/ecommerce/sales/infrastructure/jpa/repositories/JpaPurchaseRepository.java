@@ -2,9 +2,8 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 import com.degloba.annotations.DomainRepositoryImpl;
 import com.degloba.domain.EntityRepositoryJpa;
-import com.degloba.domain.GenericJpaRepository;
-import com.degloba.ecommerce.sales.purchase.IPurchaseRepository;
-import com.degloba.ecommerce.sales.purchase.Purchase;
+import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
+import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.google.appengine.api.datastore.Key;
 
 /**

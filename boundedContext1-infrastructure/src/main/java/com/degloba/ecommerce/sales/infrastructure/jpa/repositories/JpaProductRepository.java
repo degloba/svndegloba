@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.degloba.annotations.DomainRepositoryImpl;
 import com.degloba.domain.EntityRepositoryJpa;
-import com.degloba.ecommerce.sales.productscatalog.IProductRepository;
-import com.degloba.ecommerce.sales.productscatalog.Product;
+import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
+import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.google.appengine.api.datastore.Key;
 
 /**

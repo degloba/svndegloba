@@ -2,12 +2,8 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 import com.degloba.annotations.DomainRepositoryImpl;
 import com.degloba.domain.EntityRepositoryJpa;
-import com.degloba.domain.GenericJpaRepository;
-import com.degloba.ecommerce.crm.domain.Customer;
-import com.degloba.ecommerce.crm.domain.ICustomerRepository;
-import com.degloba.ecommerce.sales.invoicing.IInvoiceRepository;
-import com.degloba.ecommerce.sales.invoicing.Invoice;
-import com.google.appengine.api.datastore.Key;
+import com.degloba.ecommerce.sales.invoicing.domain.IInvoiceRepository;
+import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
 
 /**
  * @author degloba

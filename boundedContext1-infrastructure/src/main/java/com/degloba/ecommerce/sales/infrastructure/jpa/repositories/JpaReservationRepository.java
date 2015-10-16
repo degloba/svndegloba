@@ -1,13 +1,11 @@
 package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
-import java.util.List;
 
 import com.degloba.annotations.DomainRepositoryImpl;
 import com.degloba.domain.EntityRepositoryJpa;
-import com.degloba.domain.GenericJpaRepository;
-import com.degloba.ecommerce.sales.productscatalog.Product;
-import com.degloba.ecommerce.sales.reservation.IReservationRepository;
-import com.degloba.ecommerce.sales.reservation.Reservation;
+
+import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
+import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 import com.google.appengine.api.datastore.Key;
 
 /**
