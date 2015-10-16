@@ -14,7 +14,12 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 // Domini
 import com.degloba.travel.*;
-
+import com.degloba.travel.domain.Amenity;
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.Bookings;
+import com.degloba.travel.domain.Hotel;
+import com.degloba.travel.domain.Hotels;
+import com.degloba.travel.domain.User;
 import com.degloba.travel.ui.webui.spring.webflow.BookingFlowHandler;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
