@@ -8,10 +8,10 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
 
-// Domini
-import com.degloba.travel.Booking;
-import com.degloba.travel.Hotel;
-import com.degloba.travel.User;
+// Domain
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.Hotel;
+import com.degloba.travel.domain.User;
 import com.degloba.travel.application.api.BookingService;
 import com.degloba.travel.services.integration.EmailNotificationService;
 

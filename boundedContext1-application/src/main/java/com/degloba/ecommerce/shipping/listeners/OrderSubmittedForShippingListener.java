@@ -7,6 +7,8 @@ import com.degloba.annotations.event.EventListeners;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
+
+// Domain
 import com.degloba.ecommerce.shipping.domain.Shipment;
 import com.degloba.ecommerce.shipping.domain.ShipmentFactory;
 import com.degloba.ecommerce.shipping.domain.IShipmentRepository;

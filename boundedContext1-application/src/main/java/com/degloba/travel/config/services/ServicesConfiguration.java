@@ -16,12 +16,13 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
-// Domini
-import com.degloba.travel.Hotel;
-
-// Spring
+//Spring
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+// Domain
+import com.degloba.travel.domain.Hotel;
+
 
 import javax.sql.DataSource;
 import java.sql.Driver;

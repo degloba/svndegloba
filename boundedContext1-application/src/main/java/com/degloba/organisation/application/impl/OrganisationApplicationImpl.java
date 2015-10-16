@@ -1,8 +1,10 @@
 package com.degloba.organisation.application.impl;
 
+
+// Application
 import com.degloba.organisation.application.api.OrganisationService;
 
-// Domini - Entitats
+// Domain
 import com.degloba.organisation.domain.OrgLineMgmt;
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
@@ -12,7 +14,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-// Domini
+// Domain
 import com.degloba.domain.Entity;
 import com.degloba.domain.EntityRepository;
 

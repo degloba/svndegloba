@@ -6,17 +6,19 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+// Spring
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import com.degloba.travel.Booking;
-import com.degloba.travel.Hotel;
-import com.degloba.travel.User;
-import com.degloba.travel.application.api.BookingService;
-import com.google.appengine.api.datastore.Key;
+// Domain
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.Hotel;
+import com.degloba.travel.domain.User;
 
+// Application
+import com.degloba.travel.application.api.BookingService;
 
 
 /**

@@ -6,7 +6,11 @@ import command.annotations.CommandHandlerAnnotation;
 import command.handler.CommandHandler;
 
 import com.degloba.domain.EntityRepository;
+
+// Application
 import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
+
+// Domain
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.client.domain.IClientRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
@@ -16,9 +20,6 @@ import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 
 
-//import pl.com.bottega.ecommerce.sales.domain.client.ClientRepository;
-//import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductRepository;
-//import pl.com.bottega.ecommerce.sales.domain.reservation.ReservationRepository;
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
 @CommandHandlerAnnotation

@@ -1,9 +1,10 @@
 package com.degloba.ecommerce.sales.application.api.service;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 
 import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
+
+// Domain
 import com.degloba.ecommerce.sales.offer.domain.Offer;
 
 

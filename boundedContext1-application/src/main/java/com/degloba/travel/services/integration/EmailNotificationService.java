@@ -24,8 +24,8 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 
 
 // Domini (travel) - Entitats
-import com.degloba.travel.Booking;
-import com.degloba.travel.User;
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.User;
 
 // 
 import com.degloba.travel.application.api.BookingService;

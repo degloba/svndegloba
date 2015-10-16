@@ -3,7 +3,7 @@ package com.degloba.ecommerce.sales.application.api.command;
 import com.google.appengine.api.datastore.Key;
 
 import command.annotations.Command;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+
 
 @Command()
 public class AddProdctCommand {

@@ -5,6 +5,8 @@ import javax.inject.Inject;
 import com.degloba.annotations.event.EventListener;
 import com.degloba.annotations.event.EventListeners;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
+
+// Domain
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.client.domain.IClientRepository;
 import com.degloba.ecommerce.sales.invoicing.domain.BookKeeper;

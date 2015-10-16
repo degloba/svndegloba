@@ -2,9 +2,9 @@ package com.degloba.ecommerce.sales.internal.discounts;
 
 import com.degloba.annotations.InternalApplicationService;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-
+// Domain
 import com.degloba.domain.sharedkernel.Money;
+
 import com.google.appengine.api.datastore.Key;
 
 @InternalApplicationService
