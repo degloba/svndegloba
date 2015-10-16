@@ -14,9 +14,9 @@ import query.PaginatedResult;
 
 import com.degloba.annotations.FinderImpl;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.sales.purchase.Purchase;
-import com.degloba.ecommerce.sales.reservation.Reservation;
-import com.degloba.ecommerce.sales.reservation.ReservedProduct;
+import com.degloba.ecommerce.sales.purchase.domain.Purchase;
+import com.degloba.ecommerce.sales.reservation.domain.Reservation;
+import com.degloba.ecommerce.sales.reservation.domain.ReservedProduct;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderQuery;
