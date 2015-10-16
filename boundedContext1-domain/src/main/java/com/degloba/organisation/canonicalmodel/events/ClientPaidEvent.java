@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.degloba.annotations.event.Event;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;

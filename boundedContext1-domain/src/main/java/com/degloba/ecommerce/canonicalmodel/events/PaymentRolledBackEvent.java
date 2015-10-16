@@ -5,7 +5,6 @@ import java.io.Serializable;
 import com.degloba.annotations.event.Event;
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 @SuppressWarnings("serial")
 @Event

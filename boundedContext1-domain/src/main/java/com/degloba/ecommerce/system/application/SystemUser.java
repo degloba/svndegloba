@@ -5,8 +5,6 @@ import java.util.UUID;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-
 public class SystemUser {
 
 	public Key getDomainUserId(){
