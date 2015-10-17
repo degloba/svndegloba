@@ -128,7 +128,7 @@ public class IntegrationConfiguration {
     @Bean
     public Queue notificationQueue() {
         Queue q = new Queue(this.notificationQueueName);
-        amqpAdmin().declareQueue(q);
+        amqpAdmin().declareQueue();
         return q;
     }
 
@@ -189,7 +189,7 @@ public class IntegrationConfiguration {
         content.put("html", "<P><B>The html content</b></P>");
         content.put("txt", "the text content");
 
-        notificationGateway.sendNotification("starbuxman@gmail.com", "a test subject", content);
+        notificationGateway.sendNotification("santasusanap@gmail.com", "a test subject", content);
 
     }
 }

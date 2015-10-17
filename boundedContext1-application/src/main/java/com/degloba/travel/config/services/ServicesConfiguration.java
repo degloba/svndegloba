@@ -45,7 +45,7 @@ public class ServicesConfiguration {
     @Autowired
     private Environment environment;
 
-    @Bean(name = "dataSource")
+    /*@Bean(name = "dataSource")
     @SuppressWarnings("unchecked")
     public DataSource dataSource() throws Exception {
         SimpleDriverDataSource driverManagerDataSource = new SimpleDriverDataSource();
@@ -54,7 +54,7 @@ public class ServicesConfiguration {
         driverManagerDataSource.setUsername(this.environment.getProperty("ds.user"));
         driverManagerDataSource.setDriverClass((Class<Driver>) Class.forName(this.environment.getProperty("ds.driverClassName")));
         return driverManagerDataSource;
-    }
+    }*/
 
     
    /************************************************************************************************************************************** 
