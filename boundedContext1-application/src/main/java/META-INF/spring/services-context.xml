@@ -44,13 +44,13 @@
     <integration:channel id="dequeuedEmails"/>
     <integration:channel id="preparedEmails"/>
     <integration:channel id="fromGateway" />
-    <integration:channel id="toMessageBroker" />
+    <integration:channel id="toMessageBroker" />  -->
 
     <integration:gateway service-interface="com.degloba.travel.services.integration.NotificationGateway" default-request-channel="enqueuedEmails" />
 
     <integration:transformer  input-channel="enqueuedEmails" ref="transformerGatewayMessageToAmqpPayload" output-channel="toMessageBroker" />
 
-    <int-amqp:outbound-channel-adapter
+   <!--   <int-amqp:outbound-channel-adapter
             channel="toMessageBroker"
             exchange-name="${amqp.notification.exchange}"
             routing-key="${amqp.notification.exchange}"
