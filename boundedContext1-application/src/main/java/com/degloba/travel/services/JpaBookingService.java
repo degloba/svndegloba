@@ -60,9 +60,9 @@ public class JpaBookingService implements BookingService {
     static final private String USER_REGION = "usersRegion";
 
 
-    /*@Inject
+    @Inject
     private EmailNotificationService emailNotificationService ;
-*/
+
     private Log log = LogFactory.getLog(getClass());
 
     @Transactional(readOnly = true)
@@ -151,7 +151,7 @@ public class JpaBookingService implements BookingService {
         entityManager.merge(booking);
         // this will fire a notification to a message queue which will then be handled (later)
         // by a Spring Integration flow that'll eventually send out a notification email
-        ////////emailNotificationService.sendConfirmationNotification( booking.getUser().getUsername(), booking.getId());
+        emailNotificationService.sendConfirmationNotification( booking.getUser().getUsername(), booking.getId());
     }
 
     @CacheEvict(value = BOOKING_REGION, allEntries = true)

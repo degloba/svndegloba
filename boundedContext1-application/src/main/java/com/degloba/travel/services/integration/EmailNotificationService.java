@@ -23,11 +23,11 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 
 
 
-// Domini (travel) - Entitats
+// Domain
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.User;
 
-// 
+// Application
 import com.degloba.travel.application.api.BookingService;
 import com.degloba.travel.application.api.NotificationService;
 

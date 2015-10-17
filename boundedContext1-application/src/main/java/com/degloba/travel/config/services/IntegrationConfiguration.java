@@ -22,13 +22,12 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.integration.transformer.Transformer;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-/*import org.springframework.samples.travel.services.BookingService;
-import org.springframework.samples.travel.services.integration.NotificationGateway;*/
+/*import org.springframework.samples.travel.services.BookingService;*/
 import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 // Domini
 
-//import com.degloba.travel.services.integration.NotificationGateway;
-
+import com.degloba.travel.application.api.BookingService;
+import com.degloba.travel.services.integration.NotificationGateway;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -179,7 +178,7 @@ public class IntegrationConfiguration {
         };
     }
 
-   /* static public void main(String args[]) throws Exception {
+    static public void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("/META-INF/spring/services-context.xml");
 
         NotificationGateway notificationGateway = ac.getBean(NotificationGateway.class);
@@ -192,5 +191,5 @@ public class IntegrationConfiguration {
 
         notificationGateway.sendNotification("starbuxman@gmail.com", "a test subject", content);
 
-    }*/
+    }
 }

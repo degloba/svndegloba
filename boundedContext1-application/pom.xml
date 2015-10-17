@@ -118,6 +118,25 @@
 			<version>1.7</version>
 		</dependency>
 		
+		
+		<!-- per proves (classe : ServicesConfiguration) -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-core</artifactId>        
+		</dependency>
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-api-jpa</artifactId>        
+		</dependency>		
+		 <dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>				
+		</dependency>
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-enhancer</artifactId>
+			<version>3.1.1</version>
+		</dependency>
     </dependencies>
     
     <build>

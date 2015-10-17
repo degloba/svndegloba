@@ -14,6 +14,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 //Spring
@@ -55,22 +56,52 @@ public class ServicesConfiguration {
         return driverManagerDataSource;
     }
 
+    
+   /************************************************************************************************************************************** 
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+    	<property name="persistenceUnitName" value="transactions-optional" />          
+	</bean>   
+
+	<!-- <bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" lazy-init="true">        
+    	<property name="persistenceUnitName" value="mongodb" />
+	</bean>  --> 
+
+	<!-- TransactionManagerS -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />    
+	</bean> 
+   **************************************************************************************************************************************/ 
+        
     @Bean
     public PlatformTransactionManager transactionManager() throws Exception {
         return new JpaTransactionManager(this.entityManagerFactory().getObject());
     }
-
+    
+    
+    
+   	/*
+   	 * <persistence-unit name="transactions-optional">        
+   		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+   				
+   		<properties>            
+   			<property name="datanucleus.NontransactionalRead" value="true"/>            
+   			<property name="datanucleus.NontransactionalWrite" value="true"/>            
+   			<property name="datanucleus.ConnectionURL" value="appengine"/> 
+   			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			
+    		<property name="datanucleus.singletonEMFForName" value="true"/>	
+    */
+    
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception {
-
-        HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
+    	
+       /* HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         jpaVendorAdapter.setGenerateDdl(true);
-        jpaVendorAdapter.setShowSql(true);
+        jpaVendorAdapter.setShowSql(true);  */
 
         Map<String, String> props = new HashMap<String, String>();
 
         // validate or create
-        props.put("hibernate.hbm2ddl.auto", "validate"); // it will attempt to run import.sql, by default! be carefyl
+        //props.put("hibernate.hbm2ddl.auto", "validate"); // it will attempt to run import.sql, by default! be carefyl
 
         if (log.isDebugEnabled()) {
             log.debug("the 'hibernate.hbm2ddl.auto' property was set to 'validate,' " +
@@ -79,16 +110,32 @@ public class ServicesConfiguration {
                     "to ensure correct operating conditions for the application.");
         }
 
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setJpaVendorAdapter(jpaVendorAdapter);
-        em.setDataSource(dataSource());
-        em.setJpaPropertyMap(props);
+        
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        //LocalEntityManagerFactoryBean emf = new LocalEntityManagerFactoryBean();
+        
+        // We want DataNucleus to recreate the database schema
+        //props.put("datanucleus.autoCreateSchema", "true");
+		  
+        props.put("datanucleus.NontransactionalRead" ,"true");            
+		props.put("datanucleus.NontransactionalWrite" ,"true");            
+		props.put("datanucleus.ConnectionURL","appengine"); 
+		props.put("datanucleus.appengine.datastoreEnableXGTransactions" ,"true"); 			
+		props.put("datanucleus.singletonEMFForName" ,"true");	
+		 		  
+		emf.setPersistenceProviderClass(org.datanucleus.api.jpa.PersistenceProviderImpl.class);
+		
+        
+        //LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        //em.setJpaVendorAdapter(jpaVendorAdapter);
+        //em.setDataSource(dataSource());
+        //em.setJpaPropertyMap(props);
 
         String entityPackage = Hotel.class.getPackage().getName();
-        em.setPackagesToScan(entityPackage);
+        //emf.setPackagesToScan(entityPackage);
 
         // look ma, no persistence.xml !
-        return em;
+        return emf;
     }
 
 
