@@ -139,12 +139,12 @@ public class ServicesConfiguration {
     }
 
 
-    @Autowired
+/*    @Autowired
     @Bean(name = "gemfireCacheManager")
     public CacheManager gemfireCacheManager(@Qualifier("c") Cache gemfireCache) {
         org.springframework.data.gemfire.support.GemfireCacheManager cacheManager = new org.springframework.data.gemfire.support.GemfireCacheManager();
         cacheManager.setCache(gemfireCache);
         return cacheManager;
-    }
+    }*/
 
 }
