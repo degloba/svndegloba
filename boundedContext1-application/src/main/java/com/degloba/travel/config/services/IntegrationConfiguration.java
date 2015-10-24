@@ -188,6 +188,9 @@ public class IntegrationConfiguration {
         };
     }
 
+    /*
+     * Test for Integration, Jpa, Gemfire
+     */
     static public void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("/META-INF/spring/services-context.xml");
 
