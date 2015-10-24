@@ -3,6 +3,8 @@ package com.degloba.travel.config.services;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+// Spring AMQP
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -10,24 +12,31 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+
+// Spring
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
+
+// Spring Integration
 import org.springframework.integration.*;
 import org.springframework.integration.Message;
 import org.springframework.integration.core.MessageHandler;
 import org.springframework.integration.mail.MailHeaders;
 import org.springframework.integration.transformer.Transformer;
+
+//Spring Mail
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-/*import org.springframework.samples.travel.services.BookingService;*/
-import org.springframework.ui.velocity.VelocityEngineFactoryBean;
-// Domini
 
+//
+import org.springframework.ui.velocity.VelocityEngineFactoryBean;
+
+import com.degloba.infrastructure.integration.services.NotificationGateway;
 import com.degloba.travel.application.api.BookingService;
-import com.degloba.travel.services.integration.NotificationGateway;
+
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
