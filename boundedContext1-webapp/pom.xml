@@ -121,9 +121,16 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
-            <scope>runtime</scope>
-          
+            <scope>runtime</scope>          
         </dependency>        
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-infrastructure</artifactId>
+            <version>${project.version}</version>
+           <!--  <scope>runtime</scope>    -->     
+		</dependency>		        
+        
+        
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
