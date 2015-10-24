@@ -23,23 +23,23 @@
 
     <context:annotation-config/>
 
-  <!--   <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/>  -->
+    <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/>  
     <bean class="com.degloba.travel.config.services.ServicesConfiguration"/>  
  
-    <!-- <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
- -->
+    <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
+
 
 
 
     <!-- GEMFIRE-->
-    <gfe:cache properties-ref="props" id="c"/>
+   <!--  <gfe:cache properties-ref="props" id="c"/>
     <gfe:replicated-region id="usersRegion" cache-ref="c"/>
     <gfe:replicated-region id="hotelsRegion" cache-ref="c"/>
     <gfe:replicated-region id="bookingsRegion" cache-ref="c"/>
     <util:properties id="props" location="classpath:/gfe-cache.properties"/>
 
     <cache:annotation-driven cache-manager="gemfireCacheManager"/>
-
+ -->
     <integration:channel id="enqueuedEmails"/>
     <integration:channel id="dequeuedEmails"/>
     <integration:channel id="preparedEmails"/>
