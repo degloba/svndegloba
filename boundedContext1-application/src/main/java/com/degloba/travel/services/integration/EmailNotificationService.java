@@ -125,7 +125,7 @@ public class EmailNotificationService implements NotificationService {
 
         messageHandler.handleMessage(inboundEmailFromMq);
 
-        Map<String, String> templates = (Hashtable<String, String>) inboundEmailFromMq.getPayload();
+        Map<String, String> templates =  (Map<String, String>) inboundEmailFromMq.getPayload();
 
         final String to = inboundEmailFromMq.getHeaders().get(MailHeaders.TO, String.class);
         final String subject = inboundEmailFromMq.getHeaders().get(MailHeaders.SUBJECT, String.class);
