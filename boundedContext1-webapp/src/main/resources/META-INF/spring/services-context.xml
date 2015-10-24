@@ -23,8 +23,8 @@
 
     <context:annotation-config/>
 
-    <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/>  
-    <bean class="com.degloba.travel.config.services.ServicesConfiguration"/>  
+    <bean class="com.degloba.infrastructure.integration.config.services.IntegrationConfiguration"/>  
+    <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>  
  
     <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
 
@@ -46,7 +46,7 @@
     <integration:channel id="fromGateway" />
     <integration:channel id="toMessageBroker" />
 
-    <integration:gateway service-interface="com.degloba.travel.services.integration.NotificationGateway" default-request-channel="enqueuedEmails" />
+    <integration:gateway service-interface="com.degloba.infrastructure.integration.services.NotificationGateway" default-request-channel="enqueuedEmails" />
 
     <integration:transformer  input-channel="enqueuedEmails" ref="transformerGatewayMessageToAmqpPayload" output-channel="toMessageBroker" />
 
