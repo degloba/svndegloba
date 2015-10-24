@@ -26,7 +26,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 // Domain
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.User;
-
+import com.degloba.infrastructure.integration.services.NotificationGateway;
 // Application
 import com.degloba.travel.application.api.BookingService;
 import com.degloba.travel.application.api.NotificationService;
