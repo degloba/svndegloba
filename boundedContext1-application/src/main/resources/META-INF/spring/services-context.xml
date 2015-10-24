@@ -23,8 +23,8 @@
 
     <context:annotation-config/>
 
-    <bean class="com.degloba.travel.config.services.IntegrationConfiguration"/>  
-    <bean class="com.degloba.travel.config.services.ServicesConfiguration"/>  
+    <bean class="com.degloba.infrastructure.integration.config.services.IntegrationConfiguration"/>  
+    <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>  
  
     <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
 
