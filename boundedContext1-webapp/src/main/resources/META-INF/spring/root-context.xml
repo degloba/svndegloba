@@ -8,7 +8,7 @@
 	<import resource="configurationContext.xml" />
 	<import resource="ds-context.xml"/>
 	
-	<!-- Travel 
-	<import resource="services-context.xml" /> -->
+	<!-- Travel -->
+	<import resource="services-context.xml" /> 
 	
 </beans>
