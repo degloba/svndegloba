@@ -189,7 +189,7 @@ public class IntegrationConfiguration {
         content.put("html", "<P><B>The html content</b></P>");
         content.put("txt", "the text content");
 
-        notificationGateway.sendNotification("santasusanap@gmail.com", "a test subject", content);
+        notificationGateway.sendNotification("degloba@degloba.com", "a test subject", content);
 
     }
 }
