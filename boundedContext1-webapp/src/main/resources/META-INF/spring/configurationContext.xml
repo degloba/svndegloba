@@ -44,9 +44,9 @@
  	
 	<!-- **************** -->
 	<!-- EVENT PUBLISHER  -->
-	<!-- **************** 
- 	<bean id="domainevent" class="com.degloba.ecommerce.system.infrastructure.events.SimpleEventPublisher" />  
-		 -->
+	<!-- **************** --> 
+ 	<bean id="domainevent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />  
+	
  
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
@@ -86,7 +86,7 @@
 	<!-- *********************** -->
 	<!-- SERVICES                 -->
 	<!-- *********************** -->
-	 <bean id="bookingService" class="com.degloba.travel.services.JpaBookingService" >
+	 <bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" >
 	</bean>
 	
 	 <!-- ************ -->
