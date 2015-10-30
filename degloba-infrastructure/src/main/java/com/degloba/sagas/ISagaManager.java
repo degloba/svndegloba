@@ -8,7 +8,7 @@ package com.degloba.sagas;
  * @param <D>
  *            saga data type
  */
-public interface SagaManager<T extends SagaInstance<D>, D> {
+public interface ISagaManager<T extends SagaInstance<D>, D> {
 
     void removeSaga(T saga);
 

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import com.degloba.sagas.LoadSaga;
 import com.degloba.sagas.SagaAction;
 import com.degloba.sagas.SagaInstance;
-import com.degloba.sagas.SagaManager;
+import com.degloba.sagas.ISagaManager;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -27,18 +27,18 @@ import com.google.common.collect.Multimap;
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Component
-public class SpringSagaRegistry implements SagaRegistry, ApplicationListener<ContextRefreshedEvent> {
+public class SpringSagaRegistry implements ISagaRegistry, ApplicationListener<ContextRefreshedEvent> {
 
     private Multimap<Class<?>, String> loadersInterestedIn = HashMultimap.create();
 
     @Inject
     private ConfigurableListableBeanFactory beanFactory;
 
-    public Collection<SagaManager> getLoadersForEvent(Object event) {
-        Collection<SagaManager> results = new HashSet<SagaManager>();
+    public Collection<ISagaManager> getLoadersForEvent(Object event) {
+        Collection<ISagaManager> results = new HashSet<ISagaManager>();
         Collection<String> loadersBeansNames = loadersInterestedIn.get(event.getClass());
         for (String loaderBeanName : loadersBeansNames) {
-            SagaManager loader = beanFactory.getBean(loaderBeanName, SagaManager.class);
+            ISagaManager loader = beanFactory.getBean(loaderBeanName, ISagaManager.class);
             results.add(loader);
         }
         return results;
@@ -54,7 +54,7 @@ public class SpringSagaRegistry implements SagaRegistry, ApplicationListener<Con
     }
 
     private void registerSagaLoaderBeans() {
-        String[] loadersNames = beanFactory.getBeanNamesForType(SagaManager.class);
+        String[] loadersNames = beanFactory.getBeanNamesForType(ISagaManager.class);
         for (String loaderBeanName : loadersNames) {
             BeanDefinition loaderBeanDefinition = beanFactory.getBeanDefinition(loaderBeanName);
             try {

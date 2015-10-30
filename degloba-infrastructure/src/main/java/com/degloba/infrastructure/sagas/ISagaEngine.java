@@ -1,6 +1,6 @@
 package com.degloba.infrastructure.sagas;
 
-public interface SagaEngine {
+public interface ISagaEngine {
 
     void handleSagasEvent(Object event);
 }

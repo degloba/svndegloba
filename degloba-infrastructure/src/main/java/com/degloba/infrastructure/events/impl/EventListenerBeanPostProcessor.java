@@ -2,6 +2,8 @@ package com.degloba.infrastructure.events.impl;
 
 import java.lang.reflect.Method;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.degloba.infrastructure.events.annotations.EventListener;
 import com.degloba.infrastructure.events.impl.handlers.AsynchronousEventHandler;
-import com.degloba.infrastructure.events.impl.handlers.EventHandler;
+import com.degloba.infrastructure.events.impl.handlers.IEventHandler;
 import com.degloba.infrastructure.events.impl.handlers.SpringEventHandler;
 import com.degloba.sagas.SagaInstance;
 
@@ -22,6 +24,8 @@ import com.degloba.sagas.SagaInstance;
 public class EventListenerBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
 
     private BeanFactory beanFactory;
+    
+    @Inject
     private SimpleEventPublisher eventPublisher;
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
@@ -37,12 +41,12 @@ public class EventListenerBeanPostProcessor implements BeanPostProcessor, BeanFa
                 
                 if (listenerAnnotation.asynchronous()){
                 	//TODO just a temporary fake impl
-                	EventHandler handler = new AsynchronousEventHandler(eventType, beanName, method, beanFactory);
+                	IEventHandler handler = new AsynchronousEventHandler(eventType, beanName, method, beanFactory);
                 	//TODO add to some queue
                 	eventPublisher.registerEventHandler(handler);                	
                 }
                 else{                
-                	EventHandler handler = new SpringEventHandler(eventType, beanName, method, beanFactory);
+                	IEventHandler handler = new SpringEventHandler(eventType, beanName, method, beanFactory);
                 	eventPublisher.registerEventHandler(handler);
                 }                                
             }

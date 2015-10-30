@@ -6,7 +6,7 @@ import org.springframework.beans.factory.BeanFactory;
 
 
 
-public class SpringEventHandler implements EventHandler {
+public class SpringEventHandler implements IEventHandler {
 
     private final Class<?> eventType;
     private final String beanName;

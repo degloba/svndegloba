@@ -3,11 +3,11 @@ package com.degloba.infrastructure.sagas.impl;
 import java.util.Collection;
 
 import com.degloba.sagas.SagaInstance;
-import com.degloba.sagas.SagaManager;
+import com.degloba.sagas.ISagaManager;
 
-public interface SagaRegistry {
+public interface ISagaRegistry {
 
-    Collection<SagaManager> getLoadersForEvent(Object event);
+    Collection<ISagaManager> getLoadersForEvent(Object event);
 
     SagaInstance<?> createSagaInstance(Class<? extends SagaInstance> sagaType);
 }

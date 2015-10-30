@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 import com.degloba.IApplicationEventPublisher;
 import com.degloba.domain.IDomainEvent;
 import com.degloba.domain.IDomainEventPublisher;
-import com.degloba.infrastructure.events.impl.handlers.EventHandler;
+import com.degloba.infrastructure.events.impl.handlers.IEventHandler;
 
 @Component
 public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent<Object>>, IApplicationEventPublisher<Object> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEventPublisher.class);
 
-    private Set<EventHandler> eventHandlers = new HashSet<EventHandler>();
+    private Set<IEventHandler> eventHandlers = new HashSet<IEventHandler>();
 
-    public void registerEventHandler(EventHandler handler) {
+    public void registerEventHandler(IEventHandler handler) {
         eventHandlers.add(handler);
         // new SpringEventHandler(eventType, beanName, method));
     }
@@ -35,7 +35,7 @@ public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent<
     }
 
     protected void doPublish(Object event) {
-        for (EventHandler handler : new ArrayList<EventHandler>(eventHandlers)) {
+        for (IEventHandler handler : new ArrayList<IEventHandler>(eventHandlers)) {
             if (handler.canHandle(event)) {
                 try {
                     handler.handle(event);
