@@ -51,6 +51,10 @@
  	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
 	 
  	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
+ 	
+ 	<bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+ 	
+ 	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
  
  
  
