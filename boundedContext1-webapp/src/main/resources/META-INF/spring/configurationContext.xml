@@ -9,12 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
-
 	<context:annotation-config /> 
-	
-	 <!-- 	<context:component-scan base-package="command,query,com.degloba.organisation.facade,com.degloba.organisation.application,com.degloba.organisation.domain"/>  -->  
-	 <!--  	<context:component-scan base-package="query, com.degloba.organisation.facade, com.degloba.organisation.application, com.degloba.domain, com.degloba.persistence.jpa"/>  -->    
-	 <!--	<context:component-scan base-package="command,query"/> -->
 	 
 	<!-- map all requests to /resources/** to the container default servlet (ie, don't let Spring handle them) -->
      
@@ -28,8 +23,6 @@
         </property>
 	</bean>  -->
 	
-	 	
-	  
 	
 	<!-- FACTORIES -->	
  	<!-- <bean id="modalpanelFactory" class="com.degloba.casino.modalpanel.ModalpanelFactory" />  
@@ -49,10 +42,10 @@
 	<bean id="simpleEventPublisher" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />
  	  
  	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
-	 
- 	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
- 	
+	 	
  	<bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+ 	
+ 	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
  	
  	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
  
@@ -96,13 +89,12 @@
 	<!-- *********************** -->
 	<!-- SERVICES                 -->
 	<!-- *********************** -->
-	 <bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" >
-	</bean>
+	 <bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />
 	
+		
 	 <!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
-  <!-- 	  <bean id="repository" class="com.degloba.travel.services.EntityRepositoryJpa" />   -->
   	  
 		<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
 		<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
