@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.inject.Inject;
 
 import com.degloba.annotations.DomainFactory;
-import com.degloba.domain.DomainEventPublisher;
+import com.degloba.domain.IDomainEventPublisher;
 
 import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
 
@@ -25,7 +25,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 public class PaymentFactory {
 	
 	@Inject
-	private DomainEventPublisher publisher;
+	private IDomainEventPublisher<?> publisher;
 
 	public Payment createPayment(ClientData clientData, Money amount){
 		//TODO validate
