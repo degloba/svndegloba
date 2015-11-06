@@ -9,6 +9,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
+
+import com.degloba.canonicalmodel.ui.webui.jsf.PostbackPhaseListener;
  
 /**
  * PhaseListener to ensure the HttpSession data is written to the datastore.
@@ -39,6 +41,9 @@ public class SessionPhaseListener implements PhaseListener {
  private static final Logger logger = Logger.getLogger(_CLASS);
  private static final String TIME_KEY="NOW";
  
+
+ public static final String POSTBACK_ATTRIBUTE_NAME = PostbackPhaseListener.class.getName();
+ 
  public void afterPhase(PhaseEvent event) {
  
  logger.entering(_CLASS,"afterPhase(PhasseEvent)",event);
@@ -58,13 +63,34 @@ public class SessionPhaseListener implements PhaseListener {
  public void beforePhase(PhaseEvent event) {
  logger.entering(_CLASS,"beforePhase(PhaseEvent)",event);
  logger.exiting(_CLASS,"beforePhase(PhaseEvent)");
- }
+ 
+ FacesContext facesContext = event.getFacesContext();
+ Map<String, Object> requestMap = facesContext.getExternalContext().getRequestMap();
+ requestMap.put(POSTBACK_ATTRIBUTE_NAME, Boolean.TRUE);
+}
+
  
  public PhaseId getPhaseId() {
  logger.entering(_CLASS,"getPhaseId(PhasseEvent)");
  PhaseId phaseId=PhaseId.ANY_PHASE;
  logger.exiting(_CLASS,"getPhaseId(PhaseEvent)",phaseId);
  return phaseId;
+ 
+ //return PhaseId.APPLY_REQUEST_VALUES;
+ }
+ 
+
+ public static boolean isPostback() {
+     FacesContext facesContext = FacesContext.getCurrentInstance();
+     if (facesContext != null) {
+         ExternalContext externalContext = facesContext.getExternalContext();
+         if (externalContext != null) {
+             return Boolean.TRUE.equals(
+                     externalContext.getRequestMap().get(POSTBACK_ATTRIBUTE_NAME));
+         }
+     }
+     
+     return false;
  }
  
 }
