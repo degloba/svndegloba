@@ -871,6 +871,7 @@
     </profiles>
     <modules>
      	 <module>../boundedContext1-domain</module> 
+     	 <module>../boundedContext1-infrastructure</module> 
     	<module>../boundedContext1-cqrs</module>
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
