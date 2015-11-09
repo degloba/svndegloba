@@ -16,7 +16,7 @@ import com.degloba.ecommerce.sales.readmodel.offer.OfferQuery;
 public class JpaOfferFinder implements Offer {
 
 	@PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactory")
+    @Qualifier(value="entityManagerFactoryDatastore")
 	private EntityManager entityManager;
 
 	@SuppressWarnings("unchecked")

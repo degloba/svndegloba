@@ -29,7 +29,7 @@ import com.google.common.base.Function;
 public class JpaOrderFinder implements OrderFinder {
 
 	@PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactory")
+    @Qualifier(value="entityManagerFactoryDatastore")
 	private EntityManager entityManager;
 
 	@Override

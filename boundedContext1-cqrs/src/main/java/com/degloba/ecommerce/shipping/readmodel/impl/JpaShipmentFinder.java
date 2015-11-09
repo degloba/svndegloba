@@ -17,7 +17,7 @@ import com.degloba.ecommerce.shipping.readmodel.ShipmentFinder;
 public class JpaShipmentFinder implements ShipmentFinder {
 
     @PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactory")
+    @Qualifier(value="entityManagerFactoryDatastore")
     private EntityManager entityManager;
 
     @SuppressWarnings("unchecked")
