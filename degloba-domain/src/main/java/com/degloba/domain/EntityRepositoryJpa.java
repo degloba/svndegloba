@@ -49,7 +49,7 @@ public class EntityRepositoryJpa<A extends BaseAggregateRoot> implements EntityR
    
 
 	@PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactory")
+    @Qualifier(value="entityManagerFactoryDatastore")
     protected EntityManager entityManager;
     
 	
