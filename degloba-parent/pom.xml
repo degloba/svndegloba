@@ -104,6 +104,9 @@
           <module>../degloba-domain</module>
           <module>../degloba-infrastructure</module>
           <module>../degloba-ioc-spring</module>
+          
+          <module>../degloba-security</module>
+          
           <!-- <module>../degloba-ioc-test</module> -->
 
            <module>../casino</module> 
