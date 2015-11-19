@@ -26,7 +26,7 @@
     <bean class="com.degloba.infrastructure.integration.config.services.IntegrationConfiguration"/>  
     
     <!-- JPA, TX,... -->
-   <!--  <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>  --> 
+     <!-- <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>    -->
  
     <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
 
