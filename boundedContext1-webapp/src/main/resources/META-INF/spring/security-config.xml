@@ -102,19 +102,57 @@
         <property name="authenticationManager" ref="authenticationManager" />
     </bean>
     
-	<security:authentication-manager alias="authenticationManager">
+    
+    <!-- **************************** -->
+    <!-- Configuracio Spring Security -->
+    <!-- **************************** -->
+    
+<!-- 	<security:authentication-manager alias="authenticationManager">
         <security:authentication-provider ref="oAuthProvider"/>
     </security:authentication-manager>
            
 	<security:http entry-point-ref="google2EntryPoint">
 		<security:custom-filter after="CAS_FILTER" ref="oAuthFilter" />		
-		<!-- <security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
-		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" /> -->
+		<security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
+		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />
 		
         <security:intercept-url pattern="/app/userHome" access="IS_AUTHENTICATED_FULLY" />
-        <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> 
         <security:logout />
+    </security:http> -->
+
+
+
+<!-- *******************************************************************
+**   Spring Security in Google App Engine   *************************
+http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine 
+************************************************************************ -->
+
+
+<security:http use-expressions="true" entry-point-ref="gaeEntryPoint">
+        <security:intercept-url pattern="/" access="permitAll" />
+        <security:intercept-url pattern="/app/register.htm*" access="hasRole('NEW_USER')" />
+        <security:intercept-url pattern="/**" access="hasRole('USER')" />
+        <security:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
     </security:http>
+
+    <bean id="gaeEntryPoint" class="com.degloba.security.gae.security.GoogleAccountsAuthenticationEntryPoint" />
+
+    <bean id="gaeFilter" class="com.degloba.security.gae.security.GaeAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManager"/>
+    </bean>
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider ref="gaeAuthenticationProvider"/>
+    </security:authentication-manager>
+
+    <bean id="gaeAuthenticationProvider" class="com.degloba.security.gae.security.GoogleAccountsAuthenticationProvider">
+        <property name="userRegistry" ref="userRegistry" />
+    </bean>
+
+    <bean id="userRegistry" class="com.degloba.security.gae.users.GaeDatastoreUserRegistry" />
+
+
 
 
 <!-- ***************************
