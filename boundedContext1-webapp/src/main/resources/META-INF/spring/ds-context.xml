@@ -28,45 +28,56 @@
 	<!-- ********************* -->
 	<!-- EntityManagerFactoryS -->	
 	<!-- ********************* -->
-	 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+	 <bean id="entityManagerFactoryDatastore" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
           <property name="persistenceUnitName" value="transactions-optional" />          
     </bean>   
 
- 	<!-- <bean id="entityManagerFactoryMongo" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" lazy-init="true">        
-          <property name="persistenceUnitName" value="mongodb" />
-    </bean>  --> 
-
 	<!-- TransactionManagerS -->
 	 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />    
+		<property name="entityManagerFactory" ref="entityManagerFactoryDatastore" />    
 	</bean> 
 	
-
-    
-<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   
-
-	<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
-	<!-- <mongo:mongo host="localhost" port="27017" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	
+
+	<!-- ********************* -->
+	<!-- MongoDB               -->	
+	<!-- ********************* -->
+	<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   -->
+
+	<!--<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
+	 <mongo:mongo host="localhost" port="27017" />
 	
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-    <constructor-arg name="mongo" ref="mongo"/>
-    <constructor-arg name="databaseName" value="degloba"/>
-  </bean>
+	    <constructor-arg name="mongo" ref="mongo"/>
+	    <constructor-arg name="databaseName" value="casino"/>
+	</bean>
 
-  <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>  
+ 	<!-- Factory bean that creates the Mongo instance --> 
+ 	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
+ 		<property name="host" value="localhost"/> 
+	</bean>  -->
+	
+ 	<!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes --> 
+ 	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> 	
+ 		
+	<!--  Convert the given runtime exception to an appropriate exception from the org.springframework.dao hierarchy -->
+	<!-- <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>   -->
 
-   Mongo cross-store aspect config  
-  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
-        factory-method="aspectOf">
-    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
-  </bean>
-  <bean id="mongoChangeSetPersister"
-      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
-    <property name="mongoTemplate" ref="mongoTemplate"/>
-    <property name="entityManagerFactory" ref="entityManagerFactoryMongo"/>  
-  </bean>   -->
+ 	 <!--  Mongo cross-store aspect config   
+	  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
+	        factory-method="aspectOf">
+	    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
+	  </bean>
+	  <bean id="mongoChangeSetPersister"
+	      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
+	    <property name="mongoTemplate" ref="mongoTemplate"/>
+	    <property name="entityManagerFactory" ref="entityManagerFactory"/>  
+	  </bean>   -->
 		
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+		<bean id="personRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.PersonRepository">
+		    <property name="mongoTemplate" ref="mongoTemplate"/>
+		</bean>
 	
 </beans>
