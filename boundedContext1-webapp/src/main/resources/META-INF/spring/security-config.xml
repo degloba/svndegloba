@@ -15,8 +15,8 @@
 		<security:form-login login-page="/app/login" login-processing-url="/app/j_spring_security_check" 
 			default-target-url="/app/home" authentication-failure-url="/app/login?login_error=1" />
 		<security:logout logout-url="/app/logout" logout-success-url="/app/home" />
-		<security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
-		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />			
+		<security:intercept-url pattern="/app/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
+		<security:intercept-url pattern="/app/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />			
 	</security:http>  -->
 	
 	
@@ -65,10 +65,10 @@
  -->
 
 
-<!-- CONFIGURACIO 2 :  Integrar el login de Google en tu App con OAuth2 y Spring Security -->
+<!-- CONFIGURACIO 2 :  Integrar el login de Google a la App con OAuth2 y Spring Security -->
 <!-- ************************************************************************************ -->
 <!--  http://www.adictosaltrabajo.com/tutoriales/spring-security-o-auth-google/ 
-529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com-->
+529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com *****************-->
 <!-- ************************************************************************************ -->
 
 	<bean id="google2ProviderForWebClient" class="org.scribe.up.provider.impl.Google2Provider">
@@ -80,7 +80,7 @@
     </bean>
  
     <bean id="providersDefinition" class="org.scribe.up.provider.ProvidersDefinition">
-        <property name="baseUrl" value="http://localhost:8888/app/j_spring_oauth_security_check" />
+        <property name="baseUrl" value="http://localhost:8888/app/oauth/j_spring_oauth_security_check" />
         <property name="providers">
             <list>
                 <ref bean="google2ProviderForWebClient" />
@@ -99,27 +99,19 @@
     
     <bean id="oAuthFilter" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationFilter">
         <property name="providersDefinition" ref="providersDefinition" />
-        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="authenticationManager" ref="authenticationManagerOauth" />
     </bean>
     
-    
-    <!-- **************************** -->
-    <!-- Configuracio Spring Security -->
-    <!-- **************************** -->
-    
-<!-- 	<security:authentication-manager alias="authenticationManager">
+	<security:authentication-manager id="authenticationManagerOauth">
         <security:authentication-provider ref="oAuthProvider"/>
     </security:authentication-manager>
-           
-	<security:http entry-point-ref="google2EntryPoint">
+                
+	<security:http  pattern="/app/oauth/**" entry-point-ref="google2EntryPoint">
 		<security:custom-filter after="CAS_FILTER" ref="oAuthFilter" />		
-		<security:intercept-url pattern="/secured/appleUser" method="POST" access="hasRole('ROLE_APPLE_USER')" />
-		<security:intercept-url pattern="/secured/androidUser" method="POST" access="hasRole('ROLE_ANDROID_USER')" />
-		
-        <security:intercept-url pattern="/app/userHome" access="IS_AUTHENTICATED_FULLY" />
-         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> 
+        <security:intercept-url pattern="/app/oauth/userHome" access="IS_AUTHENTICATED_FULLY" />
+        <security:intercept-url pattern="/app/oauth/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:logout />
-    </security:http> -->
+    </security:http> 
 
 
 
@@ -129,73 +121,87 @@ http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine
 ************************************************************************ -->
 
 
-<security:http use-expressions="true" entry-point-ref="gaeEntryPoint">
-        <security:intercept-url pattern="/" access="permitAll" />
-        <security:intercept-url pattern="/app/register.htm*" access="hasRole('NEW_USER')" />
-        <security:intercept-url pattern="/**" access="hasRole('USER')" />
+	<security:http pattern="/app/gae/**" use-expressions="true" entry-point-ref="gaeEntryPoint">
+        <security:intercept-url pattern="/app/gae" access="permitAll" />
+        <security:intercept-url pattern="/app/gae/register.htm*" access="hasRole('NEW_USER')" />
+        <security:intercept-url pattern="/app/gae/**" access="hasRole('USER')" />
         <security:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
     </security:http>
+    
+    <bean id="gaeEntryPoint" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationEntryPoint" />
 
-    <bean id="gaeEntryPoint" class="com.degloba.security.gae.security.GoogleAccountsAuthenticationEntryPoint" />
-
-    <bean id="gaeFilter" class="com.degloba.security.gae.security.GaeAuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManager"/>
+    <bean id="gaeFilter" class="com.degloba.security.spring.gae.security.GaeAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManagerGoogle"/>
+        <property name="failureHandler">
+			<bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+				<property name="exceptionMappings">
+					<map>
+						<entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
+					</map>
+				</property>
+			</bean>
+		</property>
     </bean>
 
-    <security:authentication-manager alias="authenticationManager">
+    <security:authentication-manager id="authenticationManagerGoogle">
         <security:authentication-provider ref="gaeAuthenticationProvider"/>
     </security:authentication-manager>
 
-    <bean id="gaeAuthenticationProvider" class="com.degloba.security.gae.security.GoogleAccountsAuthenticationProvider">
+    <bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
         <property name="userRegistry" ref="userRegistry" />
-    </bean>
+    </bean> 
 
-    <bean id="userRegistry" class="com.degloba.security.gae.users.GaeDatastoreUserRegistry" />
-
-
-
-
-<!-- ***************************
-**   Client Android Oauth2   *** 
-**************************** -->
-
-<!-- <bean id="google2ProviderForAndroidClient" class="org.scribe.up.provider.impl.Google2Provider">
-        <property name="key" value="529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com"/>    {pon aqui el Client ID creado en la consola de Google API (en el punto 1)}
-        <property name="secret" value="BupeTdv74Z2MoZqb3_SZktrx"/>   {secret Key de la consola de Google API}"
-        <property name="scope" value="EMAIL_AND_PROFILE"/>
-    </bean>
+    <bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
  
-    <bean id="providersDefinitionForAndroidClient" class="org.scribe.up.provider.ProvidersDefinition">
-        <property name="baseUrl" value="http://localhost:8888/j_spring_oauth_security_check" />
-        <property name="providers">
-            <list>
-                <ref bean="google2ProviderForAndroidClient" />
-            </list>
-        </property>
-    </bean>
- 
-    <bean id="oAuthProviderForAndroidClient" class="com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationProvider">
-        <property name="providersDefinition" ref="providersDefinitionForAndroidClient" />
-    </bean>
- 
-    <bean id="google2EntryPointForAndroidClient" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationEntryPoint">
-        <property name="provider" ref="google2ProviderForAndroidClient" />
-    </bean>
- 
-    
-    <bean id="oAuthFilterForAndroidClient" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationFilter">
-        <property name="providersDefinition" ref="providersDefinitionForAndroidClient" />
-        <property name="authenticationManager" ref="authenticationManagerForAndroidClient" />
-    </bean>
-    
-	<security:authentication-manager alias="authenticationManagerForAndroidClient">
-        <security:authentication-provider ref="oAuthProviderForAndroidClient"/>
-    </security:authentication-manager>
-           
-	<security:http entry-point-ref="google2EntryPointForAndroidClient">
-		<security:form-login login-page="/app/login" login-processing-url="/app/j_spring_security_check" 
-			default-target-url="/app/home" authentication-failure-url="/app/login?login_error=1" />
-        <security:custom-filter after="CAS_FILTER" ref="oAuthFilterForAndroidClient" />
-		<security:logout logout-url="/app/logout" logout-success-url="/app/home" />
-	</security:http> -->
+
+	
+	
+	<!-- ***** -->
+	<!--  SAML -->
+	<!-- ***** -->
+	
+	  <import resource="security-saml.xml"/>  
+	
+	<!-- In order to install artifact resolution using GAE specific APIs -->
+	<bean id="artifactBinding" class="org.springframework.security.saml.processor.HTTPArtifactBinding">
+	    <constructor-arg ref="parserPool"/>
+	    <constructor-arg ref="velocityEngine"/>
+	    <constructor-arg>
+	        <bean class="com.degloba.security.spring.saml.websso.google.ArtifactResolutionProfileGAE">
+	            <property name="processor">
+	                <bean class="org.springframework.security.saml.processor.SAMLProcessorImpl">
+	                    <constructor-arg ref="soapBinding"/>
+	                </bean>
+	            </property>
+	        </bean>
+	    </constructor-arg>
+	</bean>
+
+
+	 <!-- In order to use metadata loading without reloading threads add a provider to your metadata bean with:  -->
+	<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
+	    <constructor-arg>
+	        <bean class="com.degloba.security.spring.saml.metadata.provider.StaticFilesystemMetadataProvider">
+	            <constructor-arg>
+	                <value type="java.io.File">classpath:metadata/idp.xml</value>
+	            </constructor-arg>
+	            <property name="parserPool" ref="parserPool"/>
+	        </bean>
+	    </constructor-arg>
+	    <constructor-arg>
+	        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
+	        </bean>
+	    </constructor-arg>
+	</bean>
+
+	<bean id="metadata" class="org.springframework.security.saml.metadata.CachingMetadataManager">
+	    <constructor-arg>
+	        <list>
+	            <!-- ... metadata ... -->
+	        </list>
+	    </constructor-arg>
+	    <property name="refreshCheckInterval" value="0"/>
+</bean>
+	
+	
 </beans>
