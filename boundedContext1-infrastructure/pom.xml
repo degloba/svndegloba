@@ -106,11 +106,11 @@
 		<!-- *********** -->
 		<!-- Spring Data -->
 		<!-- *********** -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-gemfire</artifactId>
 			<version>1.7.0.RELEASE</version>
-		</dependency>		
+		</dependency>	 -->	
 		
 		
 		<!--  -->
