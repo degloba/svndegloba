@@ -102,20 +102,20 @@
             <version>${spring.integration.version}</version>
 		</dependency>
 		
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.data.gemfire</groupId>
 			<artifactId>spring-gemfire</artifactId>
 			<version>1.0.1.RELEASE</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- *********** -->
 		<!-- Spring Data -->
 		<!-- *********** -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-gemfire</artifactId>
 			<version>1.7.0.RELEASE</version>
-		</dependency>		
+		</dependency>		 -->
 		
 		
 		<!--  -->
