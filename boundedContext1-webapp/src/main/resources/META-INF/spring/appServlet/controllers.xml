@@ -20,10 +20,19 @@
 	<mvc:view-controller path="/post" /> 
 	
 	<!--  Proves amb security -->
-	<mvc:view-controller path="/userHome" />
+	<mvc:view-controller path="/oauth/userHome" />
+	<mvc:view-controller path="/oauth" />
+	
+	<mvc:view-controller path="/gae/**" />
+	
+	<mvc:view-controller path="/saml" />
+	
+	<mvc:view-controller path="/ws" />
 	
 	<!-- Proves amb CQRS -->
 	<mvc:view-controller path="/shipping/shipment" />
+	
+<!-- 	<mvc:view-controller path="/register.htm" /> -->
 	
 	
 	<!-- Travel -->
