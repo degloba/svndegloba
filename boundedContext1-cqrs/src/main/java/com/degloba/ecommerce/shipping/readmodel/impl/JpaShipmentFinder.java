@@ -23,7 +23,7 @@ public class JpaShipmentFinder implements ShipmentFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<ShipmentDto> findShipment() {
-        String jpql = "select new com.degloba.ecommerce.shipping.readmodel.ShipmentDto(s.id, s.orderId, s.status) from Shipment s";
+        String jpql = "select new com.degloba.ecommerce.shipping.readmodel.ShipmentDto(s.id, s.orderId, s.status) from com.degloba.ecommerce.shipping.domain.Shipment s";
         Query query = entityManager.createQuery(jpql);
         return query.getResultList();
     }
