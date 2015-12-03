@@ -23,7 +23,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 public class PaymentFactory {
 	
 	@Inject
-	private IDomainEventPublisher publisher;
+	private IDomainEventPublisher<?> publisher;
 
 	public Payment createPayment(ClientData clientData, Money amount){
 		//TODO validate
