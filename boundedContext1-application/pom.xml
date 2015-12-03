@@ -153,12 +153,13 @@
         	<version>1.0.0</version>
         </dependency>
         
-        <!--  -->
-        <dependency>
+        <!-- used to convert the response data into JSON string 
+        For Spring 4.1.x and above, jackson-databind 2.3 or above is recommended, in order to avoid conversion issues -->
+         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
-        </dependency>
+        </dependency> 
 
         <dependency>
         	<groupId>javax.mail</groupId>
