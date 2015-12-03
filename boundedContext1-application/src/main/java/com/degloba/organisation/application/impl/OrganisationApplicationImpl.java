@@ -80,6 +80,12 @@ public class OrganisationApplicationImpl implements OrganisationService {
 		this.organisationRepository = organisationRepository;
 	}
 
+	@Override
+	public void cretePost(Post post) {
+		// TODO Auto-generated method stub
+		organisationRepository.save(post);
+	}
+
 	
 
 }
