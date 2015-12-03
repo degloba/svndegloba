@@ -71,5 +71,12 @@ public class OrganisationFacadeImpl implements OrganisationFacade {
 	public void setApplication(OrganisationService application) {
 		this.application = application;
 	}
+
+	@Override
+	public void setPost(Post post) {
+		// TODO Auto-generated method stub
+		application.cretePost(post);
+		
+	}
 	
 }
