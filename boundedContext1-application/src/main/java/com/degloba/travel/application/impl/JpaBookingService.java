@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 // Spring
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,8 @@ public class JpaBookingService implements BookingService, Serializable {
 
 	private EntityManager em;
 
-	@PersistenceContext
+	@PersistenceContext(unitName="transactions-optional")
+    @Qualifier(value="entityManagerFactoryDatastore")	
 	public void setEntityManager(EntityManager em) {
 		this.em = em;
 	}
@@ -43,7 +45,7 @@ public class JpaBookingService implements BookingService, Serializable {
 	@SuppressWarnings("unchecked")
 	public List<Booking> findBookings(String username) {
 		if (username != null) {
-			return em.createQuery("select b from Booking b where b.user.username = :username order by b.checkinDate")
+			return em.createQuery("select b from com.degloba.travel.domain.Booking b where b.user.username = :username order by b.checkinDate")
 					.setParameter("username", username).getResultList();
 		} else {
 			return null;
@@ -113,7 +115,7 @@ public class JpaBookingService implements BookingService, Serializable {
 
 	@Override
 	public User findUser(String username) {
-		return (User) em.createQuery("select u from User u where u.username = :username")
+		return (User) em.createQuery("select u from com.degloba.travel.domain.User u where u.username = :username")
 				.setParameter("username", username).getSingleResult();
 	}
 
