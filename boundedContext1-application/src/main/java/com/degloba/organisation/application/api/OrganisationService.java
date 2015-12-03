@@ -19,4 +19,6 @@ public interface OrganisationService {
     void changeParentOfOrganization(Organization organization, Organization newParent, Date date);
 
     void createPostUnderOrganization(Post post, Organization organization, Date date);
+    
+    void cretePost(Post post);
 }
