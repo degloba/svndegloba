@@ -22,7 +22,7 @@
          -->
         <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
         
-        <springsecurity-version>3.2.4.RELEASE</springsecurity-version>
+        <springsecurity-version>4.0.3.RELEASE</springsecurity-version>
         <org.springwebflow-version>2.4.2.RELEASE</org.springwebflow-version>
     </properties>
     
@@ -323,18 +323,105 @@
         </dependency>
         
         
-        <dependency>
+         <dependency>
 		  <groupId>com.github.leleuj.springframework.security</groupId>
 		  <artifactId>spring-security-oauth-client</artifactId>
 		  <version>1.1.0</version>
-		</dependency>
+		</dependency> 
 
         <dependency>
         	<groupId>javax.cache</groupId>
         	<artifactId>cache-api</artifactId>
         	<version>1.0.0</version>
         </dependency>
+
+        <dependency>
+        	<groupId>org.springframework.data</groupId>
+        	<artifactId>spring-data-mongodb-cross-store</artifactId>
+        	<version>1.6.4.RELEASE</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.mongodb</groupId>
+        	<artifactId>mongo-java-driver</artifactId>        	
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-core</artifactId>        	
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-entitymanager</artifactId>
+        	<version>5.0.3.Final</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>                
+		</dependency>
         
+        <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>                
+            </dependency>
+        <dependency>
+        	<groupId>com.google.apis</groupId>
+        	<artifactId>google-api-services-calendar</artifactId>
+        	<version>v3-rev151-1.20.0</version>
+        </dependency>
+
+
+
+
+
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>degloba-security</artifactId>
+        	<version>4.4.3-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+        	<groupId>xml-apis</groupId>
+        	<artifactId>xml-apis</artifactId>
+        	<version>1.4.01</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.data</groupId>
+        	<artifactId>spring-data-mongodb</artifactId>
+        </dependency>
+        <!-- <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>spring-security-pac4j</artifactId>
+        	<version>1.3.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>pac4j-mongo</artifactId>
+        	<version>1.8.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>pac4j-gae</artifactId>
+        	<version>1.8.0</version>
+        </dependency> -->
+        <!-- Incompatible amb la llibreria Oauth per connectar-me a Google 
+        <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>pac4j-oauth</artifactId>
+        	<version>1.8.0</version>
+        </dependency> -->
+
+        <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>pac4j-core</artifactId>
+        	<version>1.8.0</version>
+        </dependency>
+
+
+	<!--  used to convert the response data into JSON string.  -->
+        <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.2.3</version>
+        </dependency>
     </dependencies>
     
 
@@ -497,7 +584,53 @@
 				        </execution>
 		                                   
                 	</executions>
-            	</plugin>	                    		
+            	</plugin>	    
+            	
+            	
+            	<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <version>1.0</version>
+        <dependencies>
+          <!-- NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outxml>true</outxml>
+          <aspectLibraries>
+            <aspectLibrary>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-aspects</artifactId>
+            </aspectLibrary>
+            <aspectLibrary>
+              <groupId>org.springframework.data</groupId>
+              <artifactId>spring-data-mongodb-cross-store</artifactId>
+            </aspectLibrary>
+          </aspectLibraries>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+            	
+            	
+            	                		
         	</plugins>
         </pluginManagement>
         
