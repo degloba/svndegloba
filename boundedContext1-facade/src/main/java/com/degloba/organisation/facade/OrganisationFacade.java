@@ -2,6 +2,7 @@ package com.degloba.organisation.facade;
 
 import java.util.Date;
 
+import com.degloba.organisation.domain.Post;
 import com.google.appengine.api.datastore.Key;
 
 /**
@@ -18,5 +19,7 @@ public interface OrganisationFacade {
     void createPostUnderOrganization(PostDto postDto, Key organizationId, Date date);
 
     PostDto getPost(Key postId);
+    
+    void setPost(Post post);
 
 }
