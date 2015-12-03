@@ -283,5 +283,11 @@ public interface EntityRepository {   //extends CrudRepository<Entity, Long>{
     void clear();
 
 
+    <T extends Entity>List<T> find(Class<T> entityClass, QueryCriterion criterion);
+
+
+    <T extends Entity>T getSingleResult(Class<T> entityClass, QueryCriterion criterion);
+
+
 
 }
