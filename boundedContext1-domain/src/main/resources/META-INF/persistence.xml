@@ -6,12 +6,12 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
  
 	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-	<!--	<class>com.degloba.organisation.domain.Party</class>  
+		<class>com.degloba.organisation.domain.Party</class>  
 		<class>com.degloba.organisation.domain.Accountability</class>
 		<class>com.degloba.organisation.domain.Email</class>
 		<class>com.degloba.organisation.domain.Employee</class>
 		<class>com.degloba.organisation.domain.Person</class>
-		<class>com.degloba.organisation.domain.Organization</class> 
+		<class>com.degloba.organisation.domain.Organization</class>  
 		<class>com.degloba.organisation.domain.Post</class>
 		<class>com.degloba.organisation.domain.PostHolding</class>
 		<class>com.degloba.organisation.domain.OrgLineMgmt</class>
@@ -19,14 +19,12 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.organisation.domain.Job</class>  
 		<class>com.degloba.organisation.domain.Address</class>
 		<class>com.degloba.organisation.domain.Company</class> 
-		  <class>com.degloba.organisation.domain.Department</class>
+		<class>com.degloba.organisation.domain.Department</class>
 		<class>com.degloba.organisation.domain.Employment</class>
-		 <class>com.degloba.organisation.domain.EmployeeArchieve</class> 
+		<class>com.degloba.organisation.domain.EmployeeArchieve</class> 
 		<class>com.degloba.organisation.domain.PersonEducationInfo</class>		
-		<class>com.degloba.organisation.domain.CompanyDepartment</class> -->
+		<class>com.degloba.organisation.domain.CompanyDepartment</class>
 				
-		<!-- afegit ultim -->
-			
 		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
