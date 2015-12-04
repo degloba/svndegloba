@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
 // Spring - Integration
-import org.springframework.integration.Message;
-import org.springframework.integration.core.MessageHandler;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHandler;
 import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
