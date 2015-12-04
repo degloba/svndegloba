@@ -129,18 +129,7 @@
 			<artifactId>datanucleus-appengine</artifactId>	
 			<scope>test</scope>	
 		</dependency>
-			 
-		<!-- *********** -->			 
-		<!-- EclipseLink -->
-		<!-- *********** -->			 
-<!--         <dependency> -->
-<!--             <groupId>org.eclipse.persistence</groupId> -->
-<!--             <artifactId>org.eclipse.persistence.jpa</artifactId> -->
-<!--             <version>${eclipseLink.version}</version> -->
-<!--             <optional>true</optional> -->
-<!--         </dependency> -->
-
-        
+		
     </dependencies>
 
     <build>
