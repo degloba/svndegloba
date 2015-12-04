@@ -9,7 +9,6 @@
   
 
     <artifactId>degloba-security</artifactId>
-      
     
    <dependencies>
         <dependency>
@@ -302,7 +301,7 @@
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-framework-bom</artifactId>
-        <version>4.1.6.RELEASE</version>
+        <version>4.2.3.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
