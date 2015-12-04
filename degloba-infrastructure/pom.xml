@@ -15,9 +15,9 @@
     </description>
     
      <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>        
+                
 		<spring.integration.version>4.2.2.RELEASE</spring.integration.version>
-        <spring.integration.amqp.version>4.2.2.RELEASE</spring.integration.amqp.version>
+        
     </properties>
 
     <dependencies>
@@ -30,14 +30,12 @@
             <artifactId>dddlib-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
-        
-        
+                
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        
-     
+             
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_2.0_spec</artifactId>
@@ -52,21 +50,6 @@
             <artifactId>gson</artifactId>     
         </dependency>
         
-        <!-- ******* -->
-        <!--  Spring -->
-        <!-- ******* -->
-        <dependency>
-			<groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-		</dependency>
-       <!--  <dependency>
-        	<groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-		</dependency>    --> 
-		<dependency>
-		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>		 
-		 </dependency>
 		  
 		<!-- ****************** -->            
 		<!-- Llibreries degloba -->
@@ -77,18 +60,17 @@
             <version>${project.version}</version>
         </dependency>    
         
-        
-        <!-- ****** -->
-		<!-- Spring -->
-		<!-- ****** -->
-     	
+                
+		<!-- ************* -->
+        <!--  Spring  Data -->
+        <!-- ************* -->
+      
 		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-amqp</artifactId>
-			<version>1.5.0.RELEASE</version>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>		 
 		</dependency>
-		
-		
+        		
+        		
 		<!-- ****************** -->
 		<!-- Spring Integration -->
 		<!-- ****************** -->
@@ -112,12 +94,6 @@
             <artifactId>spring-integration-core</artifactId>
             <version>${spring.integration.version}</version>
 		</dependency> 
-		
-		
-		<!-- *********** -->
-		<!-- Spring Data -->
-		<!-- *********** -->
- 	
 		
 		
 		<!--  -->
