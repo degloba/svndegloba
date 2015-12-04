@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
            http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+           http://www.springframework.org/schema/security/spring-security.xsd">
            
            
 	<!-- CONFIGURACIO 1 : -->
@@ -190,18 +190,140 @@ http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine
 	    </constructor-arg>
 	    <constructor-arg>
 	        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
-	        </bean>
-	    </constructor-arg>
+	        </bean> 
+	       
+	    </constructor-arg> 
+	    	    
 	</bean>
 
 	<bean id="metadata" class="org.springframework.security.saml.metadata.CachingMetadataManager">
 	    <constructor-arg>
 	        <list>
-	            <!-- ... metadata ... -->
+	            <!-- Example of classpath metadata with Extended Metadata -->
+                <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
+                    <constructor-arg>
+                        <bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+                            <constructor-arg>
+                                <bean class="java.util.Timer"/>
+                            </constructor-arg>
+                            <constructor-arg>
+                                <bean class="org.opensaml.util.resource.ClasspathResource">
+                                    <constructor-arg value="/metadata/idp.xml"/>
+                                </bean>
+                            </constructor-arg>
+                            <property name="parserPool" ref="parserPool"/>
+                        </bean>
+                    </constructor-arg>
+                    <constructor-arg>
+                        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
+                        </bean>
+                    </constructor-arg>
+                </bean>
+                <!-- Example of HTTP metadata without Extended Metadata -->
+                <bean class="org.opensaml.saml2.metadata.provider.HTTPMetadataProvider">
+                    <!-- URL containing the metadata -->
+                    <constructor-arg>
+                        <value type="java.lang.String">http://idp.ssocircle.com/idp-meta.xml</value>
+                    </constructor-arg>
+                    <!-- Timeout for metadata loading in ms -->
+                    <constructor-arg>
+                        <value type="int">15000</value>
+                    </constructor-arg>
+                    <property name="parserPool" ref="parserPool"/>
+                </bean>
+                <!-- Example of file system metadata without Extended Metadata -->
+                <!--
+                <bean class="org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider">
+                    <constructor-arg>
+                        <value type="java.io.File">/usr/local/metadata/idp.xml</value>
+                    </constructor-arg>
+                    <property name="parserPool" ref="parserPool"/>
+                </bean>
+                -->
 	        </list>
 	    </constructor-arg>
 	    <property name="refreshCheckInterval" value="0"/>
 </bean>
+	
+	
+	
+	<!-- ********************************************************************* -->
+	<!-- 					spring-security-pac4j                              -->
+	<!-- ********************************************************************* -->
+	
+<!-- <security:authentication-manager alias="authenticationManager">
+	<security:authentication-provider ref="clientProvider" />
+</security:authentication-manager>
+	
+<bean id="facebookClient" class="org.pac4j.oauth.client.FacebookClient">
+    <property name="key" value="fbKey" />
+    <property name="secret" value="fbSecret" />
+</bean>
+
+<bean id="twitterClient" class="org.pac4j.oauth.client.TwitterClient">
+    <property name="key" value="twKey" />
+    <property name="secret" value="twSecret" />
+</bean>
+
+<bean id="usernamePasswordAuthenticator" class="org.pac4j.http.credentials.authenticator.test.SimpleTestUsernamePasswordAuthenticator" />
+
+<bean id="formClient" class="org.pac4j.http.client.indirect.FormClient">
+    <property name="loginUrl" value="http://localhost:8080/loginForm.jsp" />
+    <property name="authenticator" ref="usernamePasswordAuthenticator" />
+</bean>
+
+<bean id="clientFilter" class="org.pac4j.springframework.security.web.ClientAuthenticationFilter">
+    <property name="clients" ref="clients" />
+    <property name="authenticationManager" ref="authenticationManager" />
+</bean>
+
+<bean id="clientProvider" class="org.pac4j.springframework.security.authentication.ClientAuthenticationProvider">
+    <property name="clients" ref="clients" />
+</bean>
+
+
+<bean id="casClient" class="org.pac4j.cas.client.CasClient">
+    <property name="casLoginUrl" value="http://mycasserverurl" />
+</bean>
+
+<bean id="clients" class="org.pac4j.core.client.Clients">
+    <property name="callbackUrl" value="http://localhost:8080/callback" />
+    <property name="clients">
+        <list>
+            <ref bean="facebookClient" />
+            <ref bean="twitterClient" />
+            <ref bean="formClient" />
+            <ref bean="casClient" />
+        </list>
+    </property>
+</bean>
+
+<security:http pattern="/facebook/**" entry-point-ref="facebookEntryPoint">
+    <security:intercept-url pattern="/facebook/**" access="isAuthenticated()" />
+</security:http>
+<security:http pattern="/twitter/**" entry-point-ref="twitterEntryPoint">
+    <security:intercept-url pattern="/twitter/**" access="isAuthenticated()" />
+</security:http> -->
+
+<!-- <security:http pattern="/**" entry-point-ref="casEntryPoint">
+    <security:csrf disabled="true"/>
+    <security:headers disabled="true" />
+    <security:custom-filter after="CAS_FILTER" ref="clientFilter" />
+    <security:intercept-url pattern="/cas/**" access="isAuthenticated()" />
+    <security:intercept-url pattern="/**" access="permitAll()" />
+    <security:logout logout-success-url="/" />
+</security:http> 
+
+<bean id="facebookEntryPoint" class="org.pac4j.springframework.security.web.ClientAuthenticationEntryPoint">
+    <property name="client" ref="facebookClient" />
+</bean>
+<bean id="twitterEntryPoint" class="org.pac4j.springframework.security.web.ClientAuthenticationEntryPoint">
+    <property name="client" ref="twitterClient" />
+</bean>
+
+<bean id="casEntryPoint" class="org.pac4j.springframework.security.web.ClientAuthenticationEntryPoint">
+    <property name="client" ref="casClient" />
+</bean> -->
 	
 	
 </beans>
