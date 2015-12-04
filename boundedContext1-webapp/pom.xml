@@ -10,11 +10,11 @@
 	
     <artifactId>boundedContext1-webapp</artifactId>
     <packaging>war</packaging>
-	<name>casino - boundedContext1- Structure - Webapp</name>
+	<name>Casino - boundedContext1 - webapp</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       
         <primefaces-version>5.0</primefaces-version> 
           
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
@@ -23,7 +23,7 @@
         <org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
         
         <springsecurity-version>4.0.3.RELEASE</springsecurity-version>
-        <org.springwebflow-version>2.4.2.RELEASE</org.springwebflow-version>
+        
     </properties>
     
     <repositories>
@@ -206,26 +206,14 @@
 	    	<scope>compile</scope>
     	</dependency>        --> 
 		
-		
 				
 		<!-- Referencies Llibreries -->			
-		<!-- <dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>degloba-domain</artifactId>		
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency> -->	 	
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
 		</dependency>	
- 		 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>degloba-cqrs</artifactId>		
-			<version>${project.version}</version>
-		</dependency>			
-	
+ 		
                    
 <!--                    
                    <dependency>
@@ -268,15 +256,8 @@
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>		
 		</dependency>
-
-        <dependency>
-        	<groupId>org.springframework.data</groupId>
-        	<artifactId>spring-data-jpa</artifactId>
-        	<version>1.7.1.RELEASE</version>
-        </dependency>
         
-        
-         <dependency>
+		<dependency>
 		  <groupId>com.github.leleuj.springframework.security</groupId>
 		  <artifactId>spring-security-oauth-client</artifactId>
 		  <version>1.1.0</version>
@@ -288,11 +269,11 @@
         	<version>1.0.0</version>
         </dependency>
 
-        <dependency>
+       <!--  <dependency>
         	<groupId>org.springframework.data</groupId>
         	<artifactId>spring-data-mongodb-cross-store</artifactId>
         	<version>1.6.4.RELEASE</version>
-        </dependency>
+        </dependency> -->
         <dependency>
         	<groupId>org.mongodb</groupId>
         	<artifactId>mongo-java-driver</artifactId>        	

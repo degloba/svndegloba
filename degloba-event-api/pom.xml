@@ -14,8 +14,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>        
-		<spring.integration.version>2.1.0.RC1</spring.integration.version>
-        <spring.integration.amqp.version>2.1.0.RC1</spring.integration.amqp.version>
+
     </properties>
     
    

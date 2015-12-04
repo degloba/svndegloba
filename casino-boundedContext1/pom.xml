@@ -233,17 +233,17 @@
             <!-- ****** -->
             <!-- Spring -->
             <!-- ****** -->
-             <dependency>
+            <!--  <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
-            </dependency> 
-            <dependency>
+            </dependency>  -->
+             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <dependency>
+           <!-- <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
                 <version>${spring.version}</version>
@@ -277,7 +277,7 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-faces</artifactId>
                 <version>${springwebflow.version}</version>
-            </dependency>            
+            </dependency>             -->
             <dependency>
                 <groupId>aopalliance</groupId>
                 <artifactId>aopalliance</artifactId>
@@ -298,6 +298,8 @@
                 <version>${slf4j.version}</version>
             </dependency>
                         
+                        
+		
             
         </dependencies>
 
@@ -679,7 +681,7 @@
 
         <jdk.version>1.7</jdk.version>
         <slf4j.version>1.7.6</slf4j.version>
-        <spring.version>4.1.6.RELEASE</spring.version>
+        <spring.version>4.2.3.RELEASE</spring.version>
         <tapestry.version>5.3.7</tapestry.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
         <!-- Database settings, default to H2 database -->
@@ -723,7 +725,10 @@
         <hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
         <hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
         <hibernate.show_sql>true</hibernate.show_sql>
-        <hibernate.format_sql>true</hibernate.format_sql>        
+        <hibernate.format_sql>true</hibernate.format_sql>    
+        
+		<spring.integration.version>4.2.2.RELEASE</spring.integration.version>
+        <spring.integration.amqp.version>4.2.2.RELEASE</spring.integration.amqp.version>    
     </properties>
 
     <profiles>

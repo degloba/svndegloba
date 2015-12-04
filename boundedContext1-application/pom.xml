@@ -12,21 +12,8 @@
     <name>Casino - boundedContext1- Structure - Application</name>
     <url>http://maven.apache.org</url>
     
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>        
-		<spring.integration.version>2.1.0.RC1</spring.integration.version>
-        <spring.integration.amqp.version>2.1.0.RC1</spring.integration.amqp.version>
-    </properties>
-    
-    
     <dependencies>
    
- 			<dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>2.5</version>
-            </dependency>            
-    
     	<!-- ****************** -->
     	<!-- Llibreries degloba -->
     	<!-- ****************** -->
@@ -58,50 +45,7 @@
 		<!-- ****** -->
 		<!-- Spring -->
 		<!-- ****** -->
-     	<!-- <dependency>
-			<groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-		</dependency> -->
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-amqp</artifactId>
-			<version>1.5.0.RELEASE</version>
-		</dependency>
-		
-		
-		<dependency>
-        	<groupId>org.springframework</groupId>
-			<artifactId>spring-jms</artifactId>                
-		</dependency>	
-		<dependency>
-        	<groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>                
-		</dependency>
-		
-		<!-- ****************** -->
-		<!-- Spring Integration -->
-		<!-- ****************** -->
- 		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-amqp</artifactId>
-			<version>${spring.integration.version}</version>
-		</dependency> 		
-        <dependency>
-        	<groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-jms</artifactId>
-            <version>${spring.integration.version}</version>
-		</dependency>
-        <dependency>
-        	<groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-mail</artifactId>
-            <version>${spring.integration.version}</version>
-		</dependency>
-		<dependency>
-        	<groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-core</artifactId>
-            <version>${spring.integration.version}</version>
-		</dependency>
-		
+    			
 		<!-- <dependency>
 			<groupId>org.springframework.data.gemfire</groupId>
 			<artifactId>spring-gemfire</artifactId>
@@ -166,6 +110,13 @@
         	<artifactId>mail</artifactId>
         	<version>1.4.4</version>
         </dependency>
+
+        <dependency>
+        	<groupId>commons-io</groupId>
+        	<artifactId>commons-io</artifactId>
+        	<version>2.4</version>
+        </dependency>
+        
     </dependencies>
     
     <build>

@@ -6,8 +6,9 @@
   <version>4.4.3-SNAPSHOT</version>
   
 <properties>
+
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<spring.version>4.1.6.RELEASE</spring.version>  
+	<spring.version>4.2.3.RELEASE</spring.version>  
 	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
 	<springsecurity-version>4.0.1.RELEASE</springsecurity-version>  
 	
@@ -27,9 +28,10 @@
 	
 	<org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
 	
-	<eclipseLink.version>2.5.1</eclipseLink.version>
-	
 	<aspectjweaver.version>1.7.4</aspectjweaver.version>
+	
+	 <spring.integration.version>4.2.2.RELEASE</spring.integration.version>
+        <spring.integration.amqp.version>4.2.2.RELEASE</spring.integration.amqp.version> 
             
 </properties>
   
@@ -47,8 +49,7 @@
 		<id>google-maven-repo</id>             
        	<name>Google Maven Repository</name>             
        	<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
-	</repository>
-       	
+	</repository>       	
  	<repository>
         <id>dayatang-releases</id>
         <url>http://nexus.dayatang.org/content/groups/public-release</url>
@@ -72,6 +73,7 @@
 </repositories>  
       
 <pluginRepositories>
+
         <pluginRepository>
             <id>dayatang-releases</id>
             <url>http://nexus.dayatang.org/content/groups/public-release</url>
@@ -99,8 +101,7 @@
      <modules>   
           <module>../degloba-persistence</module>
           <module>../degloba-utilitats</module> 
-          <module>../degloba-cqrs</module>
-          
+          <module>../degloba-cqrs</module>          
           <module>../degloba-domain</module>
           <module>../degloba-infrastructure</module>
           <module>../degloba-ioc-spring</module>
@@ -109,7 +110,7 @@
           
           <!-- <module>../degloba-ioc-test</module> -->
 
-           <module>../casino</module> 
+           <module>../casino</module>  
     </modules>    
 
 
@@ -386,9 +387,9 @@
                 <version>${org.richfaces.bom.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
+        </dependency>
             
-            <dependency>
+		<dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectjweaver.version}</version>
