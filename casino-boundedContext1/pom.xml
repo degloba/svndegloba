@@ -875,12 +875,14 @@
         </profile>
     </profiles>
     <modules>
-     	 <module>../boundedContext1-domain</module> 
-     	 <module>../boundedContext1-infrastructure</module> 
+     	<module>../boundedContext1-domain</module> 
+     	<module>../boundedContext1-infrastructure</module> 
     	<module>../boundedContext1-cqrs</module>
+    	<module>../boundedContext1-integration</module>
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
     	<module>../boundedContext1-facade-impl</module>
-    	<module>../boundedContext1-webapp</module>   
+    	<module>../boundedContext1-webapp</module>
+    	
     </modules>
 </project>
