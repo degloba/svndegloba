@@ -44,7 +44,7 @@
     
     <dependencies>
     
-            <dependency>
+		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade-impl</artifactId>
             <version>${project.version}</version>
