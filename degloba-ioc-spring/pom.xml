@@ -34,16 +34,7 @@
         <!-- ****** -->
         <!-- Spring -->
         <!-- ****** -->
-       <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>aopalliance</artifactId>
-                    <groupId>aopalliance</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency> -->
+       
         <!-- To define a Web listener to expand and replace the Spring's ContextLoaderListener,  -->
         <dependency>
             <groupId>org.springframework</groupId>
