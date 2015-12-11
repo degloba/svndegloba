@@ -13,29 +13,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
-// Spring - Integration
+//Spring - Messaging
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
+
+//Spring - Integration
 import org.springframework.integration.mail.MailHeaders;
+
+//Spring - Mail
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-
+import com.degloba.integration.EmailNotificationService;
 
 // Domain
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.User;
-import com.degloba.infrastructure.integration.services.NotificationGateway;
-import com.degloba.integration.EmailNotificationService;
+
+import com.degloba.integration.services.NotificationGateway;
+
 // Application
 import com.degloba.travel.application.api.BookingService;
-//import com.degloba.travel.application.api.NotificationService;
-
-
-// Spring
-import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
+import com.degloba.travel.domain.Booking;
+import com.degloba.travel.domain.User;
 
 import javax.annotation.PostConstruct;
 import javax.mail.BodyPart;
@@ -49,7 +50,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
