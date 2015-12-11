@@ -134,16 +134,6 @@
 			<artifactId>datanucleus-appengine</artifactId>	
 			<scope>test</scope>	
 		</dependency>
-		
-		
-            
-		 <!-- used to convert the response data into JSON string 
-        For Spring 4.1.x and above, jackson-databind 2.3 or above is recommended, in order to avoid conversion issues -->            
-		<!-- <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.4.2</version>
-        </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
