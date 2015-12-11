@@ -32,16 +32,7 @@
             <scope>runtime</scope>        
 		</dependency>
 		
-		<!-- ****** -->
-		<!-- Spring -->
-		<!-- ****** -->
-		
-		<dependency>
-			<groupId>org.springframework.data.gemfire</groupId>
-			<artifactId>spring-gemfire</artifactId>
-			<version>1.0.1.RELEASE</version>
-		</dependency>
-		
+	
 		<!-- *********** -->
 		<!-- Spring Data -->
 		<!-- *********** -->
