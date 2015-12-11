@@ -21,13 +21,10 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-/*import com.degloba.travel.application.api.BookingService;
-import com.degloba.travel.application.api.NotificationService;*/
+
 // Domain
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.User;
-import com.degloba.infrastructure.integration.services.NotificationGateway;
-
 
 
 // Spring
@@ -46,7 +43,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -61,12 +57,7 @@ public class EmailNotificationService implements NotificationService {
 
     private Log log = LogFactory.getLog(getClass());
 
- /*   @Autowired
-    private BookingService bookingService;*/
-
-    @Autowired
-    private NotificationGateway notificationGateway;
-
+   
     @Autowired
     private VelocityEngine velocityEngine;
 
@@ -166,27 +157,7 @@ public class EmailNotificationService implements NotificationService {
     public void sendReminderNotification(String userId, long bookingId) {
         // todo
     }
-
-
-   /* @Override
-    public void sendConfirmationNotification(String userId, long bookingId) {
-        User user = bookingService.findUser(userId);
-        Booking booking = bookingService.findBookingById(bookingId);
-
-        try {
-            String html = mergeTemplate(user, booking, cachedTemplates.get(htmlConfirmation));
-            String txt = mergeTemplate(user, booking, cachedTemplates.get(textConfirmation));
-            Map<String, String> m = new HashMap<String, String>();
-            m.put("html", html);
-            m.put("txt", txt);
-
-            notificationGateway.sendNotification(user.getEmail(), this.confirmationSubject, m);
-
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }*/
+  
 
     private String readTemplate(Resource resource) {
         InputStream inputStream = null;
