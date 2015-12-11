@@ -97,23 +97,20 @@
     </pluginRepositories>    
 
 
-
      <modules>   
-          <module>../degloba-persistence</module>
-          <module>../degloba-utilitats</module> 
-          <module>../degloba-cqrs</module>          
-          <module>../degloba-domain</module>
-          <module>../degloba-infrastructure</module>
-          <module>../degloba-ioc-spring</module>
+			<module>../degloba-domain</module>
+			<module>../degloba-ioc-spring</module>
+          	<module>../degloba-persistence</module>
+          	<module>../degloba-utilitats</module> 
+          	<module>../degloba-cqrs</module>          
+			<module>../degloba-infrastructure</module>
           
-          <module>../degloba-security</module>
+			<module>../degloba-security</module>
           
           <!-- <module>../degloba-ioc-test</module> -->
 
            <module>../casino</module>  
     </modules>    
-
-
        
 <dependencyManagement>
 
