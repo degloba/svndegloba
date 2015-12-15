@@ -8,12 +8,8 @@
 	</parent>
 	<artifactId>degloba-cqrs</artifactId>
     <packaging>jar</packaging>
-    <name>API Command Query Responsibility Segregation</name>
-    <description>
-        Most important module that provides the core interfaces and base classes.
-    </description>
-	   	
-      	
+    <name>API Command Query Responsibility Segregation by deGloba</name>
+          	
 	<dependencies>
 	  
 		<dependency>                         
