@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>degloba-security</artifactId>
+  	
+  	
     <parent>
 	    <artifactId>degloba-parent</artifactId>
 	    <groupId>com.degloba</groupId>
 	    <version>4.4.3-SNAPSHOT</version>
 	</parent>
   
-
-    <artifactId>degloba-security</artifactId>
+	<properties>
+	    <m2eclipse.wtp.contextRoot>/spring-security-samples-gae-xml</m2eclipse.wtp.contextRoot>
+	    <com.google.api.client.version>1.19.1</com.google.api.client.version>
+	    <com.google.oauth.client.version>1.19.0</com.google.oauth.client.version>
+	</properties>
     
    <dependencies>
         <dependency>
@@ -49,21 +55,7 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
         </dependency> -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+       
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -88,42 +80,42 @@
         <dependency>
         	<groupId>com.google.api-client</groupId>
         	<artifactId>google-api-client</artifactId>
-        	<version>1.19.1</version>
+        	<version>${com.google.api.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.api-client</groupId>
         	<artifactId>google-api-client-appengine</artifactId>
-        	<version>1.19.1</version>
+        	<version>${com.google.api.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.api-client</groupId>
         	<artifactId>google-api-client-servlet</artifactId>
-        	<version>1.19.1</version>
+        	<version>${com.google.api.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.oauth-client</groupId>
         	<artifactId>google-oauth-client</artifactId>
-        	<version>1.19.0</version>
+        	<version>${com.google.oauth.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.oauth-client</groupId>
         	<artifactId>google-oauth-client-appengine</artifactId>
-        	<version>1.19.0</version>
+        	<version>${com.google.oauth.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.oauth-client</groupId>
         	<artifactId>google-oauth-client-servlet</artifactId>
-        	<version>1.19.0</version>
+        	<version>${com.google.oauth.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.http-client</groupId>
         	<artifactId>google-http-client</artifactId>
-        	<version>1.19.0</version>
+        	<version>${com.google.oauth.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>com.google.http-client</groupId>
         	<artifactId>google-http-client-appengine</artifactId>
-        	<version>1.19.0</version>
+        	<version>${com.google.oauth.client.version}</version>
         </dependency>
         <dependency>
         	<groupId>org.codehaus.jackson</groupId>
@@ -138,30 +130,35 @@
                
         
         
-        <!-- *************************************** -->
+    <!-- **************************** -->
+    <!--        Spring Security       -->
+	<!-- ***************************  -->
         
 	<dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-core</artifactId>
-      <version>4.0.3.CI-SNAPSHOT</version>
+      <version>${springsecurity-version}</version>
       <scope>compile</scope>
+    </dependency>
+     <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${springsecurity-version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${springsecurity-version}</version>
+      <scope>runtime</scope>
     </dependency>
   
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
+
+   <!--  <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <scope>compile</scope>
-    </dependency>
+    </dependency> -->
    
     <dependency>
       <groupId>javax.validation</groupId>
@@ -173,6 +170,18 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>      
       <scope>compile</scope>
+    </dependency>    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>runtime</scope>
     </dependency>
     
     <dependency>
@@ -189,82 +198,52 @@
       <version>1.2.1</version>
       <scope>runtime</scope>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-      <version>1.7.7</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-jdk14</artifactId>
-      <version>1.7.7</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-config</artifactId>
-      <version>4.0.3.CI-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-taglibs</artifactId>
-      <version>4.0.3.CI-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
+    
+   
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.1.2</version>
       <scope>test</scope>
     </dependency>
+    
+    
+    <!-- ****************** -->
+    <!-- Google appengine   -->
+    <!-- ****************** -->
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-labs</artifactId>
-      <version>1.9.23</version>
+      <version>${google.appengine}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-stubs</artifactId>
-      <version>1.9.23</version>
+      <version>${google.appengine}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-testing</artifactId>
-      <version>1.9.23</version>
+      <version>${google.appengine}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>      
-      <scope>test</scope>
-    </dependency>
+    
+  
+
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-assert</artifactId>
       <version>1.4</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>      
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    
-    
-    <dependency>
-    <groupId>org.springframework.security.extensions</groupId>
-    <artifactId>spring-security-saml2-core</artifactId>
-    <version>1.0.1.RELEASE</version>
-</dependency>
+	    <groupId>org.springframework.security.extensions</groupId>
+	    <artifactId>spring-security-saml2-core</artifactId>
+	    <version>1.0.1.RELEASE</version>
+	</dependency>
         
    </dependencies>
 
@@ -276,8 +255,7 @@
             </testResource>
         </testResources>
         
-        
-         <plugins>
+        <plugins>
     		<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
@@ -285,30 +263,11 @@
 		</plugins> 
     </build>
     
-    
-    
 	<repositories>
-    <repository>
-      <id>spring-snapshot</id>
-      <url>https://repo.spring.io/snapshot</url>
-    </repository>
-  </repositories>
- 
-  
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>4.2.3.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <properties>
-    <m2eclipse.wtp.contextRoot>/spring-security-samples-gae-xml</m2eclipse.wtp.contextRoot>
-  </properties>
+	    <repository>
+	      <id>spring-snapshot</id>
+	      <url>https://repo.spring.io/snapshot</url>
+	    </repository>
+	</repositories>
      
 </project>
