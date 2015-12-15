@@ -57,8 +57,14 @@
             <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
         </dependency> 
+        
+		<dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>degloba-security</artifactId>
+        	<version>${project.version}</version>
+        </dependency>
 		
-		
+		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
@@ -290,12 +296,6 @@
 
 
         <dependency>
-        	<groupId>com.degloba</groupId>
-        	<artifactId>degloba-security</artifactId>
-        	<version>4.4.3-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
         	<groupId>xml-apis</groupId>
         	<artifactId>xml-apis</artifactId>
         	<version>1.4.01</version>
@@ -331,12 +331,12 @@
 
 
 	<!--  used to convert the response data into JSON string.  -->
-        <dependency>
+      <!--   <dependency>
         	<groupId>com.fasterxml.jackson.core</groupId>
         	<artifactId>jackson-databind</artifactId>
         	<version>2.2.3</version>
         </dependency>
-       
+        -->
     </dependencies>
     
 
