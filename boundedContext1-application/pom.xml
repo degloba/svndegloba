@@ -28,12 +28,19 @@
 			<version>${project.version}</version>
 		</dependency>
 		
-		<dependency>
+		 <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>boundedContext1-integration</artifactId>
+        	<version>${project.version}</version>
+        </dependency>
+
+		
+	<!-- 	<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>        
-		</dependency>
+		</dependency> -->
 
 		
 		<!-- per proves (classe : ServicesConfiguration) -->
@@ -52,7 +59,7 @@
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-enhancer</artifactId>
-			<version>3.1.1</version>
+			<version>${datanucleus.maven.plugin}</version>
 		</dependency>
 		
         
@@ -64,16 +71,7 @@
             <version>1.9.13</version>
         </dependency> 
 
-        <dependency>
-        	<groupId>com.degloba</groupId>
-        	<artifactId>boundedContext1-integration</artifactId>
-        	<version>4.4.3-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.degloba</groupId>
-        	<artifactId>degloba-integration</artifactId>
-        	<version>4.4.3-SNAPSHOT</version>
-        </dependency>
+       
     </dependencies>
     
     <build>
