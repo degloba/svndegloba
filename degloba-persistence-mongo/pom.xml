@@ -212,7 +212,7 @@
     		<dependency>
     			<groupId>com.degloba</groupId>
     			<artifactId>degloba-persistence-test</artifactId>
-    			<version>4.4.3-SNAPSHOT</version>
+    			<version>${project.version}</version>
     		</dependency>
     	</dependencies>
     </dependencyManagement>
