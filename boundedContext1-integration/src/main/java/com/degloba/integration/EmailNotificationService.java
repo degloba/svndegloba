@@ -52,8 +52,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class EmailNotificationService implements NotificationService {
 
-    @Value("classpath:/templates/confirmation-html.vm")
-    private Resource htmlConfirmation;
+/*    @Value("classpath:/templates/confirmation-html.vm")
+    private Resource htmlConfirmation;*/
 
     private Log log = LogFactory.getLog(getClass());
 
@@ -75,23 +75,12 @@ public class EmailNotificationService implements NotificationService {
 
     private Map<Resource, String> cachedTemplates = new ConcurrentHashMap<Resource, String>();
 
-    @PostConstruct
+/*    @PostConstruct
     public void start() throws Exception {
         // read the templates in as strings and cache the results
         cachedTemplates.put(this.textConfirmation, readTemplate(textConfirmation));
         cachedTemplates.put(this.htmlConfirmation, readTemplate(htmlConfirmation));
-    }
-
-    private String mergeTemplate(User user, Booking booking, String tplBody) throws Exception {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("name", user.getName());
-        model.put("email", user.getEmail());
-        model.put("bookingId", booking.getId());
-        model.put("bookingCheckin", booking.getCheckinDate());
-        model.put("hotelName", booking.getHotel().getName());
-        model.put("bookingCheckout", booking.getCheckoutDate());
-        return mergeTemplate(model, tplBody);
-    }
+    }*/
 
     public String mergeTemplate(Map<String, Object> model, String template) throws Exception {
         VelocityContext context = new VelocityContext();
@@ -159,23 +148,7 @@ public class EmailNotificationService implements NotificationService {
     }
   
 
-    private String readTemplate(Resource resource) {
-        InputStream inputStream = null;
-        try {
-            inputStream = resource.getInputStream();
-            Assert.notNull(inputStream, "the inputStream shouldn't be null");
-            return IOUtils.toString(inputStream);
-        } catch (IOException e) {
-            log.error("couldn't read in the body of the HTML template ", e);
-            throw new RuntimeException(e);
-        } finally {
-            if (inputStream != null) {
-                IOUtils.closeQuietly(inputStream);
-            }
-        }
-    }
-
-	@Override
+    @Override
 	public void sendConfirmationNotification(String userId, long id) {
 		// TODO Auto-generated method stub
 		

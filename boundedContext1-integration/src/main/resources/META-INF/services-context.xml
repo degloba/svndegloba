@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:gfe="http://www.springframework.org/schema/gemfire"
+        xmlns:cache="http://www.springframework.org/schema/cache"
+        xmlns:int-mail="http://www.springframework.org/schema/integration/mail"
+        xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+        xmlns:integration="http://www.springframework.org/schema/integration"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire-1.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/integration/mail http://www.springframework.org/schema/integration/mail/spring-integration-mail.xsd
+		http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+     ">
+
+
+    <context:annotation-config/>
+
+    <bean class="com.degloba.integration.config.services.IntegrationConfiguration"/>  
+    
+    <!-- JPA, TX,... -->
+     <!-- <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>    -->
+ 
+    <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
+
+
+
+
+    <!-- GEMFIRE-->
+   <!--  <gfe:cache properties-ref="props" id="c"/>
+    <gfe:replicated-region id="usersRegion" cache-ref="c"/>
+    <gfe:replicated-region id="hotelsRegion" cache-ref="c"/>
+    <gfe:replicated-region id="bookingsRegion" cache-ref="c"/>
+    <util:properties id="props" location="classpath:/gfe-cache.properties"/>
+
+    <cache:annotation-driven cache-manager="gemfireCacheManager"/>
+ -->
+    <integration:channel id="enqueuedEmails"/>
+    <integration:channel id="dequeuedEmails"/>
+    <integration:channel id="preparedEmails"/>
+    <integration:channel id="fromGateway" />
+    <integration:channel id="toMessageBroker" />
+
+    <integration:gateway service-interface="com.degloba.integration.services.NotificationGateway" default-request-channel="enqueuedEmails" />
+
+    <integration:transformer  input-channel="enqueuedEmails" ref="transformerGatewayMessageToAmqpPayload" output-channel="toMessageBroker" />
+
+    <int-amqp:outbound-channel-adapter
+            channel="toMessageBroker"
+            exchange-name="${amqp.notification.exchange}"
+            routing-key="${amqp.notification.exchange}"
+            amqp-template="rabbitTemplate"
+            mapped-request-headers="*"
+            />
+
+    <int-amqp:inbound-channel-adapter
+        channel="dequeuedEmails"
+        queue-names="${amqp.notification.queue}"
+        connection-factory="connectionFactory"
+        acknowledge-mode="AUTO"
+        message-converter="jsonMessageConverter"
+        mapped-request-headers="*"
+    />
+
+    <int-mail:header-enricher input-channel="dequeuedEmails" output-channel="preparedEmails">
+        <int-mail:from value="${notifications.email.from}"/>
+        <int-mail:to expression="payload['mail_to']"/>
+        <int-mail:subject expression="payload['mail_subject']"/>
+    </int-mail:header-enricher>
+
+
+    <integration:service-activator input-channel="preparedEmails" ref="emailNotificationService" method="sendEmail"/>
+
+    <integration:service-activator input-channel="errrorChannel" ref="errorMessageHandler"/>
+    
+    
+    <bean id="emailNotificationService" class="com.degloba.travel.services.integration.EmailNotificationServiceBooking"/>
+
+</beans>
