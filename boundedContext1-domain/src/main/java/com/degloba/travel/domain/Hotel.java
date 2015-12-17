@@ -1,6 +1,6 @@
 package com.degloba.travel.domain;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+//import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
