@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import com.degloba.domain.DataType;
 import com.degloba.domain.Value;
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.DateUtils;
 
 import static org.junit.Assert.*;
 

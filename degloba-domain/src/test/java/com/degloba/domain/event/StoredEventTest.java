@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
 import com.degloba.domain.InstanceFactory;
-import org.dayatang.utils.DateUtils;
-import org.dayatang.utils.ObjectSerializer;
+import com.degloba.utils.DateUtils;
+import com.degloba.utils.ObjectSerializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
