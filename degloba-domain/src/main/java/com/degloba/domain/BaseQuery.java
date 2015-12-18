@@ -3,7 +3,7 @@ package com.degloba.domain;
 import java.util.List;
 import java.util.Map;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 /**
  * Query base class for NamedQuery, JpqlQuery and SqlQuery provide common behavior.

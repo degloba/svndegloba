@@ -1,7 +1,7 @@
 package com.degloba.domain.event;
 
 import com.google.common.eventbus.EventBus;
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 public class DomainEventBusImpl implements DomainEventBus {
 

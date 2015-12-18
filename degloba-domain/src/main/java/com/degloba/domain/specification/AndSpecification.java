@@ -1,6 +1,6 @@
 package com.degloba.domain.specification;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 /**
  * AND specification for creating a new norm, as a result of the other two norms "and (AND)" operations.

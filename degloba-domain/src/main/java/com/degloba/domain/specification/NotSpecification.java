@@ -1,6 +1,6 @@
 package com.degloba.domain.specification;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 /**
  * NOT specification for creating a new norm, as another specification "non-(NOT)" results of operations.

@@ -1,10 +1,8 @@
 package com.degloba.domain;
 
-import org.dayatang.utils.Assert;
-
-
-
 import java.util.List;
+
+import com.degloba.utils.Assert;
 
 /**
  * Query string-based object query language. One of the four inquiries form DDDLib support.

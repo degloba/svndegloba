@@ -1,6 +1,6 @@
 package com.degloba.domain.internal.repo;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 /**
  * Basic query, meaning a majority of query conditions except AND / OR / NOT query criteria, 

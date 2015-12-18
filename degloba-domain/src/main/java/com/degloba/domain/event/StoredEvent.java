@@ -2,8 +2,8 @@ package com.degloba.domain.event;
 
 import com.degloba.domain.InstanceFactory;
 
-import org.dayatang.utils.Assert;
-import org.dayatang.utils.ObjectSerializer;
+import com.degloba.utils.Assert;
+import com.degloba.utils.ObjectSerializer;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

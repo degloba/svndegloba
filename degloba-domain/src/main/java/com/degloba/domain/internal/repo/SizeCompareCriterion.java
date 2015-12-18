@@ -3,8 +3,8 @@ package com.degloba.domain.internal.repo;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.NamedParameters;
-import org.dayatang.utils.Assert;
-import org.dayatang.utils.BeanUtils;
+import com.degloba.utils.Assert;
+import com.degloba.utils.BeanUtils;
 
 import java.util.Map;
 

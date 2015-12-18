@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.QueryCriterion;
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 
 /**

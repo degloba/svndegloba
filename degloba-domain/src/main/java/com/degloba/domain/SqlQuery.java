@@ -1,6 +1,6 @@
 package com.degloba.domain;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 import java.util.List;
 

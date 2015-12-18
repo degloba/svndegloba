@@ -1,6 +1,6 @@
 package com.degloba.domain.specification;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 /**
  * OR specification for creating a new norm, as the other two canonical "or (OR)" results of operations.

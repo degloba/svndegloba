@@ -10,11 +10,7 @@ import javax.persistence.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-// Dayatang Utils
-import org.dayatang.utils.BeanUtils;
-
-
-
+import com.degloba.utils.BeanUtils;
 // Appengine
 import com.google.appengine.api.datastore.Key;
 

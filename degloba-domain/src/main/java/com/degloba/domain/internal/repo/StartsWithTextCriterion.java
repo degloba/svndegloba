@@ -3,7 +3,7 @@ package com.degloba.domain.internal.repo;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.degloba.domain.NamedParameters;
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 public class StartsWithTextCriterion extends BasicCriterion {
 
