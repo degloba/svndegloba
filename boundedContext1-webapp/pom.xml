@@ -79,11 +79,11 @@
              <!-- <scope>runtime</scope>  -->
         </dependency>    
               
-         <dependency>
+   <!--       <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-infrastructure</artifactId>
             <version>${project.version}</version>
-        </dependency> 
+        </dependency>  -->
  
         
         <dependency>
@@ -92,12 +92,12 @@
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-          <dependency>
+   <!--        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-datanucleus</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope> 
-        </dependency> 
+        </dependency>  -->
 	  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
@@ -157,6 +157,7 @@
             <groupId>org.springframework.webflow</groupId>
             <artifactId>spring-webflow</artifactId>
         </dependency>
+        		
      <!--    <dependency>
             <groupId>org.springframework.webflow</groupId>
             <artifactId>spring-js</artifactId>
