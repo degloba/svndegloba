@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.Test;
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.DateUtils;
 
 
 

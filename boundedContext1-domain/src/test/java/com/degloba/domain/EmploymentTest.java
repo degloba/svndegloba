@@ -1,6 +1,6 @@
 package com.degloba.domain;
 
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.DateUtils;
 import org.junit.Test;
 
 import com.degloba.organisation.domain.Company;
