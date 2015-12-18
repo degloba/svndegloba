@@ -79,37 +79,26 @@
              <!-- <scope>runtime</scope>  -->
         </dependency>    
               
-   <!--       <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-infrastructure</artifactId>
-            <version>${project.version}</version>
-        </dependency>  -->
- 
-        
+       
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-   <!--        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-persistence-datanucleus</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope> 
-        </dependency>  -->
+
 	  <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-persistence-jpa</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>          
         </dependency>        
-		<dependency>
+<!-- 		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-infrastructure</artifactId>
             <version>${project.version}</version>
-           <!--  <scope>runtime</scope>    -->     
-		</dependency>		        
+            <scope>runtime</scope>        
+		</dependency> -->		        
         
         
         <dependency>
@@ -153,10 +142,6 @@
 			<groupId>org.springframework.webflow</groupId> 
 			<artifactId>spring-faces</artifactId>  					                               
 		</dependency>  
-		<dependency>
-            <groupId>org.springframework.webflow</groupId>
-            <artifactId>spring-webflow</artifactId>
-        </dependency>
         		
      <!--    <dependency>
             <groupId>org.springframework.webflow</groupId>
@@ -164,16 +149,16 @@
         </dependency> -->
         
         <!-- Spring Security -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${springsecurity-version}</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+<!-- 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${springsecurity-version}</version>
-        </dependency>	
+        </dependency>	 -->
 		
 	
 		
@@ -252,16 +237,11 @@
 	 
 	 
 	  <!-- Datanucleus Appengine -->
-        <dependency>
+     <!--    <dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>		
-		</dependency>
-        
-		<dependency>
-		  <groupId>com.github.leleuj.springframework.security</groupId>
-		  <artifactId>spring-security-oauth-client</artifactId>
-		  <version>1.1.0</version>
-		</dependency> 
+		</dependency> -->
+
 
         <dependency>
         	<groupId>javax.cache</groupId>
@@ -302,6 +282,11 @@
         	<version>1.4.01</version>
         </dependency>
 
+		<dependency>
+		  <groupId>com.github.leleuj.springframework.security</groupId>
+		  <artifactId>spring-security-oauth-client</artifactId>
+		  <version>1.1.0</version>
+		</dependency> 
         <!-- <dependency>
         	<groupId>org.pac4j</groupId>
         	<artifactId>spring-security-pac4j</artifactId>
