@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>degloba-parent</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>degloba-integration</artifactId>
+    <packaging>jar</packaging>
+    <name>Degloba Integration</name>
+    <description>
+
+    </description>
+    
+	<properties>                
+		<spring.integration.version>4.2.2.RELEASE</spring.integration.version>        
+    </properties>
+
+
+    <dependencies>
+    
+                   
+        
+		<!-- ****************** -->            
+		<!-- Llibreries degloba -->
+		<!-- ****************** -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>    
+        
+        		
+		<!-- ****************** -->
+		<!-- Spring Integration -->
+		<!-- ****************** -->
+ 		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-amqp</artifactId>
+			 <version>${spring.integration.version}</version>
+		</dependency> 		
+         <dependency>
+        	<groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jms</artifactId>
+            <version>${spring.integration.version}</version>
+		</dependency>
+        <dependency>
+        	<groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-mail</artifactId>
+            <version>${spring.integration.version}</version>
+		</dependency>  
+
+		
+        <!-- per proves (classe : ServicesConfiguration) -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-core</artifactId>        
+		</dependency>
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+        	<artifactId>datanucleus-api-jpa</artifactId>        
+		</dependency>		
+		 <dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>				
+		</dependency>
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-enhancer</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.29</version>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+        	<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	        </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            com.degloba.domain,
+                            com.degloba.domain.specification
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-manifest</id>
+                        <goals>
+                            <goal>manifest</goal>
+                            <goal>bundle</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
