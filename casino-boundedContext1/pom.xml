@@ -13,67 +13,6 @@
     <name>casino - boundedContext1 Structure</name>
      
 
-
-   <!--  <distributionManagement>
-        <repository>
-            <id>dayatang-releases</id>
-            <name>Dayatang release repository</name>
-            <url>dav:http://nexus.dayatang.org:8083/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>dayatang-snapshots</id>
-            <name>Dayatang snapshot repository</name>
-            <url>dav:http://nexus.dayatang.org:8083/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>dayatang-releases</id>
-            <url>http://nexus.dayatang.org/content/groups/public-release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>dayatang-snapshots</id>
-            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>dayatang-releases</id>
-            <url>http://nexus.dayatang.org/content/groups/public-release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>dayatang-snapshots</id>
-            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories> -->
-
-
      <dependencyManagement>
         <dependencies>
             <dependency>
