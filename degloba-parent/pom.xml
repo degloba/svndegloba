@@ -34,8 +34,11 @@
 	<!-- Google Appengine -->
 	<google.appengine>1.9.30</google.appengine>
 	
-	<org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
-	
+	  <!-- Setting this property using archetype-metadata.xml requiredPorperty
+             so that generated project uses correct version of richfaces.
+         -->
+	<org.richfaces.bom.version>4.3.7.Final</org.richfaces.bom.version>
+		
 	<aspectjweaver.version>1.7.4</aspectjweaver.version>
 	
 	<commons.dbcp>1.4</commons.dbcp>
@@ -67,10 +70,8 @@
 </repositories>  
       
 <pluginRepositories>
-
         
     </pluginRepositories>    
-
 
      <modules>   
 			<module>../degloba-domain</module>
