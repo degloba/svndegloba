@@ -1,7 +1,7 @@
 package com.degloba.organisation.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 import javax.persistence.*;
 import java.util.Date;

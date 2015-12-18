@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 import com.degloba.domain.BaseAggregateRoot;
 
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.DateUtils;
 
 @Entity
 //@Table(name = "accountabilities")

@@ -2,8 +2,8 @@ package com.degloba.organisation.domain;
 
 import com.degloba.domain.BaseAggregateRoot;
 
-import org.dayatang.utils.Assert;
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.Assert;
+import com.degloba.utils.DateUtils;
 
 import javax.persistence.*;
 
