@@ -14,16 +14,7 @@
     </description>
 
     <dependencies>
-		
-		<!-- ******************** -->    
-    	<!-- Llibreries Auxiliars -->
-    	<!-- ******************** -->
-        <dependency>
-            <groupId>org.dayatang.dddlib</groupId>
-            <artifactId>dddlib-utils</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        
+       
              
         <!-- JPA -->
 		<dependency>
