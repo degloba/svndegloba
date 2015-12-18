@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.degloba.domain.EntityRepository;
 
-import org.dayatang.utils.DateUtils;
+import com.degloba.utils.DateUtils;
 
 import com.degloba.organisation.application.api.OrganisationService;
 import com.degloba.organisation.domain.Company;
