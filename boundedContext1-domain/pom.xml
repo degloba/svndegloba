@@ -27,14 +27,6 @@
             <artifactId>validation-api</artifactId>
         </dependency>
         
-        <!-- ******************** -->
-        <!-- Llibreries auxiliars -->
-        <!-- ******************** -->
-        <dependency>
-            <groupId>org.dayatang.dddlib</groupId>
-            <artifactId>dddlib-utils</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         
         <!-- ****************** -->
         <!-- Llibreries degloba -->
