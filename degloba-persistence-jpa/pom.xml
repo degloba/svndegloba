@@ -42,21 +42,6 @@
             <artifactId>el-api</artifactId>
         </dependency>
             
-        
-        <!-- Llibreries auxiliars -->
-         <dependency>
-            <groupId>org.dayatang.dddlib</groupId>
-            <artifactId>dddlib-db</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency> 
-        <dependency>
-            <groupId>org.dayatang.dddlib</groupId>
-            <artifactId>dddlib-configuration</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-              
       
         <dependency>
             <groupId>org.slf4j</groupId>
