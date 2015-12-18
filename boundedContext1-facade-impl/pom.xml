@@ -28,6 +28,14 @@
     <pluginManagement>
    	 
         <plugins>
+        <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>1.7</source>
+	                <target>1.7</target>
+	            </configuration>	            
+			</plugin>
         	<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
         	<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
