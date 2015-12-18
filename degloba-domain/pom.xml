@@ -56,6 +56,7 @@
     <build>
       <pluginManagement>
         <plugins>
+        	<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -75,7 +76,7 @@
                                         <pluginExecutionFilter>
                                                 <groupId>org.datanucleus</groupId>
                                                 <artifactId>maven-datanucleus-plugin</artifactId>
-                                                <versionRange>3.1.1</versionRange>
+                                                <versionRange>${datanucleus.maven.plugin}</versionRange>
                                                 <goals>
                                                         <goal>enhance</goal>
                                                 </goals>
@@ -130,7 +131,7 @@
              <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>${datanucleus.maven.plugin}</version>
                 <configuration>
                     <fork>false</fork>
                     <metadataIncludes>**/*.class</metadataIncludes>
@@ -146,7 +147,7 @@
                     <dependency>
                         <groupId>org.datanucleus</groupId>
                         <artifactId>datanucleus-enhancer</artifactId>
-                        <version>3.1.1</version>
+                        <version>${datanucleus.maven.plugin}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.datanucleus</groupId>
