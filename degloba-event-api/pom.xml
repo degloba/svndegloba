@@ -19,11 +19,7 @@
     
    
 	<dependencies>
-        <dependency>
-            <groupId>org.dayatang.dddlib</groupId>
-            <artifactId>dddlib-utils</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+       
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
@@ -49,8 +45,13 @@
              <version>3.1.0</version>
             <scope>test</scope>
         </dependency>
-        
-    </dependencies>
+
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>degloba-utilitats</artifactId>
+        	<version>0.0.3-SNAPSHOT</version>
+        </dependency>
+	</dependencies>
     
      <build>
     
@@ -60,7 +61,7 @@
         	 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>${maven.surefire.plugin.version}</version>
                 <configuration>
           			<skipTests>true</skipTests>
        		 	</configuration>
