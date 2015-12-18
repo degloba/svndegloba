@@ -1,6 +1,6 @@
 package com.degloba.persistence.jpa;
 
-//import org.dayatang.btm.BtmUtils;
+//import com.degloba.btm.BtmUtils;
 
 // Classes de domini
 import com.degloba.domain.AbstractEntity;

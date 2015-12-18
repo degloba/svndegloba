@@ -27,8 +27,8 @@
    <!--  <persistence-unit name="default" transaction-type="JTA">
         <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
         <jta-data-source>jdbc/testDS</jta-data-source>
-        <class>org.dayatang.persistence.test.domain.Dictionary</class>
-        <class>org.dayatang.persistence.test.domain.DictionaryCategory</class>
+        <class>com.degloba.persistence.test.domain.Dictionary</class>
+        <class>com.degloba.persistence.test.domain.DictionaryCategory</class>
         <properties>
             property optional if you plan and use Infinispan, otherwise adjust to your favorite
                 NoSQL Datastore provider.
