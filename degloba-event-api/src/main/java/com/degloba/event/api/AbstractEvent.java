@@ -1,6 +1,6 @@
 package com.degloba.event.api;
 
-import org.dayatang.utils.Assert;
+import com.degloba.utils.Assert;
 
 import java.util.Date;
 import java.util.UUID;
