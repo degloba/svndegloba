@@ -8,10 +8,10 @@
 <properties>
 
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<spring.version>4.2.3.RELEASE</spring.version>  
+	<spring.version>4.2.2.RELEASE</spring.version>  
 	<springwebflow.version>2.4.1.RELEASE</springwebflow.version>
 	<springsecurity-version>4.0.3.RELEASE</springsecurity-version>  
-	<spring.integration.version>4.2.3.RELEASE</spring.integration.version>  
+	<spring.integration.version>4.2.2.RELEASE</spring.integration.version>  
 	
 	
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
@@ -26,7 +26,7 @@
 	<mojarra.version>2.1.7</mojarra.version>
 	<uel.version>2.2</uel.version>
 	<poi.version>3.9</poi.version>
-	<google.appengine>1.9.25</google.appengine>
+	<google.appengine>1.9.30</google.appengine>
 	
 	<org.richfaces.bom.version>4.3.1.Final</org.richfaces.bom.version>
 	
@@ -57,50 +57,12 @@
        	<name>Google Maven Repository</name>             
        	<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
 	</repository>       	
- 	<repository>
-        <id>dayatang-releases</id>
-        <url>http://nexus.dayatang.org/content/groups/public-release</url>
-        <releases>
-        	<enabled>true</enabled>
-		</releases>
-        <snapshots>
-        	<enabled>false</enabled>
-		</snapshots>
-	</repository>
-    <repository>
-        <id>dayatang-snapshots</id>
-        <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
-        <releases>
-        	<enabled>false</enabled>
-		</releases>
-        <snapshots>
-        	<enabled>true</enabled>
-		</snapshots>
-    </repository>       	
+ 	  	
 </repositories>  
       
 <pluginRepositories>
 
-        <pluginRepository>
-            <id>dayatang-releases</id>
-            <url>http://nexus.dayatang.org/content/groups/public-release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>dayatang-snapshots</id>
-            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
+        
     </pluginRepositories>    
 
 
@@ -108,6 +70,7 @@
 			<module>../degloba-domain</module>
 			<module>../degloba-ioc-spring</module>
           	<module>../degloba-persistence</module>
+          	<module>../degloba-integration</module>
           	<module>../degloba-utilitats</module> 
           	<module>../degloba-cqrs</module>          
 			<module>../degloba-infrastructure</module>
