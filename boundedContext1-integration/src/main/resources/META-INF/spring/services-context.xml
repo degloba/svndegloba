@@ -48,7 +48,7 @@
     <integration:channel id="fromGateway" />
     <integration:channel id="toMessageBroker" />
 
-    <integration:gateway service-interface="com.degloba.integration.services.NotificationGateway" default-request-channel="enqueuedEmails" />
+    <integration:gateway id= "gw" service-interface="com.degloba.integration.services.NotificationGateway" default-request-channel="enqueuedEmails" />
 
     <integration:transformer  input-channel="enqueuedEmails" ref="transformerGatewayMessageToAmqpPayload" output-channel="toMessageBroker" />
 
@@ -70,9 +70,9 @@
     />
 
     <int-mail:header-enricher input-channel="dequeuedEmails" output-channel="preparedEmails">
-        <int-mail:from value="${notifications.email.from}"/>
+         <int-mail:from value="${notifications.email.from}"/>
         <int-mail:to expression="payload['mail_to']"/>
-        <int-mail:subject expression="payload['mail_subject']"/>
+        <int-mail:subject expression="payload['mail_subject']"/> 
     </int-mail:header-enricher>
 
 
