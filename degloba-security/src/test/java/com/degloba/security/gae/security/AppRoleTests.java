@@ -2,10 +2,12 @@ package com.degloba.security.gae.security;
 
 import static org.junit.Assert.*;
 
-import com.degloba.security.gae.security.AppRole;
+
 
 import org.junit.Test;
 import org.springframework.security.core.GrantedAuthority;
+
+import com.degloba.security.spring.gae.security.AppRole;
 
 /**
  * @author Luke Taylor
