@@ -1,5 +1,9 @@
-package com.degloba.event.api;
+package com.degloba.event.bus;
 
+import com.degloba.event.api.IEvent;
+import com.degloba.event.api.IEventBus;
+import com.degloba.event.api.IEventListener;
+import com.degloba.event.api.IEventStore;
 import com.degloba.utils.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +15,8 @@ import java.util.List;
 
 
 /**
- * Bus de Eventos
+ * 简单的进程内事件总线
+ * @author yyang
  */
 public final class SimpleEventBus implements IEventBus {
 
@@ -48,6 +53,7 @@ public final class SimpleEventBus implements IEventBus {
 
     @Override
     public void post(IEvent event) {
+        LOGGER.info("Post a event " + event + " to event bus");
         eventStore.store(event);
         for (IEventListener listener : listeners) {
             listener.onEvent(event);
