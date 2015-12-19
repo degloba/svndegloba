@@ -23,7 +23,7 @@
 	<int-mongodb:outbound-channel-adapter id="simpleAdapterWithConverter"
 					mongo-converter="mongoConverter"/>
 
-	<bean id="mongoConverter" class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
+	<bean id="mongoConverter" class="com.degloba.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
 		<constructor-arg ref="mongoDbFactory"/>
 		<constructor-arg>
 			<bean class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>

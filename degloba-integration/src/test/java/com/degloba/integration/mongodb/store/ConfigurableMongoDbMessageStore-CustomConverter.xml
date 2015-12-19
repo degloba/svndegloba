@@ -20,7 +20,7 @@
 	<mongo:mapping-converter id="customConverter">
 		<mongo:custom-converters>
 			<mongo:converter>
-				<beans:bean class="org.springframework.integration.mongodb.store.ConfigurableMongoDbMessageGroupStoreTests$MessageReadConverter"/>
+				<beans:bean class="com.degloba.integration.mongodb.store.ConfigurableMongoDbMessageGroupStoreTests$MessageReadConverter"/>
 			</mongo:converter>
 		</mongo:custom-converters>
 	</mongo:mapping-converter>
@@ -30,7 +30,7 @@
 	</beans:bean>
 
 	<gateway id="gateway"
-			 service-interface="org.springframework.integration.mongodb.store.ConfigurableMongoDbMessageGroupStoreTests$TestGateway"
+			 service-interface="com.degloba.integration.mongodb.store.ConfigurableMongoDbMessageGroupStoreTests$TestGateway"
 			 default-request-channel="preInputChannel"/>
 
 	<header-enricher input-channel="preInputChannel" output-channel="inputChannel">

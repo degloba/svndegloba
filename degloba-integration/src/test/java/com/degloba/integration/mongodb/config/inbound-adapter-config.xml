@@ -32,7 +32,7 @@
 											   mongo-template="mongoDbTemplate"
 											   query="{'name' : 'Bob'}"
 											   expect-single-result="true"
-											   entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.Person"
+											   entity-class="com.degloba.integration.mongodb.rules.MongoDbAvailableTests.Person"
 											   auto-startup="false">
 		<int:poller fixed-rate="5000"/>
 	</int-mongodb:inbound-channel-adapter>
@@ -80,13 +80,13 @@
 		<int:poller fixed-rate="100"/>
 	</int-mongodb:inbound-channel-adapter>
 
-	<bean id="documentCleaner" class="org.springframework.integration.mongodb.config.MongoDbInboundChannelAdapterIntegrationTests.DocumentCleaner"/>
+	<bean id="documentCleaner" class="com.degloba.integration.mongodb.config.MongoDbInboundChannelAdapterIntegrationTests.DocumentCleaner"/>
 
 	<bean id="mongoDbTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongoDbFactory"/>
 	</bean>
 
-	<bean id="mongoConverter" class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
+	<bean id="mongoConverter" class="com.degloba.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
 		<constructor-arg ref="mongoDbFactory"/>
 		<constructor-arg>
 			<bean class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>
