@@ -67,7 +67,7 @@ public class MongoDbMetadataStoreTests extends MongoDbAvailableTests {
 	@Test
 	public void testConfigureFactory() throws Exception {
 		final MongoDbFactory mongoDbFactory = this.prepareMongoFactory(DEFAULT_COLLECTION_NAME);
-		store = new 	(mongoDbFactory);
+		store = new MongoDbMetadataStore(mongoDbFactory);
 		testBasics();
 	}
 
