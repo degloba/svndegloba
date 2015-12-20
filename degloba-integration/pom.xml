@@ -14,14 +14,8 @@
 
     </description>
     
-	<properties>                
-		<spring.integration.version>4.2.2.RELEASE</spring.integration.version>        
-    </properties>
-
 
     <dependencies>
-    
-                   
         
 		<!-- ****************** -->            
 		<!-- Llibreries degloba -->
