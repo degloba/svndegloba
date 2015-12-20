@@ -1,28 +1,35 @@
 package com.degloba.infrastructure.sagas.impl;
 
+// Reflection
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+
 import javax.inject.Inject;
+
+// JPA
 import javax.persistence.NoResultException;
 
+// Spring
 import org.springframework.stereotype.Component;
 
-import com.degloba.infrastructure.events.impl.SimpleEventPublisher;
-import com.degloba.infrastructure.events.impl.handlers.IEventHandler;
+// Events
+import com.degloba.event.impl.SimpleEventPublisher;
+import com.degloba.event.impl.handlers.IEventHandler;
 import com.degloba.infrastructure.sagas.ISagaEngine;
+
+// Sagas
 import com.degloba.sagas.LoadSaga;
 import com.degloba.sagas.SagaAction;
 import com.degloba.sagas.SagaInstance;
 import com.degloba.sagas.ISagaManager;
 
-/**
- * @author Rafal Jamroz
- */
+
 @Component
 public class SimpleSagaEngine implements ISagaEngine {
 
