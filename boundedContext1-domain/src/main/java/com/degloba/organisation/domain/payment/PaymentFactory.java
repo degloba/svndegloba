@@ -5,12 +5,17 @@ import java.util.UUID;
 import javax.inject.Inject;
 
 import com.degloba.annotations.DomainFactory;
-import com.degloba.domain.IDomainEventPublisher;
+
 import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
-//import com.degloba.utils.Utils;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+
+// Domain
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
+
+// Events
+import com.degloba.event.domain.IDomainEventPublisher;
+
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 

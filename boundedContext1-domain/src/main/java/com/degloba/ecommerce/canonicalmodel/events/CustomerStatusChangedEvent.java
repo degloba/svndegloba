@@ -2,16 +2,15 @@ package com.degloba.ecommerce.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.annotations.event.Event;
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;
 
-/**
- * @author degloba
- * 
- */
+// Event
+import com.degloba.event.annotations.Event;
+
+
 @SuppressWarnings("serial")
 @Event
 public class CustomerStatusChangedEvent implements Serializable {

@@ -2,7 +2,10 @@ package com.degloba.ecommerce.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.annotations.event.Event;
+// Events
+import com.degloba.event.annotations.Event;
+
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 
 

@@ -2,12 +2,16 @@ package com.degloba.ecommerce.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.annotations.event.Event;
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+// Domain
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
+
+// Events
+import com.degloba.event.annotations.Event;
+
 
 /**
  * @author degloba

@@ -2,10 +2,12 @@ package com.degloba.organisation.canonicalmodel.events;
 
 import java.io.Serializable;
 
+// Event
+import com.degloba.event.annotations.Event;
+
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 
-import com.degloba.annotations.event.Event;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 @SuppressWarnings("serial")
 @Event

@@ -2,11 +2,14 @@ package com.degloba.organisation.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.annotations.event.Event;
-
-
+// Domain
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
+
+// Event
+import com.degloba.event.annotations.Event;
+
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 
 /**
