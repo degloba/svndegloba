@@ -13,6 +13,11 @@
         Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.
     </description>
 
+    <properties>
+        <servlet.version>2.5</servlet.version>
+        <jdbc.url><![CDATA[jdbc:h2:${basedir}/target/${db.name}]]></jdbc.url>
+    </properties>
+    
     <dependencies>
     
     	<!-- ****************** -->
@@ -78,7 +83,7 @@
         	<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>${maven.surefire.plugin.version}</version>
 				<configuration>
           			<skipTests>true</skipTests>
        		 	</configuration> 
@@ -111,8 +116,5 @@
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <servlet.version>2.5</servlet.version>
-        <jdbc.url><![CDATA[jdbc:h2:${basedir}/target/${db.name}]]></jdbc.url>
-    </properties>
+
 </project>
