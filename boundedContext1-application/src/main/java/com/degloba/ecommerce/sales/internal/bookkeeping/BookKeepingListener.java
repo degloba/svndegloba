@@ -2,11 +2,9 @@ package com.degloba.ecommerce.sales.internal.bookkeeping;
 
 import javax.inject.Inject;
 
-import com.degloba.annotations.event.EventListener;
-import com.degloba.annotations.event.EventListeners;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
 
-// Domain
+// Ecommerce 
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.client.domain.IClientRepository;
 import com.degloba.ecommerce.sales.invoicing.domain.BookKeeper;
@@ -17,6 +15,11 @@ import com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequestFactory;
 import com.degloba.ecommerce.sales.invoicing.domain.TaxAdvisor;
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
+
+// Events
+import com.degloba.event.annotations.EventListeners;
+import com.degloba.event.annotations.EventListener;
+
 
 @EventListeners
 public class BookKeepingListener {

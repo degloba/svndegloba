@@ -2,18 +2,25 @@ package com.degloba.ecommerce.sales.listeners;
 
 import javax.inject.Inject;
 
+import org.springframework.context.event.EventListener;
+
 import query.PaginatedResult;
 
-import com.degloba.annotations.event.EventListener;
-import com.degloba.annotations.event.EventListeners;
+// Ecommerce
 import com.degloba.ecommerce.canonicalmodel.events.CustomerStatusChangedEvent;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.internal.discounts.DiscountingService;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
 import com.degloba.ecommerce.sales.readmodel.orders.OrderQuery;
+
+// Domain
 import com.degloba.domain.sharedkernel.Money;
+
+//Google app engine
 import com.google.appengine.api.datastore.Key;
+
+// Events
+import com.degloba.event.annotations.EventListeners;
 
 /**
  * Sample Anti-corruption Layer: translates Customer-Client vocabulary
