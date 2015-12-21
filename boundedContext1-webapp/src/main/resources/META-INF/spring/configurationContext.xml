@@ -22,11 +22,7 @@
         </map>
         </property>
 	</bean>  -->
-	
-	
-	<!-- FACTORIES -->	
- 	<bean id="shipmentFactory" class="com.degloba.ecommerce.shipping.domain.ShipmentFactory" />  
- 
+	 
 	
 	<!-- ************** -->
 	<!-- SYSTEM USER    -->
@@ -56,7 +52,8 @@
  	<bean class="com.degloba.ecommerce.shipping.listeners.OrderSubmittedForShippingListener" />
  	<bean class="com.degloba.ecommerce.sales.internal.bookkeeping.BookKeepingListener"/>
 	<bean class="com.degloba.ecommerce.sales.listeners.ClientStatusChangedListener"/>
- 
+	
+	 
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
@@ -96,22 +93,30 @@
 	<!-- *********************** -->
 	<!-- SERVICES                 -->
 	<!-- *********************** -->
-	 <bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />
+	<bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />
 	
+	<!-- FACTORIES -->	
+ 	<bean id="shipmentFactory" class="com.degloba.ecommerce.shipping.domain.ShipmentFactory" />  
+ 	<bean id="invoiceRequestFactory" class="com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequestFactory" />
+ 	<bean id="invoiceFactory" class="com.degloba.ecommerce.sales.invoicing.domain.InvoiceFactory" />  
 		
-	 <!-- ************ -->
+	<!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
   	  
-		<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
-		<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
-		<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
-		<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
-		<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
-		<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
-		<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
-		<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
-		<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />
-  	  
-
+	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
+	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
+	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
+	<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
+	<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
+	<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
+	<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
+	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
+	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
+  	
+	
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.BookKeeper"/>
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.TaxAdvisor" />
+	<bean class="com.degloba.ecommerce.sales.internal.discounts.DiscountingService"/>
+	
 </beans>
