@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 
 import java.util.Collection;
 
+// is used on a method that needs to be executed after dependency injection is done to perform any initialization
 import javax.annotation.PostConstruct;
 
 import javax.inject.Inject;
@@ -22,12 +23,12 @@ import org.springframework.stereotype.Component;
 import com.degloba.event.impl.SimpleEventPublisher;
 import com.degloba.event.impl.handlers.IEventHandler;
 import com.degloba.infrastructure.sagas.ISagaEngine;
+import com.degloba.infrastructure.sagas.ISagaManager;
+import com.degloba.infrastructure.sagas.LoadSaga;
+import com.degloba.infrastructure.sagas.SagaAction;
 
 // Sagas
-import com.degloba.sagas.LoadSaga;
-import com.degloba.sagas.SagaAction;
-import com.degloba.sagas.SagaInstance;
-import com.degloba.sagas.ISagaManager;
+
 
 
 @Component
@@ -80,7 +81,7 @@ public class SimpleSagaEngine implements ISagaEngine {
     /**
      * TODO handle exception in more generic way
      */
-    private Object loadSagaData(ISagaManager loader, Object event) {
+    private Object loadSagaData(ISagaManager<SagaInstance<?>, ?> loader, Object event) {
         Method loaderMethod = findHandlerMethodForEvent(loader.getClass(), event);
         try {
             Object sagaData = loaderMethod.invoke(loader, event);

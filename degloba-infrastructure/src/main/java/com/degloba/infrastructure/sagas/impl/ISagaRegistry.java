@@ -2,8 +2,7 @@ package com.degloba.infrastructure.sagas.impl;
 
 import java.util.Collection;
 
-import com.degloba.sagas.SagaInstance;
-import com.degloba.sagas.ISagaManager;
+import com.degloba.infrastructure.sagas.ISagaManager;
 
 public interface ISagaRegistry {
 

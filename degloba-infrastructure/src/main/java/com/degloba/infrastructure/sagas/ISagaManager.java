@@ -1,4 +1,6 @@
-package com.degloba.sagas;
+package com.degloba.infrastructure.sagas;
+
+import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
  * @author Rafał Jamróz

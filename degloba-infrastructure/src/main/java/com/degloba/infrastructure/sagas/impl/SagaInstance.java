@@ -1,4 +1,4 @@
-package com.degloba.sagas;
+package com.degloba.infrastructure.sagas.impl;
 
 /**
  * 

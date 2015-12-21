@@ -1,6 +1,9 @@
-package com.degloba;
+package com.degloba.infrastructure.springdata.mongodb.spring.services;
 
+// Spring
 import org.springframework.context.annotation.Bean;
+
+// Spring Data MongoDb
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;

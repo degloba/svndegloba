@@ -1,20 +1,27 @@
 package com.degloba.infrastructure.events.impl;
 
+// Reflection
 import java.lang.reflect.Method;
 
 import javax.inject.Inject;
 
+// Spring
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import com.degloba.infrastructure.events.annotations.EventListener;
-import com.degloba.infrastructure.events.impl.handlers.AsynchronousEventHandler;
-import com.degloba.infrastructure.events.impl.handlers.IEventHandler;
-import com.degloba.infrastructure.events.impl.handlers.SpringEventHandler;
-import com.degloba.sagas.SagaInstance;
+// Event
+import com.degloba.event.annotations.EventListener;
+import com.degloba.event.impl.SimpleEventPublisher;
+import com.degloba.event.impl.handlers.AsynchronousEventHandler;
+import com.degloba.event.impl.handlers.IEventHandler;
+import com.degloba.event.impl.handlers.SpringEventHandler;
+
+
+// Sagas
+import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
  * Registers spring beans methods as event handlers in spring event publisher
