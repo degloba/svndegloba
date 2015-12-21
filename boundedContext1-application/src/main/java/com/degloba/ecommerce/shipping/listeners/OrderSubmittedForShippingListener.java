@@ -37,12 +37,12 @@ public class OrderSubmittedForShippingListener {
     private OrderFinder orderFinder;
 
     @Inject
-    private IShipmentRepository repository;
+    private IShipmentRepository shipmentRepository;
 
     @EventListener(asynchronous = true)
     public void handle(OrderSubmittedEvent event) {
         OrderDto orderDetails = orderFinder.find(event.getOrderId());
         Shipment shipment = factory.createShipment(orderDetails.getOrderId());
-        repository.save(shipment);
+        shipmentRepository.save(shipment);
     }
 }
