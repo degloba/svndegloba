@@ -79,6 +79,6 @@
     <integration:service-activator input-channel="errrorChannel" ref="errorMessageHandler"/>
     
     
-    <bean id="emailNotificationService" class="com.degloba.travel.services.integration.EmailNotificationServiceBooking"/>
+    <bean id="emailNotificationService" class="com.degloba.travel.integration.spring.config.EmailNotificationServiceBooking"/>
 
 </beans>
