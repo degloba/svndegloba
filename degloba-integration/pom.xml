@@ -59,7 +59,8 @@
    
 		<dependency>
 		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>		 
+		 	<artifactId>spring-data-mongodb</artifactId>
+		 	<scope>test</scope>		 
 		</dependency>
 		
         <!-- per proves (classe : ServicesConfiguration) -->
