@@ -5,7 +5,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
-//import com.degloba.annotations.AggregateRoot;
+//import com.degloba.domain.annotations.AggregateRoot;
 
 import com.degloba.domain.BaseAggregateRoot;
 

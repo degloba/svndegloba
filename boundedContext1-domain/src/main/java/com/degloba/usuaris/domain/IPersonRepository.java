@@ -1,6 +1,6 @@
 package com.degloba.usuaris.domain;
 
-import com.degloba.annotations.DomainRepository;
+import com.degloba.domain.annotations.DomainRepository;
 
 @DomainRepository
 public interface IPersonRepository {

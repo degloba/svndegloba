@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.invoicing.domain;
 
-import com.degloba.annotations.DomainRepository;
+import com.degloba.domain.annotations.DomainRepository;
 
 /**
  * 

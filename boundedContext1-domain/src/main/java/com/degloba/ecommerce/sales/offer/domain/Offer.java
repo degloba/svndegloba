@@ -3,7 +3,7 @@ package com.degloba.ecommerce.sales.offer.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 import com.google.appengine.api.datastore.Key;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;

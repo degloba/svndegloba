@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.FetchMode;*/
 
 
-//import com.degloba.annotations.AggregateRoot;
+//import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.BaseAggregateRoot;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;

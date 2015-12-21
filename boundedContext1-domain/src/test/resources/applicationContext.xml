@@ -16,7 +16,7 @@
 
 	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA -->
 	<!-- REPOSITORIS 
- 	<bean id="repository" class="com.degloba.persistence.jpa.EntityRepositoryJpa" />  -->
+ 	<bean id="repository" class="com.degloba.persistence.jpa.JpaEntityRepository" />  -->
         
  <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
 	

@@ -2,7 +2,7 @@ package com.degloba.ecommerce.sales.invoicing.domain;
 
 import javax.inject.Inject;
 
-import com.degloba.annotations.DomainService;
+import com.degloba.domain.annotations.DomainService;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.domain.sharedkernel.Money;
 

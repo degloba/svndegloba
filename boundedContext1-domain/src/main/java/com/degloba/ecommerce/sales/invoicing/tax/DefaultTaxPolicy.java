@@ -2,7 +2,7 @@ package com.degloba.ecommerce.sales.invoicing.tax;
 
 import java.math.BigDecimal;
 
-import com.degloba.annotations.DomainPolicyImpl;
+import com.degloba.domain.annotations.DomainPolicyImpl;
 import com.degloba.ecommerce.sales.invoicing.domain.Tax;
 import com.degloba.ecommerce.sales.invoicing.domain.TaxPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;

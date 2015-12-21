@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 
 @ValueObject

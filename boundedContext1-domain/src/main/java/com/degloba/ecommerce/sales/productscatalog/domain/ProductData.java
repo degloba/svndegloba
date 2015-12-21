@@ -10,7 +10,7 @@ import javax.persistence.Embedded;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 

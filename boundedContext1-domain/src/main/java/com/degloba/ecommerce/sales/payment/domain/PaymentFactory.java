@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
-import com.degloba.annotations.DomainFactory;
+import com.degloba.domain.annotations.DomainFactory;
 
 import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
 

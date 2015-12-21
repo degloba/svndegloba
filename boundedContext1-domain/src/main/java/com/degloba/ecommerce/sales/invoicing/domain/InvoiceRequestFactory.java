@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.invoicing.domain;
 
-import com.degloba.annotations.DomainFactory;
+import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.PurchaseItem;

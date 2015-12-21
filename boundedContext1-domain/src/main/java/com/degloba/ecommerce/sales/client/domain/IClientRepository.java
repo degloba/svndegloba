@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.client.domain;
 
-import com.degloba.annotations.DomainRepository;
+import com.degloba.domain.annotations.DomainRepository;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 

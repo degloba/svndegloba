@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
-//import com.degloba.annotations.AggregateRoot;
+//import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.BaseAggregateRoot;
 import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.ecommerce.sales.payment.domain.Payment;

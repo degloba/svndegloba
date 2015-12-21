@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
-import com.degloba.annotations.DomainFactory;
+import com.degloba.domain.annotations.DomainFactory;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;

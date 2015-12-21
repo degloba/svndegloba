@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.reservation.domain;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;
