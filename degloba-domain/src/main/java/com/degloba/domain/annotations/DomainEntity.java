@@ -1,4 +1,4 @@
-package com.degloba.annotations;
+package com.degloba.domain.annotations;
 
 /**
  * 

@@ -3,10 +3,12 @@ package com.degloba.domain.sharedkernel;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
+// JPA
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
-import com.degloba.annotations.ValueObject;
+// Domain
+import com.degloba.domain.annotations.ValueObject;
 
 @ValueObject
 @Embeddable

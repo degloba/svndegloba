@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -12,6 +13,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+// Domain
 import com.degloba.domain.BaseQuery;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.Entity;
@@ -23,16 +25,20 @@ import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.QueryParameters;
 import com.degloba.domain.SqlQuery;
+
+// Google App Engine
 import com.google.appengine.api.datastore.Key;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
+ * JpaEntityRepository by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
  * 
  * Multiple access to the database are performed by the same EntityManager.
  * 
@@ -42,9 +48,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class EntityRepositoryJpa<A extends BaseAggregateRoot> implements EntityRepository {
+public class JpaEntityRepository<A extends BaseAggregateRoot> implements EntityRepository {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepositoryJpa.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JpaEntityRepository.class);
   
 
 	@PersistenceContext(unitName="transactions-optional")
@@ -52,7 +58,7 @@ public class EntityRepositoryJpa<A extends BaseAggregateRoot> implements EntityR
     protected EntityManager entityManager;
 	
     
-    public EntityRepositoryJpa() {
+    public JpaEntityRepository() {
         //entityManagerProvider = new EntityManagerProvider();
     }
 

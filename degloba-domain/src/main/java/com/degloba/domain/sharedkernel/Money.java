@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
 
 //import org.fest.util.Objects;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 
 
 

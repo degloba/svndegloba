@@ -1,6 +1,7 @@
 package com.degloba.domain;
 
-import com.degloba.annotations.DomainService;
+// Domain
+import com.degloba.domain.annotations.DomainService;
 import com.degloba.domain.BaseAggregateRoot;
 
 /**

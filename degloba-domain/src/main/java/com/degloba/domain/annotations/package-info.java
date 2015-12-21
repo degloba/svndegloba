@@ -1,0 +1,1 @@
+package com.degloba.domain.annotations;

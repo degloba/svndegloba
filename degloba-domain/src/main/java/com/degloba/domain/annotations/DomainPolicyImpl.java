@@ -1,16 +1,17 @@
-package com.degloba.annotations;
+package com.degloba.domain.annotations;
 
-
+/**
+ * 
+ * @author degloba
+ *
+ */
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.springframework.stereotype.Component;
-
-@Component
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface FinderImpl {
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DomainPolicyImpl {
 
 }

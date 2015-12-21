@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.degloba.annotations.ValueObject;
+import com.degloba.domain.annotations.ValueObject;
 import com.google.appengine.api.datastore.Key;
 
 /**
