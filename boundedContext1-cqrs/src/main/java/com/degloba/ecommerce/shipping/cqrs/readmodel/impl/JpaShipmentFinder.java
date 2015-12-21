@@ -1,17 +1,21 @@
-package com.degloba.ecommerce.shipping.readmodel.impl;
+package com.degloba.ecommerce.shipping.cqrs.readmodel.impl;
 
 import java.util.List;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import query.annotations.Finder;
+// CQRS (ecommerce)
+import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
 
-import com.degloba.ecommerce.shipping.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.readmodel.ShipmentFinder;
+import com.degloba.cqrs.query.annotations.Finder;
+
 
 @Finder
 public class JpaShipmentFinder implements ShipmentFinder {

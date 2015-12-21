@@ -1,8 +1,9 @@
-package com.degloba.ecommerce.sales.readmodel.offer;
+package com.degloba.ecommerce.sales.cqrs.readmodel.offer;
 
 import java.util.List;
 
-import query.annotations.Finder;
+// CQRS
+import com.degloba.cqrs.query.annotations.Finder;
 
 @Finder
 public interface Offer {

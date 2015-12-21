@@ -1,27 +1,35 @@
-package com.degloba.ecommerce.sales.readmodel.impl;
+package com.degloba.ecommerce.sales.cqrs.readmodel.impl;
 
 import static com.google.common.collect.Lists.transform;
 
 import java.util.ArrayList;
 import java.util.List;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import query.PaginatedResult;
+// CQRS
+import com.degloba.cqrs.query.PaginatedResult;
 
 import com.degloba.annotations.FinderImpl;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+
+// Ecommerce
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 import com.degloba.ecommerce.sales.reservation.domain.ReservedProduct;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderQuery;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderStatus;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderedProductDto;
+
+// CQRS (ecommerce)
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderFinder;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderStatus;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderedProductDto;
+
+// Google app engine
 import com.google.appengine.api.datastore.Key;
 import com.google.common.base.Function;
 

@@ -1,16 +1,20 @@
-package com.degloba.ecommerce.sales.readmodel.impl;
+package com.degloba.ecommerce.sales.cqrs.readmodel.impl;
 
 import java.util.List;
 
+// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.annotations.FinderImpl;
-import com.degloba.ecommerce.sales.readmodel.offer.Offer;
-import com.degloba.ecommerce.sales.readmodel.offer.OfferedProductDto;
-import com.degloba.ecommerce.sales.readmodel.offer.OfferQuery;
+
+// CQRS (ecommerce)
+import com.degloba.ecommerce.sales.cqrs.readmodel.offer.Offer;
+import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferedProductDto;
+import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferQuery;
 
 @FinderImpl
 public class JpaOfferFinder implements Offer {

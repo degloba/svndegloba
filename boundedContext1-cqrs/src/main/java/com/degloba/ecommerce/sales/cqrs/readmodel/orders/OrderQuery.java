@@ -1,8 +1,6 @@
-package com.degloba.ecommerce.sales.readmodel.orders;
+package com.degloba.ecommerce.sales.cqrs.readmodel.orders;
 
 import com.google.appengine.api.datastore.Key;
-
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 public class OrderQuery {
 
