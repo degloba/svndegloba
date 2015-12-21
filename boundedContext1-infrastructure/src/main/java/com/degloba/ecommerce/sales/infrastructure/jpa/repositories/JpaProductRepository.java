@@ -2,10 +2,15 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 import java.util.List;
 
-import com.degloba.annotations.DomainRepositoryImpl;
-import com.degloba.domain.EntityRepositoryJpa;
+// Domain
+import com.degloba.domain.annotations.DomainRepositoryImpl;
+import com.degloba.domain.JpaEntityRepository;
+
+// Domain (ecommerce)
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
+
+// Google App Engine
 import com.google.appengine.api.datastore.Key;
 
 /**
@@ -13,8 +18,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-//public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaProductRepository extends EntityRepositoryJpa<Product> implements IProductRepository{
+public class JpaProductRepository extends JpaEntityRepository<Product> implements IProductRepository{
 
 	@Override
 	public Product load(Key id) {

@@ -1,9 +1,15 @@
 package com.degloba.organisation.infrastructure.jpa.repositories;
 
-import com.degloba.annotations.DomainRepositoryImpl;
-import com.degloba.domain.EntityRepositoryJpa;
+import com.degloba.domain.annotations.DomainRepositoryImpl;
+
+// Repository
+import com.degloba.domain.JpaEntityRepository;
+
+// Domain (organisation)
 import com.degloba.organisation.domain.IOrganisationRepository;
 import com.degloba.organisation.domain.Organization;
+
+// Google App Engine
 import com.google.appengine.api.datastore.Key;
 
 /**
@@ -11,8 +17,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-//public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaOrganisationRepository extends EntityRepositoryJpa<Organization> implements IOrganisationRepository{
+public class JpaOrganisationRepository extends JpaEntityRepository<Organization> implements IOrganisationRepository{
 
 	@Override
 	public Organization load(Key id) {
