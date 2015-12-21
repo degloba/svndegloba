@@ -25,8 +25,8 @@
 	
 	
 	<!-- FACTORIES -->	
- 	<!-- <bean id="modalpanelFactory" class="com.degloba.casino.modalpanel.ModalpanelFactory" />  
- -->
+ 	<bean id="shipmentFactory" class="com.degloba.ecommerce.shipping.domain.ShipmentFactory" />  
+ 
 	
 	<!-- ************** -->
 	<!-- SYSTEM USER    -->
@@ -39,7 +39,7 @@
 	<!-- **************** --> 
  	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />
  	 -->
-	<bean id="simpleEventPublisher" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />
+	<bean id="simpleEventPublisher" class="com.degloba.event.impl.SimpleEventPublisher" />
  	  
  	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
 	 	
@@ -49,23 +49,30 @@
  	
  	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
  
- 
+	<!-- ********************************************** -->		
+	<!-- HANDLERS/LISTENERS D'EVENTS  (EventListeners)  -->
+	<!-- ********************************************** -->	
+	<!--  <context:component-scan base-package="com.degloba.ecommerce.shipping.listeners"/> -->	
+ 	<bean class="com.degloba.ecommerce.shipping.listeners.OrderSubmittedForShippingListener" />
+ 	<bean class="com.degloba.ecommerce.sales.internal.bookkeeping.BookKeepingListener"/>
+	<bean class="com.degloba.ecommerce.sales.listeners.ClientStatusChangedListener"/>
  
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
-	<bean id="finder" class="com.degloba.ecommerce.shipping.readmodel.impl.JpaShipmentFinder"/>   
+	<bean id="finder" class="com.degloba.ecommerce.shipping.cqrs.readmodel.impl.JpaShipmentFinder"/>  
+	<bean id="orderFinder" class="com.degloba.ecommerce.sales.cqrs.readmodel.impl.JpaOrderFinder"/> 
 	
 	<!-- *********************** -->
 	<!-- GATE - COMMANDS/CQRS    -->
 	<!-- *********************** -->
-	<bean id="handlersProvider" class="command.handler.spring.SpringHandlersProvider"/>
+	<bean id="handlersProvider" class="com.degloba.cqrs.command.handler.spring.SpringHandlersProvider"/>
 	
-	<bean id="runEnvironment" class="command.impl.RunEnvironment">
+	<bean id="runEnvironment" class="com.degloba.cqrs.command.impl.RunEnvironment">
 		<property name="handlersProvider" ref="handlersProvider"></property>	
 	</bean> 
 	
-	<bean id="gate" class="command.impl.StandardGate">
+	<bean id="gate" class="com.degloba.cqrs.command.impl.StandardGate">
 		<property name="runEnvironment" ref="runEnvironment"></property>
 	</bean>
 	
@@ -104,6 +111,7 @@
 		<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
 		<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
 		<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
+		<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />
   	  
 
 </beans>
