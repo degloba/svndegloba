@@ -17,22 +17,20 @@
 		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
 		http://www.springframework.org/schema/integration/mail http://www.springframework.org/schema/integration/mail/spring-integration-mail.xsd
 		http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
-		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-     ">
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
 
     <context:annotation-config/>
 
-    <bean class="com.degloba.integration.config.services.IntegrationConfiguration"/>  
+    <!-- Serveis d'Integració -->
+    <bean class="com.degloba.integration.spring.config.services.IntegrationConfiguration"/>  
     
     <!-- JPA, TX,... -->
      <!-- <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>    -->
  
     <context:property-placeholder location="classpath:/META-INF/spring/ds.standalone.properties"/>  
 
-
-
-
+    
     <!-- GEMFIRE-->
    <!--  <gfe:cache properties-ref="props" id="c"/>
     <gfe:replicated-region id="usersRegion" cache-ref="c"/>
@@ -48,7 +46,7 @@
     <integration:channel id="fromGateway" />
     <integration:channel id="toMessageBroker" />
 
-    <integration:gateway id= "gw" service-interface="com.degloba.integration.services.NotificationGateway" default-request-channel="enqueuedEmails" />
+    <integration:gateway id= "gw" service-interface="com.degloba.integration.spring.services.NotificationGateway" default-request-channel="enqueuedEmails" />
 
     <integration:transformer  input-channel="enqueuedEmails" ref="transformerGatewayMessageToAmqpPayload" output-channel="toMessageBroker" />
 
