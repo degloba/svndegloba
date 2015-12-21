@@ -5,20 +5,24 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+// Spring
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import command.Gate;
+// CQRS
+import com.degloba.cqrs.command.Gate;
 
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+// Ecommerce
 import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
 import com.degloba.ecommerce.shipping.application.api.commands.SendShipmentCommand;
-import com.degloba.ecommerce.shipping.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.readmodel.ShipmentFinder;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
+
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
