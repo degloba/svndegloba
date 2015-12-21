@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
  *
  * @author degloba
  */
-public class EntityRepositoryJpaTest extends AbstractIntegrationTest {
+public class JpaEntityRepositoryTest extends AbstractIntegrationTest {
 
     private DictionaryCategory gender;
 

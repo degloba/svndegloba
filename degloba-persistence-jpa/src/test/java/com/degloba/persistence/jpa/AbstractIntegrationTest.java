@@ -47,7 +47,7 @@ public class AbstractIntegrationTest {
 
     protected EntityManager entityManager;
     
-    protected EntityRepositoryJpa repository;
+    protected JpaEntityRepository repository;
     
 	//	Injectem l'ApplicationContext d'Spring gràcies a ContextConfiguration
 	@Inject
@@ -75,7 +75,7 @@ public class AbstractIntegrationTest {
         InstanceFactory.setInstanceProvider(provider);
         
         InstanceFactory.bind(EntityManagerFactory.class, emf);
-        repository = new EntityRepositoryJpa(emf);
+        repository = new JpaEntityRepository(emf);
         AbstractEntity.setRepository(repository);
         entityManager = repository.getEntityManager();
         
