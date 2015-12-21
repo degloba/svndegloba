@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.annotations.FinderImpl;
+import com.degloba.domain.annotations.FinderImpl;
 
 // CQRS (ecommerce)
 import com.degloba.ecommerce.sales.cqrs.readmodel.offer.Offer;

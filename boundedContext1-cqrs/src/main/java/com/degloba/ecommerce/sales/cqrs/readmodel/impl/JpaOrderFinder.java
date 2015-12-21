@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 // CQRS
 import com.degloba.cqrs.query.PaginatedResult;
 
-import com.degloba.annotations.FinderImpl;
+import com.degloba.domain.annotations.FinderImpl;
 
 // Ecommerce
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
