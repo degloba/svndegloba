@@ -4,11 +4,14 @@ import javax.inject.Inject;
 
 // Ecommerce
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
 import com.degloba.ecommerce.shipping.domain.Shipment;
 import com.degloba.ecommerce.shipping.domain.ShipmentFactory;
 import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
+
+
+// CQRS (ecommerce)
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderFinder;
 
 // Event
 import com.degloba.event.annotations.EventListeners;

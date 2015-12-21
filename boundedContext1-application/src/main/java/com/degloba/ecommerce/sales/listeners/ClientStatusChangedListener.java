@@ -2,16 +2,17 @@ package com.degloba.ecommerce.sales.listeners;
 
 import javax.inject.Inject;
 
-import org.springframework.context.event.EventListener;
-
-import query.PaginatedResult;
+// CQRS
+import com.degloba.cqrs.query.PaginatedResult;
 
 // Ecommerce
 import com.degloba.ecommerce.canonicalmodel.events.CustomerStatusChangedEvent;
 import com.degloba.ecommerce.sales.internal.discounts.DiscountingService;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderFinder;
-import com.degloba.ecommerce.sales.readmodel.orders.OrderQuery;
+
+// CQRS (ecommerce)
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderFinder;
+import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
 
 // Domain
 import com.degloba.domain.sharedkernel.Money;
@@ -21,6 +22,8 @@ import com.google.appengine.api.datastore.Key;
 
 // Events
 import com.degloba.event.annotations.EventListeners;
+import com.degloba.event.annotations.EventListener;
+
 
 /**
  * Sample Anti-corruption Layer: translates Customer-Client vocabulary

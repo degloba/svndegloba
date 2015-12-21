@@ -12,9 +12,10 @@ import org.springframework.cache.annotation.Cacheable;
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.Hotel;
 import com.degloba.travel.domain.User;
+import com.degloba.travel.integration.spring.config.EmailNotificationServiceBooking;
 import com.degloba.travel.application.api.BookingService;
 //import com.degloba.travel.services.integration.EmailNotificationService;
-import com.degloba.travel.services.integration.EmailNotificationServiceBooking;
+
 
 // Spring
 import org.springframework.stereotype.Repository;

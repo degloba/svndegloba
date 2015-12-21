@@ -1,4 +1,4 @@
-package com.degloba.travel.services.integration;
+package com.degloba.travel.integration.spring.config;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -27,11 +27,8 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-import com.degloba.integration.EmailNotificationService;
-
-// Domain
-
-import com.degloba.integration.services.NotificationGateway;
+import com.degloba.travel.integration.spring.EmailNotificationService;
+import com.degloba.integration.spring.services.NotificationGateway;
 
 // Application
 import com.degloba.travel.application.api.BookingService;

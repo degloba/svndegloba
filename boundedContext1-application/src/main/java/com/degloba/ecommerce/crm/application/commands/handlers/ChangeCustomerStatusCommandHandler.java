@@ -2,8 +2,11 @@ package com.degloba.ecommerce.crm.application.commands.handlers;
 
 import javax.inject.Inject;
 
-import command.annotations.CommandHandlerAnnotation;
-import command.handler.ICommandHandler;
+// CQRS
+import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
+import com.degloba.cqrs.command.handler.ICommandHandler;
+
+// Ecommerce
 import com.degloba.ecommerce.crm.application.commands.ChangeCustomerStatusCommand;
 import com.degloba.ecommerce.crm.domain.Customer;
 import com.degloba.ecommerce.crm.domain.ICustomerRepository;

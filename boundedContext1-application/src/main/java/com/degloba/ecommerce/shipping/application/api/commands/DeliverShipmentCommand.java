@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.google.appengine.api.datastore.Key;
 
-import command.annotations.Command;
+import com.degloba.cqrs.command.annotations.Command;
 
 
 @SuppressWarnings("serial")

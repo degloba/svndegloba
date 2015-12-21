@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import com.google.appengine.api.datastore.Key;
 
-//
-import command.annotations.Command;
+//CQRS
+import com.degloba.cqrs.command.annotations.Command;
 
 // Domain
 import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;

@@ -2,10 +2,10 @@ package com.degloba.ecommerce.sales.application.api.command;
 
 import com.google.appengine.api.datastore.Key;
 
-import command.annotations.Command;
+import com.degloba.cqrs.command.annotations.Command;
 
 
-@Command()
+@Command
 public class AddProdctCommand {
 
 	private Key orderId;
