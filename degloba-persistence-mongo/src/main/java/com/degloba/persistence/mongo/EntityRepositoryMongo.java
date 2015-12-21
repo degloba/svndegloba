@@ -26,7 +26,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * EntityRepositoryJpa by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
+ * JpaEntityRepository by EntityManagerProviderGetEntityManager, to ensure that the current thread and transaction
  * 
  * Multiple access to the database are performed by the same EntityManager.
  * 

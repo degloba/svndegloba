@@ -1,1 +1,1 @@
-com.degloba.persistence.jpa.EntityRepositoryJpa
+com.degloba.persistence.jpa.JpaEntityRepository
