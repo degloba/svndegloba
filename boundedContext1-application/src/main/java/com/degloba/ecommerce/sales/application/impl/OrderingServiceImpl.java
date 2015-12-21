@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.degloba.annotations.ApplicationService;
+import com.degloba.domain.annotations.ApplicationService;
 import com.google.appengine.api.datastore.Key;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;

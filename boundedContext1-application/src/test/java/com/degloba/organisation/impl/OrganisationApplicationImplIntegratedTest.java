@@ -2,10 +2,15 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
+// Domain
 import com.degloba.domain.AbstractEntity;
 import com.degloba.domain.EntityRepository;
+
+// Application (organisation)
 import com.degloba.organisation.application.api.OrganisationService;
 import com.degloba.organisation.application.impl.OrganisationApplicationImpl;
+
+//Domain (organisation)
 import com.degloba.organisation.domain.Organization;
 import com.degloba.organisation.domain.Party;
 import com.degloba.organisation.domain.Post;

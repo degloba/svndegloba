@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.internal.discounts;
 
-import com.degloba.annotations.InternalApplicationService;
+import com.degloba.domain.annotations.InternalApplicationService;
 
 // Domain
 import com.degloba.domain.sharedkernel.Money;
