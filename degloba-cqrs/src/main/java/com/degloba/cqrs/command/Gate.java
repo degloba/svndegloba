@@ -1,4 +1,4 @@
-package command;
+package com.degloba.cqrs.command;
 
 /**
  * Main access point to the Application.<br>

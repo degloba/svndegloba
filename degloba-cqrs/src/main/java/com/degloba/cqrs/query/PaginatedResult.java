@@ -1,4 +1,4 @@
-package query;
+package com.degloba.cqrs.query;
 
 import java.io.Serializable;
 import java.util.Collections;

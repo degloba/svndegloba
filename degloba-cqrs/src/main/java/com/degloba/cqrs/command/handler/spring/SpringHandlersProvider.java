@@ -1,4 +1,4 @@
-package command.handler.spring;
+package com.degloba.cqrs.command.handler.spring;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -15,8 +15,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.handler.ICommandHandler;
-import command.impl.RunEnvironment.IHandlersProvider;
+import com.degloba.cqrs.command.handler.ICommandHandler;
+import com.degloba.cqrs.command.impl.RunEnvironment.IHandlersProvider;
 
 @Component
 public class SpringHandlersProvider implements IHandlersProvider, ApplicationListener<ContextRefreshedEvent> {

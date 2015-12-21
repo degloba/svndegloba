@@ -1,6 +1,6 @@
-package command.handler;
+package com.degloba.cqrs.command.handler;
 
-import command.annotations.Command;
+import com.degloba.cqrs.command.annotations.Command;
 
 /**
  * 

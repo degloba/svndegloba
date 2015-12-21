@@ -1,4 +1,4 @@
-package command.handler;
+package com.degloba.cqrs.command.handler;
 
 public interface ICommandHandlerFactory<C> {
 

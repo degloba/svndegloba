@@ -1,13 +1,13 @@
-package command.impl;
+package com.degloba.cqrs.command.impl;
 
 import javax.inject.Inject;
 
-// SPRING
+// Spring
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.Gate;
-import command.annotations.Command;
+import com.degloba.cqrs.command.Gate;
+import com.degloba.cqrs.command.annotations.Command;
 
 
 @Component

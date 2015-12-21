@@ -1,14 +1,11 @@
-/**
- * 
- */
-package command.impl;
+package com.degloba.cqrs.command.impl;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import command.annotations.Command;
+import com.degloba.cqrs.command.annotations.Command;
 
 /**
  * Manages command execution history based on {@link Command} annotation attributes<br>

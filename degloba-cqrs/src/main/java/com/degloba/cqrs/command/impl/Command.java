@@ -1,34 +1,25 @@
-package command.annotations;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package com.degloba.cqrs.command.impl;
 
 
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Command {
+public interface Command {
 	/**
 	 * Suggestion for a Server that this command may be run in asynchronous way.
 	 * <br>
 	 * If true than {@link CommandHandler} must return void - otherwise Serwer will throw an exception 
 	 * @return
 	 */
-    boolean asynchronous() default false;
+    boolean asynchronous();
 
     /**
      * Suggestion for a Server that this command should checked if the same command is sent again.<br>
      * If true than command class must implement equals and hashCode
      * @return
      */
-    boolean unique() default false;
+    boolean unique();
 
     /**
      * If unique is true than this property may specify maximum timeout in miliseconds before same command can be executed
      * @return
      */
-    long uniqueStorageTimeout() default 0L;
+    long uniqueStorageTimeout();
 }

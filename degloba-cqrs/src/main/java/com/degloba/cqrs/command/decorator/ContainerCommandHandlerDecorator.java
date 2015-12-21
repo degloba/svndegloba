@@ -1,7 +1,8 @@
-package command.decorator;
+package com.degloba.cqrs.command.decorator;
 
-import command.handler.ICommandHandler;
-import command.handler.ICommandHandlerFactory;
+// CQRS
+import com.degloba.cqrs.command.handler.ICommandHandler;
+import com.degloba.cqrs.command.handler.ICommandHandlerFactory;
 
 public class ContainerCommandHandlerDecorator<TCommand> implements ICommandHandler<TCommand>
 {

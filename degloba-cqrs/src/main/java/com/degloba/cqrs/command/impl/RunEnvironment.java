@@ -1,12 +1,12 @@
-package command.impl;
+package com.degloba.cqrs.command.impl;
 
 import javax.inject.Inject;
 
-// SPRING
+// Spring
 import org.springframework.stereotype.Component;
 
 // CQRS
-import command.handler.ICommandHandler;
+import com.degloba.cqrs.command.handler.ICommandHandler;
 
 /**
  * @author degloba
