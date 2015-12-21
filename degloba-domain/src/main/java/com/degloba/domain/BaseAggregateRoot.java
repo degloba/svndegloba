@@ -24,6 +24,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.event.domain.IDomainEvent;
+import com.degloba.event.domain.IDomainEventPublisher;
 import com.degloba.utils.BeanUtils;
 import com.google.appengine.api.datastore.Key;
 
