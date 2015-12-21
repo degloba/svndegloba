@@ -2,12 +2,17 @@ package com.degloba;
 
 import org.slf4j.Logger; 
 import org.slf4j.LoggerFactory; 
+
+// Spring
 import org.springframework.context.ConfigurableApplicationContext; 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+// 
 import com.degloba.usuaris.infrastructure.jpa.repositories.PersonRepository; 
 
-/** * Small MongoDB application that uses spring data to interact with MongoDB. */ 
+/** 
+ * Small MongoDB application that uses spring data to interact with MongoDB. 
+ */ 
 public class MongoDBApp { 
 	static final Logger logger = LoggerFactory.getLogger(MongoDBApp.class); 
 
