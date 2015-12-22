@@ -29,6 +29,16 @@
 	<!-- ************** -->
  	<!-- <bean id="systemUser" class="com.degloba.system.application.SystemUser" /> -->
  	
+ 	<!-- *********************** -->
+	<!-- GATE - COMMANDS/CQRS    -->
+	<!-- *********************** -->
+	<bean id="handlersProvider" class="com.degloba.cqrs.command.handler.spring.SpringHandlersProvider"/>	
+	<bean id="runEnvironment" class="com.degloba.cqrs.command.impl.RunEnvironment">
+		<property name="handlersProvider" ref="handlersProvider"></property>	
+	</bean> 	
+	<bean id="gate" class="com.degloba.cqrs.command.impl.StandardGate">
+		<property name="runEnvironment" ref="runEnvironment"></property>
+	</bean>
  	
 	<!-- **************** -->
 	<!-- EVENT PUBLISHER  -->
@@ -36,15 +46,8 @@
  	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />
  	 -->
 	<bean id="simpleEventPublisher" class="com.degloba.event.impl.SimpleEventPublisher" />
- 	  
- 	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
-	 	
- 	<bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
- 	
- 	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
- 	
- 	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
- 
+	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
+ 	  	
 	<!-- ********************************************** -->		
 	<!-- HANDLERS/LISTENERS D'EVENTS  (EventListeners)  -->
 	<!-- ********************************************** -->	
@@ -53,67 +56,44 @@
  	<bean class="com.degloba.ecommerce.sales.internal.bookkeeping.BookKeepingListener"/>
 	<bean class="com.degloba.ecommerce.sales.listeners.ClientStatusChangedListener"/>
 	
-	 
+	<!-- ********* -->
+	<!-- SAGAS     -->
+	<!-- ********* --> 	  
+ 	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />	
+ 	<bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" /> 	 	 	
+ 	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
+  
+	
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
 	<bean id="finder" class="com.degloba.ecommerce.shipping.cqrs.readmodel.impl.JpaShipmentFinder"/>  
 	<bean id="orderFinder" class="com.degloba.ecommerce.sales.cqrs.readmodel.impl.JpaOrderFinder"/> 
 	
-	<!-- *********************** -->
-	<!-- GATE - COMMANDS/CQRS    -->
-	<!-- *********************** -->
-	<bean id="handlersProvider" class="com.degloba.cqrs.command.handler.spring.SpringHandlersProvider"/>
 	
-	<bean id="runEnvironment" class="com.degloba.cqrs.command.impl.RunEnvironment">
-		<property name="handlersProvider" ref="handlersProvider"></property>	
-	</bean> 
-	
-	<bean id="gate" class="com.degloba.cqrs.command.impl.StandardGate">
-		<property name="runEnvironment" ref="runEnvironment"></property>
-	</bean>
-	
-	
-	<!-- *********************** -->
-	<!-- APPLICATIONS            -->
-	<!-- *********************** -->
+	<!-- ************************* -->
+	<!-- APPLICATIONS/SERVICES     -->
+	<!-- ************************* -->
 	<bean id="application" class="com.degloba.organisation.application.impl.OrganisationApplicationImpl" >
 		    <constructor-arg name="organisationRepository" ref="organisationRepository"/>      	 
-	</bean>    
+	</bean> 
+	<bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />  
+		
 	 
-	 
-	<!-- *********************** -->
-	<!-- FACADES                 -->
-	<!-- *********************** -->
+	<!-- ******************* -->
+	<!-- FACADES             -->
+	<!-- ******************* -->
  	<bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
 		 <property name="application" ref="application"></property> 
 	</bean> 
 	
-	
-	<!-- *********************** -->
-	<!-- SERVICES                 -->
-	<!-- *********************** -->
-	<bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />
-	
-	<!-- FACTORIES -->	
+	<!-- ******************* -->
+	<!-- FACTORIES           -->	
+	<!-- ******************* -->
  	<bean id="shipmentFactory" class="com.degloba.ecommerce.shipping.domain.ShipmentFactory" />  
  	<bean id="invoiceRequestFactory" class="com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequestFactory" />
  	<bean id="invoiceFactory" class="com.degloba.ecommerce.sales.invoicing.domain.InvoiceFactory" />  
-		
-	<!-- ************ -->
-	<!-- REPOSITORIS  --> 
-	<!-- ************ -->
-  	  
-	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
-	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
-	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
-	<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
-	<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
-	<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
-	<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
-	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
-	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
-  	
+			
 	
 	<bean class="com.degloba.ecommerce.sales.invoicing.domain.BookKeeper"/>
 	<bean class="com.degloba.ecommerce.sales.invoicing.domain.TaxAdvisor" />
