@@ -38,7 +38,7 @@ import java.util.Map;
  * Simple class that initializes all the services including data access logic
  */
 @Import(IntegrationConfiguration.class)
-@PropertySource("classpath:/META-INF/spring/ds.standalone.properties")
+@PropertySource("classpath:/META-INF/ds.standalone.properties")
 @ComponentScan("com.degloba.travel.services")
 @EnableTransactionManagement
 @Configuration
