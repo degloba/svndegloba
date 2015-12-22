@@ -113,6 +113,15 @@
         </dependency> 
         
         <!-- Spring --> 
+        <!-- Deploying a WAR in an Old (Servlet 2.5) Container 
+        Spring Boot uses Servlet 3.0 APIs to initialize the ServletContext so you can’t use the same application out of the box in a Servlet 2.5 container. 
+        It is however possible to run a Spring Boot application on an older container with some special tools-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-legacy</artifactId>     
+            <version>1.0.0.RELEASE</version>       
+        </dependency> 
+       
 
 		<dependency>
             <groupId>org.springframework</groupId>
