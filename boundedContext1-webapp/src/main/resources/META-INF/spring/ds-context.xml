@@ -76,8 +76,22 @@
 	  </bean>   -->
 		
 	
-		<bean id="personRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.PersonRepository">
-		    <property name="mongoTemplate" ref="mongoTemplate"/>
-		</bean>
+    <!-- ************ -->
+	<!-- REPOSITORIS  --> 
+	<!-- ************ -->
+  	  
+	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
+	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
+	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
+	<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
+	<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
+	<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
+	<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
+	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
+	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
+  	
+	<bean id="personRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.PersonRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean>
 	
 </beans>
