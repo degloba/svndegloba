@@ -3,8 +3,9 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd 
+              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Enable auto-wiring -->
     <context:annotation-config/>
@@ -19,17 +20,17 @@
     <security:http security="none" pattern="/logout.jsp"/>
 
     <!-- Security for the administration UI -->
-    <security:http pattern="/saml/web/**" use-expressions="false">
+    <security:http pattern="/app/saml/web/**" use-expressions="false">
         <security:access-denied-handler error-page="/saml/web/metadata/login"/>
         <security:form-login login-processing-url="/saml/web/login" login-page="/saml/web/metadata/login" default-target-url="/saml/web/metadata"/>
-        <security:intercept-url pattern="/saml/web/metadata/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <security:intercept-url pattern="/saml/web/**" access="ROLE_ADMIN"/>
+        <security:intercept-url pattern="/app/saml/web/metadata/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:intercept-url pattern="/app/saml/web/**" access="ROLE_ADMIN"/>
         <security:custom-filter before="FIRST" ref="metadataGeneratorFilter"/>
     </security:http>
 
     <!-- Secured pages with SAML as entry point -->
-    <security:http entry-point-ref="samlEntryPoint" use-expressions="false">
-        <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY"/>
+    <security:http pattern="/app/saml/**"  entry-point-ref="samlEntryPoint" use-expressions="false">
+        <security:intercept-url pattern="/app/saml/**" access="IS_AUTHENTICATED_FULLY"/>
         <security:custom-filter before="FIRST" ref="metadataGeneratorFilter"/>
         <security:custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/>
     </security:http>
@@ -86,7 +87,9 @@
     <bean id="samlLogger" class="org.springframework.security.saml.log.SAMLDefaultLogger"/>
 
     <!-- Central storage of cryptographic keys -->
-    <bean id="keyManager" class="org.springframework.security.saml.key.JKSKeyManager">
+    <bean id="keyManager" class="org.springframework.security.saml.key.EmptyKeyManager"/>
+    
+    <!-- <bean id="keyManager" class="org.springframework.security.saml.key.JKSKeyManager">
         <constructor-arg value="classpath:security/samlKeystore.jks"/>
         <constructor-arg type="java.lang.String" value="nalle123"/>
         <constructor-arg>
@@ -95,7 +98,7 @@
             </map>
         </constructor-arg>
         <constructor-arg type="java.lang.String" value="apollo"/>
-    </bean>
+    </bean> -->
 
     <!-- Entry point to initialize authentication, default values taken from properties file -->
     <bean id="samlEntryPoint" class="org.springframework.security.saml.SAMLEntryPoint">

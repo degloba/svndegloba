@@ -1,11 +1,11 @@
 eclipse.preferences.version=1
 filesCopiedToWebInfLib=
-gaeDatanucleusEnabled=false
-gaeDatanucleusVersion=v2
+gaeDatanucleusEnabled=true
+gaeDatanucleusVersion=
 gaeDeployDialogSettings=
 gaeDoJarClasses=false
 gaeEnableJarSplitting=true
-gaeHrdEnabled=false
+gaeHrdEnabled=true
 gaeLaunchAppInBrowser=false
 gaeRetainStagingDirectory=false
 googleCloudSqlEnabled=false
