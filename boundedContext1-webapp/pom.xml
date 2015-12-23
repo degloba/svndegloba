@@ -48,13 +48,19 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-infrastructure</artifactId>
+            <version>${project.version}</version>
         </dependency> 
         
 		<dependency>
         	<groupId>com.degloba</groupId>
         	<artifactId>degloba-security</artifactId>
         	<version>${project.version}</version>
-        </dependency>
+
+		</dependency>
 		
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
         <dependency>
