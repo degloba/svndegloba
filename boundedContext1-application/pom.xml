@@ -28,11 +28,21 @@
 			<version>${project.version}</version>
 		</dependency>		
 		 <dependency>
-        	<groupId>com.degloba</groupId>
+        	<groupId>${project.groupId}</groupId>
         	<artifactId>boundedContext1-integration</artifactId>
         	<version>${project.version}</version>
         </dependency>
+		 <dependency>
+        	<groupId>${project.groupId}</groupId>
+        	<artifactId>boundedContext1-infrastructure</artifactId>
+        	<version>${project.version}</version>
+        </dependency>        
 
+<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${google.appengine}</version>
+		</dependency>
 		<!-- ******************************************* -->
 		<!-- per proves (classe : ServicesConfiguration) -->
 		<!-- ******************************************* -->
