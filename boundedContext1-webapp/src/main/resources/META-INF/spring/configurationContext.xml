@@ -22,7 +22,7 @@
         </map>
         </property>
 	</bean>  -->
-	 
+	 <bean id="simpleEventPublisher" class="com.degloba.event.impl.SimpleEventPublisher" />
 	
 	<!-- ************** -->
 	<!-- SYSTEM USER    -->
@@ -45,7 +45,7 @@
 	<!-- **************** --> 
  	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" />
  	 -->
-	<bean id="simpleEventPublisher" class="com.degloba.event.impl.SimpleEventPublisher" />
+	
 	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
  	  	
 	<!-- ********************************************** -->		
