@@ -31,17 +31,7 @@
             <version>${project.version}</version>
             <scope>runtime</scope>        
 		</dependency>
-		
-		
-		<!-- *********** -->
-		<!-- Spring Data -->
-		<!-- *********** -->
-		<!-- <dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-gemfire</artifactId>
-			<version>1.7.0.RELEASE</version>
-		</dependency>	 -->	
-		
+			
 		<dependency>
                 <groupId>javax.inject</groupId>
                 <artifactId>javax.inject</artifactId>
