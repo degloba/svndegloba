@@ -113,6 +113,7 @@
             <scope>test</scope>
         </dependency> 
         
+        
         <!-- ***************************************** -->
         <!-- Per testejar contra Datanucleus-appengine -->
         <!-- ***************************************** -->
@@ -134,11 +135,11 @@
 			<artifactId>degloba-persistence-jpa</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
     </dependencies>
     
     <build>
