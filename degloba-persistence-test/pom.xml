@@ -54,7 +54,8 @@
             <artifactId>appengine-api-stubs</artifactId>
             <version>${google.appengine}</version>
             <scope>test</scope>
-        </dependency>    
+        </dependency>  
+        
         
         <!-- ******************* -->
         <!-- Spring data mongodb -->
