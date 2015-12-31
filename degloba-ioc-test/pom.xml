@@ -8,7 +8,7 @@
     </parent>
     <artifactId>degloba-ioc-test</artifactId>
     <name>deGloba IoC Test</name>
-    <url>http://maven.apache.org</url>
+    <url>www.degloba.com</url>
        
     
     <dependencies>
