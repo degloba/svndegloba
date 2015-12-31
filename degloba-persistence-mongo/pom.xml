@@ -201,4 +201,5 @@
     		</dependency>
     	</dependencies>
     </dependencyManagement>
+    <url>www.degloba.com</url>
 </project>
