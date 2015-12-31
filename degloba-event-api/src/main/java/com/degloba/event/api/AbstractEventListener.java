@@ -1,7 +1,5 @@
 package com.degloba.event.api;
 
-import com.google.common.reflect.TypeToken;
-
 import java.lang.reflect.ParameterizedType;
 
 

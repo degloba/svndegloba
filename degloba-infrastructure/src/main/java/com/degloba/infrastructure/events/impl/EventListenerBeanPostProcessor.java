@@ -12,7 +12,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-// Event
+// Event (degloba)
 import com.degloba.event.annotations.EventListener;
 import com.degloba.event.impl.SimpleEventPublisher;
 import com.degloba.event.impl.handlers.AsynchronousEventHandler;
