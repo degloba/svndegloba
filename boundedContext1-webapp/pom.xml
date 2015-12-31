@@ -56,8 +56,14 @@
             <version>${project.version}</version>
         </dependency>
         
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-application</artifactId>
+            <version>${project.version}</version>            
+        </dependency> 
+        
 		<dependency>
-        	<groupId>com.degloba</groupId>
+        	<groupId>${project.groupId}</groupId>
         	<artifactId>degloba-security</artifactId>
         	<version>${project.version}</version>
 			<scope>runtime</scope>        	
