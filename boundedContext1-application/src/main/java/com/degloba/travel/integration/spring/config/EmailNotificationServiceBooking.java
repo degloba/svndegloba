@@ -27,11 +27,16 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
+// Integration (Domain)
 import com.degloba.travel.integration.spring.EmailNotificationService;
+
+// Integration (degloba)
 import com.degloba.integration.spring.services.NotificationGateway;
 
 // Application
 import com.degloba.travel.application.api.BookingService;
+
+// Domain
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.User;
 
