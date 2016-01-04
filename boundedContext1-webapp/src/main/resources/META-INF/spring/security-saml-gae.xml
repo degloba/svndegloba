@@ -176,6 +176,8 @@
         <!-- <property name="hostedSPName" value=""/> -->
         <!-- OPTIONAL property: can tell the system which IDP should be used for authenticating user by default. -->
         <!-- <property name="defaultIDP" value="http://localhost:8080/opensso"/> -->
+        
+        <property name="refreshCheckInterval" value="0"/>
     </bean>
     
     
