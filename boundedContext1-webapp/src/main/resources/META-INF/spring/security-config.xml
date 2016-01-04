@@ -81,95 +81,9 @@
 	<!--  SAML i SAML GAE -->
 	<!-- **************** -->
 	
-	  <!-- <import resource="security-saml.xml"/> -->   
-	  
+	  <!-- <import resource="security-saml.xml"/> -->   	  
 	  <import resource="security-saml-gae.xml"/>
 	  
-	  
-	
-	<!-- In order to install artifact resolution using GAE specific APIs -->
-<!-- 	<bean id="artifactBinding" class="org.springframework.security.saml.processor.HTTPArtifactBinding">
-	    <constructor-arg ref="parserPool"/>
-	    <constructor-arg ref="velocityEngine"/>
-	    <constructor-arg>
-	        <bean class="com.degloba.security.spring.saml.websso.google.ArtifactResolutionProfileGAE">
-	            <property name="processor">
-	                <bean class="org.springframework.security.saml.processor.SAMLProcessorImpl">
-	                    <constructor-arg ref="soapBinding"/>
-	                </bean>
-	            </property>
-	        </bean>
-	    </constructor-arg>
-	</bean>
-
-
-	 In order to use metadata loading without reloading threads add a provider to your metadata bean with: 
-	<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
-	    <constructor-arg>
-	        <bean class="com.degloba.security.spring.saml.metadata.provider.StaticFilesystemMetadataProvider">
-	            <constructor-arg>
-	                <value type="java.io.File">classpath:metadata/idp.xml</value>
-	            </constructor-arg>
-	            <property name="parserPool" ref="parserPool"/>
-	        </bean>
-	    </constructor-arg>
-	    <constructor-arg>
-	        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
-	        </bean> 
-	       
-	    </constructor-arg> 
-	    	    
-	</bean>
-
-	<bean id="metadata" class="org.springframework.security.saml.metadata.CachingMetadataManager">
-	    <constructor-arg>
-	        <list>
-	            Example of classpath metadata with Extended Metadata
-                <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
-                    <constructor-arg>
-                        <bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
-                            <constructor-arg>
-                                <bean class="java.util.Timer"/>
-                            </constructor-arg>
-                            <constructor-arg>
-                                <bean class="org.opensaml.util.resource.ClasspathResource">
-                                    <constructor-arg value="/metadata/idp.xml"/>
-                                </bean>
-                            </constructor-arg>
-                            <property name="parserPool" ref="parserPool"/>
-                        </bean>
-                    </constructor-arg>
-                    <constructor-arg>
-                        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
-                        </bean>
-                    </constructor-arg>
-                </bean>
-                Example of HTTP metadata without Extended Metadata
-                <bean class="org.opensaml.saml2.metadata.provider.HTTPMetadataProvider">
-                    URL containing the metadata
-                    <constructor-arg>
-                        <value type="java.lang.String">http://idp.ssocircle.com/idp-meta.xml</value>
-                    </constructor-arg>
-                    Timeout for metadata loading in ms
-                    <constructor-arg>
-                        <value type="int">15000</value>
-                    </constructor-arg>
-                    <property name="parserPool" ref="parserPool"/>
-                </bean>
-                Example of file system metadata without Extended Metadata
-                
-                <bean class="org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider">
-                    <constructor-arg>
-                        <value type="java.io.File">/usr/local/metadata/idp.xml</value>
-                    </constructor-arg>
-                    <property name="parserPool" ref="parserPool"/>
-                </bean>
-               
-	        </list>
-	    </constructor-arg>
-	    <property name="refreshCheckInterval" value="0"/>
-</bean>
-	 -->
 	
 	
 	<!-- ********************************************************************* -->
