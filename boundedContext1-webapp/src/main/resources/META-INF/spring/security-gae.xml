@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+           
+    
+<!-- *******************************************************************
+**   Spring Security in Google App Engine   *************************
+http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine 
+************************************************************************ -->
+
+
+	<security:http pattern="/app/gae/**" use-expressions="true" entry-point-ref="gaeEntryPoint">
+        <security:intercept-url pattern="/app/gae" access="permitAll" />
+        <security:intercept-url pattern="/app/gae/register.htm*" access="hasRole('NEW_USER')" />
+        <security:intercept-url pattern="/app/gae/**" access="hasRole('USER')" />
+        <security:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
+    </security:http>
+    
+    <bean id="gaeEntryPoint" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationEntryPoint" />
+
+    <bean id="gaeFilter" class="com.degloba.security.spring.gae.security.GaeAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManagerGoogle"/>
+        <property name="failureHandler">
+			<bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+				<property name="exceptionMappings">
+					<map>
+						<entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
+					</map>
+				</property>
+			</bean>
+		</property>
+    </bean>
+
+    <security:authentication-manager alias="authenticationManagerGoogle">
+        <security:authentication-provider ref="gaeAuthenticationProvider"/>
+    </security:authentication-manager>
+
+    <bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
+        <property name="userRegistry" ref="userRegistry" />
+    </bean> 
+
+    <bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+ 
+	
+</beans>

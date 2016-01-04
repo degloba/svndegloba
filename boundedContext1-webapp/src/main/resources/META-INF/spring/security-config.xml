@@ -64,95 +64,16 @@
     </security:authentication-manager>
  -->
 
-
-<!-- CONFIGURACIO 2 :  Integrar el login de Google a la App con OAuth2 y Spring Security -->
-<!-- ************************************************************************************ -->
-<!--  http://www.adictosaltrabajo.com/tutoriales/spring-security-o-auth-google/ 
-529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com *****************-->
-<!-- ************************************************************************************ -->
-
-	<bean id="google2ProviderForWebClient" class="org.scribe.up.provider.impl.Google2Provider">
-<!--         <property name="key" value="529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com"/>  -->  <!--  {pon aqui el Client ID creado en la consola de Google API (en el punto 1)} -->
-        <property name="key" value="910109996901-910v5uqubvse82fu2vqrblck9nhnhocb.apps.googleusercontent.com"/> 
-        <!-- <property name="secret" value="BupeTdv74Z2MoZqb3_SZktrx"/>   --> <!-- {secret Key de la consola de Google API}"  santasusanap -->
-        <property name="secret" value="p1Fc6moFKqvD-XSU9J4U04tS"/>   <!-- {secret Key de la consola de Google API}"  degloba -->
-        <property name="scope" value="EMAIL_AND_PROFILE"/>
-    </bean>
- 
-    <bean id="providersDefinition" class="org.scribe.up.provider.ProvidersDefinition">
-        <property name="baseUrl" value="http://localhost:8888/app/oauth/j_spring_oauth_security_check" />
-        <property name="providers">
-            <list>
-                <ref bean="google2ProviderForWebClient" />
-            </list>
-        </property>
-    </bean>
- 
-    <bean id="oAuthProvider" class="com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationProvider">
-        <property name="providersDefinition" ref="providersDefinition" />
-    </bean>
- 
-    <bean id="google2EntryPoint" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationEntryPoint">
-        <property name="provider" ref="google2ProviderForWebClient" />
-    </bean>
- 
-    
-    <bean id="oAuthFilter" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationFilter">
-        <property name="providersDefinition" ref="providersDefinition" />
-        <property name="authenticationManager" ref="authenticationManagerOauth" />
-    </bean>
-    
-	<security:authentication-manager alias="authenticationManagerOauth">
-        <security:authentication-provider ref="oAuthProvider"/>
-    </security:authentication-manager>
-                
-	<security:http  pattern="/app/oauth/**" entry-point-ref="google2EntryPoint">
-		<security:custom-filter after="CAS_FILTER" ref="oAuthFilter" />		
-        <security:intercept-url pattern="/app/oauth/userHome" access="IS_AUTHENTICATED_FULLY" />
-        <security:intercept-url pattern="/app/oauth/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:logout />
-    </security:http> 
+	<!-- ***** -->
+	<!-- GAE -->
+	<!-- ***** -->
+	<import resource="security-gae.xml"/>
 
 
-
-<!-- *******************************************************************
-**   Spring Security in Google App Engine   *************************
-http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine 
-************************************************************************ -->
-
-
-	<security:http pattern="/app/gae/**" use-expressions="true" entry-point-ref="gaeEntryPoint">
-        <security:intercept-url pattern="/app/gae" access="permitAll" />
-        <security:intercept-url pattern="/app/gae/register.htm*" access="hasRole('NEW_USER')" />
-        <security:intercept-url pattern="/app/gae/**" access="hasRole('USER')" />
-        <security:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
-    </security:http>
-    
-    <bean id="gaeEntryPoint" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationEntryPoint" />
-
-    <bean id="gaeFilter" class="com.degloba.security.spring.gae.security.GaeAuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManagerGoogle"/>
-        <property name="failureHandler">
-			<bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
-				<property name="exceptionMappings">
-					<map>
-						<entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
-					</map>
-				</property>
-			</bean>
-		</property>
-    </bean>
-
-    <security:authentication-manager alias="authenticationManagerGoogle">
-        <security:authentication-provider ref="gaeAuthenticationProvider"/>
-    </security:authentication-manager>
-
-    <bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
-        <property name="userRegistry" ref="userRegistry" />
-    </bean> 
-
-    <bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
- 
+	<!-- ***** -->
+	<!-- OAUTH -->
+	<!-- ***** -->
+	<import resource="security-oauth.xml"/>  
 
 	
 	
