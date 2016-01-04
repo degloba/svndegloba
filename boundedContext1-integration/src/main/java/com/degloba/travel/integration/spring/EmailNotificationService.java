@@ -13,23 +13,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 
-// Spring - Integration
+// Spring Messaging
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
-import org.springframework.integration.mail.MailHeaders;
+
+//Spring Mail
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+
+//Spring - Integration
+import org.springframework.integration.mail.MailHeaders;
 
 
 // Domain
 import com.degloba.travel.domain.Booking;
 import com.degloba.travel.domain.User;
 
-
-// Spring
-import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
 import javax.mail.BodyPart;
@@ -39,10 +40,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringWriter;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
