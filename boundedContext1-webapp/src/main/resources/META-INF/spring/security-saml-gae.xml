@@ -116,6 +116,20 @@
         <constructor-arg>
             <list>
                 <!-- Example of classpath metadata with Extended Metadata -->
+				<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
+				    <constructor-arg>
+				        <bean class="com.degloba.security.spring.saml.metadata.provider.StaticFilesystemMetadataProvider">
+				            <constructor-arg>
+				                <value type="java.io.File">classpath:metadata/idp.xml</value>
+				            </constructor-arg>
+				            <property name="parserPool" ref="parserPool"/>
+				        </bean>
+				    </constructor-arg>
+				    <constructor-arg>
+				        <bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
+				        </bean>
+				    </constructor-arg>
+				</bean>                
                <!--  <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
                     <constructor-arg>
                         <bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
