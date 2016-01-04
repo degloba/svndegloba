@@ -182,8 +182,6 @@
     
     
     
-    
-    
     <bean id="artifactBinding" class="org.springframework.security.saml.processor.HTTPArtifactBinding">
     <constructor-arg ref="parserPool"/>
     <constructor-arg ref="velocityEngine"/>
@@ -211,11 +209,7 @@
         </bean>
     </constructor-arg>
 </bean>
-
-    <!-- *************************** -->
-    <!-- Fi Spring Security SAML GAE -->
-    <!-- *************************** -->
-    
+   
 
     <bean id="soapBinding" class="org.springframework.security.saml.processor.HTTPSOAP11Binding">
         <constructor-arg ref="parserPool"/>
