@@ -156,11 +156,15 @@ http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine
 
 	
 	
-	<!-- ***** -->
-	<!--  SAML -->
-	<!-- ***** -->
+	<!-- **************** -->
+	<!--  SAML i SAML GAE -->
+	<!-- **************** -->
 	
-	 <!--  <import resource="security-saml.xml"/>   -->
+	  <!-- <import resource="security-saml.xml"/> -->   
+	  
+	  <import resource="security-saml-gae.xml"/>
+	  
+	  
 	
 	<!-- In order to install artifact resolution using GAE specific APIs -->
 <!-- 	<bean id="artifactBinding" class="org.springframework.security.saml.processor.HTTPArtifactBinding">
