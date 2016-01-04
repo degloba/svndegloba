@@ -483,12 +483,32 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-            	
-            	
             	                		
-        	</plugins>
-        </pluginManagement>
+</plugins>
+
+</pluginManagement>
+
         
+        <!-- NOTA : In case you're using Maven for building of your application, make sure that the key store is placed 
+        in the resources folder in your build, not in the java or webapp. Maven tends to corrupt the keystore 
+        during building unless it's placed in the resources folder. 
+        http://stackoverflow.com/questions/26764806/java-io-ioexception-invalid-keystore-format-spring-security-saml-extension -->
+        <resources>
+	        <resource>
+		        <directory>src/main/resources</directory>
+		        <filtering>true</filtering>
+		        <excludes>
+		            <exclude>**/*.jks</exclude>
+		        </excludes>
+	    	</resource>
+	   		<resource>
+		        <directory>src/main/resources</directory>
+		        <filtering>false</filtering>
+		        <includes>
+		            <include>**/*.jks</include>
+		        </includes>
+	    	</resource>
+        </resources>
          
     </build>
     
