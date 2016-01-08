@@ -32,7 +32,7 @@
     <security:http pattern="/app/saml/**"  entry-point-ref="samlEntryPoint" use-expressions="false">
         <security:intercept-url pattern="/app/saml/**" access="IS_AUTHENTICATED_FULLY"/>
         <security:custom-filter before="FIRST" ref="metadataGeneratorFilter"/>
-        <!-- <security:custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/> -->
+        <security:custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/> 
     </security:http> 
     
         <!-- Provider of default SAML Context -->
@@ -50,13 +50,13 @@
     <!-- Filters for processing of SAML messages -->
     <bean id="samlFilter" class="org.springframework.security.web.FilterChainProxy">
          <security:filter-chain-map request-matcher="ant"> 
-             <security:filter-chain pattern="/saml/login/**" filters="samlEntryPoint"/>  
-          <security:filter-chain pattern="/saml/logout/**" filters="samlLogoutFilter"/>
-            <security:filter-chain pattern="/saml/metadata/**" filters="metadataDisplayFilter"/>
-            <security:filter-chain pattern="/saml/SSO/**" filters="samlWebSSOProcessingFilter"/>
-            <security:filter-chain pattern="/saml/SSOHoK/**" filters="samlWebSSOHoKProcessingFilter"/>
-            <security:filter-chain pattern="/saml/SingleLogout/**" filters="samlLogoutProcessingFilter"/>
-            <!-- <security:filter-chain pattern="/saml/discovery/**" filters="samlIDPDiscovery"/>  --> 
+             <security:filter-chain pattern="/app/saml/login/**" filters="samlEntryPoint"/>  
+          <security:filter-chain pattern="/app/saml/logout/**" filters="samlLogoutFilter"/>
+            <security:filter-chain pattern="/app/saml/metadata/**" filters="metadataDisplayFilter"/>
+            <security:filter-chain pattern="/app/saml/SSO/**" filters="samlWebSSOProcessingFilter"/>
+            <security:filter-chain pattern="/app/saml/SSOHoK/**" filters="samlWebSSOHoKProcessingFilter"/>
+            <security:filter-chain pattern="/app/saml/SingleLogout/**" filters="samlLogoutProcessingFilter"/>
+             <security:filter-chain pattern="/app/saml/discovery/**" filters="samlIDPDiscovery"/>  
         </security:filter-chain-map> 
     </bean>
 
@@ -195,6 +195,11 @@
         <property name="refreshCheckInterval" value="0"/>
     </bean>
     
+    
+       <!-- IDP Discovery Service -->
+    <bean id="samlIDPDiscovery" class="org.springframework.security.saml.SAMLDiscovery">
+        <property name="idpSelectionPath" value="/WEB-INF/security/idpSelection.jsp"/>
+    </bean>
     
      <!-- Filter automatically generates default SP metadata -->
     <bean id="metadataGeneratorFilter" class="org.springframework.security.saml.metadata.MetadataGeneratorFilter">
