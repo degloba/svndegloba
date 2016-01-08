@@ -1,6 +1,10 @@
-<EntityDescriptor entityID="http://idp.ssocircle.com">
-    <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-        <KeyDescriptor use="signing">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+	xsi:schemaLocation="urn:oasis:names:tc:SAML:2.0:metadata http://docs.oasis-open.org/security/saml/v2.0/saml-schema-metadata-2.0.xsd" 
+	entityID="http://idp.ssocircle.com">
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
             <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
                 <ds:X509Data>
                     <ds:X509Certificate>
@@ -19,8 +23,8 @@ eL2MoDNqJyQ0fXC6Ze3f79CKy/WjeU5FLwDZR0Q=
                     </ds:X509Certificate>                    
 			</ds:X509Data>
 		</ds:KeyInfo>
-		</KeyDescriptor>
-        <KeyDescriptor use="encryption">
+		</md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
         	<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
             	<ds:X509Data>
             	    <ds:X509Certificate>
@@ -39,34 +43,35 @@ eL2MoDNqJyQ0fXC6Ze3f79CKy/WjeU5FLwDZR0Q=
 					</ds:X509Certificate>                    
 				</ds:X509Data>
 			</ds:KeyInfo>
-			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
-				<xenc:KeySize xmlns:xenc="http://www.w3.org/2001/04/xmlenc#">128</xenc:KeySize>
-			</EncryptionMethod>
-			</KeyDescriptor>
-			<ArtifactResolutionService index="0" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/ArtifactResolver/metaAlias/ssocircle"/>
-			<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle"/>
-			<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/ssocircle"/>
-			<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPSloSoap/metaAlias/ssocircle"/><ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPMniRedirect/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPMniRedirect/metaAlias/ssocircle"/>
-			<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPMniPOSTmetaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPMniPOST/metaAlias/ssocircle"/>
-			<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPMniSoap/metaAlias/ssocircle"/>
-			<NameIDFormat>
+			<md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
+				<xenc:KeySize>128</xenc:KeySize>
+			</md:EncryptionMethod>
+			</md:KeyDescriptor>
+			<md:ArtifactResolutionService index="0" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/ArtifactResolver/metaAlias/ssocircle"/>
+			<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle"/>
+			<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/ssocircle"/>
+			<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPSloSoap/metaAlias/ssocircle"/>
+			<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPMniRedirect/metaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPMniRedirect/metaAlias/ssocircle"/>
+			<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPMniPOSTmetaAlias/ssocircle" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPMniPOST/metaAlias/ssocircle"/>
+			<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPMniSoap/metaAlias/ssocircle"/>
+			<md:NameIDFormat>
 			    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
-			</NameIDFormat>
-			<NameIDFormat>
+			</md:NameIDFormat>
+			<md:NameIDFormat>
 			    urn:oasis:names:tc:SAML:2.0:nameid-format:transient
-			</NameIDFormat>
-			<NameIDFormat>
+			</md:NameIDFormat>
+			<md:NameIDFormat>
 			    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
-			</NameIDFormat>
-			<NameIDFormat>
+			</md:NameIDFormat>
+			<md:NameIDFormat>
 			    urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
-			</NameIDFormat>
-			<NameIDFormat>
+			</md:NameIDFormat>
+			<md:NameIDFormat>
 			    urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos
-			</NameIDFormat>
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle"/>
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/SSOPOST/metaAlias/ssocircle"/>
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/SSOSoap/metaAlias/ssocircle"/>
-			<NameIDMappingService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/NIMSoap/metaAlias/ssocircle"/>
-	</IDPSSODescriptor>
-</EntityDescriptor>
+			</md:NameIDFormat>
+			<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle"/>
+			<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/SSOPOST/metaAlias/ssocircle"/>
+			<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/SSOSoap/metaAlias/ssocircle"/>
+			<md:NameIDMappingService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/NIMSoap/metaAlias/ssocircle"/>
+	</md:IDPSSODescriptor>
+</md:EntityDescriptor>
