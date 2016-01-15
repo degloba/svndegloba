@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"       
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+           
+                 
+
+<!-- CONFIGURACIO 2 :  Integrar el login de Google a la App con OAuth2 y Spring Security -->
+<!-- ************************************************************************************ -->
+<!--  http://www.adictosaltrabajo.com/tutoriales/spring-security-o-auth-google/ 
+529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com *****************-->
+<!-- ************************************************************************************ -->
+
+	<bean id="google2Provider" class="org.scribe.up.provider.impl.Google2Provider">
+     <!--    <property name="key" value="529425111572-7d84aa90nt1b89sdrjt1ceq1dckjek97.apps.googleusercontent.com"/>    {pon aqui el Client ID creado en la consola de Google API (en el punto 1)} -->
+        <property name="key" value="910109996901-910v5uqubvse82fu2vqrblck9nhnhocb.apps.googleusercontent.com"/> 
+     <!--   <property name="secret" value="BupeTdv74Z2MoZqb3_SZktrx"/>    {secret Key de la consola de Google API}"  santasusanap -->
+        <property name="secret" value="p1Fc6moFKqvD-XSU9J4U04tS"/>   <!-- {secret Key de la consola de Google API}"  degloba -->
+        <property name="scope" value="EMAIL_AND_PROFILE"/>
+    </bean>
+ 
+    <bean id="providersDefinition" class="org.scribe.up.provider.ProvidersDefinition">
+        <property name="baseUrl" value="http://localhost:8888/app/oauth/j_spring_oauth_security_check" />
+        <property name="providers">
+            <list>
+                <ref bean="google2Provider" />
+            </list>
+        </property>
+    </bean>
+ 
+    <bean id="oAuthProvider" class="com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationProvider">
+        <property name="providersDefinition" ref="providersDefinition" />
+    </bean>
+ 
+    <bean id="google2EntryPoint" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationEntryPoint">
+        <property name="provider" ref="google2Provider" />
+    </bean>
+ 
+    
+    <bean id="oAuthFilter" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationFilter">
+        <property name="providersDefinition" ref="providersDefinition" />
+        <property name="authenticationManager" ref="authenticationManagerOauth" />
+    </bean>
+    
+	<security:authentication-manager alias="authenticationManagerOauth">
+        <security:authentication-provider ref="oAuthProvider"/>
+    </security:authentication-manager>
+                
+	<security:http pattern="/app/oauth/**" entry-point-ref="google2EntryPoint">
+		<security:custom-filter after="CAS_FILTER" ref="oAuthFilter" /> 		
+        <security:intercept-url pattern="/app/oauth/userHome" access="hasRole('IS_AUTHENTICATED_FULLY')" />
+        <security:intercept-url pattern="/app/oauth/**" access="hasRole('ANONYMOUS')" />
+        <security:logout />
+    </security:http> 
+
+
+	
+</beans>
