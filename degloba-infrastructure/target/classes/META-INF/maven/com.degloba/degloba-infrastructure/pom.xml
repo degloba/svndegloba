@@ -10,9 +10,7 @@
     <artifactId>degloba-infrastructure</artifactId>
     <packaging>jar</packaging>
     <name>degloba Infrastructure</name>
-    <description>
-
-    </description>
+    <description>Events + Spring data + Sagas</description>
 
     <dependencies>
     
@@ -38,24 +36,34 @@
         		
 		
         <!-- per proves (classe : ServicesConfiguration) -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-core</artifactId>        
 		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-api-jpa</artifactId>        
-		</dependency>		
-		 <dependency>
+		</dependency>	 -->	
+		 <!-- <dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>				
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-enhancer</artifactId>
 			<version>${datanucleus.maven.plugin}</version>
 		</dependency>
 
+		<!-- <dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>2.7.1</version>
+		</dependency> -->
     </dependencies>
 
     <build>
@@ -93,4 +101,5 @@
             </plugin>
         </plugins>
     </build>
+    <url>www.degloba.com</url>
 </project>

@@ -19,12 +19,11 @@ Class-Path: degloba-domain-4.4.3-SNAPSHOT.jar geronimo-jpa_2.0_spec-1.
  spring-beans-4.2.2.RELEASE.jar spring-core-4.2.2.RELEASE.jar spring-e
  xpression-4.2.2.RELEASE.jar spring-data-commons-1.11.2.RELEASE.jar mo
  ngo-java-driver-2.12.0.jar slf4j-api-1.7.10.jar jcl-over-slf4j-1.7.13
- .jar datanucleus-core-3.1.3.jar datanucleus-api-jpa-3.1.3.jar datanuc
- leus-appengine-2.1.2.jar datanucleus-enhancer-3.1.1.jar asm-4.0.jar s
- pring-context-4.2.2.RELEASE.jar spring-aop-4.2.2.RELEASE.jar aopallia
- nce-1.0.jar spring-tx-4.2.2.RELEASE.jar spring-orm-4.2.2.RELEASE.jar 
- spring-jdbc-4.2.2.RELEASE.jar spring-test-4.2.2.RELEASE.jar
-Build-Jdk: 1.8.0_66
+ .jar datanucleus-enhancer-3.1.1.jar asm-4.0.jar spring-context-4.2.2.
+ RELEASE.jar spring-aop-4.2.2.RELEASE.jar aopalliance-1.0.jar spring-t
+ x-4.2.2.RELEASE.jar spring-orm-4.2.2.RELEASE.jar spring-jdbc-4.2.2.RE
+ LEASE.jar spring-test-4.2.2.RELEASE.jar
+Build-Jdk: 1.8.0_60
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: degloba
 
