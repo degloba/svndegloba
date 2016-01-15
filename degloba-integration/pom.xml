@@ -64,18 +64,18 @@
 		</dependency>
 		
         <!-- per proves (classe : ServicesConfiguration) -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-core</artifactId>        
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-api-jpa</artifactId>        
-		</dependency>		
-		 <dependency>
+		</dependency>	 -->	
+		<!--  <dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>				
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-enhancer</artifactId>
