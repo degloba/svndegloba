@@ -8,7 +8,6 @@
     </parent>
     <artifactId>boundedContext1-cqrs</artifactId>
     <name>Casino - boundedContext1- Structure - CQRS</name>
-    <url>http://maven.apache.org</url>
     
     <dependencies>
         	
@@ -42,4 +41,5 @@
 		</plugins>
     </build>
     
+    <description>CQRS stands for Command Query Responsibility Segregation</description>
 </project>
