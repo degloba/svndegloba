@@ -28,7 +28,7 @@
     <!-- JPA, TX,... -->
      <!-- <bean class="com.degloba.infrastructure.integration.config.services.ServicesConfiguration"/>    -->
  
-    <context:property-placeholder location="classpath:/META-INF/ds.standalone.properties"/>  
+    <context:property-placeholder location="classpath:/META-INF/application.properties"/>  
 
     
     <!-- GEMFIRE-->
