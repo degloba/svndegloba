@@ -84,8 +84,8 @@
     
 	<import resource="security-oauth.xml"/>     
 	
-	 <context:property-placeholder location="classpath:/META-INF/securityOauth.properties"/>  
-
+	<!--  <context:property-placeholder location="classpath:/META-INF/securityOauth.properties"/>  
+ -->
 	
 	
 	<!-- **************** -->

@@ -21,7 +21,7 @@
 	
 	<!--  Proves amb security -->
 	<mvc:view-controller path="/oauth/userHome" />
-	<mvc:view-controller path="/oauth" />
+	<mvc:view-controller path="/oauth/**" />
 	
 	<mvc:view-controller path="/gae/**" />
 	
