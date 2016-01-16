@@ -45,7 +45,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:/META-INF/ds.standalone.properties")
+@PropertySource("classpath:/META-INF/application.properties")
 public class IntegrationConfiguration {
 
 
