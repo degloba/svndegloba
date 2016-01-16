@@ -27,9 +27,7 @@
         <sec:custom-filter ref="oauth2ClientContextFilter" after="EXCEPTION_TRANSLATION_FILTER"/>
         <sec:custom-filter ref="oAuth2AuthenticationProcessingFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
-
-    <b:bean id="oauth2ClientContextFilter" class="org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilter"/>
-    
+     
     
     <b:bean id="oAuth2AuthenticationProcessingFilter" class="org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter">
         <b:constructor-arg name="defaultFilterProcessesUrl" value="/googleLogin"/>
