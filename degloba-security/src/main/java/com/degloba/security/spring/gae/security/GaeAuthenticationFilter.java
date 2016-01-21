@@ -31,7 +31,7 @@ import org.springframework.web.filter.GenericFilterBean;
  * @author Luke Taylor
  */
 public class GaeAuthenticationFilter extends GenericFilterBean {
-	private static final String REGISTRATION_URL = "/app/gae/register.htm";
+	private static final String REGISTRATION_URL = "/gae/register.htm";
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
