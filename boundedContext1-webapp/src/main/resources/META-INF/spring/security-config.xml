@@ -70,7 +70,10 @@
 	<!-- ***** -->
 	<!-- GAE -->
 	<!-- ***** -->
-	<import resource="security-gae.xml"/> 
+	
+ 	<context:component-scan base-package="com.degloba.security.spring.gae"/>
+	<context:annotation-config />
+	<import resource="security-gae.xml"/>  
 
 
 	<!-- ***** -->
@@ -80,9 +83,9 @@
 	<context:annotation-config/>
     
     <!-- Classe @Configuration -->
-    <bean class="com.degloba.security.oauth2.config.OAuth2SecurityConfiguration"/>
+ <!--    <bean class="com.degloba.security.oauth2.config.OAuth2SecurityConfiguration"/>
     
-	<import resource="security-oauth.xml"/>     
+	<import resource="security-oauth.xml"/>  --> 
 	
 	
 	<!-- **************** -->

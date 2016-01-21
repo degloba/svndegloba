@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:security="http://www.springframework.org/schema/security"
-       xsi:schemaLocation="
-           http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security.xsd">
-           
-    
-<!-- *******************************************************************
-**   Spring Security in Google App Engine   *************************
-http://spring.io/blog/2010/08/02/spring-security-in-google-app-engine 
-************************************************************************ -->
 
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<security:http pattern="/app/gae/**" use-expressions="true" entry-point-ref="gaeEntryPoint">
-        <security:intercept-url pattern="/app/gae" access="permitAll" />
-        <security:intercept-url pattern="/app/gae/register.htm*" access="hasRole('NEW_USER')" />
-        <security:intercept-url pattern="/app/gae/**" access="hasRole('USER')" />
-        <security:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
-    </security:http>
-    
-    <bean id="gaeEntryPoint" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationEntryPoint" />
-
-    <bean id="gaeFilter" class="com.degloba.security.spring.gae.security.GaeAuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManagerGoogle"/>
-        <property name="failureHandler">
-			<bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
-				<property name="exceptionMappings">
-					<map>
-						<entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
-					</map>
-				</property>
-			</bean>
-		</property>
-    </bean>
-
-    <security:authentication-manager alias="authenticationManagerGoogle">
-        <security:authentication-provider ref="gaeAuthenticationProvider"/>
-    </security:authentication-manager>
-
-    <bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
-        <property name="userRegistry" ref="userRegistry" />
-    </bean> 
-
-    <bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
- 
+	<http pattern="/_ah/**" security="none"/>
+	<http pattern="/static/**" security="none" />
+	<http pattern="/favicon.ico" security="none" />
+	<http pattern="/loggedout.htm" security="none" />
+	<http pattern="/disabled.htm" security="none" />
 	
-</beans>
+	<http use-expressions="true" entry-point-ref="gaeEntryPoint">		
+		<intercept-url pattern="/gae" access="permitAll" />
+		<intercept-url pattern="/gae/logout.htm" access="permitAll" />
+		<intercept-url pattern="/gae/register.htm*" access="hasRole('NEW_USER')" />
+		<intercept-url pattern="/gae/**" access="hasRole('USER')" />
+		<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/*/javax.faces.resource/**" access="permitAll" />
+		<custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
+		<csrf disabled="true"/>
+	</http>
+
+	<b:bean id="gaeEntryPoint" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationEntryPoint" />
+
+	<b:bean id="gaeFilter" class="com.degloba.security.spring.gae.security.GaeAuthenticationFilter">
+		<b:property name="authenticationManager" ref="authenticationManager"/>
+		<b:property name="failureHandler">
+			<b:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+				<b:property name="exceptionMappings">
+					<b:map>
+						<b:entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
+					</b:map>
+				</b:property>
+			</b:bean>
+		</b:property>
+	</b:bean>
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="gaeAuthenticationProvider"/>
+	</authentication-manager>
+
+	<b:bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
+		<b:property name="userRegistry" ref="userRegistry" />
+	</b:bean>
+
+	<b:bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+
+</b:beans>
