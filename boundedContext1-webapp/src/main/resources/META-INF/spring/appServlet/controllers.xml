@@ -23,6 +23,7 @@
 	<mvc:view-controller path="/oauth/userHome" />
 	<mvc:view-controller path="/oauth/**" />
 	
+	<mvc:view-controller path="/app/gae/**" />
 	<mvc:view-controller path="/gae/**" />
 	
 	<mvc:view-controller path="/saml" />
