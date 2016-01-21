@@ -33,8 +33,6 @@
 	<!-- Proves amb CQRS -->
 	<mvc:view-controller path="/shipping/shipment" />
 	
-<!-- 	<mvc:view-controller path="/register.htm" /> -->
-	
 	
 	<!-- Travel -->
 	<!-- Imports the application controllers that process client requests -->
