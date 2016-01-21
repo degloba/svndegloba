@@ -93,8 +93,8 @@
   <filter-mapping>
     <filter-name>springSecurityFilterChain</filter-name>
     <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/app/*</url-pattern>
-  </filter-mapping>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> 
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
@@ -122,7 +122,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/app/*</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
