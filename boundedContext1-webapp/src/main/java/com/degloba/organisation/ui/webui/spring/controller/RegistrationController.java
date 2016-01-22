@@ -69,7 +69,7 @@ public class RegistrationController {
 			SecurityContextHolder.getContext().setAuthentication(
 					new GaeUserAuthentication(user, authentication.getDetails()));
 			
-			return "redirect:/gae/userHome";
+			return "redirect:/gae/home.htm";
 			
 		}
 
