@@ -1,0 +1,26 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/layouts/standard.xhtml"> 
+
+ <ui:define name="content">
+ 
+  This application demonstrates the integration of Spring Security
+  with the services provided by Google App Engine. It shows how to:
+  <ul>
+      <li>Authenticate using Google Accounts.</li>
+      <li>Implement "on&ndash;demand" authentication when a user accesses a secured resource.</li>
+      <li>Supplement the information from Google Accounts with application&ndash;specific roles.</li>
+      <li>Store user account data in an App Engine datastore using the native API.</li>
+      <li>Setup access-control restrictions based on the roles assigned to users.</li>
+      <li>Disable the accounts of specfic users to prevent access.</li>
+  </ul>
+
+  <p>
+  Go to the <a href="/gae/home.htm">home page</a>.
+  </p>
+  </ui:define>
+  
+</ui:composition>
