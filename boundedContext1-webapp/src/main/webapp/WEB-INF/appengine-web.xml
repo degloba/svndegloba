@@ -9,7 +9,6 @@
 	
 	  <threadsafe>true</threadsafe>
   
- 
 	  <!-- Configure java.util.logging -->
 	  <system-properties>
 	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
@@ -25,26 +24,20 @@
     </resource-files>
     
     <static-files> 
+        
 	    <include path="/resources/images/**.*"/>
-	    <include path="/images/**.*"/>  
-	    <include path="/styles/**.*"/> 
+	    <include path="/resources/js/lib/*.js"/>
 		<include path="/resources/css/*.css"/>
 		<include path="/resources/**.*"/>
-		
+	    		
 	    <include path="/static-resources/**.*"/> 
 	    <include path="/*.ico"/> 	
-	        
-	    <include path="/js/*.js"/>
-	    <include path="/resources/js/lib/*.js"/>
-	    <include path="/js/lib/*.js"/>
-	    <include path="/library/*.json"/>
 	    
 	    <include path="/*.html"/>
-	    
 
-	    <exclude path="/**.xhtml" />
-	    <exclude path="/xhtml/*.xhtml" />
-	    <exclude path="/user/*.xhtml" />
+	    <exclude path="/WEB-INF/views/*/*.xhtml" />
+	    <exclude path="/WEB-INF/views/*.xhtml" />
+	    
     </static-files>
     
     
