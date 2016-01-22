@@ -9,8 +9,8 @@
 	<http pattern="/_ah/**" security="none"/>
 	<http pattern="/static/**" security="none" />
 	<http pattern="/favicon.ico" security="none" />
-	<http pattern="/loggedout.htm" security="none" />
-	<http pattern="/disabled.htm" security="none" />
+	<http pattern="/gae/loggedout.htm" security="none" />
+	<http pattern="/gae/disabled.htm" security="none" />
 	
 	<http use-expressions="true" entry-point-ref="gaeEntryPoint">		
 		<intercept-url pattern="/gae" access="permitAll" />
@@ -31,7 +31,7 @@
 			<b:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
 				<b:property name="exceptionMappings">
 					<b:map>
-						<b:entry key="org.springframework.security.authentication.DisabledException" value="/disabled.htm" />
+						<b:entry key="org.springframework.security.authentication.DisabledException" value="/gae/disabled.htm" />
 					</b:map>
 				</b:property>
 			</b:bean>
