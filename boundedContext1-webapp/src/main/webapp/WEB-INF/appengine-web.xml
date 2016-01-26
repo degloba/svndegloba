@@ -12,7 +12,7 @@
 	  <!-- Configure java.util.logging -->
 	  <system-properties>
 	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-	  </system-properties>
+	</system-properties>
   
 	  
 	<sessions-enabled>true</sessions-enabled>  
@@ -40,15 +40,5 @@
 	    
     </static-files>
     
-    
-    <!-- Enable MySQL Connector/J -->
-    <use-google-connector-j>true</use-google-connector-j>
-    
-    <system-properties>
-	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-	    <property name="cloudsql.url" value="${cloudsql.url}"/>
-	    <property name="cloudsql.url.dev" value="${cloudsql.url.dev}"/>
-	</system-properties>
-    
- 
+
 </appengine-web-app>
