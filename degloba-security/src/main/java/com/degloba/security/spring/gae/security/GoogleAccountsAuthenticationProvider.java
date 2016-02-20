@@ -4,6 +4,9 @@ package com.degloba.security.spring.gae.security;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.degloba.security.spring.gae.users.UserRegistry;
 import com.google.appengine.api.users.User;
+
+import java.util.logging.Logger;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -33,13 +36,15 @@ public class GoogleAccountsAuthenticationProvider implements AuthenticationProvi
 	protected MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
 
 	private UserRegistry userRegistry;
+	
+	private static final Logger log = Logger.getLogger(GoogleAccountsAuthenticationProvider.class.getName());
 
 	public Authentication authenticate(Authentication authentication)
 			throws AuthenticationException {
 		User googleUser = (User) authentication.getPrincipal();
 
 		GaeUser user = userRegistry.findUser(googleUser.getUserId());
-
+				
 		if (user == null) {
 			// User not in registry. Needs to register
 			user = new GaeUser(googleUser.getUserId(), googleUser.getNickname(),
@@ -50,6 +55,7 @@ public class GoogleAccountsAuthenticationProvider implements AuthenticationProvi
 			throw new DisabledException("Account is disabled");
 		}
 
+		
 		return new GaeUserAuthentication(user, authentication.getDetails());
 	}
 
