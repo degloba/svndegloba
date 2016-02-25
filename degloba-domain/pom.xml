@@ -32,8 +32,7 @@
 		<!-- necessari per les entitats abstractes -->                  
 		<dependency>
 			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-			<scope>runtime</scope>
+			<artifactId>jdo-api</artifactId>			
 		</dependency>
            
            
