@@ -9,18 +9,9 @@
 <ui:define name="content">
 
   <div id="content">
-     <h3>The Home Page</h3>
-     <p>Welcome back <sec:authorize property="principal.nickname"/>.</p>
-     <p>
-     You can get to this page if you have authenticated and are a registered user.
-     You are registered as
-     <sec:authorize property="principal.forename"/> <sec:authorize property="principal.surname"/>.
-     </p>
-     <p>
-     <a href="/logout.htm">Logout</a>.
-     </p>
+  <p>Sorry, it looks like your account has been disabled for some reason...</p>
   </div>
-  
-  </ui:define>
 
-</ui:composition>
+</ui:define>
+
+  </ui:composition>
