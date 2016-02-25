@@ -105,6 +105,12 @@
         	<groupId>com.google.http-client</groupId>
         	<artifactId>google-http-client</artifactId>
         	<version>${com.google.oauth.client.version}</version>
+        	<exclusions>
+        		<exclusion>
+        			<artifactId>commons-logging</artifactId>
+        			<groupId>commons-logging</groupId>
+        		</exclusion>
+        	</exclusions>
         </dependency>
         <dependency>
         	<groupId>com.google.http-client</groupId>
@@ -166,10 +172,9 @@
         	<version>2.2.3</version>
         </dependency>
    
-    <dependency>
+<!--     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>  
-      <version>${slf4j.version}</version>    
+      <artifactId>slf4j-api</artifactId>        
       <scope>compile</scope>
     </dependency>    
     <dependency>
@@ -183,15 +188,8 @@
       <artifactId>slf4j-jdk14</artifactId>
       <version>${slf4j.version}</version>
       <scope>runtime</scope>
-    </dependency>
+    </dependency> -->
     
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.2</version>
-      <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
    
     <dependency>
       <groupId>org.apache.taglibs</groupId>
@@ -251,11 +249,15 @@
       <scope>test</scope>
     </dependency>    
 
-    <dependency>
+   <!--  <dependency>
 	    <groupId>org.springframework.security.extensions</groupId>
 	    <artifactId>spring-security-saml2-core</artifactId>
 	    <version>1.0.1.RELEASE</version>
+	   
+	    
 	</dependency>
+ -->
+
 
 
     <dependency>
