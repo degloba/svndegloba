@@ -9,7 +9,7 @@ import com.degloba.domain.BaseAggregateRoot;
 
 import com.degloba.utils.DateUtils;
 
-@Entity
+//@Entity
 //@Table(name = "accountabilities")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
