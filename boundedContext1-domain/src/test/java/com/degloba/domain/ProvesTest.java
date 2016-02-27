@@ -2,25 +2,13 @@ package com.degloba.domain;
 
 import com.degloba.utils.DateUtils;
 import org.junit.Test;
-import org.springframework.transaction.annotation.Transactional;
-
-
 
 // Entitats de domini 
-import com.degloba.organisation.domain.Accountability;
+
 import com.degloba.organisation.domain.Company;
-import com.degloba.organisation.domain.CompanyDepartment;
-import com.degloba.organisation.domain.Department;
-import com.degloba.organisation.domain.Employee;
-import com.degloba.organisation.domain.Employment;
-import com.degloba.organisation.domain.OrgLineMgmt;
-import com.degloba.organisation.domain.Person;
+
 import com.degloba.organisation.utils.OrganisationUtils;
 
-
-
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
