@@ -21,6 +21,7 @@
     <param-name>com.sun.faces.enableThreading</param-name>
     <param-value>false</param-value>
   </context-param>
+  
   <context-param>
     <description>
 		Used to specify where the state should be saved.
@@ -31,14 +32,17 @@
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>client</param-value>
   </context-param>
+  
   <context-param>
     <param-name>org.richfaces.resourceMapping.enabled</param-name>
     <param-value>true</param-value>
   </context-param>
+  
   <context-param>
     <param-name>org.richfaces.resourceMapping.mappingFile</param-name>
     <param-value>META-INF/richfaces/static-resource-mappings.properties</param-value>
   </context-param>
+  
   <context-param>
     <param-name>org.richfaces.resourceMapping.location</param-name>
     <param-value>#{facesContext.externalContext.requestContextPath}/resources/#{resourceLocation}</param-value>
@@ -59,10 +63,12 @@
     <param-name>org.richfaces.skin</param-name>
     <param-value>blueSky</param-value>
   </context-param>
+  
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
   </context-param>
+  
   <context-param>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
     <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
@@ -71,30 +77,26 @@
     <param-name>javax.faces.CONFIG_FILES</param-name>
     <param-value></param-value>
   </context-param>
+  
   <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Production</param-value>
   </context-param>
+  
   <context-param>
     <param-name>javax.faces.SKIP_COMMENTS</param-name>
     <param-value>true</param-value>
   </context-param>
+  
   <context-param>
     <param-name>com.sun.faces.expressionFactory</param-name>
     <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
   </context-param>
+  
   <welcome-file-list>
     <welcome-file>index.jsf</welcome-file>
   </welcome-file-list>
-  <filter>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping> 
+   
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
@@ -104,9 +106,6 @@
   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
- 	<!-- <listener>
-        <listener-class>org.springframework.boot.legacy.context.web.SpringBootContextLoaderListener</listener-class>
-    </listener>   -->
   <servlet>
     <servlet-name>springmvcservlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -114,16 +113,20 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:/META-INF/spring/appServlet/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>      
     </init-param>
-	<!-- <init-param>
-            <param-name>contextAttribute</param-name>
-            <param-value>org.springframework.web.context.WebApplicationContext.ROOT</param-value>
-        </init-param>   -->  
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+	<servlet-name>springmvcservlet</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+  
+ 
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -131,8 +134,19 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.faces</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+<!--   
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>   -->
+  
   <servlet>
     <servlet-name>Resource Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
@@ -141,6 +155,7 @@
     <servlet-name>Resource Servlet</servlet-name>
     <url-pattern>/org.richfaces.resources/*</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <display-name>Remote API Servlet</display-name>
     <servlet-name>RemoteApiServlet</servlet-name>
@@ -151,6 +166,7 @@
     <servlet-name>RemoteApiServlet</servlet-name>
     <url-pattern>/remote_api</url-pattern>
   </servlet-mapping>
+  
   <session-config>
     <session-timeout>0</session-timeout>
   </session-config>
