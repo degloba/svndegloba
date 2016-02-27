@@ -38,10 +38,10 @@
 		<!-- per proves (classe : ServicesConfiguration) -->
 		<!-- ******************************************* -->
 		
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-api-jpa</artifactId>        
-		</dependency>		
+		</dependency>	 -->	
 		
     
     </dependencies>
