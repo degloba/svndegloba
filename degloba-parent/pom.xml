@@ -24,7 +24,7 @@
 	
 	<slf4j.version>1.7.13</slf4j.version>
 	<jdk.version>1.7</jdk.version>
-	<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+	<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
 
 	<!-- JSF -->
 	<mojarra.version>2.1.7</mojarra.version>
@@ -385,7 +385,14 @@
 		<!-- Spring -->
 		 <dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>			
+			<artifactId>spring-context</artifactId>	
+			<exclusions>
+	   <exclusion>
+		  <groupId>commons-logging</groupId>
+		  <artifactId>commons-logging</artifactId>
+	   </exclusion>
+	</exclusions>	
+					
         </dependency>        		       
 		<dependency>                         
 			<groupId>org.springframework</groupId>                         
@@ -421,7 +428,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
+                    <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <source>${jdk.version}</source>
                         <target>${jdk.version}</target>
