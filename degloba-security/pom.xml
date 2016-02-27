@@ -229,11 +229,11 @@
       <scope>test</scope>
     </dependency>
     
-  <dependency>
+<!--   <dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${google.appengine}</version>
-		</dependency>
+		</dependency> -->
 
     <dependency>
       <groupId>org.easytesting</groupId>
