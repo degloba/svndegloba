@@ -11,6 +11,7 @@ import com.degloba.security.spring.gae.security.GaeUserAuthentication;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.degloba.security.spring.gae.users.UserRegistry;
 import com.degloba.travel.domain.User;
+import java.util.logging.Logger;
 import com.google.appengine.api.users.UserServiceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -30,17 +31,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Luke Taylor
  */
 @Controller
-@RequestMapping(value = "/gae/register.htm")
+@RequestMapping(value = "/register.htm")
 public class RegistrationController {
 
 	@Autowired
 	private UserRegistry registry;
 	
+	private static final Logger log = Logger.getLogger(RegistrationController.class.getName());
+	
 	/*
 	 * Model Spring MVC
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	    public void getRegistre(Model model) {			
+	    public void getRegistre(Model model) {	
 	        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());	
 	        
 	}
@@ -49,28 +52,26 @@ public class RegistrationController {
 		public String register(@RequestParam("username")  String username, 
 					@RequestParam("password")  String password) {   //@RequestBody  @RequestParam
 		  
-		 
-		 Authentication authentication = SecurityContextHolder.getContext()
-					.getAuthentication();
-			GaeUser currentUser = (GaeUser) authentication.getPrincipal();
-			Set<AppRole> roles = EnumSet.of(AppRole.USER);
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+		GaeUser currentUser = (GaeUser) authentication.getPrincipal();
+		Set<AppRole> roles = EnumSet.of(AppRole.USER);
 
-			if (UserServiceFactory.getUserService().isUserAdmin()) {
-				roles.add(AppRole.ADMIN);
-			}
+		if (UserServiceFactory.getUserService().isUserAdmin()) {
+			roles.add(AppRole.ADMIN);
+		}
 
-			GaeUser user = new GaeUser(currentUser.getUserId(), currentUser.getNickname(),
-					currentUser.getEmail(), "ee", "dd", roles,
-					true);
+		GaeUser user = new GaeUser(currentUser.getUserId(), currentUser.getNickname(),
+				currentUser.getEmail(), username, password, roles,
+				true);
 
-			registry.registerUser(user);
+		registry.registerUser(user);
 
-			// Update the context with the full authentication
-			SecurityContextHolder.getContext().setAuthentication(
-					new GaeUserAuthentication(user, authentication.getDetails()));
-			
-			return "redirect:/gae/home.htm";
-			
+		// Update the context with the full authentication
+		SecurityContextHolder.getContext().setAuthentication(
+				new GaeUserAuthentication(user, authentication.getDetails()));
+
+		return "redirect:/home.htm";		 
 		}
 
 /*	@RequestMapping(method = RequestMethod.GET)

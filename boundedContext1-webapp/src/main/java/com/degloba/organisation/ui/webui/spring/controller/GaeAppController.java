@@ -21,14 +21,15 @@ public class GaeAppController {
 	
 	private final Logger logger = Logger.getLogger(getClass().getName());
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/gae", method = RequestMethod.GET)
 	public String landing() {
-		return "landing";
+		logger.info("**************PROVA6");
+		return "gae/landing";
 	}
 
 	@RequestMapping(value = "/home.htm", method = RequestMethod.GET)
 	public String home() {
-		return "home";
+		return "gae/home";
 	}
 
 	@RequestMapping(value = "/disabled.htm", method = RequestMethod.GET)

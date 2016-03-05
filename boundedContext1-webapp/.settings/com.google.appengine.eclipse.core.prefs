@@ -1,12 +1,4 @@
 eclipse.preferences.version=1
-filesCopiedToWebInfLib=
-gaeDatanucleusEnabled=true
-gaeDatanucleusVersion=
-gaeDeployDialogSettings=
 gaeDoJarClasses=false
 gaeEnableJarSplitting=true
-gaeHrdEnabled=true
-gaeLaunchAppInBrowser=false
 gaeRetainStagingDirectory=false
-googleCloudSqlEnabled=false
-localDevMySqlEnabled=true

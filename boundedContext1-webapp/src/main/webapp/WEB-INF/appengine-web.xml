@@ -17,7 +17,7 @@
 	  
 	<sessions-enabled>true</sessions-enabled>  
 	
-	<async-session-persistence enabled="false" />
+	<!-- <async-session-persistence enabled="false" />
   
     <resource-files>
         <exclude path="/static-resources/**" />
@@ -38,7 +38,7 @@
 	    <exclude path="/WEB-INF/views/*/*.xhtml" />
 	    <exclude path="/WEB-INF/views/*.xhtml" />
 	    
-    </static-files>
+    </static-files> -->
     
 
 </appengine-web-app>

@@ -30,10 +30,10 @@
 		Otherwise to save the state on the client side we can specify client in the param-value. 
 	</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-    <param-value>client</param-value>
+    <param-value>server</param-value>
   </context-param>
   
-  <context-param>
+ <!--  <context-param>
     <param-name>org.richfaces.resourceMapping.enabled</param-name>
     <param-value>true</param-value>
   </context-param>
@@ -62,7 +62,7 @@
   <context-param>
     <param-name>org.richfaces.skin</param-name>
     <param-value>blueSky</param-value>
-  </context-param>
+  </context-param> -->
   
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -73,10 +73,10 @@
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
     <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
   </context-param>
-  <context-param>
+<!--   <context-param>
     <param-name>javax.faces.CONFIG_FILES</param-name>
     <param-value></param-value>
-  </context-param>
+  </context-param> -->
   
   <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -93,21 +93,21 @@
     <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
   </context-param>
   
-  <welcome-file-list>
+<!--   <welcome-file-list>
     <welcome-file>index.jsf</welcome-file>
   </welcome-file-list>
-   
-  <listener>
+    -->
+<!--   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener>
+  </listener> -->
   
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
   </listener>
   
-  <listener>
+<!--   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener>
+  </listener> -->
   
   <servlet>
     <servlet-name>springmvcservlet</servlet-name>
@@ -122,12 +122,12 @@
   
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/gae</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+<!--   <servlet-mapping>
 	<servlet-name>springmvcservlet</servlet-name>
 		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
   
  
   <servlet>
@@ -135,10 +135,23 @@
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <servlet-mapping>
+   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </servlet-mapping>
+    <url-pattern>/gae/*.xhtml</url-pattern>
+  </servlet-mapping>  
+   <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping> 
+   <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces</url-pattern>
+  </servlet-mapping> 
+     <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>   
+  
   
 <!--   
   <filter>
@@ -151,14 +164,15 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>   -->
   
-  <servlet>
+  
+  <!-- <servlet>
     <servlet-name>Resource Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Resource Servlet</servlet-name>
     <url-pattern>/org.richfaces.resources/*</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   
   <servlet>
     <display-name>Remote API Servlet</display-name>
@@ -172,7 +186,7 @@
   </servlet-mapping>
   
   <session-config>
-    <session-timeout>0</session-timeout>
+    <session-timeout>30</session-timeout>
   </session-config>
   
 </web-app>

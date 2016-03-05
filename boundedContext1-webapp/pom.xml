@@ -66,13 +66,18 @@
         	<groupId>${project.groupId}</groupId>
         	<artifactId>degloba-security</artifactId>
         	<version>${project.version}</version>
-			<scope>runtime</scope>        	
 		</dependency>
 		
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>commons-logging</artifactId>
+            		<groupId>commons-logging</groupId>
+            	</exclusion>
+            </exclusions>
         </dependency>
 
        
@@ -121,11 +126,11 @@
         <!-- Deploying a WAR in an Old (Servlet 2.5) Container 
         Spring Boot uses Servlet 3.0 APIs to initialize the ServletContext so you can’t use the same application out of the box in a Servlet 2.5 container. 
         It is however possible to run a Spring Boot application on an older container with some special tools-->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-legacy</artifactId>     
             <version>1.0.2.RELEASE</version>       
-        </dependency>  
+        </dependency>   -->
        
 
 		<dependency>
@@ -138,7 +143,13 @@
         <!-- Spring WebFlow -->
 		<dependency>                         
 			<groupId>org.springframework.webflow</groupId> 
-			<artifactId>spring-faces</artifactId>  					                               
+			<artifactId>spring-faces</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>  
         		
      <!--    <dependency>
@@ -157,18 +168,24 @@
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
 			<version>2.2.4.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency> 
 		
 		
 		<!-- Primafaces -->
-		<dependency>
+ 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces-version}</version>
-		</dependency>
+		</dependency> 
 		
 		<!-- Richfaces -->
-		<dependency>
+<!-- 		<dependency>
     		<groupId>org.richfaces.core</groupId>
     		<artifactId>richfaces-core-api</artifactId>
     	</dependency>
@@ -179,7 +196,7 @@
         <dependency>
             <groupId>org.richfaces.core</groupId>
             <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
+        </dependency> -->
 		<!-- <dependency>
 	    	<groupId>org.richfaces.cdk</groupId>
 	    	<artifactId>annotations</artifactId>
@@ -234,11 +251,11 @@
         </dependency>
 
 
-		<dependency>
+<!-- 		<dependency>
 		  <groupId>com.github.leleuj.springframework.security</groupId>
 		  <artifactId>spring-security-oauth-client</artifactId>
 		  <version>1.1.0</version>
-		</dependency> 
+		</dependency>  -->
         <!-- <dependency>
         	<groupId>org.pac4j</groupId>
         	<artifactId>spring-security-pac4j</artifactId>
@@ -297,6 +314,43 @@
          	<groupId>org.hibernate</groupId>
          	<artifactId>hibernate-validator</artifactId>         	
          </dependency> -->
+        <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-jdk14</artifactId>
+        	<version>1.7.13</version>
+        </dependency>
+        
+        <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <scope>compile</scope>
+    </dependency>
+        
+        <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+      <version>1.2.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.myfaces.shared</groupId>
+    	<artifactId>myfaces-shared-core</artifactId>
+    	<version>4.2.7</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.myfaces.shared</groupId>
+    	<artifactId>myfaces-shared-html5</artifactId>
+    	<version>4.0.6</version>
+    </dependency>
+    
+    
+
     </dependencies>
     
 
@@ -314,7 +368,7 @@
                     </execution>
                 </executions>
             </plugin>  -->
-             <plugin>
+            <!--  <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>                
 	            <configuration>
@@ -353,12 +407,14 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
+            
+            
         </plugins>
         <pluginManagement>
         	<plugins>
         		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        		<plugin>
+        		<!-- <plugin>
         			<groupId>org.eclipse.m2e</groupId>
         			<artifactId>lifecycle-mapping</artifactId>
         			<version>1.0.0</version>
@@ -387,9 +443,9 @@
         					</pluginExecutions>
         				</lifecycleMappingMetadata>
         			</configuration>
-        		</plugin>
+        		</plugin> -->
         		
-				<plugin>
+				<!-- <plugin>
 	                <groupId>org.richfaces.cdk</groupId>
 	                <artifactId>maven-richfaces-resources-plugin</artifactId>
 	                <version>${org.richfaces.bom.version}</version>
@@ -398,10 +454,10 @@
 		                <skins>
 				            <skin>blueSky</skin>
 				        </skins>
-		 		        <!--   <excludedFiles>
+		 		          <excludedFiles>
 				            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
 				            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
-				        </excludedFiles> -->
+				        </excludedFiles>
 				        <includedContentTypes>
 				            <include>application/javascript</include>
 				            <include>text/css</include>
@@ -431,23 +487,23 @@
 				            </goals>
 				            <configuration>
 				            
-				                <!-- default RichFaces mapping file, can be anywhere on the classpath, but then you will
+				                default RichFaces mapping file, can be anywhere on the classpath, but then you will
 				                     will need to configure Resource Mapping configuration file location in web.xml,
-				                     refer to RichFaces Developer Guide -->
+				                     refer to RichFaces Developer Guide
 				                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
 				                
-				                <!-- resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
+				                resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
 				                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
-				                     depending on packaging of this project -->
+				                     depending on packaging of this project
 				                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
 				                
-				                <!-- resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources) -->
+				                resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources)
 				                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
 				                
-				                <!-- resources will be packaged, refer to RichFaces Developer Guide -->
+				                resources will be packaged, refer to RichFaces Developer Guide
 				                <pack>true</pack>
 				                
-				                <!-- resources will be compressed, refer to RichFaces Developer Guide -->
+				                resources will be compressed, refer to RichFaces Developer Guide
 				                <compress>true</compress>
 				                
 				            </configuration>
@@ -455,14 +511,14 @@
 		                                   
                 	</executions>
             	</plugin>	    
+            	 -->
             	
-            	
-            	<plugin>
+    <!--         	<plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>aspectj-maven-plugin</artifactId>
         <version>1.0</version>
         <dependencies>
-          <!-- NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
+          NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972)
           <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
@@ -497,7 +553,7 @@
           <source>1.6</source>
           <target>1.6</target>
         </configuration>
-      </plugin>
+      </plugin> -->
             	                		
 </plugins>
 
@@ -508,7 +564,7 @@
         in the resources folder in your build, not in the java or webapp. Maven tends to corrupt the keystore 
         during building unless it's placed in the resources folder. 
         http://stackoverflow.com/questions/26764806/java-io-ioexception-invalid-keystore-format-spring-security-saml-extension -->
-        <resources>
+        <!-- <resources>
 	        <resource>
 		        <directory>src/main/resources</directory>
 		        <filtering>true</filtering>
@@ -524,7 +580,7 @@
 		        </includes>
 	    	</resource>
         </resources>
-         
+          -->
     </build>
     
 

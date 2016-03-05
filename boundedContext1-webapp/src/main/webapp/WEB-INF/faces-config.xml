@@ -1,8 +1,10 @@
-<?xml version="1.0"?>
-<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
- http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1">
+
  <name>degloba</name>
 
 
@@ -13,17 +15,13 @@
       ************************************************************************ -->
 	<message-bundle>JsfMessageResources</message-bundle>
           
-	<!-- <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-	<resource-handler>com.degloba.boundedContext.ui.webui.jsf.CustomResourceHandler</resource-handler>
-         
-   		 <locale-config>
-           	<default-locale>es</default-locale>
-   			<supported-locale>es</supported-locale>
-        </locale-config>
+	 <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	<resource-handler>com.degloba.canonicalmodel.ui.webui.jsf.CustomResourceHandler</resource-handler>
+
         <resource-bundle>
             <base-name>idioma_es</base-name>
             <var>messages</var>
-        </resource-bundle> -->
+        </resource-bundle> 
         
      <!-- ************************************************************************
      				Fi	SpringMvc + JSF 2.0 
@@ -36,15 +34,19 @@
   
  </application>
  
- <faces-config-extension>
+<faces-config-extension>
  <facelets-processing> 
       <file-extension>.xhtml</file-extension> 
       <process-as>html5</process-as> 
     </facelets-processing> 
- </faces-config-extension>
+ </faces-config-extension> 
  
- 	<lifecycle>
+<!--  	<lifecycle>
 	    <phase-listener>com.degloba.canonicalmodel.ui.webui.jsf22.SessionPhaseListener</phase-listener>	   
-	</lifecycle>
+	</lifecycle>  -->	
+	
+<!--  	  <lifecycle>
+        <phase-listener>com.degloba.canonicalmodel.ui.webui.GaeSession</phase-listener>
+    </lifecycle>   -->
  
 </faces-config>
