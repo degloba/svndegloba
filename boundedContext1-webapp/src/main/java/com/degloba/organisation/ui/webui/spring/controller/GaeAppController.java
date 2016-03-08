@@ -34,7 +34,7 @@ public class GaeAppController {
 
 	@RequestMapping(value = "/disabled.htm", method = RequestMethod.GET)
 	public String disabled() {
-		return "disabled";
+		return "gae/disabled";
 	}
 
 	@RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
@@ -50,6 +50,6 @@ public class GaeAppController {
 
 	@RequestMapping(value = "/loggedout.htm", method = RequestMethod.GET)
 	public String loggedOut() {
-		return "loggedout";
+		return "gae/loggedout";
 	}
 }
