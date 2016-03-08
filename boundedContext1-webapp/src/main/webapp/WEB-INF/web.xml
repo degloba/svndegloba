@@ -119,15 +119,19 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   
-  
+  <!-- Definim les URLs que admetrem pel servlet -->
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae</url-pattern>
   </servlet-mapping>
-<!--   <servlet-mapping>
+  <servlet-mapping>
 	<servlet-name>springmvcservlet</servlet-name>
 		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping> -->
+	</servlet-mapping> 
+  <servlet-mapping>
+	<servlet-name>springmvcservlet</servlet-name>
+		<url-pattern>/app/*</url-pattern>
+	</servlet-mapping> 	
   
  
   <servlet>

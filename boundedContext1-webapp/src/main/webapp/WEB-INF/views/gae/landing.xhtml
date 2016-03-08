@@ -2,10 +2,11 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"> 
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/layouts/standard.xhtml"> 
 
 
- 
+ <ui:define name="content">
   This application demonstrates the integration of Spring Security
   with the services provided by Google App Engine. It shows how to:
   <ul>
@@ -18,8 +19,8 @@
   </ul>
 
   <p>
-  Go to the <a href="/gae/home.htm">home page</a>.
+  Go to the <a href="/home.htm">home page</a>.
   </p>
 
-  
+  </ui:define>
 </ui:composition>
