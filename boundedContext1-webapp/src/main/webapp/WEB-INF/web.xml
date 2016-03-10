@@ -33,6 +33,50 @@
     <param-value>server</param-value>
   </context-param>
   
+  	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+	
+	  	<!-- Causes Facelets to refresh templates during development -->
+  	<context-param>
+  		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+  		<param-value>1</param-value>
+  	</context-param>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+    <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+  </context-param>
+<!--   <context-param>
+    <param-name>javax.faces.CONFIG_FILES</param-name>
+    <param-value></param-value>
+  </context-param> -->
+  
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>javax.faces.SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>com.sun.faces.expressionFactory</param-name>
+    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+  </context-param>
+  
+  	<!-- ********************* -->
+  	<!--     RICHFACES         -->
+  	<!-- ********************* -->
  <!--  <context-param>
     <param-name>org.richfaces.resourceMapping.enabled</param-name>
     <param-value>true</param-value>
@@ -64,39 +108,7 @@
     <param-value>blueSky</param-value>
   </context-param> -->
   
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
-  </context-param>
-  
-  <context-param>
-    <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-    <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
-  </context-param>
-<!--   <context-param>
-    <param-name>javax.faces.CONFIG_FILES</param-name>
-    <param-value></param-value>
-  </context-param> -->
-  
-  <context-param>
-    <param-name>javax.faces.PROJECT_STAGE</param-name>
-    <param-value>Production</param-value>
-  </context-param>
-  
-  <context-param>
-    <param-name>javax.faces.SKIP_COMMENTS</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  
-  <context-param>
-    <param-name>com.sun.faces.expressionFactory</param-name>
-    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-  </context-param>
-  
-<!--   <welcome-file-list>
-    <welcome-file>index.jsf</welcome-file>
-  </welcome-file-list>
-    -->
+
 <!--   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener> -->
@@ -109,6 +121,9 @@
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener> -->
   
+  <!-- ******************* -->
+  <!--  Spring MVC Servlet -->
+  <!-- ******************* -->
   <servlet>
     <servlet-name>springmvcservlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -119,7 +134,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   
-  <!-- Definim les URLs que admetrem pel servlet -->
+  <!-- Definim les URLs que admet el Spring MVC Servlet -->
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae</url-pattern>
@@ -133,16 +148,17 @@
 		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping> 	
   
- 
+  
+  <!--  **************** -->
+  <!--   Faces Servlet   -->
+  <!--  **************** -->
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
-   <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/gae/*.xhtml</url-pattern>
-  </servlet-mapping>  
+  
+    <!-- Definim les URLs que admet el Faces Servlet -->
    <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.faces</url-pattern>
@@ -156,8 +172,10 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>   
   
-  
-<!--   
+     
+  <!-- **************************** -->
+  <!--       SPRING SECURITY        -->
+  <!-- **************************** --> 
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -165,8 +183,8 @@
   <filter-mapping>
     <filter-name>springSecurityFilterChain</filter-name>
     <servlet-name>springmvcservlet</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>   -->
+    <url-pattern>/gae/*</url-pattern>
+  </filter-mapping>  
   
   
   <!-- <servlet>
@@ -192,5 +210,13 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
+  
+  	<!-- 
+		DEFAULT PAGE
+	-->
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>	
   
 </web-app>
