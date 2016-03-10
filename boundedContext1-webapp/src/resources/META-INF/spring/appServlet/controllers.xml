@@ -13,13 +13,15 @@
 			Incoming path '/home' is mapped maps to the view name 'home'
 			UrlBasedViewResolver in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml 
 	-->
-	 <mvc:view-controller path="/login" />
-	<mvc:view-controller path="/home" /> 
+
 	
-	<!-- proves -->
+ 	 <mvc:view-controller path="/login" />
+	 <mvc:view-controller path="/home" />  
+	
+	<!-- proves
 	<mvc:view-controller path="/post" /> 
 	
-	<!--  Proves amb security -->
+	 Proves amb security
 	<mvc:view-controller path="/oauth/userHome" />
 	<mvc:view-controller path="/oauth/**" />
 	
@@ -30,20 +32,20 @@
 	
 	<mvc:view-controller path="/ws" />
 	
-	<!-- Proves amb CQRS -->
+	Proves amb CQRS
 	<mvc:view-controller path="/shipping/shipment" />
 	
 	
-	<!-- Travel
+	Travel
 	Imports the application controllers that process client requests
-   -->  <mvc:view-controller path="/sss" view-name="home"/>
+    <mvc:view-controller path="/sss" view-name="home"/>
     
-    <mvc:view-controller path="/hotels"/>
+    <mvc:view-controller path="/hotels"/> 
 
-   <!--  Maps '/users/login' requests to the 'users/login' view  (es JSP !!!!!) -->
+    Maps '/users/login' requests to the 'users/login' view  (es JSP !!!!!)
     <mvc:view-controller path="/users/login"/>
     <mvc:view-controller path="/users/logout"/>
-    <mvc:view-controller path="/users/logoutSuccess"/> 
+    <mvc:view-controller path="/users/logoutSuccess"/>  -->
 	
 	
 	<!-- Scan for Spring beans declared via annotations. -->
