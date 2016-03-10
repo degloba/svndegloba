@@ -95,6 +95,16 @@
  	<bean id="invoiceFactory" class="com.degloba.ecommerce.sales.invoicing.domain.InvoiceFactory" />  
 			
 	
+	<!-- ******************* -->
+	<!-- REGISTRE USUARIS    -->	
+	<!-- ******************* -->
+	<bean id="gaeAuthenticationProvider" class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
+		<property name="userRegistry" ref="userRegistry" />
+	</bean>
+
+	<bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+	
+	
 	<bean class="com.degloba.ecommerce.sales.invoicing.domain.BookKeeper"/>
 	<bean class="com.degloba.ecommerce.sales.invoicing.domain.TaxAdvisor" />
 	<bean class="com.degloba.ecommerce.sales.internal.discounts.DiscountingService"/>
