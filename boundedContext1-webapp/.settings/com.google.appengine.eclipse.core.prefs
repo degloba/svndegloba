@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+gaeDeployDialogSettings=
 gaeDoJarClasses=false
 gaeEnableJarSplitting=true
+gaeLaunchAppInBrowser=true
 gaeRetainStagingDirectory=false
+googleCloudSqlEnabled=false
+localDevMySqlEnabled=true
