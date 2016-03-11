@@ -15,7 +15,9 @@
       ************************************************************************ -->
 	<message-bundle>JsfMessageResources</message-bundle>
           
-	 <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	<!-- per utilitzar beans Spring des de pàgines xhtml -->
+	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	 
 	<resource-handler>com.degloba.canonicalmodel.ui.webui.jsf.CustomResourceHandler</resource-handler>
 
         <resource-bundle>
