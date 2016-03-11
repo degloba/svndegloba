@@ -22,33 +22,32 @@ public class GaeAppController {
 	private final Logger logger = Logger.getLogger(getClass().getName());
 
 	@RequestMapping(value = "/gae", method = RequestMethod.GET)
-	public String landing() {
-		logger.info("**************PROVA6");
+	public String landing() {		
 		return "gae/landing";
 	}
 
-	@RequestMapping(value = "/home.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/gae/home.htm", method = RequestMethod.GET)
 	public String home() {
 		return "gae/home";
 	}
 
-	@RequestMapping(value = "/disabled.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/gae/disabled.htm", method = RequestMethod.GET)
 	public String disabled() {
 		return "gae/disabled";
 	}
 
-	@RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/gae/logout.htm", method = RequestMethod.GET)
 	public void logout(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 			
 				
 		String logoutUrl = UserServiceFactory.getUserService().createLogoutURL(
-				"/loggedout.htm");
+				"/gae/loggedout.htm");
 
 		response.sendRedirect(logoutUrl);
 	}
 
-	@RequestMapping(value = "/loggedout.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/gae/loggedout.htm", method = RequestMethod.GET)
 	public String loggedOut() {
 		return "gae/loggedout";
 	}

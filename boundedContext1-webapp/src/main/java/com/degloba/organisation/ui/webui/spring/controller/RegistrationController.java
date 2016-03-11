@@ -11,8 +11,11 @@ import com.degloba.security.spring.gae.security.GaeUserAuthentication;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.degloba.security.spring.gae.users.UserRegistry;
 import com.degloba.travel.domain.User;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 import com.google.appengine.api.users.UserServiceFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,13 +34,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Luke Taylor
  */
 @Controller
-@RequestMapping(value = "/register.htm")
+@RequestMapping(value = "/gae/register.htm")
 public class RegistrationController {
 
 	@Autowired
 	private UserRegistry registry;
 	
-	private static final Logger log = Logger.getLogger(RegistrationController.class.getName());
+	private final Logger log = LoggerFactory.getLogger(getClass()); //Logger.getLogger(RegistrationController.class.getName());
 	
 	/*
 	 * Model Spring MVC
@@ -52,6 +55,9 @@ public class RegistrationController {
 		public String register(@RequestParam("username")  String username, 
 					@RequestParam("password")  String password) {   //@RequestBody  @RequestParam
 		  
+		
+		log.debug("**************  Registre Usuari : ");
+		
 		Authentication authentication = SecurityContextHolder.getContext()
 				.getAuthentication();
 		GaeUser currentUser = (GaeUser) authentication.getPrincipal();
@@ -65,21 +71,23 @@ public class RegistrationController {
 				currentUser.getEmail(), username, password, roles,
 				true);
 
+		log.debug("**************  Registre Usuari : " + user);
+		
 		registry.registerUser(user);
 
 		// Update the context with the full authentication
 		SecurityContextHolder.getContext().setAuthentication(
 				new GaeUserAuthentication(user, authentication.getDetails()));
 
-		return "redirect:/home.htm";		 
+		return "redirect:/gae";		 
 		}
 
-/*	@RequestMapping(method = RequestMethod.GET)
+	/*@RequestMapping(method = RequestMethod.GET)
 	public RegistrationForm registrationForm() {
 		return new RegistrationForm();		
-	}*/
+	}
 
-	/*@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public String register(@Valid RegistrationForm form, BindingResult result) {
 		if (result.hasErrors()) {
 			return null;
