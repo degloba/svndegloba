@@ -8,18 +8,22 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 
+// Spring Web
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
+
+// GCM
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;
 import com.google.android.gcm.server.Sender;
 
 
 /**
- * Servlet implementation class GCMBroadcast
+ * Captura i registra (MongoDB) els tokens de dispositius Android
+ * utilitzant
  */
 //@WebServlet("/GCMBroadcast")
 @Controller
@@ -33,10 +37,7 @@ public class GCMBroadcastController {
 	// The SENDER_ID here is the "Browser Key" that was generated when I
 	// created the API keys for my Google APIs project.
 	private static final String SENDER_ID = "AIzaSyAd05vFrU0Sj-6YRjmybuMhMed5zJuYwq0";
-	
-	// This is a *cheat*  It is a hard-coded registration ID from an Android device
-	// that registered itself with GCM using the same project id shown above.
-	private static final String ANDROID_DEVICE = "YOUR_CAPTURED_ANDROID_DEVICE_KEY";
+
 		
 	// This array will hold all the registration ids used to broadcast a message.
 	// for this demo, it will only have the ANDROID_DEVICE id that was captured 
@@ -108,7 +109,7 @@ public class GCMBroadcastController {
     			GCMTokenRegisterRepository.insertGCMTokenRegister(regID);
     	
     			return "Ok";
-    		   }
+    	}
 
 
 }
