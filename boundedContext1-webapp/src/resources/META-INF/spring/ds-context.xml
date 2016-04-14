@@ -47,12 +47,12 @@
 	<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   -->
 
 	<!--<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
-	<!--  <mongo:mongo host="localhost" port="27017" /> -->
+	<mongo:mongo host="localhost" port="27017" /> 
 	
-	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	    <constructor-arg name="mongo" ref="mongo"/>
 	    <constructor-arg name="databaseName" value="casino"/>
-	</bean> -->
+	</bean> 
 
  	<!-- Factory bean that creates the Mongo instance --> 
  	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
@@ -82,6 +82,10 @@
 	</bean>
 		 -->
 		
+		<bean id="GCMTokenRegisterRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean>
+	
 	
     <!-- ************ -->
 	<!-- REPOSITORIS  --> 
