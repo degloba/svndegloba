@@ -111,7 +111,7 @@
         			<groupId>commons-logging</groupId>
         		</exclusion>
         	</exclusions>
-        </dependency>
+        </dependency> 
         <dependency>
         	<groupId>com.google.http-client</groupId>
         	<artifactId>google-http-client-appengine</artifactId>
