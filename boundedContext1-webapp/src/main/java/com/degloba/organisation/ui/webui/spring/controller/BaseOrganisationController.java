@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import com.degloba.organisation.facade.OrganisationFacade;
 
 
-public class BaseController {
+public class BaseOrganisationController {
 
     @Inject
     protected OrganisationFacade facade;
