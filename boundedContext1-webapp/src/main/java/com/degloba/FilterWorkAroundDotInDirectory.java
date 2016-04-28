@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
  * Solució VisualStudio letsencrypt-win
  * 
  */
-public class filterWorkAroundDotInDirectory implements Filter {
+public class FilterWorkAroundDotInDirectory implements Filter {
 
     /**
      * Default constructor. 
      */
-    public filterWorkAroundDotInDirectory() {
+    public FilterWorkAroundDotInDirectory() {
         // TODO Auto-generated constructor stub
     }
 
