@@ -13,7 +13,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 @Controller
 @RequestMapping("/post")
-public class PostController extends BaseController {
+public class PostController extends BaseOrganisationController {
 
     @RequestMapping(value = "getpost/{postId}")
     public PostDto getPost(@PathVariable long postId) {
