@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<plugin id="mydomain.mystore" name="DataNucleus plug-ins" provider-name="My Company">
-    <extension point="org.datanucleus.store_manager">
-        <store-manager class-name="org.datanucleus.store.json.GoogleStorageStoreManager" url-key="googlestorageeeee" key="googlestorageeeee"/>
-    </extension>
-</plugin>

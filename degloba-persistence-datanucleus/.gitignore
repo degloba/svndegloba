@@ -1,5 +1,0 @@
-/target
-*.tlog
-/datanucleus.log
-/.settings/
-/.classpath
