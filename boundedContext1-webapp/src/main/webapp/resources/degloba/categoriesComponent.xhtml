@@ -20,13 +20,13 @@
         
 		<p:panelGrid columns="1" id="categoriesPanel" styleClass="companyHeaderGrid">
 		  
-			<h:outputText value="Categories " style="color:#bbbbbb;font-weight:bold" />
+			<h:outputText value="Categories " style="color:#bbbbbb" />
 		    	
     		<p:selectOneMenu id="Categories" value="#{selectOneMenuView.console}" style="width:125px">
             	<f:selectItems value="#{cc.attrs.categoriesValue}" var="category" itemLabel="#{restaurant.screenName}"/>         	
         	</p:selectOneMenu>
         
-         	<h:outputText value="SubCategories" style="color:#bbbbbb;font-weight:bold" />
+         	<h:outputText value="SubCategories" style="color:#bbbbbb" />
          	
 			<p:selectOneMenu id="SubCategories" value="#{selectOneMenuView.console}" style="width:125px">
             	<f:selectItems value="#{cc.attrs.subcategoriesValue}" var="subcategory" itemLabel="#{restaurant.screenName}"/>            	
