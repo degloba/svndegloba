@@ -13,7 +13,7 @@
 	 
 	<!-- map all requests to /resources/** to the container default servlet (ie, don't let Spring handle them) -->
      
- <!--    <bean id="defaultServletHttpRequestHandler" class="org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler" />
+    <bean id="defaultServletHttpRequestHandler" class="org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler" />
      
     <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="urlMap">
@@ -21,7 +21,7 @@
             <entry key="/resources/**" value-ref="defaultServletHttpRequestHandler" />
         </map>
         </property>
-	</bean>  -->
+	</bean>  
 
 	
 	<!-- ************** -->
