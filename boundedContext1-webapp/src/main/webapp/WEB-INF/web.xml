@@ -34,22 +34,20 @@
   </context-param>
   
   	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
-	<context-param>
-		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-		<param-value>.xhtml</param-value>
-	</context-param>
+  <context-param>
+    <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+    <param-value>.xhtml</param-value>
+  </context-param>
 	
 	  	<!-- Causes Facelets to refresh templates during development -->
-  	<context-param>
-  		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
-  		<param-value>1</param-value>
-  	</context-param>
-  
+  <context-param>
+    <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+    <param-value>1</param-value>
+  </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
   </context-param>
-  
   <context-param>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
     <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
@@ -63,12 +61,10 @@
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Production</param-value>
   </context-param>
-  
   <context-param>
     <param-name>javax.faces.SKIP_COMMENTS</param-name>
     <param-value>true</param-value>
   </context-param>
-  
   <context-param>
     <param-name>com.sun.faces.expressionFactory</param-name>
     <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
@@ -117,9 +113,9 @@
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
   </listener>
   
-<!--   <listener>
+   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener> -->
+  </listener> 
   
   <!-- ******************* -->
   <!--  Spring MVC Servlet -->
@@ -129,7 +125,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:/META-INF/spring/appServlet/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>      
+      <param-value>classpath:/META-INF/spring/appServlet/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -140,18 +136,17 @@
     <url-pattern>/gae</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-	<servlet-name>springmvcservlet</servlet-name>
-		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping> 
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
-	<servlet-name>springmvcservlet</servlet-name>
-		<url-pattern>/app/*</url-pattern>
-	</servlet-mapping> 	
-  
-  
-  <!--  **************** -->
-  <!--   Faces Servlet   -->
-  <!--  **************** -->
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>springmvcservlet</servlet-name>
+    <url-pattern>/gcm/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -159,18 +154,18 @@
   </servlet>
   
     <!-- Definim les URLs que admet el Faces Servlet -->
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.faces</url-pattern>
-  </servlet-mapping> 
-   <servlet-mapping>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces</url-pattern>
-  </servlet-mapping> 
-     <servlet-mapping>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
-  </servlet-mapping>   
+  </servlet-mapping>
   
      
   <!-- **************************** -->
@@ -184,24 +179,8 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae/*</url-pattern>
-  </filter-mapping>  
-  
-  
-  <!-- ************************ -->
-  <!--       XMPP               -->
-  <!-- ************************ 
-  <servlet>
-		<servlet-name>ChattingService</servlet-name>
-		<servlet-class>com.degloba.xmpp.ChattingServiceServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ChattingService</servlet-name>
-		<url-pattern>/_ah/xmpp/message/chat/</url-pattern>
-	</servlet-mapping>  --> 
-  
-  
-  
-  <!-- <servlet>
+  </filter-mapping>
+    <!-- <servlet>
     <servlet-name>Resource Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
   </servlet>
@@ -209,7 +188,6 @@
     <servlet-name>Resource Servlet</servlet-name>
     <url-pattern>/org.richfaces.resources/*</url-pattern>
   </servlet-mapping> -->
-  
   <servlet>
     <display-name>Remote API Servlet</display-name>
     <servlet-name>RemoteApiServlet</servlet-name>
@@ -220,7 +198,6 @@
     <servlet-name>RemoteApiServlet</servlet-name>
     <url-pattern>/remote_api</url-pattern>
   </servlet-mapping>
-  
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
@@ -234,15 +211,41 @@
 	</welcome-file-list>	
   
  <!-- <servlet>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value>com.degloba.organisation.googleBackendAPI.YourFirstAPI</param-value>
+    </init-param>
+  </servlet> -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>/.well-known</web-resource-name>
+      <url-pattern>/well-known</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <filter>
+    <display-name>FilterWorkAroundDotInDirectory</display-name>
+    <filter-name>FilterWorkAroundDotInDirectory</filter-name>
+    <filter-class>com.degloba.FilterWorkAroundDotInDirectory</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterWorkAroundDotInDirectory</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+ <servlet>
   <servlet-name>SystemServiceServlet</servlet-name>
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.degloba.BackendAPI.YourFirstAPI</param-value>
+   <param-value>com.degloba.organisation.googleBackendAPI.YourFirstAPI</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>
   <servlet-name>SystemServiceServlet</servlet-name>
   <url-pattern>/_ah/spi/*</url-pattern>
- </servlet-mapping> -->
+ </servlet-mapping>
 </web-app>

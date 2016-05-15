@@ -5,9 +5,9 @@ import javax.faces.application.ResourceHandler;
 import javax.faces.application.ResourceHandlerWrapper;
 import javax.faces.application.ResourceWrapper;
 import javax.faces.context.FacesContext;
- 
+
 import com.sun.faces.util.Util;
- 
+
 /**
  * Custom JSF ResourceHandler.
  * 
@@ -27,9 +27,9 @@ import com.sun.faces.util.Util;
  *
  */
 public class CustomResourceHandler extends ResourceHandlerWrapper {
- 
+
     private ResourceHandler wrapped;
-     
+
     public CustomResourceHandler(ResourceHandler wrapped) {
         this.wrapped = wrapped;
     }
@@ -37,22 +37,37 @@ public class CustomResourceHandler extends ResourceHandlerWrapper {
     public ResourceHandler getWrapped() {
         return this.wrapped;    
     }
-     
+
     @Override
     public Resource createResource(String resourceName, String libraryName) {
-        return new CustomResource(super.createResource(resourceName, libraryName));
+
+      Resource wrapped = super.createResource(resourceName, libraryName);
+
+         if (resourceName.endsWith(".xhtml")) {
+         return wrapped;
+      }
+         return new CustomResource(wrapped,resourceName);
     }
     @Override
     public Resource createResource(String resourceName, String libraryName,
             String contentType) {
-        return new CustomResource(super.createResource(resourceName, libraryName, contentType));
+
+      Resource wrapped = super.createResource(resourceName, libraryName, contentType);
+
+         if (resourceName.endsWith(".xhtml")) {
+         return wrapped;
+      }
+         return new CustomResource(wrapped,resourceName);
     }
-     
+
     private static class CustomResource extends ResourceWrapper {
- 
+
         private Resource wrapped;
-         
-        private CustomResource(Resource wrapped) {
+        private String resourceName;
+
+        private CustomResource(Resource wrapped,String resourceName) {
+         //super();
+         this.resourceName = resourceName;
             this.wrapped = wrapped;
         }
         @Override
@@ -61,8 +76,17 @@ public class CustomResourceHandler extends ResourceHandlerWrapper {
         }
         @Override
         public String getRequestPath() {
-            String path = super.getRequestPath();
-            FacesContext context = FacesContext.getCurrentInstance();
+
+
+         FacesContext context = FacesContext.getCurrentInstance();
+
+         // si no existe el recurso lo mapeamos igualmente 
+         if (this.wrapped == null) {
+            return  context.getExternalContext().getRequestContextPath() + "/resources/" + resourceName;
+         }
+
+         String path = super.getRequestPath();
+
             String facesServletMapping = Util.getFacesMapping(context);
             // if prefix-mapped, this is a resource that is requested from a faces page
             // rendered as a view to a Spring MVC controller.
@@ -75,6 +99,10 @@ public class CustomResourceHandler extends ResourceHandlerWrapper {
             }
             return path;
         }
-         
+
     }
 }
+
+
+
+
