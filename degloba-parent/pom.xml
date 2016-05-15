@@ -65,11 +65,7 @@
 		<id>DataNucleus</id>             
 		<url>http://www.datanucleus.org/downloads/maven2/</url>         
 	</repository>  
-	<repository>             
-		<id>google-maven-repo</id>             
-       	<name>Google Maven Repository</name>             
-       	<url>http://google-maven-repository.googlecode.com/svn/repository</url>         
-	</repository>       	
+		
  	  	
 </repositories>  
       
