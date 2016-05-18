@@ -92,10 +92,10 @@
 	</bean>   -->
  
  	<!-- (Travel)´ --> 
-  	<bean id="localeResolver"                 
+<!--   	<bean id="localeResolver"                 
 		class="org.springframework.web.servlet.i18n.FixedLocaleResolver">                 
 		<constructor-arg value="es" />         
-	</bean>  
+	</bean>   -->
 	
 	
 	<!-- Dispatches requests mapped to flows to FlowHandler implementations	-->
@@ -109,7 +109,7 @@
 		<property name="flowExecutor" ref="flowExecutor"/>
 	</bean> -->
 	
-	 <!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> -->
+	  <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> 
 	
 <!-- ********************************************************************************** -->
 <!--  Travel -->
