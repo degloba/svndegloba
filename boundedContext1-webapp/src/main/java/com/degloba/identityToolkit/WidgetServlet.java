@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.URLEncoder;
 import java.util.Scanner;
 import java.io.File;
@@ -17,6 +20,8 @@ import java.io.FileNotFoundException;
  */
 public class WidgetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private final Logger logger = LoggerFactory.getLogger(getClass()); 
        
     /**
      * @see HttpServlet#HttpServlet()
