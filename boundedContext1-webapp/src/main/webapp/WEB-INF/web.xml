@@ -112,10 +112,9 @@
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
   </listener>
-  
-   <listener>
+  <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener> 
+  </listener>
   
   <!-- ******************* -->
   <!--  Spring MVC Servlet -->
@@ -256,36 +255,17 @@
     <filter-name>FilterWorkAroundDotInDirectory</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
- <servlet>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-  <init-param>
-   <param-name>services</param-name>
-   <param-value>com.degloba.organisation.googleBackendAPI.YourFirstAPI</param-value>
-  </init-param>
- </servlet>
- <servlet-mapping>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <url-pattern>/_ah/spi/*</url-pattern>
- </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>WidgetServlet</display-name>
-    <servlet-name>WidgetServlet</servlet-name>
-    <servlet-class>com.degloba.identityToolkit.WidgetServlet</servlet-class>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value>com.degloba.organisation.googleBackendAPI.YourFirstAPI</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>WidgetServlet</servlet-name>
-    <url-pattern>/WidgetServlet</url-pattern>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <url-pattern>/_ah/spi/*</url-pattern>
   </servlet-mapping>
-<servlet>
-    <description></description>
-    <display-name>SignInServlet</display-name>
-    <servlet-name>SignInServlet</servlet-name>
-    <servlet-class>com.degloba.identityToolkit.SignInServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignInServlet</servlet-name>
-    <url-pattern>/SignIn</url-pattern>
-  </servlet-mapping>  
+  
 </web-app>
