@@ -167,6 +167,26 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
   
+  <!-- ************************* -->
+  <!-- Servlets Identity Toolkit -->
+  <!-- ************************* -->
+  <servlet>
+    <servlet-name>Widget</servlet-name>
+    <servlet-class>com.degloba.identityToolkit.WidgetServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Widget</servlet-name>
+    <url-pattern>/gitkit</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>SignIn</servlet-name>
+    <servlet-class>com.degloba.identityToolkit.SignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignIn</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping> 
      
   <!-- **************************** -->
   <!--       SPRING SECURITY        -->
@@ -248,4 +268,24 @@
   <servlet-name>SystemServiceServlet</servlet-name>
   <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WidgetServlet</display-name>
+    <servlet-name>WidgetServlet</servlet-name>
+    <servlet-class>com.degloba.identityToolkit.WidgetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WidgetServlet</servlet-name>
+    <url-pattern>/WidgetServlet</url-pattern>
+  </servlet-mapping>
+<servlet>
+    <description></description>
+    <display-name>SignInServlet</display-name>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>com.degloba.identityToolkit.SignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/SignIn</url-pattern>
+  </servlet-mapping>  
 </web-app>

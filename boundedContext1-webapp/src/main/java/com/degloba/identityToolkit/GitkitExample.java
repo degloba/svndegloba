@@ -21,9 +21,9 @@ import org.mortbay.jetty.Server;
 import org.mortbay.jetty.servlet.ServletHandler;
 import org.mortbay.jetty.servlet.SessionHandler;
 
-import com.google.identitytoolkit.GitkitClient;
-import com.google.identitytoolkit.GitkitClientException;
-import com.google.identitytoolkit.GitkitUser;
+import com.degloba.identityToolkit.GitkitClient;
+import com.degloba.identityToolkit.GitkitClientException;
+import com.degloba.identityToolkit.GitkitUser;
 import java.nio.charset.StandardCharsets;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.Scanner;
 import org.json.JSONException;
@@ -72,7 +73,29 @@ public class GitkitExample {
 
       try {
         GitkitUser gitkitUser = null;
-        GitkitClient gitkitClient = GitkitClient.createFromJson("gitkit-server-config.json");
+        ///GitkitClient gitkitClient = GitkitClient.createFromJson("gitkit-server-config.json");
+        
+        
+        
+        String googleClientId = "910109996901-8c7ojdqhg8q66pgno4vu1ta1mngvr6d2.apps.googleusercontent.com";   //properties.getProperty("googleClientId");
+		String serviceAccountEmail = "";  //properties.getProperty("serviceAccountEmail");
+		
+		
+		InputStream keyStream = new FileInputStream("C:\\Users\\pere\\git\\svndegloba\\boundedContext1-webapp\\src\\main\\webapp\\WEB-INF\\wwwdegloba-5344ba5f64d3.p12");
+			
+		
+		GitkitClient gitkitClient = GitkitClient
+				.newBuilder()
+				.setGoogleClientId(googleClientId)
+				.setServiceAccountEmail(serviceAccountEmail)
+				.setKeyStream(keyStream)
+				.setWidgetUrl("http://www.degloba.com/gitkit")
+				.setCookieName("gtoken")
+				.build();
+        
+        
+        
+        
 
         gitkitUser = gitkitClient.validateTokenInRequest(request);
         String userInfo = null;

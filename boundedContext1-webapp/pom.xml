@@ -36,6 +36,14 @@
     
     <dependencies>
     
+    <dependency> 
+ 			<groupId>com.google.code.gson</groupId> 
+ 			<artifactId>gson</artifactId> 
+			<version>2.0</version> 
+ 			<scope>compile</scope> 
+		</dependency> 
+    
+   
 		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade-impl</artifactId>
@@ -62,11 +70,6 @@
             <version>${project.version}</version>            
         </dependency> 
         
-		<dependency>
-        	<groupId>${project.groupId}</groupId>
-        	<artifactId>degloba-security</artifactId>
-        	<version>${project.version}</version>
-		</dependency>
 		
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
         <dependency>
@@ -338,19 +341,84 @@
       <version>1.2.1</version>
       <scope>runtime</scope>
     </dependency>
-    <dependency>
+    <!-- <dependency>
     	<groupId>org.apache.myfaces.shared</groupId>
     	<artifactId>myfaces-shared-core</artifactId>
     	<version>4.2.7</version>
-    </dependency>
+    </dependency> 
     <dependency>
     	<groupId>org.apache.myfaces.shared</groupId>
     	<artifactId>myfaces-shared-html5</artifactId>
     	<version>4.0.6</version>
-    </dependency>
+    </dependency> -->
     
+    <!-- *********** -->
+    <!-- BACKEND API -->
+    <!-- *********** -->
     
+     <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-endpoints</artifactId>
+            <version>${google.appengine}</version>
+        </dependency> 
 
+    	<dependency>
+    		<groupId>com.google.gcm</groupId>
+    		<artifactId>gcm-server</artifactId>
+    		<version>1.0.0</version>
+    	</dependency>
+    	
+    	
+    	<!-- NO S'UTILITZA SI GAE -->
+    	  <dependency> 
+       <groupId>com.google.identitytoolkit</groupId> 
+       <artifactId>gitkitclient</artifactId> 
+       <version>LATEST</version> 
+     </dependency>
+     <!-- NO S'UTILITZA SI GAE -->  
+    	
+    	<dependency> 
+       <groupId>org.mortbay.jetty</groupId> 
+      <artifactId>jetty</artifactId> 
+       <version>6.1.26</version> 
+     </dependency> 
+     
+     
+     <dependency> 
+ 			<groupId>com.googlecode.jsontoken</groupId> 
+ 			<artifactId>jsontoken</artifactId> 
+ 			<version>1.1</version> 
+ 			<scope>compile</scope>
+ 			<exclusions>
+ 				<exclusion>
+ 					<artifactId>commons-codec</artifactId>
+ 					<groupId>commons-codec</groupId>
+ 				</exclusion>
+ 			</exclusions>
+     </dependency>
+
+
+
+      <dependency>
+     	<groupId>org.json</groupId>
+     	<artifactId>json</artifactId>
+     	<version>20140107</version>
+     	<scope>compile</scope>
+     </dependency> 
+         
+		
+		<dependency>
+        	<groupId>${project.groupId}</groupId>
+        	<artifactId>degloba-security</artifactId>
+        	<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-identitytoolkit</artifactId>
+			<version>v3-rev216-1.22.0</version>
+		</dependency>
     </dependencies>
     
 
@@ -409,6 +477,10 @@
                 </executions>
             </plugin> 
             
+            <plugin>
+	            <groupId>com.google.appengine</groupId>
+	            <artifactId>appengine-maven-plugin</artifactId>
+        	</plugin>
             
         </plugins>
         <pluginManagement>
@@ -554,6 +626,16 @@
           <target>1.6</target>
         </configuration>
       </plugin> -->
+      
+        <plugin>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>1.9.34</version>
+            <configuration>
+                <enableJarClasses>false</enableJarClasses>
+            </configuration>
+        </plugin>
+
             	                		
 </plugins>
 
