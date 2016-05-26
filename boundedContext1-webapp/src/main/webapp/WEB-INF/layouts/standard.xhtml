@@ -3,35 +3,206 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
 <f:view contentType="text/html">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>JSF 2, Spring Web Flow, and PrimeFaces Showcase</title>
-	<!-- <link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>The project will give an opportunity to any individual
+			person rent their own belongings.</title>
+		<!-- <link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css" media="print" />
-	 --><!--[if lt IE 8]>
+	 -->
+		<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
 	<![endif]-->
-	<ui:insert name="headIncludes"/>
+		<ui:insert name="headIncludes" />
+		
+		<style>
+			table, th, td {
+			    border: 0px solid black;
+			    color: "#EEF2F5";
+			}
+			.companyHeaderGrid.ui-panelgrid>*>tr,
+			.companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+			    border: none;
+			}
+
+		.ui-panel-content, .ui-widget-content{
+           padding:0px;
+       }
+
+	</style>
+	
+	
+<!-- ***************************** -->
+<!-- Configuració Identity Toolkit -->
+<!-- ***************************** -->
+<!-- Begin custom code copied from Developer Console -->
+    <!-- Note: this is just an example. The html you download from Developer Console will be tailored for your site --> 
+    <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+    <link type="text/css" rel="stylesheet" href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+    <script type="text/javascript">
+      window.google.identitytoolkit.signInButton(
+        '#navbar', // accepts any CSS selector
+        {
+          widgetUrl: "http://www.degloba.com/gitkit",
+          signOutUrl: "/",
+          // Optional - Begin the sign-in flow in a popup window
+          popupMode: true,
+
+          // Optional - Cookie name (default: gtoken)
+          //            NOTE: Also needs to be added to config of ‘widget
+          //                  page’. See below
+          //cookieName: ‘example_cookie’,
+        }
+      );
+    </script>   
+<!-- End custom code copied from Developer Console -->
+		
+		
+<!-- **************************************** -->
+<!-- Configuració Autentificació amb Facebook -->
+<!-- **************************************** -->			
+<!-- <script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1602569843391907',   // App Id Facebook , https://developers.facebook.com/apps/1602569843391907/
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.6' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+  alert("hola testAPI");
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script> -->
+		
 </h:head>
 <h:body>
-<div class="container">
-	<div>
-		<h1>JSF 2, PrimeFaces, and Spring Web Flow</h1>
+				
 
-				<h3 class="alt">
-			<ui:insert name="title"/>
-		</h3>
-		<hr/>
-	</div>
-	<div>	
-		<ui:insert name="notes"/>
-	</div>
-	<div>
-		<ui:insert name="content"/>
-	</div>
+<!-- Per visualitzar l'usuari de Facebook loginat -->
+<div id="status">
 </div>
-</h:body>
+
+<!-- Per visualitzar el botó de Toolkit Identity -->
+<div id="navbar"></div>
+
+
+
+<!-- Comença la part de la lògica de la pàgina -->
+	
+		<div class="container">
+			<div>
+			
+			<p:panelGrid columns="8" styleClass="companyHeaderGrid">
+			<h:graphicImage value="/resources/images/avatar.png" style="height: 36px; width: 43px; "/>
+			
+			<h:outputText value="Location: "  />
+			<p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="08240" itemValue="08240" />
+            <f:selectItem itemLabel="08242" itemValue="08242" />            
+        </p:selectOneMenu>
+        
+        <h:outputText value="LogIn: " />
+    			<p:inputText />
+    			<p:password id="nonFeedback" value="#{passwordView.password1}" />
+    			
+    				
+ 				<h:outputLink value="productFlow" >
+						<h:outputText value="Rent your stuff" />
+				</h:outputLink><br/>
+				
+				<h:outputLink value="login" >
+						<h:outputText value="Login" />
+				</h:outputLink><br/>
+				
+ 
+			</p:panelGrid>
+			
+		
+			<ui:insert name="title" />
+			
+			</div>
+			<div>
+				<ui:insert name="notes" />
+			</div>
+			<div>
+				<ui:insert name="content" />
+			</div>
+		</div>
+	</h:body>
 </f:view>
 </html>
