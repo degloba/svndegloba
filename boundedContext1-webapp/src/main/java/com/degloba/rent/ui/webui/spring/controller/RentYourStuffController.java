@@ -1,4 +1,4 @@
-package com.degloba.organisation.ui.webui.spring.controller;
+package com.degloba.rent.ui.webui.spring.controller;
 
 
 import java.io.FileInputStream;
@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.slf4j.Logger;
@@ -25,7 +27,7 @@ import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
 
 
 @Controller
-public class LoginController {  
+public class RentYourStuffController {  
 /*	
 	@Inject
 	private IGCMTokenRegisterRepository GCMTokenRegisterRepository; 
@@ -36,9 +38,14 @@ public class LoginController {
 	@Autowired
     ServletContext context; 
 	
-    @RequestMapping(value = "signIn")
-    public String registerTokenGCMAndroid(@CookieValue(value = "gtoken") String gtoken,
+    @RequestMapping(value = "rentYourStuff")
+    public String registerTokenGCMAndroid(@CookieValue(value = "gtoken", required=false) String gtoken,
+    		HttpServletRequest request,
             HttpServletResponse response) {
+    	
+    	    	
+    if (gtoken != "null")
+    {
     	
     	String googleClientId = "wwwdegloba";   
 		String serviceAccountEmail = "";  //properties.getProperty("serviceAccountEmail");
@@ -62,11 +69,8 @@ public class LoginController {
             
 	    // Això no funciona en GAE!!!
 	    //GitkitClient gitkitClient = GitkitClient.createFromJson("gitkit-server-config.json");
-	    	  
-	  	logger.info("***************** gtoken - LoginController " + gtoken);
-	    	  
+	  	
 	    gitkitUser = gitkitClient.validateToken(gtoken);
-	        
 	        
 	    String userInfo = null;
 	    if (gitkitUser != null) 
@@ -77,8 +81,23 @@ public class LoginController {
 	       	logger.info("************** LOGINAT !!!! " + userInfo);
 		}
 	     else 
+	     {
 	    	 logger.info("************** NO LOGINAT!!!");
+	    	 
+	    	 return "home";
+	     }
 	        	
+	    
+	    HttpSession session = request.getSession();
+	    
+	    if (session.getAttribute("sessionUserKey") == null)
+	    {
+	    	logger.info("************* LoginController : guardem user_Id a la sessio");
+	    			
+	    	session.setAttribute("SessionUserKey", gitkitUser.getLocalId());
+	    }
+	    
+	    	
 	    
 	    // *****************************************************************************************  
     	// PERSISTIM (https://developers.google.com/identity/toolkit/web/required-endpoints#overview)
@@ -89,15 +108,19 @@ public class LoginController {
     	//GCMTokenRegisterRepository.insertGCMTokenRegister(regID);
     		
 	      } catch (FileNotFoundException | GitkitClientException | JSONException e) {
-	    	  
-	    	  logger.debug("************** ERRORRRRRR HE ARRRIBAT!!!!!!!!!!!!!!!!!!!!!!!!!! : ");
-	    	  
 	        e.printStackTrace();	        
 	      }
 		
-		return "signIn";  
-	      
+		return "productFlow";  	      
     }
+    
+    else
+    {
+    	logger.info("************** NO LOGINAT!!!");
+   	 
+   	 	return "home";
+    }
+   }
     
 }
 
