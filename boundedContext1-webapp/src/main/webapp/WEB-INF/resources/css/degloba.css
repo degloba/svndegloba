@@ -785,10 +785,10 @@ padding:5px;
 #topBar
 {
 width:100%;
-/* border: 1px solid;
+border: 1px solid;
 border-color: #dbd9ca;
 border-radius: 10px;
--moz-border-radius: 10px; */
+-moz-border-radius: 10px;
 margin:5px;
 padding:5px;
 height:60px;
@@ -805,7 +805,7 @@ float:left;
 #login
 {
 float:right;
-
+width:80px;
 }
 
 #central
@@ -820,17 +820,5 @@ width:100%;
 clear:both;
 
 }
-
-
-/** 
-http://stackoverflow.com/questions/10512736/how-to-remove-layout-scroll-bar-in-primefaces 
-**/
-.ui-layout-center {                    
-                overflow:hidden !important;
-            }
-
-            .ui-layout-center .ui-layout-unit-content {
-                overflow:hidden !important;
-            }     
 
 

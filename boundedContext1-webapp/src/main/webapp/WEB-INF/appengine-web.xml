@@ -17,6 +17,14 @@
 	  
 	<sessions-enabled>true</sessions-enabled>  
 	
+	<!-- XMPP -->
+	 <inbound-services>
+    	<service>xmpp_message</service>
+    	<service>xmpp_presence</service>
+  	</inbound-services>
+  
+	  
+	
 	<!-- <async-session-persistence enabled="false" />
   
     <resource-files>
@@ -40,5 +48,13 @@
 	    
     </static-files> -->
     
+    <static-files>        
+        <include path="/well-known/acme-challenge/*/*.html"/>
+        
+        <include path="/firebaseAuth/*/**.*"/>
+        <include path="/firebaseAuth/**.*"/>
+        <include path="/resources/images/**.*"/>
+        
+	</static-files>
 
 </appengine-web-app>

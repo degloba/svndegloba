@@ -24,9 +24,9 @@
 	<h:form>
       
       	<p:panelGrid columns="1" id="productPanel" styleClass="companyHeaderGrid">
-      
-			<p:galleria value="#{cc.attrs.imagesValue}" var="image" panelWidth="450" panelHeight="300" showCaption="true">
-	    		<p:graphicImage name="resources/images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+           
+    		 <p:galleria value="#{cc.attrs.imagesValue}" var="image" panelWidth="350" panelHeight="200" showCaption="true">
+	    		<p:graphicImage value="/resources/images/pexels/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 		  	</p:galleria>
 		  
 		  	<p:panelGrid columns="2" id="detailProductPanel" styleClass="companyHeaderGrid">
