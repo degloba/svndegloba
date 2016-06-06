@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
+gaeDatanucleusVersion=v2
 gaeDeployDialogSettings=
 gaeDoJarClasses=false
 gaeEnableJarSplitting=true
+gaeHrdEnabled=true
 gaeLaunchAppInBrowser=true
 gaeRetainStagingDirectory=false
 googleCloudSqlEnabled=false

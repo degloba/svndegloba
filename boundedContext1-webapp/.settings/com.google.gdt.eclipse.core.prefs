@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
 lastWarOutDir=C\:/Users/pere/git/svndegloba/boundedContext1-webapp
-warSrcDir=
+warSrcDir=src/main/webapp
 warSrcDirIsOutput=false
