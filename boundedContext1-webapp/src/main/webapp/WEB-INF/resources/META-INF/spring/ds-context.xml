@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+				http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd">
+	
+	<!-- ******************************************** -->
+	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA /SPRING -->
+	<!-- ******************************************** -->
+
+<!-- 	 <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />   -->
+	 
+	 <!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean below) 
+    <tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
+        <!-- the transactional semantics... -->
+        <!-- <tx:attributes> -->
+            <!-- all methods starting with 'get' are read-only -->
+            <!-- <tx:method name="get*" read-only="true"/>
+            other methods use the default transaction settings (see below)
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>  -->
+
+
+	<!-- ********************* -->
+	<!-- EntityManagerFactoryS -->	
+	<!-- ********************* -->
+	 <bean id="entityManagerFactoryDatastore" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+          <property name="persistenceUnitName" value="transactions-optional" />          
+    </bean>   
+
+	<!-- TransactionManagerS -->
+	 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactoryDatastore" />    
+	</bean> 
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+
+
+	<!-- ********************* -->
+	<!-- MongoDB               -->	
+	<!-- ********************* -->
+	<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   -->
+
+	<!--<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
+ 	
+
+ 	<!-- Factory bean that creates the Mongo instance --> 
+ 	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
+ 		<property name="host" value="localhost"/> 
+	</bean>  -->
+	
+ 	 <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes --> 
+ 	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> 	
+   -->		
+	<!--  Convert the given runtime exception to an appropriate exception from the org.springframework.dao hierarchy -->
+	<!-- <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>   -->
+
+ 	 <!--  Mongo cross-store aspect config   
+	  <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"
+	        factory-method="aspectOf">
+	    <property name="changeSetPersister" ref="mongoChangeSetPersister"/>
+	  </bean>
+	  <bean id="mongoChangeSetPersister"
+	      class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister">
+	    <property name="mongoTemplate" ref="mongoTemplate"/>
+	    <property name="entityManagerFactory" ref="entityManagerFactory"/>  
+	  </bean>   -->
+		
+		
+		 <!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
+		 
+		<!--  <mongo:mongo host="localhost" port="27017" /> 
+	
+	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	    <constructor-arg name="mongo" ref="mongo"/>
+	    <constructor-arg name="databaseName" value="casino"/>
+	</bean>   -->
+		 
+	<!-- <bean id="topicRepository" class="com.degloba.gcm.infrastructure.jpa.repositories.TopicRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean>
+		 
+		
+	<bean id="GCMTokenRegisterRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean>  -->
+	
+	
+    <!-- ************ -->
+	<!-- REPOSITORIS  --> 
+	<!-- ************ -->
+  	
+  	  
+	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
+	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
+	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
+	<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
+	<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
+	<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
+	<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
+	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
+	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
+  
+
+
+	
+</beans>
