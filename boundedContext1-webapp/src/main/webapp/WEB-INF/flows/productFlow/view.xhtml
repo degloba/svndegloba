@@ -50,6 +50,16 @@
     			<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
  
     			<p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadView.upload}" disabled="false" />
+    			
+    			
+    			<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+        mode="advanced" 
+        update="messages"
+        sizeLimit="100000" 
+        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+    <p:growl id="messages" showDetail="true"/>
+    			
 			</h:form>
 	
         		
