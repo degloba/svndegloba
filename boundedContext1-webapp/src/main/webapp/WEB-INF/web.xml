@@ -57,38 +57,40 @@
     <param-value></param-value>
   </context-param> -->
   
-  <context-param>
-    <param-name>javax.faces.PROJECT_STAGE</param-name>
-    <param-value>Production</param-value>
-  </context-param>
-  <context-param>
-    <param-name>javax.faces.SKIP_COMMENTS</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-    <param-name>com.sun.faces.expressionFactory</param-name>
-    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-  </context-param>
+	<context-param>
+	    <param-name>javax.faces.PROJECT_STAGE</param-name>
+	    <param-value>Production</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>javax.faces.SKIP_COMMENTS</param-name>
+	    <param-value>true</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>com.sun.faces.expressionFactory</param-name>
+	    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+	</context-param>
   
     <!--
                We need to set annotation lifecycle provider manually as 
                org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
                Other providers use some classes that are restricted on Google App Engine.    
             -->
-   <context-param>
+	<context-param>
                 <param-name>
                   org.apache.myfaces.config.annotation.LifecycleProvider
                 </param-name>
                 <param-value>
                   org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider
                 </param-value>
-            </context-param>
-  <context-param>
-  <param-name>
-    javax.faces.WEBAPP_RESOURCES_DIRECTORY
-  </param-name>
-  <param-value>/WEB-INF/resources</param-value>
-</context-param>
+	</context-param>
+        
+        <!-- JSF 2.2: Configurable resource directory -->    
+  	<context-param>
+  		<param-name>
+		    javax.faces.WEBAPP_RESOURCES_DIRECTORY
+		</param-name>
+		<param-value>/WEB-INF/resources</param-value>
+	</context-param>
   
   
   	<!-- ********************* -->
