@@ -70,7 +70,11 @@
     <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
   </context-param>
   
-  
+    <!--
+               We need to set annotation lifecycle provider manually as 
+               org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
+               Other providers use some classes that are restricted on Google App Engine.    
+            -->
    <context-param>
                 <param-name>
                   org.apache.myfaces.config.annotation.LifecycleProvider
