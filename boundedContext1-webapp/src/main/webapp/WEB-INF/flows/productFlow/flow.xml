@@ -8,13 +8,6 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="userBean" class="com.degloba.organisation.ui.webui.spring.webflow.ajax.UserBean" />
-
-	<view-state id="view">
-		<transition on="suggest" >
-			<evaluate expression="userBean.createEmailSuggestion(flowRequestContext)"
-				result="viewScope.emailSuggestion" />
-		</transition>
-	</view-state>
+	<view-state id="view" />
 
 </flow>
