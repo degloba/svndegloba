@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-    version="2.1">
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
 
+    
  <name>degloba</name>
 
 
@@ -18,8 +19,8 @@
 	<!-- per utilitzar beans Spring des de pàgines xhtml -->
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	 
-	<resource-handler>com.degloba.canonicalmodel.ui.webui.jsf.CustomResourceHandler</resource-handler>
-
+	<!-- <resource-handler>com.degloba.canonicalmodel.ui.webui.jsf.CustomResourceHandler</resource-handler>
+ -->
         <resource-bundle>
             <base-name>idioma_es</base-name>
             <var>messages</var>
