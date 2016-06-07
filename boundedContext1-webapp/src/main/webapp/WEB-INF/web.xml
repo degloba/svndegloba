@@ -262,7 +262,7 @@
  	 
  	<filter-mapping> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
-		<servlet-name>Spring MVC Servlet</servlet-name> 
+		<servlet-name>springmvcservlet</servlet-name> 
  	</filter-mapping>  
   
   	<!-- 
