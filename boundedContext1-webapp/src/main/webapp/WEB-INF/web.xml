@@ -8,6 +8,8 @@
   <description>
     	Aplicació web configurada per executar-se sobre Google AppEngine for Java.
    </description>
+   
+   <!-- DESHABILITAR.NO S'USA MOJARRA
   <context-param>
     <description>
             When enabled, the runtime initialization and default ResourceHandler
@@ -20,7 +22,7 @@
 	</description>
     <param-name>com.sun.faces.enableThreading</param-name>
     <param-value>false</param-value>
-  </context-param>
+  </context-param>  -->
   
   <context-param>
     <description>
