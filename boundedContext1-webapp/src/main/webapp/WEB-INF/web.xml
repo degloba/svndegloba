@@ -129,6 +129,12 @@
     <param-value>blueSky</param-value>
   </context-param> -->
   
+  
+      
+  <context-param> <param-name>primefaces.UPLOADER</param-name> 
+      <param-value>commons</param-value> 
+      </context-param>
+  
 
 <!--   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
@@ -137,9 +143,9 @@
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
   </listener>
- <!--  <listener>
+   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener> -->
+  </listener> 
   
   <!-- ******************* -->
   <!--  Spring MVC Servlet -->
@@ -263,6 +269,9 @@
  	<filter-mapping> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
 		<servlet-name>springmvcservlet</servlet-name> 
+		<dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+		
  	</filter-mapping>  
   
   	<!-- 
