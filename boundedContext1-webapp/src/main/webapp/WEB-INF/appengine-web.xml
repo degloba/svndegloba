@@ -54,6 +54,9 @@
         <include path="/firebaseAuth/*/**.*"/>
         <include path="/firebaseAuth/**.*"/>
         <include path="/resources/images/**.*"/>
+        <include path="/resources/js/lib/*.js"/>
+		<include path="/resources/css/*.css"/>
+		<include path="/resources/**.*"/>
         
 	</static-files>
 
