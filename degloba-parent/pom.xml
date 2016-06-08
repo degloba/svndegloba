@@ -27,8 +27,8 @@
 	<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
 
 	<!-- JSF MOJARRA
-	NO ACABA DE FUNCIONAR AMB LA VERSIO 2.2.x SOBRE GAE. SUBSTITUIT PER MYFACES 
-	<mojarra.version>2.2.12</mojarra.version>	-->
+	NO ACABA DE FUNCIONAR AMB LA VERSIO 2.2.x SOBRE GAE. SUBSTITUIT PER MYFACES -->
+	<mojarra.version>2.2.12</mojarra.version>	
 	
 	<!-- JSF MYFACES -->
 	<myfaces.version>2.2.10</myfaces.version>
@@ -258,7 +258,7 @@
 		<!-- ******************** -->
 		<!-- JSF MOJARRA          -->
 		<!-- ******************** -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>${mojarra.version}</version>
@@ -268,7 +268,7 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>${mojarra.version}</version>
 		</dependency>  
-		 -->
+		
 		
 		<!-- ******************** -->
 		<!-- JSF MYFACES          -->
