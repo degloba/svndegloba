@@ -59,6 +59,12 @@
     <param-value></param-value>
   </context-param> -->
   
+  
+  <context-param>
+    <param-name>javax.faces.FACELETS_BUFFER_SIZE</param-name>
+    <param-value>65535</param-value>
+  </context-param> 
+  
 	<context-param>
 	    <param-name>javax.faces.PROJECT_STAGE</param-name>
 	    <param-value>Production</param-value>
@@ -221,7 +227,7 @@
   <!-- **************************** -->
   <!--       SPRING SECURITY        -->
   <!-- **************************** --> 
-  <filter>
+  <!-- <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
   </filter>
@@ -229,7 +235,7 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
     <!-- <servlet>
     <servlet-name>Resource Servlet</servlet-name>
     <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
@@ -256,23 +262,23 @@
     <!-- # File upload                              # -->
     <!-- ############################################# -->
     
-   <filter> 
+    <filter> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
- 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
- 		<init-param>
+ 		<filter-class>com.degloba.FileUploadFilter</filter-class>
+ 		 <init-param>
             <param-name>thresholdSize</param-name>
-            <param-value>2097152</param-value>
-        </init-param>
+            <param-value>2147483647</param-value>
+        </init-param> 
  		
  	</filter> 
  	 
  	<filter-mapping> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
 		<servlet-name>springmvcservlet</servlet-name> 
-		<dispatcher>REQUEST</dispatcher>
+	<!-- 	<dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
-		
- 	</filter-mapping>  
+	 -->	
+ 	</filter-mapping>   
   
   	<!-- 
 		DEFAULT PAGE
@@ -324,5 +330,6 @@
     <servlet-name>SystemServiceServlet</servlet-name>
     <url-pattern>/_ah/spi/*</url-pattern>
   </servlet-mapping>
+    
   
 </web-app>
