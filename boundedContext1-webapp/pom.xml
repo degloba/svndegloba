@@ -255,11 +255,11 @@
 			<artifactId>validation-api</artifactId>
 		</dependency>
 
-        <dependency>
+       <!--  <dependency>
         	<groupId>com.google.apis</groupId>
         	<artifactId>google-api-services-calendar</artifactId>
         	<version>v3-rev151-1.20.0</version>
-        </dependency>
+        </dependency> -->
 
 
 <!-- 		<dependency>
@@ -364,7 +364,7 @@
     <!-- BACKEND API -->
     <!-- *********** -->
     
-     <dependency>
+      <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-endpoints</artifactId>
             <version>${google.appengine}</version>
@@ -434,6 +434,21 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3</version>
 		</dependency>
+		 <dependency>
+			<groupId>com.google.appengine.tools</groupId>
+			<artifactId>appengine-gcs-client</artifactId>
+			<version>RELEASE</version>
+		</dependency> 
+		<dependency>
+			<groupId>gmultipart</groupId>
+			<artifactId>gmultipart</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-storage</artifactId>
+			<version>v1-rev75-1.22.0</version>
+		</dependency> -->
     </dependencies>
     
 
@@ -625,6 +640,24 @@
           <target>1.6</target>
         </configuration>
       </plugin> -->
+      
+       <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>${google.appengine}</version>
+                <configuration>
+                    <enableJarClasses>false</enableJarClasses>
+                    <version>${app.version}</version>
+                    <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
+                    <!-- address>0.0.0.0</address>
+                    <port>8080</port -->
+                    <!-- Comment in the below snippet to enable local debugging with a remote debugger
+                         like those included with Eclipse or IntelliJ -->
+                    <!-- jvmFlags>
+                      <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag>
+                    </jvmFlags -->
+                </configuration>
+            </plugin>
       
                     	                		
 </plugins>
