@@ -35,13 +35,19 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>     
+            <version>${project.version}</version>
         </dependency>
 		
 		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-infrastructure</artifactId>
-            <version>${project.version}</version>        
+            <version>${project.version}</version>    
+            <exclusions>
+            <exclusion>
+            		<artifactId>datanucleus-enhancer</artifactId>
+            		<groupId>org.datanucleus</groupId>
+            	</exclusion>
+            </exclusions>    
 		</dependency>
 
         <dependency>
@@ -138,7 +144,7 @@
    	 
         <plugins>
         	             
-			<plugin>
+			<!-- <plugin>
             	<groupId>org.eclipse.m2e</groupId>
             	<artifactId>lifecycle-mapping</artifactId>
             	<version>1.0.0</version>
@@ -164,7 +170,7 @@
             			</pluginExecutions>
             		</lifecycleMappingMetadata>
             	</configuration>
-            </plugin>          
+            </plugin>       -->     
         </plugins>
     </pluginManagement>
     
@@ -187,7 +193,9 @@
        		 	</configuration>
             </plugin> 
     
-    <!-- DataNucleus Enhancer (versions 3.1.x)   -->
+   
+    
+    <!-- DataNucleus Enhancer (versions 3.1.x)   
              <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
@@ -232,7 +240,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>  
+            </plugin>  -->
    
         <!-- <plugin>
             <groupId>org.datanucleus</groupId>
