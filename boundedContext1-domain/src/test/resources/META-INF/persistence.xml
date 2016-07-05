@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"    
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
-xsi:schemaLocation="http://java.sun.com/xml/ns/persistence        
-http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">    
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">    
  
-	<persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">        
+	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<!-- <class>com.degloba.organisation.domain.Party</class>
+		<class>com.degloba.organisation.domain.Party</class>
 		<class>com.degloba.organisation.domain.Accountability</class>
 		<class>com.degloba.organisation.domain.Email</class>
-		<class>com.degloba.organisation.domain.Employee</class>
+		<class>com.degloba.organisation.domain.Employee</class> 
 		<class>com.degloba.organisation.domain.Person</class>
 		<class>com.degloba.organisation.domain.Organization</class>
 		<class>com.degloba.organisation.domain.Post</class>
@@ -23,7 +23,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		<class>com.degloba.organisation.domain.Employment</class>
 		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
-		<class>com.degloba.organisation.domain.CompanyDepartment</class> -->
+		<class>com.degloba.organisation.domain.CompanyDepartment</class> 
 	
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
@@ -36,16 +36,16 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 		</properties>    
 	</persistence-unit>
 	
- 	<persistence-unit name="mongodb">
+ 	<!-- <persistence-unit name="mongodb">
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<!-- <class>com.degloba.boundedContext.domain.Person</class>  -->
+		<class>com.degloba.boundedContext.domain.Person</class> 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>  
-            <!-- <property name="javax.persistence.jdbc.url" value="mongodb://ds039960.mongolab.com:39960/degloba"/>   
+            <property name="javax.persistence.jdbc.url" value="mongodb://ds039960.mongolab.com:39960/degloba"/>   
             <property name="javax.persistence.jdbc.url" value="mongodb://localhost/test"/>  
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
             <property name="datanucleus.schema.validateTables" value="false"/>
-            <property name="datanucleus.schema.validateConstraints" value="false"/> -->
+            <property name="datanucleus.schema.validateConstraints" value="false"/>
           
             
             <property name="datanucleus.ConnectionURL" value="mongodb:/local"/>  
@@ -54,8 +54,8 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
         
         </properties>  	
 	</persistence-unit> 
-	
-	<persistence-unit name="originalStorageVersion" transaction-type="RESOURCE_LOCAL">
+	 -->
+	<!-- <persistence-unit name="originalStorageVersion" transaction-type="RESOURCE_LOCAL">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -166,6 +166,6 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.datastoreEnableXGTransactions" value="false"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 	
 </persistence>

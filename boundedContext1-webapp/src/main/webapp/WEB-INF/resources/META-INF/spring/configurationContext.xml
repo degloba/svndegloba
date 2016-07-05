@@ -67,8 +67,9 @@
 	<!-- *************** -->		
 	<!-- FINDERS/CQRS    -->
 	<!-- *************** -->		
-	<bean id="finder" class="com.degloba.ecommerce.shipping.cqrs.readmodel.impl.JpaShipmentFinder"/>  
+	<bean id="shipmentFinder" class="com.degloba.ecommerce.shipping.cqrs.readmodel.impl.JpaShipmentFinder"/>  
 	<bean id="orderFinder" class="com.degloba.ecommerce.sales.cqrs.readmodel.impl.JpaOrderFinder"/> 
+	<bean id="categoryFinder" class="com.degloba.rent.cqrs.readmodel.impl.JpaCategoryFinder"/> 
 	
 	
 	<!-- ************************* -->
@@ -79,6 +80,11 @@
 	</bean> 
 	<bean id="bookingService" class="com.degloba.travel.application.impl.JpaBookingService" />  
 		
+		
+	<bean id="photoApplication" class="com.degloba.rent.application.impl.PhotoApplicationImpl" >
+		    <constructor-arg name="photoRepository" ref="photoRepository"/>      	 
+	</bean> 		
+		
 	 
 	<!-- ******************* -->
 	<!-- FACADES             -->
@@ -86,6 +92,11 @@
  	<bean id="facade" class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
 		 <property name="application" ref="application"></property> 
 	</bean> 
+	
+	<bean id="photoFacade" class="com.degloba.rent.facade.impl.PhotoFacadeImpl">
+		 <property name="photoApplication" ref="photoApplication"></property> 
+	</bean> 
+	
 	
 	<!-- ******************* -->
 	<!-- FACTORIES           -->	
@@ -103,6 +114,13 @@
 	</bean>
 
 	<bean id="userRegistry" class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+	
+	
+	<!-- ****************** -->		
+	<!-- JSF BEANS          -->
+	<!-- ****************** -->	
+	<context:component-scan base-package="com.degloba.rent.ui.webui.spring"/> 	
+	
 	
 	
 	<bean class="com.degloba.ecommerce.sales.invoicing.domain.BookKeeper"/>

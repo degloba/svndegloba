@@ -135,6 +135,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-api-jpa</artifactId>                        
+			<scope>test</scope>
+        </dependency>
 
     </dependencies>
     

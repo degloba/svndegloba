@@ -449,6 +449,19 @@
 			<artifactId>google-api-services-storage</artifactId>
 			<version>v1-rev75-1.22.0</version>
 		</dependency> -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jpa</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>
+		</dependency>
     </dependencies>
     
 

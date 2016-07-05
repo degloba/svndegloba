@@ -15,8 +15,8 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA -->
-	<!-- REPOSITORIS 
- 	<bean id="repository" class="com.degloba.persistence.jpa.JpaEntityRepository" />  -->
+	<!-- REPOSITORIS -->
+ 	<bean id="repository" class="com.degloba.domain.JpaEntityRepository" />  
         
  <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
 	
@@ -33,12 +33,12 @@
     
     
 	<!-- EntityManagerFactoryS -->
- <!-- 	 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
+  	 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
 		<property name="persistenceUnitName" value="transactions-optional" />
-    </bean>  -->  
-     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
+    </bean>   
+  <!--     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
 		<property name="persistenceUnitName" value="originalStorageVersion" />
-    </bean> 
+    </bean> -->
   <!--  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
 		<property name="persistenceUnitName" value="transactional_ds_non_transactional_ops_not_allowed" />
     </bean>
