@@ -53,9 +53,6 @@
         <dependent-module archiveName="degloba-event-api-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-event-api/degloba-event-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="gmultipart-0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gmultipart/gmultipart">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/boundedContext1-webapp/target/classes"/>
         <property name="context-root" value="boundedContext1-webapp"/>
     </wb-module>
