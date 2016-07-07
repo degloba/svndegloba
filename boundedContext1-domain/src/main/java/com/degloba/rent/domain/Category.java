@@ -13,10 +13,7 @@ public class Category extends BaseAggregateRoot
 	implements Serializable
 	 {
 	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String description;
 
@@ -27,7 +24,7 @@ public class Category extends BaseAggregateRoot
 	}
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Subcategory> subcategories = new HashSet<Subcategory>();
+    private List<Subcategory> subcategories = new ArrayList<Subcategory>();
 	
 	
 	 // getters and setters
@@ -42,14 +39,17 @@ public class Category extends BaseAggregateRoot
 	}
 
 
-	public Set<Subcategory> getSubcategories() {
+	public List<Subcategory> getSubcategories() {
 		return subcategories;
 	}
 
 
-	public void setSubcategories(Set<Subcategory> subcategories) {
+	public void setSubcategories(List<Subcategory> subcategories) {
 		this.subcategories = subcategories;
 	}
+
+
+
 
 	
 	
