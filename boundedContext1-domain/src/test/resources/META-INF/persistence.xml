@@ -24,6 +24,9 @@
 		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
 		<class>com.degloba.organisation.domain.CompanyDepartment</class> 
+		
+		<class>com.degloba.rent.domain.Category</class>
+		<class>com.degloba.rent.domain.Subcategory</class>
 	
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            

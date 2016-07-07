@@ -10,6 +10,18 @@ public class CategoryApplicationImpl implements CategoryService {
 
 	@Inject
 	private ICategoryRepository categoryRepository;
+
+	
+	public CategoryApplicationImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public CategoryApplicationImpl(ICategoryRepository categoryRepository) {
+		super();
+		this.categoryRepository = categoryRepository;
+	}
+	
 	
 	@Override
 	public void createCategory(Category category) {

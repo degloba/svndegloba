@@ -1,22 +1,26 @@
 package com.degloba.rent.domain;
 
 import com.degloba.domain.BaseAggregateRoot;
+import com.google.appengine.api.datastore.Key;
+
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 
 @Entity
-@Table(name = "photos")
-public class Photo extends BaseAggregateRoot {
-  
+public class Photo extends BaseAggregateRoot 
+	implements Serializable{
+  	
+	
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	private String idGcs; 
+		
 	
-	@Embedded
     private Category category;
     
     @Embedded
@@ -34,6 +38,10 @@ public class Photo extends BaseAggregateRoot {
 	}
 
 
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 private Product product;
+
+	 
 	public Category getCategory() {
 		return category;
 	}
@@ -61,6 +69,16 @@ public class Photo extends BaseAggregateRoot {
 
 	public void setIdGcs(String idGcs) {
 		this.idGcs = idGcs;
+	}
+
+
+	public Product getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 }

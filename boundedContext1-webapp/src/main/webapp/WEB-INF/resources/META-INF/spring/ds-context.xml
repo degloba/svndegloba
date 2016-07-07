@@ -74,27 +74,28 @@
 		
 		 <!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
 		 
-		<!--  <mongo:mongo host="localhost" port="27017" /> 
+<!-- 		<mongo:mongo host="localhost" port="27017" /> 
 	
 	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	    <constructor-arg name="mongo" ref="mongo"/>
 	    <constructor-arg name="databaseName" value="casino"/>
-	</bean>   -->
+	</bean>   --> 
 		 
 	<!-- <bean id="topicRepository" class="com.degloba.gcm.infrastructure.jpa.repositories.TopicRepository">
 		<property name="mongoTemplate" ref="mongoTemplate"/>
-	</bean>
+	</bean> -->
 		 
 		
-	<bean id="GCMTokenRegisterRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository">
+<!-- 	<bean id="GCMTokenRegisterRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository">
 		<property name="mongoTemplate" ref="mongoTemplate"/>
-	</bean>  -->
+	</bean>   -->
 	
 	
     <!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
   	
+  	<bean id="repository" class="com.degloba.domain.JpaEntityRepository" /> 
   	  
 	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
 	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
@@ -106,7 +107,7 @@
 	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
 	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
 
-	<bean id="photoRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaPhotoRepository" />	
-	<!-- <bean id="categoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaCategoryRepository" />	
- -->
+	<bean id="photoRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaPhotoRepository" />
+	<bean id="subcategoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaSubcategoryRepository" />	
+	<bean id="categoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaCategoryRepository" /> 
 </beans>

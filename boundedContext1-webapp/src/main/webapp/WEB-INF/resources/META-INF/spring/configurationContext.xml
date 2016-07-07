@@ -83,7 +83,15 @@
 		
 	<bean id="photoApplication" class="com.degloba.rent.application.impl.PhotoApplicationImpl" >
 		    <constructor-arg name="photoRepository" ref="photoRepository"/>      	 
-	</bean> 		
+	</bean> 
+	
+	<bean id="subcategoryApplication" class="com.degloba.rent.application.impl.SubcategoryApplicationImpl" >
+		    <constructor-arg name="subcategoryRepository" ref="subcategoryRepository"/>      	 
+	</bean> 	
+	
+	<bean id="categoryApplication" class="com.degloba.rent.application.impl.CategoryApplicationImpl" >
+		    <constructor-arg name="categoryRepository" ref="categoryRepository"/>      	 
+	</bean> 			
 		
 	 
 	<!-- ******************* -->
@@ -95,6 +103,14 @@
 	
 	<bean id="photoFacade" class="com.degloba.rent.facade.impl.PhotoFacadeImpl">
 		 <property name="photoApplication" ref="photoApplication"></property> 
+	</bean> 
+	
+	<bean id="subcategoryFacade" class="com.degloba.rent.facade.impl.SubcategoryFacadeImpl">
+		 <property name="subcategoryApplication" ref="subcategoryApplication"></property> 
+	</bean> 
+	
+	<bean id="categoryFacade" class="com.degloba.rent.facade.impl.CategoryFacadeImpl">
+		 <property name="categoryApplication" ref="categoryApplication"></property> 
 	</bean> 
 	
 	

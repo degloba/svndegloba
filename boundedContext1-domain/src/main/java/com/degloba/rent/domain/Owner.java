@@ -7,11 +7,12 @@ import com.degloba.organisation.domain.PersonName;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.*;
 
-@Entity
-@Table(name = "owners")
-public class Owner extends BaseAggregateRoot {
+@Embeddable
+public class Owner 
+	implements Serializable {
   
 	
     /**
@@ -90,10 +91,10 @@ public class Owner extends BaseAggregateRoot {
         this.mailAddress = mailAddress;
     }
 
-    @Override
+    /*@Override
     public String[] businessKeys() {
         return new String[]{"name", "idNumber"};
-    }
+    }*/
 
     @Override
     public String toString() {

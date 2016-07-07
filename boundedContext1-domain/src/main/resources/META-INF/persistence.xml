@@ -6,25 +6,33 @@
  
 	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<class>com.degloba.organisation.domain.Party</class>  
-		<class>com.degloba.organisation.domain.Accountability</class>
-		<class>com.degloba.organisation.domain.Email</class>
-		<class>com.degloba.organisation.domain.Employee</class>
-		<class>com.degloba.organisation.domain.Person</class>
-		<class>com.degloba.organisation.domain.Organization</class>  
-		<class>com.degloba.organisation.domain.Post</class>
-		<class>com.degloba.organisation.domain.PostHolding</class>
-		<class>com.degloba.organisation.domain.OrgLineMgmt</class>
 		<class>com.degloba.organisation.domain.PersonName</class>
-		<class>com.degloba.organisation.domain.Job</class>  
 		<class>com.degloba.organisation.domain.Address</class>
-		<class>com.degloba.organisation.domain.Company</class> 
-		<class>com.degloba.organisation.domain.Department</class>
-		<class>com.degloba.organisation.domain.Employment</class>
-		<class>com.degloba.organisation.domain.EmployeeArchieve</class> 
-		<class>com.degloba.organisation.domain.PersonEducationInfo</class>		
-		<class>com.degloba.organisation.domain.CompanyDepartment</class>
 		<class>com.degloba.rent.domain.Photo</class>
+		<class>com.degloba.rent.domain.Category</class>
+		<class>com.degloba.rent.domain.Owner</class>
+		<class>com.degloba.rent.domain.Subcategory</class>
+		<class>com.degloba.rent.domain.Product</class>
+		<!-- <class>com.degloba.travel.domain.Hotel</class>
+		<class>com.degloba.ecommerce.crm.domain.Customer</class>
+		<class>com.degloba.ecommerce.sales.payment.domain.Payment</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.Tax</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
+		<class>com.degloba.domain.sharedkernel.Money</class>
+		<class>com.degloba.domain.canonicalmodel.publishedlanguage.ClientData</class>
+		<class>com.degloba.ecommerce.sales.productscatalog.domain.Product</class>
+		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.Purchase</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.PurchaseItem</class>
+		<class>com.degloba.ecommerce.sales.client.domain.Client</class>
+		<class>com.degloba.organisation.domain.payment.Payment</class>
+		<class>com.degloba.rent.domain.SubCategory</class>
+		<class>com.degloba.travel.domain.Booking</class>
+		<class>com.degloba.travel.domain.User</class>
+		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
+		<class>com.degloba.ecommerce.sales.reservation.domain.ReservationItem</class>
+ -->
 			
 		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
