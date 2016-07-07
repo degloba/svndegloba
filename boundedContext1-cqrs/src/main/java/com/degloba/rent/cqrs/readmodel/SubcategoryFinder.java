@@ -5,9 +5,8 @@ import java.util.List;
 import com.degloba.rent.domain.Category;
 import com.degloba.rent.domain.Subcategory;
 
-public interface CategoryFinder {
+public interface SubcategoryFinder {
 
-    List<Category> findCategories();
+    List<Subcategory> findSubcategoriesByCategory(Category category);
 
-    Category findCategoryBySubcategory(Subcategory subcategory);
 }
