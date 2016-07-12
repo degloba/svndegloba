@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.Subcategory;
 
 import static org.junit.Assert.*;
 

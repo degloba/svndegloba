@@ -21,6 +21,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+            <exclusion>
+            <groupId>com.googlecode.cedar-common</groupId>
+			<artifactId>objectify</artifactId>
+            </exclusion>
+            </exclusions>
         </dependency> 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -42,6 +48,12 @@
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-api-jpa</artifactId>        
 		</dependency>	 -->	
+		
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>5.1.13</version>
+		</dependency>
 		
     
     </dependencies>

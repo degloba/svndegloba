@@ -1,8 +1,9 @@
-package com.degloba.rent.domain;
+package com.degloba.rent.domain.jpa;
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
+import com.degloba.rent.domain.jpa.Category;
 import com.google.appengine.api.datastore.Key;
 
 

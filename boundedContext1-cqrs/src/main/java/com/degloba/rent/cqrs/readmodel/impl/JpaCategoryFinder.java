@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS 
 import com.degloba.rent.cqrs.readmodel.CategoryFinder;
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.Subcategory;
 import com.degloba.cqrs.query.annotations.Finder;
 
 
@@ -27,9 +27,12 @@ public class JpaCategoryFinder implements CategoryFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<Category> findCategories() {
-        String jpql = "select c from com.degloba.rent.domain.Category c";
+        String jpql = "select c from com.degloba.rent.domain.Category c JOIN c.subcategories s";
         Query query = entityManager.createQuery(jpql);
-        return query.getResultList();
+        List<Category> categories =  query.getResultList();
+        entityManager.clear();
+        entityManager.close();
+        return categories;
     }
 
 	@Override

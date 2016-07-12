@@ -1,6 +1,6 @@
-package com.degloba.rent.application.api;
+package com.degloba.rent.application.jpa.api;
 
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.Subcategory;
 
 
 public interface SubcategoryService {

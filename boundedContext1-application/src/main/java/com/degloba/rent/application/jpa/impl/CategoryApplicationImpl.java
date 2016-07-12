@@ -1,10 +1,11 @@
-package com.degloba.rent.application.impl;
+package com.degloba.rent.application.jpa.impl;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.CategoryService;
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.ICategoryRepository;
+import com.degloba.rent.application.jpa.api.CategoryService;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.ICategoryRepository;
+
 
 public class CategoryApplicationImpl implements CategoryService {
 
@@ -27,7 +28,6 @@ public class CategoryApplicationImpl implements CategoryService {
 	public void createCategory(Category category) {
 		// TODO Auto-generated method stub
 		categoryRepository.save(category);
-
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.degloba.rent.facade;
 
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.Subcategory;
 
 
 /**

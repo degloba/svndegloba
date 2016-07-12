@@ -56,6 +56,19 @@
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${google.appengine}</version>
 		</dependency>  
+		
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>5.1.13</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.googlecode.cedar-common</groupId>
+			<artifactId>objectify</artifactId>
+			<version>3.1</version>
+		</dependency>
     </dependencies>
 
     <build>

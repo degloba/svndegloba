@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.degloba.domain.JpaEntityRepository;
 
 // Domain
-import com.degloba.rent.domain.IPhotoRepository;
-import com.degloba.rent.domain.Photo;
+import com.degloba.rent.domain.jpa.IPhotoRepository;
+import com.degloba.rent.domain.jpa.Photo;
 
 // Google App Engine
 import com.google.appengine.api.datastore.Key;

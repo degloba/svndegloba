@@ -1,11 +1,11 @@
-package com.degloba.rent.application.impl;
+package com.degloba.rent.application.jpa.impl;
 
 
 // Domain
 
-import com.degloba.rent.application.api.PhotoService;
-import com.degloba.rent.domain.IPhotoRepository;
-import com.degloba.rent.domain.Photo;
+import com.degloba.rent.application.jpa.api.PhotoService;
+import com.degloba.rent.domain.jpa.IPhotoRepository;
+import com.degloba.rent.domain.jpa.Photo;
 
 import javax.inject.Inject;
 

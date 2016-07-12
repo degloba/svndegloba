@@ -2,10 +2,10 @@ package com.degloba.rent.facade.impl;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.PhotoService;
-import com.degloba.rent.application.api.SubcategoryService;
-import com.degloba.rent.domain.Photo;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.application.jpa.api.PhotoService;
+import com.degloba.rent.application.jpa.api.SubcategoryService;
+import com.degloba.rent.domain.jpa.Photo;
+import com.degloba.rent.domain.jpa.Subcategory;
 import com.degloba.rent.facade.PhotoFacade;
 import com.degloba.rent.facade.SubcategoryFacade;
 

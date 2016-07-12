@@ -1,14 +1,14 @@
-package com.degloba.rent.application.impl;
+package com.degloba.rent.application.jpa.impl;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.CategoryService;
-import com.degloba.rent.application.api.SubcategoryService;
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.ICategoryRepository;
-import com.degloba.rent.domain.IPhotoRepository;
-import com.degloba.rent.domain.ISubcategoryRepository;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.application.jpa.api.CategoryService;
+import com.degloba.rent.application.jpa.api.SubcategoryService;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.ICategoryRepository;
+import com.degloba.rent.domain.jpa.IPhotoRepository;
+import com.degloba.rent.domain.jpa.ISubcategoryRepository;
+import com.degloba.rent.domain.jpa.Subcategory;
 
 public class SubcategoryApplicationImpl implements SubcategoryService {
 

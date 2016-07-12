@@ -3,7 +3,7 @@ package com.degloba.rent.facade;
 import java.util.Date;
 
 import com.degloba.organisation.domain.Post;
-import com.degloba.rent.domain.Photo;
+import com.degloba.rent.domain.jpa.Photo;
 import com.google.appengine.api.datastore.Key;
 
 /**

@@ -2,8 +2,8 @@ package com.degloba.rent.facade.impl;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.CategoryService;
-import com.degloba.rent.domain.Category;
+import com.degloba.rent.application.jpa.api.CategoryService;
+import com.degloba.rent.domain.jpa.Category;
 
 import com.degloba.rent.facade.CategoryFacade;
 

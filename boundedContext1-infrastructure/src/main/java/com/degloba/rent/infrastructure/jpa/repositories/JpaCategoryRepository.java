@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // Repository
 import com.degloba.domain.JpaEntityRepository;
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.ICategoryRepository;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.ICategoryRepository;
 // Domain
-import com.degloba.rent.domain.IPhotoRepository;
-import com.degloba.rent.domain.ISubcategoryRepository;
-import com.degloba.rent.domain.Photo;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.IPhotoRepository;
+import com.degloba.rent.domain.jpa.ISubcategoryRepository;
+import com.degloba.rent.domain.jpa.Photo;
+import com.degloba.rent.domain.jpa.Subcategory;
 // Google App Engine
 import com.google.appengine.api.datastore.Key;
 
