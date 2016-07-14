@@ -22,10 +22,10 @@
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
             <exclusions>
-            <exclusion>
-            <groupId>com.googlecode.cedar-common</groupId>
-			<artifactId>objectify</artifactId>
-            </exclusion>
+	            <exclusion>
+		            <groupId>com.googlecode.cedar-common</groupId>
+					<artifactId>objectify</artifactId>
+	            </exclusion>
             </exclusions>
         </dependency> 
 		<dependency>
