@@ -109,5 +109,8 @@
 
 	<bean id="photoRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaPhotoRepository" />
 	<bean id="subcategoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaSubcategoryRepository" />	
-	<bean id="categoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaCategoryRepository" /> 
+	<bean id="categoryRepositoryJpa" class="com.degloba.rent.infrastructure.jpa.repositories.JpaCategoryRepository" /> 
+	
+	
+	<bean id="categoryRepositoryObjectify" name="categoryRepositoryObjectify" class="com.degloba.rent.infrastructure.objectify.repositories.ObjectifyCategoryRepository" />
 </beans>

@@ -264,7 +264,7 @@
     
     <filter> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
- 		<filter-class>com.degloba.FileUploadFilter</filter-class>
+ 		<filter-class>com.degloba.canonicalmodel.FileUploadFilter</filter-class>
  		 <init-param>
             <param-name>thresholdSize</param-name>
             <param-value>2147483647</param-value>
@@ -331,5 +331,18 @@
     <url-pattern>/_ah/spi/*</url-pattern>
   </servlet-mapping>
     
+  <!-- [START Objectify] -->
+    <filter>
+      <filter-name>ObjectifyFilter</filter-name>
+      <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>ObjectifyFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+      <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
+    </listener>
+<!-- [END Objectify] -->
   
 </web-app>

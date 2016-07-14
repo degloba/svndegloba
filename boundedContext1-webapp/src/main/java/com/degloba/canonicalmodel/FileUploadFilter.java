@@ -1,7 +1,7 @@
-package com.degloba;
+package com.degloba.canonicalmodel;
 
-import java.io.File;
 import java.io.IOException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,9 +14,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.gmr.web.multipart.GFileItemFactory;
+
 import org.primefaces.webapp.MultipartRequest;
 
 public class FileUploadFilter implements Filter {
