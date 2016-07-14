@@ -1,13 +1,11 @@
 package com.degloba.rent.application.objectify.impl;
 
 
-// Domain
-
-import com.degloba.rent.application.jpa.api.PhotoService;
-import com.degloba.rent.domain.jpa.IPhotoRepository;
-import com.degloba.rent.domain.jpa.Photo;
-
 import javax.inject.Inject;
+
+import com.degloba.rent.application.objectify.api.PhotoService;
+import com.degloba.rent.domain.objectify.IPhotoRepository;
+import com.degloba.rent.domain.objectify.Photo;
 
 
 public class PhotoApplicationImpl implements PhotoService {

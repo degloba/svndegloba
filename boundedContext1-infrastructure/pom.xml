@@ -23,6 +23,13 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
+            
+            <!-- <exclusions>
+	            <exclusion>
+		            <groupId>com.googlecode.cedar-common</groupId>
+					<artifactId>objectify</artifactId>
+	            </exclusion>
+            </exclusions> -->
         </dependency> 
 				
 		<dependency>
@@ -37,6 +44,11 @@
                 <artifactId>javax.inject</artifactId>
             </dependency>
 
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
     
     <build>

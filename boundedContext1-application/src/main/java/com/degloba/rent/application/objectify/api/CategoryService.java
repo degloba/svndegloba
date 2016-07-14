@@ -1,6 +1,6 @@
 package com.degloba.rent.application.objectify.api;
 
-import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.objectify.Category;
 
 
 public interface CategoryService {

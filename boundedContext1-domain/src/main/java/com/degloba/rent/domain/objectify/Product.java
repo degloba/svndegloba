@@ -23,7 +23,7 @@ public class Product implements Serializable {
 	
 	@Parent Key<Owner> owner;
 		
-	@Parent Key<Location> location;
+	///////////////////@Parent Key<Location> location;
 
 	  
 	public Product() {
@@ -64,9 +64,9 @@ public class Product implements Serializable {
 		this.owner = owner;
 	}
 
-	public void setLocation(Key<Location> location) {
+	/*public void setLocation(Key<Location> location) {
 		this.location = location;
-	}
+	}*/
 
 	public Long getPrice() {
 		return price;
@@ -80,9 +80,9 @@ public class Product implements Serializable {
 		return owner;
 	}
 
-	public Key<Location> getLocation() {
+	/*public Key<Location> getLocation() {
 		return location;
-	}
+	}*/
 
 	public Subcategory getSubcategory() {
 		return subcategory;

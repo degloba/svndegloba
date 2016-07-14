@@ -27,7 +27,7 @@ public class JpaCategoryFinder implements CategoryFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<Category> findCategories() {
-        String jpql = "select c from com.degloba.rent.domain.Category c JOIN c.subcategories s";
+        String jpql = "select c from com.degloba.rent.domain.jpa.Category c JOIN c.subcategories s";
         Query query = entityManager.createQuery(jpql);
         List<Category> categories =  query.getResultList();
         entityManager.clear();

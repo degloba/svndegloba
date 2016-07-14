@@ -10,7 +10,7 @@ import com.degloba.rent.domain.jpa.ICategoryRepository;
 public class CategoryApplicationImpl implements CategoryService {
 
 	@Inject
-	private ICategoryRepository categoryRepository;
+	private ICategoryRepository categoryRepositoryJpa;
 
 	
 	public CategoryApplicationImpl() {
@@ -18,16 +18,28 @@ public class CategoryApplicationImpl implements CategoryService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CategoryApplicationImpl(ICategoryRepository categoryRepository) {
+	public CategoryApplicationImpl(ICategoryRepository categoryRepositoryJpa) {
 		super();
-		this.categoryRepository = categoryRepository;
+		this.categoryRepositoryJpa = categoryRepositoryJpa;
 	}
 	
 	
 	@Override
 	public void createCategory(Category category) {
 		// TODO Auto-generated method stub
-		categoryRepository.save(category);
+		categoryRepositoryJpa.save(category);
 	}
+
+	public ICategoryRepository getCategoryRepositoryJpa() {
+		return categoryRepositoryJpa;
+	}
+
+	public void setCategoryRepositoryJpa(ICategoryRepository categoryRepositoryJpa) {
+		this.categoryRepositoryJpa = categoryRepositoryJpa;
+	}
+	
+	
+	
+	
 
 }

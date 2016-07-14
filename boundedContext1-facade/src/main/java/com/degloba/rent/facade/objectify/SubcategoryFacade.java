@@ -1,11 +1,12 @@
-package com.degloba.rent.application.objectify.api;
+package com.degloba.rent.facade.objectify;
 
 import com.degloba.rent.domain.objectify.Subcategory;
 
+/**
+ * @author degloba
+ */
+public interface SubcategoryFacade {
 
-public interface SubcategoryService {
- 
     void createSubcategory(Subcategory subcategory);
-   
-  
+
 }

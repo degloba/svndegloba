@@ -2,18 +2,16 @@ package com.degloba.rent.application.objectify.impl;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.jpa.api.CategoryService;
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.ICategoryRepository;
+import com.degloba.rent.application.objectify.api.CategoryService;
+import com.degloba.rent.domain.objectify.Category;
+import com.degloba.rent.domain.objectify.ICategoryRepositoryObjectify;
 
-
-import com.googlecode.objectify.ObjectifyService;
 
 
 public class CategoryApplicationImpl implements CategoryService {
 
 	@Inject
-	private ICategoryRepository categoryRepository;
+	private ICategoryRepositoryObjectify categoryRepositoryObjectify;
 
 	
 	public CategoryApplicationImpl() {
@@ -21,19 +19,26 @@ public class CategoryApplicationImpl implements CategoryService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CategoryApplicationImpl(ICategoryRepository categoryRepository) {
+	public CategoryApplicationImpl(ICategoryRepositoryObjectify categoryRepositoryObjectify) {
 		super();
-		this.categoryRepository = categoryRepository;
+		this.categoryRepositoryObjectify = categoryRepositoryObjectify;
 	}
 	
 	
 	@Override
 	public void createCategory(Category category) {
-	
-		// Use Objectify to save the greeting and now() is used to make the call synchronously as we
-		// will immediately get a new page using redirect and we want the data to be present.
-	    ObjectifyService.ofy().save().entity(category).now();
-
+		categoryRepositoryObjectify.create(category);
 	}
 
+	public ICategoryRepositoryObjectify getCategoryRepositoryObjectify() {
+		return categoryRepositoryObjectify;
+	}
+
+	public void setCategoryRepositoryObjectify(ICategoryRepositoryObjectify categoryRepositoryObjectify) {
+		this.categoryRepositoryObjectify = categoryRepositoryObjectify;
+	}
+
+	
+	
+	
 }

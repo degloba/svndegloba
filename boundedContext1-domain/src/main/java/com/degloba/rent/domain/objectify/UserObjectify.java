@@ -4,8 +4,9 @@ import com.degloba.objectify.EntityAggregateRootObjectify;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Indexed;
-import com.googlecode.objectify.annotation.Unindexed;
+import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.Unindex;
+
 
 @Entity
 public class UserObjectify implements EntityAggregateRootObjectify {
@@ -13,14 +14,14 @@ public class UserObjectify implements EntityAggregateRootObjectify {
 	@Id
 	private Long id;
 	
-	@Unindexed
+	@Unindex
 	private String name;
 	
-	@Unindexed
+	@Unindex
 	/////@Embedded
 	private AddressObjectify address;
 	
-	@Indexed
+	@Index
 	private Key<RoleObjectify> role;
 
 	public Long getId() {
