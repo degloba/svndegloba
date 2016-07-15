@@ -1,11 +1,11 @@
-package com.degloba;
+package com.degloba.objectify;
 
 
 import java.util.List;
 
 import com.degloba.objectify.DatabaseException;
 import com.degloba.objectify.GenericDao;
-import com.degloba.rent.domain.objectify.Category;
+////////////import com.degloba.rent.domain.objectify.Category;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -14,9 +14,9 @@ import com.googlecode.objectify.ObjectifyService;
 public class AbstractGenericDaoImpl implements GenericDao{
 
 	
-	static {
+/*	static {
 	    ObjectifyService.register(Category.class);
-	}
+	}*/
 	
 	@Override
 	public <T> void create(T t) {

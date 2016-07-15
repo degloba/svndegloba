@@ -32,6 +32,36 @@ public class Category implements Serializable
 
 	
     List<Key<Subcategory>> subcategories = new ArrayList<Key<Subcategory>>();
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public List<Key<Subcategory>> getSubcategories() {
+		return subcategories;
+	}
+
+
+	public void setSubcategories(List<Key<Subcategory>> subcategories) {
+		this.subcategories = subcategories;
+	}
 	
 	
 	
