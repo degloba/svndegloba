@@ -11,12 +11,13 @@ import com.googlecode.objectify.ObjectifyService;
 
 
 
-public class AbstractGenericDaoImpl implements GenericDao{
+public class GenericDaoImpl implements GenericDao{
 
 	
 /*	static {
 	    ObjectifyService.register(Category.class);
 	}*/
+	
 	
 	@Override
 	public <T> void create(T t) {
@@ -36,41 +37,53 @@ public class AbstractGenericDaoImpl implements GenericDao{
 	}
 	
 	@Override
+	public <T> Key<T> create(Key<?> parent, Class<? extends T> kindClass, long id) {
+		return Key.create(parent, kindClass, id);
+	}
+	
+	@Override
 	public <T> void update(Class<T> clazz, Key<T> id, T t) throws DatabaseException {
 	    if (id == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    //T tnew = ofy().load().type(clazz).id(id).get();  versio 4
 	    T tnew = ObjectifyService.ofy().load().key(id).now();
 	    ObjectifyService.ofy().save().entity(tnew).now();
 	}
 	
-	/*@Override
+	@Override
 	public <T> void update(Class<T> clazz, String key, T t) throws DatabaseException {
 	    if (key == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    T tnew = ofy().load().type(clazz).id(key).get();
-	    ofy().save().entity(tnew).now();
+	    T tnew = ObjectifyService.ofy().load().type(clazz).id(key).now();
+	    ObjectifyService.ofy().save().entity(tnew).now();
 	
-	}*/
+	}
+	
+	@Override
+	public <T> void update(Class<T> clazz, Long id, T t) throws DatabaseException {
+		 if (id == null) {
+		        throw new DatabaseException("ID cannot be null");
+		    }
+		    T tnew = ObjectifyService.ofy().load().type(clazz).id(id).now();
+		    ObjectifyService.ofy().save().entity(tnew).now();		
+	}
 	
 	@Override
 	public <T> T getById(Class<T> clazz, Key<T> id) throws DatabaseException {
 	    if (id == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    /////return ofy().load().type(clazz).id(id).get();
 	    return ObjectifyService.ofy().load().key(id).now();
 	}
 	
-	/*@Override
+	@Override
 	public <T> T getByKey(Class<T> clazz, String key) throws DatabaseException {
 	    if (key == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    return ofy().load().type(clazz).id(key).get();
-	}*/
+	    return ObjectifyService.ofy().load().type(clazz).id(key).now();
+	}
 	
 	@Override
 	public <T> List<T> list(Class<T> clazz) {
@@ -83,28 +96,48 @@ public class AbstractGenericDaoImpl implements GenericDao{
 	    if (id == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    //////////T t = ObjectifyService.ofy().load().type(clazz).id(id).get();
 	    T t = ObjectifyService.ofy().load().key(id).now();
 	    if(t != null){
 	    	ObjectifyService.ofy().delete().entity(t).now();
 	    }
 	}
-
-	public AbstractGenericDaoImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
-	/*@Override
+	@Override
 	public <T> void deleteByKey(Class<T> clazz, String key) throws DatabaseException {
 	    if (key == null) {
 	        throw new DatabaseException("ID cannot be null");
 	    }
-	    T t = ofy().load().type(clazz).id(key).get();
+	    T t = ObjectifyService.ofy().load().type(clazz).id(key).now();
 	    if(t != null){
-	        ofy().delete().entity(t).now();
+	    	ObjectifyService.ofy().delete().entity(t).now();
 	    }
-	}*/
+	}
+	
+	@Override
+	public <T> void delete(Class<T> clazz, Long id) throws DatabaseException {
+		if (id == null) {
+	        throw new DatabaseException("ID cannot be null");
+	    }
+	    T t = ObjectifyService.ofy().load().type(clazz).id(id).now();
+	    if(t != null){
+	    	ObjectifyService.ofy().delete().entity(t).now();
+	    }		
+	}
+
+	public GenericDaoImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public <T> Key<T> getKey(Class<T> clazz, Long id) {
+		return Key.create(clazz, id);
+	}
+
+	@Override
+	public <T> Key<T> getKey(Key<?> parent, Class<? extends T> kindClass, long id) {
+		return Key.create(parent, kindClass, id);
+	}
 	
 	
  }
