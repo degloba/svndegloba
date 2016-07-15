@@ -1,8 +1,5 @@
 package com.degloba.rent.domain.objectify;
 
-import com.degloba.domain.BaseAggregateRoot;
-import com.degloba.domain.BaseEntity;
-
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
