@@ -14,9 +14,10 @@
 			UrlBasedViewResolver in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml 
 	-->
 
-	
+	<mvc:view-controller path="/carregaEntitats" />
  	 <mvc:view-controller path="/login" />
 	 <mvc:view-controller path="/home" />  
+	  <mvc:view-controller path="/welcome" /> 
 	
 	<!-- proves
 	<mvc:view-controller path="/post" /> 
@@ -49,6 +50,6 @@
 	
 	
 	<!-- Scan for Spring beans declared via annotations. -->
-	<context:component-scan base-package="com.degloba.rent.ui.webui.spring.controller, com.degloba.organisation.ui.webui.spring.webflow, com.degloba.organisation.ui.webui.spring.controller, com.degloba.ecommerce.shipping.ui.webui.spring.controller, com.degloba.travel.ui.webui.spring.controller" /> 
+	<context:component-scan base-package="com.degloba.canonicalmodel.ui.webui.spring.controller,com.degloba.rent.ui.webui.spring.controller, com.degloba.organisation.ui.webui.spring.webflow, com.degloba.organisation.ui.webui.spring.controller, com.degloba.ecommerce.shipping.ui.webui.spring.controller, com.degloba.travel.ui.webui.spring.controller" /> 
 	 
 </beans>

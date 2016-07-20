@@ -143,7 +143,7 @@
 	<!-- ****************** -->		
 	<!-- JSF BEANS          -->
 	<!-- ****************** -->	
-	<context:component-scan base-package="com.degloba.rent.ui.webui.spring"/> 	
+	<context:component-scan base-package="com.degloba.rent.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf"/> 	
 	
 	
 	
