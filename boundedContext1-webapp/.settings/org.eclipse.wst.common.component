@@ -3,6 +3,9 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources/META-INF"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources"/>
         <dependent-module archiveName="boundedContext1-facade-impl-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-facade-impl/boundedContext1-facade-impl">
             <dependency-type>uses</dependency-type>
         </dependent-module>
