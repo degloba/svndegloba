@@ -51,7 +51,9 @@
         <include path="/resources/images/**.*"/>
         <include path="/resources/js/lib/*.js"/>
 		<include path="/WEB-INF/resources/css/*.css"/>
-		<include path="/resources/**.*"/>
+		
+		<exclude path="/**.xhtml" /> 
+			
         
 	</static-files>
 

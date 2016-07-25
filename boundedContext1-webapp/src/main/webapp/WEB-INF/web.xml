@@ -9,7 +9,7 @@
     	Aplicació web configurada per executar-se sobre Google AppEngine for Java.
    </description>
    
-   <!-- DESHABILITAR.NO S'USA MOJARRA
+   <!-- DESHABILITAR.NO S'USA MOJARRA  -->
   <context-param>
     <description>
             When enabled, the runtime initialization and default ResourceHandler
@@ -22,7 +22,7 @@
 	</description>
     <param-name>com.sun.faces.enableThreading</param-name>
     <param-value>false</param-value>
-  </context-param>  -->
+  </context-param>  
   
   <context-param>
     <description>
@@ -83,7 +83,7 @@
                org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
                Other providers use some classes that are restricted on Google App Engine.    
             -->
-	<context-param>
+	<!-- <context-param>
                 <param-name>
                   org.apache.myfaces.config.annotation.LifecycleProvider
                 </param-name>
@@ -91,14 +91,14 @@
                   org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider
                 </param-value>
 	</context-param>
-        
+         -->
         <!-- JSF 2.2: Configurable resource directory -->    
-  	<context-param>
+  	<!-- <context-param>
   		<param-name>
 		    javax.faces.WEBAPP_RESOURCES_DIRECTORY
 		</param-name>
 		<param-value>/WEB-INF/resources</param-value>
-	</context-param>
+	</context-param> -->
   
   
   	<!-- ********************* -->
