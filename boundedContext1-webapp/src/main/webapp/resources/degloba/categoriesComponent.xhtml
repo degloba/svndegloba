@@ -16,23 +16,26 @@
    
    <composite:implementation>
    
-	    
 		<p:panelGrid columns="1" id="categoriesPanel" styleClass="companyHeaderGrid">
 		  
+			<h:outputLabel id="ww" value="#{cc.attrs.categoriesValue}"></h:outputLabel>
 			<h:outputText value="Categories " style="color:#bbbbbb" />
 		    	
-    		<p:selectOneMenu id="Categories" value="#{selectOneMenuView.console}" style="width:125px">
-            	<f:selectItems value="#{cc.attrs.categoriesValue}" var="category" itemLabel="#{restaurant.screenName}"/>         	
-        	</p:selectOneMenu>
-        
-         	<h:outputText value="SubCategories" style="color:#bbbbbb" />
-         	
-			<p:selectOneMenu id="SubCategories" value="#{selectOneMenuView.console}" style="width:125px">
-            	<f:selectItems value="#{cc.attrs.subcategoriesValue}" var="subcategory" itemLabel="#{restaurant.screenName}"/>            	
-        	</p:selectOneMenu>
+        	
+        	<p:selectOneMenu id="category" value="#{selectOneMenuCategoryView.categories}" effect="fold" editable="true">
+			 	<p:ajax event="change" listener="#{selectOneMenuCategoryView.onCategoryChange}" update="subcategory" />
+	        	<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+	            <f:selectItems value="#{selectOneMenuCategoryView.categories}" />
+			</p:selectOneMenu>
+		
+			<p:outputLabel for="subcategory" value="Subcategory: " />
+            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}" style="width:150px">
+                <f:selectItem itemLabel="Select subcategory" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
+            </p:selectOneMenu>
+        	
 	    
       	</p:panelGrid>
-     
             
    </composite:implementation>
    
