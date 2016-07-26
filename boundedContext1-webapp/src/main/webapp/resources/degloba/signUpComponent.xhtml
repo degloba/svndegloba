@@ -7,7 +7,9 @@
    xmlns:p="http://primefaces.org/ui"
    xmlns:composite="http://java.sun.com/jsf/composite">
    
-   <composite:interface/>
+	<composite:interface>
+   		<composite:attribute name="dialegSignup" />
+	</composite:interface>
       
    
    <composite:implementation>
@@ -16,7 +18,7 @@
 	
 		<p:growl id="growlSignup" sticky="true" showDetail="true" life="3000" />
 	
-		<p:dialog header="Sign In" widgetVar="dlgSignup" resizable="false">
+		<p:dialog header="Sign In" widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
     
 	        <h:panelGrid columns="1" cellpadding="5">
 	        

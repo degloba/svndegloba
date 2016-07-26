@@ -7,46 +7,61 @@
    xmlns:p="http://primefaces.org/ui"
    xmlns:composite="http://java.sun.com/jsf/composite">
    
-   <composite:interface/>
+   <composite:interface>
+   		<composite:attribute name="dialegLogin" />
+	</composite:interface>   		
       
    <composite:implementation>
-   
-      <h:form>
       
-      	<p:growl id="growlLogin" sticky="true" showDetail="true" life="3000" />
-      
-        <p:dialog header="Log In" widgetVar="dlgLogin" resizable="false">
+        <p:dialog header="Log In" widgetVar="#{cc.attrs.dialegLogin}" resizable="false">
     
-        <h:panelGrid columns="1" cellpadding="5">
-			<h:outputLabel for="emailLogin" value="Email Address" />
-            <p:inputText id="emailLogin" value="#{userLoginView.email}" required="true" label="email" />
-          
-            <h:outputLabel for="passwordLogin" value="Password" />
-            <p:password id="passwordLogin" value="#{userLoginView.password}" required="true" label="password" />
- 
-			<p:commandButton value="Log In" update="growlLogin" actionListener="#{userLoginView.loginEmail}"
+        
+        
+        <h:form>
+        
+        	<p:growl id="growlLogin" sticky="true" showDetail="true" life="3000" />
+        
+        	<h:panelGrid columns="1" cellpadding="5">
+        
+				<h:outputLabel for="emailLogin" value="Email Address" />
+	            <p:inputText id="emailLogin" value="#{userLoginView.email}" required="true" label="email" />
+	          
+	            <h:outputLabel for="passwordLogin" value="Password" />
+	            <p:password id="passwordLogin" value="#{userLoginView.password}" required="true" label="password" />
+	 
+				<p:commandButton value="Log In" update="growlLogin" actionListener="#{userLoginView.loginEmail}"
                                  oncomplete="toggleSignInEmail()" />
-           
+                                 
+			</h:panelGrid>                                 
+
+		</h:form>
+				           
             <h:outputLabel value="or" />
             
-            
-             <p:commandButton value="Log In with Google" update="growlLogin" actionListener="#{userLoginView.loginGoogle}"
-                                 oncomplete="toggleSignInGoogle()" />
-       
-        	<p:commandButton value="Log In with Twitter" update="growlLogin" actionListener="#{userLoginView.loginTwitter}"
-                                 oncomplete="toggleSignInTwitter()" />
-       
-            <p:commandButton value="Log In with Facebook" update="growlLogin" actionListener="#{userLoginView.loginFacebook}"
-                                 oncomplete="toggleSignInFacebook()" />
-       
-      <!-- 		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />   -->                
-          
-             
-        </h:panelGrid>
+        <h:form>    
+        
+        	<p:growl id="growlLoginSocials" sticky="true" showDetail="true" life="3000" />
+        	
+        	<h:panelGrid columns="1" cellpadding="5">
+        	
+				<p:commandButton value="Log In with Google" update="growlLoginSocials" actionListener="#{userLoginView.loginGoogle}"
+	                                 oncomplete="toggleSignInGoogle()" />
+	       
+	        	<p:commandButton value="Log In with Twitter" update="growlLoginSocials" actionListener="#{userLoginView.loginTwitter}"
+	                                 oncomplete="toggleSignInTwitter()" />
+	       
+	            <p:commandButton value="Log In with Facebook" update="growlLoginSocials" actionListener="#{userLoginView.loginFacebook}"
+	                                 oncomplete="toggleSignInFacebook()" />
+	       
+	      <!-- 		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />   -->
+	      
+	      	</h:panelGrid>  
+	                    
+          </h:form>
+        
     </p:dialog>
     
-  </h:form>
-    
+ 
    </composite:implementation>
    
 </html>
