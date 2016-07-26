@@ -18,16 +18,16 @@
         <p:dialog header="Log In" widgetVar="dlgLogin" resizable="false">
     
         <h:panelGrid columns="1" cellpadding="5">
-			<h:outputLabel for="name" value="Email Address" />
+			<h:outputLabel for="emailLogin" value="Email Address" />
             <p:inputText id="emailLogin" value="#{userLoginView.email}" required="true" label="email" />
           
-            <h:outputLabel for="password" value="Password" />
+            <h:outputLabel for="passwordLogin" value="Password" />
             <p:password id="passwordLogin" value="#{userLoginView.password}" required="true" label="password" />
  
 			<p:commandButton value="Log In" update="growlLogin" actionListener="#{userLoginView.loginEmail}"
                                  oncomplete="toggleSignInEmail()" />
            
-            <h:outputLabel for="or" value="or" />
+            <h:outputLabel value="or" />
             
             
              <p:commandButton value="Log In with Google" update="growlLogin" actionListener="#{userLoginView.loginGoogle}"
@@ -39,7 +39,7 @@
             <p:commandButton value="Log In with Facebook" update="growlLogin" actionListener="#{userLoginView.loginFacebook}"
                                  oncomplete="toggleSignInFacebook()" />
        
-      		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />                  
+      <!-- 		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />   -->                
           
              
         </h:panelGrid>

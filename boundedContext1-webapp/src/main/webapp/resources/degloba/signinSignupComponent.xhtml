@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:composite="http://java.sun.com/jsf/composite">
+   
+   <composite:interface>
+   		<composite:attribute name="dialegSignup" />
+   		<composite:attribute name="dialegLogin" />
+   </composite:interface>
+	
+   
+   <composite:implementation>
+   
+		<h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignup}').show();" title="signup">   
+ 		Sign In     
+    	</h:outputLink>
+    
+	    <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegLogin}').show();" title="login">
+	    Log In        
+	    </h:outputLink>
+            
+   </composite:implementation>
+   
+</html>
