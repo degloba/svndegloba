@@ -17,31 +17,22 @@
 	  firebase.initializeApp(config);
 
 
-	  
-
-       $(function() {
-           $('#p1').puipassword();
-        
-           $('#p2').puipassword({inline:true}); 
-       });
-      
-      // PRIMEFACEUI (http://www.primefaces.org/primeui/#setup) -->
-
-	  
-
-
   /**
-   * Handles the sign in button press.
+   * Handles the sign in button press. (Login Email)
    */
   function toggleSignInEmail() {
 	
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
+      
+      alert("logged out");
       // [END signout]
     } else {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
+      var email = document.getElementById('dlgLogin:formLogin:emailLogin').value;
+      var password = document.getElementById('dlgLogin:formLogin:passwordLogin').value;
+      
+      alert("login");
       
       // Sign in with email and pass.
       // [START authwithemail]
@@ -56,23 +47,21 @@
           alert(errorMessage);
         }
         console.log(error);
-        document.getElementById('quickstart-sign-in').disabled = false;
+        /////////////document.getElementById('quickstart-sign-in').disabled = false;
         // [END_EXCLUDE]
       });
       // [END authwithemail]
     }
-    document.getElementById('quickstart-sign-in').disabled = true;
+    /////////////document.getElementById('quickstart-sign-in').disabled = true;
   }
 
   /**
-   * Handles the sign up button press.
+   * Handles the sign up button press. (Register
    */
   function handleSignUp() {
 
     var email = document.getElementById('dlgSignup:formSignup:emailSignup').value;
     var password = document.getElementById('dlgSignup:formSignup:passwordSignup').value;
-
-    alert(email + " nn" + password);
     
     // Sign in with email and pass.
     // [START createwithemail]
@@ -148,9 +137,6 @@
         firebase.auth().signInWithRedirect(provider);
         // [END signin]
       } else {
-
-    	//alert("Google : si currentUser");
-    	  
         // [START signout]
         firebase.auth().signOut();
         // [END signout]
@@ -165,7 +151,6 @@
     
     
     function toggleSignInTwitter() {
-        alert("twitter");
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.TwitterAuthProvider();
@@ -231,8 +216,7 @@
       // Result from Redirect auth flow.
       // [START getidptoken]
       firebase.auth().getRedirectResult().then(function(result) {
-          //alert("getRedirectResult");
-          
+                   
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
@@ -265,23 +249,21 @@
       // [END getidptoken]
       // Listening for auth state changes.
       // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {    	 
         if (user) {
-        	//alert("onAuthStateChanged : si user");
-        	
-          // User is signed in.
+        	//User is signed in.
           var displayName = user.displayName;
           var email = user.email;
           var emailVerified = user.emailVerified;
           var photoURL = user.photoURL;
           var isAnonymous = user.isAnonymous;
-          var uid = user.uid;
+          var uid = user.uid;          
           var refreshToken = user.refreshToken;
           var providerData = user.providerData;         
           // [START_EXCLUDE]
           ////////////document.getElementById('sign-in-status').textContent = 'Signed in';
-
-          document.getElementById('google-user').src = photoURL;
+  
+          
           
           // IMPORTANT !!!!
           // creem cookie per persistir
@@ -290,7 +272,8 @@
           // you have one. Use User.getToken() instead.
           // https://firebase.google.com/docs/auth/web/manage-users
    
-			// user.providerData.forEach(function (profile) {
+			 user.providerData.forEach(function (profile) {
+				 document.getElementById('google-user').src = profile.photoURL;
 
         		//  if (profile.providerId == "google.com") {
         			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
@@ -300,7 +283,7 @@
         		//	  document.getElementById('sign-in-twitter').textContent = 'Sign out';
         		//	  alert("facebook"); 
         		//  };        		 
-        	 // }); 
+        	  }); 
         	//} 
    
           
