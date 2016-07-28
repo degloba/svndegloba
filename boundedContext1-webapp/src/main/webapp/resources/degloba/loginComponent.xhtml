@@ -13,11 +13,9 @@
       
    <composite:implementation>
       
-        <p:dialog header="Log In" widgetVar="#{cc.attrs.dialegLogin}" resizable="false">
-    
+        <p:dialog id="dlgLogin" header="Log In" widgetVar="#{cc.attrs.dialegLogin}" resizable="false">
         
-        
-        <h:form>
+        <h:form id="formLogin">
         
         	<p:growl id="growlLogin" sticky="true" showDetail="true" life="3000" />
         
@@ -31,7 +29,9 @@
 	 
 				<p:commandButton value="Log In" update="growlLogin" actionListener="#{userLoginView.loginEmail}"
                                  oncomplete="toggleSignInEmail()" />
-                                 
+                          
+				
+				
 			</h:panelGrid>                                 
 
 		</h:form>

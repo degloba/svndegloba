@@ -21,18 +21,15 @@
    * Handles the sign in button press. (Login Email)
    */
   function toggleSignInEmail() {
-	
+	  
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
       
-      alert("logged out");
       // [END signout]
     } else {
-      var email = document.getElementById('dlgLogin:formLogin:emailLogin').value;
-      var password = document.getElementById('dlgLogin:formLogin:passwordLogin').value;
-      
-      alert("login");
+      var email = document.getElementById('loginComponent:formLogin:emailLogin').value;
+      var password = document.getElementById('loginComponent:formLogin:passwordLogin').value;
       
       // Sign in with email and pass.
       // [START authwithemail]
@@ -46,13 +43,14 @@
         } else {
           alert(errorMessage);
         }
-        console.log(error);
-        /////////////document.getElementById('quickstart-sign-in').disabled = false;
+        console.log(error);       
         // [END_EXCLUDE]
       });
+      
+      // Ocultem el dialeg
+    	$("#loginComponent\\:dlgLogin").css("display", "none");
       // [END authwithemail]
-    }
-    /////////////document.getElementById('quickstart-sign-in').disabled = true;
+    }  
   }
 
   /**
@@ -213,6 +211,8 @@
      * When signed in, we also authenticate to the Firebase Realtime Database.
      */
     function initApp() {
+    	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+    	
       // Result from Redirect auth flow.
       // [START getidptoken]
       firebase.auth().getRedirectResult().then(function(result) {
@@ -251,6 +251,12 @@
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {    	 
         if (user) {
+        	       
+        	// Visibilitzem el usuari loginat
+        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "inline");
+        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").val(user.displayName);
+          	
+        	
         	//User is signed in.
           var displayName = user.displayName;
           var email = user.email;
@@ -261,9 +267,6 @@
           var refreshToken = user.refreshToken;
           var providerData = user.providerData;         
           // [START_EXCLUDE]
-          ////////////document.getElementById('sign-in-status').textContent = 'Signed in';
-  
-          
           
           // IMPORTANT !!!!
           // creem cookie per persistir
@@ -287,7 +290,7 @@
         	//} 
    
           
-/*           document.getElementById('account-details').textContent = JSON.stringify({
+/*          document.getElementById('account-details').textContent = JSON.stringify({
             displayName: displayName,
             email: email,
             emailVerified: emailVerified,
@@ -299,7 +302,11 @@
           }, null, '  '); */
           // [END_EXCLUDE]
         } else 
-            {        
+            {      
+        	
+        	//Ocultem el usuari loggedOut
+        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+        	
           // User is signed out.
           // [START_EXCLUDE]
           //document.getElementById('sign-in-status').textContent = 'Signed out';

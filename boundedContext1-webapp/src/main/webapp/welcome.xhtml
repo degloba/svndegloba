@@ -48,18 +48,17 @@
    <h:body id="body">
    
       <f:view contentType="text/html">
-         <p><h:outputText value="You are now up and running with JavaServer Faces 2.1 on the Google App Engine."/></p>
-  
-  		<h:form>
+          
+  		<!-- <h:form>
   			<input id="p1" name="p1" type="password" /> 	
-		</h:form>
+		</h:form> -->
  
   	
 	<degloba:signinSignupComponent id="signinSignup" dialegSignup="dlgSignup" dialegLogin="dlgLogin"/>     
  
 	<degloba:signUpComponent id="dlgSignup" dialegSignup="dlgSignup"/>
    
-	<degloba:loginComponent id="dlgLogin" dialegLogin="dlgLogin"/>
+	<degloba:loginComponent id="loginComponent" dialegLogin="dlgLogin"/>
     		
 
 	<div id="wrapper"> <!--This is the Div 1 in the picture-->

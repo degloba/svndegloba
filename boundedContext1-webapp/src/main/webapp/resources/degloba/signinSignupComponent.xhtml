@@ -15,13 +15,40 @@
    
    <composite:implementation>
    
-		<h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignup}').show();" title="signup">   
+   <h:panelGrid columns="8" cellpadding="0">
+   
+    	<p:commandButton value="Sign In" oncomplete="PF('#{cc.attrs.dialegSignup}').show();" />
+	
+	<!-- 	<h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignup}').show();" title="signup">   
  		Sign In     
     	</h:outputLink>
-    
-	    <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegLogin}').show();" title="login">
+     -->
+     
+     	<p:commandButton value="Log In" oncomplete="PF('#{cc.attrs.dialegLogin}').show();" />
+     	
+	    <!-- <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegLogin}').show();" title="login">
 	    Log In        
-	    </h:outputLink>
+	    </h:outputLink> -->
+            
+            
+		<h:form id="formUserLoggined">   
+         
+	        <p:growl id="messages" showDetail="false"/>
+	         
+			<p:commandButton id="userLogginedButton"  type="button" icon="fa fa-user"/>
+		    <p:menu overlay="true" trigger="userLogginedButton" my="left top" at="left bottom">
+		        <p:menuitem value="My profile" actionListener="#{menuView.save}" update="messages" icon=""/>
+		        <p:menuitem value="Availability calendar" actionListener="#{menuView.update}" update="messages" />
+				<p:menuitem value="Settings" actionListener="#{menuView.save}" update="messages" icon=""/>
+		        <p:menuitem value="Logout" actionListener="#{menuView.update}" update="messages" icon=""  oncomplete="toggleSignInEmail()"/>	        	        
+		    </p:menu>
+            
+		</h:form>
+            
+            
+		<img id="google-user" src=""  style="width: 40px;"></img>
+		
+		</h:panelGrid>
             
    </composite:implementation>
    
