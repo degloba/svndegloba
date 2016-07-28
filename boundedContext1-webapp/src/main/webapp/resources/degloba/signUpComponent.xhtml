@@ -14,11 +14,11 @@
    
    <composite:implementation>
    
-	<h:form id="formSignup">
-	
-		<p:growl id="growlSignup" sticky="true" showDetail="true" life="3000" />
-	
-		<p:dialog header="Sign In" widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
+		<p:dialog id="dlgSignup" header="Sign In" widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
+		
+		<h:form id="formSignup">
+		
+			<p:growl id="growlSignup" sticky="true" showDetail="true" life="3000" />
     
 	        <h:panelGrid columns="1" cellpadding="5">
 	        
@@ -31,29 +31,36 @@
 	            <h:outputLabel for="passwordSignup" value="Password" />
 	            <p:password id="passwordSignup" value="#{userSignupView.password}" required="true" label="password" />
 	 
-	            <p:commandButton value="Sign Up" update="growlSignup" actionListener="#{userSignupView.signupEmail}"
+	            <p:commandButton value="Sign Up" update="growlSignup" 
 	                                 oncomplete="handleSignUp()" />
 	           
-	            <h:outputLabel value="By signing up you agree to our Terms and Privacy" />                  
+	            <h:outputLabel value="By signing up you agree to our Terms and Privacy" />
 	            
+			</h:panelGrid>
+	               
+		</h:form>
+		        
 	            <h:outputLabel value="or" />
 	            
-	             <p:commandButton value="Sign Up with Google" update="growlSignup" actionListener="#{userSignupView.signupGoogle}"
-	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+		<h:form>	            
+	            
+			<p:growl id="growlSignupSocials" sticky="true" showDetail="true" life="3000" />
+	            
+	        <h:panelGrid columns="1" cellpadding="5">
+	            
+				<p:commandButton value="Sign Up with Google" update="growlSignupSocials" oncomplete="toggleSignInGoogle()" />
 	       
-	        	<p:commandButton value="Sign Up with Twitter" update="growlSignup" actionListener="#{userSignupView.signupTwitter}"
-	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+	        	<p:commandButton value="Sign Up with Twitter" update="growlSignupSocials" oncomplete="toggleSignInTwitter()" />
 	       
-	            <p:commandButton value="Sign Up with Facebook" update="growlSignup" actionListener="#{userSignupView.signupFacebook}"
-	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+	            <p:commandButton value="Sign Up with Facebook" update="growlSignupSocials" oncomplete="handleLoginRequest(xhr, status, args)" />
 	               
 				<!-- <h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />  -->                 
 	                      
 	        </h:panelGrid>
+	        
+		</h:form>
         
-		</p:dialog>   
-            
-	</h:form>
+	</p:dialog>   
       
    </composite:implementation>
    

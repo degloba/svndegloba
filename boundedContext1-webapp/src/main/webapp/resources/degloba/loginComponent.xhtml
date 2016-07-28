@@ -27,11 +27,8 @@
 	            <h:outputLabel for="passwordLogin" value="Password" />
 	            <p:password id="passwordLogin" value="#{userLoginView.password}" required="true" label="password" />
 	 
-				<p:commandButton value="Log In" update="growlLogin" actionListener="#{userLoginView.loginEmail}"
-                                 oncomplete="toggleSignInEmail()" />
+				<p:commandButton value="Log In" update="growlLogin"  oncomplete="toggleSignInEmail()" />
                           
-				
-				
 			</h:panelGrid>                                 
 
 		</h:form>
@@ -44,14 +41,11 @@
         	
         	<h:panelGrid columns="1" cellpadding="5">
         	
-				<p:commandButton value="Log In with Google" update="growlLoginSocials" actionListener="#{userLoginView.loginGoogle}"
-	                                 oncomplete="toggleSignInGoogle()" />
+				<p:commandButton value="Log In with Google" update="growlLoginSocials" oncomplete="toggleSignInGoogle()" />
 	       
-	        	<p:commandButton value="Log In with Twitter" update="growlLoginSocials" actionListener="#{userLoginView.loginTwitter}"
-	                                 oncomplete="toggleSignInTwitter()" />
+	        	<p:commandButton value="Log In with Twitter" update="growlLoginSocials" oncomplete="toggleSignInTwitter()" />
 	       
-	            <p:commandButton value="Log In with Facebook" update="growlLoginSocials" actionListener="#{userLoginView.loginFacebook}"
-	                                 oncomplete="toggleSignInFacebook()" />
+	            <p:commandButton value="Log In with Facebook" update="growlLoginSocials" oncomplete="toggleSignInFacebook()" />
 	       
 	      <!-- 		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />   -->
 	      

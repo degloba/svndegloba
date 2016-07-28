@@ -58,8 +58,8 @@
    */
   function handleSignUp() {
 
-    var email = document.getElementById('dlgSignup:formSignup:emailSignup').value;
-    var password = document.getElementById('dlgSignup:formSignup:passwordSignup').value;
+    var email = document.getElementById('signUpComponent:formSignup:emailSignup').value;
+    var password = document.getElementById('signUpComponent:formSignup:passwordSignup').value;
     
     // Sign in with email and pass.
     // [START createwithemail]
@@ -69,13 +69,17 @@
       var errorMessage = error.message;
       // [START_EXCLUDE]
       if (errorCode == 'auth/weak-password') {
-        alert('The password is too weak.');
-      } else {
+        /////alert('The password is too weak.');
+      } else {    	 
         alert(errorMessage);
       }
       console.log(error);
       // [END_EXCLUDE]
     });
+    
+    // Ocultem el dialeg
+	$("#signUpComponent\\:dlgSignup").css("display", "none");
+    
     // [END createwithemail]
   }
   /**
@@ -191,6 +195,9 @@
       }
    // [START_EXCLUDE]
       //document.getElementById('sign-in-twitter').disabled = true;
+      
+      // Ocultem el dialeg
+  	$("#signUpComponent\\:dlgSignup").css("display", "none");
       // [END_EXCLUDE]
     }
     // [END buttoncallback]
@@ -212,6 +219,7 @@
      */
     function initApp() {
     	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+    	$("#google-user").css("display", "none");
     	
       // Result from Redirect auth flow.
       // [START getidptoken]
@@ -255,6 +263,7 @@
         	// Visibilitzem el usuari loginat
         	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "inline");
         	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").val(user.displayName);
+        	$("#google-user").css("display", "inline");
           	
         	
         	//User is signed in.
@@ -306,6 +315,7 @@
         	
         	//Ocultem el usuari loggedOut
         	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+        	$("#google-user").css("display", "none");
         	
           // User is signed out.
           // [START_EXCLUDE]
