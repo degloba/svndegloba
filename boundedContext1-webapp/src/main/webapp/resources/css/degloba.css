@@ -740,7 +740,7 @@ img.placeborder3 { width: 20px; height: 20px;border: none;display: block !import
 
 
 table, th, td {
-			border: 0px solid black;
+			border: 1px solid red;
 			color: "#EEF2F5";
 			}
 			
@@ -821,4 +821,19 @@ clear:both;
 
 }
 
-
+.facebook {
+	background-image: url(/resources/images/facebook.png);
+	background-repeat: no-repeat;
+	font-size:28px;
+	}
+	
+.twitter {
+	background-image: url(/resources/images/twitter.png);
+	background-repeat: no-repeat;
+	font-size:28px;
+	}
+	
+	
+.top-aligned-columns td{
+    vertical-align: top;
+}
