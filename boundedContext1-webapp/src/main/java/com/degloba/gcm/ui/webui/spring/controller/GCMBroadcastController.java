@@ -1,4 +1,4 @@
-package com.degloba.organisation.ui.webui.spring.controller;
+package com.degloba.gcm.ui.webui.spring.controller;
 
 
 import java.util.ArrayList;
