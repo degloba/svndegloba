@@ -112,6 +112,13 @@ public class UserLoginView {
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
-    } 
+    }
+
+	public UserLoginView() {
+		super();
+		// TODO Auto-generated constructor stub
+	} 
+	
+	
 	
 }

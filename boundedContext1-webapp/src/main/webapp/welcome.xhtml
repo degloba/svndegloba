@@ -11,16 +11,16 @@
    
    <h:head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Welcome to JSF 2.1 on the Google AppEngine!</title>
+      <title>Rent by degloba</title>
       
-		<!-- Firebase -->
-  		<!-- ***********************************************************************************************************************
-       	* TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
-       	*********************************************************************************************************************** -->
+	<!-- Firebase -->
+  	<!-- ***********************************************************************************************************************
+    * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
+    *********************************************************************************************************************** -->
 	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 	  
       
-	<!-- Firebase Authentication (customitzat degloba) -->      
+	<!-- Firebase Authentication (customitzat degloba)      -->  
 	<script type="text/javascript" src="/resources/js/firebaseAuth.js"></script>
     
       
@@ -54,12 +54,8 @@
 		</h:form> -->
  
   	
-	<degloba:signinSignupComponent id="signinSignup" dialegSignup="dlgSignup" dialegLogin="dlgLogin"/>     
- 
-	<degloba:signUpComponent id="signUpComponent" dialegSignup="dlgSignup"/>
-   
-	<degloba:loginComponent id="loginComponent" dialegLogin="dlgLogin"/>
-    		
+	<degloba:signinSignupComponent id="signinSignupComponent" dialegSignup="dlgSignup" dialegSignin="dlgSignin"/>     
+
 
 	<div id="wrapper"> <!--This is the Div 1 in the picture-->
     	<div id="topBar"> <!--This is the Div 2 in the picture-->

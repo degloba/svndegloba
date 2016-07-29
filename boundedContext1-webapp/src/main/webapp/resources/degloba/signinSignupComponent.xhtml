@@ -5,11 +5,12 @@
    xmlns:h="http://java.sun.com/jsf/html"
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:p="http://primefaces.org/ui"
-   xmlns:composite="http://java.sun.com/jsf/composite">
+   xmlns:composite="http://java.sun.com/jsf/composite"
+   xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
    
    <composite:interface>
    		<composite:attribute name="dialegSignup" />
-   		<composite:attribute name="dialegLogin" />
+   		<composite:attribute name="dialegSignin" />
    </composite:interface>
 	
    
@@ -24,9 +25,9 @@
     	</h:outputLink>
      -->
      
-     	<p:commandButton value="Log In" oncomplete="PF('#{cc.attrs.dialegLogin}').show();" />
+     	<p:commandButton value="Log In" oncomplete="PF('#{cc.attrs.dialegSignin}').show();" />
      	
-	    <!-- <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegLogin}').show();" title="login">
+	    <!-- <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignin}').show();" title="login">
 	    Log In        
 	    </h:outputLink> -->
             
@@ -45,12 +46,16 @@
 		    </p:menu>
             
 		</h:form>
+        
             
-            
+		<!-- Components signUp/singIn -->
+        <degloba:signUpDialegComponent id="signUpDialegComponent" dialegSignup="#{cc.attrs.dialegSignup}"/>
+   
+		<degloba:signInDialegComponent id="signInDialegComponent" dialegSignin="#{cc.attrs.dialegSignin}"/>
 		
 		
-		</h:panelGrid>
+	</h:panelGrid>
             
-   </composite:implementation>
+	</composite:implementation>
    
 </html>

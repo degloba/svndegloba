@@ -28,8 +28,8 @@
       
       // [END signout]
     } else {
-      var email = document.getElementById('loginComponent:formLogin:emailLogin').value;
-      var password = document.getElementById('loginComponent:formLogin:passwordLogin').value;
+      var email = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
+      var password = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
       
       // Sign in with email and pass.
       // [START authwithemail]
@@ -38,17 +38,21 @@
         var errorCode = error.code;
         var errorMessage = error.message;
         // [START_EXCLUDE]
-        if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
-        } else {
-          alert(errorMessage);
+        if (errorCode === 'auth/wrong-password') {  
+        	PF('growlSignin').renderMessage({"summary":"Notification",
+        		  "detail":"Wrong password.",
+        		  "severity":"warn"})
+        } else {          
+          PF('growlSignin').renderMessage({"summary":"Notification",
+      		  "detail":errorMessage,
+      		  "severity":"warn"})
         }
         console.log(error);       
         // [END_EXCLUDE]
       });
       
       // Ocultem el dialeg
-    	$("#loginComponent\\:dlgLogin").css("display", "none");
+    	$("#signInDialegComponent\\:dlgSignin").css("display", "none");
       // [END authwithemail]
     }  
   }
@@ -58,8 +62,8 @@
    */
   function handleSignUp() {
 
-    var email = document.getElementById('signUpComponent:formSignup:emailSignup').value;
-    var password = document.getElementById('signUpComponent:formSignup:passwordSignup').value;
+    var email = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
+    var password = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
     
     // Sign in with email and pass.
     // [START createwithemail]
@@ -69,16 +73,21 @@
       var errorMessage = error.message;
       // [START_EXCLUDE]
       if (errorCode == 'auth/weak-password') {
-        /////alert('The password is too weak.');
+        PF('growlSignup').renderMessage({"summary":"Warning",
+    		  "detail":"The password is too weak.",
+    		  "severity":"warn"})    	
       } else {    	 
-        alert(errorMessage);
+        ///////alert(errorMessage);
+        PF('growlSignup').renderMessage({"summary":"Warning",
+  		  "detail":errorMessage,
+  		  "severity":"warn"})
       }
       console.log(error);
       // [END_EXCLUDE]
     });
     
     // Ocultem el dialeg
-	$("#signUpComponent\\:dlgSignup").css("display", "none");
+	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
     
     // [END createwithemail]
   }
@@ -90,28 +99,43 @@
     firebase.auth().currentUser.sendEmailVerification().then(function() {
       // Email Verification sent!
       // [START_EXCLUDE]
-      alert('Email Verification Sent!');
+      
+      PF('growlSignup').renderMessage({"summary":"Notification",
+  		  "detail":"Email Verification Sent!",
+  		  "severity":"warn"})
+  		  
       // [END_EXCLUDE]
     });
     // [END sendemailverification]
   }
-  function sendPasswordReset() {
-    var email = document.getElementById('email').value;
+  function sendPasswordReset() {   	
+    var email = document.getElementById('signinSignupComponent:signInDialegComponent:formSignin:emailSignin').value;
     // [START sendpasswordemail]
     firebase.auth().sendPasswordResetEmail(email).then(function() {
       // Password Reset Email Sent!
       // [START_EXCLUDE]
-      alert('Password Reset Email Sent!');
+      PF('growlSignup').renderMessage({"summary":"Notification",
+  		  "detail":"Password Reset Email Sent!",
+  		  "severity":"warn"})
+  		  
       // [END_EXCLUDE]
     }).catch(function(error) {
+    	alert(email);
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      
       // [START_EXCLUDE]
       if (errorCode == 'auth/invalid-email') {
-        alert(errorMessage);
+        
+        PF('growlSignup').renderMessage({"summary":"Error",
+    		  "detail":errorMessage,
+    		  "severity":"warn"})
       } else if (errorCode == 'auth/user-not-found') {
-        alert(errorMessage);
+       
+        PF('growlSignup').renderMessage({"summary":"Error",
+  		  "detail":errorMessage,
+  		  "severity":"warn"})
       }
       console.log(error);
       // [END_EXCLUDE]
@@ -194,10 +218,9 @@
         // [END signout]
       }
    // [START_EXCLUDE]
-      //document.getElementById('sign-in-twitter').disabled = true;
-      
+           
       // Ocultem el dialeg
-  	$("#signUpComponent\\:dlgSignup").css("display", "none");
+  	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
       // [END_EXCLUDE]
     }
     // [END buttoncallback]
@@ -218,7 +241,7 @@
      * When signed in, we also authenticate to the Firebase Realtime Database.
      */
     function initApp() {
-    	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+    	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
     	$("#google-user").css("display", "none");
     	
       // Result from Redirect auth flow.
@@ -261,8 +284,8 @@
         if (user) {
         	       
         	// Visibilitzem el usuari loginat
-        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "inline");
-        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").val(user.displayName);
+        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");
+        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val(user.displayName);
         	$("#google-user").css("display", "inline");
           	
         	
@@ -314,7 +337,7 @@
             {      
         	
         	//Ocultem el usuari loggedOut
-        	$("#signinSignup\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");
         	
           // User is signed out.

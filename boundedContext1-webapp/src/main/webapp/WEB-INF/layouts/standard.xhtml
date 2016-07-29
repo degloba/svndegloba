@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
 	
 <f:view contentType="text/html">
 
@@ -12,362 +13,21 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>The project will give an opportunity to any individual person rent their own belongings.</title>
 			
-			
-			<link type="text/css" rel="stylesheet" href="/resources/css/degloba.css" />
+		<link type="text/css" rel="stylesheet" href="/resources/css/degloba.css" />
+		
 		<!-- <link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css" media="print" />
-	 -->
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css" media="print" />	 -->
 		<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
 	<![endif]-->
+	
 		<ui:insert name="headIncludes" />
-		
-	  <!-- Firebase -->
-  <!-- ***********************************************************************************************************************
-       * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
-       *********************************************************************************************************************** -->
-<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDuTo74D7zmb6vO6bOV5Z1h7IABIEBM0hM",
-    authDomain: "wwwdegloba-1350.firebaseapp.com",
-    databaseURL: "https://wwwdegloba-1350.firebaseio.com",
-    storageBucket: "wwwdegloba-1350.appspot.com",
-  };
-  firebase.initializeApp(config);
-</script>
-
-  <script type="text/javascript">
-    /**
-     * Function called when clicking the Login/Logout button.
-     */
-    // [START buttoncallback]
-    function toggleSignInGoogle() {
-        alert("Google");
-      if (!firebase.auth().currentUser) {
-        // [START createprovider]
-        var provider = new firebase.auth.GoogleAuthProvider();
-        // [END createprovider]
-        // [START addscopes]
-        provider.addScope('https://www.googleapis.com/auth/plus.login');
-        // [END addscopes]
-        // [START signin]
-        firebase.auth().signInWithRedirect(provider);
-        // [END signin]
-      } else {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
-      }
-      // [START_EXCLUDE]
-      document.getElementById('sign-in-google').disabled = true;
-      document.getElementById('sign-in-twitter').disabled = true;
-      // [END_EXCLUDE]
-    }
-    // [END buttoncallback]
-    
-    
-    
-    function toggleSignInTwitter() {
-      if (!firebase.auth().currentUser) {
-        // [START createprovider]
-        var provider = new firebase.auth.TwitterAuthProvider();
-        // [END createprovider]
-        // [START signin]
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-          // You can use these server side with your app's credentials to access the Twitter API.
-          var token = result.credential.accessToken;
-          var secret = result.credential.secret;
-          // The signed-in user info.
-          var user = result.user;
-          // [START_EXCLUDE]
-          document.getElementById('oauthtoken').textContent = token;
-          document.getElementById('oauthsecret').textContent = secret;
-          // [END_EXCLUDE]
-        }).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // [START_EXCLUDE]
-          if (errorCode === 'auth/account-exists-with-different-credential') {
-            alert('You have already signed up with a different auth provider for that email.');
-            // If you are using multiple auth providers on your app you should handle linking
-            // the user's accounts here.
-          } else {
-            console.error(error);
-          }
-          // [END_EXCLUDE]
-        });
-        // [END signin]
-      } else {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
-      }
-   // [START_EXCLUDE]
-      document.getElementById('sign-in-twitter').disabled = true;
-      // [END_EXCLUDE]
-    }
-    // [END buttoncallback]
-    
-    
-    /**
-     * initApp handles setting up the Firebase context and registering
-     * callbacks for the auth status.
-     *
-     * The core initialization is in firebase.App - this is the glue class
-     * which stores configuration. We provide an app name here to allow
-     * distinguishing multiple app instances.
-     *
-     * This method also registers a listener with firebase.auth().onAuthStateChanged.
-     * This listener is called when the user is signed in or out, and that
-     * is where we update the UI.
-     *
-     * When signed in, we also authenticate to the Firebase Realtime Database.
-     */
-    function initApp() {
-      // Result from Redirect auth flow.
-      // [START getidptoken]
-      firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
-          // [START_EXCLUDE]
-          document.getElementById('oauthtoken').textContent = token;
-        } else {
-          document.getElementById('oauthtoken').textContent = 'null';
-          // [END_EXCLUDE]
-        }
-        // The signed-in user info.
-        var user = result.user;
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // [START_EXCLUDE]
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          alert('You have already signed up with a different auth provider for that email.');
-          // If you are using multiple auth providers on your app you should handle linking
-          // the user's accounts here.
-        } else {
-          console.error(error);
-        }
-        // [END_EXCLUDE]
-      });
-      // [END getidptoken]
-      // Listening for auth state changes.
-      // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          // User is signed in.
-          var displayName = user.displayName;
-          var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
-          var uid = user.uid;
-          var refreshToken = user.refreshToken;
-          var providerData = user.providerData;         
-          // [START_EXCLUDE]
-          ////////////document.getElementById('sign-in-status').textContent = 'Signed in';
-
-          document.getElementById('google-user').src = photoURL;
-          
-          // IMPORTANT !!!!
-          // creem cookie per persistir
-          document.cookie="uid=" + user.uid;    //????????? The user's ID, unique to the Firebase project. Do NOT use
-          // this value to authenticate with your backend server, if
-          // you have one. Use User.getToken() instead.
-          // https://firebase.google.com/docs/auth/web/manage-users
-   
-         
-          if (user != null) {
-        	  user.providerData.forEach(function (profile) {
-
-        		  if (profile.providerId == "google.com") {
-        			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
-        		  } else if (profile.providerId == "twitter.com") {
-        				///////////// document.getElementById('sign-in-twitter').textContent = 'Sign out';
-        		  /* } else if (profile.providerId == "facebook.com") {
-        			  document.getElementById('sign-in-twitter').textContent = 'Sign out';
-        			  alert("facebook"); */
-        		  };
-        		  //alert("Sign-in provider: "+profile.providerId);
-        		  
-        		  
-        		  //alert("  Provider-specific UID: "+profile.uid);
-        		  //alert("  Name: "+profile.displayName);
-        		  //alert("  Email: "+profile.email);
-        		  //alert("  Photo URL: "+profile.photoURL);
-        	  });
-        	}
-   
-          
-          document.getElementById('account-details').textContent = JSON.stringify({
-            displayName: displayName,
-            email: email,
-            emailVerified: emailVerified,
-            photoURL: photoURL,
-            isAnonymous: isAnonymous,
-            uid: uid,
-            refreshToken: refreshToken,
-            providerData: providerData
-          }, null, '  ');
-          // [END_EXCLUDE]
-        } else {
-          // User is signed out.
-          // [START_EXCLUDE]
-          document.getElementById('sign-in-status').textContent = 'Signed out';
-          ///////////document.getElementById('sign-in-google').textContent = 'Sign in with Google';
-          document.getElementById('account-details').textContent = 'null';
-          document.getElementById('oauthtoken').textContent = 'null';
-          // [END_EXCLUDE]
-        }
-        // [START_EXCLUDE]
-        document.getElementById('sign-in-google').disabled = false;
-        document.getElementById('sign-in-twitter').disabled = false;
-        // [END_EXCLUDE]
-      });
-      // [END authstatelistener]
-      document.getElementById('sign-in-google').addEventListener('click', toggleSignInGoogle, false);
-      document.getElementById('sign-in-twitter').addEventListener('click', toggleSignInTwitter, false);
-    }
-    window.onload = function() {
-      initApp();
-    };
-
-    
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.signUpExist) {
-            PF('dlgSignup').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlgSignup').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-
-
-    $(function() {
-        $('#p1').puipassword();
-     
-        $('#p2').puipassword({inline:true}); 
-    });
-  </script>
-
-
-
-<!-- PRIMEFACEUI (http://www.primefaces.org/primeui/#setup) -->
-
-	<link rel="stylesheet" href="/resources/primefaces/themes/afterwork/theme.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/primefaces/font-awesome-4.6.3/css/font-awesome.css" />
-    <link rel="stylesheet" href="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.css" />
-    <link rel="stylesheet" href="/resources/primefaces/primeui.min.css" />
-    <script type="text/javascript" src="/resources/primefaces/jquery-3.1.0.js"></script>
-    <script type="text/javascript" src="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.js"></script>
-    <script type="text/javascript" src="/resources/primefaces/primeui.min.js"></script>
+	
 				
 </h:head>
 <h:body>
- 
- <h:form>
- 
- 	<h:outputLink value="javascript:void(0)" onclick="PF('dlgSignup').show();" title="signup">   
- 	Sign In     
-    </h:outputLink>
-    
-    <h:outputLink value="javascript:void(0)" onclick="PF('dlgLogin').show();" title="login">
-    Log In        
-    </h:outputLink>
- 
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
- 
-    <p:dialog header="Sign In" widgetVar="dlgSignup" resizable="false">
-    
-        <h:panelGrid columns="1" cellpadding="5">
-			<h:outputLabel for="name" value="Name" />
-            <p:inputText id="username" value="#{userSignupView.name}" required="true" label="name" />
- 
- 			<h:outputLabel for="name" value="Email Address" />
-            <p:inputText id="username" value="#{userSignupView.email}" required="true" label="email" />
-          
-            <h:outputLabel for="password" value="Password" />
-            <p:password id="password" value="#{userSignupView.password}" required="true" label="password" />
- 
-            
-            <p:commandButton value="Sign Up" update="growl" actionListener="#{userSignupView.signupEmail}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            
-            <h:outputLabel for="agreeSignup" value="By signing up you agree to our Terms and Privacy" />                  
-            
-            <h:outputLabel for="or" value="or" />
-            
-             <p:commandButton value="Sign Up with Google" update="growl" actionListener="#{userSignupView.signupGoogle}"
-                                 oncomplete="toggleSignInGoogle()" />
-       
-        	<p:commandButton value="Sign Up with Twitter" update="growl" actionListener="#{userSignupView.signupTwitter}"
-                                 oncomplete="toggleSignInTwitter()" />
-       
-            <p:commandButton value="Sign Up with Facebook" update="growl" actionListener="#{userSignupView.signupFacebook}"
-                                 oncomplete="toggleSignInFacebook()" />
-               
-			<h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />                  
-                                 
-                                 
-            
-        </h:panelGrid>
-    </p:dialog>
-  
-  </h:form>  
-  
-  	
 
-<input id="p1" name="p1" type="password" />
-
-    
-        <p:dialog header="Log In" widgetVar="dlgLogin" resizable="false">
-    
-        <h:panelGrid columns="1" cellpadding="5">
-			<h:outputLabel for="name" value="Email Address" />
-            <p:inputText id="username" value="#{userLoginView.email}" required="true" label="email" />
-          
-            <h:outputLabel for="password" value="Password" />
-            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
- 
-			<p:commandButton value="Log In" update="growl" actionListener="#{userLoginView.loginEmail}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-           
-            <h:outputLabel for="or" value="or" />
-            
-            
-             <p:commandButton value="Log In with Google" update="growl" actionListener="#{userLoginView.loginGoogle}"
-                                 oncomplete="toggleSignInGoogle()" />
-       
-        	<p:commandButton value="Log In with Twitter" update="growl" actionListener="#{userLoginView.loginTwitter}"
-                                 oncomplete="toggleSignInTwitter()" />
-       
-            <p:commandButton value="Log In with Facebook" update="growl" actionListener="#{userLoginView.loginFacebook}"
-                                 oncomplete="toggleSignInFacebook()" />
-       
-      		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />                  
-          
-             
-        </h:panelGrid>
-    </p:dialog>
-    
-       
-		<img id="google-user" src=""  style="width: 40px;"></img>
-			
+ 			
           <!-- Container where we'll display the user details -->
           <!-- <div class="quickstart-user-details-container">
             Firebase sign-in status: <span id="sign-in-status">Unknown</span>
@@ -414,6 +74,7 @@
     
 	</div><!--Closing "wrapper"-->	
    	
+
 
 	</h:body>
 </f:view>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:composite="http://java.sun.com/jsf/composite">
+   
+   <composite:interface>
+   		<composite:attribute name="dialegSignin" />
+	</composite:interface>   		
+      
+   <composite:implementation>
+      
+        <p:dialog id="dlgSignin" header="Log In" widgetVar="#{cc.attrs.dialegSignin}" resizable="false">
+        
+        <h:form id="formSignin">
+        
+        	<p:growl widgetVar="growlSignin" id="growlSignin" sticky="true" showDetail="true" life="3000" />
+        
+        	<h:panelGrid columns="1" cellpadding="5">
+        
+				<h:outputLabel for="emailSignin" value="Email Address" />
+	            <p:inputText id="emailSignin" value="#{userLoginView.email}" required="true" label="email" />
+	            
+	            <h:outputLink onclick="sendPasswordReset()">Forgot ?</h:outputLink>
+	          
+	            <h:outputLabel for="passwordSignin" value="Password" />
+	            <p:password id="passwordSignin" value="#{userLoginView.password}" required="true" label="password" />
+	 
+				<p:commandButton value="Log In" update="growlSignin"  oncomplete="toggleSignInEmail()" />
+                          
+			</h:panelGrid>                                 
+
+		</h:form>
+				           
+            <h:outputLabel value="or" />
+            
+        <h:form>    
+        
+        	<p:growl id="growlSigninSocials" sticky="true" showDetail="true" life="3000" />
+        	
+        	<h:panelGrid columns="1" cellpadding="5">
+        	
+				<p:commandButton value="Log In with Google" update="growlSigninSocials" oncomplete="toggleSignInGoogle()" />
+	       
+	        	<p:commandButton value="Log In with Twitter" update="growlSigninSocials" oncomplete="toggleSignInTwitter()" />
+	       
+	            <p:commandButton value="Log In with Facebook" update="growlSigninSocials" oncomplete="toggleSignInFacebook()" />
+	       
+	       		<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />  
+	      
+	      
+	      	<h:panelGrid columns="4" cellpadding="5">
+	      		<h:outputLabel>New to rent?</h:outputLabel>
+	       		<h:outputLink onclick="">Sign Up</h:outputLink>
+			</h:panelGrid>
+	      
+	      	</h:panelGrid>  
+	                    
+          </h:form>
+        
+    </p:dialog>
+    
+ 
+   </composite:implementation>
+   
+</html>
