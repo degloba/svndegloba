@@ -120,10 +120,11 @@
   		  
       // [END_EXCLUDE]
     }).catch(function(error) {
-    	alert(email);
+    	
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      alert(errorMessage);
       
       // [START_EXCLUDE]
       if (errorCode == 'auth/invalid-email') {
@@ -244,6 +245,7 @@
     	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
     	$("#google-user").css("display", "none");
     	
+    	
       // Result from Redirect auth flow.
       // [START getidptoken]
       firebase.auth().getRedirectResult().then(function(result) {
@@ -284,8 +286,8 @@
         if (user) {
         	       
         	// Visibilitzem el usuari loginat
-        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");
-        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val(user.displayName);
+        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
+        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
         	$("#google-user").css("display", "inline");
           	
         	
