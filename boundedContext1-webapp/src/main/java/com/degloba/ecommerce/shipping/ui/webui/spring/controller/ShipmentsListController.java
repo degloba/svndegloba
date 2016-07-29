@@ -31,14 +31,14 @@ import com.google.appengine.api.datastore.KeyFactory;
 public class ShipmentsListController {
 
     @Inject
-    private ShipmentFinder finder;
+    private ShipmentFinder shipmentFinder;
 
     @Inject
     private Gate gate;
 
     @RequestMapping("/list")
     public String shippingList(Model model) {
-        List<ShipmentDto> shipments = finder.findShipment();
+        List<ShipmentDto> shipments = shipmentFinder.findShipment();
         model.addAttribute("shipments", shipments);
         return "/shipping/shipmentsList";
     }
