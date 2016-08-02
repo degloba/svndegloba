@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
+<html xmlns="http://www.w3.org/1999/xhtml"  
+		xmlns:f="http://java.sun.com/jsf/core" 
       	xmlns:ui="http://java.sun.com/jsf/facelets"
       	xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:p="http://primefaces.org/ui">
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
       
     <body>
-    
+ 
 	    <ui:composition>
-	
+	    
+	    
+	    
+	    
+	      <h:panelGrid columns="5" cellpadding="0" cellspacing="0" border="0">
+	      
+			<degloba:signinSignupComponent id="signinSignupComponent" dialegSignup="dlgSignup" dialegSignin="dlgSignin"/>
 			
-				<h:outputLink value="productFlow" >
-						<h:outputText value="Rent your stuff" />
-				</h:outputLink>  
+			<h:outputLink value="productFlow" >
+				<h:outputText value="Rent your stuff" />
+			</h:outputLink>  
 				
-				<a href="/app/carregaEntitats">Carrega</a>.
+			<a href="carregaEntitats">Carrega</a>.
 				
-				
-				<p:panelGrid columns="3">
-					
-					<h:outputText value="Start making cash by renting your stuff // or // Why buy where you can rent?" style="color:#bbbbbb;font-weight:bold;font-size:20px" />
-				
-				</p:panelGrid>
-				
+				</h:panelGrid>				
 	    </ui:composition>
+	    
     </body>
+    
 </html>

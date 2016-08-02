@@ -21,7 +21,6 @@
    * Handles the sign in button press. (Login Email)
    */
   function toggleSignInEmail() {
-	  
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
@@ -360,6 +359,7 @@
       //document.getElementById('sign-in-twitter').addEventListener('click', toggleSignInTwitter, false);
     }
     window.onload = function() {
+    
       initApp();
     };
 

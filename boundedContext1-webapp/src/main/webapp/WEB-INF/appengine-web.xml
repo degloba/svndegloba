@@ -49,10 +49,14 @@
         <include path="/firebaseAuth/*/**.*"/>
         <include path="/firebaseAuth/**.*"/>
         <include path="/resources/images/**.*"/>
+        <include path="/resources/js/**.*"/>
         <include path="/resources/js/lib/*.js"/>
 		<include path="/WEB-INF/resources/css/*.css"/>
 		
+		<include path="/app/resources/jquery/js/**.*"/>
+		
 		<exclude path="/**.xhtml" /> 
+		<exclude path="/app/WEB-INF/views/**.xhtml" /> 
 			
         
 	</static-files>

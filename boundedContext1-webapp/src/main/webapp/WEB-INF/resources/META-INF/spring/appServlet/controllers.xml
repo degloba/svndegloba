@@ -13,40 +13,8 @@
 			Incoming path '/home' is mapped maps to the view name 'home'
 			UrlBasedViewResolver in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml 
 	-->
-
-	<mvc:view-controller path="/carregaEntitats" />
- 	 <mvc:view-controller path="/login" />
+	
 	 <mvc:view-controller path="/home" />  
-	  <mvc:view-controller path="/welcome" /> 
-	
-	<!-- proves
-	<mvc:view-controller path="/post" /> 
-	
-	 Proves amb security
-	<mvc:view-controller path="/oauth/userHome" />
-	<mvc:view-controller path="/oauth/**" />
-	
-	<mvc:view-controller path="/app/gae/**" />
-	<mvc:view-controller path="/gae/**" />
-	
-	<mvc:view-controller path="/saml" />
-	
-	<mvc:view-controller path="/ws" />
-	
-	Proves amb CQRS
-	<mvc:view-controller path="/shipping/shipment" />
-	
-	
-	Travel
-	Imports the application controllers that process client requests
-    <mvc:view-controller path="/sss" view-name="home"/>
-    
-    <mvc:view-controller path="/hotels"/> 
-
-    Maps '/users/login' requests to the 'users/login' view  (es JSP !!!!!)
-    <mvc:view-controller path="/users/login"/>
-    <mvc:view-controller path="/users/logout"/>
-    <mvc:view-controller path="/users/logoutSuccess"/>  -->
 	
 	
 	<!-- Scan for Spring beans declared via annotations. -->

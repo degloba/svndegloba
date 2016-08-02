@@ -4,10 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
+	xmlns:p="http://primefaces.org/ui">
 	
-<f:view contentType="text/html">
 
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,25 +20,22 @@
 	<![endif]-->
 	
 		<ui:insert name="headIncludes" />
+		
+		<!-- Firebase -->
+  	<!-- ***********************************************************************************************************************
+    * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
+    *********************************************************************************************************************** -->
+	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+	  
+      
+	<!-- Firebase Authentication (customitzat degloba)      -->  
+	<script type="text/javascript" src="/resources/js/firebaseAuth.js"></script>
 	
 				
 </h:head>
-<h:body>
 
- 			
-          <!-- Container where we'll display the user details -->
-          <!-- <div class="quickstart-user-details-container">
-            Firebase sign-in status: <span id="sign-in-status">Unknown</span>
-            <div>Firebase auth <code>currentUser</code> object value:</div>
-            <pre><code id="account-details">null</code></pre>
-            <div>Google OAuth Access Token:</div>
-            <pre><code id="oauthtoken">null</code></pre>
-            <div>Twitter OAuth Secret:</div>
-            <pre><code id="oauthsecret">null</code></pre>
-          </div> -->
-   
-		
-		
+
+<h:body>
 
 	<div id="wrapper"> <!--This is the Div 1 in the picture-->
     	<div id="topBar"> <!--This is the Div 2 in the picture-->
@@ -73,9 +68,46 @@
 		</div>
     
 	</div><!--Closing "wrapper"-->	
-   	
 
+	
+	
+	<!-- FACELETS + PRIMEFACES/LAYOUT , NO FUNCIONA DE MOMENT -->	
+		<!--  <p:layout fullPage="true">
+ 
+		    <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
+		    
+		  		<ui:insert name="header">
+		    		  <ui:include src="/WEB-INF/layouts/commonHeader.xhtml" />
+		    		  </ui:insert>
+		    		  
+		    
+		    	
+		          
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+		        <h:outputText value="South unit content." />
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+		        <h:outputText value="West unit content." />
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+		        <h:outputText value="Right unit content." />
+		        
+		    		  		    		
+		    </p:layoutUnit>
+		 
+		    <p:layoutUnit position="center">
+		    	
+		    	 
+		    		 <p:calendar></p:calendar>
+		    		 
+		    </p:layoutUnit>
+	</p:layout>   -->
+	
 
 	</h:body>
-</f:view>
+
 </html>

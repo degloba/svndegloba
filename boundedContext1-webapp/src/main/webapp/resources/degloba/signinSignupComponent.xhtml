@@ -18,19 +18,10 @@
    
    <h:panelGrid styleClass="top-aligned-columns"  columns="5" cellpadding="0" cellspacing="0" border="0">
    
-    	<p:commandButton value="Sign In" oncomplete="PF('#{cc.attrs.dialegSignup}').show();" />
-	
-	<!-- 	<h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignup}').show();" title="signup">   
- 		Sign In     
-    	</h:outputLink>
-     -->
-     
-     	<p:commandButton value="Log In" oncomplete="PF('#{cc.attrs.dialegSignin}').show();" />
-     	
-	    <!-- <h:outputLink value="javascript:void(0)" onclick="PF('#{cc.attrs.dialegSignin}').show();" title="login">
-	    Log In        
-	    </h:outputLink> -->
-            
+    	<p:commandButton value="Sign In" type="button" onclick="PF('#{cc.attrs.dialegSignup}').show();" />
+	 
+     	<p:commandButton value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignin}').show();" />
+     		                
 		<img id="google-user" src=""  style="width: 30px;"></img>  
 		    
 		<h:form id="formUserLoggined" >   
