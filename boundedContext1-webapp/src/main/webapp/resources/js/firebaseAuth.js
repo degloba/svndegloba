@@ -325,6 +325,8 @@
     	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
     	$("#google-user").css("display", "none");
     	
+    	$("#carregaEntitats").css("display", "none");
+    	
     	
       // Result from Redirect auth flow.
       // [START getidptoken]
@@ -364,7 +366,7 @@
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {    	 
         if (user) {
-        	     
+        	    
         	// Visibilitzem el usuari loginat
         	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
         	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
@@ -373,6 +375,16 @@
         	 // Ocultem el dialeg
         	$("#signinSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
         	$("#signinSignupComponent\\:signInDialegComponent\\:dlgSignin").css("display", "none");
+        	
+        	// Invisibilitzem boto SignUp
+        	$("#signinSignupComponent\\:btnSignup").css("display", "none");
+        	
+        	if (user.email == "degloba@degloba.com") {
+        		$("#carregaEntitats").css("display", "block");
+        	}
+        	else {        		
+        		$("#carregaEntitats").css("display", "none");
+        	}
         	
         	
         	//User is signed in.
@@ -385,6 +397,7 @@
           var refreshToken = user.refreshToken;
           var providerData = user.providerData;         
           // [START_EXCLUDE]
+        
           
           // IMPORTANT !!!!
           // creem cookie per persistir
@@ -425,6 +438,11 @@
         	//Ocultem el usuari loggedOut
         	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");
+        	
+           	// Visibilitzem boto Signup
+        	$("#signinSignupComponent\\:btnSignup").css("display", "block");
+        	
+        	$("#carregaEntitats").css("display", "none");
         	
           // User is signed out.
           // [START_EXCLUDE]
