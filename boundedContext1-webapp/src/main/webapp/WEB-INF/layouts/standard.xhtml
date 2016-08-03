@@ -31,18 +31,48 @@
 	<!-- Firebase Authentication (customitzat degloba)      -->  
 	<script type="text/javascript" src="/resources/js/firebaseAuth.js"></script>
 	
+	<!-- PRIMEFACEUI (http://www.primefaces.org/primeui/#setup) -->
+
+ 	<link rel="stylesheet" href="/resources/primefaces/themes/afterwork/theme.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/resources/primefaces/font-awesome-4.6.3/css/font-awesome.css" />
+    <link rel="stylesheet" href="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.css" /> -->
+    <link rel="stylesheet" href="/resources/primefaces/primeui.min.css" /> 
+    <script type="text/javascript" src="/resources/primefaces/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.js"></script>
+    <script type="text/javascript" src="/resources/primefaces/primeui.min.js"></script>  
+    
+    <script type="text/javascript">
+    $(function() {                
+    $('#t-btn-show').puibutton({
+        click: function() {
+            $('#notifytop').puinotify('show', '<h1>degloba Rent</h1> <p>The project will give an opportunity to any individual person rent their own belongings.Users can rent every kind of things, from a suitcase, to a bicycle, to whatever the user wants to rent in the location they are renting. Item can be any tangible thing or also	intangible things like a service.</p>');
+        }
+    });
+ 
+    $('#b-btn-show').puibutton({
+        click: function() {
+            document.getElementById('notifybottom').show('<h1>PrimeElement</h1> <p>The bottom notify is defined as a PrimeElement.</p>');
+        }
+    });
+ 
+    $('#notifytop').puinotify({
+        easing: 'easeInOutCirc'
+    });
+});
+    </script> 
 				
 </h:head>
 
 
 <h:body>
 
+<div id="notifytop"></div>
+
+ <f:view contentType="text/html">
+  
 	<div id="wrapper"> <!--This is the Div 1 in the picture-->
     	<div id="topBar"> <!--This is the Div 2 in the picture-->
-    
-	    	<!-- Per visualitzar el botó de Toolkit Identity -->
-			<div id="navbar"></div> <!--This is the Div 4 in the picture-->
-					
+    	    				
 	        <div id="menu">
 	       			
 				<ui:insert name="footer" >
@@ -107,6 +137,10 @@
 		    </p:layoutUnit>
 	</p:layout>   -->
 	
+	
+	<div id="notifybottom"></div>
+
+</f:view>
 
 	</h:body>
 

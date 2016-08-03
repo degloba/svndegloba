@@ -31,8 +31,8 @@
 	            <h:outputLabel for="passwordSignup" value="Password" />
 	            <p:password id="passwordSignup" value="#{userSignupView.password}" required="true" label="password" />
 	 
-	            <p:commandButton value="Sign Up" update="growlSignup" 
-	                                 oncomplete="handleSignUp()" />
+	            <p:commandButton value="Sign Up" update="growlSignup" type="button"
+	                                 onclick="handleSignUp()" />
 	           
 	            <h:outputLabel value="By signing up you agree to our Terms and Privacy" />
 	            
@@ -48,11 +48,11 @@
 	            
 	        <h:panelGrid columns="1" cellpadding="5">
 	            
-				<p:commandButton value="Sign Up with Google" update="growlSignupSocials" oncomplete="toggleSignInGoogle()" />
+				<p:commandButton type="button" value="Sign Up with Google" update="growlSignupSocials" onclick="toggleSignInGoogle()" />
 	       
-	        	<p:commandButton value="Sign Up with Twitter" update="growlSignupSocials" oncomplete="toggleSignInTwitter()" />
+	        	<p:commandButton type="button" value="Sign Up with Twitter" update="growlSignupSocials" onclick="toggleSignInTwitter()" />
 	       
-	            <p:commandButton value="Sign Up with Facebook" update="growlSignupSocials" oncomplete="handleLoginRequest(xhr, status, args)" />
+	            <p:commandButton type="button" value="Sign Up with Facebook" update="growlSignupSocials" onclick="toggleSignInFacebook()" />
 	               
 				<!-- <h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />  -->                 
 	                      

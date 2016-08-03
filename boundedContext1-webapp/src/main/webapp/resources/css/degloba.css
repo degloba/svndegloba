@@ -1,21 +1,12 @@
 body {
-	 background-color: white: /*#f4faff;*/
-	 padding :0;
-	 margin:0;
-	 width:100%;
-	 height:100%;
+	 background-color: white :padding :0;
+	 margin: 0;
+	 width: 100%;
+	 height: 100%;
      font-size: 12px;	  
      font-family: Verdana, Arial, Helvetica, sans-serif;   
 	}
 	
-.paragraf {
-	font-size: 12px;
-/*	font-weight: bold;*/
-	font-family: Verdana, Arial, Helvetica, sans-serif; 
-	}
-
-		
-
 
 /********************************/        
 /* enllacos dels panells modals */
@@ -53,27 +44,6 @@ body {
         }
 
 
-/********************************/        
-/* WIZARDS */
-/********************************/
-
-.titolWizard {
-		color:gray;
-		font-size: 12px;
-       	valign : middle;
-       	text-decoration: none;
-       	font-family: Verdana, Arial, Helvetica, sans-serif;  
-	}
-	
-.descWizard {
-		color:gray;
-		margin-left:0px;
-		font-size: 12px;
-       	valign : left;
-       	font-family: Verdana, Arial, Helvetica, sans-serif;  
-	}   
-	
-	
 	
 /********************************/        
 /* NOTICIES */
@@ -96,24 +66,7 @@ body {
        	font-family: Verdana, Arial, Helvetica, sans-serif;  
 	}  
 	
-.bodyNoticies {
-   height: 300px;
-   overflow: auto;
-  }	
-  
-  
 	
-
-.div_near_spacer {
- border-top-width: 0px;
- border-left-width: 0px;
- font-size: 0px;
- border-bottom-width: 0px;
- height: 5px;
- background-color: #{a4jSkin.panelBorderColor};
- border-right-width: 0px
- }
- 	
 
 /********************************/        
 /* DESCRIPCIO MENUITEMS */
@@ -371,25 +324,6 @@ body {
 	}
 	
 
-/**************/
-/* TREE       */
-/**************/
-
-.arbre {
-	font-size: 10px;
-/*	font-weight: bold;*/
-	font-family: Verdana, Arial, Helvetica, sans-serif; 
-	} 
-
-.wizard {
-	font-size: 10px;
-/*	font-weight: bold;*/
-	font-family: Verdana, Arial, Helvetica, sans-serif; 
-	} 
-	
-	
-	
-
 
 .contentplace { background-color:#e6eef2;color:#000000; width:600px; }
 .contentplace p { background-color:#e6eef2;margin: 0 10px 0 10px; }
@@ -409,11 +343,6 @@ img.placeborder2 { width: 20px; height: 20px;border: none;display: block !import
 .topplace3{ background: url(http://img571.imageshack.us/img571/1534/mlyzhpi1.png) no-repeat top right; }
 .bottomplace3 { background: url(http://img696.imageshack.us/img696/5151/ggkwvej2.png) no-repeat top right; }
 img.placeborder3 { width: 20px; height: 20px;border: none;display: block !important; }
-
-
-.orange {
-	color:orange;
-	}
 
 
 
@@ -438,7 +367,7 @@ img.placeborder3 { width: 20px; height: 20px;border: none;display: block !import
 
 table, th, td {
 			border: 0px solid red;
-			color: "#EEF2F5";
+			color: Brown;
 			}
 			
 		.companyHeaderGrid.ui-panelgrid>*>tr,
@@ -455,45 +384,40 @@ table, th, td {
 		.ui-panel-content, .ui-widget-content{
            padding:0px;
        		}
-       
-#navbar {
- 
-float:left;
-width:30%;
-height: 100px;
-
- }
- 
-
+       		
+       		
+/*********************/       		
+/* TEMPLATE STANDARD */
+/*********************/
  
  #wrapper
 {
 
-width:90%;
+width:100%;
 background-color:#f2f2e8;
 position:relative;
-left:5%;
+left:0%;
 margin-left:0px;
 border-radius: 10px;
--moz-border-radius: 10px;
-padding:5px;
+-moz-border-radius: 30px;
+padding:30px;
 }
 
 #topBar
 {
-width:100%;
+width:90%;
 border: 1px solid;
 border-color: #dbd9ca;
 border-radius: 10px;
 -moz-border-radius: 10px;
 margin:5px;
 padding:5px;
-height:60px;
+height:40px;
 }
 
 
 
-#menu
+#header
 {
 float:left;
 
@@ -509,6 +433,7 @@ width:80px;
 {
 width:100%;
 clear:both;
+height:80%;
 }
 
 #footer

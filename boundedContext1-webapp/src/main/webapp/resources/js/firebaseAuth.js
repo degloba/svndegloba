@@ -151,32 +151,55 @@
     // [START buttoncallback]
     function toggleSignInGoogle() {
         
-      if (!firebase.auth().currentUser) {
-    	  
-        // [START createprovider]
-        var provider = new firebase.auth.GoogleAuthProvider();
-        // [END createprovider]
-        // [START addscopes]
-        provider.addScope('https://www.googleapis.com/auth/plus.login');
-        // [END addscopes]
-        // [START signin]
-        firebase.auth().signInWithRedirect(provider);
-        // [END signin]
-      } else {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
-      }
-      // [START_EXCLUDE]
-      //document.getElementById('sign-in-google').disabled = true;
-      //document.getElementById('sign-in-twitter').disabled = true;
-      // [END_EXCLUDE]
-    }
-    // [END buttoncallback]
+    	if (!firebase.auth().currentUser) {
+            // [START createprovider]
+            var provider = new firebase.auth.GoogleAuthProvider();
+            // [END createprovider]
+            // [START addscopes]
+            provider.addScope('https://www.googleapis.com/auth/plus.login');
+            // [END addscopes]
+            // [START signin]
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+              // This gives you a Google Access Token. You can use it to access the Google API.
+              var token = result.credential.accessToken;
+              // The signed-in user info.
+              var user = result.user;
+              // [START_EXCLUDE]
+              //////document.getElementById('quickstart-oauthtoken').textContent = token;
+              // [END_EXCLUDE]
+            }).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // The email of the user's account used.
+              var email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              var credential = error.credential;
+              // [START_EXCLUDE]
+              if (errorCode === 'auth/account-exists-with-different-credential') {
+                alert('You have already signed up with a different auth provider for that email.');
+                // If you are using multiple auth providers on your app you should handle linking
+                // the user's accounts here.
+              } else {
+                console.error(error);
+              }
+              // [END_EXCLUDE]
+            });
+            // [END signin]
+          } else {
+            // [START signout]
+            firebase.auth().signOut();
+            // [END signout]
+          }
+          // [START_EXCLUDE]
+          //////////document.getElementById('quickstart-sign-in').disabled = true;
+          // [END_EXCLUDE]
+        }
+        // [END buttoncallback]
     
     
     
-    function toggleSignInTwitter() {
+    function toggleSignInTwitter() {    
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.TwitterAuthProvider();
@@ -218,12 +241,70 @@
         // [END signout]
       }
    // [START_EXCLUDE]
-           
+         
       // Ocultem el dialeg
   	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
       // [END_EXCLUDE]
     }
     // [END buttoncallback]
+    
+    
+    
+    /**
+     * Function called when clicking the Login/Logout button.
+     */
+    // [START buttoncallback]
+    function toggleSignInFacebook() {
+      if (!firebase.auth().currentUser) {
+        // [START createprovider]
+        var provider = new firebase.auth.FacebookAuthProvider();
+        // [END createprovider]
+        // [START addscopes]
+        provider.addScope('user_birthday');
+        // [END addscopes]
+        // [START signin]
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          // [START_EXCLUDE]
+          /////////document.getElementById('quickstart-oauthtoken').textContent = token;
+          // [END_EXCLUDE]
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/account-exists-with-different-credential') {
+            alert('You have already signed up with a different auth provider for that email.');
+            // If you are using multiple auth providers on your app you should handle linking
+            // the user's accounts here.
+          } else {
+            console.error(error);
+          }
+          // [END_EXCLUDE]
+        });
+        // [END signin]
+      } else {
+        // [START signout]
+        firebase.auth().signOut();
+        // [END signout]
+      }
+      // [START_EXCLUDE]
+      ////////////document.getElementById('quickstart-sign-in').disabled = true;
+      
+      // Ocultem el dialeg
+    	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
+      // [END_EXCLUDE]
+    }
+    // [END buttoncallback]
+    
+    
     
     
     /**
@@ -283,12 +364,16 @@
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {    	 
         if (user) {
-        	       
+        	     
         	// Visibilitzem el usuari loginat
         	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
         	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
         	$("#google-user").css("display", "inline");
-          	
+        	
+        	 // Ocultem el dialeg
+        	$("#signinSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
+        	$("#signinSignupComponent\\:signInDialegComponent\\:dlgSignin").css("display", "none");
+        	
         	
         	//User is signed in.
           var displayName = user.displayName;

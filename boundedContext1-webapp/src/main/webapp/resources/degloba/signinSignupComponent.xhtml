@@ -16,39 +16,40 @@
    
    <composite:implementation>
    
-   <h:panelGrid styleClass="top-aligned-columns"  columns="5" cellpadding="0" cellspacing="0" border="0">
-   
-    	<p:commandButton value="Sign In" type="button" onclick="PF('#{cc.attrs.dialegSignup}').show();" />
-	 
-     	<p:commandButton value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignin}').show();" />
-     		                
-		<img id="google-user" src=""  style="width: 30px;"></img>  
-		    
-		<h:form id="formUserLoggined" >   
-         
-	        <p:growl id="messages" showDetail="false"/>
+	   <h:panelGrid styleClass="top-aligned-columns"  columns="5">
+	   
+	    	<p:commandButton value="Sign Up" type="button" onclick="PF('#{cc.attrs.dialegSignup}').show();" />
+		 
+	     	<p:commandButton value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignin}').show();" />
+	     		                
+			<img id="google-user" src=""  style="width: 30px;"></img>  
+			    
+			<h:form id="formUserLoggined" >   
 	         
-			<p:commandButton id="userLogginedButton"  icon="fa fa-user"/>
+		        <p:growl id="messages" showDetail="false"/>
+		         
+				<p:commandButton id="userLogginedButton" type="button" icon="fa fa-user"/>
+				
+			    <p:menu overlay="true" trigger="userLogginedButton" my="left top" at="left bottom">
+			    <p:submenu label="Document">
+			        <p:menuitem value="My profile" update="messages" icon="fa fa-plus"/>
+			        <p:menuitem value="Calendar"  update="messages" />
+					<p:menuitem value="Settings"  update="messages" icon="fa fa-refresh"/>
+			        <p:menuitem value="Logout" update="messages" icon="fa fa-user"  oncomplete="toggleSignInEmail()"/>
+			        </p:submenu>	        	        
+			    </p:menu>
+			    
+		        
+			</h:form>
+	        
+	            
+			<!-- Components signUp/singIn -->
+	        <degloba:signUpDialegComponent id="signUpDialegComponent" dialegSignup="#{cc.attrs.dialegSignup}"/>
+	   
+			<degloba:signInDialegComponent id="signInDialegComponent" dialegSignin="#{cc.attrs.dialegSignin}"/>
 			
-		    <p:menu overlay="true" trigger="userLogginedButton" my="left top" at="left bottom">
-		    <p:submenu label="Document">
-		        <p:menuitem value="My profile" update="messages" icon="fa fa-plus"/>
-		        <p:menuitem value="Calendar"  update="messages" />
-				<p:menuitem value="Settings"  update="messages" icon="fa fa-refresh"/>
-		        <p:menuitem value="Logout" update="messages" icon="fa fa-user"  oncomplete="toggleSignInEmail()"/>
-		        </p:submenu>	        	        
-		    </p:menu>
-            
-		</h:form>
-        
-            
-		<!-- Components signUp/singIn -->
-        <degloba:signUpDialegComponent id="signUpDialegComponent" dialegSignup="#{cc.attrs.dialegSignup}"/>
-   
-		<degloba:signInDialegComponent id="signInDialegComponent" dialegSignin="#{cc.attrs.dialegSignin}"/>
-		
-		
-	</h:panelGrid>
+			
+		</h:panelGrid>
             
 	</composite:implementation>
    
