@@ -11,21 +11,30 @@
     <body>
  
 	    <ui:composition>
-	    
-	    
-	    
-	    
-	      <h:panelGrid columns="5" cellpadding="0" cellspacing="0" border="0">
-	      
-			<degloba:signinSignupComponent id="signinSignupComponent" dialegSignup="dlgSignup" dialegSignin="dlgSignin"/>
-			
-			<h:outputLink value="productFlow" >
-				<h:outputText value="Rent your stuff" />
-			</h:outputLink>  
+	       		
+	       	<!-- apliquem Primefaces Grid Css -->
+				       		
+			<div class="ui-g">
+			    <div class="ui-g-12 ui-md-6 ui-lg-3">
+			    	<button id="t-btn-show" type="button">About us</button>
+				</div>
 				
-			<a href="carregaEntitats">Carrega</a>.
+			    <div class="ui-g-12 ui-md-6 ui-lg-3">
+			    	<degloba:signinSignupComponent id="signinSignupComponent" dialegSignup="dlgSignup" dialegSignin="dlgSignin"/>
+				</div>
+			    
+			    <div class="ui-g-12 ui-md-6 ui-lg-3">
+			    	<h:outputLink value="productFlow" styleClass="enllac">
+								<h:outputText  value="Rent your stuff" />
+							</h:outputLink>  
+			    </div>
+			    
+			    <div class="ui-g-12 ui-md-6 ui-lg-3">
+			    	<a id="carregaEntitats" class="descNoticies" href="carregaEntitats">Carrega</a>
+			    </div>
+			</div>
+ 
 				
-				</h:panelGrid>				
 	    </ui:composition>
 	    
     </body>
