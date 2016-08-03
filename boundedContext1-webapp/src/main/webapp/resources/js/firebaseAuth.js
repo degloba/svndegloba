@@ -376,8 +376,9 @@
         	$("#signinSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
         	$("#signinSignupComponent\\:signInDialegComponent\\:dlgSignin").css("display", "none");
         	
-        	// Invisibilitzem boto SignUp
+        	// Invisibilitzem boto SignUp SignIn
         	$("#signinSignupComponent\\:btnSignup").css("display", "none");
+        	$("#signinSignupComponent\\:btnSignin").css("display", "none");
         	
         	if (user.email == "degloba@degloba.com") {
         		$("#carregaEntitats").css("display", "block");
@@ -441,6 +442,7 @@
         	
            	// Visibilitzem boto Signup
         	$("#signinSignupComponent\\:btnSignup").css("display", "block");
+        	$("#signinSignupComponent\\:btnSignin").css("display", "block");
         	
         	$("#carregaEntitats").css("display", "none");
         	
