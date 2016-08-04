@@ -10,96 +10,35 @@
 
 
 <ui:define name="content">
-
-
-<p:layout style="min-width:600px;min-height:800px;border: 0px;">
-    <p:layoutUnit position="west" resizable="true" size="600" minSize="600" maxSize="600" style="border: 0px;color:black">
     
-    <h:form id="productByOwnerForm">
-
-	<p:fieldset legend="Details product">
-	
-	<p:panelGrid columns="2" id="detailProductPanel" styleClass="companyHeaderGrid">
-		  				
-		    	<h:outputText value="Name: " style="color:#bbbbbb" />
-		    	<p:inputText value="#{product.name}"/>
-		    
-		     	<h:outputText value="Description: " style="color:#bbbbbb" />
-		     	<p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
- 		     	
-		     	<h:outputText value="Category: " style="color:#bbbbbb" />
-		     	<p:autoComplete id="dd" dropdown="true" value="#{autoCompleteView.txt6}" completeMethod="#{autoCompleteView.completeText}" />
-		     	
-				<h:outputText value="Location: " style="color:#bbbbbb" />
-
-			<p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
-            <f:selectItem itemLabel="Select One" itemValue="" />
-            <f:selectItem itemLabel="08240" itemValue="08240" />
-            <f:selectItem itemLabel="08242" itemValue="08242" />            
-        </p:selectOneMenu>
-        
-        <h:outputText value="Price: " style="color:#bbbbbb" />
-				<p:inputText id="output1" disabled="true" value="0.0"/> 
-				
-		      	
-		      	</p:panelGrid>
-		      	
-		      	
+    <p:panel id="basic" header="Rent your stuff" footer="Rent your stuff" style="margin-bottom:20px">
+    
+    <h:form>  
+	   <degloba:detailProductComponent></degloba:detailProductComponent>
 	   
-	 	  <h:form enctype="multipart/form-data">
-	 	      				
+	   <degloba:locationComponent></degloba:locationComponent>
+	</h:form>
+	
+	
+	   
+	<h:form enctype="multipart/form-data">
+	 	      			
     	<br />
-	    	<h:outputText value="Controller + mode advanced" style="color:#bbbbbb" />	<br />	
-			<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+		
+		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
 	    	ajax="false"
 	        mode="advanced" 
 	        update="messages2"
 	        sizeLimit="1000000" 
 	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
-		    <p:growl id="messages2" showDetail="true"/>
+		<p:growl id="messages2" showDetail="true"/>
     
-    <br />
-    
-		   	
-			</h:form>
-	
-        		
-    <span class="alt">&lt;p:commandButton value="Accept" action="acceptProduct" /&gt;</span>
-    
-	</p:fieldset>
+    	<br />
+    	   	
 	</h:form>
 	
-</p:layoutUnit>
-
-<p:layoutUnit position="center" resizable="true" size="300" minSize="300" maxSize="400" style="border: 0px;color:black">
-
-<p:dataTable var="car" value="#{dtBasicView.cars}">
-    <p:column headerText="Id">
-        <h:outputText value="#{car.id}" />
-    </p:column>
- 
-    <p:column headerText="Year">
-        <h:outputText value="#{car.year}" />
-    </p:column>
- 
-    <p:column headerText="Brand">
-        <h:outputText value="#{car.brand}" />
-    </p:column>
- 
-    <p:column headerText="Color">
-        <h:outputText value="#{car.color}" />
-    </p:column>
-</p:dataTable>
-
-
-
-</p:layoutUnit>
-
-</p:layout>
-
-
-	    		
+	</p:panel>
         		
 </ui:define>
 

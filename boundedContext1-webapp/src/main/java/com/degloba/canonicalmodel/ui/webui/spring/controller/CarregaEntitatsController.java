@@ -78,7 +78,7 @@ public class CarregaEntitatsController {
 			e.printStackTrace();
 		}
 	           
-		return "/app/home";
+		return "home";
 	}
 
 }

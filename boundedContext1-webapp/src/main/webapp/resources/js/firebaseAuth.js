@@ -327,6 +327,8 @@
     	
     	$("#carregaEntitats").css("display", "none");
     	
+    	$("#rentStuffOutputlink").css("display", "none");
+    	
     	
       // Result from Redirect auth flow.
       // [START getidptoken]
@@ -379,6 +381,9 @@
         	// Invisibilitzem boto SignUp SignIn
         	$("#signinSignupComponent\\:btnSignup").css("display", "none");
         	$("#signinSignupComponent\\:btnSignin").css("display", "none");
+        	
+        	$("#rentStuffOutputlink").css("display", "inline");
+        	
         	
         	if (user.email == "degloba@degloba.com") {
         		$("#carregaEntitats").css("display", "block");
@@ -445,6 +450,8 @@
         	$("#signinSignupComponent\\:btnSignin").css("display", "block");
         	
         	$("#carregaEntitats").css("display", "none");
+        	
+        	$("#rentStuffOutputlink").css("display", "none");
         	
           // User is signed out.
           // [START_EXCLUDE]

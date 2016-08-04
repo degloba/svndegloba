@@ -16,10 +16,10 @@
    
    <composite:implementation>
    
-		<p:panelGrid columns="1" id="categoriesPanel" styleClass="companyHeaderGrid">
+		<p:panelGrid columns="1" id="categoriesPanel">
 		  
 			<h:outputLabel id="ww" value="#{cc.attrs.categoriesValue}"></h:outputLabel>
-			<h:outputText value="Categories " style="color:#bbbbbb" />
+			<h:outputText value="Categories " />
 		    	
         	
         	<p:selectOneMenu id="category" value="#{selectOneMenuCategoryView.categories}" effect="fold" editable="true">
@@ -29,7 +29,7 @@
 			</p:selectOneMenu>
 		
 			<p:outputLabel for="subcategory" value="Subcategory: " />
-            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}" style="width:150px">
+            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}">
                 <f:selectItem itemLabel="Select subcategory" itemValue="" noSelectionOption="true" />
                 <f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
             </p:selectOneMenu>

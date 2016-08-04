@@ -9,63 +9,60 @@
    
    <!-- Definim tots els controls -->
    <composite:interface>
-		<composite:attribute name="imagesValue" />
+		<!-- <composite:attribute name="imagesValue" />
 		<composite:attribute name="priceValue" />
 		<composite:attribute name="nameValue" />
 		<composite:attribute name="descriptionValue" />
 		<composite:attribute name="categoryValue" />
 		<composite:attribute name="countVisitValue" />
-		<composite:attribute name="locationValue" />
+		<composite:attribute name="locationValue" /> -->
    </composite:interface>
    
    
    <composite:implementation>
    
-	<h:form>
-      
-      	<p:panelGrid columns="1" id="productPanel" styleClass="companyHeaderGrid">
-           
-    		 <p:galleria value="#{cc.attrs.imagesValue}" var="image" panelWidth="350" panelHeight="200" showCaption="true">
-	    		<p:graphicImage value="/resources/images/pexels/#{image}" alt="Image Description for #{image}" title="#{image}"/>
-		  	</p:galleria>
-		  
-		  	<p:panelGrid columns="2" id="detailProductPanel" styleClass="companyHeaderGrid">
-		  
-				<h:outputText value="Price: " style="color:#bbbbbb" />
-				<h:outputText value="#{cc.attrs.priceValue}" />
-		   
-		    	<h:outputText value="Name: " style="color:#bbbbbb" />
-		    	<h:outputText value="#{cc.attrs.nameValue}"  />
+   <p:fieldset legend="Details product">
+	
+	<p:panelGrid columns="2" id="detailProductPanel" >
+		  				
+		<h:outputText value="Name: " />
+		<p:inputText value="#{product.name}"/>
 		    
-		     	<h:outputText value="Description: " style="color:#bbbbbb" />
-		     	<h:outputText value="#{cc.attrs.descriptionValue}"  />
-		     	
-		     	<h:outputText value="Category: " style="color:#bbbbbb" />
-		     	<h:outputText value="#{cc.attrs.categoryValue}"  />
-		     	
-				<h:outputText value="Count: " style="color:#bbbbbb" />
-		     	<h:outputText value="#{cc.attrs.countVisitValue}"  />
-		     	
-				<h:outputText value="Location: " style="color:#bbbbbb" />
-		      	<h:outputText value="#{cc.attrs.locationValue}" />
-	   
-	   		</p:panelGrid>
-		     	
-		     	<p:selectOneButton value="#{selectOneView.option}">
-            		<f:selectItem itemLabel="Accept offer" itemValue="Accept offer" />
-            		<f:selectItem itemLabel="Make offer" itemValue="Make offer" />
-            		<f:selectItem itemLabel="Ask a question" itemValue="Ask a question" />
-        		</p:selectOneButton>
- 		     
- 		     <p:panelGrid columns="2" styleClass="companyHeaderGrid">
-			    <p:commandButton value="Submit"  />
-			    <h:outputText value="People also viewed" />
-	   		</p:panelGrid>
-	   
-      	</p:panelGrid>
-            
-      </h:form>
-            
+		<h:outputText value="Description: " />
+		<p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
+ 		     	
+		<h:outputText value="Category: "  />
+
+		<p:selectOneMenu id="category" value="#{selectOneMenuCategoryView.categories}" effect="fold" editable="true">
+		 	<p:ajax event="change" listener="#{selectOneMenuCategoryView.onCategoryChange}" update="subcategory" />
+        	<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+            <f:selectItems value="#{selectOneMenuCategoryView.categories}" />
+		</p:selectOneMenu>
+		
+		<p:outputLabel for="subcategory" value="Subcategory: " />
+            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}" >
+                <f:selectItem itemLabel="Select subcategory" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
+            </p:selectOneMenu>
+ 		     	 
+		
+		<h:outputText value="Location: "  />
+
+		<p:selectOneMenu id="console" value="#{selectOneMenuView.console}" >
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="08240" itemValue="08240" />
+            <f:selectItem itemLabel="08242" itemValue="08242" />            
+        </p:selectOneMenu>
+        
+        
+        <h:outputText value="Price: " />
+		<p:inputText id="output1" disabled="true" value="0.0"/> 
+				
+		      	
+	</p:panelGrid>
+	
+	</p:fieldset>
+	        
    </composite:implementation>
    
 </html>
