@@ -21,7 +21,13 @@
 	
 		<ui:insert name="headIncludes" />
 		
-		<!-- Firebase -->
+		<!-- Necessari per Gmap Primefaces 
+		http://stackoverflow.com/questions/24080110/primefaces-referenceerror-google-is-not-defined -->
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuTo74D7zmb6vO6bOV5Z1h7IABIEBM0hM" type="text/javascript"></script>
+		
+		
+	<!-- Firebase -->
   	<!-- ***********************************************************************************************************************
     * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
     *********************************************************************************************************************** -->
@@ -62,6 +68,61 @@
     });
 }); 
     </script> -->
+				
+				
+				
+				
+				
+				
+	<!-- ************************** -->			
+	<!-- Gestio markers/events Gmap -->			
+	<!-- ************************** -->				
+				
+	<script type="text/javascript">
+	
+    var currentMarker = null;
+ 
+    function handlePointClick(event) {
+        
+        if(currentMarker === null) {
+        
+            /* document.getElementById('lat').value = event.latLng.lat();
+            document.getElementById('lng').value = event.latLng.lng(); */
+
+            currentMarker = new google.maps.Marker({
+                position:new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+            });
+ 
+            PF('map').addOverlay(currentMarker);
+ 
+            PF('dlg').show();
+        }   
+    }
+ 
+    function markerAddComplete() {
+        
+        var title = document.getElementById('markerGmapForm:j_idt72:title');
+        currentMarker.setTitle(title.value);
+        title.value = "";
+ 
+        currentMarker = null;
+        PF('dlg').hide();
+    }
+ 
+    function cancel() {
+        PF('dlg').hide();
+        currentMarker.setMap(null);
+        currentMarker = null;
+ 
+        return false;
+    }
+    
+	</script>
+				
+	<!-- ***************************** -->			
+	<!-- Fi Gestio markers/events Gmap -->			
+	<!-- ***************************** -->				
+				
 				
 </h:head>
 
