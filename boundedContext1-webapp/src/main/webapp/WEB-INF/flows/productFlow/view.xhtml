@@ -13,26 +13,10 @@
     
     <p:panel id="basic" header="Rent your stuff" footer="Rent your stuff" style="margin-bottom:20px">
     
-    <h:form>  
+    <h:form  >  
 	   <degloba:detailProductComponent></degloba:detailProductComponent>
 	   
-	   <degloba:locationComponent></degloba:locationComponent>
-	  </h:form>
-	
-	
-	   
-	<h:form enctype="multipart/form-data">
-	 	      			
-    	<br />
-		
-		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
-	    	ajax="false"
-	        mode="advanced" 
-	        update="messages2"
-	        sizeLimit="1000000" 
-	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-
-		<p:growl id="messages2" showDetail="true"/>
+	  
     
     	<br />
     	   	
