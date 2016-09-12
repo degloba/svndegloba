@@ -113,5 +113,7 @@
 	
 	
 	<bean id="categoryRepositoryObjectify" name="categoryRepositoryObjectify" class="com.degloba.rent.infrastructure.objectify.repositories.ObjectifyCategoryRepository" />
+	<bean id="ownerRepositoryObjectify" name="ownerRepositoryObjectify" class="com.degloba.rent.infrastructure.objectify.repositories.ObjectifyOwnerRepository" />
+	
 	
 </beans>

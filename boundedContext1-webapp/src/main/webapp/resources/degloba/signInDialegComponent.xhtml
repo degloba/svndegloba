@@ -22,7 +22,7 @@
         	<h:panelGrid columns="1" cellpadding="5">
         
 				<h:outputLabel for="emailSignin" value="Email Address" />
-	            <p:inputText id="emailSignin" value="#{userLoginView.email}" required="true" label="email" />
+	            <p:inputText id="emailSignin" value="#{userLoginView.email}" required="true" label="email" size="45"/>
 	            
 	            <h:outputLink onclick="sendPasswordReset()">Forgot ?</h:outputLink>
 	          
@@ -43,11 +43,11 @@
         	
         	<h:panelGrid columns="1" cellpadding="5">
         	
-				<p:commandButton type="button" value="Log In with Google" update="growlSigninSocials" onclick="toggleSignInGoogle()" />
+				<p:commandButton type="button" value="Log In with Google" update="growlSigninSocials" onclick="toggleSignInGoogle()" style="width:360px"/>
 	       
-	        	<p:commandButton type="button" value="Log In with Twitter" update="growlSigninSocials" onclick="toggleSignInTwitter()" />
+	        	<p:commandButton type="button" value="Log In with Twitter" update="growlSigninSocials" onclick="toggleSignInTwitter()" style="width:360px"/>
 	       
-	            <p:commandButton type="button" value="Log In with Facebook" update="growlSigninSocials" onclick="toggleSignInFacebook()" />
+	            <p:commandButton type="button" value="Log In with Facebook" update="growlSigninSocials" onclick="toggleSignInFacebook()" style="width:360px"/>
 	       
 	       	<!-- 	<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />  
 	       -->

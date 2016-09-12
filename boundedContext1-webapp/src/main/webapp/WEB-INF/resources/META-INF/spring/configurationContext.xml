@@ -98,6 +98,9 @@
 		    <constructor-arg name="categoryRepositoryObjectify" ref="categoryRepositoryObjectify"/>      	 
 	</bean>		
 		
+	<bean id="ownerApplicationObjectify" class="com.degloba.rent.application.objectify.impl.OwnerApplicationImpl" >
+		    <constructor-arg name="ownerRepositoryObjectify" ref="ownerRepositoryObjectify"/>      	 
+	</bean>	
 	 
 	<!-- ******************* -->
 	<!-- FACADES             -->
@@ -119,6 +122,10 @@
 	</bean> 
 	<bean id="categoryFacadeObjectify" class="com.degloba.rent.facade.impl.objectify.CategoryFacadeImpl">
 		 <property name="categoryApplicationObjectify" ref="categoryApplicationObjectify"></property> 
+	</bean> 
+	
+	<bean id="ownerFacadeObjectify" class="com.degloba.rent.facade.impl.objectify.OwnerFacadeImpl">
+		 <property name="ownerApplicationObjectify" ref="ownerApplicationObjectify"></property> 
 	</bean> 
 	
 	

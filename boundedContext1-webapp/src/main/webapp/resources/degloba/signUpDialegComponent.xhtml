@@ -14,7 +14,7 @@
    
    <composite:implementation>
    
-		<p:dialog id="dlgSignup" header="Sign In" widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
+		<p:dialog id="dlgSignup" header="Sign Up" widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
 		
 		<h:form id="formSignup">
 		
@@ -23,10 +23,10 @@
 	        <h:panelGrid columns="1" cellpadding="5">
 	        
 				<h:outputLabel for="usernameSignup" value="Name" />
-	            <p:inputText id="usernameSignup" value="#{userSignupView.name}" required="true" label="name" />
+	            <p:inputText id="usernameSignup" value="#{userSignupView.name}" required="true" label="name" size="20"/>
 	 
 	 			<h:outputLabel for="emailSignup" value="Email Address" />
-	            <p:inputText id="emailSignup" value="#{userSignupView.email}" required="true" label="email" />
+	            <p:inputText id="emailSignup" value="#{userSignupView.email}" required="true" label="email" size="45"/>
 	          
 	            <h:outputLabel for="passwordSignup" value="Password" />
 	            <p:password id="passwordSignup" value="#{userSignupView.password}" required="true" label="password" />
@@ -48,11 +48,11 @@
 	            
 	        <h:panelGrid columns="1" cellpadding="5">
 	            
-				<p:commandButton type="button" value="Sign Up with Google" update="growlSignupSocials" onclick="toggleSignInGoogle()" />
+				<p:commandButton type="button" value="Sign Up with Google" update="growlSignupSocials" onclick="toggleSignInGoogle()" style="width:360px"/>
 	       
-	        	<p:commandButton type="button" value="Sign Up with Twitter" update="growlSignupSocials" onclick="toggleSignInTwitter()" />
+	        	<p:commandButton type="button" value="Sign Up with Twitter" update="growlSignupSocials" onclick="toggleSignInTwitter()" style="width:360px"/>
 	       
-	            <p:commandButton type="button" value="Sign Up with Facebook" update="growlSignupSocials" onclick="toggleSignInFacebook()" />
+	            <p:commandButton type="button" value="Sign Up with Facebook" update="growlSignupSocials" onclick="toggleSignInFacebook()" style="width:360px"/>
 	               
 				<!-- <h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />  -->                 
 	                      
