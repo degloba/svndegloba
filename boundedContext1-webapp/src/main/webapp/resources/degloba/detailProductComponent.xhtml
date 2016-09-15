@@ -24,41 +24,18 @@
    <p:fieldset legend="Details product">
 	
 	<p:panelGrid columns="2" id="detailProductPanel" >
-		  				
+		  		
 		<h:outputText value="Name: " />
-		<p:inputText value="#{product.name}"/>
+		<p:inputText value="#{rentYourStuffView.description}"/>
 		    
-		<h:outputText value="Description: " />
-		<p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
- 		     	
-		<h:outputText value="Category: "  />
-
-		<p:selectOneMenu id="category" value="#{selectOneMenuCategoryView.categories}" effect="fold" editable="true">
-		 	<p:ajax event="change" listener="#{selectOneMenuCategoryView.onCategoryChange}" update="subcategory" />
-        	<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
-            <f:selectItems value="#{selectOneMenuCategoryView.categories}" />
-		</p:selectOneMenu>
+		        
+        <h:outputText value="Price: " for="price"/>
+		<p:inputText id="output1" disabled="false" name="price" value="#{rentYourStuffView.price}"/> 
+		<p:message for="price" />
+				 		      	
+		<p:commandButton  value="Add product" action="addProductAction" />&nbsp;
 		
-		<p:outputLabel for="subcategory" value="Subcategory: " />
-            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}" >
-                <f:selectItem itemLabel="Select subcategory" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
-            </p:selectOneMenu>
- 		     	 
 		
-		<h:outputText value="Location: "  />
-
-		<p:selectOneMenu id="console" value="#{selectOneMenuView.console}" >
-            <f:selectItem itemLabel="Select One" itemValue="" />
-            <f:selectItem itemLabel="08240" itemValue="08240" />
-            <f:selectItem itemLabel="08242" itemValue="08242" />            
-        </p:selectOneMenu>
-        
-        
-        <h:outputText value="Price: " />
-		<p:inputText id="output1" disabled="true" value="0.0"/> 
-				
-		      	
 	</p:panelGrid>
 	
 	</p:fieldset>

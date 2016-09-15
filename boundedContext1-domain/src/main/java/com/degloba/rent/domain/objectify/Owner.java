@@ -21,7 +21,7 @@ public class Owner implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	Long id;
+	String id;
 	
 	//////////@Embedded
     PersonName name;
@@ -146,11 +146,11 @@ public class Owner implements Serializable {
 		this.address = address;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

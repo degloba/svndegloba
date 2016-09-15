@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
 import com.degloba.rent.cqrs.readmodel.CategoryFinder;
 import com.degloba.rent.cqrs.readmodel.SubcategoryFinder;
-import com.degloba.rent.domain.Category;
-import com.degloba.rent.domain.Subcategory;
+import com.degloba.rent.domain.jpa.Category;
+import com.degloba.rent.domain.jpa.Subcategory;
 
 @Component
 @ManagedBean
@@ -36,9 +36,10 @@ public class SelectOneMenuSubcategoryView {
 		//categories
 		subcategories = new HashMap<String, String>();
 		
+		/*
 		for (Subcategory s : subcategoryFinder.findSubcategoriesByCategory(category)) {
 			subcategories.put(s.getDescription(), s.getDescription());
-		  }
+		  }*/
 		   
     }
 

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,18 +21,20 @@ import org.springframework.web.bind.annotation.CookieValue;
 // Spring Web
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.degloba.identityToolkit.GitkitClient;
+/*import com.degloba.identityToolkit.GitkitClient;
 import com.degloba.identityToolkit.GitkitClientException;
-import com.degloba.identityToolkit.GitkitUser;
-import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
+import com.degloba.identityToolkit.GitkitUser;*/
+//import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
+//import com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository;
+import com.google.appengine.api.utils.SystemProperty;
 
 
 @Controller
 public class RentYourStuffController {  
-/*	
-	@Inject
-	private IGCMTokenRegisterRepository GCMTokenRegisterRepository; 
-*/	
+	
+/*	@Inject
+	private IGCMTokenRegisterRepository GCMTokenRegisterRepository; */
+	
 		
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
@@ -54,7 +57,7 @@ public class RentYourStuffController {
 			
 		InputStream keyStream = new FileInputStream(context.getRealPath("/WEB-INF/wwwdegloba-e308deb6a13f.p12"));
 		
-		GitkitClient gitkitClient = GitkitClient
+/*		GitkitClient gitkitClient = GitkitClient
 				.newBuilder()
 				.setGoogleClientId(googleClientId)					
 				.setServiceAccountEmail(serviceAccountEmail)
@@ -65,12 +68,12 @@ public class RentYourStuffController {
 				.build();
     	
     	
-		GitkitUser gitkitUser = null;
+		GitkitUser gitkitUser = null;*/
             
 	    // Això no funciona en GAE!!!
 	    //GitkitClient gitkitClient = GitkitClient.createFromJson("gitkit-server-config.json");
 	  	
-	    gitkitUser = gitkitClient.validateToken(gtoken);
+	    /*gitkitUser = gitkitClient.validateToken(gtoken);
 	        
 	    String userInfo = null;
 	    if (gitkitUser != null) 
@@ -85,17 +88,17 @@ public class RentYourStuffController {
 	    	 logger.info("************** NO LOGINAT!!!");
 	    	 
 	    	 return "home";
-	     }
+	     }*/
 	        	
 	    
-	    HttpSession session = request.getSession();
+	   /* HttpSession session = request.getSession();
 	    
 	    if (session.getAttribute("sessionUserKey") == null)
 	    {
 	    	logger.info("************* LoginController : guardem user_Id a la sessio");
 	    			
 	    	session.setAttribute("SessionUserKey", gitkitUser.getLocalId());
-	    }
+	    }*/
 	    
 	    	
 	    
@@ -105,9 +108,20 @@ public class RentYourStuffController {
 	    // *****************************************************************************************
     	   	
 	    // A PROD, MongoDB no funciona
-    	//GCMTokenRegisterRepository.insertGCMTokenRegister(regID);
+	    if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Development) {
+	    	// do something that's development-only
+	    	logger.info("************* Environment DEV : guardem user_Id a la sessio");
+	    	
+	    	/////GCMTokenRegisterRepository.insertGCMTokenRegister(gitkitUser.getLocalId().toString());
+	    }
+	    else {
+	    	// do something that's production-only
+	    	logger.info("************* Environment DEV : guardem user_Id a la sessio");
+	    		
+	    }
+    	
     		
-	      } catch (FileNotFoundException | GitkitClientException | JSONException e) {
+	      } catch (FileNotFoundException |  JSONException e) {
 	        e.printStackTrace();	        
 	      }
 		

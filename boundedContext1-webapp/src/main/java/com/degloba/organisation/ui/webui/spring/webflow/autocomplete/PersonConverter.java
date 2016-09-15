@@ -6,11 +6,12 @@ import java.util.List;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
+/////import javax.faces.Convert.FacesConverter;
 
 import org.springframework.util.StringUtils;
 
-@FacesConverter(value="personConverter")
+
+//////@FacesConverter(value="personConverter")
 public class PersonConverter implements Converter {
 
 	private static List<Person> cache = new ArrayList<Person>();

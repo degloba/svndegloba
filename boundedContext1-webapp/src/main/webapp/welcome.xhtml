@@ -27,22 +27,22 @@
     
       
 	<!-- PRIMEFACEUI (http://www.primefaces.org/primeui/#setup) -->
-
-	<link rel="stylesheet" href="/resources/primefaces/themes/afterwork/theme.css" />
+<!-- 
+	 <link rel="stylesheet" href="/resources/primefaces/themes/afterwork/theme.css" />
     <link rel="stylesheet" type="text/css" href="/resources/primefaces/font-awesome-4.6.3/css/font-awesome.css" />
     <link rel="stylesheet" href="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/primefaces/primeui.min.css" />
     <script type="text/javascript" src="/resources/primefaces/jquery-3.1.0.js"></script>
     <script type="text/javascript" src="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.js"></script>
-    <script type="text/javascript" src="/resources/primefaces/primeui.min.js"></script>
+    <script type="text/javascript" src="/resources/primefaces/primeui.min.js"></script>  -->
    
-   <script>
+  <!--  <script>
           $(function() {
            $('#p1').puipassword();
         
            $('#p2').puipassword({inline:true}); 
        });
-      </script>
+      </script> -->
       
      </h:head>
 
@@ -54,11 +54,36 @@
   		<!-- <h:form>
   			<input id="p1" name="p1" type="password" /> 	
 		</h:form> -->
+		
+		<h:form>
+		<p:growl id="messages" showDetail="true" life="2000" />
+ 
+	    <p:gmap id="gmap" center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:100%;height:400px">
+	        <p:ajax event="stateChange" listener="#{eventView.onStateChange}" update="messages" />
+	        <p:ajax event="pointSelect" listener="#{eventView.onPointSelect}" update="messages" />
+	    </p:gmap>
+	    
+	    </h:form>
+	    
+<h:form enctype="multipart/form-data">
+	 	      			
+    	<br />
+		
+		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+	    	ajax="false"
+	        mode="advanced" 
+	        update="messages2"
+	        sizeLimit="1000000" 
+	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+		<p:growl id="messages2" showDetail="true"/>
+    
+    	<br />
+    	   	
+	</h:form>
+
  
   	
-	<degloba:signinSignupComponent id="signinSignupComponent" dialegSignup="dlgSignup" dialegSignin="dlgSignin"/>     
-
-
 	<div id="wrapper"> <!--This is the Div 1 in the picture-->
     	<div id="topBar"> <!--This is the Div 2 in the picture-->
     	    				

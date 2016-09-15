@@ -408,6 +408,7 @@
           // IMPORTANT !!!!
           // creem cookie per persistir
           document.cookie="uid=" + user.uid;    //????????? The user's ID, unique to the Firebase project. Do NOT use
+          // alert("userId: " + user.uid);
           // this value to authenticate with your backend server, if
           // you have one. Use User.getToken() instead.
           // https://firebase.google.com/docs/auth/web/manage-users

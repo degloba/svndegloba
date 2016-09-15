@@ -28,6 +28,7 @@ import com.degloba.rent.facade.objectify.OwnerFacade;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Digits;
 
 /**
  * @author pere
@@ -40,7 +41,9 @@ public class RentYourStuffView implements Serializable{
 	
 	
 	String description;
-	Long price;
+	
+	@Digits(integer=3,fraction=2)
+	private Double price;
 	
     @Inject
     protected OwnerFacade ownerPhoto;
@@ -88,11 +91,11 @@ public class RentYourStuffView implements Serializable{
 		this.description = description;
 	}
 
-	public Long getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	 

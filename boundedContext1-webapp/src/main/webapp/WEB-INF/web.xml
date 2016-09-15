@@ -140,6 +140,10 @@
   <context-param> <param-name>primefaces.UPLOADER</param-name> 
       <param-value>commons</param-value> 
       </context-param>
+	<context-param>
+	    <param-name>primefaces.FONT_AWESOME</param-name>
+	    <param-value>true</param-value>
+	</context-param>	      
   
 
 <!--   <listener>
@@ -171,10 +175,10 @@
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+  <!-- <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>*.htm</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/app/*</url-pattern>
@@ -203,27 +207,6 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
   
-  <!-- ************************* -->
-  <!-- Servlets Identity Toolkit -->
-  <!-- ************************* -->
-  <servlet>
-    <servlet-name>Widget</servlet-name>
-    <servlet-class>com.degloba.identityToolkit.WidgetServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Widget</servlet-name>
-    <url-pattern>/gitkit</url-pattern>
-  </servlet-mapping>
-    <!-- <servlet>
-    <servlet-name>SignIn</servlet-name>
-    <servlet-class>com.degloba.identityToolkit.SignInServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignIn</servlet-name>
-    <url-pattern>/signIn</url-pattern>
-  </servlet-mapping>  -->
-     
   <!-- **************************** -->
   <!--       SPRING SECURITY        -->
   <!-- **************************** --> 

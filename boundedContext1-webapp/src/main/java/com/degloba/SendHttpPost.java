@@ -16,7 +16,8 @@ public class SendHttpPost {
 	
 	public static void main(String[] args) throws IOException {
 		
-		String url = "http://localhost:8888/app/gcm/GCMBroadcast/send";
+		//String url = "http://localhost:8888/app/gcm/GCMBroadcast/send";
+		String url ="https://www.googleapis.com/upload/storage/v1/b/wwwdegloba.appspot.com/o";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 

@@ -2,6 +2,7 @@ package com.degloba.canonicalmodel.ui.webui.jsf;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  
 @Component
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class UserSignupView {
      
     private String name;
@@ -51,6 +52,7 @@ public class UserSignupView {
 		RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean signUpExist = false;
+        String signUPType = "email";
          
        if(name != null && name.equals("admin") && password != null && password.equals("admin")) {
     	   signUpExist = true;
@@ -62,15 +64,17 @@ public class UserSignupView {
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("signUpExist", signUpExist);
+        context.addCallbackParam("signUPType", signUPType);
     }   
 	
-	public void signupGoogle(ActionEvent event) {
+	public void signupGoogle() {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Google
 				
 		RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean signUpExist = false;
+        String signUPType = "google";
          
        if(name != null && name.equals("admin") && password != null && password.equals("admin")) {
     	   signUpExist = true;
@@ -82,6 +86,7 @@ public class UserSignupView {
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("signUpExist", signUpExist);
+        context.addCallbackParam("signUPType", signUPType);
     }   
 	
 	public void signupTwitter(ActionEvent event) {
@@ -122,6 +127,13 @@ public class UserSignupView {
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("signUpExist", signUpExist);
-    } 
+    }
+
+	public UserSignupView() {
+		super();
+		// TODO Auto-generated constructor stub
+	} 
+	
+	
 	
 }
