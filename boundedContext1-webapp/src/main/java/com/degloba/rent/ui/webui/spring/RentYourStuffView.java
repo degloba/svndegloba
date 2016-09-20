@@ -29,6 +29,7 @@ import com.degloba.rent.facade.objectify.OwnerFacade;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 
 /**
  * @author pere
@@ -39,6 +40,8 @@ import javax.validation.constraints.Digits;
 @ViewScoped
 public class RentYourStuffView implements Serializable{
 	
+	@Size(min=2,max=5)
+	String name;
 	
 	String description;
 	
@@ -78,7 +81,15 @@ public class RentYourStuffView implements Serializable{
 	    }
 	 
 	 
-	 public void displayLocation() {
+	 public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void displayLocation() {
 	        FacesMessage msg;
 	       
 	    }

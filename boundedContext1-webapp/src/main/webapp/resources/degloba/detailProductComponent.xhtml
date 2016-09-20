@@ -21,24 +21,33 @@
    
    <composite:implementation>
    
-   <p:fieldset legend="Details product">
-	
-	<p:panelGrid columns="2" id="detailProductPanel" >
-		  		
-		<h:outputText value="Name: " />
-		<p:inputText value="#{rentYourStuffView.description}"/>
-		    
-		        
-        <h:outputText value="Price: " for="price"/>
-		<p:inputText id="output1" disabled="false" name="price" value="#{rentYourStuffView.price}"/> 
-		<p:message for="price" />
-				 		      	
-		<p:commandButton  value="Add product" action="addProductAction" />&nbsp;
+   <h:form> 
+   
+	   <p:fieldset legend="Details product">
 		
+		<p:messages />
 		
-	</p:panelGrid>
-	
-	</p:fieldset>
+		<h:panelGrid columns="3" id="detailProductPanel" >
+				
+			<h:outputLabel for="name" value="Name: " />
+			<p:inputText id="name" value="#{rentYourStuffView.name}"/>
+			<p:message for="name" />
+			
+			<h:outputLabel for="description" value="Description: " />
+			<p:inputText id="description" value="#{rentYourStuffView.description}"/>
+			<p:message for="description" />
+			        
+	        <h:outputLabel value="Price: " for="price"/>
+			<p:inputText id="price" disabled="false" label="price" value="#{rentYourStuffView.price}"/> 
+			<p:message for="price" />
+							 		      	
+			<p:commandButton  update="detailProductPanel" value="Add product" actionListener="#{rentYourStuffView.onAddProduct}" />&nbsp;
+					
+		</h:panelGrid>
+		
+		</p:fieldset>
+		
+	</h:form>	
 	        
    </composite:implementation>
    
