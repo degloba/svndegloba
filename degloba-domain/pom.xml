@@ -57,10 +57,14 @@
 			<version>${google.appengine}</version>
 		</dependency>  
 		
+		
+		<!-- ******************************************* -->                    	
+		<!-- Objectify (Interface natiu Google datastore -->
+		<!-- ******************************************* --> 
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>5.1.13</version>
+			<version>${com.googlecode.objectify}</version>
 		</dependency>
 
 
@@ -195,29 +199,7 @@
                     </execution>
                 </executions>
             </plugin>  
-            
-            <!--  <plugin>
-	            <groupId>org.datanucleus</groupId>
-	            <artifactId>datanucleus-maven-plugin</artifactId>
-	            <version>4.0.0-release</version>
-	            <configuration>
-	               <api>JPA</api>
-	               <props>${basedir}/datanucleus-maven-plugin-jdo.properties</props>
-	               <outputFile>schema.ddl</outputFile>
-	               <completeDdl>true</completeDdl>
-	               <log4jConfiguration>${basedir}/datanucleus-maven-plugin-log4j.properties</log4jConfiguration>
-	               <verbose>true</verbose>
-	               <fork>true</fork>
-	            </configuration>
-	            <executions>
-	               <execution>
-	                  <phase>process-classes</phase>
-	                  <goals>
-	                     <goal>enhance</goal>
-	                  </goals>
-	               </execution>
-	            </executions>
-	         </plugin> -->
+           
         </plugins>
     </build>
 </project>

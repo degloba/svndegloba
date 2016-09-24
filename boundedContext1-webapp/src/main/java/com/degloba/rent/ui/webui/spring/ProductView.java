@@ -2,18 +2,13 @@ package com.degloba.rent.ui.webui.spring;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
+
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
@@ -23,7 +18,7 @@ import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.objectify.GenericDao;
 import com.degloba.rent.domain.objectify.Owner;
-import com.degloba.rent.facade.jpa.PhotoFacade;
+
 import com.degloba.rent.facade.objectify.OwnerFacade;
 
 import javax.servlet.http.Cookie;
@@ -32,15 +27,15 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
 /**
- * @author pere
+ * @author degloba
  *
  */
 @Component
 @ManagedBean
 @ViewScoped
-public class RentYourStuffView implements Serializable{
+public class ProductView implements Serializable{
 	
-	@Size(min=2,max=5)
+	//@Size(min=2,max=5)  NO FUNCIONA.Mirar http://stackoverflow.com/questions/19216495/app-engine-jar-in-web-inf-lib-but-still-getting-java-lang-classnotfoundexceptio
 	String name;
 	
 	String description;
@@ -81,36 +76,37 @@ public class RentYourStuffView implements Serializable{
 	    }
 	 
 	 
-	 public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void displayLocation() {
-	        FacesMessage msg;
-	       
-	    }
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+	
 	 
 	 // getters - setters
 	 
+	 	public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public void displayLocation() {
+		        FacesMessage msg;
+		       
+		    }
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public Double getPrice() {
+			return price;
+		}
+
+		public void setPrice(Double price) {
+			this.price = price;
+		}
 
 }

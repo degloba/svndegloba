@@ -16,8 +16,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-        
-        <!-- afegit pere -->
+       
          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-domain</artifactId>

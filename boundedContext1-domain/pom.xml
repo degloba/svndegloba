@@ -59,11 +59,6 @@
        	<!-- ******* -->
         <!--  Spring -->
         <!-- ******* -->       
-         <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId> 
-            <scope>test</scope>           
-          </dependency> -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
@@ -144,7 +139,7 @@
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>5.1.13</version>
+			<version>${com.googlecode.objectify}</version>
 		</dependency>
     </dependencies>
     
@@ -153,35 +148,9 @@
     <pluginManagement>
    	 
         <plugins>
-        	             
-			<!-- <plugin>
-            	<groupId>org.eclipse.m2e</groupId>
-            	<artifactId>lifecycle-mapping</artifactId>
-            	<version>1.0.0</version>
-            	<configuration>
-            		<lifecycleMappingMetadata>
-            			<pluginExecutions>
-            				<pluginExecution>
-            				<pluginExecutionFilter>
-            					<groupId>org.datanucleus</groupId>
-            					<artifactId>maven-datanucleus-plugin</artifactId>
-            					<versionRange>${datanucleus.maven.plugin}</versionRange>
-            					<goals>
-            						<goal>enhance</goal>
-            					</goals>
-            				</pluginExecutionFilter>
-            				
-            				<action>
-            					<execute>
-            						<runOnIncremental>false</runOnIncremental>
-            					</execute>
-            				</action>
-            				</pluginExecution>
-            			</pluginExecutions>
-            		</lifecycleMappingMetadata>
-            	</configuration>
-            </plugin>       -->     
+        	 
         </plugins>
+        
     </pluginManagement>
     
     <plugins>
@@ -201,81 +170,8 @@
                 <configuration>
           			<skipTests>true</skipTests>
        		 	</configuration>
-            </plugin> 
-    
-   
-    
-    <!-- DataNucleus Enhancer (versions 3.1.x)   
-             <plugin>
-                <groupId>org.datanucleus</groupId>
-                <artifactId>maven-datanucleus-plugin</artifactId>
-                <version>${datanucleus.maven.plugin}</version>
-                <configuration>
-                    <fork>false</fork>
-                    <metadataIncludes>**/*.class</metadataIncludes>
-                    <verbose>true</verbose>
-                    <api>JPA</api>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-core</artifactId>
-                        <version>${datanucleus.jpa.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-enhancer</artifactId>
-                        <version>${datanucleus.maven.plugin}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-api-jpa</artifactId>
-                        <version>${datanucleus.jpa.version}</version>
-                    </dependency>
-                      
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>enhance-sources</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>enhance-test-sources</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>  -->
-   
-        <!-- <plugin>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-maven-plugin</artifactId>
-            <version>4.0.0-release</version>
-            <configuration>
-               <api>JPA</api>
-               <props>${basedir}/datanucleus-maven-plugin-jdo.properties</props>
-               <outputFile>schema.ddl</outputFile>
-               <completeDdl>true</completeDdl>
-               <log4jConfiguration>${basedir}/datanucleus-maven-plugin-log4j.properties</log4jConfiguration>
-               <verbose>true</verbose>
-               <fork>true</fork>
-            </configuration>
-            <executions>
-               <execution>
-                  <phase>process-classes</phase>
-                  <goals>
-                     <goal>enhance</goal>
-                  </goals>
-               </execution>
-            </executions>
-        </plugin>
-                
-     -->
+            </plugin>    
+
     </plugins>
     
     </build>

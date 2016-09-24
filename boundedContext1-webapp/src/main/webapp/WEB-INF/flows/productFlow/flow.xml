@@ -8,11 +8,11 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="rentYourStuffView" class="com.degloba.rent.ui.webui.spring.RentYourStuffView" />
+	<var name="productView" class="com.degloba.rent.ui.webui.spring.ProductView" />
 	
 	<view-state id="view" >
         <transition on="addProductAction"  >
-            <evaluate expression="rentYourStuffView.onAddProduct(flowRequestContext)" />
+            <evaluate expression="productView.onAddProduct(flowRequestContext)" />
 		</transition>
     </view-state>
 		
