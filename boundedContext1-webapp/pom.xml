@@ -12,37 +12,20 @@
 	<name>Casino - boundedContext1 - webapp</name>
 
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-       
+    
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>       
         <primefaces-version>5.3</primefaces-version> 
                   
     </properties>
     
+    
     <repositories>
-		<!-- <repository>
-			<id>spring</id>
-			<name>Spring Repository</name>
-			<url>http://repo.spring.io/milestone</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>
-		<repository>
-			<id>primefaces-repository</id>
-			<name>Prime Technology Maven Repository</name>
-			<url>http://repository.primefaces.org</url>
-			<layout>default</layout>
-		</repository>	 -->	
+		
 	</repositories>
     
+    
     <dependencies>
-    
-    <dependency> 
- 			<groupId>com.google.code.gson</groupId> 
- 			<artifactId>gson</artifactId> 
- 			<scope>compile</scope> 
-		</dependency> 
-    
-   
+       
 		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-facade-impl</artifactId>
@@ -69,6 +52,20 @@
             <version>${project.version}</version>            
         </dependency> 
         
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-ioc-spring</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        
+	  	<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-persistence-jpa</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>          
+        </dependency>          
+        
 		
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
         <dependency>
@@ -81,21 +78,7 @@
             	</exclusion>
             </exclusions>
         </dependency>
-
-       
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-ioc-spring</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-
-	  	<dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-persistence-jpa</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>          
-        </dependency>        
+    
         
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -103,15 +86,12 @@
             <scope>runtime</scope>
         </dependency>
         
-          		 
-		<!-- <dependency>            
-			<groupId>com.google.appengine</groupId>            
-			<artifactId>appengine-api-stubs</artifactId>            
-			<version>${google.appengine}</version>            
-			<scope>test</scope>        
-		</dependency>	 -->
-
-        
+		<dependency> 
+ 			<groupId>com.google.code.gson</groupId> 
+ 			<artifactId>gson</artifactId> 
+ 			<scope>compile</scope> 
+		</dependency> 
+           
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -255,39 +235,6 @@
 			<artifactId>validation-api</artifactId>
 		</dependency>
 
-       <!--  <dependency>
-        	<groupId>com.google.apis</groupId>
-        	<artifactId>google-api-services-calendar</artifactId>
-        	<version>v3-rev151-1.20.0</version>
-        </dependency> -->
-
-
-<!-- 		<dependency>
-		  <groupId>com.github.leleuj.springframework.security</groupId>
-		  <artifactId>spring-security-oauth-client</artifactId>
-		  <version>1.1.0</version>
-		</dependency>  -->
-        <!-- <dependency>
-        	<groupId>org.pac4j</groupId>
-        	<artifactId>spring-security-pac4j</artifactId>
-        	<version>1.3.0</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.pac4j</groupId>
-        	<artifactId>pac4j-mongo</artifactId>
-        	<version>1.8.0</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.pac4j</groupId>
-        	<artifactId>pac4j-gae</artifactId>
-        	<version>1.8.0</version>
-        </dependency> -->
-        <!-- Incompatible amb la llibreria Oauth per connectar-me a Google 
-        <dependency>
-        	<groupId>org.pac4j</groupId>
-        	<artifactId>pac4j-oauth</artifactId>
-        	<version>1.8.0</version>
-        </dependency> -->
 
         <dependency>
         	<groupId>org.pac4j</groupId>

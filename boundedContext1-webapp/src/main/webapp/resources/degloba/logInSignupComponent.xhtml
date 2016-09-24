@@ -10,7 +10,7 @@
    
    <composite:interface>
    		<composite:attribute name="dialegSignup" />
-   		<composite:attribute name="dialegSignin" />
+   		<composite:attribute name="dialegLogin" />
    </composite:interface>
 	
    
@@ -20,7 +20,7 @@
 	   
 	    	<p:commandButton id="btnSignup" value="Sign Up" type="button" onclick="PF('#{cc.attrs.dialegSignup}').show();" />
 		 
-	     	<p:commandButton id="btnSignin" value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignin}').show();" />
+	     	<p:commandButton id="btnLogin" value="Log In" type="button" onclick="PF('#{cc.attrs.dialegLogin}').show();" />
 	     		                
 			<img id="google-user" src="" style="width: 25px;"></img>  
 			    
@@ -35,7 +35,7 @@
 			        <p:menuitem value="My profile" update="messages" icon="fa fa-plus"/>
 			        <p:menuitem value="Calendar"  update="messages" />
 					<p:menuitem value="Settings"  update="messages" icon="fa fa-refresh"/>
-			        <p:menuitem value="Logout" update="messages" icon="fa fa-user"  oncomplete="toggleSignInEmail()"/>
+			        <p:menuitem value="Logout" update="messages" icon="fa fa-user"  oncomplete="toggleLogInEmail()"/>
 			        </p:submenu>	        	        
 			    </p:menu>
 			    
@@ -46,7 +46,7 @@
 			<!-- Components signUp/singIn -->
 	        <degloba:signUpDialegComponent id="signUpDialegComponent" dialegSignup="#{cc.attrs.dialegSignup}"/>
 	   
-			<degloba:signInDialegComponent id="signInDialegComponent" dialegSignin="#{cc.attrs.dialegSignin}"/>
+			<degloba:logInDialegComponent id="logInDialegComponent" dialegLogin="#{cc.attrs.dialegLogin}"/>
 			
 			
 		</h:panelGrid>

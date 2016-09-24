@@ -8,28 +8,28 @@
    xmlns:composite="http://java.sun.com/jsf/composite">
    
    <composite:interface>
-   		<composite:attribute name="dialegSignin" />
+   		<composite:attribute name="dialegLogin" />
 	</composite:interface>   		
       
    <composite:implementation>
       
-        <p:dialog id="dlgSignin" header="Log In" widgetVar="#{cc.attrs.dialegSignin}" resizable="false">
+        <p:dialog id="dlgLogin" header="Log In" widgetVar="#{cc.attrs.dialegLogin}" resizable="false">
         
-        <h:form id="formSignin">
+        <h:form id="formLogin">
         
-        	<p:growl widgetVar="growlSignin" id="growlSignin" sticky="true" showDetail="true" life="3000" />
+        	<p:growl widgetVar="growlLogin" id="growlLogin" sticky="true" showDetail="true" life="3000" />
         
         	<h:panelGrid columns="1" cellpadding="5">
         
-				<h:outputLabel for="emailSignin" value="Email Address" />
-	            <p:inputText id="emailSignin" value="#{userLoginView.email}" required="true" label="email" size="45"/>
+				<h:outputLabel for="emailLogin" value="Email Address" />
+	            <p:inputText id="emailLogin" value="#{userLoginView.email}" required="true" label="email" size="45"/>
 	            
 	            <h:outputLink onclick="sendPasswordReset()">Forgot ?</h:outputLink>
 	          
-	            <h:outputLabel for="passwordSignin" value="Password" />
-	            <p:password id="passwordSignin" value="#{userLoginView.password}" required="true" label="password" />
+	            <h:outputLabel for="passwordLogin" value="Password" />
+	            <p:password id="passwordLogin" value="#{userLoginView.password}" required="true" label="password" />
 	 
-				<p:commandButton type="button" value="Log In" update="growlSignin"  onclick="toggleSignInEmail()" />
+				<p:commandButton type="button" value="Log In" update="growlLogin"  onclick="toggleLogInEmail()" />
                           
 			</h:panelGrid>                                 
 
@@ -39,15 +39,15 @@
             
         <h:form>    
         
-        	<p:growl id="growlSigninSocials" sticky="true" showDetail="true" life="3000" />
+        	<p:growl id="growlLogSocials" sticky="true" showDetail="true" life="3000" />
         	
         	<h:panelGrid columns="1" cellpadding="5">
         	
-				<p:commandButton type="button" value="Log In with Google" update="growlSigninSocials" onclick="toggleSignInGoogle()" style="width:360px"/>
+				<p:commandButton type="button" value="Log In with Google" update="growlLogSocials" onclick="toggleLogInGoogle()" style="width:360px"/>
 	       
-	        	<p:commandButton type="button" value="Log In with Twitter" update="growlSigninSocials" onclick="toggleSignInTwitter()" style="width:360px"/>
+	        	<p:commandButton type="button" value="Log In with Twitter" update="growlLogSocials" onclick="toggleLogInTwitter()" style="width:360px"/>
 	       
-	            <p:commandButton type="button" value="Log In with Facebook" update="growlSigninSocials" onclick="toggleSignInFacebook()" style="width:360px"/>
+	            <p:commandButton type="button" value="Log In with Facebook" update="growlLogSocials" onclick="toggleLogInFacebook()" style="width:360px"/>
 	       
 	       	<!-- 	<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />  
 	       -->
