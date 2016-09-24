@@ -20,16 +20,18 @@
   /**
    * Handles the sign in button press. (Login Email)
    */
-  function toggleSignInEmail() {
+  function toggleLogInEmail() {
+	  alert("hola");
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
       
       // [END signout]
     } else {
-      var email = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
-      var password = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
+      var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
+      var password = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:passwordLogin').value;
       
+      alert("hola");
       // Sign in with email and pass.
       // [START authwithemail]
       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -42,7 +44,7 @@
         		  "detail":"Wrong password.",
         		  "severity":"warn"})
         } else {          
-          PF('growlSignin').renderMessage({"summary":"Notification",
+          PF('growlLogin').renderMessage({"summary":"Notification",
       		  "detail":errorMessage,
       		  "severity":"warn"})
         }
@@ -51,7 +53,7 @@
       });
       
       // Ocultem el dialeg
-    	$("#signInDialegComponent\\:dlgSignin").css("display", "none");
+    	$("#logInDialegComponent\\:dlgLogin").css("display", "none");
       // [END authwithemail]
     }  
   }
@@ -61,8 +63,8 @@
    */
   function handleSignUp() {
 
-    var email = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
-    var password = document.getElementById('signinSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
+    var email = document.getElementById('logInSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
+    var password = document.getElementById('logInSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
     
     // Sign in with email and pass.
     // [START createwithemail]
@@ -108,7 +110,7 @@
     // [END sendemailverification]
   }
   function sendPasswordReset() {   	
-    var email = document.getElementById('signinSignupComponent:signInDialegComponent:formSignin:emailSignin').value;
+    var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
     // [START sendpasswordemail]
     firebase.auth().sendPasswordResetEmail(email).then(function() {
       // Password Reset Email Sent!
@@ -149,7 +151,7 @@
      * Function called when clicking the Login/Logout button.
      */
     // [START buttoncallback]
-    function toggleSignInGoogle() {
+    function toggleLogInGoogle() {
         
     	if (!firebase.auth().currentUser) {
             // [START createprovider]
@@ -199,7 +201,7 @@
     
     
     
-    function toggleSignInTwitter() {    
+    function toggleLogInTwitter() {    
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.TwitterAuthProvider();
@@ -254,7 +256,7 @@
      * Function called when clicking the Login/Logout button.
      */
     // [START buttoncallback]
-    function toggleSignInFacebook() {
+    function toggleLogInFacebook() {
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.FacebookAuthProvider();
@@ -322,7 +324,7 @@
      * When signed in, we also authenticate to the Firebase Realtime Database.
      */
     function initApp() {
-    	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+    	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
     	$("#google-user").css("display", "none");
     	
     	$("#carregaEntitats").css("display", "none");
@@ -370,17 +372,17 @@
         if (user) {
         	    
         	// Visibilitzem el usuari loginat
-        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
-        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
+        	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
+        	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
         	$("#google-user").css("display", "inline");
         	
         	 // Ocultem el dialeg
-        	$("#signinSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
-        	$("#signinSignupComponent\\:signInDialegComponent\\:dlgSignin").css("display", "none");
+        	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
+        	$("#logInSignupComponent\\:logInDialegComponent\\:dlgLogin").css("display", "none");
         	
         	// Invisibilitzem boto SignUp SignIn
-        	$("#signinSignupComponent\\:btnSignup").css("display", "none");
-        	$("#signinSignupComponent\\:btnSignin").css("display", "none");
+        	$("#logInSignupComponent\\:btnSignup").css("display", "none");
+        	$("#logInSignupComponent\\:btnLogin").css("display", "none");
         	
         	$("#rentStuffOutputlink").css("display", "inline");
         	
@@ -443,12 +445,12 @@
             {      
         	
         	//Ocultem el usuari loggedOut
-        	$("#signinSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
+        	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");
         	
            	// Visibilitzem boto Signup
-        	$("#signinSignupComponent\\:btnSignup").css("display", "block");
-        	$("#signinSignupComponent\\:btnSignin").css("display", "block");
+        	$("#logInSignupComponent\\:btnSignup").css("display", "block");
+        	$("#logInSignupComponent\\:btnSignin").css("display", "block");
         	
         	$("#carregaEntitats").css("display", "none");
         	
@@ -488,7 +490,7 @@
             PF('dlgSignup').hide();
             $('#loginLink').fadeOut();
 
-            toggleSignInGoogle();
+            toggleLogInGoogle();
         }
     }
     
