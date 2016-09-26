@@ -46,8 +46,7 @@
     <static-files>        
         <include path="/well-known/acme-challenge/*/*.html"/>
         
-        <include path="/firebaseAuth/*/**.*"/>
-        <include path="/firebaseAuth/**.*"/>
+
         <include path="/resources/images/**.*"/>
         <include path="/resources/js/**.*"/>
         <include path="/resources/js/lib/*.js"/>

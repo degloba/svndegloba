@@ -18,11 +18,12 @@
    
 	   <h:panelGrid styleClass="top-aligned-columns"  columns="5">
 	   
-	    	<p:commandButton id="btnSignup" value="Sign Up" type="button" onclick="PF('#{cc.attrs.dialegSignup}').show();" />
+	    	<p:commandButton id="btnSignup" value="Sign Up" type="button" onclick="PF('#{cc.attrs.dialegLogin}').hide();PF('#{cc.attrs.dialegSignup}').show();" />
 		 
-	     	<p:commandButton id="btnLogin" value="Log In" type="button" onclick="PF('#{cc.attrs.dialegLogin}').show();" />
+	     	<p:commandButton id="btnLogin" value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignup}').hide();PF('#{cc.attrs.dialegLogin}').show();" />
 	     		                
-			<img id="google-user" src="" style="width: 25px;"></img>  
+			<img id="google-user" src="" style="width: 25px;"></img> 
+			<h:outputText id="nomUsuari" /> 
 			    
 			<h:form id="formUserLoggined" >   
 	         

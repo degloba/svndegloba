@@ -21,7 +21,7 @@
    * Handles the sign in button press. (Login Email)
    */
   function toggleLogInEmail() {
-	  alert("hola");
+	  
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
@@ -30,8 +30,7 @@
     } else {
       var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
       var password = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:passwordLogin').value;
-      
-      alert("hola");
+           
       // Sign in with email and pass.
       // [START authwithemail]
       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -40,7 +39,7 @@
         var errorMessage = error.message;
         // [START_EXCLUDE]
         if (errorCode === 'auth/wrong-password') {  
-        	PF('growlSignin').renderMessage({"summary":"Notification",
+        	PF('growlLogin').renderMessage({"summary":"Notification",
         		  "detail":"Wrong password.",
         		  "severity":"warn"})
         } else {          
@@ -53,7 +52,7 @@
       });
       
       // Ocultem el dialeg
-    	$("#logInDialegComponent\\:dlgLogin").css("display", "none");
+    	$("#logInSignupComponent\\:logInDialegComponent\\:dlgLogin").css("display", "none");
       // [END authwithemail]
     }  
   }
@@ -88,7 +87,7 @@
     });
     
     // Ocultem el dialeg
-	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
+	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
     
     // [END createwithemail]
   }
@@ -380,7 +379,7 @@
         	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
         	$("#logInSignupComponent\\:logInDialegComponent\\:dlgLogin").css("display", "none");
         	
-        	// Invisibilitzem boto SignUp SignIn
+        	// Invisibilitzem boto SignUp i LogIn
         	$("#logInSignupComponent\\:btnSignup").css("display", "none");
         	$("#logInSignupComponent\\:btnLogin").css("display", "none");
         	
@@ -409,23 +408,28 @@
           
           // IMPORTANT !!!!
           // creem cookie per persistir
-          document.cookie="uid=" + user.uid;    //????????? The user's ID, unique to the Firebase project. Do NOT use
-          // alert("userId: " + user.uid);
+          document.cookie="uid=" + user.uid;    //????????? The user's ID, unique to the Firebase project. Do NOT use        
           // this value to authenticate with your backend server, if
           // you have one. Use User.getToken() instead.
           // https://firebase.google.com/docs/auth/web/manage-users
-   
-			 user.providerData.forEach(function (profile) {
-				 document.getElementById('google-user').src = profile.photoURL;
 
-        		//  if (profile.providerId == "google.com") {
-        			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
-        		//  } else if (profile.providerId == "twitter.com") {
-        				///////////// document.getElementById('sign-in-twitter').textContent = 'Sign out';
-        		//   } else if (profile.providerId == "facebook.com") {
-        		//	  document.getElementById('sign-in-twitter').textContent = 'Sign out';
-        		//	  alert("facebook"); 
-        		//  };        		 
+			 user.providerData.forEach(function (profile) {
+				 
+				 if (profile.photoURL != null)
+					 {				
+						 document.getElementById('google-user').src = profile.photoURL;
+						 document.getElementById('logInSignupComponent:nomUsuari').textContent = profile.displayName;
+								
+		        		//  if (profile.providerId == "google.com") {
+		        			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
+		        		//  } else if (profile.providerId == "twitter.com") {
+		        				///////////// document.getElementById('sign-in-twitter').textContent = 'Sign out';
+		        		//   } else if (profile.providerId == "facebook.com") {
+		        		//	  document.getElementById('sign-in-twitter').textContent = 'Sign out';
+		        		//	  alert("facebook"); 
+		        		//  };
+				 
+					 }
         	  }); 
         	//} 
    
@@ -442,18 +446,18 @@
           }, null, '  '); */
           // [END_EXCLUDE]
         } else 
-            {      
-        	
+            {              	
         	//Ocultem el usuari loggedOut
         	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");
+        	$("#logInSignupComponent\\:nomUsuari").text("");
         	
-           	// Visibilitzem boto Signup
+           	// Visibilitzem botons Signup i Login
         	$("#logInSignupComponent\\:btnSignup").css("display", "block");
-        	$("#logInSignupComponent\\:btnSignin").css("display", "block");
+        	$("#logInSignupComponent\\:btnLogin").css("display", "block");
+        	
         	
         	$("#carregaEntitats").css("display", "none");
-        	
         	$("#rentStuffOutputlink").css("display", "none");
         	
           // User is signed out.
