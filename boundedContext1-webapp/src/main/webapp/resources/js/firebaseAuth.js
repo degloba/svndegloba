@@ -42,7 +42,8 @@
         	PF('growlLogin').renderMessage({"summary":"Notification",
         		  "detail":"Wrong password.",
         		  "severity":"warn"})
-        } else {          
+        } else {    
+        	
           PF('growlLogin').renderMessage({"summary":"Notification",
       		  "detail":errorMessage,
       		  "severity":"warn"})
@@ -99,8 +100,8 @@
     firebase.auth().currentUser.sendEmailVerification().then(function() {
       // Email Verification sent!
       // [START_EXCLUDE]
-      
-      PF('growlSignup').renderMessage({"summary":"Notification",
+    	
+      PF('growlLogin').renderMessage({"summary":"Notification",
   		  "detail":"Email Verification Sent!",
   		  "severity":"warn"})
   		  
@@ -108,33 +109,36 @@
     });
     // [END sendemailverification]
   }
-  function sendPasswordReset() {   	
+  function sendPasswordReset() {  
+	 
     var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
+   
     // [START sendpasswordemail]
     firebase.auth().sendPasswordResetEmail(email).then(function() {
       // Password Reset Email Sent!
       // [START_EXCLUDE]
-      PF('growlSignup').renderMessage({"summary":"Notification",
+      PF('growlLogin').renderMessage({"summary":"Notification",
   		  "detail":"Password Reset Email Sent!",
   		  "severity":"warn"})
   		  
       // [END_EXCLUDE]
     }).catch(function(error) {
-    	
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert(errorMessage);
+      
+      //alert(errorCode);
       
       // [START_EXCLUDE]
       if (errorCode == 'auth/invalid-email') {
-        
-        PF('growlSignup').renderMessage({"summary":"Error",
-    		  "detail":errorMessage,
+    	
+        PF('growlLogin').renderMessage({"summary":"Notification",
+    		  "detail":"errorMessage",
     		  "severity":"warn"})
+    		  
       } else if (errorCode == 'auth/user-not-found') {
-       
-        PF('growlSignup').renderMessage({"summary":"Error",
+    	 
+        PF('growlLogin').renderMessage({"summary":"Error",
   		  "detail":errorMessage,
   		  "severity":"warn"})
       }

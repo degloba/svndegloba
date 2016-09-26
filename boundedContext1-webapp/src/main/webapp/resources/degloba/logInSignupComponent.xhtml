@@ -23,7 +23,7 @@
 	     	<p:commandButton id="btnLogin" value="Log In" type="button" onclick="PF('#{cc.attrs.dialegSignup}').hide();PF('#{cc.attrs.dialegLogin}').show();" />
 	     		                
 			<img id="google-user" src="" style="width: 25px;"></img> 
-			<h:outputText id="nomUsuari" /> 
+			<h:outputText id="nomUsuari" styleClass="enllac"/> 
 			    
 			<h:form id="formUserLoggined" >   
 	         
@@ -33,8 +33,7 @@
 				
 			    <p:menu overlay="true" trigger="userLogginedButton" my="left top" at="left bottom">
 			    <p:submenu label="Document">
-			        <p:menuitem value="My profile" update="messages" icon="fa fa-plus"/>
-			        <p:menuitem value="Calendar"  update="messages" />
+			        <p:menuitem value="My profile" update="messages" icon="fa fa-plus"/>			       
 					<p:menuitem value="Settings"  update="messages" icon="fa fa-refresh"/>
 			        <p:menuitem value="Logout" update="messages" icon="fa fa-user"  oncomplete="toggleLogInEmail()"/>
 			        </p:submenu>	        	        
