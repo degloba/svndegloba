@@ -1,8 +1,8 @@
 package com.degloba.rent.infrastructure.objectify.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.objectify.GenericDaoImpl;
-import com.degloba.objectify.IGenericRepositoryObjectify;
+
+import com.degloba.objectify.BaseRepositoryObjectify;
 import com.degloba.rent.domain.objectify.ICategoryRepositoryObjectify;
 
 import java.util.logging.Logger;
@@ -14,8 +14,7 @@ import java.util.logging.Logger;
  *
  */
 @DomainRepositoryImpl
-public class ObjectifyCategoryRepository extends GenericDaoImpl implements ICategoryRepositoryObjectify{
-//////public class ObjectifyCategoryRepository extends AbstractGenericDaoImpl implements IGenericRepositoryObjectify{
+public class ObjectifyCategoryRepository extends BaseRepositoryObjectify implements ICategoryRepositoryObjectify{
 
 	private final static Logger logger = Logger.getLogger(ObjectifyCategoryRepository.class.getName());
 	

@@ -136,10 +136,13 @@
 			<scope>test</scope>
         </dependency>
 
+		
+		<!-- ******************************************* -->                    	
+		<!-- Objectify (Interface natiu Google datastore -->
+		<!-- ******************************************* --> 
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>${com.googlecode.objectify}</version>
+			<artifactId>objectify</artifactId>		
 		</dependency>
     </dependencies>
     

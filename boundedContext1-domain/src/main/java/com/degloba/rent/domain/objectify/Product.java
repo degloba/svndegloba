@@ -18,7 +18,7 @@ public class Product implements Serializable {
 	Long id;
 	
 	String description;
-	Long price;
+	Double price;
 	Subcategory subcategory;
 	
 	@Parent Key<Owner> owner;
@@ -68,11 +68,11 @@ public class Product implements Serializable {
 		this.location = location;
 	}*/
 
-	public Long getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

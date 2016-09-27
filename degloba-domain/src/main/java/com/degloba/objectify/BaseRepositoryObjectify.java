@@ -131,7 +131,7 @@ public class BaseRepositoryObjectify implements IBaseRepositoryObjectify{
 
 	@Override
 	public <T> Key<T> getKey(Class<T> clazz, Long id) {
-		return Key.create(clazz, id);
+		return Key.create(clazz, id);		
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class BaseRepositoryObjectify implements IBaseRepositoryObjectify{
 
 	@Override
 	public <T> T getById(Class<T> clazz, String id) throws DatabaseException {			
-		return ObjectifyService.ofy().load().type(clazz).id(id).now();	
+		return ObjectifyService.ofy().load().type(clazz).id(id).now();				
 	}
 	
 	
