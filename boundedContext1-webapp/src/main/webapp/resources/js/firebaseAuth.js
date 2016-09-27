@@ -248,7 +248,7 @@
    // [START_EXCLUDE]
          
       // Ocultem el dialeg
-  	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
+  	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
       // [END_EXCLUDE]
     }
     // [END buttoncallback]
@@ -304,7 +304,7 @@
       ////////////document.getElementById('quickstart-sign-in').disabled = true;
       
       // Ocultem el dialeg
-    	$("#signUpDialegComponent\\:dlgSignup").css("display", "none");
+    	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
       // [END_EXCLUDE]
     }
     // [END buttoncallback]
@@ -330,8 +330,7 @@
     	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
     	$("#google-user").css("display", "none");
     	
-    	$("#carregaEntitats").css("display", "none");
-    	
+    	$("#carregaEntitats").css("display", "none");    	
     	$("#rentStuffOutputlink").css("display", "none");
     	
     	
