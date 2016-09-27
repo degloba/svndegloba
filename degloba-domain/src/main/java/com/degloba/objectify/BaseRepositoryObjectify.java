@@ -140,11 +140,7 @@ public class BaseRepositoryObjectify implements IBaseRepositoryObjectify{
 	}
 
 	@Override
-	public <T> T getById(Class<T> clazz, String id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		
-		Objectify o = ObjectifyService.ofy();
-				
+	public <T> T getById(Class<T> clazz, String id) throws DatabaseException {			
 		return ObjectifyService.ofy().load().type(clazz).id(id).now();	
 	}
 	

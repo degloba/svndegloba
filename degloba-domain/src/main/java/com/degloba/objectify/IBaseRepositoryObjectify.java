@@ -23,6 +23,8 @@ public interface IBaseRepositoryObjectify {
 		
 	public <T> T getById(Class<T> clazz, Key<T> id) throws DatabaseException;
 	
+	public <T> T getById(Class<T> clazz, String id) throws DatabaseException;
+	
 	public <T> T getByKey(Class<T> clazz, String key) throws DatabaseException;
 	
 	public <T> Key<T> getKey(Class<T> clazz,Long id);
@@ -36,8 +38,6 @@ public interface IBaseRepositoryObjectify {
 	public <T> void delete(Class<T> clazz, Key<T> id) throws DatabaseException; 
 	
 	public <T> void deleteByKey(Class<T> clazz, String key) throws DatabaseException;
-	
-	public <T> T getById(Class<T> clazz, String id) throws DatabaseException;
-	
+
 
 }
