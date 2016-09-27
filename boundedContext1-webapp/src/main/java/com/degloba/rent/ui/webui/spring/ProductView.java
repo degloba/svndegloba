@@ -5,26 +5,38 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 
+// JSF
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+// 
 import javax.inject.Inject;
 
+// Spring
 import org.springframework.stereotype.Component;
 
+// Spring-Webflow
 import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
-import com.degloba.objectify.GenericDao;
+// Objectify
+import com.degloba.objectify.DatabaseException;
+import com.degloba.objectify.IBaseRepositoryObjectify;
+
+// Entitats/Objectify
 import com.degloba.rent.domain.objectify.Owner;
 
 import com.degloba.rent.facade.objectify.OwnerFacade;
 
+//
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+
+// Validation
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
+
 
 /**
  * @author degloba
@@ -48,14 +60,14 @@ public class ProductView implements Serializable{
 
     
     @Inject
-    protected GenericDao ownerRepositoryObjectify;
+    protected IBaseRepositoryObjectify ownerRepositoryObjectify;
 	
     @PostConstruct
     public void init() {
 				   
     }
 	
-	 public void onAddProduct(RequestContext context) {
+	 public void onAddProduct(RequestContext context) throws DatabaseException {
 		 
 		 MvcExternalContext externalContext =
 				  (MvcExternalContext)context.getExternalContext();
@@ -67,10 +79,15 @@ public class ProductView implements Serializable{
 			      if ("uid".equals(cookie.getName())) {
 			    	  String uid = cookie.getValue();
 			    	  
-			    	  Owner owner = new Owner();
+			    	 Owner o = ownerRepositoryObjectify.getById(Owner.class, uid);
 			    	  
-			    	  owner.setId(uid);
-			    	  ownerRepositoryObjectify.create(owner);
+			    	 if (o == null) {
+			    		 Owner owner = new Owner();
+				    	  
+				    	  owner.setId(uid);
+				    	  ownerRepositoryObjectify.create(owner); 
+			    	 }
+			    	  
 			      }
 			    }
 	    }

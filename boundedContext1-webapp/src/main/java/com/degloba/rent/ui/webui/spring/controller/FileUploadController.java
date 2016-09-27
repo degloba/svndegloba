@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.degloba.gcs.StorageUtils;
 
-import com.degloba.objectify.GenericDao;
+import com.degloba.objectify.IBaseRepositoryObjectify;
 import com.degloba.rent.cqrs.readmodel.CategoryFinder;
 
 import com.degloba.rent.domain.jpa.Owner;
@@ -37,7 +37,7 @@ public class FileUploadController {
 
     
     @Inject
-    protected GenericDao categoryRepositoryObjectify;
+    protected IBaseRepositoryObjectify categoryRepositoryObjectify;
     
     
     public void handleFileUpload(FileUploadEvent event) 

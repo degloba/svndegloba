@@ -4,14 +4,14 @@ package com.degloba.objectify;
 import java.util.List;
 
 import com.degloba.objectify.DatabaseException;
-import com.degloba.objectify.GenericDao;
-////////////import com.degloba.rent.domain.objectify.Category;
+import com.degloba.objectify.IBaseRepositoryObjectify;
+
 import com.googlecode.objectify.Key;
+import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
 
-
-public class GenericDaoImpl implements GenericDao{
+public class BaseRepositoryObjectify implements IBaseRepositoryObjectify{
 
 	
 /*	static {
@@ -124,7 +124,7 @@ public class GenericDaoImpl implements GenericDao{
 	    }		
 	}
 
-	public GenericDaoImpl() {
+	public BaseRepositoryObjectify() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -137,6 +137,15 @@ public class GenericDaoImpl implements GenericDao{
 	@Override
 	public <T> Key<T> getKey(Key<?> parent, Class<? extends T> kindClass, long id) {
 		return Key.create(parent, kindClass, id);
+	}
+
+	@Override
+	public <T> T getById(Class<T> clazz, String id) throws DatabaseException {
+		// TODO Auto-generated method stub
+		
+		Objectify o = ObjectifyService.ofy();
+				
+		return ObjectifyService.ofy().load().type(clazz).id(id).now();	
 	}
 	
 	

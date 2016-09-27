@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.googlecode.objectify.Key;
 
-public interface GenericDao {
+public interface IBaseRepositoryObjectify {
 
 	public <T> void create(T t);
 	
@@ -36,6 +36,8 @@ public interface GenericDao {
 	public <T> void delete(Class<T> clazz, Key<T> id) throws DatabaseException; 
 	
 	public <T> void deleteByKey(Class<T> clazz, String key) throws DatabaseException;
+	
+	public <T> T getById(Class<T> clazz, String id) throws DatabaseException;
 	
 
 }

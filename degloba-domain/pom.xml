@@ -63,8 +63,7 @@
 		<!-- ******************************************* --> 
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>${com.googlecode.objectify}</version>
+			<artifactId>objectify</artifactId>	
 		</dependency>
 
 

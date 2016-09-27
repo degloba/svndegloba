@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.degloba.gcm.Topic;
 import com.degloba.objectify.DatabaseException;
-import com.degloba.objectify.GenericDao;
+import com.degloba.objectify.IBaseRepositoryObjectify;
 import com.degloba.rent.cqrs.readmodel.CategoryFinder;
 import com.degloba.rent.domain.objectify.Category;
 import com.degloba.rent.domain.objectify.Subcategory;
@@ -40,7 +40,7 @@ public class CarregaEntitatsController {
     protected CategoryFinder finderCategory;
     
     @Inject
-    protected GenericDao categoryRepositoryObjectify;
+    protected IBaseRepositoryObjectify categoryRepositoryObjectify;
     
 
 	@RequestMapping(value = "/carregaEntitats")
