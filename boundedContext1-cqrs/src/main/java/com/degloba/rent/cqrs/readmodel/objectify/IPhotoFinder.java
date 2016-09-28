@@ -7,7 +7,7 @@ import com.degloba.rent.domain.objectify.Product;
 import com.degloba.rent.domain.objectify.Subcategory;
 
 
-public interface ICategoryPhotoFinder {
+public interface IPhotoFinder {
 
 	Photo findPhotoByIdGcs(String idGcs);
 

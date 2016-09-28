@@ -2,12 +2,11 @@ package com.degloba.rent.cqrs.readmodel.jpa;
 
 import java.util.List;
 
-import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.Photo;
 import com.degloba.rent.domain.jpa.Product;
 import com.degloba.rent.domain.jpa.Subcategory;
 
-public interface CategoryPhotoFinder {
+public interface IPhotoFinder {
 
 	Photo findPhotoByIdGcs(String idGcs);
 
