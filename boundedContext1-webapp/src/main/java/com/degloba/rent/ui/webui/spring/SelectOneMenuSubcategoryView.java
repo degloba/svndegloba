@@ -6,18 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
-import com.degloba.rent.cqrs.readmodel.CategoryFinder;
-import com.degloba.rent.cqrs.readmodel.SubcategoryFinder;
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.Subcategory;
 
 @Component
 @ManagedBean
@@ -25,10 +20,7 @@ import com.degloba.rent.domain.jpa.Subcategory;
 public class SelectOneMenuSubcategoryView {
 
 	private Map<String,String> subcategories = new HashMap<String, String>();
-	   
-    
-    @Inject
-    private SubcategoryFinder subcategoryFinder;
+	       
     	
 	@PostConstruct
     public void init() {
@@ -49,14 +41,6 @@ public class SelectOneMenuSubcategoryView {
 
 	public void setSubcategories(Map<String, String> subcategories) {
 		this.subcategories = subcategories;
-	}
-
-	public SubcategoryFinder getSubcategoryFinder() {
-		return subcategoryFinder;
-	}
-
-	public void setSubcategoryFinder(SubcategoryFinder subcategoryFinder) {
-		this.subcategoryFinder = subcategoryFinder;
 	}
 
 

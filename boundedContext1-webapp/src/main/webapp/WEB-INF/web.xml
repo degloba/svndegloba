@@ -271,14 +271,7 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>	 -->
   
- <!-- <servlet>
-    <servlet-name>SystemServiceServlet</servlet-name>
-    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-    <init-param>
-      <param-name>services</param-name>
-      <param-value>com.degloba.organisation.googleBackendAPI.YourFirstAPI</param-value>
-    </init-param>
-  </servlet> -->
+
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>/.well-known</web-resource-name>

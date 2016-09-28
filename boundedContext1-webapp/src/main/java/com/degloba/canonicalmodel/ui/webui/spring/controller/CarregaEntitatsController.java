@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.degloba.gcm.Topic;
 import com.degloba.objectify.DatabaseException;
 import com.degloba.objectify.IBaseRepositoryObjectify;
-import com.degloba.rent.cqrs.readmodel.CategoryFinder;
+
+import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
 import com.degloba.rent.domain.objectify.Category;
 import com.degloba.rent.domain.objectify.Subcategory;
 import com.degloba.rent.facade.objectify.CategoryFacade;
@@ -37,7 +38,7 @@ public class CarregaEntitatsController {
     protected CategoryFacade facadeCategoryObjectify;
     	    
     @Inject
-    protected CategoryFinder finderCategory;
+    protected ICategoryFinder finderCategory;
     
     @Inject
     protected IBaseRepositoryObjectify categoryRepositoryObjectify;
@@ -60,7 +61,7 @@ public class CarregaEntitatsController {
 	    Key<Category> categoriaKey = categoryRepositoryObjectify.getKey(Category.class,categoriaId);
 		    	    	
 	    // 2. SUBCATEGORIA
-	    Subcategory subcategory = new Subcategory();	    		    	    		           		   
+	   /* Subcategory subcategory = new Subcategory();	    		    	    		           		   
 	    subcategory.setDescription("Tablet");	   
 	    subcategory.setCategory(categoriaKey);
 	    
@@ -68,7 +69,7 @@ public class CarregaEntitatsController {
 	    Key<Subcategory> subcategoriaKey = categoryRepositoryObjectify.create(categoriaKey, Subcategory.class, subcategoriaId);
 	    	   	
 	    category.getSubcategories().add(subcategoriaKey);
-	    
+	    */
 	    // Des de UI
 	    ///facadeCategoryObjectify.createCategory(category);
 	    try {

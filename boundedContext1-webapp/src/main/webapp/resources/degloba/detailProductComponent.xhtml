@@ -49,6 +49,23 @@
 		</p:fieldset>
 		
 	</h:form>	
+	
+	<h:form enctype="multipart/form-data">
+	 	      			
+    	<br />
+		
+		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+	    	ajax="false"
+	        mode="advanced" 
+	        update="messages2"
+	        sizeLimit="1000000" 
+	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+		<p:growl id="messages2" showDetail="true"/>
+    
+    	<br />
+    	   	
+	</h:form>
 	        
    </composite:implementation>
    

@@ -18,8 +18,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
-import com.degloba.rent.cqrs.readmodel.CategoryFinder;
-import com.degloba.rent.cqrs.readmodel.SubcategoryFinder;
+import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
+
 import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.Subcategory;
 
@@ -36,10 +36,8 @@ public class SelectOneMenuCategoryView {
     private List<Subcategory> subcategories;
     
     @Inject
-    private CategoryFinder categoryFinder;
+    private ICategoryFinder categoryFinder;
     
-    @Inject
-    private SubcategoryFinder subcategoryFinder;
     	
 	@PostConstruct
     public void init() {
