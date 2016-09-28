@@ -7,7 +7,6 @@ import com.degloba.objectify.DatabaseException;
 import com.degloba.objectify.IBaseRepositoryObjectify;
 
 import com.googlecode.objectify.Key;
-import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
 

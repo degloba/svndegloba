@@ -5,7 +5,6 @@ import java.util.List;
 import com.degloba.rent.domain.objectify.Category;
 import com.degloba.rent.domain.objectify.Subcategory;
 
-;
 
 public interface ICategoryFinder {
 
