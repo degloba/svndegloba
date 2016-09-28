@@ -1,4 +1,4 @@
-package com.degloba.rent.cqrs.readmodel.impl;
+package com.degloba.rent.cqrs.readmodel.jpa.impl;
 
 import java.util.List;
 
@@ -12,8 +12,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS 
-import com.degloba.rent.cqrs.readmodel.CategoryFinder;
-import com.degloba.rent.cqrs.readmodel.SubcategoryFinder;
+import com.degloba.rent.cqrs.readmodel.jpa.ISubcategoryFinder;
 import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.ISubcategoryRepository;
 import com.degloba.rent.domain.jpa.Subcategory;
@@ -21,7 +20,7 @@ import com.degloba.cqrs.query.annotations.Finder;
 
 
 @Finder
-public class JpaSubcategoryFinder implements SubcategoryFinder {
+public class SubcategoryFinder implements ISubcategoryFinder {
 
     @PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactoryDatastore")

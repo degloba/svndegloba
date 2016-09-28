@@ -1,4 +1,4 @@
-package com.degloba.rent.cqrs.readmodel;
+package com.degloba.rent.cqrs.readmodel.jpa;
 
 import java.util.List;
 
