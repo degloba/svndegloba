@@ -2,7 +2,7 @@ package com.degloba.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 	@SuppressWarnings("serial")
 	public class OrdrePresentadaEvent implements Serializable {
