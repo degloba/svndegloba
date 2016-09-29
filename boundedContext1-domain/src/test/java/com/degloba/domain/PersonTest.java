@@ -4,6 +4,7 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.degloba.domain.IEntityRepository;
 import com.degloba.organisation.domain.ImType;
 import com.degloba.organisation.domain.Person;
 
@@ -36,7 +37,7 @@ public class PersonTest extends AbstractIntegrationTest {
     @Test
     public void testGetIms() {
         String jpql = "select o from Person o join o.ims i where KEY(i) = :imType and i = :im";
-        EntityRepository repository = InstanceFactory.getInstance(EntityRepository.class);
+        IEntityRepository repository = InstanceFactory.getInstance(IEntityRepository.class);
         List<Person> persons = repository.createJpqlQuery(jpql)
                 .addParameter("imType", ImType.QQ).addParameter("im", "666666").list();
 /*        assertFalse(persons.contains(person1));

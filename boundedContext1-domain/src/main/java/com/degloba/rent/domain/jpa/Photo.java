@@ -1,6 +1,7 @@
 package com.degloba.rent.domain.jpa;
 
-import com.degloba.domain.BaseAggregateRoot;
+
+import com.degloba.domain.jpa.BaseAggregateRoot;
 import com.google.appengine.api.datastore.Key;
 
 import java.io.Serializable;

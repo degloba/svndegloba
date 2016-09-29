@@ -4,7 +4,7 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-
+import com.degloba.domain.IEntityRepository;
 import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.Subcategory;
 
@@ -38,7 +38,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
     @Test
     public void testSubcategories() {
         String jpql = "select o from Category o";
-        EntityRepository repository = InstanceFactory.getInstance(EntityRepository.class);
+        IEntityRepository repository = InstanceFactory.getInstance(IEntityRepository.class);
         List<Category> categories = repository.createJpqlQuery(jpql).list();
         
         String jpql2 = "select o from Subcategory o";

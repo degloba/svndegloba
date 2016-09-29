@@ -3,7 +3,7 @@ package com.degloba.organisation.canonicalmodel.events;
 import java.io.Serializable;
 
 // Domain
-import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
 
 // Event

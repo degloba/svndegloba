@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 
 import com.degloba.utils.DateUtils;
 

@@ -14,14 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-/*import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;*/
-
-
-//import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.BaseAggregateRoot;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;
 

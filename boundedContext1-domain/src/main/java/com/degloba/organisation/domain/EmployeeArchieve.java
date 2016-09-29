@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 
 
 @Entity

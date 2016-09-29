@@ -20,11 +20,10 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.annotations.Function;
 import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
-import com.degloba.domain.BaseAggregateRoot;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
-import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.sales.offer.domain.Discount;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.domain.Offer;

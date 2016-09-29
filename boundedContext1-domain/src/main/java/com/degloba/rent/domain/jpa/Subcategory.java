@@ -1,6 +1,6 @@
 package com.degloba.rent.domain.jpa;
 
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 
 import java.io.Serializable;
 

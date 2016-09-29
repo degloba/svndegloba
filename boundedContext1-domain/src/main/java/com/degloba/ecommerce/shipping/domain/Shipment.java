@@ -5,10 +5,7 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-
-//import pl.com.bottega.ddd.annotations.domain.AggregateRoot;
-import com.degloba.domain.BaseAggregateRoot;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.shipping.domain.events.OrderShippedEvent;
 import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 import com.google.appengine.api.datastore.Key;

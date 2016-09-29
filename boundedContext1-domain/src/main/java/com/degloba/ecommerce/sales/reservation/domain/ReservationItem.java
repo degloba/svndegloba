@@ -3,7 +3,7 @@ package com.degloba.ecommerce.sales.reservation.domain;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-import com.degloba.domain.BaseEntity;
+import com.degloba.domain.jpa.BaseEntity;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 

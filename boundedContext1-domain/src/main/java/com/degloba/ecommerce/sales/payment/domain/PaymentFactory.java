@@ -10,7 +10,7 @@ import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
 
 
 // Domain
-import com.degloba.domain.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
 
 // Event
