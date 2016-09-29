@@ -4,9 +4,7 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.CommandHandler;
-
-import com.degloba.domain.EntityRepository;
-
+import com.degloba.domain.IEntityRepository;
 // Application
 import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
 
@@ -26,7 +24,7 @@ import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand, Void>{
 
 	@Inject
-	private EntityRepository entityRepository;
+	private IEntityRepository entityRepository;
 	
 	@Inject
 	private IReservationRepository reservationRepository;   

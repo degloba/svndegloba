@@ -16,21 +16,20 @@ import javax.inject.Inject;
 
 // Domain
 import com.degloba.domain.Entity;
-import com.degloba.domain.EntityRepository;
-
+import com.degloba.domain.IEntityRepository;
 import com.google.appengine.api.datastore.Key;
 
 public class OrganisationApplicationImpl implements OrganisationService {
 	
 	
     //////@Inject
-    private EntityRepository organisationRepository;
+    private IEntityRepository organisationRepository;
 
-   public EntityRepository getRepository() {
+   public IEntityRepository getRepository() {
 		return organisationRepository;
 	}
 
-	public void setRepository(EntityRepository organisationRepository) {
+	public void setRepository(IEntityRepository organisationRepository) {
 		this.organisationRepository = organisationRepository;
 	}
 
@@ -75,7 +74,7 @@ public class OrganisationApplicationImpl implements OrganisationService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrganisationApplicationImpl(EntityRepository organisationRepository) {
+	public OrganisationApplicationImpl(IEntityRepository organisationRepository) {
 		super();
 		this.organisationRepository = organisationRepository;
 	}

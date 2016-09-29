@@ -6,15 +6,16 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
+import com.degloba.domain.IEntityRepository;
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.api.service.OfferChangedExcpetion;
 import com.degloba.ecommerce.sales.application.api.service.OrderingService;
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.client.domain.IClientRepository;
-//import pl.com.bottega.ecommerce.sales.domain.client.ClientRepository;
+
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.offer.domain.DiscountFactory;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
@@ -22,18 +23,17 @@ import com.degloba.ecommerce.sales.offer.domain.Offer;
 import com.degloba.ecommerce.sales.payment.domain.IPaymentRepository;
 import com.degloba.ecommerce.sales.payment.domain.Payment;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
-//import pl.com.bottega.ecommerce.sales.domain.payment.PaymentRepository;
+
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
-//import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductRepository;
+
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.PurchaseFactory;
 import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
-//import pl.com.bottega.ecommerce.sales.domain.purchase.PurchaseRepository;
+
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 import com.degloba.ecommerce.sales.reservation.domain.ReservationFactory;
-import com.degloba.domain.EntityRepository;
-//import pl.com.bottega.ecommerce.sales.domain.reservation.ReservationRepository;
+
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
 import com.degloba.ecommerce.system.application.SystemUser;
@@ -55,7 +55,7 @@ public class OrderingServiceImpl implements OrderingService {
 	private SystemUser systemUser;*/
 	
 	@Inject
-	private EntityRepository entityRepository;
+	private IEntityRepository entityRepository;
 	
 	@Inject
 	private IClientRepository clientRepository;

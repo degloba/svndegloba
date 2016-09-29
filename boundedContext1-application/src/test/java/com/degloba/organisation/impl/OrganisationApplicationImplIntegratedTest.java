@@ -2,9 +2,12 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
+import com.degloba.domain.IEntityRepository;
+
 // Domain
-import com.degloba.domain.AbstractEntity;
-import com.degloba.domain.EntityRepository;
+
+
+import com.degloba.domain.jpa.AbstractEntity;
 
 // Application (organisation)
 import com.degloba.organisation.application.api.OrganisationService;
@@ -31,11 +34,11 @@ public class OrganisationApplicationImplIntegratedTest {
 
     private OrganisationService instance;
 
-    protected EntityRepository repository;
+    protected IEntityRepository repository;
 
     @Before
     public void setUp() {
-        repository = mock(EntityRepository.class);
+        repository = mock(IEntityRepository.class);
         instance = new OrganisationApplicationImpl(repository);
         AbstractEntity.setRepository(repository);
     }

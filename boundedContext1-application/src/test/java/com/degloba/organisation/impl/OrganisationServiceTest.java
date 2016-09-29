@@ -3,7 +3,7 @@ package com.degloba.organisation.impl;
 import java.util.Date;
 
 // Domain
-import com.degloba.domain.EntityRepository;
+import com.degloba.domain.IEntityRepository;
 
 import com.degloba.utils.DateUtils;
 
@@ -34,12 +34,12 @@ public abstract class OrganisationServiceTest {
 
     private OrganisationService instance;
 
-    protected EntityRepository repository;
+    protected IEntityRepository repository;
 
     @Before
     public void setUp() {
         instance = createInstance();
-        repository = mock(EntityRepository.class);
+        repository = mock(IEntityRepository.class);
         //AbstractEntity.setRepository(repository);
     }
 
