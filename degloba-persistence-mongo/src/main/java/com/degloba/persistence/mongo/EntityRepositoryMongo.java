@@ -2,26 +2,23 @@ package com.degloba.persistence.mongo;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 
-import com.degloba.domain.BaseQuery;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.Entity;
-import com.degloba.domain.EntityRepository;
+
 import com.degloba.domain.ExampleSettings;
-import com.degloba.domain.InstanceFactory;
+
 import com.degloba.domain.JpqlQuery;
-import com.degloba.domain.NamedParameters;
+
 import com.degloba.domain.NamedQuery;
-import com.degloba.domain.PositionalParameters;
-import com.degloba.domain.QueryParameters;
+
 import com.degloba.domain.SqlQuery;
 import com.google.appengine.api.datastore.Key;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

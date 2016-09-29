@@ -1,11 +1,9 @@
 package com.degloba.persistence.test.domain;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import com.degloba.domain.AbstractEntity;
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 import com.google.appengine.api.datastore.Key;
 
 import javax.persistence.*;

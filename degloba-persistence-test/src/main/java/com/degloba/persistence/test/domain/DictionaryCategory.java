@@ -1,10 +1,7 @@
 package com.degloba.persistence.test.domain;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.AbstractEntity;
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
