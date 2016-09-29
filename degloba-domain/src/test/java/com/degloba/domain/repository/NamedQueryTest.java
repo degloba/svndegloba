@@ -6,8 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.degloba.domain.EntityRepository;
+
 import com.degloba.domain.PositionalParameters;
+import com.degloba.domain.IEntityRepository;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
 
@@ -22,12 +23,12 @@ import static org.mockito.Mockito.when;
 public class NamedQueryTest {
     
     private NamedQuery instance;
-    private EntityRepository repository;
+    private IEntityRepository repository;
     private String queryName = "Employee.findByName";
     
     @Before
     public void setUp() {
-        repository = mock(EntityRepository.class);
+        repository = mock(IEntityRepository.class);
         instance = new NamedQuery(repository, queryName);
     }
 

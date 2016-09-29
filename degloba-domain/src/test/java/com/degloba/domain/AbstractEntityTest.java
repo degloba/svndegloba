@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.degloba.domain.entity.MyEntity;
+import com.degloba.domain.jpa.AbstractEntity;
+
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +25,7 @@ public class AbstractEntityTest {
     private MyEntity instance;
     
     @Mock
-    private EntityRepository repository;
+    private IEntityRepository repository;
 
     @Before
     public void setUp() throws Exception {
@@ -84,7 +87,7 @@ public class AbstractEntityTest {
         assertSame(repository, AbstractEntity.getRepository());
         
         AbstractEntity.setRepository(null);
-        InstanceFactory.bind(EntityRepository.class, repository);
+        InstanceFactory.bind(IEntityRepository.class, repository);
         assertSame(repository, AbstractEntity.getRepository());
     }
 

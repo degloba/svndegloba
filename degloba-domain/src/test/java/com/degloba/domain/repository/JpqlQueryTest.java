@@ -1,9 +1,11 @@
 package com.degloba.domain.repository;
 
-import com.degloba.domain.EntityRepository;
+
 import com.degloba.domain.JpqlQuery;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.PositionalParameters;
+import com.degloba.domain.IEntityRepository;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,12 +19,12 @@ import static org.mockito.Mockito.when;
 public class JpqlQueryTest {
     
     private JpqlQuery instance;
-    private EntityRepository repository;
+    private IEntityRepository repository;
     private String jpql = "select o from Employee o";
     
     @Before
     public void setUp() {
-        repository = mock(EntityRepository.class);
+        repository = mock(IEntityRepository.class);
         instance = new JpqlQuery(repository, jpql);
     }
  

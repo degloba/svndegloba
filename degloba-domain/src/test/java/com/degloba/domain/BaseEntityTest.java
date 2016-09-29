@@ -3,6 +3,9 @@ package com.degloba.domain;
 import com.degloba.domain.entity.Company;
 import com.degloba.domain.entity.Dept;
 import com.degloba.domain.entity.Organization;
+import com.degloba.domain.jpa.BaseEntity;
+import com.degloba.domain.IEntityRepository;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +16,7 @@ import static org.mockito.Mockito.*;
 
 public class BaseEntityTest {
 
-    private EntityRepository repository;
+    private IEntityRepository repository;
 
     private final Organization guangdong = new Company("Guangdong", 1);
 
@@ -23,7 +26,7 @@ public class BaseEntityTest {
 
     @Before
     public void setUp() {
-        repository = mock(EntityRepository.class);
+        repository = mock(IEntityRepository.class);
         BaseEntity.setRepository(repository);
     }
 

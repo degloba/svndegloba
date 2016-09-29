@@ -2,11 +2,10 @@ package com.degloba.domain.entity;
 
 import javax.persistence.Entity;
 
-import com.degloba.domain.BaseAggregateRoot;
+import com.degloba.domain.jpa.BaseAggregateRoot;
 
 @Entity
 public class MyEntity extends BaseAggregateRoot {
-//public class MyEntity	extends BaseAggregateRoot{
     private String name;
 
     public MyEntity() {

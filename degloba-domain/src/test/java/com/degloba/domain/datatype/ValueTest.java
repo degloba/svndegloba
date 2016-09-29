@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import com.degloba.domain.DataType;
-import com.degloba.domain.Value;
+import com.degloba.domain.jpa.Value;
 import com.degloba.utils.DateUtils;
 
 import static org.junit.Assert.*;
