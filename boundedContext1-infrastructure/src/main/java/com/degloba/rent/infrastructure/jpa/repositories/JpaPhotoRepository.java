@@ -1,6 +1,7 @@
 package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
+import com.degloba.domain.jpa.JpaEntityRepository;
 
 import java.util.logging.Logger;
 
@@ -10,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 // Repository
-import com.degloba.domain.JpaEntityRepository;
+
 
 // Domain
 import com.degloba.rent.domain.jpa.IPhotoRepository;

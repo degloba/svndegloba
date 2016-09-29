@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.crm.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.JpaEntityRepository;
+import com.degloba.domain.jpa.JpaEntityRepository;
 import com.degloba.ecommerce.crm.domain.Customer;
 import com.degloba.ecommerce.crm.domain.ICustomerRepository;
 import com.google.appengine.api.datastore.Key;
@@ -11,7 +11,6 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-//public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
 public class JpaCustomerRepository extends JpaEntityRepository<Customer> implements ICustomerRepository{
 
 	@Override

@@ -1,9 +1,10 @@
 package com.degloba.organisation.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
+import com.degloba.domain.jpa.JpaEntityRepository;
 
 // Repository
-import com.degloba.domain.JpaEntityRepository;
+
 
 // Domain (organisation)
 import com.degloba.organisation.domain.IOrganisationRepository;

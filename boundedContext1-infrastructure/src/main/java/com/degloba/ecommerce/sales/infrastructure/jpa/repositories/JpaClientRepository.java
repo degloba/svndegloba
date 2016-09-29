@@ -4,11 +4,9 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.client.domain.IClientRepository;
-import com.degloba.domain.JpaEntityRepository;
+import com.degloba.domain.jpa.JpaEntityRepository;
 
-// Domain (organisation)
-/*import com.degloba.organisation.domain.client.Client;
-import com.degloba.organisation.domain.client.IClientRepository;*/
+
 import com.google.appengine.api.datastore.Key;
 
 /**
