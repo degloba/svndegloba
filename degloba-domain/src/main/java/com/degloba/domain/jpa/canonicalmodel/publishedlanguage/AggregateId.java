@@ -1,4 +1,4 @@
-package com.degloba.domain.canonicalmodel.publishedlanguage;
+package com.degloba.domain.jpa.canonicalmodel.publishedlanguage;
 
 import java.io.Serializable;
 import java.util.UUID;

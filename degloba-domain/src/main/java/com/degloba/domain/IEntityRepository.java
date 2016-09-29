@@ -15,8 +15,8 @@ import com.google.appengine.api.datastore.Key;
 /**
  * Repository interface. Access and query the database for various types of Entity.
  */
-public interface EntityRepository {   //extends CrudRepository<Entity, Long>{
-
+public interface IEntityRepository {   
+	
     /**
      * The Entity (either new or modified) is saved to the Repository in.
      *

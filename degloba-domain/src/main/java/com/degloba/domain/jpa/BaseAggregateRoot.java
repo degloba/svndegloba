@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 
 import java.util.Date;
@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 
 // Spring
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -42,7 +42,7 @@ import com.google.appengine.api.datastore.Key;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends com.degloba.domain.BaseEntity {
+	public abstract class BaseAggregateRoot extends com.degloba.domain.jpa.BaseEntity {
 
 		private static final long serialVersionUID = 1L;
 		   

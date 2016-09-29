@@ -3,6 +3,8 @@ package com.degloba.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import com.degloba.domain.JpqlQuery;
+import com.degloba.domain.SqlQuery;
 import com.google.appengine.api.datastore.Key;
 
 

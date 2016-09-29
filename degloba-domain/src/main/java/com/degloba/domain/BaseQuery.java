@@ -3,6 +3,7 @@ package com.degloba.domain;
 import java.util.List;
 import java.util.Map;
 
+import com.degloba.domain.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**
@@ -10,13 +11,13 @@ import com.degloba.utils.Assert;
  * @param <E> Types of queries
  */
 public abstract class BaseQuery<E extends BaseQuery<?>> {
-    private final EntityRepository repository;
+    private final IEntityRepository repository;
     private QueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();
     private int firstResult;
     private int maxResults;
 
-    public BaseQuery(EntityRepository repository) {
+    public BaseQuery(IEntityRepository repository) {
         Assert.notNull(repository);
         this.repository = repository;
     }
@@ -154,7 +155,7 @@ public abstract class BaseQuery<E extends BaseQuery<?>> {
      * Get Warehousing object.
      * @return Warehousing object
      */
-    protected EntityRepository getRepository() {
+    protected IEntityRepository getRepository() {
         return repository;
     }
     

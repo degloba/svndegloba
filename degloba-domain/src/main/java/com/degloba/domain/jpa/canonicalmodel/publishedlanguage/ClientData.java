@@ -1,14 +1,7 @@
-package com.degloba.domain.canonicalmodel.publishedlanguage;
+package com.degloba.domain.jpa.canonicalmodel.publishedlanguage;
 
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import com.degloba.domain.annotations.ValueObject;
 import com.google.appengine.api.datastore.Key;

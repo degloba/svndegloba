@@ -2,6 +2,7 @@ package com.degloba.domain;
 
 import java.util.List;
 
+import com.degloba.domain.BaseQuery;
 import com.degloba.utils.Assert;
 
 /**
@@ -16,7 +17,7 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
      * @param repository Warehousing
      * @param jpql JPQLQuery
      */
-    public JpqlQuery(EntityRepository repository, String jpql) {
+    public JpqlQuery(IEntityRepository repository, String jpql) {
         super(repository);
         Assert.notBlank(jpql);
         this.jpql = jpql;

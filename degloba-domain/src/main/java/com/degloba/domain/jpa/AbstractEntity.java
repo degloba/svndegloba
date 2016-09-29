@@ -1,7 +1,9 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 // JPA
 import javax.persistence.*;
+
+import com.degloba.domain.NamedParameters;
 
 // appengine/datastore
 import com.google.appengine.api.datastore.Key;

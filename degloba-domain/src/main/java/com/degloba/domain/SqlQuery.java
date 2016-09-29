@@ -1,5 +1,7 @@
 package com.degloba.domain;
 
+import com.degloba.domain.BaseQuery;
+import com.degloba.domain.IEntityRepository;
 import com.degloba.utils.Assert;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param repository Warehousing
      * @param sql SQLQuery
      */
-    public SqlQuery(EntityRepository repository, String sql) {
+    public SqlQuery(IEntityRepository repository, String sql) {
         super(repository);
         Assert.notBlank(sql);
         this.sql = sql;

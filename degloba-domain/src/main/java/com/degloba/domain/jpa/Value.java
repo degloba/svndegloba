@@ -1,8 +1,11 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.time.DateUtils;
+
+import com.degloba.domain.DataType;
+import com.degloba.domain.ValueObject;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

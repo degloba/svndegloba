@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -9,8 +9,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
-import com.degloba.domain.BaseAggregateRoot;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.domain.jpa.BaseAggregateRoot;
+
 import com.google.appengine.api.datastore.Key;
 
 /**

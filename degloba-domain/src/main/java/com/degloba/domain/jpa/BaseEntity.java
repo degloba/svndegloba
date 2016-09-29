@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 import java.util.Map;
 
@@ -10,6 +10,8 @@ import javax.persistence.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.InstanceFactory;
 import com.degloba.utils.BeanUtils;
 // Appengine
 import com.google.appengine.api.datastore.Key;
@@ -92,15 +94,15 @@ public static final String TOTAL_RESULT = null;
        return !existed();
    }
 
-   private static EntityRepository repository;
+   private static IEntityRepository repository;
 
    /**
     * Get warehousing object instance. If you do not have a warehouse to get an instance of the IoC container through InstanceFactory.
     * @return Warehousing object instance
     */
-   public static EntityRepository getRepository() {
+   public static IEntityRepository getRepository() {
        if (repository == null) {
-           repository = InstanceFactory.getInstance(EntityRepository.class);
+           repository = InstanceFactory.getInstance(IEntityRepository.class);
        }
        return repository;
    }
@@ -109,7 +111,7 @@ public static final String TOTAL_RESULT = null;
     * Set warehousing instance. This method is mainly used for unit testing. Product warehousing systems usually get through IoC container instance.
     * @param repository To set up an instance of an object storage
     */
-   public static void setRepository(EntityRepository repository) {
+   public static void setRepository(IEntityRepository repository) {
        BaseEntity.repository = repository;
    }
    

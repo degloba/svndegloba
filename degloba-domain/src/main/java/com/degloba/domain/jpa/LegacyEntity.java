@@ -1,7 +1,8 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 import javax.persistence.*;
 
+import com.degloba.domain.NamedParameters;
 import com.google.appengine.api.datastore.Key;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import java.util.Map;
  * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
  */
 @MappedSuperclass
-public abstract class LegacyEntity extends com.degloba.domain.BaseEntity {
+public abstract class LegacyEntity extends com.degloba.domain.jpa.BaseEntity {
 
     private static final long serialVersionUID = 8882145540383345037L;
 

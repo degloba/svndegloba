@@ -1,5 +1,6 @@
 package com.degloba.domain;
 
+import com.degloba.domain.IEntityRepository;
 import com.degloba.utils.Assert;
 
 import java.util.*;
@@ -13,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class CriteriaQuery {
 
-    private final EntityRepository repository;
+    private final IEntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
     private final Class<? extends Entity> entityClass;
     private int firstResult;
@@ -21,7 +22,7 @@ public class CriteriaQuery {
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(EntityRepository repository, Class<? extends Entity> entityClass) {
+    public CriteriaQuery(IEntityRepository repository, Class<? extends Entity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

@@ -17,7 +17,7 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
      * @param repository Warehousing
      * @param queryName Naming names query
      */
-    public NamedQuery(EntityRepository repository, String queryName) {
+    public NamedQuery(IEntityRepository repository, String queryName) {
         super(repository);
         Assert.notBlank(queryName);
         this.queryName = queryName;

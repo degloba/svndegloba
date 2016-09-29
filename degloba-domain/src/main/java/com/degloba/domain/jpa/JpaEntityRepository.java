@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.jpa;
 
 
 import java.io.Serializable;
@@ -17,12 +17,13 @@ import javax.persistence.Query;
 import com.degloba.domain.BaseQuery;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.Entity;
-import com.degloba.domain.EntityRepository;
+import com.degloba.domain.IEntityRepository;
 import com.degloba.domain.ExampleSettings;
 import com.degloba.domain.JpqlQuery;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
+import com.degloba.domain.QueryCriterion;
 import com.degloba.domain.QueryParameters;
 import com.degloba.domain.SqlQuery;
 
@@ -48,7 +49,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class JpaEntityRepository<A extends BaseAggregateRoot> implements EntityRepository {
+public class JpaEntityRepository<A extends BaseAggregateRoot> implements IEntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JpaEntityRepository.class);
   

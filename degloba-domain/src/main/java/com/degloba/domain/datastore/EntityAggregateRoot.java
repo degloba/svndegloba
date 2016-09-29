@@ -1,8 +1,9 @@
-package com.degloba.objectify;
+package com.degloba.domain.datastore;
 
 public interface EntityAggregateRoot {
-
-	Long getId();
 	 
+	Long getId();
+ 
 	void setId(Long id);
+ 
 }

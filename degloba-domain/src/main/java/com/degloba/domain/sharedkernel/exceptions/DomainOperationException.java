@@ -1,6 +1,6 @@
 package com.degloba.domain.sharedkernel.exceptions;
 
-import com.degloba.domain.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.google.appengine.api.datastore.Key;
 
 @SuppressWarnings("serial")
