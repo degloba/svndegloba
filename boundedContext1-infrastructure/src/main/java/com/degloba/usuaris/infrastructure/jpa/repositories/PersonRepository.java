@@ -16,7 +16,8 @@ import com.degloba.domain.annotations.DomainRepositoryImpl;
 
 //Domain (usuaris)
 import com.degloba.usuaris.domain.IPersonRepository;
-import com.degloba.usuaris.domain.Person; 
+import com.degloba.usuaris.domain.Person;
+
 
 /** 
  *  Repository for {@link Person}s 

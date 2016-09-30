@@ -1,7 +1,7 @@
 package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
 
 import java.util.List;
 import java.util.logging.Logger;

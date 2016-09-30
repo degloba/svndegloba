@@ -28,8 +28,6 @@ import org.springframework.integration.mail.MailHeaders;
 
 
 // Domain
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.User;
 
 
 import javax.annotation.PostConstruct;
@@ -140,15 +138,19 @@ public class EmailNotificationService implements NotificationService {
         });
     }
 
-    @Override
-    public void sendReminderNotification(String userId, long bookingId) {
-        // todo
-    }
-  
 
-    @Override
+	@Override
 	public void sendConfirmationNotification(String userId, long id) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public void sendReminderNotification(String userId, long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

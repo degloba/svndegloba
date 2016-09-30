@@ -2,8 +2,7 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.jpa.JpaEntityRepository;
-
+import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
 // Domain (ecommerce)
 import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;

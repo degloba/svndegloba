@@ -1,7 +1,7 @@
 package com.degloba.organisation.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
 
 // Repository
 

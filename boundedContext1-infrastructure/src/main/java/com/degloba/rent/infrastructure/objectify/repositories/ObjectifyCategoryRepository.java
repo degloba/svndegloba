@@ -1,8 +1,7 @@
 package com.degloba.rent.infrastructure.objectify.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-
-import com.degloba.objectify.BaseRepositoryObjectify;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.BaseRepository;
 import com.degloba.rent.domain.objectify.ICategoryRepositoryObjectify;
 
 import java.util.logging.Logger;
@@ -14,7 +13,7 @@ import java.util.logging.Logger;
  *
  */
 @DomainRepositoryImpl
-public class ObjectifyCategoryRepository extends BaseRepositoryObjectify implements ICategoryRepositoryObjectify{
+public class ObjectifyCategoryRepository extends BaseRepository implements ICategoryRepositoryObjectify{
 
 	private final static Logger logger = Logger.getLogger(ObjectifyCategoryRepository.class.getName());
 	

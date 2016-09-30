@@ -1,7 +1,7 @@
 package com.degloba.rent.infrastructure.objectify.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.objectify.BaseRepositoryObjectify;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.BaseRepository;
 import com.degloba.rent.domain.objectify.IOwnerRepositoryObjectify;
 
 import java.io.Serializable;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  */
 @DomainRepositoryImpl
-public class ObjectifyOwnerRepository extends BaseRepositoryObjectify implements IOwnerRepositoryObjectify, Serializable{
+public class ObjectifyOwnerRepository extends BaseRepository implements IOwnerRepositoryObjectify, Serializable{
 
 	/**
 	 * 

@@ -4,7 +4,7 @@ import java.util.List;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
 // Domain (ecommerce)
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
