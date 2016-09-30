@@ -1,13 +1,15 @@
 package com.degloba.persistence.test.domain;
 
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.HashSet;
 import java.util.List;
