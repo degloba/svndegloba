@@ -3,11 +3,11 @@ package com.degloba.organisation.impl;
 import java.util.Date;
 
 import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 
 // Domain
 
 
-import com.degloba.domain.jpa.AbstractEntity;
 
 // Application (organisation)
 import com.degloba.organisation.application.api.OrganisationService;

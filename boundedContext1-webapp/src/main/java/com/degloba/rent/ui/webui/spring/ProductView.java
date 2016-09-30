@@ -26,10 +26,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 import com.degloba.gcs.StorageUtils;
 // Objectify
-import com.degloba.objectify.DatabaseException;
-import com.degloba.objectify.IBaseRepositoryObjectify;
+
 import com.degloba.rent.domain.jpa.Photo;
 // Entitats/Objectify
 import com.degloba.rent.domain.objectify.Owner;
@@ -67,7 +68,7 @@ public class ProductView implements Serializable{
 	
     
     @Inject
-    protected IBaseRepositoryObjectify ownerRepositoryObjectify;
+    protected IBaseRepository ownerRepositoryObjectify;
     
  	
     @PostConstruct

@@ -8,9 +8,9 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 import com.degloba.gcm.Topic;
-import com.degloba.objectify.DatabaseException;
-import com.degloba.objectify.IBaseRepositoryObjectify;
 
 import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
 import com.degloba.rent.domain.objectify.Category;
@@ -41,7 +41,7 @@ public class CarregaEntitatsController {
     protected ICategoryFinder finderCategory;
     
     @Inject
-    protected IBaseRepositoryObjectify categoryRepositoryObjectify;
+    protected IBaseRepository categoryRepositoryObjectify;
     
 
 	@RequestMapping(value = "/carregaEntitats")

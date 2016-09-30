@@ -2,15 +2,12 @@ package com.degloba.travel.ui.webui.spring.controller;
 
 
 import java.security.Principal;
-import java.util.List;
 
 import javax.inject.Inject;
 
-//import com.degloba.travel.Booking;
-
 
 import com.degloba.travel.application.api.BookingService;
-//import com.degloba.travel.Hotel;
+
 import com.degloba.travel.services.SearchCriteria;
 
 import org.springframework.stereotype.Controller;

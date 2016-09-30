@@ -16,9 +16,10 @@ import org.primefaces.event.FileUploadEvent;
 // Spring
 import org.springframework.stereotype.Component;
 
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 // Google Cloud Storage/degloba
 import com.degloba.gcs.StorageUtils;
-import com.degloba.objectify.IBaseRepositoryObjectify;
+
 
 
 // Entitats/Objectify
@@ -41,7 +42,7 @@ public class FileUploadController {
     protected PhotoFacade facadePhoto;
     
     @Inject
-    protected IBaseRepositoryObjectify ownerRepositoryObjectify;
+    protected IBaseRepository ownerRepositoryObjectify;
 
      /*
       * Manipula l'Event "Upload" de Primefaces  
