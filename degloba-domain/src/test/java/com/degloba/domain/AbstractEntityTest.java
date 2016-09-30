@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.degloba.domain.entity.MyEntity;
-import com.degloba.domain.jpa.AbstractEntity;
-
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.degloba.domain.jpa;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 // JPA
 import javax.persistence.*;

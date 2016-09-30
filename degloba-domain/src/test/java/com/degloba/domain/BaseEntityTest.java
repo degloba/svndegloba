@@ -3,7 +3,7 @@ package com.degloba.domain;
 import com.degloba.domain.entity.Company;
 import com.degloba.domain.entity.Dept;
 import com.degloba.domain.entity.Organization;
-import com.degloba.domain.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.IEntityRepository;
 
 import org.junit.After;

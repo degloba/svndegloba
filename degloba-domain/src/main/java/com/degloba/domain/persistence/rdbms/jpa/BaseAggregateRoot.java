@@ -1,4 +1,4 @@
-package com.degloba.domain.jpa;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 
 import java.util.Date;
@@ -42,7 +42,7 @@ import com.google.appengine.api.datastore.Key;
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@Entity
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends com.degloba.domain.jpa.BaseEntity {
+	public abstract class BaseAggregateRoot extends BaseEntity {
 
 		private static final long serialVersionUID = 1L;
 		   

@@ -2,7 +2,7 @@ package com.degloba.domain.entity;
 
 import java.util.Random;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 

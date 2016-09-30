@@ -1,4 +1,4 @@
-package com.degloba.domain.jpa;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
@@ -13,7 +13,7 @@ import java.util.Map;
  * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
  */
 @MappedSuperclass
-public abstract class LegacyEntity extends com.degloba.domain.jpa.BaseEntity {
+public abstract class LegacyEntity extends BaseEntity {
 
     private static final long serialVersionUID = 8882145540383345037L;
 

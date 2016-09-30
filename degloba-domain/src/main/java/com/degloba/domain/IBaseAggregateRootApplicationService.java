@@ -2,7 +2,7 @@ package com.degloba.domain;
 
 // Domain
 import com.degloba.domain.annotations.DomainService;
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 /**

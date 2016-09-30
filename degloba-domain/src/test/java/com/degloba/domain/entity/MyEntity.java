@@ -2,7 +2,7 @@ package com.degloba.domain.entity;
 
 import javax.persistence.Entity;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 @Entity
 public class MyEntity extends BaseAggregateRoot {
