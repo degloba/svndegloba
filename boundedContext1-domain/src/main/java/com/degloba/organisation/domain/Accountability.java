@@ -5,8 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
-
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.utils.DateUtils;
 
 //@Entity

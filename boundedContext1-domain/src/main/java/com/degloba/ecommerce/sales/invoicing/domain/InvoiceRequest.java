@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 
 @ValueObject
 public class InvoiceRequest {

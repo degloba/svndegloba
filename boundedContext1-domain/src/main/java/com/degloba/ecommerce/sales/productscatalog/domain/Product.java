@@ -8,7 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;

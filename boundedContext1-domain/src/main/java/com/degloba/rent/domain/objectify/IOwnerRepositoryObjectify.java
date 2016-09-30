@@ -3,7 +3,7 @@ package com.degloba.rent.domain.objectify;
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.objectify.DatabaseException;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.googlecode.objectify.Key;
 
 

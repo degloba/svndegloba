@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.canonicalmodel.events.CustomerStatusChangedEvent;
 
 /**

@@ -6,11 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 
-import com.degloba.organisation.canonicalmodel.events.PaymentRolledBackEvent;
-
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
+import com.degloba.ecommerce.canonicalmodel.events.PaymentRolledBackEvent;
 import com.google.appengine.api.datastore.Key;
 
 /**

@@ -5,8 +5,7 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
-import com.degloba.ecommerce.shipping.domain.events.OrderShippedEvent;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 import com.google.appengine.api.datastore.Key;
 

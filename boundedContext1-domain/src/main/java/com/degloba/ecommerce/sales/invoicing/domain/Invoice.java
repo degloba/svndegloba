@@ -14,8 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;
 

@@ -1,6 +1,8 @@
 package com.degloba.rent.domain.objectify;
 
-import com.degloba.objectify.EntityAggregateRootObjectify;
+
+
+import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.EntityAggregateRoot;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -9,7 +11,7 @@ import com.googlecode.objectify.annotation.Unindex;
 
 
 @Entity
-public class UserObjectify implements EntityAggregateRootObjectify {
+public class UserObjectify implements EntityAggregateRoot {
  
 	@Id
 	private Long id;

@@ -1,6 +1,6 @@
 package com.degloba.organisation.domain;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import com.degloba.utils.Assert;
 import com.degloba.utils.DateUtils;

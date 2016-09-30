@@ -2,8 +2,10 @@ package com.degloba.organisation.canonicalmodel.events;
 
 import java.io.Serializable;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+
 // Domain
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
+
 import com.degloba.domain.sharedkernel.Money;
 
 // Event

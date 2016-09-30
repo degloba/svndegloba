@@ -6,7 +6,7 @@ import java.io.Serializable;
 import com.google.appengine.api.datastore.Key;
 
 // Domain
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
 
 // Events

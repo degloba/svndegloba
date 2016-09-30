@@ -22,8 +22,8 @@ import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
 
 
-import com.degloba.domain.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.sales.offer.domain.Discount;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.domain.Offer;

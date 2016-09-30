@@ -3,7 +3,7 @@ package com.degloba.rent.domain.jpa;
 
 import javax.persistence.*;
 
-import com.degloba.domain.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.io.Serializable;
 import java.util.*;
