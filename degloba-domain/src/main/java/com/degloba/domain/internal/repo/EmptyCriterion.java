@@ -1,8 +1,8 @@
 package com.degloba.domain.internal.repo;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import com.degloba.domain.NamedParameters;
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 
 /**
  * "Empty" conditions, do nothing. To simplify operation between conditions

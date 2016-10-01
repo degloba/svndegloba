@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
-import com.degloba.domain.NamedParameters;
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 import com.degloba.domain.internal.repo.NotCriterion;
 import org.junit.Before;
 import org.junit.Test;

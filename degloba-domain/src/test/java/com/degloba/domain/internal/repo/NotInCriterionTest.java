@@ -1,7 +1,7 @@
 package com.degloba.domain.internal.repo;
 
 import java.util.Arrays;
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.domain.internal.repo.NotInCriterion;
 import org.junit.Before;
 import org.junit.Test;

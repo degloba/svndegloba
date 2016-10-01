@@ -2,7 +2,7 @@ package com.degloba.domain.internal.repo;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 /**
  * Determine if a property value is null query criteria

@@ -3,7 +3,9 @@ package com.degloba.domain.internal.repo;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
+
+
 
 /**
  * Query conditions abstract base class that implements the AND, OR, NOT operation.

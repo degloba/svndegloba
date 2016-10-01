@@ -1,7 +1,8 @@
 package com.degloba.domain.internal.repo;
 
-import com.degloba.domain.CriterionBuilder;
-import com.degloba.domain.QueryCriterion;
+
+import com.degloba.domain.persistence.rdbms.jpa.CriterionBuilder;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 
 import java.util.Collection;
 

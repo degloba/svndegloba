@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.degloba.domain.Entity;
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 /**
  * Query condition values represent a property is not included in the specified collection or array

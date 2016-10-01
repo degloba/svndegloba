@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 import java.util.List;
 import java.util.Map;

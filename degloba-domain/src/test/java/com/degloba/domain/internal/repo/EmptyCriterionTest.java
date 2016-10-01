@@ -1,6 +1,6 @@
 package com.degloba.domain.internal.repo;
 
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 import com.degloba.domain.internal.repo.EmptyCriterion;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,8 @@
 package com.degloba.domain.internal.repo;
 
-import com.degloba.domain.NamedParameters;
 import com.degloba.domain.internal.repo.LeCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

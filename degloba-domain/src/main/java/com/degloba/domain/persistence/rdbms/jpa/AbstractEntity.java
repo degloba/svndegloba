@@ -3,7 +3,7 @@ package com.degloba.domain.persistence.rdbms.jpa;
 // JPA
 import javax.persistence.*;
 
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 // appengine/datastore
 import com.google.appengine.api.datastore.Key;

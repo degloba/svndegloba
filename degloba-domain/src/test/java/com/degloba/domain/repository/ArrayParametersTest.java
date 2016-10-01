@@ -2,9 +2,12 @@ package com.degloba.domain.repository;
 
 import java.util.Arrays;
 import java.util.Date;
-import com.degloba.domain.PositionalParameters;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
+
 import static org.junit.Assert.*;
 
 

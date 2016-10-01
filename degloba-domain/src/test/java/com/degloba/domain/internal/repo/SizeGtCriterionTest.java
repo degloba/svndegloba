@@ -1,6 +1,6 @@
 package com.degloba.domain.internal.repo;
 
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.domain.internal.repo.SizeGtCriterion;
 import org.junit.Before;
 import org.junit.Test;

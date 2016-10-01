@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.degloba.domain.PositionalParameters;
+import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.domain.NamedParameters;
-import com.degloba.domain.NamedQuery;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedQuery;
 
 import org.junit.Before;
 import org.junit.Test;

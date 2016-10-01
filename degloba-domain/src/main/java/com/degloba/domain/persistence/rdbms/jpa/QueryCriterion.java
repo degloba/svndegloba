@@ -1,5 +1,6 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.rdbms.jpa;
 
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 /**
  * The query interface

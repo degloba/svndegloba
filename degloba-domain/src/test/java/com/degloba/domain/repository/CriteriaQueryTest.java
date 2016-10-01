@@ -9,9 +9,9 @@ import java.util.List;
 
 
 
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.domain.OrderSettings;
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 import com.degloba.domain.entity.MyEntity;
 import com.degloba.domain.internal.repo.AndCriterion;
 import com.degloba.domain.internal.repo.BetweenCriterion;

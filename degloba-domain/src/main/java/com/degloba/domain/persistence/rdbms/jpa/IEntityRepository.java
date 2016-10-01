@@ -7,9 +7,8 @@ import java.util.List;
 import com.degloba.domain.Entity;
 import com.degloba.domain.ExampleSettings;
 
-import com.degloba.domain.NamedParameters;
-import com.degloba.domain.NamedQuery;
-import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
 
 import com.google.appengine.api.datastore.Key;
 

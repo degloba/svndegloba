@@ -2,7 +2,7 @@ package com.degloba.domain.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

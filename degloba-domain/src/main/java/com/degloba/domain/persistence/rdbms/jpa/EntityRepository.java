@@ -14,17 +14,17 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 // Domain
-import com.degloba.domain.BaseQuery;
+
 
 import com.degloba.domain.Entity;
 
 import com.degloba.domain.ExampleSettings;
 
-import com.degloba.domain.NamedParameters;
-import com.degloba.domain.NamedQuery;
-import com.degloba.domain.PositionalParameters;
-import com.degloba.domain.QueryCriterion;
-import com.degloba.domain.QueryParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+
+import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
+import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
+
 
 
 // Google App Engine
