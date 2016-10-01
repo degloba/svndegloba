@@ -59,7 +59,7 @@
 		
 		
 		<!-- ******************************************* -->                    	
-		<!-- Objectify (Interface natiu Google datastore -->
+		<!-- Objectify (Interface Google datastore       -->
 		<!-- ******************************************* --> 
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
@@ -72,6 +72,16 @@
 			<artifactId>objectify</artifactId>
 			<version>3.1</version>
 		</dependency> -->
+		
+		<!-- ************************************************ -->                    	
+		<!-- API Datastore (Interface nativa Google datastore -->
+		<!-- ************************************************ --> 
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-datastore</artifactId>
+			<version>0.4.0</version>
+		</dependency>
+		
     </dependencies>
 
     <build>
