@@ -1,9 +1,10 @@
 package com.degloba.security.domain;
 
 
-import com.degloba.domain.CriteriaQuery;
+
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
 import com.google.appengine.api.datastore.Key;
 
 import com.degloba.utils.DateUtils;

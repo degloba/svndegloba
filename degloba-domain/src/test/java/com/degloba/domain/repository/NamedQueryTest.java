@@ -8,7 +8,7 @@ import java.util.Map;
 
 
 import com.degloba.domain.PositionalParameters;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
 

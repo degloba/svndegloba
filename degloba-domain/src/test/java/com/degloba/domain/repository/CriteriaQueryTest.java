@@ -7,7 +7,7 @@ import static org.mockito.Mockito.when;
 import java.util.Arrays;
 import java.util.List;
 
-import com.degloba.domain.CriteriaQuery;
+
 
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.OrderSettings;
@@ -43,7 +43,8 @@ import com.degloba.domain.internal.repo.SizeLeCriterion;
 import com.degloba.domain.internal.repo.SizeLtCriterion;
 import com.degloba.domain.internal.repo.SizeNotEqCriterion;
 import com.degloba.domain.internal.repo.StartsWithTextCriterion;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 import org.junit.Before;
 import org.junit.Test;

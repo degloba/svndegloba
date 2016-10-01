@@ -1,10 +1,11 @@
 package com.degloba.domain.repository;
 
 
-import com.degloba.domain.JpqlQuery;
+
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.PositionalParameters;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.JpqlQuery;
 
 import org.junit.Before;
 import org.junit.Test;
