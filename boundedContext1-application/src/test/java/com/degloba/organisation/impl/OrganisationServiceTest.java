@@ -3,10 +3,10 @@ package com.degloba.organisation.impl;
 import java.util.Date;
 
 // Domain
-import com.degloba.domain.IEntityRepository;
+
 
 import com.degloba.utils.DateUtils;
-
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.organisation.application.api.OrganisationService;
 
 // Domain (organisation)

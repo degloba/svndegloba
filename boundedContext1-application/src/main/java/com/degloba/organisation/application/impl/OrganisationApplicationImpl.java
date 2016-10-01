@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 // Domain
 import com.degloba.domain.Entity;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.google.appengine.api.datastore.Key;
 
 public class OrganisationApplicationImpl implements OrganisationService {

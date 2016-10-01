@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.CommandHandler;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 // Application
 import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
 

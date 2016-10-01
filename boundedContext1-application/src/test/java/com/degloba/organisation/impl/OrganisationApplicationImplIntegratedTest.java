@@ -2,8 +2,9 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
-import com.degloba.domain.IEntityRepository;
+
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 // Domain
 

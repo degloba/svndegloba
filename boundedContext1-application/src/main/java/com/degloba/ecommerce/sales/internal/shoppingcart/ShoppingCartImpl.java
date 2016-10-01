@@ -1,7 +1,8 @@
 package com.degloba.ecommerce.sales.internal.shoppingcart;
 
-import com.degloba.domain.annotations.InternalApplicationService;
+
 import com.google.appengine.api.datastore.Key;
+import com.degloba.domain.annotations.InternalApplicationService;
 
 // Application
 import com.degloba.ecommerce.sales.application.api.service.ShoppingCart;
