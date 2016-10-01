@@ -10,7 +10,7 @@ import javax.validation.ValidationException;
 import com.degloba.domain.CriteriaQuery;
 import com.degloba.domain.ExampleSettings;
 import com.degloba.domain.JpqlQuery;
-import com.degloba.domain.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.domain.NamedQuery;
 import com.degloba.domain.SqlQuery;
 import com.degloba.persistence.test.domain.Dictionary;
