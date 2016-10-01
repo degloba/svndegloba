@@ -71,7 +71,7 @@
 	<bean id="shipmentFinder" class="com.degloba.ecommerce.shipping.cqrs.readmodel.impl.JpaShipmentFinder"/>  
 	<bean id="orderFinder" class="com.degloba.ecommerce.sales.cqrs.readmodel.impl.JpaOrderFinder"/> 
 	<bean id="categoryFinder" class="com.degloba.rent.cqrs.readmodel.jpa.impl.CategoryFinder"/> 
-	<bean id="subcategoryFinder" class="com.degloba.rent.cqrs.readmodel.jpa.impl.SubcategoryFinder"/> 
+	<!-- <bean id="subcategoryFinder" class="com.degloba.rent.cqrs.readmodel.jpa.impl.SubcategoryFinder"/>  -->
 	
 	
 	<!-- ************************* -->

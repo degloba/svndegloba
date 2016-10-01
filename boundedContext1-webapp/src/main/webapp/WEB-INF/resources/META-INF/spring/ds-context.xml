@@ -95,7 +95,7 @@
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
   	
-  	<bean id="repository" class="com.degloba.domain.JpaEntityRepository" /> 
+  	<bean id="repository" class="com.degloba.domain.persistence.rdbms.jpa.EntityRepository" /> 
   	  
 	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
 	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
