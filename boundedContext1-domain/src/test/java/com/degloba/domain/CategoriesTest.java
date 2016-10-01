@@ -4,7 +4,7 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.Subcategory;
 

@@ -1,7 +1,7 @@
 package com.degloba.organisation.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 
 // Repository
 
@@ -18,7 +18,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaOrganisationRepository extends JpaEntityRepository<Organization> implements IOrganisationRepository{
+public class JpaOrganisationRepository extends EntityRepository<Organization> implements IOrganisationRepository{
 
 	@Override
 	public Organization load(Key id) {

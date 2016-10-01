@@ -1,6 +1,14 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.rdbms.jpa;
 
-import com.degloba.domain.IEntityRepository;
+
+import com.degloba.domain.CriterionBuilder;
+import com.degloba.domain.Entity;
+import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.KeyValue;
+import com.degloba.domain.NamedParameters;
+import com.degloba.domain.OrderSettings;
+import com.degloba.domain.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 import java.util.*;

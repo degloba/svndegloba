@@ -1,7 +1,7 @@
 package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 
 import java.util.logging.Logger;
 
@@ -25,7 +25,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaPhotoRepository extends JpaEntityRepository<Photo> implements IPhotoRepository{
+public class JpaPhotoRepository extends EntityRepository<Photo> implements IPhotoRepository{
 
 	private final static Logger logger = Logger.getLogger(JpaPhotoRepository.class.getName());
 	

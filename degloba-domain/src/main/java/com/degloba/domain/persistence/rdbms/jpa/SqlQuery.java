@@ -1,7 +1,7 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.BaseQuery;
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.rdbms.jpa;
 
 // Domain
 import com.degloba.domain.annotations.DomainService;

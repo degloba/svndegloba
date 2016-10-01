@@ -3,8 +3,10 @@ package com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel;
 
 import java.util.List;
 
+import com.degloba.domain.annotations.DomainRepository;
 import com.google.cloud.datastore.Key;
 
+@DomainRepository
 public interface IBaseRepository {
 
 	public <T> void create(T t);

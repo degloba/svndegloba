@@ -4,7 +4,7 @@ import java.util.List;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 // Domain (ecommerce)
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
@@ -17,7 +17,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaProductRepository extends JpaEntityRepository<Product> implements IProductRepository{
+public class JpaProductRepository extends EntityRepository<Product> implements IProductRepository{
 
 	@Override
 	public Product load(Key id) {

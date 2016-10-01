@@ -3,7 +3,7 @@ package com.degloba.domain;
 import java.util.List;
 import java.util.Map;
 
-import com.degloba.domain.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**

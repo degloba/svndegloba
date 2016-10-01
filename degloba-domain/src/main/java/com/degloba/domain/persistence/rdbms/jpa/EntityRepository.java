@@ -15,17 +15,17 @@ import javax.persistence.Query;
 
 // Domain
 import com.degloba.domain.BaseQuery;
-import com.degloba.domain.CriteriaQuery;
+
 import com.degloba.domain.Entity;
-import com.degloba.domain.IEntityRepository;
+
 import com.degloba.domain.ExampleSettings;
-import com.degloba.domain.JpqlQuery;
+
 import com.degloba.domain.NamedParameters;
 import com.degloba.domain.NamedQuery;
 import com.degloba.domain.PositionalParameters;
 import com.degloba.domain.QueryCriterion;
 import com.degloba.domain.QueryParameters;
-import com.degloba.domain.SqlQuery;
+
 
 // Google App Engine
 import com.google.appengine.api.datastore.Key;
@@ -49,9 +49,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class JpaEntityRepository<A extends BaseAggregateRoot> implements IEntityRepository {
+public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRepository {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JpaEntityRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepository.class);
   
 
 	@PersistenceContext(unitName="transactions-optional")
@@ -59,7 +59,7 @@ public class JpaEntityRepository<A extends BaseAggregateRoot> implements IEntity
     protected EntityManager entityManager;
 	
     
-    public JpaEntityRepository() {
+    public EntityRepository() {
         //entityManagerProvider = new EntityManagerProvider();
     }
 

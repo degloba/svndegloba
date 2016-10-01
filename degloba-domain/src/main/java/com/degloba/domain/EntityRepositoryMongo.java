@@ -3,8 +3,9 @@ package com.degloba.domain;
 import java.io.Serializable;
 import java.util.List;
 
-import com.degloba.domain.JpqlQuery;
-import com.degloba.domain.SqlQuery;
+import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
+import com.degloba.domain.persistence.rdbms.jpa.JpqlQuery;
+import com.degloba.domain.persistence.rdbms.jpa.SqlQuery;
 import com.google.appengine.api.datastore.Key;
 
 

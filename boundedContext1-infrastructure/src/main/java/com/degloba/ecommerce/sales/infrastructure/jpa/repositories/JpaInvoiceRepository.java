@@ -2,7 +2,7 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 // Domain (ecommerce)
 import com.degloba.ecommerce.sales.invoicing.domain.IInvoiceRepository;
 import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
@@ -13,7 +13,7 @@ import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
  */
 @DomainRepositoryImpl
 //public class JpaCustomerRepository extends GenericJpaRepository<Customer> implements CustomerRepository{
-public class JpaInvoiceRepository extends JpaEntityRepository<Invoice> implements IInvoiceRepository{
+public class JpaInvoiceRepository extends EntityRepository<Invoice> implements IInvoiceRepository{
 
 /*	@Override
 	public Invoice load(Key id) {

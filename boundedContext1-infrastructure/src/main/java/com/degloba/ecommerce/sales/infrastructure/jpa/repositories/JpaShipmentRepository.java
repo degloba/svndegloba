@@ -2,7 +2,7 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 //Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.JpaEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 // Domain (ecommerce)
 import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
 import com.degloba.ecommerce.shipping.domain.Shipment;
@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaShipmentRepository extends JpaEntityRepository<Shipment> implements IShipmentRepository{
+public class JpaShipmentRepository extends EntityRepository<Shipment> implements IShipmentRepository{
 
 	@Override
 	public Shipment load(Key id) {
