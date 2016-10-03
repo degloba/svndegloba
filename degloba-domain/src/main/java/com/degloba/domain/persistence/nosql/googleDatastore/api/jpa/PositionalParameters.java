@@ -1,11 +1,9 @@
-package com.degloba.domain.persistence.rdbms;
+package com.degloba.domain.persistence.nosql.googleDatastore.api.jpa;
 
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import com.degloba.domain.persistence.rdbms.jpa.QueryParameters;
 
 /**
  * Value or named query language localization parameter set of a query. JPA, Hibernate and SQL are all support positioning
