@@ -52,7 +52,7 @@ public abstract class AbstractEntity extends BaseEntity {
        getRepository().remove(this);
    }
 
-   public static  <E extends com.degloba.domain.Entity> E get(Class<E> clazz, Key id) {
+   public static  <E extends BaseEntity> E get(Class<E> clazz, Key id) {
        return (E) getRepository().get(clazz, id);
    }
 
@@ -72,7 +72,7 @@ public abstract class AbstractEntity extends BaseEntity {
        return getRepository().findByProperty(clazz, propName, value);
    }
 
-    public static <E extends com.degloba.domain.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+    public static <E extends BaseEntity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
        return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
    }
 }

@@ -3,8 +3,6 @@ package com.degloba.security.domain;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.google.appengine.api.datastore.Key;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -29,7 +27,7 @@ public class Permission extends Authority {
         return permission;
     }
 
-    public static Permission get(Key id) {
+    public static Permission get(long id) {
         return get(Permission.class, id);
     }
 

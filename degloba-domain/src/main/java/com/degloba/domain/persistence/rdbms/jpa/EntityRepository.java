@@ -15,20 +15,12 @@ import javax.persistence.Query;
 
 // Domain
 
-
-import com.degloba.domain.Entity;
-
 import com.degloba.domain.ExampleSettings;
 
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
 import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
-
-
-
-// Google App Engine
-import com.google.appengine.api.datastore.Key;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,18 +63,18 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 	
 
     @Override
-    public <T extends Entity, E extends T> List<T> findByExample(
+    public <T extends BaseEntity, E extends T> List<T> findByExample(
             final E example, final ExampleSettings<T> settings) {
         throw new RuntimeException("not implemented yet!");
     }
 
     @Override
-    public <T extends Entity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
+    public <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
         return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
     }
 
     @Override
-    public <T extends Entity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
+    public <T extends BaseEntity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
@@ -141,7 +133,7 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 
 
 	@Override
-	public <T extends Entity> T save(T entity) {
+	public <T extends BaseEntity> T save(T entity) {
 		 if (entity.notExisted()) {
 			 entityManager.persist(entity);
 	            LOGGER.info("create a entity: " + entity.getClass() + "/"
@@ -156,56 +148,56 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 
 
 	@Override
-	public void remove(Entity entity) {
+	public void remove(BaseEntity entity) {
 		entityManager.remove(get(entity.getClass(), entity.getId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");	
 	}
 
 	@Override
-	public <T extends Entity> boolean exists(Class<T> clazz, Key id) {
+	public <T extends BaseEntity> boolean exists(Class<T> clazz, long id) {
 		 T entity = entityManager.find(clazz, id);
 		 return entity != null;
 	}
 
 
 	@Override
-	public <T extends Entity> T get(Class<T> clazz, Key id) {		// 
+	public <T extends BaseEntity> T get(Class<T> clazz, long id) {		// 
 		return entityManager.find(clazz, id);
 	}
 
 
 	@Override
-	public <T extends Entity> T load(Class<T> clazz, Serializable id) { 
+	public <T extends BaseEntity> T load(Class<T> clazz, Serializable id) { 
 		 return entityManager.getReference(clazz, id);
 	}
 
 
 	@Override
-	public <T extends Entity> T getUnmodified(Class<T> clazz, T entity) {
+	public <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
 		 entityManager.detach(entity);
 		 return get(clazz, entity.getId());
 	}
 
 	@Override
-	public <T extends Entity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
+	public <T extends BaseEntity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
 		List<T> results = findByProperties(clazz, keyValues);
         return results.isEmpty() ? null : results.get(0);
 	}
 
 	@Override
-	public <T extends Entity> List<T> findAll(Class<T> clazz) {
+	public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
 		 String queryString = "select o from " + clazz.getName() + " as o";
 		 return entityManager.createQuery(queryString).getResultList();
 	}
 
 	@Override
-	public <T extends Entity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
+	public <T extends BaseEntity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
 		 return new CriteriaQuery(this, entityClass);
 	}
 
 	 @Override
-	 public <T extends Entity> List<T> find(Class<T> entityClass, QueryCriterion criterion) {
+	 public <T extends BaseEntity> List<T> find(Class<T> entityClass, QueryCriterion criterion) {
 	        return find(createCriteriaQuery(entityClass).and(criterion));
 	    }
 	 
@@ -224,7 +216,7 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 	}
 	
 	 @Override
-	    public <T extends Entity> T getSingleResult(Class<T> entityClass, QueryCriterion criterion) {
+	    public <T extends BaseEntity> T getSingleResult(Class<T> entityClass, QueryCriterion criterion) {
 	        return getSingleResult(createCriteriaQuery(entityClass).and(criterion));
 	    }
 
@@ -335,7 +327,7 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 	}
 
 	@Override
-	public void refresh(Entity entity) {
+	public void refresh(BaseEntity entity) {
 		 entityManager.refresh(entity);		
 	}
 

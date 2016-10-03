@@ -1,10 +1,5 @@
 package com.degloba.security.domain;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import com.google.appengine.api.datastore.Key;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
@@ -52,7 +47,7 @@ public class Role extends Authority {
         return getPermissions().contains(permission);
     }
 
-    public static Role get(Key id) {
+    public static Role get(long id) {
         return get(Role.class, id);
     }
 

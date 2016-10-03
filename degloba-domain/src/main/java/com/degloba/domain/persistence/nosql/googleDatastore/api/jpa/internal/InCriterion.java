@@ -11,8 +11,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.degloba.domain.Entity;
+
 import com.degloba.domain.persistence.nosql.googleDatastore.api.jpa.NamedParameters;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel.Entity;
 
 
 /**

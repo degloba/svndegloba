@@ -1,6 +1,6 @@
 package com.degloba.security.domain;
 
-import com.google.appengine.api.datastore.Key;
+
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -103,7 +103,7 @@ public class UserGroup extends Actor {
      * @param id 用户组ID
      * @return 如果找到指定组ID的用户则返回该用户组，否则返回null
      */
-    public static UserGroup get(Key id) {
+    public static UserGroup get(long id) {
         return get(UserGroup.class, id);
     }
 

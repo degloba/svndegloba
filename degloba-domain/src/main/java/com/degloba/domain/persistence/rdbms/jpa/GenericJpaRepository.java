@@ -11,8 +11,6 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
-import com.google.appengine.api.datastore.Key;
-
 /**
  * 
  * @author degloba
@@ -32,7 +30,7 @@ public abstract class GenericJpaRepository<A extends BaseAggregateRoot> {
         this.clazz = ((Class<A>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 
-    public A load(Key id) {
+    public A load(long id) {
     	//lock to be sure when creating other objects based on values of this aggregate
         A aggregate = entityManager.find(clazz, id, LockModeType.OPTIMISTIC);
         
@@ -57,7 +55,7 @@ public abstract class GenericJpaRepository<A extends BaseAggregateRoot> {
     	}
     }
     
-    public void delete(Key id){
+    public void delete(long id){
 		A entity = load(id);
 		//just flag
 		entity.markAsRemoved();					

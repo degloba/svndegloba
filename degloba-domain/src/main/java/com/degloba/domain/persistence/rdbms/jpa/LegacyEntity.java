@@ -3,7 +3,6 @@ package com.degloba.domain.persistence.rdbms.jpa;
 import javax.persistence.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
-import com.google.appengine.api.datastore.Key;
 
 import java.io.Serializable;
 import java.util.List;
@@ -41,7 +40,7 @@ public abstract class LegacyEntity extends BaseEntity {
 /*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
         return getRepository().get(clazz, id);
     }*/
-    public static <T extends com.degloba.domain.Entity> T get(Class<T> clazz, Key id) {
+    public static <T extends BaseEntity> T get(Class<T> clazz, long id) {
         return getRepository().get(clazz, id);
     }    
 
@@ -52,7 +51,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param entity  Entity
      * @return Entity Unmodified version.
      */
-    public static <T extends com.degloba.domain.Entity> T getUnmodified(Class<T> clazz, T entity) {
+    public static <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
         return getRepository().getUnmodified(clazz, entity);
     }
 
@@ -63,7 +62,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param id ID entity
      * @return Type T or T subtypes, ID is the id Entity.
      */
-    public static <T extends com.degloba.domain.Entity> T load(Class<T> clazz, Serializable id) {
+    public static <T extends BaseEntity> T load(Class<T> clazz, Serializable id) {
         return getRepository().load(clazz, id);
     }
 
@@ -73,7 +72,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param clazz Entity Class belongs
      * @return Eligible Entity List
      */
-    public static <T extends com.degloba.domain.Entity> List<T> findAll(Class<T> clazz) {
+    public static <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
@@ -85,7 +84,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param value Property values match
      * @return Eligible Entity List
      */
-    public static <T extends com.degloba.domain.Entity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+    public static <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
         return getRepository().findByProperty(clazz, propName, value);
     }
 
@@ -96,7 +95,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param propValues Attribute value matching conditions
      * @return Eligible Entity List
      */
-    public static <T extends com.degloba.domain.Entity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
+    public static <T extends BaseEntity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
     }
 }

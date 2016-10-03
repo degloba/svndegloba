@@ -5,9 +5,6 @@ import javax.persistence.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
-// appengine/datastore
-import com.google.appengine.api.datastore.Key;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -22,18 +19,18 @@ public abstract class AbstractEntity extends BaseEntity {
    
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name = "id")
-   private Key id;
+   private long id;
 
    @Version
    @Column(name = "version")
    private int version;
 
    @Override
-   public Key getId() {
+   public long getId() {
        return id;
    }
 
-   public void setId(Key id) {
+   public void setId(long id) {
        this.id = id;
    }
 
@@ -53,7 +50,7 @@ public abstract class AbstractEntity extends BaseEntity {
        getRepository().remove(this);
    }
 
-   public static  <E extends com.degloba.domain.Entity> E get(Class<E> clazz, Key id) {
+   public static  <E extends BaseEntity> E get(Class<E> clazz, long id) {
        return (E) getRepository().get(clazz, id);
    }
 
@@ -73,7 +70,7 @@ public abstract class AbstractEntity extends BaseEntity {
        return getRepository().findByProperty(clazz, propName, value);
    }
 
-    public static <E extends com.degloba.domain.Entity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+    public static <E extends BaseEntity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
        return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
    }
 }

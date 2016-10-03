@@ -2,7 +2,6 @@ package com.degloba.domain.persistence.rdbms.jpa;
 
 import java.util.Map;
 
-
 // JPA
 import javax.persistence.*;
 
@@ -13,8 +12,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.domain.InstanceFactory;
 import com.degloba.utils.BeanUtils;
-// Appengine
-import com.google.appengine.api.datastore.Key;
+
 
 
 /**
@@ -22,7 +20,7 @@ import com.google.appengine.api.datastore.Key;
 */
 
 @MappedSuperclass
-public abstract class BaseEntity implements com.degloba.domain.Entity {
+public abstract class BaseEntity implements Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
 
@@ -39,7 +37,7 @@ public static final String TOTAL_RESULT = null;
 
    @Id  
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Key id;
+   private long id;
    
    
    /*    @EmbeddedId
@@ -58,11 +56,11 @@ public static final String TOTAL_RESULT = null;
    
    // getters - setters
    
-   public Key getId() {
+   public long getId() {
 		return id;
 	}
 
-	public void setId(Key id) {
+	public void setId(long id) {
 		this.id = id;
 	}
  	

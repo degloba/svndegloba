@@ -1,5 +1,6 @@
 package com.degloba.domain.persistence.nosql.googleDatastore.api.jpa;
 
+import com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel.Entity;
 import com.degloba.utils.Assert;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public class SqlQuery extends BaseQuery<SqlQuery> {
 
     private final String sql;
-    private Class<? extends com.degloba.domain.Entity> resultEntityClass;
+    private Class<? extends Entity> resultEntityClass;
 
     /**
      * Storage and use SQL statements to create SQL queries.
@@ -36,7 +37,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * Return query results entity type. The result is applied to the case of an entity or entities list.
      * @return Entity type (if the result is a collection that is the type of the collection element) query results
      */
-    public Class<? extends com.degloba.domain.Entity> getResultEntityClass() {
+    public Class<? extends Entity> getResultEntityClass() {
         return resultEntityClass;
     }
 
@@ -46,7 +47,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param resultEntityClass To set the type of query results
      * @return The object itself
      */
-    public SqlQuery setResultEntityClass(Class<? extends com.degloba.domain.Entity> resultEntityClass) {
+    public SqlQuery setResultEntityClass(Class<? extends Entity> resultEntityClass) {
         this.resultEntityClass = resultEntityClass;
         return this;
     }

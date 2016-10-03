@@ -179,7 +179,7 @@ public abstract class AbstractEntity extends BaseEntity {
      * @param <T>
      * @return
      */
-    public static <T extends AbstractEntity> T get(Class<T> entityClass, Key id) {
+    public static <T extends AbstractEntity> T get(Class<T> entityClass, long id) {
         return getRepository().get(entityClass, id);
     }
 

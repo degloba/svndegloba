@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel;
 
 import java.io.Serializable;
 

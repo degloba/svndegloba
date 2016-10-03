@@ -1,7 +1,7 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
 
-import com.degloba.domain.Entity;
+//////import com.degloba.domain.Entity;
 import com.degloba.domain.InstanceFactory;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;

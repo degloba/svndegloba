@@ -1,7 +1,7 @@
 package com.degloba.persistence.test.domain.jpa;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.google.appengine.api.datastore.Key;
+
 
 import java.util.List;
 
@@ -115,11 +115,11 @@ public class AbstractBaseClassesJPA {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Key id;
+    private long id;
 
     private String str;
 
-    public Key getId() {
+    public long getId() {
       return id;
     }
 
@@ -137,11 +137,11 @@ public class AbstractBaseClassesJPA {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Key id;
+    private long id;
 
     private String str;
 
-    public Key getId() {
+    public long getId() {
       return id;
     }
 

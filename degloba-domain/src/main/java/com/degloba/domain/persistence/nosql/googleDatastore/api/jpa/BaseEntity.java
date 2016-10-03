@@ -22,7 +22,7 @@ import com.google.appengine.api.datastore.Key;
 */
 
 @MappedSuperclass
-public abstract class BaseEntity implements com.degloba.domain.Entity {
+public abstract class BaseEntity implements Entity {
 
    private static final long serialVersionUID = 8882145540383345037L;
 

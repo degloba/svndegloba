@@ -3,6 +3,8 @@ package com.degloba.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel.Entity;
+
 /**
  * Example Query Settings category.
  * @param <T> Examples of the type of
@@ -15,7 +17,7 @@ public class ExampleSettings<T> {
 	private boolean excludeNone = false;
 	private boolean excludeZeroes = false;
 
-	public static <T extends com.degloba.domain.Entity> ExampleSettings<T> create(Class<T> entityClass) {
+	public static <T extends Entity> ExampleSettings<T> create(Class<T> entityClass) {
 		return new ExampleSettings<T>(entityClass);
 	}
 	

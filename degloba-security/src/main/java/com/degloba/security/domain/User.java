@@ -1,7 +1,5 @@
 package com.degloba.security.domain;
 
-import com.google.appengine.api.datastore.Key;
-import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -10,7 +8,7 @@ import java.security.Principal;
 import java.util.*;
 
 /**
- * 系统用户。系统用户常常对应于一个员工
+ * Los usuarios del sistema. Los usuarios del sistema a menudo se corresponde con un personal
  * Created by yyang on 15/1/13.
  */
 @Entity
@@ -23,7 +21,7 @@ public class User extends Actor implements Principal {
     //口令提示
     private String passwordHint;
 
-    //是否已被锁定。被锁定的用户无法登录，直至解锁
+    // Si se ha bloqueado. usuarios bloqueados no se pueden volver a conectarse hasta desbloqueado
     private boolean locked = false;
 
     public User() {
@@ -110,11 +108,11 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 根据ID获取用户。此用户有可能处于失效状态。
+     * Se basa en el ID de usuario. Este usuario puede estar en el estado fallido.
      * @param id 用户ID
-     * @return 如果找到指定ID的用户则返回该用户，否则返回null
+     * @return Si encuentra el usuario especifica se devuelve el ID de usuario, si no regreso null
      */
-    public static User get(Key id) {
+    public static User get(long id) {
         return get(User.class, id);
     }
 

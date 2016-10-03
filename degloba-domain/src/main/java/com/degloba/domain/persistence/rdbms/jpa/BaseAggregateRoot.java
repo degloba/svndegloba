@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Map;
 
 
-
 // CDI Java EE 6
 import javax.inject.Inject;
 
@@ -27,7 +26,7 @@ import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 import com.degloba.utils.BeanUtils;
-import com.google.appengine.api.datastore.Key;
+
 
 
 /**
@@ -67,18 +66,18 @@ import com.google.appengine.api.datastore.Key;
 			//aggregateStatus = AggregateStatus.ARCHIVE;
 		}
 		
-		public Key getAggregateId() {
+/*		public Key getAggregateId() {
 			return getId();
-		}
+		}*/
 
 		public boolean isRemoved() {
 			return true;
 			////////////////return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
-		protected void domainError(String message) {
+/*		protected void domainError(String message) {
 			throw new DomainOperationException(getAggregateId(), message);
-		}
+		}*/
 		
 	
 	/*	protected void domainError(String message) { 
