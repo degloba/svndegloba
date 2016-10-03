@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.google.appengine.api.datastore.Key;
+
 
 
 import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
@@ -85,7 +85,7 @@ public class OrderingServiceImpl implements OrderingService {
 	private SuggestionService suggestionService;
 
 	// @Secured requires BUYER role
-	public Key createOrder() {
+	public long createOrder() {
 		Reservation reservation = reservationFactory.create(loadClient());
 		entityRepository.save(reservation);
 		return reservation.getAggregateId();
@@ -102,7 +102,7 @@ public class OrderingServiceImpl implements OrderingService {
 	 * Reservation add product by given quantity
 	 */
 	@Override
-	public void addProduct(Key orderId, Key productId,
+	public void addProduct(long orderId, long productId,
 			int quantity) {
 		Reservation reservation = reservationRepository.load(Reservation.class,orderId);
 		
@@ -122,7 +122,7 @@ public class OrderingServiceImpl implements OrderingService {
 	 * Can be invoked many times for the same order (with different params).<br>
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
-	public Offer calculateOffer(Key orderId) {
+	public Offer calculateOffer(long orderId) {
 		Reservation reservation = entityRepository.load(Reservation.class,orderId);
 
 		DiscountPolicy discountPolicy = discountFactory.create(loadClient());
@@ -149,7 +149,7 @@ public class OrderingServiceImpl implements OrderingService {
 	 */
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
-	public void confirm(Key orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
+	public void confirm(long orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
 			throws OfferChangedExcpetion {
 		Reservation reservation = entityRepository.load(Reservation.class,orderId);
 		if (reservation.isClosed())

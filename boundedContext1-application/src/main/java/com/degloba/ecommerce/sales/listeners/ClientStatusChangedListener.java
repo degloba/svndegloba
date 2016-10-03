@@ -53,7 +53,7 @@ public class ClientStatusChangedListener {
 		}
 	}
 
-	private Money calculateDiscout(Key customerId) {
+	private Money calculateDiscout(long customerId) {
 		// TODO explore domain rules
 		return new Money(10);
 	}

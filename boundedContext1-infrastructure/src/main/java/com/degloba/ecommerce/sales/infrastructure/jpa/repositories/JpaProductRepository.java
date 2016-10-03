@@ -20,7 +20,7 @@ import com.google.appengine.api.datastore.Key;
 public class JpaProductRepository extends EntityRepository<Product> implements IProductRepository{
 
 	@Override
-	public Product load(Key id) {
+	public Product load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -32,7 +32,7 @@ public class JpaProductRepository extends EntityRepository<Product> implements I
 	}
 
 	@Override
-	public Product load(Class<Product> class1, Key productId) {
+	public Product load(Class<Product> class1, long productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

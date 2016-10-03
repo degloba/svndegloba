@@ -19,7 +19,7 @@ import com.google.appengine.api.datastore.Key;
 public class JpaReservationRepository extends EntityRepository<Reservation> implements IReservationRepository{
 
 	@Override
-	public Reservation load(Key id) {
+	public Reservation load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,7 +31,7 @@ public class JpaReservationRepository extends EntityRepository<Reservation> impl
 	}
 
 	@Override
-	public Reservation load(Class<Reservation> class1, Key orderId) {
+	public Reservation load(Class<Reservation> class1, long orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

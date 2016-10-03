@@ -27,34 +27,34 @@ public class OrganisationFacadeImpl implements OrganisationFacade {
     }
 
     @Override
-    public void createOrganization(OrganizationDto orgToCreate, Key parentOrgId, Date date) {
+    public void createOrganization(OrganizationDto orgToCreate, long parentOrgId, Date date) {
         Organization organization = new OrganizationAssembler().toEntity(orgToCreate);
         Organization parent = application.getEntity(Organization.class, parentOrgId);
         application.createOrganization(organization, parent, date);
     }
 
     @Override
-    public void terminateParty(Key partyId, Date date) {
+    public void terminateParty(long partyId, Date date) {
         Party party = application.getEntity(Party.class, partyId);
         application.terminateParty(party, date);
     }
 
     @Override
-    public void changeParentOfOrganization(Key organizationId, Key newParentId, Date date) {
+    public void changeParentOfOrganization(long organizationId, long newParentId, Date date) {
         Organization organization = application.getEntity(Organization.class, organizationId);
         Organization parent = application.getEntity(Organization.class, newParentId);
         application.changeParentOfOrganization(organization, parent, date);
     }
 
     @Override
-    public void createPostUnderOrganization(PostDto postDto, Key organizationId, Date date) {
+    public void createPostUnderOrganization(PostDto postDto, long organizationId, Date date) {
         Post post = new PostAssembler().toEntity(postDto);
         Organization organization = application.getEntity(Organization.class, organizationId);
         application.createPostUnderOrganization(post, organization, date);
     }
 
     @Override
-    public PostDto getPost(Key postId) {
+    public PostDto getPost(long postId) {
         Post post = application.getEntity(Post.class, postId);
         return new PostAssembler().toDto(post);
     }

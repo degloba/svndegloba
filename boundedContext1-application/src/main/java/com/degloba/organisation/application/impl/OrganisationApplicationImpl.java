@@ -14,8 +14,11 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.Entity;
+
 // Domain
-import com.degloba.domain.Entity;
+
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.google.appengine.api.datastore.Key;
 
@@ -35,7 +38,7 @@ public class OrganisationApplicationImpl implements OrganisationService {
 
  
     @Override
-    public <T extends Entity> T getEntity(Class<T> entityClass, Key entityId) {
+    public <T extends BaseEntity> T getEntity(Class<T> entityClass, long entityId) {
         return organisationRepository.get(entityClass, entityId);
     }
 

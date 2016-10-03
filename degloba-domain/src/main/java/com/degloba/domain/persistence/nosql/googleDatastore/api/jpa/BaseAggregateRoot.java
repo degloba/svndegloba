@@ -76,7 +76,7 @@ import com.google.appengine.api.datastore.Key;
 		}
 		
 		protected void domainError(String message) {
-			throw new DomainOperationException(getAggregateId(), message);
+			/////throw new DomainOperationException(getAggregateId(), message);
 		}
 		
 	

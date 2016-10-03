@@ -10,7 +10,7 @@ import com.google.appengine.api.datastore.Key;
 @InternalApplicationService
 public class DiscountingService {
 
-	public void applyDiscount(Key orderId, Money amount){
+	public void applyDiscount(long orderId, Money amount){
 		//TODO implement
 	}
 }

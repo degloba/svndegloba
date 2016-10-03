@@ -12,14 +12,10 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 // Repository
-
 import com.degloba.rent.domain.jpa.Category;
 import com.degloba.rent.domain.jpa.ICategoryRepository;
-// Domain
-import com.degloba.rent.domain.jpa.IPhotoRepository;
-import com.degloba.rent.domain.jpa.ISubcategoryRepository;
-import com.degloba.rent.domain.jpa.Photo;
-import com.degloba.rent.domain.jpa.Subcategory;
+
+
 // Google App Engine
 import com.google.appengine.api.datastore.Key;
 

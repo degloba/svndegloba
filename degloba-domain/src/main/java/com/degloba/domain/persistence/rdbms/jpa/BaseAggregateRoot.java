@@ -66,18 +66,18 @@ import com.degloba.utils.BeanUtils;
 			//aggregateStatus = AggregateStatus.ARCHIVE;
 		}
 		
-/*		public Key getAggregateId() {
+		public long getAggregateId() {
 			return getId();
-		}*/
+		}
 
 		public boolean isRemoved() {
 			return true;
 			////////////////return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
-/*		protected void domainError(String message) {
+		protected void domainError(String message) {
 			throw new DomainOperationException(getAggregateId(), message);
-		}*/
+		}
 		
 	
 	/*	protected void domainError(String message) { 

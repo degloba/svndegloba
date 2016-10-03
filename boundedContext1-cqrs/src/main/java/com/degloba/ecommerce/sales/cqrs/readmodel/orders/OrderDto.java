@@ -8,16 +8,16 @@ import com.google.appengine.api.datastore.Key;
 
 public class OrderDto {
 
-	private Key orderId;
+	private long orderId;
 	private List<OrderedProductDto> orderedProducts = new ArrayList<OrderedProductDto>();
 	private OrderStatus status;
 	private Boolean confirmable;
 
-	public Key getOrderId() {
+	public long getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Key orderId) {
+	public void setOrderId(long orderId) {
 		this.orderId = orderId;
 	}
 

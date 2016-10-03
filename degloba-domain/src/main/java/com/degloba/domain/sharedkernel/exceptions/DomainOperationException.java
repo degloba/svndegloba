@@ -1,19 +1,17 @@
 package com.degloba.domain.sharedkernel.exceptions;
 
 
-import com.google.appengine.api.datastore.Key;
-
 @SuppressWarnings("serial")
 public class DomainOperationException extends RuntimeException{
 
-	private Key aggregateId;
+	private long aggregateId;
 
-	public DomainOperationException(Key aggregateId, String message){
+	public DomainOperationException(long aggregateId, String message){
 		super(message);
 		this.aggregateId = aggregateId;
 	}
 	
-	public Key getAggregateId() {
+	public long getAggregateId() {
 		return aggregateId;
 	}
 }

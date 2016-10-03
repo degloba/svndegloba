@@ -7,18 +7,20 @@ import com.google.appengine.api.datastore.Key;
 
 /**
  * @author degloba
+ * 
+ * RDBMS/JPA
  */
 public interface OrganisationFacade {
 
-    void createOrganization(OrganizationDto orgToCreate, Key parentOrgId, Date date);
+    void createOrganization(OrganizationDto orgToCreate, long parentOrgId, Date date);
 
-    void terminateParty(Key partyId, Date date);
+    void terminateParty(long partyId, Date date);
 
-    void changeParentOfOrganization(Key organizationId, Key newParentId, Date date);
+    void changeParentOfOrganization(long organizationId, long newParentId, Date date);
 
-    void createPostUnderOrganization(PostDto postDto, Key organizationId, Date date);
+    void createPostUnderOrganization(PostDto postDto, long organizationId, Date date);
 
-    PostDto getPost(Key postId);
+    PostDto getPost(long postId);
     
     void setPost(Post post);
 
