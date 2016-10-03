@@ -52,7 +52,7 @@ public class Purchase extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private  Purchase() {}
 
-	Purchase(Key aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
+	Purchase(long aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
 		///////this.aggregateId = aggregateId;
 		this.clientData = clientData;

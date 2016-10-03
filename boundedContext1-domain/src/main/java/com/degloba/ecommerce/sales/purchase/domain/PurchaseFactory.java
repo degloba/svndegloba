@@ -14,7 +14,7 @@ import com.degloba.ecommerce.sales.client.domain.Client;
 import com.degloba.ecommerce.sales.offer.domain.Offer;
 import com.degloba.ecommerce.sales.offer.domain.OfferItem;
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
@@ -31,7 +31,7 @@ public class PurchaseFactory {
 	 * @param offer
 	 * @return
 	 */
-	public Purchase create(Key orderId, Client client, Offer offer){
+	public Purchase create(long orderId, Client client, Offer offer){
 		if (! canPurchse(client, offer.getAvailabeItems()))
 			throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
 		

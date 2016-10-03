@@ -15,14 +15,14 @@ import com.degloba.domain.annotations.ValueObject;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 @Embeddable
 @ValueObject
 public class ProductData {
 
 	@Embedded
-	private Key productId;
+	private long productId;
 	
 	@Embedded
 	@AttributeOverrides({
@@ -41,7 +41,7 @@ public class ProductData {
 	@SuppressWarnings("unused")
 	private ProductData(){}
 	
-	ProductData(Key productId, Money price, String name, ProductType type, 
+	ProductData(long productId, Money price, String name, ProductType type, 
 			Date snapshotDate) {
 		this.productId = productId;
 		this.price = price;
@@ -50,7 +50,7 @@ public class ProductData {
 		this.type = type;
 	}
 
-	public Key getProductId() {
+	public long getProductId() {
 		return productId;
 	}
 
@@ -76,8 +76,8 @@ public class ProductData {
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result
-				+ ((productId == null) ? 0 : productId.hashCode());
+		////////////result = prime * result
+				///////////+ ((productId == null) ? 0 : productId.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -101,11 +101,11 @@ public class ProductData {
 				return false;
 		} else if (!price.equals(other.price))
 			return false;
-		if (productId == null) {
+		/*if (productId == null) {
 			if (other.productId != null)
 				return false;
 		} else if (!productId.equals(other.productId))
-			return false;
+			return false;*/
 		if (type != other.type)
 			return false;
 		return true;

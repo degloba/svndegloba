@@ -1,9 +1,9 @@
 package com.degloba.ecommerce.sales.reservation.domain;
 
 import com.degloba.domain.annotations.ValueObject;
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 @ValueObject
 public class ReservedProduct {
@@ -12,11 +12,11 @@ public class ReservedProduct {
 	
 	private Money totalCost;
 	
-	private Key productId;
+	private long productId;
 
 	private int quantity;
 	
-	public ReservedProduct(Key productId, String name, int quantity, Money totalCost) {
+	public ReservedProduct(long productId, String name, int quantity, Money totalCost) {
 		this.productId = productId;
 		this.name = name;
 		this.quantity = quantity;
@@ -31,7 +31,7 @@ public class ReservedProduct {
 		return totalCost;
 	}
 	
-	public Key getProductId() {
+	public long getProductId() {
 		return productId;
 	}
 
