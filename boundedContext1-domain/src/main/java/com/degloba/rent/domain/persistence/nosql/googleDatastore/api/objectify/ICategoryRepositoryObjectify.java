@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.objectify;
+package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import com.googlecode.objectify.Key;
 
 
 @DomainRepository
-public interface IOwnerRepositoryObjectify  {
+public interface ICategoryRepositoryObjectify  {
 	
 	public <T> void create(T t);
 	

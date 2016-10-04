@@ -8,11 +8,6 @@
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.degloba.organisation.domain.PersonName</class>
 		<class>com.degloba.organisation.domain.Address</class>
-		<class>com.degloba.rent.domain.jpa.Photo</class>
-		<class>com.degloba.rent.domain.jpa.Category</class>
-		<class>com.degloba.rent.domain.jpa.Owner</class>
-		<class>com.degloba.rent.domain.jpa.Subcategory</class>
-		<class>com.degloba.rent.domain.jpa.Product</class>
 		<!-- <class>com.degloba.travel.domain.Hotel</class>
 		<class>com.degloba.ecommerce.crm.domain.Customer</class>
 		<class>com.degloba.ecommerce.sales.payment.domain.Payment</class>

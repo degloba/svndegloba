@@ -2,6 +2,8 @@ package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.IPhotoRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
 
 import java.util.logging.Logger;
 
@@ -14,11 +16,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 
 // Domain
-import com.degloba.rent.domain.jpa.IPhotoRepository;
-import com.degloba.rent.domain.jpa.Photo;
+
 
 // Google App Engine
-import com.google.appengine.api.datastore.Key;
+//import com.google.appengine.api.datastore.Key;
 
 /**
  * @author degloba
@@ -38,7 +39,7 @@ public class JpaPhotoRepository extends EntityRepository<Photo> implements IPhot
 	}
 	
 	@Override
-	public Photo load(Key id) {
+	public Photo load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

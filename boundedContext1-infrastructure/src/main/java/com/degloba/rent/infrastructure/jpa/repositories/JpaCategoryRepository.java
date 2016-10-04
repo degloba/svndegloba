@@ -2,6 +2,8 @@ package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.domain.persistence.rdbms.jpa.ICategoryRepository;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -12,8 +14,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 // Repository
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.ICategoryRepository;
+
 
 
 // Google App Engine

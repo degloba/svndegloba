@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS 
 import com.degloba.rent.cqrs.readmodel.objectify.ICategoryFinder;
-import com.degloba.rent.domain.objectify.Category;
-import com.degloba.rent.domain.objectify.Subcategory;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.cqrs.query.annotations.Finder;
 
 

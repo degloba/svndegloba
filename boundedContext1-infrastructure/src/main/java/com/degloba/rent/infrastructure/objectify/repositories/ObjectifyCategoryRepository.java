@@ -2,7 +2,7 @@ package com.degloba.rent.infrastructure.objectify.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.BaseRepository;
-import com.degloba.rent.domain.objectify.ICategoryRepositoryObjectify;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.ICategoryRepositoryObjectify;
 
 import java.util.logging.Logger;
 

@@ -3,8 +3,9 @@ package com.degloba.rent.application.jpa.impl;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.jpa.api.CategoryService;
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.ICategoryRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.domain.persistence.rdbms.jpa.ICategoryRepository;
+
 
 
 public class CategoryApplicationImpl implements CategoryService {

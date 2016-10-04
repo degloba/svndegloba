@@ -1,7 +1,6 @@
 package com.degloba.rent.facade.jpa;
 
-
-import com.degloba.rent.domain.jpa.Photo;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
 
 /**
  * @author degloba

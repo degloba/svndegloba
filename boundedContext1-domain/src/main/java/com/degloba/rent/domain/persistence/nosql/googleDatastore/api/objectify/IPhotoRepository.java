@@ -1,9 +1,8 @@
-package com.degloba.rent.domain.objectify;
+package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.rent.domain.objectify.Photo;
-import com.googlecode.objectify.Key;
 
+import com.googlecode.objectify.Key;
 
 
 @DomainRepository

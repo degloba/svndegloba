@@ -2,6 +2,8 @@ package com.degloba.rent.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.ISubcategoryRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -15,12 +17,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 
 // Domain
-import com.degloba.rent.domain.jpa.IPhotoRepository;
-import com.degloba.rent.domain.jpa.ISubcategoryRepository;
-import com.degloba.rent.domain.jpa.Photo;
-import com.degloba.rent.domain.jpa.Subcategory;
+
 // Google App Engine
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * @author degloba
@@ -40,7 +39,7 @@ public class JpaSubcategoryRepository extends EntityRepository<Subcategory> impl
 	}
 	
 	@Override
-	public Subcategory load(Key id) {
+	public Subcategory load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

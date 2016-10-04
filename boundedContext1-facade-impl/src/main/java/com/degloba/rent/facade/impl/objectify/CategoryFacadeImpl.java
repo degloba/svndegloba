@@ -3,8 +3,7 @@ package com.degloba.rent.facade.impl.objectify;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.CategoryService;
-import com.degloba.rent.domain.objectify.Category;
-
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 
 

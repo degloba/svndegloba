@@ -1,7 +1,7 @@
 package com.degloba.rent.cqrs.readmodel.objectify;
 
-import com.degloba.rent.domain.objectify.Location;
-import com.degloba.rent.domain.objectify.Product;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
 public interface ILocationFinder {
 

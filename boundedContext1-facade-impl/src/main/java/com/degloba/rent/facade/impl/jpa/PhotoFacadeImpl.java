@@ -3,7 +3,7 @@ package com.degloba.rent.facade.impl.jpa;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.jpa.api.PhotoService;
-import com.degloba.rent.domain.jpa.Photo;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
 import com.degloba.rent.facade.jpa.PhotoFacade;
 
 

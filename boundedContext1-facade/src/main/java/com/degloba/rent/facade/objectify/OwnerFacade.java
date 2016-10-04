@@ -1,6 +1,6 @@
 package com.degloba.rent.facade.objectify;
 
-import com.degloba.rent.domain.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 
 /**
  * @author degloba

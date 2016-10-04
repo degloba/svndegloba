@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS 
 import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.Subcategory;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
 import com.degloba.cqrs.query.annotations.Finder;
 
 

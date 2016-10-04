@@ -4,8 +4,9 @@ package com.degloba.rent.application.objectify.impl;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.PhotoService;
-import com.degloba.rent.domain.objectify.IPhotoRepository;
-import com.degloba.rent.domain.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IPhotoRepository;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
+
 
 
 public class PhotoApplicationImpl implements PhotoService {

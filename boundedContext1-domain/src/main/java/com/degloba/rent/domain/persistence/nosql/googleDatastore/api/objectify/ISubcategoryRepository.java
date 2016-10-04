@@ -1,9 +1,9 @@
-package com.degloba.rent.domain.objectify;
+package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.rent.domain.objectify.Subcategory;
+
 import com.googlecode.objectify.Key;
 
 

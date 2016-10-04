@@ -3,7 +3,7 @@ package com.degloba.rent.facade.impl.objectify;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.PhotoService;
-import com.degloba.rent.domain.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
 import com.degloba.rent.facade.objectify.PhotoFacade;
 
 

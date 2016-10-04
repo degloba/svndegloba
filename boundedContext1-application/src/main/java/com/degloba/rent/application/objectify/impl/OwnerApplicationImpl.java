@@ -5,8 +5,9 @@ import java.io.Serializable;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.OwnerService;
-import com.degloba.rent.domain.objectify.IOwnerRepositoryObjectify;
-import com.degloba.rent.domain.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IOwnerRepositoryObjectify;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+
 
 
 public class OwnerApplicationImpl implements OwnerService, Serializable {

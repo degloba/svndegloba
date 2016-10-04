@@ -1,9 +1,7 @@
 package com.degloba.rent.cqrs.readmodel.jpa;
 
-
-import com.degloba.rent.domain.jpa.Location;
-import com.degloba.rent.domain.jpa.Product;
-
+import com.degloba.rent.domain.persistence.rdbms.jpa.Location;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Product;
 
 public interface ILocationFinder {
 
