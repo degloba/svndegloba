@@ -1,4 +1,4 @@
-package com.degloba.rent.infrastructure.objectify.repositories;
+package com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.BaseRepository;

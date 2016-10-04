@@ -1,7 +1,6 @@
 package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 
-
 import javax.persistence.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;

@@ -19,12 +19,11 @@ import org.springframework.stereotype.Component;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 // Google Cloud Storage/degloba
 import com.degloba.gcs.StorageUtils;
-
-
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
 // Entitats/Objectify
-import com.degloba.rent.domain.objectify.Photo;
-import com.degloba.rent.domain.objectify.Product;
+
 
 
 import com.degloba.rent.facade.jpa.PhotoFacade;

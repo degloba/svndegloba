@@ -1,4 +1,4 @@
-package com.degloba.rent.infrastructure.jpa.repositories;
+package com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;

@@ -19,9 +19,9 @@ import org.springframework.stereotype.Component;
 
 import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
 import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
 
-import com.degloba.rent.domain.jpa.Category;
-import com.degloba.rent.domain.jpa.Subcategory;
 
 @Component
 @ManagedBean

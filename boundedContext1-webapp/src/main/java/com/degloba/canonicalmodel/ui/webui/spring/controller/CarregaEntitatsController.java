@@ -13,8 +13,7 @@ import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseR
 import com.degloba.gcm.Topic;
 
 import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
-import com.degloba.rent.domain.objectify.Category;
-import com.degloba.rent.domain.objectify.Subcategory;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.googlecode.objectify.Key;
 

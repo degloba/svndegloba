@@ -3,9 +3,10 @@ package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.jpa;
 
 import javax.persistence.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.jpa.BaseAggregateRoot;
 
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.util.*;
 
 @Entity
@@ -57,6 +58,20 @@ public class Category extends BaseAggregateRoot
 
 	public void setSubcategories(List<Subcategory> subcategories) {
 		this.subcategories = subcategories;
+	}
+
+
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Class<? extends Annotation> annotationType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

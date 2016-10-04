@@ -1,9 +1,9 @@
-package com.degloba.rent.infrastructure.jpa.repositories;
+package com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.ISubcategoryRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+import com.degloba.domain.persistence.nosql.googleDatastore.api.jpa.EntityRepository;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.jpa.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.jpa.ICategoryRepository;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,19 +16,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 // Repository
 
 
-// Domain
 
 // Google App Engine
-
+import com.google.appengine.api.datastore.Key;
 
 /**
  * @author degloba
  *
  */
 @DomainRepositoryImpl
-public class JpaSubcategoryRepository extends EntityRepository<Subcategory> implements ISubcategoryRepository{
+public class JpaCategoryRepository extends EntityRepository<Category> implements ICategoryRepository{
 
-	private final static Logger logger = Logger.getLogger(JpaSubcategoryRepository.class.getName());
+	private final static Logger logger = Logger.getLogger(JpaCategoryRepository.class.getName());
 	
 	private EntityManager em;
 
@@ -39,17 +38,17 @@ public class JpaSubcategoryRepository extends EntityRepository<Subcategory> impl
 	}
 	
 	@Override
-	public Subcategory load(long id) {
+	public Category load(Key id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(Subcategory subcategory) {
+	public void save(Category category) {
 		// TODO Auto-generated method stub
 		try {
 			
-		em.persist(subcategory);
+		em.persist(category);
 		} catch(Exception e) {
             //log it or do something
 			//throw new AppException("DB exception", e)
@@ -59,7 +58,7 @@ public class JpaSubcategoryRepository extends EntityRepository<Subcategory> impl
 	}
 
 	@Override
-	public List<Subcategory> getAll() {
+	public List<Category> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

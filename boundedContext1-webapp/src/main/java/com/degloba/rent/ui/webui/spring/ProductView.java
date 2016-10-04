@@ -1,10 +1,8 @@
 package com.degloba.rent.ui.webui.spring;
 
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.security.GeneralSecurityException;
-import java.security.InvalidParameterException;
+
 
 import javax.annotation.PostConstruct;
 
@@ -12,13 +10,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+
 
 // 
 import javax.inject.Inject;
 
-import org.primefaces.event.FileUploadEvent;
-import org.springframework.data.repository.query.QueryLookupStrategy.Key;
+
 // Spring
 import org.springframework.stereotype.Component;
 
@@ -28,14 +25,12 @@ import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
-import com.degloba.gcs.StorageUtils;
-// Objectify
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
-import com.degloba.rent.domain.jpa.Photo;
 // Entitats/Objectify
-import com.degloba.rent.domain.objectify.Owner;
-import com.degloba.rent.domain.objectify.Product;
-import com.degloba.rent.facade.objectify.OwnerFacade;
+
+
 
 //
 import javax.servlet.http.Cookie;

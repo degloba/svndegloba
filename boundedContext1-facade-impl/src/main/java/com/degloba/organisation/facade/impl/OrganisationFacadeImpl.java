@@ -14,9 +14,13 @@ import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;
 import com.degloba.organisation.facade.PostDto;
 import com.degloba.organisation.facade.assembler.PostAssembler;
-import com.google.appengine.api.datastore.Key;
 
 
+/**
+ * @author degloba
+ * 
+ * RDBMS/JPA
+ */
 public class OrganisationFacadeImpl implements OrganisationFacade {
 
     @Inject

@@ -5,7 +5,6 @@ import com.degloba.domain.annotations.InternalApplicationService;
 // Domain
 import com.degloba.domain.sharedkernel.Money;
 
-import com.google.appengine.api.datastore.Key;
 
 @InternalApplicationService
 public class DiscountingService {

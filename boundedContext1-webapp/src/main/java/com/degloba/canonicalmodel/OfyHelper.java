@@ -3,12 +3,12 @@ package com.degloba.canonicalmodel;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.degloba.rent.domain.objectify.Category;
-import com.degloba.rent.domain.objectify.Location;
-import com.degloba.rent.domain.objectify.Owner;
-import com.degloba.rent.domain.objectify.Photo;
-import com.degloba.rent.domain.objectify.Product;
-import com.degloba.rent.domain.objectify.Subcategory;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.googlecode.objectify.ObjectifyService;
 
 public class OfyHelper implements ServletContextListener {
