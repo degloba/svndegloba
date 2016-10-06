@@ -1,4 +1,4 @@
-package com.degloba.gcm;
+package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,4 +1,4 @@
-package com.degloba.gcm;
+package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
 
 import java.util.List;
 

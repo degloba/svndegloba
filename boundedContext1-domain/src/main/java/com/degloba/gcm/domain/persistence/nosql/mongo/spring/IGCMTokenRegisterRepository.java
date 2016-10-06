@@ -1,4 +1,4 @@
-package com.degloba.usuaris.domain;
+package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
 
 import com.degloba.domain.annotations.DomainRepository;
 
