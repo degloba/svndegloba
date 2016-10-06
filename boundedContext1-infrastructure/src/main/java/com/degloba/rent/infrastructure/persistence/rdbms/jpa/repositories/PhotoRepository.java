@@ -26,9 +26,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
  *
  */
 @DomainRepositoryImpl
-public class JpaPhotoRepository extends EntityRepository<Photo> implements IPhotoRepository{
+public class PhotoRepository extends EntityRepository<Photo> implements IPhotoRepository{
 
-	private final static Logger logger = Logger.getLogger(JpaPhotoRepository.class.getName());
+	private final static Logger logger = Logger.getLogger(PhotoRepository.class.getName());
 	
 	private EntityManager em;
 

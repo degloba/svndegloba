@@ -2,8 +2,8 @@ package com.degloba.rent.infrastructure.persistence.rdbms.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.ISubcategoryRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.domain.persistence.rdbms.jpa.ICategoryRepository;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 // Repository
 
 
-// Domain
 
 // Google App Engine
 
@@ -26,9 +25,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
  *
  */
 @DomainRepositoryImpl
-public class JpaSubcategoryRepository extends EntityRepository<Subcategory> implements ISubcategoryRepository{
+public class CategoryRepository extends EntityRepository<Category> implements ICategoryRepository{
 
-	private final static Logger logger = Logger.getLogger(JpaSubcategoryRepository.class.getName());
+	private final static Logger logger = Logger.getLogger(CategoryRepository.class.getName());
 	
 	private EntityManager em;
 
@@ -39,17 +38,17 @@ public class JpaSubcategoryRepository extends EntityRepository<Subcategory> impl
 	}
 	
 	@Override
-	public Subcategory load(long id) {
+	public Category load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(Subcategory subcategory) {
+	public void save(Category category) {
 		// TODO Auto-generated method stub
 		try {
 			
-		em.persist(subcategory);
+		em.persist(category);
 		} catch(Exception e) {
             //log it or do something
 			//throw new AppException("DB exception", e)
@@ -59,7 +58,7 @@ public class JpaSubcategoryRepository extends EntityRepository<Subcategory> impl
 	}
 
 	@Override
-	public List<Subcategory> getAll() {
+	public List<Category> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
