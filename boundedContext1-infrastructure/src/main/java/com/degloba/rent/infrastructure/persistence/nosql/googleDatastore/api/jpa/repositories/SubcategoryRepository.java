@@ -2,9 +2,10 @@ package com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.jp
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.IPhotoRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
+import com.degloba.rent.domain.persistence.rdbms.jpa.ISubcategoryRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -17,18 +18,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // Domain
 
-
 // Google App Engine
-//import com.google.appengine.api.datastore.Key;
+
 
 /**
  * @author degloba
  *
  */
 @DomainRepositoryImpl
-public class JpaPhotoRepository extends EntityRepository<Photo> implements IPhotoRepository{
+public class SubcategoryRepository extends EntityRepository<Subcategory> implements ISubcategoryRepository{
 
-	private final static Logger logger = Logger.getLogger(JpaPhotoRepository.class.getName());
+	private final static Logger logger = Logger.getLogger(SubcategoryRepository.class.getName());
 	
 	private EntityManager em;
 
@@ -39,23 +39,29 @@ public class JpaPhotoRepository extends EntityRepository<Photo> implements IPhot
 	}
 	
 	@Override
-	public Photo load(long id) {
+	public Subcategory load(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(Photo photo) {
+	public void save(Subcategory subcategory) {
 		// TODO Auto-generated method stub
 		try {
 			
-		em.persist(photo);
+		em.persist(subcategory);
 		} catch(Exception e) {
             //log it or do something
 			//throw new AppException("DB exception", e)
 			logger.warning(e.getMessage());			
         }
 
+	}
+
+	@Override
+	public List<Subcategory> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

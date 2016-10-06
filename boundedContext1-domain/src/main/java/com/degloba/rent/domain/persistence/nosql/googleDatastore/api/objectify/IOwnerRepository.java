@@ -8,7 +8,7 @@ import com.googlecode.objectify.Key;
 
 
 @DomainRepository
-public interface ICategoryRepositoryObjectify  {
+public interface IOwnerRepository  {
 	
 	public <T> void create(T t);
 	

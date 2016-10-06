@@ -25,9 +25,9 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaCategoryRepository extends EntityRepository<Category> implements ICategoryRepository{
+public class CategoryRepository extends EntityRepository<Category> implements ICategoryRepository{
 
-	private final static Logger logger = Logger.getLogger(JpaCategoryRepository.class.getName());
+	private final static Logger logger = Logger.getLogger(CategoryRepository.class.getName());
 	
 	private EntityManager em;
 

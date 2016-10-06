@@ -1,4 +1,4 @@
-package com.degloba.usuaris.infrastructure.jpa.repositories;
+package com.degloba.usuaris.infrastructure.persistence.nosql.mongo.api.spring.repositories;
 
 import java.util.List; 
 

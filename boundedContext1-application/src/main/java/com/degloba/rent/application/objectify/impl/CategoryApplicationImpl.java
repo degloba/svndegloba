@@ -4,14 +4,14 @@ import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.CategoryService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.ICategoryRepositoryObjectify;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.ICategoryRepository;
 
 
 
 public class CategoryApplicationImpl implements CategoryService {
 
 	@Inject
-	private ICategoryRepositoryObjectify categoryRepositoryObjectify;
+	private ICategoryRepository categoryRepositoryObjectify;
 
 	
 	public CategoryApplicationImpl() {
@@ -19,7 +19,7 @@ public class CategoryApplicationImpl implements CategoryService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CategoryApplicationImpl(ICategoryRepositoryObjectify categoryRepositoryObjectify) {
+	public CategoryApplicationImpl(ICategoryRepository categoryRepositoryObjectify) {
 		super();
 		this.categoryRepositoryObjectify = categoryRepositoryObjectify;
 	}
@@ -30,11 +30,11 @@ public class CategoryApplicationImpl implements CategoryService {
 		categoryRepositoryObjectify.create(category);
 	}
 
-	public ICategoryRepositoryObjectify getCategoryRepositoryObjectify() {
+	public ICategoryRepository getCategoryRepositoryObjectify() {
 		return categoryRepositoryObjectify;
 	}
 
-	public void setCategoryRepositoryObjectify(ICategoryRepositoryObjectify categoryRepositoryObjectify) {
+	public void setCategoryRepositoryObjectify(ICategoryRepository categoryRepositoryObjectify) {
 		this.categoryRepositoryObjectify = categoryRepositoryObjectify;
 	}
 

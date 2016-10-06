@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.inject.Inject;
 
 import com.degloba.rent.application.objectify.api.OwnerService;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IOwnerRepositoryObjectify;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IOwnerRepository;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 
 
@@ -13,7 +13,7 @@ import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.O
 public class OwnerApplicationImpl implements OwnerService, Serializable {
 
 	@Inject
-	private IOwnerRepositoryObjectify ownerRepositoryObjectify;
+	private IOwnerRepository ownerRepositoryObjectify;
 
 	
 	public OwnerApplicationImpl() {
@@ -21,7 +21,7 @@ public class OwnerApplicationImpl implements OwnerService, Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public OwnerApplicationImpl(IOwnerRepositoryObjectify ownerRepositoryObjectify) {
+	public OwnerApplicationImpl(IOwnerRepository ownerRepositoryObjectify) {
 		super();
 		this.ownerRepositoryObjectify = ownerRepositoryObjectify;
 	}
@@ -32,11 +32,11 @@ public class OwnerApplicationImpl implements OwnerService, Serializable {
 		ownerRepositoryObjectify.create(owner);
 	}
 
-	public IOwnerRepositoryObjectify getOwnerRepositoryObjectify() {
+	public IOwnerRepository getOwnerRepositoryObjectify() {
 		return ownerRepositoryObjectify;
 	}
 
-	public void setOwnerRepositoryObjectify(IOwnerRepositoryObjectify ownerRepositoryObjectify) {
+	public void setOwnerRepositoryObjectify(IOwnerRepository ownerRepositoryObjectify) {
 		this.ownerRepositoryObjectify = ownerRepositoryObjectify;
 	}
 

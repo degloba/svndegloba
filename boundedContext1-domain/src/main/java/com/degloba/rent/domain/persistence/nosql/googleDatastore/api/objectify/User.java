@@ -9,7 +9,7 @@ import com.googlecode.objectify.annotation.Unindex;
 
 
 @Entity
-public class UserObjectify  {
+public class User  {
  
 	@Id
 	private Long id;
@@ -19,10 +19,10 @@ public class UserObjectify  {
 	
 	@Unindex
 	/////@Embedded
-	private AddressObjectify address;
+	private Address address;
 	
 	@Index
-	private Key<RoleObjectify> role;
+	private Key<Role> role;
 
 	public Long getId() {
 		return id;
@@ -40,19 +40,19 @@ public class UserObjectify  {
 		this.name = name;
 	}
 
-	public AddressObjectify getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressObjectify address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public Key<RoleObjectify> getRole() {
+	public Key<Role> getRole() {
 		return role;
 	}
 
-	public void setRole(Key<RoleObjectify> role) {
+	public void setRole(Key<Role> role) {
 		this.role = role;
 	}
 

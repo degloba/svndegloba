@@ -4,7 +4,7 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 @Entity
-public class AddressObjectify {
+public class Address {
 	
 	@Id Long id;
 	String province;
@@ -12,7 +12,7 @@ public class AddressObjectify {
     String detail;
     
     
-	public AddressObjectify() {
+	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
