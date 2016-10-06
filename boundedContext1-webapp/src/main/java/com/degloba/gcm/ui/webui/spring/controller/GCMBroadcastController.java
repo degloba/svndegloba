@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
-
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.IGCMTokenRegisterRepository;
 // GCM
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;

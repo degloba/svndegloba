@@ -4,12 +4,13 @@ package com.degloba.gcm.ui.webui.spring.controller;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.degloba.gcm.Topic;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.Topic;
 
 /**
  *

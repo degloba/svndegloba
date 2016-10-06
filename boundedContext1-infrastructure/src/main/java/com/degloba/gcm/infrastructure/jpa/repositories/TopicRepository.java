@@ -13,11 +13,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.ITopicRepository;
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.Topic;
 
 //Domain
 
-import com.degloba.gcm.ITopicRepository;
-import com.degloba.gcm.Topic;
 
 /** 
  *  Repository for {@link Topic}s 

@@ -13,10 +13,12 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.usuaris.domain.IGCMTokenRegisterRepository;
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.GCMTokenRegister;
+import com.degloba.gcm.domain.persistence.nosql.mongo.spring.IGCMTokenRegisterRepository;
+
 
 //Domain (usuaris)
-import com.degloba.usuaris.domain.GCMTokenRegister; 
+
 
 
 @DomainRepositoryImpl
