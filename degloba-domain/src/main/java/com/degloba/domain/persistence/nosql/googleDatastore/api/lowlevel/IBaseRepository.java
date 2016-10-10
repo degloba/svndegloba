@@ -1,6 +1,7 @@
 package com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
@@ -14,33 +15,25 @@ import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.IncompleteKey;
 import com.google.cloud.datastore.Key;
 import com.google.cloud.datastore.KeyFactory;
-import com.google.cloud.datastore.Query;
-import com.google.cloud.datastore.QueryResults;
-import com.google.cloud.datastore.StructuredQuery;
+
 import com.google.cloud.datastore.Transaction;
-import com.google.cloud.datastore.StructuredQuery.PropertyFilter;
-import com.google.common.collect.Lists;
 
 @DomainRepository
 public interface IBaseRepository {
 
 	public <T> void create(String clazz, String keyName);
 	
-	public <T> void update(String clazz, String keyName) throws DatabaseException;
+	public <T> void update(String clazz, String keyName, String propertyName, String value) throws DatabaseException;
 			
-	public <T> T getById(Class<T> clazz, Key id) throws DatabaseException;
-	
-	public <T> T getById(Class<T> clazz, String id) throws DatabaseException;
-	
-	public <T> T getByKey(Class<T> clazz, String key) throws DatabaseException;
-	
-	public <T> Key getKey(Class<T> clazz,Long id);
-	
+	public Entity getById(Class<Entity> clazz, Key id) throws DatabaseException;
+			
 	public <T> Key getKey(Key parent, Class<? extends T> kindClass, long id);
 			
 	public <T> List<T> list(Class<T> clazz); 
 
 	public <T> void delete(Transaction tx, Key userKey) throws DatabaseException; 
+	
+	public void deleteEntityAndAncestors(Transaction tx, Key userKey, String kindAncestor);
 		
 	
 	/* A partir d'aqui els mètodes son de : 
@@ -48,7 +41,7 @@ public interface IBaseRepository {
 	 */
 	/////public String runInTransaction(final String callableResult);
 	
-	public Batch newBatch(String clazz,String keyName1, String keyName2);
+	public Batch newBatch(String clazz, ArrayList<String> lstKeyString);
 		
 	public Key allocateIdSingle(String clazz);
 	
@@ -56,7 +49,7 @@ public interface IBaseRepository {
 	 
 	 public void batchUpdateEntities(String clazz, String keyName1, String keyName2);
 	 
-	 public void putSingleEntity(String clazz, String keyName);
+	 public void putSingleEntity(String clazz, String keyName, String propertyName, String value);
 	 
 	 public void batchPutEntities(String clazz, String keyName1, String keyName2);
 	 
@@ -66,9 +59,9 @@ public interface IBaseRepository {
 	 
 	 public Entity getEntityWithKey(String clazz, String keyName);
 	 
-	 public List<Entity> getEntitiesWithKeys(String clazz, String firstKeyName, String secondKeyName);
+	 public List<Entity> getEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString);
 		 
-	 public List<Entity> fetchEntitiesWithKeys(String clazz, String firstKeyName, String secondKeyName);
+	 public List<Entity> fetchEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString);
 	 
 	 public List<Entity> runQuery(String kind);
 	 
@@ -76,15 +69,15 @@ public interface IBaseRepository {
 	 
 	 public Entity get(String clazz, String keyName);
 	 
-	 public List<Entity> getMultiple(String clazz, String firstKeyName, String secondKeyName);
+	 public List<Entity> getMultiple(String clazz, String keyName1, String keyName2);
 	 
 	 public List<Entity> run(String parentClazz, String clazz, String parentKeyName);
 	 
-	 public Key commit(String clazz);
+	 public Key commit(String clazz, String propertyName, String value);
 	 
-	 public Key rollback(String clazz);
+	 public Key rollback(String clazz, String propertyName, String value);
 	 
-	 public Key active(String clazz);
+	 public Key active(String clazz, String propertyName, String value);
 	 
 	
 

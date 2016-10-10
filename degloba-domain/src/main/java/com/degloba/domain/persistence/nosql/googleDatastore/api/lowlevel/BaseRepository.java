@@ -1,6 +1,8 @@
 package com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel;
 
 
+import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,8 +11,6 @@ import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Datastore.TransactionCallable;
 import com.google.cloud.datastore.DatastoreException;
 import com.google.cloud.datastore.DatastoreOptions;
-import com.google.cloud.datastore.DatastoreReaderWriter;
-import com.google.cloud.datastore.DateTime;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.IncompleteKey;
 import com.google.cloud.datastore.Key;
@@ -39,13 +39,14 @@ public class BaseRepository implements IBaseRepository{
 
 	@Override
 	public <T> void create(String clazz, String keyName) {
+		
 		Datastore datastore = DatastoreOptions.defaultInstance().service();
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
 	    Key key = keyFactory.newKey(keyName);
 	    Entity entity = Entity.builder(key)
-	        .set("name", "John Doe")
-	        .set("age", 30)
-	        .set("access_time", DateTime.now())
+	       // .set("name", "John Doe")
+	       // .set("age", 30)
+	       // .set("access_time", DateTime.now())
 	        .build();
 	    datastore.put(entity);
 		
@@ -53,46 +54,38 @@ public class BaseRepository implements IBaseRepository{
 
 
 	@Override
-	public <T> void update(String clazz, String keyName) throws DatabaseException {
-		 Datastore datastore = DatastoreOptions.defaultInstance().service();
-		    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
-		    Key key = keyFactory.newKey(keyName);
-		    Entity entity = datastore.get(key);
-		    if (entity != null) {
-		      System.out.println("Updating access_time for " + entity.getString("name"));
+	public <T> void update(String clazz, String keyName, String propertyName, String value) throws DatabaseException {
+		
+		Datastore datastore = DatastoreOptions.defaultInstance().service();
+		KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
+		Key key = keyFactory.newKey(keyName);
+		Entity entity = datastore.get(key);
+		if (entity != null) {
+		      //System.out.println("Updating access_time for " + entity.getString("name"));
 		      entity = Entity.builder(entity)
-		          .set("access_time", DateTime.now())
+		          .set(propertyName, value)
 		          .build();
 		      datastore.update(entity);
-		    }
+		}
 		
 	}
 
 
-
 	@Override
-	public <T> T getById(Class<T> clazz, Key id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
+	public Entity getById(Class<Entity> clazz, Key id) throws DatabaseException {
+		return  this.datastore.get(id);
+	}
+	
+	@Override
+	public Entity getEntityWithKey(String clazz, String keyName) {
+		 // [START getEntityWithKey]
+	    Key key = datastore.newKeyFactory().kind(clazz).newKey(keyName);
+	    Entity entity = datastore.get(key);
+	    // Do something with the entity
+	    // [END getEntityWithKey]
+	    return entity;
 	}
 
-	@Override
-	public <T> T getById(Class<T> clazz, String id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> T getByKey(Class<T> clazz, String key) throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> Key getKey(Class<T> clazz, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public <T> Key getKey(Key parent, Class<? extends T> kindClass, long id) {
@@ -102,7 +95,7 @@ public class BaseRepository implements IBaseRepository{
 
 	@Override
 	public <T> List<T> list(Class<T> clazz) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		return null;
 	}
 
@@ -127,15 +120,19 @@ public class BaseRepository implements IBaseRepository{
 	}*/
 
 	@Override
-	public Batch newBatch(String clazz, String keyName1, String keyName2) {
-	    // [START newBatch]
-	    Key key1 = datastore.newKeyFactory().kind(clazz).newKey(keyName1);
-	    Key key2 = datastore.newKeyFactory().kind(clazz).newKey(keyName2);
+	public Batch newBatch(String clazz, ArrayList<String> lstKeyString) {
+	    // [START newBatch]	   
 	    Batch batch = datastore.newBatch();
-	    Entity entity1 = Entity.builder(key1).set("name", "John").build();
-	    Entity entity2 = Entity.builder(key2).set("title", "title").build();
-	    batch.add(entity1);
-	    batch.add(entity2);
+	    
+	    for (String key: lstKeyString) {
+	        
+		    Entity entity = Entity.builder(datastore.newKeyFactory().kind(clazz).newKey(key))
+		    		//.set("name", "John")
+		    		.build();
+		    
+		    batch.add(entity);		    
+	    }
+	    
 	    batch.submit();
 	    // [END newBatch]
 	    return batch;
@@ -168,7 +165,7 @@ public class BaseRepository implements IBaseRepository{
 
 	@Override
 	public void batchUpdateEntities(String clazz, String keyName1, String keyName2) {
-		// [START batchUpdateEntities]
+		// [START batchUpdateEntities]    
 	    Key key1 = datastore.newKeyFactory().kind(clazz).newKey(keyName1);
 	    Entity.Builder entityBuilder1 = Entity.builder(key1);
 	    entityBuilder1.set("propertyName", "updatedValue1");
@@ -178,18 +175,18 @@ public class BaseRepository implements IBaseRepository{
 	    Entity.Builder entityBuilder2 = Entity.builder(key2);
 	    entityBuilder2.set("propertyName", "updatedValue2");
 	    Entity entity2 = entityBuilder2.build();
-
+	    
 	    datastore.update(entity1, entity2);
 	    // [END batchUpdateEntities]
 		
 	}
 
 	@Override
-	public void putSingleEntity(String clazz, String keyName) {
+	public void putSingleEntity(String clazz, String keyName, String propertyName, String value) {
 		 // [START putSingleEntity]
 	    Key key = datastore.newKeyFactory().kind(clazz).newKey(keyName);
 	    Entity.Builder entityBuilder = Entity.builder(key);
-	    entityBuilder.set("propertyName", "value");
+	    entityBuilder.set(propertyName, value);
 	    Entity entity = entityBuilder.build();
 	    datastore.put(entity);
 	    // [END putSingleEntity]
@@ -198,7 +195,7 @@ public class BaseRepository implements IBaseRepository{
 
 	@Override
 	public void batchPutEntities(String clazz, String keyName1, String keyName2) {
-		 // [START batchPutEntities]
+		 // [START batchPutEntities]    
 	    Key key1 = datastore.newKeyFactory().kind(clazz).newKey(keyName1);
 	    Entity.Builder entityBuilder1 = Entity.builder(key1);
 	    entityBuilder1.set("propertyName", "value1");
@@ -215,13 +212,12 @@ public class BaseRepository implements IBaseRepository{
 	}
 
 	@Override
-	public void batchDeleteEntities(String clazz, String keyName1, String keyName2) {
-		// [START batchDeleteEntities]
+	public void batchDeleteEntities(String clazz, String keyName1, String keyName2 ) {
+		// [START batchDeleteEntities]   
 	    Key key1 = datastore.newKeyFactory().kind(clazz).newKey(keyName1);
 	    Key key2 = datastore.newKeyFactory().kind(clazz).newKey(keyName2);
 	    datastore.delete(key1, key2);
-	    // [END batchDeleteEntities]
-		
+	    // [END batchDeleteEntities]		
 	}
 
 	@Override
@@ -232,24 +228,20 @@ public class BaseRepository implements IBaseRepository{
 	    return keyFactory;
 	}
 
-	@Override
-	public Entity getEntityWithKey(String clazz, String keyName) {
-		 // [START getEntityWithKey]
-	    Key key = datastore.newKeyFactory().kind(clazz).newKey(keyName);
-	    Entity entity = datastore.get(key);
-	    // Do something with the entity
-	    // [END getEntityWithKey]
-	    return entity;
-	}
 
 	@Override
-	public List<Entity> getEntitiesWithKeys(String clazz, String firstKeyName, String secondKeyName) {
+	public List<Entity> getEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString) {
 		 // TODO change so that it's not necessary to hold the entities in a list for integration testing
 	    // [START getEntitiesWithKeys]
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
-	    Key firstKey = keyFactory.newKey(firstKeyName);
-	    Key secondKey = keyFactory.newKey(secondKeyName);
-	    Iterator<Entity> entitiesIterator = datastore.get(Lists.newArrayList(firstKey, secondKey));
+	    
+	    ArrayList<Key> lstKey = new ArrayList<Key>();
+	    
+	    for (String key: lstKeyString) {
+	    	lstKey.add(keyFactory.newKey(key));
+	    }
+	    	   
+	    Iterator<Entity> entitiesIterator = datastore.get(Lists.newArrayList(lstKey));
 	    List<Entity> entities = Lists.newArrayList();
 	    while (entitiesIterator.hasNext()) {
 	      Entity entity = entitiesIterator.next();
@@ -261,12 +253,17 @@ public class BaseRepository implements IBaseRepository{
 	}
 
 	@Override
-	public List<Entity> fetchEntitiesWithKeys(String clazz, String firstKeyName, String secondKeyName) {
+	public List<Entity> fetchEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString) {
 		 // [START fetchEntitiesWithKeys]
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
-	    Key firstKey = keyFactory.newKey(firstKeyName);
-	    Key secondKey = keyFactory.newKey(secondKeyName);
-	    List<Entity> entities = datastore.fetch(Lists.newArrayList(firstKey, secondKey));
+	    
+	    ArrayList<Key> lstKey = new ArrayList<Key>();
+	    
+	    for (String key: lstKeyString) {
+	    	lstKey.add(keyFactory.newKey(key));
+	    }
+	    
+	    List<Entity> entities = datastore.fetch(Lists.newArrayList(lstKey));
 	    for (Entity entity : entities) {
 	      // do something with the entity
 	    }
@@ -332,13 +329,14 @@ public class BaseRepository implements IBaseRepository{
 	   * fetching a list of entities for several keys.
 	   */
 	@Override
-	public List<Entity> getMultiple(String clazz, String firstKeyName, String secondKeyName) {
+	public List<Entity> getMultiple(String clazz, String keyName1, String keyName2) {
 		Datastore datastore = transaction.datastore();
 	    // TODO change so that it's not necessary to hold the entities in a list for integration testing
 	    // [START getMultiple]
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
-	    Key firstKey = keyFactory.newKey(firstKeyName);
-	    Key secondKey = keyFactory.newKey(secondKeyName);
+	    
+	    Key firstKey = keyFactory.newKey(keyName1);
+	    Key secondKey = keyFactory.newKey(keyName2);
 	    Iterator<Entity> entitiesIterator = transaction.get(firstKey, secondKey);
 	    List<Entity> entities = Lists.newArrayList();
 	    while (entitiesIterator.hasNext()) {
@@ -382,13 +380,15 @@ public class BaseRepository implements IBaseRepository{
 	   * committing a transaction.
 	   */
 	@Override
-	public Key commit(String clazz) {
+	public Key commit(String clazz, String propertyName, String value) {
 		 Datastore datastore = transaction.datastore();
 		    // [START commit]
 		    // create an entity
 		    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
 		    Key key = datastore.allocateId(keyFactory.newKey());
-		    Entity entity = Entity.builder(key).set("description", "commit()").build();
+		    Entity entity = Entity.builder(key)
+		    		.set(propertyName, value)
+		    		.build();
 
 		    // add the entity and commit
 		    try {
@@ -406,13 +406,15 @@ public class BaseRepository implements IBaseRepository{
 	   * rolling back a transaction.
 	   */
 	@Override
-	public Key rollback(String clazz) {
+	public Key rollback(String clazz, String propertyName, String value) {
 		Datastore datastore = transaction.datastore();
 	    // [START rollback]
 	    // create an entity
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
 	    Key key = datastore.allocateId(keyFactory.newKey());
-	    Entity entity = Entity.builder(key).set("description", "rollback()").build();
+	    Entity entity = Entity.builder(key)
+	    		.set(propertyName, value)
+	    		.build();
 
 	    // add the entity and rollback
 	    transaction.put(entity);
@@ -426,13 +428,14 @@ public class BaseRepository implements IBaseRepository{
 	   * verifying if a transaction is active.
 	   */
 	@Override
-	public Key active(String clazz) {
+	public Key active(String clazz, String propertyName, String value) {
 		Datastore datastore = transaction.datastore();
 	    // [START active]
 	    // create an entity
 	    KeyFactory keyFactory = datastore.newKeyFactory().kind(clazz);
 	    Key key = datastore.allocateId(keyFactory.newKey());
-	    Entity entity = Entity.builder(key).set("description", "active()").build();
+	    Entity entity = Entity.builder(key)
+	    		.set(propertyName, value).build();
 	    // calling transaction.active() now would return true
 	    try {
 	      // add the entity and commit
@@ -451,6 +454,31 @@ public class BaseRepository implements IBaseRepository{
 	}
 
 	
+	/**
+	   * how to delete a entity. This action also queries the keys of all "ancestors"
+	   * associated with the "entity" and uses them to delete "ancestors".
+	   */
+	@Override
+    public void deleteEntityAndAncestors(Transaction tx, Key key, String kindAncestor) {
+      Entity user = tx.get(key);
+      if (user == null) {
+        System.out.println("Nothing to delete, entity does not exist.");
+        return;
+      }
+      Query<Key> query = Query.keyQueryBuilder()
+          //.namespace(NAMESPACE)
+          .kind(kindAncestor)
+          .filter(PropertyFilter.hasAncestor(key))
+          .build();
+      QueryResults<Key> ancestors = tx.run(query);
+      int count = 0;
+      while (ancestors.hasNext()) {
+        tx.delete(ancestors.next());
+        count++;
+      }
+      tx.delete(key);
+      System.out.printf("Deleting entity '%s' and %d ancestor[s].%n", key.name(), count);
+    }
 	
 	
 	
