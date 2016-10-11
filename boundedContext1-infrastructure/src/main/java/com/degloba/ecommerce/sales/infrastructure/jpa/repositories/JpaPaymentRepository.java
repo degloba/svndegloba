@@ -2,8 +2,8 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.ecommerce.sales.payment.domain.IPaymentRepository;
-import com.degloba.ecommerce.sales.payment.domain.Payment;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.IPaymentRepository;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 import com.google.appengine.api.datastore.Key;
 
 /**

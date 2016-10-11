@@ -7,8 +7,8 @@ import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 
 
 // Domain (organisation)
-import com.degloba.organisation.domain.IOrganisationRepository;
-import com.degloba.organisation.domain.Organization;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 
 // Google App Engine
 import com.google.appengine.api.datastore.Key;

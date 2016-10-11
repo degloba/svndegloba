@@ -4,8 +4,8 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 // Domain (ecommerce)
-import com.degloba.ecommerce.sales.invoicing.domain.IInvoiceRepository;
-import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.IInvoiceRepository;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
 
 /**
  * @author degloba

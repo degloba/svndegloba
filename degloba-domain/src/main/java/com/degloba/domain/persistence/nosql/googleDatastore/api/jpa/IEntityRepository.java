@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.degloba.domain.ExampleSettings;
-import com.degloba.domain.persistence.nosql.googleDatastore.api.lowlevel.Entity;
+
 import com.google.appengine.api.datastore.Key;
 
 /**
@@ -20,7 +20,7 @@ public interface IEntityRepository {
      * @return After persistent current Entity
      */
      <T extends BaseEntity> T save(T entity);
-    
+     
 
     /**
      * Entity will be removed from the Repository. 
@@ -60,6 +60,8 @@ public interface IEntityRepository {
      * @return An Entity instance.
      */
     <T extends BaseEntity> T load(Class<T> clazz, Serializable id);
+    
+    <T extends BaseAggregateRoot> T load(Key id);
 
     /**
      * From Repository in Getentity parameters represent unmodified Entity

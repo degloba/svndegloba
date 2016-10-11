@@ -41,5 +41,10 @@ public interface IBaseRepository{
 	
 	public <T> void deleteByKey(Class<T> clazz, String key) throws DatabaseException;
 		
+	public <T> T load(Key<T> id);
+		
+	public <T> void save(T subcategory);
+	
+	public <T> List<T> getAll(); 
 	
 }

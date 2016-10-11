@@ -2,13 +2,16 @@ package com.degloba.domain.persistence.nosql.googleDatastore.api.jpa;
 
 
 import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
 // JPA
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.LockModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -27,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,11 +45,18 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRepository {
+public class EntityRepository<T extends BaseAggregateRoot> implements IEntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepository.class);
   
 
+
+    private Class<T> clazz;
+    
+    @Inject
+    private AutowireCapableBeanFactory spring;
+
+    
 	@PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactoryDatastore")
     protected EntityManager entityManager;
@@ -53,6 +64,7 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
     
     public EntityRepository() {
         //entityManagerProvider = new EntityManagerProvider();
+    	 this.clazz = ((Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 
    
@@ -144,15 +156,30 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 	        LOGGER.info("update a entity: " + entity.getClass() + "/"
 	                + entity.getId() + ".");
 	        return result;
+	        
+	        // una altra opcio
+	        /*if (entityManager.contains(entity)){
+	    		//locking Aggregate Root logically protects whole aggregate
+	    		entityManager.lock(entity, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
+	    	}
+	    	else{
+	    	    entityManager.persist(entity);
+	    	}*/
 	}
-
-
+	
+	
 	@Override
 	public void remove(BaseEntity entity) {
 		entityManager.remove(get(entity.getClass(), entity.getId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
                 + entity.getId() + ".");	
 	}
+	
+	 public void delete(Key id){
+			T entity = load(id);
+			//just flag
+			entity.markAsRemoved();					
+		}
 
 	@Override
 	public <T extends BaseEntity> boolean exists(Class<T> clazz, Key id) {
@@ -170,8 +197,38 @@ public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRep
 	@Override
 	public <T extends BaseEntity> T load(Class<T> clazz, Serializable id) { 
 		 return entityManager.getReference(clazz, id);
+		 
+		// una altra opcio
+		//lock to be sure when creating other objects based on values of this aggregate
+	    /*    T aggregate = entityManager.find(clazz, id, LockModeType.OPTIMISTIC);
+	        
+	        if (aggregate == null)
+	        	throw new RuntimeException("Aggregate " + clazz.getCanonicalName() + " id = " + id + " does not exist");
+	        
+	        if (aggregate.isRemoved())
+	        	throw new RuntimeException("Aggragate + " + id + " is removed.");
+	        
+	        spring.autowireBean(aggregate);
+	        
+	        return aggregate;*/
 	}
-
+	
+	
+	 public  T load(Key id) {
+	    	//lock to be sure when creating other objects based on values of this aggregate
+	        T aggregate = entityManager.find(clazz, id, LockModeType.OPTIMISTIC);
+	        
+	        if (aggregate == null)
+	        	throw new RuntimeException("Aggregate " + clazz.getCanonicalName() + " id = " + id + " does not exist");
+	        
+	        if (aggregate.isRemoved())
+	        	throw new RuntimeException("Aggragate + " + id + " is removed.");
+	        
+	        spring.autowireBean(aggregate);
+	        
+	        return aggregate;
+	    }
+	
 
 	@Override
 	public <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {

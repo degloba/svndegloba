@@ -3,8 +3,8 @@ package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.ecommerce.sales.client.domain.Client;
-import com.degloba.ecommerce.sales.client.domain.IClientRepository;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.IClientRepository;
 
 
 

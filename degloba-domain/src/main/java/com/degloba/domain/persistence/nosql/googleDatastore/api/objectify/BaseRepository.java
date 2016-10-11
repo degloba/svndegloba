@@ -141,6 +141,20 @@ public class BaseRepository implements IBaseRepository{
 	}
 
 	
-	
+	@Override
+	public <T> T load(Key<T> id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <T> void save(T subcategory) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public <T> List<T> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
  }
