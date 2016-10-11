@@ -1,4 +1,4 @@
-package com.degloba.gcm.infrastructure.jpa.repositories;
+package com.degloba.gcm.infrastructure.persistence.nosql.mongo.repositories;
 
 import java.util.List; 
 

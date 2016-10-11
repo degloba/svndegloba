@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
+package com.degloba.ecommerce.sales.infrastructure.persistence.rdbms.jpa.repositories;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;

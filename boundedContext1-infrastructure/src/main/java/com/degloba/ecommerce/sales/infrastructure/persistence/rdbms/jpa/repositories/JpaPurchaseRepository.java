@@ -1,11 +1,11 @@
-package com.degloba.ecommerce.sales.infrastructure.jpa.repositories;
+package com.degloba.ecommerce.sales.infrastructure.persistence.rdbms.jpa.repositories;
 
-//Domain
+// Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 // Domain (ecommerce)
-import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
-import com.degloba.ecommerce.shipping.domain.Shipment;
+import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
+import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 
 // Google App Engine
 import com.google.appengine.api.datastore.Key;
@@ -15,16 +15,16 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaShipmentRepository extends EntityRepository<Shipment> implements IShipmentRepository{
+public class JpaPurchaseRepository extends EntityRepository<Purchase> implements IPurchaseRepository{
 
 	@Override
-	public Shipment load(Key id) {
+	public Purchase load(Key id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(Shipment entity) {
+	public void save(Purchase entity) {
 		// TODO Auto-generated method stub
 		
 	}

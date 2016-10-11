@@ -1,6 +1,5 @@
 package com.degloba.ecommerce.sales.application.api.service;
 
-import com.google.appengine.api.datastore.Key;
 
 
 /**
@@ -8,5 +7,5 @@ import com.google.appengine.api.datastore.Key;
  * 
  */
 public interface IShoppingCart {
-	public void add(Key productId);
+	public void add(long productId);
 }

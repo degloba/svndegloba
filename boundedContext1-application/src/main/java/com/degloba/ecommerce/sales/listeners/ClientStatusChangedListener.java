@@ -17,8 +17,6 @@ import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
 // Domain
 import com.degloba.domain.sharedkernel.Money;
 
-//Google app engine
-import com.google.appengine.api.datastore.Key;
 
 // Events
 import com.degloba.event.annotations.EventListeners;

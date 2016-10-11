@@ -2,7 +2,7 @@ package com.degloba.rent.facade.impl.jpa;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.IRentService;
+import com.degloba.rent.application.api.IRentService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
 import com.degloba.rent.facade.jpa.PhotoFacade;
 
