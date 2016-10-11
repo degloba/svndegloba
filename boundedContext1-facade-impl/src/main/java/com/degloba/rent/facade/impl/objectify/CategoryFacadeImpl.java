@@ -2,7 +2,7 @@ package com.degloba.rent.facade.impl.objectify;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.objectify.api.CategoryService;
+import com.degloba.rent.application.IRentService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 
@@ -10,10 +10,10 @@ import com.degloba.rent.facade.objectify.CategoryFacade;
 public class CategoryFacadeImpl implements CategoryFacade {
 
     @Inject
-    protected CategoryService categoryApplicationObjectify;
+    protected IRentService rentService;
 
-    public CategoryFacadeImpl(CategoryService application) {
-        this.categoryApplicationObjectify = application;
+    public CategoryFacadeImpl(IRentService application) {
+        this.rentService = application;
     }
    
 	public CategoryFacadeImpl() {
@@ -24,18 +24,16 @@ public class CategoryFacadeImpl implements CategoryFacade {
 	@Override
 	public void createCategory(Category category) {
 		// TODO Auto-generated method stub
-		categoryApplicationObjectify.createCategory(category);
+		rentService.createCategory(category);
 	}
 
-	public CategoryService getCategoryApplicationObjectify() {
-		return categoryApplicationObjectify;
+	public IRentService getCategoryApplicationObjectify() {
+		return rentService;
 	}
 
-	public void setCategoryApplicationObjectify(CategoryService categoryApplicationObjectify) {
-		this.categoryApplicationObjectify = categoryApplicationObjectify;
+	public void setCategoryApplicationObjectify(IRentService rentService) {
+		this.rentService = rentService;
 	}
 
-	
-	
 		
 }

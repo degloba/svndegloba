@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.sales.client.domain.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.reservation.domain.Reservation.ReservationStatus;
 
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;

@@ -2,17 +2,17 @@ package com.degloba.rent.facade.impl.jpa;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.jpa.api.CategoryService;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
+import com.degloba.rent.application.IRentService;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.jpa.CategoryFacade;
 
 
 public class CategoryFacadeImpl implements CategoryFacade {
 
     @Inject
-    protected CategoryService categoryApplicationJpa;
+    protected IRentService categoryApplicationJpa;
 
-    public CategoryFacadeImpl(CategoryService application) {
+    public CategoryFacadeImpl(IRentService application) {
         this.categoryApplicationJpa = application;
     }
    
@@ -27,11 +27,11 @@ public class CategoryFacadeImpl implements CategoryFacade {
 		categoryApplicationJpa.createCategory(category);
 	}
 
-	public CategoryService getCategoryApplicationJpa() {
+	public IRentService getCategoryApplicationJpa() {
 		return categoryApplicationJpa;
 	}
 
-	public void setCategoryApplicationJpa(CategoryService categoryApplicationJpa) {
+	public void setCategoryApplicationJpa(IRentService categoryApplicationJpa) {
 		this.categoryApplicationJpa = categoryApplicationJpa;
 	}
 

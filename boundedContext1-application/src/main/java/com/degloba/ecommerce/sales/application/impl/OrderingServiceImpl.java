@@ -11,17 +11,17 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 
 import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
-import com.degloba.ecommerce.sales.application.api.service.OfferChangedExcpetion;
-import com.degloba.ecommerce.sales.application.api.service.OrderingService;
-import com.degloba.ecommerce.sales.client.domain.Client;
-import com.degloba.ecommerce.sales.client.domain.IClientRepository;
+import com.degloba.ecommerce.sales.application.api.service.OfferChangedException;
+import com.degloba.ecommerce.sales.application.api.service.IOrderingService;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.IClientRepository;
 
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.offer.domain.DiscountFactory;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.domain.Offer;
-import com.degloba.ecommerce.sales.payment.domain.IPaymentRepository;
-import com.degloba.ecommerce.sales.payment.domain.Payment;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.IPaymentRepository;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
@@ -49,7 +49,7 @@ import com.degloba.ecommerce.system.application.SystemUser;
  * @author degloba
  */
 @ApplicationService
-public class OrderingServiceImpl implements OrderingService {
+public class OrderingServiceImpl implements IOrderingService {
 
 /*	@Inject
 	private SystemUser systemUser;*/
@@ -150,7 +150,7 @@ public class OrderingServiceImpl implements OrderingService {
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
 	public void confirm(long orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
-			throws OfferChangedExcpetion {
+			throws OfferChangedException {
 		Reservation reservation = entityRepository.load(Reservation.class,orderId);
 		if (reservation.isClosed())
 			throw new DomainOperationException(reservation.getAggregateId(), "reservation is already closed");
@@ -167,7 +167,7 @@ public class OrderingServiceImpl implements OrderingService {
 		 * Notice that this VO is not stored in Repo, it's stored on the Client Tier. 
 		 */
 		if (! newOffer.sameAs(seenOffer, 5))//TODO load delta from conf.
-			throw new OfferChangedExcpetion(reservation.getAggregateId(), seenOffer, newOffer);
+			throw new OfferChangedException(reservation.getAggregateId(), seenOffer, newOffer);
 		
 		Client client = loadClient();//create per logged client, not reservation owner					
 		Purchase purchase = purchaseFactory.create(reservation.getAggregateId(), client, seenOffer);

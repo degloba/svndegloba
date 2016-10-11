@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.equivalent;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.sales.client.domain.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.equivalent.specification.SameCategory;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarName;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarPrice;

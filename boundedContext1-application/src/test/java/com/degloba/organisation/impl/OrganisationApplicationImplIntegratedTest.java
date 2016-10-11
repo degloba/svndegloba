@@ -11,13 +11,13 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 
 // Application (organisation)
-import com.degloba.organisation.application.api.OrganisationService;
+import com.degloba.organisation.application.api.IOrganisationService;
 import com.degloba.organisation.application.impl.OrganisationApplicationImpl;
 
 //Domain (organisation)
-import com.degloba.organisation.domain.Organization;
-import com.degloba.organisation.domain.Party;
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -33,7 +33,7 @@ import org.junit.Ignore;
 
 public class OrganisationApplicationImplIntegratedTest {
 
-    private OrganisationService instance;
+    private IOrganisationService instance;
 
     protected IEntityRepository repository;
 

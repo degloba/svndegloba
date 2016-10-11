@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.organisation.domain.ImType;
-import com.degloba.organisation.domain.Person;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.ImType;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 
 import java.util.List;
 

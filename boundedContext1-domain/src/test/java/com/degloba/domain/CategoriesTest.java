@@ -5,8 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
 
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
     public void setUp() throws Exception {
         super.setUp();
         
-        Category category = new Category();
+        CategoryJpa category = new CategoryJpa();
 	    category.setDescription("Oci");
 	    
         // Categories/Subcategories
@@ -39,7 +40,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
     public void testSubcategories() {
         String jpql = "select o from Category o";
         IEntityRepository repository = InstanceFactory.getInstance(IEntityRepository.class);
-        List<Category> categories = repository.createJpqlQuery(jpql).list();
+        List<CategoryJpa> categories = repository.createJpqlQuery(jpql).list();
         
         String jpql2 = "select o from Subcategory o";
         List<Subcategory> subcategories = repository.createJpqlQuery(jpql2).list();

@@ -9,6 +9,7 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Parent;
 
 
+
 @Entity
 public class Subcategory implements Serializable {
 	

@@ -9,8 +9,8 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
 
 // Domain
-import com.degloba.ecommerce.sales.client.domain.Client;
-import com.degloba.ecommerce.sales.client.domain.IClientRepository;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.IClientRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;

@@ -8,7 +8,8 @@ import com.google.appengine.api.datastore.Key;
 import com.degloba.cqrs.command.annotations.Command;
 
 // Domain
-import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;
+
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
 
 /**
  * @author degloba
@@ -18,17 +19,17 @@ import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;
 @Command
 public class ChangeCustomerStatusCommand implements Serializable{
 
-	private Key customerId;
+	private long customerId;
 	
 	private CustomerStatus status;
 
-	public ChangeCustomerStatusCommand(Key customerId, CustomerStatus status) {
+	public ChangeCustomerStatusCommand(long customerId, CustomerStatus status) {
 		super();
 		this.customerId = customerId;
 		this.status = status;
 	}
 
-	public Key getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 

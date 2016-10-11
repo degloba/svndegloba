@@ -1,6 +1,6 @@
 package com.degloba.organisation.utils;
 
-import com.degloba.organisation.domain.*;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.*;
 
 import java.util.Date;
 

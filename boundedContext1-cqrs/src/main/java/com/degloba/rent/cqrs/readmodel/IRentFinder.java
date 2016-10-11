@@ -2,12 +2,14 @@ package com.degloba.rent.cqrs.readmodel;
 
 import java.util.List;
 
-import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Location;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Owner;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Product;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+
 
 public interface IRentFinder {
 	

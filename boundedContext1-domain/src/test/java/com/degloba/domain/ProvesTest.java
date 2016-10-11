@@ -7,7 +7,7 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 // Entitats de domini 
 
-import com.degloba.organisation.domain.Company;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
 
 import com.degloba.organisation.utils.OrganisationUtils;
 

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 /**
  * Offer that is available per client (including availability and discounts)
@@ -67,7 +65,7 @@ public class Offer {
 	 * @param delta acceptable difference in percent
 	 * @return
 	 */
-	public boolean sameAs(Offer seenOffer, double delta) {
+	/*public boolean sameAs(Offer seenOffer, double delta) {
 		if (! (availabeItems.size() == seenOffer.availabeItems.size()))
 			return false;
 		
@@ -80,15 +78,15 @@ public class Offer {
 		}
 		
 		return true;
-	}
+	}*/
 
-	private OfferItem findItem(Key productId) {
+	/*private OfferItem findItem(long productId) {
 		for (OfferItem item : availabeItems){
 			if (item.getProductData().getProductId().equals(productId))
 				return item;
 		}
 		return null;
-	}
+	}*/
 	
 	
 }

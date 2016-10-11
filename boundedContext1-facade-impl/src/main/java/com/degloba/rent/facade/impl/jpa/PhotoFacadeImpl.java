@@ -2,17 +2,17 @@ package com.degloba.rent.facade.impl.jpa;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.jpa.api.PhotoService;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
+import com.degloba.rent.application.IRentService;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
 import com.degloba.rent.facade.jpa.PhotoFacade;
 
 
 public class PhotoFacadeImpl implements PhotoFacade {
 
     @Inject
-    protected PhotoService photoApplication;
+    protected IRentService photoApplication;
 
-    public PhotoFacadeImpl(PhotoService application) {
+    public PhotoFacadeImpl(IRentService application) {
         this.photoApplication = application;
     }
    
@@ -27,11 +27,11 @@ public class PhotoFacadeImpl implements PhotoFacade {
 		photoApplication.createPhoto(photo);
 	}
 
-	public PhotoService getPhotoApplication() {
+	public IRentService getPhotoApplication() {
 		return photoApplication;
 	}
 
-	public void setPhotoApplication(PhotoService photoApplication) {
+	public void setPhotoApplication(IRentService photoApplication) {
 		this.photoApplication = photoApplication;
 	}
 	

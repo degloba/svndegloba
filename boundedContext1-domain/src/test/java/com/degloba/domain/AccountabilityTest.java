@@ -7,14 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 // Entitats de domini 
-import com.degloba.organisation.domain.Accountability;
-import com.degloba.organisation.domain.Company;
-import com.degloba.organisation.domain.CompanyDepartment;
-import com.degloba.organisation.domain.Department;
-import com.degloba.organisation.domain.Employee;
-import com.degloba.organisation.domain.Employment;
-import com.degloba.organisation.domain.OrgLineMgmt;
-import com.degloba.organisation.domain.Person;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Accountability;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.CompanyDepartment;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Employee;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Employment;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 import com.degloba.organisation.utils.OrganisationUtils;
 
 

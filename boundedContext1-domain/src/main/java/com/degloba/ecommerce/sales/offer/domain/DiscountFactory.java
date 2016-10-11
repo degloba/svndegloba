@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.offer.domain;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.sales.client.domain.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.offer.discounts.QuantityDiscount;
 
 @DomainFactory

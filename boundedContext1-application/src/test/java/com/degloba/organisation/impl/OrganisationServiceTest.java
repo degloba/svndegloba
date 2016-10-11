@@ -7,15 +7,15 @@ import java.util.Date;
 
 import com.degloba.utils.DateUtils;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.organisation.application.api.OrganisationService;
+import com.degloba.organisation.application.api.IOrganisationService;
 
 // Domain (organisation)
-import com.degloba.organisation.domain.Company;
-import com.degloba.organisation.domain.Department;
-import com.degloba.organisation.domain.OrgLineMgmt;
-import com.degloba.organisation.domain.Organization;
-import com.degloba.organisation.domain.Party;
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 import static org.hamcrest.CoreMatchers.*;
 
@@ -32,7 +32,7 @@ import static org.mockito.Mockito.*;
 
 public abstract class OrganisationServiceTest {
 
-    private OrganisationService instance;
+    private IOrganisationService instance;
 
     protected IEntityRepository repository;
 
@@ -108,6 +108,6 @@ public abstract class OrganisationServiceTest {
         fail("The test case is a prototype.");
     }
 
-    protected abstract OrganisationService createInstance();
+    protected abstract IOrganisationService createInstance();
 
 }

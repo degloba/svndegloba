@@ -1,9 +1,9 @@
 package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
 
 
-import com.degloba.organisation.domain.Address;
-import com.degloba.organisation.domain.Email;
-import com.degloba.organisation.domain.PersonName;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Address;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Email;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;

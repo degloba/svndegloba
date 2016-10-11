@@ -9,9 +9,9 @@ import com.degloba.utils.DateUtils;
 
 
 
-import com.degloba.organisation.domain.Company;
-import com.degloba.organisation.domain.Department;
-import com.degloba.organisation.domain.OrgLineMgmt;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
 import com.degloba.organisation.utils.OrganisationUtils;
 
 public class LineMgmtTest extends AbstractIntegrationTest {

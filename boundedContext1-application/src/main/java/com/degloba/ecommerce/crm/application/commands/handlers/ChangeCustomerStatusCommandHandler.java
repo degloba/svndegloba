@@ -8,8 +8,9 @@ import com.degloba.cqrs.command.handler.ICommandHandler;
 
 // Ecommerce
 import com.degloba.ecommerce.crm.application.commands.ChangeCustomerStatusCommand;
-import com.degloba.ecommerce.crm.domain.Customer;
-import com.degloba.ecommerce.crm.domain.ICustomerRepository;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICustomerRepository;
+
 
 /**
  * @author degloba

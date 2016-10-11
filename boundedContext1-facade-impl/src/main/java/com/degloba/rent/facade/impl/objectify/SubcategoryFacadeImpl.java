@@ -2,7 +2,7 @@ package com.degloba.rent.facade.impl.objectify;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.objectify.api.SubcategoryService;
+import com.degloba.rent.application.IRentService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.rent.facade.objectify.SubcategoryFacade;
 
@@ -10,9 +10,9 @@ import com.degloba.rent.facade.objectify.SubcategoryFacade;
 public class SubcategoryFacadeImpl implements SubcategoryFacade {
 
     @Inject
-    protected SubcategoryService subcategoryApplication;
+    protected IRentService subcategoryApplication;
 
-    public SubcategoryFacadeImpl(SubcategoryService application) {
+    public SubcategoryFacadeImpl(IRentService application) {
         this.subcategoryApplication = application;
     }
    
@@ -27,11 +27,11 @@ public class SubcategoryFacadeImpl implements SubcategoryFacade {
 		subcategoryApplication.createSubcategory(Subcategory);
 	}
 
-	public SubcategoryService getSubcategoryApplication() {
+	public IRentService getSubcategoryApplication() {
 		return subcategoryApplication;
 	}
 
-	public void setSubcategoryApplication(SubcategoryService subcategoryApplication) {
+	public void setSubcategoryApplication(IRentService subcategoryApplication) {
 		this.subcategoryApplication = subcategoryApplication;
 	}
 	

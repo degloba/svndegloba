@@ -1,6 +1,6 @@
 package com.degloba.organisation.facade.assembler;
 
-import com.degloba.organisation.domain.Organization;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.facade.OrganizationDto;
 
 

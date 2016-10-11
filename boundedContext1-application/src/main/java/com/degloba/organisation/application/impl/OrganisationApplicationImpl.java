@@ -2,25 +2,24 @@ package com.degloba.organisation.application.impl;
 
 
 // Application
-import com.degloba.organisation.application.api.OrganisationService;
+import com.degloba.organisation.application.api.IOrganisationService;
 
 // Domain
-import com.degloba.organisation.domain.OrgLineMgmt;
-import com.degloba.organisation.domain.Organization;
-import com.degloba.organisation.domain.Party;
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 import java.util.Date;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-
 
 // Domain
 
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 
-public class OrganisationApplicationImpl implements OrganisationService {
+public class OrganisationApplicationImpl implements IOrganisationService {
 	
 	
     //////@Inject

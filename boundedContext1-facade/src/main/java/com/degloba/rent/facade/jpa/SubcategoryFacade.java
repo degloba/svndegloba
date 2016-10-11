@@ -1,6 +1,6 @@
 package com.degloba.rent.facade.jpa;
 
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 /**
  * @author degloba

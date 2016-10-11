@@ -6,8 +6,8 @@
  
 	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<class>com.degloba.organisation.domain.PersonName</class>
-		<class>com.degloba.organisation.domain.Address</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		<!-- <class>com.degloba.travel.domain.Hotel</class>
 		<class>com.degloba.ecommerce.crm.domain.Customer</class>
 		<class>com.degloba.ecommerce.sales.payment.domain.Payment</class>

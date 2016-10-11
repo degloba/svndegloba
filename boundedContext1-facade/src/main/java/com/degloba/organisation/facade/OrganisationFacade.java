@@ -2,7 +2,7 @@ package com.degloba.organisation.facade;
 
 import java.util.Date;
 
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 
 /**

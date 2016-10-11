@@ -5,14 +5,14 @@ import javax.inject.Inject;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
 
 // Ecommerce 
-import com.degloba.ecommerce.sales.client.domain.Client;
-import com.degloba.ecommerce.sales.client.domain.IClientRepository;
-import com.degloba.ecommerce.sales.invoicing.domain.BookKeeper;
-import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
-import com.degloba.ecommerce.sales.invoicing.domain.IInvoiceRepository;
-import com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequest;
-import com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequestFactory;
-import com.degloba.ecommerce.sales.invoicing.domain.TaxAdvisor;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.IClientRepository;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.BookKeeper;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.IInvoiceRepository;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequestFactory;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.TaxAdvisor;
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
 

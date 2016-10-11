@@ -9,14 +9,16 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.rent.cqrs.readmodel.IRentFinder;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 // Entitats NoSql/GoogleDatastore (Api JPA)
-import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Location;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Owner;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Photo;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Product;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+
+
 
 // Entitats NoSql/GoogleDatastore (Api Objectify)
 //import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
@@ -32,8 +34,6 @@ import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
 
 // Entitats NoSql/MongoDB (Api xxx)
 // ...............
-
-
 
 
 public class RentFinder implements IRentFinder {

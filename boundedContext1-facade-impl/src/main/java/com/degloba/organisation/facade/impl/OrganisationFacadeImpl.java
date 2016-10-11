@@ -1,15 +1,15 @@
 package com.degloba.organisation.facade.impl;
 
-import com.degloba.organisation.domain.Party;
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 import com.degloba.organisation.facade.assembler.OrganizationAssembler;
 
 import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.degloba.organisation.application.api.OrganisationService;
-import com.degloba.organisation.domain.Organization;
+import com.degloba.organisation.application.api.IOrganisationService;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;
 import com.degloba.organisation.facade.PostDto;
@@ -24,9 +24,9 @@ import com.degloba.organisation.facade.assembler.PostAssembler;
 public class OrganisationFacadeImpl implements OrganisationFacade {
 
     @Inject
-    protected OrganisationService application;
+    protected IOrganisationService application;
 
-    public OrganisationFacadeImpl(OrganisationService application) {
+    public OrganisationFacadeImpl(IOrganisationService application) {
         this.application = application;
     }
 
@@ -68,11 +68,11 @@ public class OrganisationFacadeImpl implements OrganisationFacade {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrganisationService getApplication() {
+	public IOrganisationService getApplication() {
 		return application;
 	}
 
-	public void setApplication(OrganisationService application) {
+	public void setApplication(IOrganisationService application) {
 		this.application = application;
 	}
 
