@@ -10,7 +10,7 @@ import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.canonicalmodel.events.PaymentRolledBackEvent;
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * 
@@ -34,7 +34,7 @@ public class Payment extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Payment(){}
 	
-	Payment(Key aggregateId, ClientData clientData, Money amount) {
+	Payment(long aggregateId, ClientData clientData, Money amount) {
 		///////this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.amount = amount;

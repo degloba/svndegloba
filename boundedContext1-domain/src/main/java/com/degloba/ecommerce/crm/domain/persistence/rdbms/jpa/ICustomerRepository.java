@@ -11,7 +11,4 @@ import com.degloba.domain.annotations.DomainRepository;
 @DomainRepository
 public interface ICustomerRepository {
 
-	public Customer load(long id);
-
-	public void save(Customer entity);
 }

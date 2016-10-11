@@ -18,11 +18,6 @@ import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 @DomainRepositoryImpl
 public class JpaProductRepository extends EntityRepository implements IProductRepository{
 
-	@Override
-	public Product load(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Product> findProductWhereBestBeforeExpiredIn(int days) {
@@ -36,10 +31,5 @@ public class JpaProductRepository extends EntityRepository implements IProductRe
 		return null;
 	}
 
-/*	@Override
-	public void save(Product entity) {
-		// TODO Auto-generated method stub
-		
-	}*/
 
 }

@@ -2,7 +2,7 @@ package com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.jpa.repositor
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer;
+
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICustomerRepository;
 
 
@@ -13,16 +13,5 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICustomerRepositor
 @DomainRepositoryImpl
 public class JpaCustomerRepository extends EntityRepository implements ICustomerRepository{
 
-	@Override
-	public Customer load(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void save(Customer entity) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

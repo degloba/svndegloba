@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IProductRepository {
 
-	public Product load(long productId);
-	
 	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
 
 	public Product load(Class<Product> class1, long productId);
