@@ -41,7 +41,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class EntityRepository<A extends BaseAggregateRoot> implements IEntityRepository {
+public class EntityRepository implements IEntityRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntityRepository.class);
   

@@ -10,9 +10,6 @@ import com.degloba.domain.annotations.DomainRepository;
 @DomainRepository
 public interface IInvoiceRepository {
 
-	/**
-	 * @param invoice
-	 */
-	public void save(Invoice invoice);
+
 
 }

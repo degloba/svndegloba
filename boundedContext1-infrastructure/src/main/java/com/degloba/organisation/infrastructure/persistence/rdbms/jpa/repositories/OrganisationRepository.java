@@ -8,28 +8,14 @@ import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 
 // Domain (organisation)
 import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 
-// Google App Engine
-import com.google.appengine.api.datastore.Key;
 
 /**
  * @author degloba
  *
  */
 @DomainRepositoryImpl
-public class OrganisationRepository extends EntityRepository<Organization> implements IOrganisationRepository{
+public class OrganisationRepository extends EntityRepository implements IOrganisationRepository{
 
-	@Override
-	public Organization load(Key id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void save(Organization entity) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

@@ -9,15 +9,14 @@ import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 
-// Google App Engine
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * @author degloba
  *
  */
 @DomainRepositoryImpl
-public class JpaProductRepository extends EntityRepository<Product> implements IProductRepository{
+public class JpaProductRepository extends EntityRepository implements IProductRepository{
 
 	@Override
 	public Product load(long id) {

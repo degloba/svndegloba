@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
  *
  */
 @DomainRepositoryImpl
-public class JpaShipmentRepository extends EntityRepository<Shipment> implements IShipmentRepository{
+public class JpaShipmentRepository extends EntityRepository implements IShipmentRepository{
 
 	@Override
 	public Shipment load(Key id) {

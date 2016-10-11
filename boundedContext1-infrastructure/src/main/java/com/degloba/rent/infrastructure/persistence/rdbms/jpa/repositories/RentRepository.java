@@ -17,7 +17,7 @@ import com.degloba.rent.domain.persistence.rdbms.jpa.PhotoJpa;
 
 
 @DomainRepositoryImpl
-public class RentRepository extends EntityRepository<CategoryJpa> implements IRentRepository{
+public class RentRepository extends EntityRepository implements IRentRepository{
 	
 private final static Logger logger = Logger.getLogger(RentRepository.class.getName());
 	

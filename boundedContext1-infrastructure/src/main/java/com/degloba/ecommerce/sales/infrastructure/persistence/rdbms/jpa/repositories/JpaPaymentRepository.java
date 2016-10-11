@@ -10,7 +10,7 @@ import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
  *
  */
 @DomainRepositoryImpl
-public class JpaPaymentRepository extends EntityRepository<Payment> implements IPaymentRepository{
+public class JpaPaymentRepository extends EntityRepository implements IPaymentRepository{
 
 	@Override
 	public Payment load(long id) {

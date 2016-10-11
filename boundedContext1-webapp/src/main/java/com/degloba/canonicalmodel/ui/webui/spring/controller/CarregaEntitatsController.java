@@ -1,7 +1,6 @@
 package com.degloba.canonicalmodel.ui.webui.spring.controller;
 
 
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -12,15 +11,15 @@ import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.Databa
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 
 
-import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
+import com.degloba.rent.cqrs.readmodel.IRentFinder;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.googlecode.objectify.Key;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 /**
  *
@@ -37,7 +36,7 @@ public class CarregaEntitatsController {
     protected CategoryFacade facadeCategoryObjectify;
     	    
     @Inject
-    protected ICategoryFinder finderCategory;
+    protected IRentFinder finderCategory;
     
     @Inject
     protected IBaseRepository categoryRepositoryObjectify;

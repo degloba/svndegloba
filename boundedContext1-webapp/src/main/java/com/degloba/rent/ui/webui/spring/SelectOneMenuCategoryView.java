@@ -17,10 +17,10 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
-import com.degloba.rent.cqrs.readmodel.jpa.ICategoryFinder;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Category;
-import com.degloba.rent.domain.persistence.rdbms.jpa.Subcategory;
+
+import com.degloba.rent.cqrs.readmodel.IRentFinder;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 
 @Component
@@ -36,7 +36,7 @@ public class SelectOneMenuCategoryView {
     private List<Subcategory> subcategories;
     
     @Inject
-    private ICategoryFinder categoryFinder;
+    private IRentFinder categoryFinder;
     
     	
 	@PostConstruct
