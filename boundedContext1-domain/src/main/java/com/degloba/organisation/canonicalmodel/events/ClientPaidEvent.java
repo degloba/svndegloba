@@ -22,18 +22,18 @@ import com.google.appengine.api.datastore.Key;
 @Event
 public class ClientPaidEvent implements Serializable {
 
-    private final Key paymentId;
+    private final long paymentId;
     private ClientData clientData;
     private Money amount;
     
     
-    public ClientPaidEvent(Key paymentId, ClientData clientData, Money amount) {
+    public ClientPaidEvent(long paymentId, ClientData clientData, Money amount) {
         this.paymentId = paymentId;
         this.clientData = clientData;
         this.amount = amount;
     }
 
-	public Key getPaymentId() {
+	public long getPaymentId() {
 		return paymentId;
 	}
 	

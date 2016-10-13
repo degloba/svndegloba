@@ -1,15 +1,16 @@
-package com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa;
-
+package com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
-
 /**
- * @author degloba
  * 
+ * @author degloba
+ *
  */
 @DomainRepository
-public interface ICrmRepository extends IEntityRepository {
+public interface ISalesRepository extends IEntityRepository {
+
+
 
 }

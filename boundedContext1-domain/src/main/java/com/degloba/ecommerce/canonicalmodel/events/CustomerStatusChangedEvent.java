@@ -2,7 +2,7 @@ package com.degloba.ecommerce.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
+import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;
 
 // Event
 import com.degloba.event.annotations.Event;

@@ -8,8 +8,9 @@ import com.degloba.cqrs.command.handler.ICommandHandler;
 
 // Ecommerce
 import com.degloba.ecommerce.crm.application.commands.ChangeCustomerStatusCommand;
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer;
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICustomerRepository;
+import com.degloba.ecommerce.crm.domain.Customer;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
+
 
 
 /**
@@ -20,13 +21,13 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICustomerRepositor
 public class ChangeCustomerStatusCommandHandler implements ICommandHandler<ChangeCustomerStatusCommand>{
 
 	@Inject
-	private ICustomerRepository customerRepository; 
+	private ICrmRepository crmRepository; 
 	
 	@Override
 	public Void handle(ChangeCustomerStatusCommand command) {
-		Customer customer = customerRepository.load(command.getCustomerId());
+		Customer customer = crmRepository.get(Customer.class,command.getCustomerId());
 		customer.changeStatus(command.getStatus());
-		customerRepository.save(customer);		
+		crmRepository.save(customer);		
 		return null;
 	}
 

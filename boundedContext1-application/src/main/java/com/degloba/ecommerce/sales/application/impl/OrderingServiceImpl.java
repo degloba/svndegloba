@@ -14,14 +14,12 @@ import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.api.service.OfferChangedException;
 import com.degloba.ecommerce.sales.application.api.service.IOrderingService;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.IClientRepository;
-
+import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
 import com.degloba.ecommerce.sales.offer.domain.DiscountFactory;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.domain.Offer;
-import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.IPaymentRepository;
-import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
+import com.degloba.ecommerce.sales.payment.domain.Payment;
 import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
 
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
@@ -58,10 +56,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	private IEntityRepository entityRepository;
 	
 	@Inject
-	private IClientRepository clientRepository;
-
-	@Inject
-	private IReservationRepository reservationRepository;
+	private ISalesRepository salesRepository;
 
 	@Inject
 	private ReservationFactory reservationFactory;
@@ -75,9 +70,6 @@ public class OrderingServiceImpl implements IOrderingService {
 	@Inject
 	private IProductRepository productRepository;
 	
-	@Inject 
-	private IPaymentRepository paymentRepository;
-
 	@Inject
 	private DiscountFactory discountFactory;
 	
@@ -104,7 +96,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	@Override
 	public void addProduct(long orderId, long productId,
 			int quantity) {
-		Reservation reservation = reservationRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 		
 		Product product = productRepository.load(Product.class,productId);
 		

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.sales.payment.domain;
 
 import javax.inject.Inject;
 import javax.persistence.Embedded;

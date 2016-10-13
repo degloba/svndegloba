@@ -18,18 +18,18 @@ public class ClientData {
 	//@Embedded
 	/*@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
-*/	private Key aggregateId;
+*/	private long aggregateId;
 	
 	private String name;
 
 	public ClientData(){}
 	
-	public ClientData(Key aggregateId, String name) {
+	public ClientData(long aggregateId, String name) {
 		this.aggregateId = aggregateId;
 		this.name = name;
 	}
 	
-	public Key getAggregateId() {
+	public long getAggregateId() {
 		return aggregateId;
 	}
 	

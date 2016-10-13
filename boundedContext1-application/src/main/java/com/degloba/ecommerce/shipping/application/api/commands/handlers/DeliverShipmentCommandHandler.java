@@ -6,7 +6,8 @@ import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.CommandHandler;
 import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
 import com.degloba.ecommerce.shipping.domain.Shipment;
-import com.degloba.ecommerce.shipping.domain.IShipmentRepository;
+import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShipmentRepository;
+
 
 @CommandHandlerAnnotation
 public class DeliverShipmentCommandHandler implements CommandHandler<DeliverShipmentCommand, Void> {
@@ -16,7 +17,7 @@ public class DeliverShipmentCommandHandler implements CommandHandler<DeliverShip
 
     @Override
     public Void handle(DeliverShipmentCommand command) {
-        Shipment shipment = repository.load(command.getShipmentId());
+        Shipment shipment = repository.get(Shipment.class,command.getShipmentId());
         shipment.deliver();
         return null;
     }

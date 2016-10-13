@@ -13,13 +13,13 @@ import com.google.appengine.api.datastore.Key;
 @Event
 public class OrderSubmittedEvent implements Serializable{
 
-	private Key orderId;
+	private long orderId;
 	
-	public OrderSubmittedEvent(Key orderId){
+	public OrderSubmittedEvent(long orderId){
 		this.orderId = orderId;
 	}
 	
-	public Key getOrderId() {
+	public long getOrderId() {
 		return orderId;
 	}
 

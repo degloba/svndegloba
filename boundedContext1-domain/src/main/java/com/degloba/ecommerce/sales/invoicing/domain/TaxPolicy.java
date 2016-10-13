@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.sales.invoicing.domain;
 
 import com.degloba.domain.annotations.DomainPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;

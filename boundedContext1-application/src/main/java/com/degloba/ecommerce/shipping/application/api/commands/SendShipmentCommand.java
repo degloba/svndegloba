@@ -11,13 +11,13 @@ import com.degloba.cqrs.command.annotations.Command;
 @Command
 public class SendShipmentCommand implements Serializable {
 
-    private final Key shipmentId;
+    private final long shipmentId;
 
-    public SendShipmentCommand(Key shipmentId) {
+    public SendShipmentCommand(long shipmentId) {
         this.shipmentId = shipmentId;
     }
 
-    public Key getShipmentId() {
+    public long getShipmentId() {
         return shipmentId;
     }
 }

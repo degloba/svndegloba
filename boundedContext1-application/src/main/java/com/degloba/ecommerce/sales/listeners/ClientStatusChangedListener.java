@@ -8,10 +8,10 @@ import com.degloba.cqrs.query.PaginatedResult;
 // Ecommerce
 import com.degloba.ecommerce.canonicalmodel.events.CustomerStatusChangedEvent;
 import com.degloba.ecommerce.sales.internal.discounts.DiscountingService;
-
+import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
 // CQRS (ecommerce)
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderFinder;
+
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
 
 // Domain
@@ -36,13 +36,14 @@ public class ClientStatusChangedListener {
 
 	@Inject
 	private DiscountingService discountingService;
+	
 	@Inject
-	private OrderFinder orderFinder;
+	private ISalesFinder salesFinder;
 	
 	@EventListener
 	public void handle(CustomerStatusChangedEvent event){
 		OrderQuery orderQuery = new OrderQuery(null, event.getCustomerId());
-		PaginatedResult<OrderDto> orders = orderFinder.query(orderQuery);
+		PaginatedResult<OrderDto> orders = salesFinder.query(orderQuery);
 		
 		Money discount = calculateDiscout(event.getCustomerId());
 		

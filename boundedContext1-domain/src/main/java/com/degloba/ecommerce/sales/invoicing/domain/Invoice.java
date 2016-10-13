@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.sales.invoicing.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;

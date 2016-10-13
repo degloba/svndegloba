@@ -65,7 +65,7 @@ public class Offer {
 	 * @param delta acceptable difference in percent
 	 * @return
 	 */
-	/*public boolean sameAs(Offer seenOffer, double delta) {
+	public boolean sameAs(Offer seenOffer, double delta) {
 		if (! (availabeItems.size() == seenOffer.availabeItems.size()))
 			return false;
 		
@@ -78,15 +78,15 @@ public class Offer {
 		}
 		
 		return true;
-	}*/
+	}
 
-	/*private OfferItem findItem(long productId) {
+	private OfferItem findItem(long productId) {
 		for (OfferItem item : availabeItems){
 			if (item.getProductData().getProductId().equals(productId))
 				return item;
 		}
 		return null;
-	}*/
+	}
 	
 	
 }
