@@ -12,36 +12,46 @@ import javax.persistence.PersistenceContext;
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-// CQRS
 import com.degloba.cqrs.query.PaginatedResult;
-
 import com.degloba.domain.annotations.FinderImpl;
 
-// Ecommerce
-import com.degloba.ecommerce.sales.purchase.domain.Purchase;
-import com.degloba.ecommerce.sales.reservation.domain.Reservation;
-import com.degloba.ecommerce.sales.reservation.domain.ReservedProduct;
-
 // CQRS (ecommerce)
+
+import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferedProductDto;
+
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderFinder;
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderStatus;
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderedProductDto;
-
-// Google app engine
-import com.google.appengine.api.datastore.Key;
+import com.degloba.ecommerce.sales.purchase.domain.Purchase;
+import com.degloba.ecommerce.sales.reservation.domain.Reservation;
+import com.degloba.ecommerce.sales.reservation.domain.ReservedProduct;
 import com.google.common.base.Function;
+import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
+import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferQuery;
 
 @FinderImpl
-public class JpaOrderFinder implements OrderFinder {
+public class SalesFinder implements ISalesFinder {
 
 	@PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactoryDatastore")
 	private EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public OrderDto find(Key orderId) {
+	public List<OfferedProductDto> find(OfferQuery query) {
+		@SuppressWarnings("unused")
+		boolean bestBeforeExpired = query.isBestBeforeExpired();
+		// TODO take into consideration in query
+
+		return (List<OfferedProductDto>) entityManager
+				.createQuery(
+						"SELECT NEW com.degloba.ecommerce.sales.readmodel.offer.OfferedProductDto(p.aggregateId) FROM Product p")
+				.getResultList();
+	}
+	
+	@Override
+	public OrderDto find(long orderId) {
 		Reservation reservation = entityManager.find(Reservation.class, orderId);
 		Purchase purchase = entityManager.find(Purchase.class, orderId);
 		

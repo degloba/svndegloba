@@ -2,7 +2,10 @@ package com.degloba.ecommerce.shipping.cqrs.readmodel;
 
 import java.util.List;
 
-public interface ShipmentFinder {
+import com.degloba.cqrs.query.annotations.Finder;
+
+@Finder
+public interface IShipmentFinder {
 
     List<ShipmentDto> findShipment();
 

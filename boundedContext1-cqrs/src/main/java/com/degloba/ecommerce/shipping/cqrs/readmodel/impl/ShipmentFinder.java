@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS (ecommerce)
 import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.IShipmentFinder;
 
 import com.degloba.cqrs.query.annotations.Finder;
 
 
 @Finder
-public class JpaShipmentFinder implements ShipmentFinder {
+public class ShipmentFinder implements IShipmentFinder {
 
     @PersistenceContext(unitName="transactions-optional")
     @Qualifier(value="entityManagerFactoryDatastore")

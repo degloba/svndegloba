@@ -2,7 +2,7 @@ package com.degloba.rent.cqrs.readmodel;
 
 import java.util.List;
 
-
+import com.degloba.cqrs.query.annotations.Finder;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
@@ -10,7 +10,7 @@ import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.P
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
-
+@Finder
 public interface IRentFinder {
 	
 
