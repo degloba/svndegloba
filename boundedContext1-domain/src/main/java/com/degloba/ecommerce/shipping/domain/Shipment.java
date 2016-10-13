@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
-import com.google.appengine.api.datastore.Key;
+//import com.google.appengine.api.datastore.Key;
 
 /**
  * @author degloba
@@ -17,8 +17,9 @@ import com.google.appengine.api.datastore.Key;
 public class Shipment extends BaseAggregateRoot {
 
 /*	@AttributeOverrides({
-		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})
-    private Key orderId;*/
+		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  */
+    private long orderId;
+    private long aggregateId;
 
     private ShippingStatus status;
 
@@ -26,9 +27,9 @@ public class Shipment extends BaseAggregateRoot {
     @SuppressWarnings("unused")
 	private Shipment() {}
 
-    Shipment(Key shipmentId, Key orderId) {
-        ////////this.aggregateId = shipmentId;
-    	////////this.orderId = orderId;
+    Shipment(long shipmentId, long orderId) {
+        this.aggregateId = shipmentId;
+    	this.orderId = orderId;
         this.status = ShippingStatus.WAITING;
     }
 
@@ -54,9 +55,9 @@ public class Shipment extends BaseAggregateRoot {
         eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
     }
 
-    public Key getOrderId() {
-    	return null;
-  ////////return orderId;
+    public long getOrderId() {
+    	
+  return orderId;
     }
 
 }

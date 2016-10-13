@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.sales.payment.domain;
 
 import java.util.UUID;
 
@@ -16,9 +16,6 @@ import com.degloba.domain.sharedkernel.Money;
 // Event
 import com.degloba.event.domain.IDomainEventPublisher;
 
-// Google app engine
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
 /**
  * 
