@@ -45,7 +45,7 @@
 	<persistence-unit name="mysql">
 	    <properties>
 			<!-- Change the "nucleus" to your database name, and the user/password -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1/degloba?useServerPrepStmts=false" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="robledo00"/>

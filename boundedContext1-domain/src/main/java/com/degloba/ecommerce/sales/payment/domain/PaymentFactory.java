@@ -31,8 +31,8 @@ public class PaymentFactory {
 	public Payment createPayment(ClientData clientData, Money amount){
 		//TODO validate
 		
-		Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString() );   //AggregateId.generate();
-		publisher.publish(new ClientPaidEvent(aggregateId, clientData, amount));
-		return new Payment(aggregateId, clientData, amount);
+		///////Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString() );   //AggregateId.generate();
+		publisher.publish(new ClientPaidEvent(1, clientData, amount));
+		return new Payment(1, clientData, amount);
 	}
 }

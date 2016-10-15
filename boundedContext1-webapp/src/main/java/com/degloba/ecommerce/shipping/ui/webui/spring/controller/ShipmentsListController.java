@@ -21,7 +21,7 @@ import com.degloba.cqrs.command.Gate;
 import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
 import com.degloba.ecommerce.shipping.application.api.commands.SendShipmentCommand;
 import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentFinder;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.IShipmentFinder;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
@@ -31,7 +31,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 public class ShipmentsListController {
 
     @Inject
-    private ShipmentFinder shipmentFinder;
+    private IShipmentFinder shipmentFinder;
 
     @Inject
     private Gate gate;
@@ -45,14 +45,16 @@ public class ShipmentsListController {
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
     public String shipOrder(@RequestParam("shipmentId") String shipmentId) {
-    	Key aggregateId = KeyFactory.stringToKey( shipmentId);
+    	/////Key aggregateId = KeyFactory.stringToKey( shipmentId);
+    	long aggregateId = Long.parseLong(shipmentId);
         gate.dispatch(new SendShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }
 
     @RequestMapping(value = "/deliver", method = RequestMethod.POST)
     public String receiveShipment(@RequestParam("shipmentId") String shipmentId) {
-    	Key aggregateId = KeyFactory.stringToKey( shipmentId);
+    	////////Key aggregateId = KeyFactory.stringToKey( shipmentId);
+    	long aggregateId = Long.parseLong(shipmentId);
         gate.dispatch(new DeliverShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }

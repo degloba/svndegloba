@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.degloba.organisation.domain.Post;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 import com.degloba.organisation.facade.PostDto;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
@@ -18,7 +18,8 @@ public class PostController extends BaseOrganisationController {
     @RequestMapping(value = "getpost/{postId}")
     public PostDto getPost(@PathVariable long postId) {
     	    	   	
-    	return facade.getPost(KeyFactory.createKey("Post",postId));
+    	/////////return facade.getPost(KeyFactory.createKey("Post",postId));
+    	return null;
     	
     }
     

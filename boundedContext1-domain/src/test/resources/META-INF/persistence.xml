@@ -6,24 +6,24 @@
  
 	<persistence-unit name="transactions-optional">        
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-		<class>com.degloba.organisation.domain.Party</class>
-		<class>com.degloba.organisation.domain.Accountability</class>
-		<class>com.degloba.organisation.domain.Email</class>
-		<class>com.degloba.organisation.domain.Employee</class> 
-		<class>com.degloba.organisation.domain.Person</class>
-		<class>com.degloba.organisation.domain.Organization</class>
-		<class>com.degloba.organisation.domain.Post</class>
-		<class>com.degloba.organisation.domain.PostHolding</class>
-		<class>com.degloba.organisation.domain.OrgLineMgmt</class>
-		<class>com.degloba.organisation.domain.PersonName</class>
-		<class>com.degloba.organisation.domain.Job</class>
-		<class>com.degloba.organisation.domain.Address</class>
-		<class>com.degloba.organisation.domain.Company</class>
-		<class>com.degloba.organisation.domain.Department</class>
-		<class>com.degloba.organisation.domain.Employment</class>
-		<class>com.degloba.organisation.domain.EmployeeArchieve</class>
-		<class>com.degloba.organisation.domain.PersonEducationInfo</class>
-		<class>com.degloba.organisation.domain.CompanyDepartment</class> 
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Party</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Accountability</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Employee</class> 
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Organization</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Job</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Company</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Department</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Employment</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.EmployeeArchieve</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.CompanyDepartment</class> 
 		
 		<class>com.degloba.rent.domain.jpa.Category</class>
 		<class>com.degloba.rent.domain.jpa.Subcategory</class>

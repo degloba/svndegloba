@@ -97,23 +97,15 @@
   	
   	<bean id="repository" class="com.degloba.domain.persistence.rdbms.jpa.EntityRepository" /> 
   	  
-	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.jpa.repositories.JpaOrganisationRepository" />
-	<bean id="customerRepository" class="com.degloba.ecommerce.crm.infrastructure.jpa.repositories.JpaCustomerRepository" />
-	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaClientRepository" />
-	<bean id="invoiceRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaInvoiceRepository" />
-	<bean id="paymentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPaymentRepository" />
-	<bean id="purchaseRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaPurchaseRepository" />
-	<bean id="productRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaProductRepository" />
-	<bean id="reservationRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaReservationRepository" />
-	<bean id="shipmentRepository" class="com.degloba.ecommerce.sales.infrastructure.jpa.repositories.JpaShipmentRepository" />	
+	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />
 
-	<bean id="photoRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaPhotoRepository" />
-	<bean id="subcategoryRepository" class="com.degloba.rent.infrastructure.jpa.repositories.JpaSubcategoryRepository" />	
-	<bean id="categoryRepositoryJpa" class="com.degloba.rent.infrastructure.jpa.repositories.JpaCategoryRepository" /> 
+	<bean id="crmRepository" class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.jpa.repositories.CrmRepository" />
 	
+	<bean id="clientRepository" class="com.degloba.ecommerce.sales.infrastructure.persistence.rdbms.jpa.repositories.SalesRepository" />
 	
-	<bean id="categoryRepositoryObjectify" name="categoryRepositoryObjectify" class="com.degloba.rent.infrastructure.objectify.repositories.ObjectifyCategoryRepository" />
-	<bean id="ownerRepositoryObjectify" name="ownerRepositoryObjectify" class="com.degloba.rent.infrastructure.objectify.repositories.ObjectifyOwnerRepository" />
-	
+	<bean id="shipmentRepository" class="com.degloba.ecommerce.shipping.infrastructure.persistence.rdbms.jpa.repositories.ShippingRepository" />	
+  	
+  		<bean id="rentrRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
+  	
 	
 </beans>

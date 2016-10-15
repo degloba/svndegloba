@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import com.degloba.ecommerce.canonicalmodel.events.OrderSubmittedEvent;
 import com.degloba.ecommerce.shipping.domain.Shipment;
 import com.degloba.ecommerce.shipping.domain.ShipmentFactory;
-import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShipmentRepository;
+import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShippingRepository;
 import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
 // CQRS (ecommerce)
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
@@ -36,12 +36,12 @@ public class OrderSubmittedForShippingListener {
     private ISalesFinder salesFinder;
 
     @Inject
-    private IShipmentRepository shipmentRepository;
+    private IShippingRepository shippingRepository;
 
     @EventListener(asynchronous = true)
     public void handle(OrderSubmittedEvent event) {
         OrderDto orderDetails = salesFinder.find(event.getOrderId());
         Shipment shipment = factory.createShipment(orderDetails.getOrderId());
-        shipmentRepository.save(shipment);
+        shippingRepository.save(shipment);
     }
 }

@@ -16,9 +16,10 @@ import org.primefaces.event.FileUploadEvent;
 // Spring
 import org.springframework.stereotype.Component;
 
-import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
+
 // Google Cloud Storage/degloba
 import com.degloba.gcs.StorageUtils;
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IRentRepository;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
@@ -26,7 +27,6 @@ import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.P
 
 
 
-import com.degloba.rent.facade.jpa.PhotoFacade;
 import com.degloba.rent.ui.webui.spring.ProductView;
 import com.googlecode.objectify.Key;
 
@@ -36,12 +36,9 @@ public class FileUploadController {
 	
 	private final static Logger logger = Logger.getLogger(FileUploadController.class.getName());
 	 	
-		
-    @Inject
-    protected PhotoFacade facadePhoto;
     
     @Inject
-    protected IBaseRepository ownerRepositoryObjectify;
+    protected IRentRepository rentrRepositoryObjectify;
 
      /*
       * Manipula l'Event "Upload" de Primefaces  
@@ -63,13 +60,13 @@ public class FileUploadController {
 					Photo photo = new Photo();
 				   	    		    		    
 				    // 3.- Recuperem el "Product" (Objectify)
-					Key<Product> product = this.ownerRepositoryObjectify.getKey(Product.class, productView.getProductId());
+					Key<Product> product = this.rentrRepositoryObjectify.getKey(Product.class, productView.getProductId());
 							    
 					photo.setProduct(product);
 					photo.setIdGcs(file);
 							  
 				    // 2.- Persistim "Photo" (Objectify)
-					this.ownerRepositoryObjectify.create(photo);
+					this.rentrRepositoryObjectify.create(photo);
 						    
 			} catch (IOException | GeneralSecurityException e) {
 				// TODO Auto-generated catch block

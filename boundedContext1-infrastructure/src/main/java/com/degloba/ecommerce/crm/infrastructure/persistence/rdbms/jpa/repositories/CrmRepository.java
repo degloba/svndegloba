@@ -11,7 +11,7 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
  *
  */
 @DomainRepositoryImpl
-public class JpaCustomerRepository extends EntityRepository implements ICrmRepository{
+public class CrmRepository extends EntityRepository implements ICrmRepository{
 
 
 }

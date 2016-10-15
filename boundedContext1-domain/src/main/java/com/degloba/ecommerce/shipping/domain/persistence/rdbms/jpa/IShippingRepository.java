@@ -8,6 +8,6 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
  * @author degloba
  */
 @DomainRepository
-public interface IShipmentRepository extends IEntityRepository {
+public interface IShippingRepository extends IEntityRepository {
 
 }
