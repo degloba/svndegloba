@@ -2,57 +2,128 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0"> 
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
  
-	<persistence-unit name="transactions-optional">        
-		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+	<persistence-unit name="transactions-optional">      
+	
+		<!-- Opció 1 : Datanucleus -->  
+		<!--  <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  -->
+		
+		<!-- Opció 2 : EclipseLink -->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>      
+		
+		
+		<!-- *************** -->
+		<!-- EntitatS domini -->
+		<!-- *************** -->
+		<class>com.degloba.travel.domain.Booking</class>
+		<class>com.degloba.travel.domain.Hotel</class>
+		<class>com.degloba.travel.domain.User</class>
+		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
-		<!-- <class>com.degloba.travel.domain.Hotel</class>
-		<class>com.degloba.ecommerce.crm.domain.Customer</class>
-		<class>com.degloba.ecommerce.sales.payment.domain.Payment</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
+		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId</class>
+		
 		<class>com.degloba.ecommerce.sales.invoicing.domain.Tax</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
-		<class>com.degloba.domain.sharedkernel.Money</class>
-		<class>com.degloba.domain.canonicalmodel.publishedlanguage.ClientData</class>
-		<class>com.degloba.ecommerce.sales.productscatalog.domain.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
-		<class>com.degloba.ecommerce.sales.purchase.domain.Purchase</class>
-		<class>com.degloba.ecommerce.sales.purchase.domain.PurchaseItem</class>
-		<class>com.degloba.ecommerce.sales.client.domain.Client</class>
-		<class>com.degloba.organisation.domain.payment.Payment</class>
-		<class>com.degloba.rent.domain.SubCategory</class>
-		<class>com.degloba.travel.domain.Booking</class>
-		<class>com.degloba.travel.domain.User</class>
+		
+		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
 		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
-		<class>com.degloba.ecommerce.sales.reservation.domain.ReservationItem</class>
- -->
-			
+		<class>com.degloba.ecommerce.sales.purchase.domain.Purchase</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.PurchaseItem</class>
+		<class>com.degloba.domain.sharedkernel.Money</class>
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>
+		 
 		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
-		<properties>            
-			<property name="datanucleus.NontransactionalRead" value="true"/>            
+        
+		<properties>     
+			
+			<!-- *********************** -->	       
+			<!-- Opció 1 :  Datanucleus  -->
+			<!-- *********************** -->	
+		
+			<!-- Datastore -->			   		
+			<!-- <property name="datanucleus.NontransactionalRead" value="true"/>            
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
 			<property name="datanucleus.ConnectionURL" value="appengine"/> 
 			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			
- 	  		<property name="datanucleus.singletonEMFForName" value="true"/>
-			      
+ 	  		<property name="datanucleus.singletonEMFForName" value="true"/>  -->
+ 	  		
+ 	  		
+ 	  		<!-- RDBMS  -->
+ 	  		<!-- 
+ 	  		<property name="datanucleus.storeManagerType" value="rdbms" />				
+			<property name="datanucleus.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+			<property name="datanucleus.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+			<property name="datanucleus.ConnectionUserName" value="root" />
+			<property name="datanucleus.ConnectionPassword" value="robledo00" /> -->
+			
+			<!-- Change the "nucleus" to your database name, and the user/password -->
+            <!--  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="robledo00"/>  -->
+                    
+            
+            <!--  <property name="javax.jpa.option.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.jpa.option.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+            <property name="javax.jpa.option.ConnectionUserName" value="root" />
+            <property name="javax.jpa.option.ConnectionPassword" value="robledo00" /> -->
+              
+            
+    		<!--  <property name="datanucleus.schema.autoCreateAll" value="true"/>
+            <property name="datanucleus.schema.validateTables" value="false"/>
+            <property name="datanucleus.schema.validateConstraints" value="false"/> -->
+			 
+			
+ 	  	
+ 	  	
+ 	  		<!-- *********************** -->
+ 	  		<!-- Opció 2 :  EclipseLink  -->
+ 	  		<!-- *********************** -->
+ 	  		
+ 	  		<!-- RDBMS  -->
+ 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="robledo00"/>
+ 	  		
+			<property name="eclipselink.logging.level" value="FINEST"/>
+            <!--  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/> -->
+ 	  		
+ 	  	
 		</properties>    
 	</persistence-unit>
 	
+	
+	<!-- ****************************** -->
 	<!-- ENABLE THESE FOR MySQL/MariaDB -->
-	<persistence-unit name="mysql">
+	<!-- ****************************** -->
+	<!-- <persistence-unit name="mysql">
 	    <properties>
-			<!-- Change the "nucleus" to your database name, and the user/password -->
+			Change the "nucleus" to your database name, and the user/password
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="robledo00"/>
 		</properties>
-	</persistence-unit>
+	</persistence-unit> -->
 	
-<!--  	<persistence-unit name="mongodb">
+	
+	<!-- ****************************** -->
+	<!-- MongoDB/Datanucleus            -->
+	<!-- ****************************** --> 
+	<!-- <persistence-unit name="mongodb">
+	
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.degloba.boundedContext.domain.Person</class> 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -62,7 +133,6 @@
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
             <property name="datanucleus.schema.validateTables" value="false"/>
             <property name="datanucleus.schema.validateConstraints" value="false"/>
-          
             
             <property name="datanucleus.ConnectionURL" value="mongodb:/local"/>  
             <property name="datanucleus.storeManagerType" value="mongodb" />  
@@ -71,13 +141,12 @@
         </properties>  	
 	</persistence-unit>  -->
 	
-	<!-- ENABLE THESE FOR MONGODB -->
- 	<persistence-unit name="mongodb">
- 	    <properties>
- 	          <property name="javax.persistence.jdbc.url" value="mongodb:/casino"/>
-		</properties>
-	</persistence-unit>
-	
+
+
+	<!-- ********************* -->
+	<!-- Appengine/Datanucleus -->
+	<!-- ********************* -->	 
+	 
 	<!-- <persistence-unit name="originalStorageVersion" transaction-type="RESOURCE_LOCAL">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
@@ -90,6 +159,7 @@
         </properties>
     </persistence-unit> -->
 
+
     <!-- <persistence-unit name="transactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
@@ -100,6 +170,7 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
+
 
     <persistence-unit name="transactional_ds_non_transactional_ops_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
@@ -113,6 +184,7 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
+
 
     <persistence-unit name="nontransactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
