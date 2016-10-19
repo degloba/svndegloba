@@ -12,6 +12,8 @@ import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 
@@ -53,8 +55,13 @@ import com.degloba.utils.BeanUtils;
 				
 		private Boolean actiu; //esborrat logic
 		
+		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaIni;
+		
+		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaFi;
+		
+		@Temporal(TemporalType.DATE)
 		private Date DataIniciSeleccio;
 		
 
@@ -126,7 +133,6 @@ import com.degloba.utils.BeanUtils;
 	public void setDataIniciSeleccio(Date dataIniciSeleccio) {
 		DataIniciSeleccio = dataIniciSeleccio;
 	}
-
 	
 	
 	 /**

@@ -4,7 +4,7 @@ package com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguag
 import javax.persistence.Embeddable;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * Client's snapshot
