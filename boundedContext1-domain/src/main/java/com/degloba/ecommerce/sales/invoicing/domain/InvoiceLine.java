@@ -11,6 +11,7 @@ import com.degloba.ecommerce.sales.productscatalog.domain.ProductData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.sharedkernel.Money;
 
+
 /**
  * @author degloba
  *
@@ -18,6 +19,11 @@ import com.degloba.domain.sharedkernel.Money;
 @Entity
 public class InvoiceLine extends BaseEntity{
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Embedded
 	private ProductData product;
 	

@@ -16,8 +16,8 @@ import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 //@AggregateRoot
 public class Shipment extends BaseAggregateRoot {
 
-/*	@AttributeOverrides({
-		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  */
+	@AttributeOverrides({
+		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  
     private long orderId;
     private long aggregateId;
 

@@ -7,7 +7,11 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address implements ValueObject {
-    private String province;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String province;
     private String city;
     private String detail;
 

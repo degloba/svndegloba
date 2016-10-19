@@ -13,10 +13,10 @@
     <dependencies>
                 
         <!-- Compile/runtime dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -114,27 +114,12 @@
             <scope>test</scope>
         </dependency> 
         
-        
-        <!-- ***************************************** -->
-        <!-- Per testejar contra Datanucleus-appengine -->
-        <!-- ***************************************** -->
-         <dependency>
-			<groupId>com.google.appengine.orm</groupId>
-			<artifactId>datanucleus-appengine</artifactId>	
-			<scope>test</scope>	
-		</dependency>
-
+       
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-api-jpa</artifactId>                        
-			<scope>test</scope>
-        </dependency>
 
 		
 		<!-- ******************************************* -->                    	
@@ -144,7 +129,59 @@
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>		
 		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+
+		<!-- ******************************************* -->                    	
+		<!-- DataNucleus                                 -->
+		<!-- ******************************************* --> 
+		
+		 <!-- ***************************************** -->
+        <!-- Per testejar contra Datanucleus-appengine -->
+        <!-- ***************************************** -->
+        <!--  <dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>	
+			<scope>test</scope>	
+		</dependency> -->
+
+		
+		<!-- <dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>  
+		 <dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>
+				datanucleus-accessplatform-jpa-rdbms
+			</artifactId>
+			<version>3.0.4</version>
+			<type>pom</type>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>5.0.4</version>
+		</dependency>
+
+
+		<!-- ******************************************* -->                    	
+		<!-- Per generar taules (JPA Tools)              -->
+		<!-- ******************************************* --> 
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.4.2</version>
+		</dependency>
     </dependencies>
+    
+    
     
     <build>
     
@@ -174,6 +211,27 @@
           			<skipTests>true</skipTests>
        		 	</configuration>
             </plugin>    
+            
+           <!--  <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>datanucleus-maven-plugin</artifactId>
+                <version>5.0.0-release</version>
+                <configuration>
+                    <api>JPA</api>
+                    <persistenceUnitName>transactions-optional</persistenceUnitName>
+                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+    
 
     </plugins>
     

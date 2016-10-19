@@ -28,9 +28,14 @@ import java.util.Set;
 /**
  * A Hotel Booking made by a User.
  */
-@XmlRootElement //(name = "BookAuthors") //, namespace = DomainConstants.NAMESPACE)
+//@XmlRootElement (name = "BookAuthors" , namespace = DomainConstants.NAMESPACE)
 @Entity
 public class Booking implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private static DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 

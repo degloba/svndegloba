@@ -12,7 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
 
@@ -20,7 +21,7 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * Models fact of purchase.
@@ -31,6 +32,11 @@ import com.google.appengine.api.datastore.Key;
 @Entity
 @AggregateRoot
 public class Purchase extends BaseAggregateRoot{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	///////@Fetch(FetchMode.JOIN)
@@ -43,6 +49,7 @@ public class Purchase extends BaseAggregateRoot{
 	@Embedded
 	private ClientData clientData;
 
+	@Temporal(TemporalType.DATE)
 	private Date purchaseDate;
 
 	@Embedded

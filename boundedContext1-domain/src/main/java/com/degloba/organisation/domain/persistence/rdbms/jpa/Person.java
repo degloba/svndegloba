@@ -29,11 +29,11 @@ public class Person extends BaseAggregateRoot {
     private Map<ImType, String> ims = new HashMap<ImType, String>();
 
     @Embedded
-    @AttributeOverrides({
+/*    @AttributeOverrides({
             @AttributeOverride(name = "province", column = @Column(name = "home_province")),
             @AttributeOverride(name = "city", column = @Column(name = "home_city")),
             @AttributeOverride(name = "detail", column = @Column(name = "home_detail"))
-    })
+    })*/
     private Address homeAddress;
 
     @Embedded

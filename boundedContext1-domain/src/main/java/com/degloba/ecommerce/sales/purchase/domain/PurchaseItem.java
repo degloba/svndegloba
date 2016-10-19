@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.purchase.domain;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
+//import javax.persistence.AttributeOverride;
+//import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -25,9 +25,9 @@ public class PurchaseItem extends BaseEntity{
 	
 	private int quantity;	
 	
-	@AttributeOverrides({
+/*	@AttributeOverrides({
 		@AttributeOverride(name = "denomination", column = @Column(name = "purchaseTotalCost_denomination")),
-		@AttributeOverride(name = "currencyCode", column = @Column(name = "purchaseTotalCost_currencyCode")) })
+		@AttributeOverride(name = "currencyCode", column = @Column(name = "purchaseTotalCost_currencyCode")) })*/
 	private Money totalCost;
 	
 	@SuppressWarnings("unused")

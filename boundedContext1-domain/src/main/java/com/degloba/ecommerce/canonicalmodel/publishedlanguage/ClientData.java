@@ -8,6 +8,7 @@ import javax.persistence.Embedded;
 
 import com.degloba.domain.annotations.ValueObject;
 
+
 /**
  * Client's snapshot
  * 

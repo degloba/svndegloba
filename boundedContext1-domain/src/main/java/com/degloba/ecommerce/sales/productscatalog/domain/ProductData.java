@@ -9,10 +9,11 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.ValueObject;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 import com.degloba.domain.sharedkernel.Money;
 
@@ -21,7 +22,7 @@ import com.degloba.domain.sharedkernel.Money;
 @ValueObject
 public class ProductData {
 
-	@Embedded
+	/////////@Embedded
 	private long productId;
 	
 	@Embedded
@@ -32,6 +33,7 @@ public class ProductData {
 	
 	private String name;
 	
+	@Temporal(TemporalType.DATE)
 	private Date snapshotDate;
 	
 	@Enumerated(EnumType.STRING)

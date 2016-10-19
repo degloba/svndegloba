@@ -28,6 +28,11 @@ import com.google.appengine.api.datastore.Key;
 @Entity
 public class Invoice extends BaseAggregateRoot {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Embedded
 	private ClientData client;
 
