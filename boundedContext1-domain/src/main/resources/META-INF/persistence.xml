@@ -48,7 +48,7 @@
 			<!-- Opció 1 :  Datanucleus  -->
 			<!-- *********************** -->	
 		
-			<!-- Datastore -->			   		
+			<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->			   		
 			<!-- <property name="datanucleus.NontransactionalRead" value="true"/>            
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
 			<property name="datanucleus.ConnectionURL" value="appengine"/> 
@@ -56,7 +56,7 @@
  	  		<property name="datanucleus.singletonEMFForName" value="true"/>  -->
  	  		
  	  		
- 	  		<!-- RDBMS  -->
+ 	  		<!-- JPA/RDBMS/Datanucleus  -->
  	  		<!-- 
  	  		<property name="datanucleus.storeManagerType" value="rdbms" />				
 			<property name="datanucleus.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
@@ -88,7 +88,7 @@
  	  		<!-- Opció 2 :  EclipseLink  -->
  	  		<!-- *********************** -->
  	  		
- 	  		<!-- RDBMS  -->
+ 	  		<!-- JPA/RDBMS(MySql)/EclipseLink  -->
  	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
@@ -105,23 +105,9 @@
 	</persistence-unit>
 	
 	
-	<!-- ****************************** -->
-	<!-- ENABLE THESE FOR MySQL/MariaDB -->
-	<!-- ****************************** -->
-	<!-- <persistence-unit name="mysql">
-	    <properties>
-			Change the "nucleus" to your database name, and the user/password
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="robledo00"/>
-		</properties>
-	</persistence-unit> -->
-	
-	
-	<!-- ****************************** -->
-	<!-- MongoDB/Datanucleus            -->
-	<!-- ****************************** --> 
+	<!-- ********************************** -->
+	<!-- JPA/MongoDB/Datanucleus            -->
+	<!-- ********************************** --> 
 	<!-- <persistence-unit name="mongodb">
 	
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
@@ -143,10 +129,11 @@
 	
 
 
-	<!-- ********************* -->
-	<!-- Appengine/Datanucleus -->
-	<!-- ********************* -->	 
+	<!-- ************************* -->
+	<!-- JPA/Appengine/Datanucleus -->
+	<!-- ************************* -->	 
 	 
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
 	<!-- <persistence-unit name="originalStorageVersion" transaction-type="RESOURCE_LOCAL">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
@@ -159,7 +146,7 @@
         </properties>
     </persistence-unit> -->
 
-
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
     <!-- <persistence-unit name="transactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
@@ -169,10 +156,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit>  -->
 
-
-    <persistence-unit name="transactional_ds_non_transactional_ops_allowed">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+	<!--     <persistence-unit name="transactional_ds_non_transactional_ops_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -184,9 +171,10 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
+ -->
 
-
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_not_allowed">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -196,9 +184,11 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed">
+
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -210,9 +200,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed_singleton">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed_singleton">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -225,9 +216,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="datastoreserviceconfigprops">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="datastoreserviceconfigprops">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -239,9 +231,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="allowXGTxns">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="allowXGTxns">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
@@ -250,9 +243,10 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="disallowXGTxns">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="disallowXGTxns">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
@@ -261,6 +255,6 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.datastoreEnableXGTransactions" value="false"/>
         </properties>
-    </persistence-unit>
-	 -->
+    </persistence-unit> -->
+	
 </persistence>
