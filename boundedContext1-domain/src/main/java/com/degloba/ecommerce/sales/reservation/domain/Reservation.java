@@ -49,6 +49,11 @@ import com.google.appengine.api.datastore.Key;
 @AggregateRoot
 public class Reservation extends BaseAggregateRoot{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public enum ReservationStatus{
 		OPENED, CLOSED
 	}

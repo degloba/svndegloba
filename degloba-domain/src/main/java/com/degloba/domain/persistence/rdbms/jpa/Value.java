@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.time.DateUtils;
 
 import com.degloba.domain.DataType;
-import com.degloba.domain.ValueObject;
+import com.degloba.domain.IValueObject;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  * Value. The value of this type is mainly used for custom attributes Entity class, for example, the Employee class to dynamically add a number of attributes, each type of data is recorded and a string
  */
 @Embeddable
-public class Value implements ValueObject {
+public class Value implements IValueObject {
 
     private static final long serialVersionUID = 4254026874177282302L;
 

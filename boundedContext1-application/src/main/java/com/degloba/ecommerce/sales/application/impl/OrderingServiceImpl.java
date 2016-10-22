@@ -20,14 +20,14 @@ import com.degloba.ecommerce.sales.offer.domain.DiscountFactory;
 import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
 import com.degloba.ecommerce.sales.offer.domain.Offer;
 import com.degloba.ecommerce.sales.payment.domain.Payment;
-import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
+
 
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
 
 import com.degloba.ecommerce.sales.purchase.domain.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.PurchaseFactory;
-import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
+
 
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 import com.degloba.ecommerce.sales.reservation.domain.ReservationFactory;
@@ -68,7 +68,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	private IPurchaseRepository purchaseRepository;
 	
 	@Inject
-	private IProductRepository productRepository;
+	private ISalesRepository productRepository;
 	
 	@Inject
 	private DiscountFactory discountFactory;

@@ -1,7 +1,10 @@
 package com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa;
 
+import java.util.List;
+
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 
 /**
  * 
@@ -12,5 +15,8 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 public interface ISalesRepository extends IEntityRepository {
 
 
+	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
+
+	public Product load(Class<Product> class1, long productId);
 
 }

@@ -8,10 +8,10 @@ import javax.persistence.TemporalType;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
-import com.degloba.domain.ValueObject;
+import com.degloba.domain.IValueObject;
 
 @Embeddable
-public class PersonEducationInfo implements ValueObject,
+public class PersonEducationInfo implements IValueObject,
         Comparable<PersonEducationInfo> {
 
     private static final long serialVersionUID = 4425849994689476079L;

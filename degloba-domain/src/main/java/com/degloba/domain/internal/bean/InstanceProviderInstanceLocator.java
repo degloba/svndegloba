@@ -1,8 +1,9 @@
 package com.degloba.domain.internal.bean;
 
-import com.degloba.domain.InstanceLocator;
-import com.degloba.domain.InstanceProvider;
-import com.degloba.domain.IocInstanceNotFoundException;
+import com.degloba.domain.IInstanceLocator;
+import com.degloba.domain.IInstanceProvider;
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,13 +12,13 @@ import java.lang.annotation.Annotation;
 /**
  * 
  */
-public class InstanceProviderInstanceLocator implements InstanceLocator {
+public class InstanceProviderInstanceLocator implements IInstanceLocator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InstanceProviderInstanceLocator.class);
 
-    private InstanceProvider instanceProvider;
+    private IInstanceProvider instanceProvider;
 
-    public InstanceProviderInstanceLocator(InstanceProvider instanceProvider) {
+    public InstanceProviderInstanceLocator(IInstanceProvider instanceProvider) {
         this.instanceProvider = instanceProvider;
     }
 

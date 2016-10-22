@@ -1,7 +1,8 @@
 package com.degloba.ioc.spring.factory;
 
-import com.degloba.domain.InstanceProvider;
-import com.degloba.domain.IocInstanceNotUniqueException;
+import com.degloba.domain.IInstanceProvider;
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotUniqueException;
+
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * The internal implementation of objects created by Spring IoC ApplicationContext.
  */
-public class SpringInstanceProvider implements InstanceProvider {
+public class SpringInstanceProvider implements IInstanceProvider {
 
     private ApplicationContext applicationContext;
 

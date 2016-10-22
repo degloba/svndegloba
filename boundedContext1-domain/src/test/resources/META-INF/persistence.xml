@@ -24,18 +24,24 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.CompanyDepartment</class> 
-		
-		<class>com.degloba.rent.domain.jpa.Category</class>
-		<class>com.degloba.rent.domain.jpa.Subcategory</class>
+
 	
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>            
-			<property name="datanucleus.NontransactionalRead" value="true"/>            
+	<!-- 		<property name="datanucleus.NontransactionalRead" value="true"/>            
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
 			<property name="datanucleus.ConnectionURL" value="appengine"/> 			
 			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			 							
- 			<property name="datanucleus.singletonEMFForName" value="true"/>	 
-			      
+ 			<property name="datanucleus.singletonEMFForName" value="true"/>	  -->
+ 			
+ 			<!-- <property name="datanucleus.storeManagerType" value="rdbms" />  -->
+ 			
+ 			<!-- Change the "nucleus" to your database name, and the user/password -->
+           <!--  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="robledo00"/>
+			       -->
 		</properties>    
 	</persistence-unit>
 	

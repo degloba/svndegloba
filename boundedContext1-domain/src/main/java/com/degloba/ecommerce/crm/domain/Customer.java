@@ -15,6 +15,12 @@ import com.degloba.ecommerce.canonicalmodel.events.CustomerStatusChangedEvent;
 //@AggregateRoot
 public class Customer extends BaseAggregateRoot{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	public enum CustomerStatus{
 		STANDARD, VIP, PLATINUM
 	}

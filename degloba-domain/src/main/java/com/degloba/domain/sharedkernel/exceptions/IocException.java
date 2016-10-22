@@ -1,7 +1,7 @@
 package com.degloba.domain.sharedkernel.exceptions;
 
 /**
- * IoC容器Exception.当访问IoC容器（Spring，Guice等）发生异常时抛出本异常或其子类实例。
+ * IoC. This exception is thrown or subclass instance when accessing IoC container (Spring, Guice, etc.) exception occurs.
  */
 public class IocException extends RuntimeException {
 

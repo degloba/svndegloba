@@ -17,25 +17,32 @@
 		<!-- *************** -->
 		<!-- EntitatS domini -->
 		<!-- *************** -->
+		
+		<!-- Travel -->
 		<class>com.degloba.travel.domain.Booking</class>
 		<class>com.degloba.travel.domain.Hotel</class>
 		<class>com.degloba.travel.domain.User</class>
 		
+		<!-- Organisation -->
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
-		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId</class>
 		
+		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId</class>
+		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
+		
+		<!-- Sales -->
 		<class>com.degloba.ecommerce.sales.invoicing.domain.Tax</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
-		
-		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
-		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.Purchase</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.PurchaseItem</class>
+		
+		
+		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
+		
 		<class>com.degloba.domain.sharedkernel.Money</class>
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>
 		 

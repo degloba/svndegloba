@@ -7,7 +7,7 @@ import java.lang.annotation.Annotation;
  * Examples provider interface, and its implementation class to the adapter to find ways Bean delegate the task to the real IoC container, 
  * such as SpringIoC or Google Guice.
  */
-public interface InstanceProvider {
+public interface IInstanceProvider {
 
 	/**
      * Get in accordance with the type of the object instance. Class belongs returned object instance is T or its implementation class or sub-class. 

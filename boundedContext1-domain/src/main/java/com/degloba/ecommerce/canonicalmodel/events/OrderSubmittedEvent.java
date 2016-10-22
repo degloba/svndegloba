@@ -5,9 +5,6 @@ import java.io.Serializable;
 // Events
 import com.degloba.event.annotations.Event;
 
-// Google app engine
-import com.google.appengine.api.datastore.Key;
-
 
 @SuppressWarnings("serial")
 @Event

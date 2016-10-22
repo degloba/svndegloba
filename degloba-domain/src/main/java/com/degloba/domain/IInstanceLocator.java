@@ -5,7 +5,7 @@ import java.lang.annotation.Annotation;
 /**
  * Bean Examples positioning
  */
-public interface InstanceLocator {
+public interface IInstanceLocator {
 
     public abstract  <T> T getInstance(Class<T> beanType);
 

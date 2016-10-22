@@ -1,12 +1,12 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
-import com.degloba.domain.ValueObject;
+import com.degloba.domain.IValueObject;
 
 import javax.persistence.Embeddable;
 
 
 @Embeddable
-public class Address implements ValueObject {
+public class Address implements IValueObject {
     /**
 	 * 
 	 */

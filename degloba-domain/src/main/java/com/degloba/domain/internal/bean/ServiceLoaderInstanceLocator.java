@@ -1,7 +1,8 @@
 package com.degloba.domain.internal.bean;
 
-import com.degloba.domain.InstanceLocator;
-import com.degloba.domain.IocInstanceNotUniqueException;
+import com.degloba.domain.IInstanceLocator;
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotUniqueException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +15,7 @@ import java.util.Set;
 /**
  * 
  */
-public class ServiceLoaderInstanceLocator implements InstanceLocator {
+public class ServiceLoaderInstanceLocator implements IInstanceLocator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceLoaderInstanceLocator.class);
 

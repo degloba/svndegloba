@@ -1,11 +1,12 @@
 package com.degloba.travel.domain;
 
-//import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -17,6 +18,11 @@ import java.util.Set;
 @XmlRootElement
 @Entity
 public class Hotel implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Set<Booking> reservations = new HashSet<Booking>();
 
@@ -111,9 +117,9 @@ public class Hotel implements Serializable {
 		this.price = price;
 	}
 
-	/*public Booking createBooking(User user) {
+	public Booking createBooking(User user) {
 		return new Booking(this, user);
-	}*/
+	}
 
 	@Override
 	public String toString() {
@@ -121,12 +127,12 @@ public class Hotel implements Serializable {
 	}
 
 
-	/*@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel")
 	@XmlTransient
 	@JsonIgnore
 	public Set<Booking> getReservations() {
 		return reservations;
-	}*/
+	}
 
 	public void setReservations(Set<Booking> reservations) {
 		this.reservations = reservations;

@@ -6,8 +6,9 @@ import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
-import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
+
 //////////import com.degloba.ecommerce.sales.readmodel.offer.Offer;
 import com.degloba.domain.specification.Specification;
 
@@ -21,7 +22,7 @@ import com.degloba.domain.specification.Specification;
 public class SuggestionService {
 
 	@Inject
-	private IProductRepository productRepository;
+	private ISalesRepository productRepository;
 	
 	//////////@Inject
 	//////////private Offer offer;

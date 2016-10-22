@@ -19,7 +19,7 @@ public class ShipmentFactory {
 
     public Shipment createShipment(long orderId) {
     	Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString());
-        Shipment shipment = new Shipment(aggregateId, orderId);
+        Shipment shipment = new Shipment(1, orderId);
         spring.autowireBean(shipment);
         return shipment;
     }

@@ -1,12 +1,12 @@
 package com.degloba.domain.internal.bean;
 
-import com.degloba.domain.InstanceLocator;
+import com.degloba.domain.IInstanceLocator;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapInstanceLocator implements InstanceLocator {
+public class MapInstanceLocator implements IInstanceLocator {
 
     private Map<Object, Object> instances = new HashMap<Object, Object>();
 

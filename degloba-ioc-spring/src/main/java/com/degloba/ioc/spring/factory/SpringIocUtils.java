@@ -1,7 +1,7 @@
 package com.degloba.ioc.spring.factory;
 
 import com.degloba.domain.InstanceFactory;
-import com.degloba.domain.InstanceProvider;
+import com.degloba.domain.IInstanceProvider;
 
 public class SpringIocUtils {
 
@@ -15,7 +15,7 @@ public class SpringIocUtils {
 		InstanceFactory.setInstanceProvider(getInstanceProvider(annotatedClasses));
 	}
 
-	private static InstanceProvider getInstanceProvider(Class<?>[] annotatedClasses) {
+	private static IInstanceProvider getInstanceProvider(Class<?>[] annotatedClasses) {
 		SpringInstanceProvider result = providerHolder.get();
         if (result != null) {
             return result;
@@ -31,7 +31,7 @@ public class SpringIocUtils {
 		InstanceFactory.setInstanceProvider(getInstanceProvider(acFiles));
 	}
 
-	private static InstanceProvider getInstanceProvider(String... acFiles) {
+	private static IInstanceProvider getInstanceProvider(String... acFiles) {
 		SpringInstanceProvider result = providerHolder.get();
         if (result != null) {
             return result;

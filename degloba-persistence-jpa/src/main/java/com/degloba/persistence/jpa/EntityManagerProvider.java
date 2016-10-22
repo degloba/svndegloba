@@ -1,9 +1,11 @@
 package com.degloba.persistence.jpa;
 
 import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import com.degloba.domain.IocInstanceNotFoundException;
+
 
 /**
  * JPA EntityManagerProvider. If entityManager thread variable current thread does not yet exist, 

@@ -6,10 +6,10 @@ import javax.persistence.Embeddable;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.ValueObject;
+import com.degloba.domain.IValueObject;
 
 @Embeddable
-public class Email implements ValueObject {
+public class Email implements IValueObject {
 	
 	private static final long serialVersionUID = -734927401730610904L;
 	

@@ -17,7 +17,12 @@ import java.io.Serializable;
 @Table(name = "customers")
 public class User implements Serializable {
 
-    private String username;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String username;
 
     // important for consideration in Spring Security
     private boolean enabled;

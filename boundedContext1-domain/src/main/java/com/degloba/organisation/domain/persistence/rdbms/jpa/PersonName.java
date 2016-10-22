@@ -5,10 +5,10 @@ import javax.persistence.Embeddable;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
-import com.degloba.domain.ValueObject;
+import com.degloba.domain.IValueObject;
 
 @Embeddable
-public class PersonName implements ValueObject {
+public class PersonName implements IValueObject {
 
 	private static final long serialVersionUID = -5782631381467586227L;
 	private String firstName;

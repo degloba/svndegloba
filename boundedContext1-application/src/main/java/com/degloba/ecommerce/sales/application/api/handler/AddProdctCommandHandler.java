@@ -12,9 +12,9 @@ import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
-import com.degloba.ecommerce.sales.productscatalog.domain.IProductRepository;
+
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
-import com.degloba.ecommerce.sales.reservation.domain.IReservationRepository;
+
 import com.degloba.ecommerce.sales.reservation.domain.Reservation;
 
 
@@ -27,10 +27,7 @@ public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand,
 	private IEntityRepository entityRepository;
 	
 	@Inject
-	private IReservationRepository reservationRepository;   
-	
-	@Inject
-	private IProductRepository productRepository; 
+	private ISalesRepository productRepository; 
 	
 	@Inject
 	private ISalesRepository salesRepository;

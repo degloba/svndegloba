@@ -11,6 +11,11 @@ import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 @Entity
 class ReservationItem extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@ManyToOne
 	private Product product;
 	
@@ -27,7 +32,7 @@ class ReservationItem extends BaseEntity{
 	void changeQuantityBy(int change) {
 		int changed = quantity + change;
 		if (changed <= 0)
-			throw new DomainOperationException(null, "change below 1");
+			throw new DomainOperationException(1, "change below 1");
 		this.quantity = changed;
 	}
 	

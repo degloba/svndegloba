@@ -1,6 +1,6 @@
 package com.degloba.ioc.test;
 
-import com.degloba.domain.InstanceProvider;
+import com.degloba.domain.IInstanceProvider;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
  */
 public abstract class AbstractInstanceProviderTest {
 
-	private InstanceProvider provider;
-	abstract protected InstanceProvider createInstanceProvider();
+	private IInstanceProvider provider;
+	abstract protected IInstanceProvider createInstanceProvider();
 
 	@Before
 	public void setUp() {
@@ -41,7 +41,7 @@ public abstract class AbstractInstanceProviderTest {
         assertNull(provider.getInstance(Long.class));
     }
 
-	public InstanceProvider getProvider() {
+	public IInstanceProvider getProvider() {
 		return provider;
 	}
 }

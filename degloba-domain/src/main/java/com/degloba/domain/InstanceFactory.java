@@ -3,6 +3,8 @@ package com.degloba.domain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
+
 import java.lang.annotation.Annotation;
 import java.util.*;
 
@@ -33,11 +35,11 @@ public class InstanceFactory {
 
 
     //Examples of providers, represent the true IoC container
-    private static InstanceProvider instanceProvider;
+    private static IInstanceProvider instanceProvider;
 
-    private static InstanceLocatorFactory instanceLocatorFactory = ServiceLoader.load(InstanceLocatorFactory.class).iterator().next();
+    private static IInstanceLocatorFactory instanceLocatorFactory = ServiceLoader.load(IInstanceLocatorFactory.class).iterator().next();
 
-    private static List<InstanceLocator> instanceLocators = new ArrayList<InstanceLocator>();
+    private static List<IInstanceLocator> instanceLocators = new ArrayList<IInstanceLocator>();
 
     static {
         instanceLocators.add(instanceLocatorFactory.createByServiceLoader());
@@ -52,7 +54,7 @@ public class InstanceFactory {
      *
      * @param provider An example of those who provide examples.
      */
-    public static void setInstanceProvider(InstanceProvider provider) {
+    public static void setInstanceProvider(IInstanceProvider provider) {
         instanceProvider = provider;
         if (instanceProvider == null) {
             return;
@@ -68,7 +70,7 @@ public class InstanceFactory {
      * @return Object instance of type T,
      */
     public static <T> T getInstance(Class<T> beanType) {
-        for (InstanceLocator locator : instanceLocators) {
+        for (IInstanceLocator locator : instanceLocators) {
             T result = locator.getInstance(beanType);
             if (result != null) {
                 return result;
@@ -87,7 +89,7 @@ public class InstanceFactory {
      * @return Examples of the specified type.
      */
     public static <T> T getInstance(Class<T> beanType, String beanName) {
-        for (InstanceLocator locator : instanceLocators) {
+        for (IInstanceLocator locator : instanceLocators) {
             T result = locator.getInstance(beanType, beanName);
             if (result != null) {
                 return result;
@@ -106,7 +108,7 @@ public class InstanceFactory {
      * @return Examples of the specified type.
      */
     public static <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
-        for (InstanceLocator locator : instanceLocators) {
+        for (IInstanceLocator locator : instanceLocators) {
             T result = locator.getInstance(beanType, annotationType);
             if (result != null) {
                 return result;

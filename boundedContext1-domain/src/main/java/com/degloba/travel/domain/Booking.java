@@ -1,8 +1,8 @@
 package com.degloba.travel.domain;
 
-/*import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
-import org.springframework.binding.validation.ValidationContext;*/
+import org.springframework.binding.validation.ValidationContext;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -28,7 +28,7 @@ import java.util.Set;
 /**
  * A Hotel Booking made by a User.
  */
-//@XmlRootElement (name = "BookAuthors" , namespace = DomainConstants.NAMESPACE)
+@XmlRootElement (name = "BookAuthors") // , namespace = DomainConstants.NAMESPACE)
 @Entity
 public class Booking implements Serializable {
 
@@ -223,7 +223,7 @@ public class Booking implements Serializable {
 	}
 
 	// TODO replace with JSR 303
-	/*public void validateEnterBookingDetails(ValidationContext context) {
+	public void validateEnterBookingDetails(ValidationContext context) {
 		MessageContext messages = context.getMessageContext();
 		if (checkinDate.before(today())) {
 			messages.addMessage(new MessageBuilder().error().source(
@@ -232,7 +232,7 @@ public class Booking implements Serializable {
 		} else if (checkoutDate.before(checkinDate)) {
 			messages.addMessage(new MessageBuilder().error().source( "checkoutDate").code( "booking.checkoutDate.beforeCheckinDate").build());
 		}
-	}*/
+	}
 
 	private Date today() {
 		Calendar calendar = Calendar.getInstance();

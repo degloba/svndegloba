@@ -1,7 +1,9 @@
 package com.degloba.domain;
 
-import com.degloba.domain.IocInstanceNotFoundException;
+
 import com.degloba.domain.ioc.*;
+import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,14 +13,14 @@ import static org.mockito.Mockito.*;
 
 public class InstanceFactoryTest {
 
-	private InstanceProvider instanceProvider;
+	private IInstanceProvider instanceProvider;
     private MyService1 service1 = new MyService1();
     private MyService2 service2 = new MyService2();
     private MyService3 service3 = new MyService3();
 
 	@Before
 	public void setUp() throws Exception {
-		instanceProvider = mock(InstanceProvider.class);
+		instanceProvider = mock(IInstanceProvider.class);
 		InstanceFactory.setInstanceProvider(instanceProvider);
 	}
 

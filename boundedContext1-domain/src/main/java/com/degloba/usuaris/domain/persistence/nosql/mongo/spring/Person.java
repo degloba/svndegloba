@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * * A simple POJO representing a Person 
  * **/ 
 @Document public class Person { 
-	 @Id private String personId; 
+	
+	 @Id 
+	 private String personId; 
 	 
 	 private String name; 
 	 private String homeTown; 
