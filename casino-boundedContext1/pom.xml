@@ -562,7 +562,7 @@
         <mysql.username>root</mysql.username>
         <mysql.password />
         <mysql.host>localhost</mysql.host>
-        <mysql.version>5.1.29</mysql.version>
+        <mysql.version>5.1.35</mysql.version>
         <derby.username>any</derby.username>
         <derby.password>value</derby.password>
         <postgresql.username>postgres</postgresql.username>
