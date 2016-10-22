@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Event Storage Interface
  */
-public interface EventStore {
+public interface IEventStore {
 
     /**
      * GetA collection of historical events occurred specified time range, 

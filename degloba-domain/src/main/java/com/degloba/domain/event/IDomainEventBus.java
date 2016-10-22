@@ -6,7 +6,7 @@ package com.degloba.domain.event;
  * When the only parameter, and markedSubscribe the way, when the bus in the event there is a new type of event publishing and the matching parameter of the method, the event
  * Bus will be the event object as an argument to call the event a subscriber subscription method.
  */
-public interface DomainEventBus {
+public interface IDomainEventBus {
 
     /**
      * The field event to all registered event subscriber

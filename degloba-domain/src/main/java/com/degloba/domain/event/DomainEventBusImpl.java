@@ -3,13 +3,13 @@ package com.degloba.domain.event;
 import com.google.common.eventbus.EventBus;
 import com.degloba.utils.Assert;
 
-public class DomainEventBusImpl implements DomainEventBus {
+public class DomainEventBusImpl implements IDomainEventBus {
 
     private EventBus eventBus;
 
-    private EventStore eventStore;
+    private IEventStore eventStore;
 
-    public DomainEventBusImpl(EventBus eventBus, EventStore eventStore) {
+    public DomainEventBusImpl(EventBus eventBus, IEventStore eventStore) {
         Assert.notNull(eventBus, "EventBus is null!");
         Assert.notNull(eventStore, "EventStore is null!");
         this.eventBus = eventBus;
