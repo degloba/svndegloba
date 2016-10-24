@@ -24,10 +24,12 @@ import com.degloba.domain.annotations.InvariantsList;
 
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.ecommerce.sales.offer.domain.Discount;
-import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
-import com.degloba.ecommerce.sales.offer.domain.Offer;
-import com.degloba.ecommerce.sales.offer.domain.OfferItem;
+
+
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
+import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;

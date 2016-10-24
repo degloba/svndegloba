@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.offer.domain;
+package com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.List;

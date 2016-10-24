@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.payment.domain;
+package com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa;
 
 import javax.inject.Inject;
 import javax.persistence.Embedded;
@@ -10,6 +10,7 @@ import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.canonicalmodel.events.PaymentRolledBackEvent;
+import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
 
 
 /**
@@ -34,7 +35,7 @@ public class Payment extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Payment(){}
 	
-	Payment(long aggregateId, ClientData clientData, Money amount) {
+	public Payment(long aggregateId, ClientData clientData, Money amount) {
 		///////this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.amount = amount;

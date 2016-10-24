@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.domain;
+package com.degloba.ecommerce.shipping.domain.factories;
 
 import java.util.UUID;
 
@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-
+import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 

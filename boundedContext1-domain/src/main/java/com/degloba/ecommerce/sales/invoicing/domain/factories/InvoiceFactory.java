@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import com.degloba.domain.annotations.DomainFactory;
 
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
+import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 

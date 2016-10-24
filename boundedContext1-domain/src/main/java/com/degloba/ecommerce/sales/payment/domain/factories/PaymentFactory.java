@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.payment.domain;
+package com.degloba.ecommerce.sales.payment.domain.factories;
 
 import java.util.UUID;
 
@@ -12,7 +12,7 @@ import com.degloba.organisation.canonicalmodel.events.ClientPaidEvent;
 // Domain
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
-
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 // Event
 import com.degloba.event.domain.IDomainEventPublisher;
 

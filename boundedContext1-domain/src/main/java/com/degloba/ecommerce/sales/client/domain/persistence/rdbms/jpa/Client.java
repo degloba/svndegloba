@@ -8,8 +8,9 @@ import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 
 import com.degloba.domain.sharedkernel.Money;
-import com.degloba.ecommerce.sales.payment.domain.Payment;
-import com.degloba.ecommerce.sales.payment.domain.PaymentFactory;
+import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
+
 
 @Entity
 //@AggregateRoot
