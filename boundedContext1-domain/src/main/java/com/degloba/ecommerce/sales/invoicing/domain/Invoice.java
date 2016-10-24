@@ -53,7 +53,7 @@ public class Invoice extends BaseAggregateRoot {
 	///////////@Fetch(FetchMode.JOIN)
 	private List<InvoiceLine> items;
 
-	Invoice(Key invoiceId, ClientData client) {
+	public Invoice(Key invoiceId, ClientData client) {
 		///////this.aggregateId = invoiceId;
 		this.client = client;
 		this.items = new ArrayList<InvoiceLine>();

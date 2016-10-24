@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain;
+package com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

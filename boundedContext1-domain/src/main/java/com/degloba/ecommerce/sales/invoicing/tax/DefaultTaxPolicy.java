@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import com.degloba.domain.annotations.DomainPolicyImpl;
 import com.degloba.ecommerce.sales.invoicing.domain.Tax;
-import com.degloba.ecommerce.sales.invoicing.domain.TaxPolicy;
+import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.ITaxPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;
 import com.degloba.domain.sharedkernel.Money;
 
@@ -15,7 +15,7 @@ import com.degloba.domain.sharedkernel.Money;
  *
  */
 @DomainPolicyImpl
-public class DefaultTaxPolicy implements TaxPolicy{
+public class DefaultTaxPolicy implements ITaxPolicy{
 				
 	
 	@Override

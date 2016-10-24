@@ -1,6 +1,7 @@
-package com.degloba.ecommerce.sales.invoicing.domain;
+package com.degloba.ecommerce.sales.invoicing.domain.domainPolicies;
 
 import com.degloba.domain.annotations.DomainPolicy;
+import com.degloba.ecommerce.sales.invoicing.domain.Tax;
 import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;
 import com.degloba.domain.sharedkernel.Money;
 
@@ -11,7 +12,7 @@ import com.degloba.domain.sharedkernel.Money;
  *
  */
 @DomainPolicy
-public interface TaxPolicy {	
+public interface ITaxPolicy {	
 
 	/**
 	 * calculates tax per product type based on net value

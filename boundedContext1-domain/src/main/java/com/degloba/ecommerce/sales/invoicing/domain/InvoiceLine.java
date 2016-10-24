@@ -50,7 +50,7 @@ public class InvoiceLine extends BaseEntity{
 	public InvoiceLine(){}
 	
 
-	InvoiceLine(ProductData product, int quantity, Money net, Tax tax) {
+	public InvoiceLine(ProductData product, int quantity, Money net, Tax tax) {
 		this.product = product;
 		this.quantity = quantity;
 		this.net = net;

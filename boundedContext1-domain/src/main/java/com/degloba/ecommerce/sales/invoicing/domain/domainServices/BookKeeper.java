@@ -1,10 +1,18 @@
-package com.degloba.ecommerce.sales.invoicing.domain;
+package com.degloba.ecommerce.sales.invoicing.domain.domainServices;
 
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
 
 import com.degloba.domain.sharedkernel.Money;
+import com.degloba.ecommerce.sales.invoicing.domain.Invoice;
+import com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine;
+import com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequest;
+import com.degloba.ecommerce.sales.invoicing.domain.RequestItem;
+import com.degloba.ecommerce.sales.invoicing.domain.Tax;
+import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.ITaxPolicy;
+import com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceFactory;
+
 
 /**
  * Sample Domain Service that contains logic that:
@@ -26,7 +34,7 @@ public class BookKeeper {
 	@Inject
 	private InvoiceFactory invoiceFactory;
 	
-	public Invoice issuance(InvoiceRequest invoiceRequest, TaxPolicy taxPolicy){
+	public Invoice issuance(InvoiceRequest invoiceRequest, ITaxPolicy taxPolicy){
 		Invoice invoice = invoiceFactory.create(invoiceRequest.getClientData());
 		
 		for (RequestItem item : invoiceRequest.getItems()){

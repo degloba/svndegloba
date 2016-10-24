@@ -1,9 +1,11 @@
-package com.degloba.ecommerce.sales.invoicing.domain;
+package com.degloba.ecommerce.sales.invoicing.domain.factories;
 
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.purchase.domain.Purchase;
-import com.degloba.ecommerce.sales.purchase.domain.PurchaseItem;
+import com.degloba.ecommerce.sales.invoicing.domain.InvoiceRequest;
+import com.degloba.ecommerce.sales.invoicing.domain.RequestItem;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
 @DomainFactory

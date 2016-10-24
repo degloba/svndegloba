@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain;
+package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

@@ -5,7 +5,7 @@ import com.degloba.ecommerce.sales.productscatalog.domain.ProductData;
 import com.degloba.domain.sharedkernel.Money;
 
 @ValueObject
-class RequestItem {
+public class RequestItem {
 
 	private ProductData productData;
 	

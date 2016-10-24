@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain;
+package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -74,7 +74,7 @@ public class Reservation extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Reservation() {}
 
-	Reservation(Key aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
+	public Reservation(Key aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
 		///////this.aggregateId = aggregateId;
 		this.status = status;
 		this.clientData = clientData;

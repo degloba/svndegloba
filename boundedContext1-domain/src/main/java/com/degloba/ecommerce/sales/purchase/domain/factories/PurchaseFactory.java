@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain;
+package com.degloba.ecommerce.sales.purchase.domain.factories;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +13,8 @@ import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.offer.domain.Offer;
 import com.degloba.ecommerce.sales.offer.domain.OfferItem;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem;
 import com.degloba.domain.sharedkernel.Money;
 
 

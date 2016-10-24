@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain;
+package com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -59,7 +59,7 @@ public class Purchase extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private  Purchase() {}
 
-	Purchase(long aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
+	public Purchase(long aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
 		///////this.aggregateId = aggregateId;
 		this.clientData = clientData;
