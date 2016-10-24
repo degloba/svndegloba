@@ -1,21 +1,28 @@
 package com.degloba.security.domain;
 
 import javax.persistence.*;
+
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import java.util.*;
 
 /**
- * 参与者，是用户User和角色Role的共同基类，授权就是将某种权限授予某个参与者
- * Created by yyang on 15/1/13.
+ * Participants, is the common base class user roles User and Role, authorization is granted to a participant a permission
  */
 @Entity
 @Table(name = "security_actors")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Actor extends AbstractEntity {
 
-    //名字
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	//first name
     private String name;
 
-    //说明
+    //Explanation
     private String remark;
 
     @ManyToMany(mappedBy = "members")
@@ -62,8 +69,8 @@ public abstract class Actor extends AbstractEntity {
     }
 
     /**
-     * 获取所有的授权范围，以便可以获取每个范围内授予当前actor的角色和权限
-     * @return 当前actor的所有授权范围
+     * Get all mandates, so that you can obtain a grant within the current range of each actor's roles and permissions
+     * @return All of the current mandate of the actor
      */
     public Set<AuthorizationScope> getScopes() {
         Set<AuthorizationScope> results = new HashSet<AuthorizationScope>();
@@ -76,91 +83,91 @@ public abstract class Actor extends AbstractEntity {
         return results;
     }
 
-    /*=====================================全局范围的=============================*/
+    /*=====================================Global scope=============================*/
 
     /**
-     * 授予新的权力
-     * @param authorities 要授予的权力（Role或Permission）
+     * Granted new powers
+     * @param authorities The powers to be granted (Role or Permission)
      */
     public void grantAuthorities(Authority... authorities) {
         grantAuthorities(GlobalAuthorizationScope.get(), authorities);
     }
 
     /**
-     * 撤销已有的权力
-     * @param authorities 要撤销的权力（Role或Permission）
+     * Revocation of existing power
+     * @param authorities To revoke the powers (Role or Permission)
      */
     public void withdrawAuthorities(Authority... authorities) {
         withdrawAuthorities(GlobalAuthorizationScope.get(), authorities);
     }
 
     /**
-     * 在全局范围内设置直接授予Actor的角色。此前已经授予的角色如果不在此范围内则自动撤销
-     * @param roles 要设置的权力
+     * Setting role in the global scope Actor direct grant. Earlier roles have been granted if not within this range is automatically revoked
+     * @param roles The power to set
      */
     public void setRoles(Role... roles) {
         setRoles(GlobalAuthorizationScope.get(), roles);
     }
 
     /**
-     * 获取在全局范围内设置直接授予Actor的角色，不包括从用户组及用户组的所有上级用户组继承下来的角色。
-     * @return 用户的全部角色
+     * Get Set directly granted Actor's role in the global scope, excluding inherited from user groups and user groups all superior user group roles.
+     * @return All the user's role
      */
     public Set<Role> getRoles() {
         return getRoles(GlobalAuthorizationScope.get());
     }
 
     /**
-     * 获取Actor在全局范围内拥有的所有角色，包括从用户组及用户组的所有上级用户组继承下来的角色。
-     * @return 用户的全部角色
+     * Get all roles Actor owned globally, including inherited from user groups and user groups all superior user group roles.
+     * @return All the user's role
      */
     public Set<Role> getAllRoles() {
         return getAllRoles(GlobalAuthorizationScope.get());
     }
 
     /**
-     * 判断Actor在全局范围内是否拥有指定的角色
-     * @param role 角色
-     * @return 如果Actor拥有该角色，返回true；否则返回false
+     * Actor determine whether it has global scope within the specified role
+     * @param role Character
+     * @return If the Actor has a role, it returns true; otherwise false
      */
     public boolean hasRole(Role role) {
         return getAllRoles(GlobalAuthorizationScope.get()).contains(role);
     }
 
     /**
-     * 在全局范围内设置直接授予Actor的权限。此前已经授予的权限如果不在此范围内则自动撤销
-     * @param permissions 要设置的权限
+     * Set permissions granted directly Actor in a global scope. Prior permission has been granted, if not within this range is automatically revoked
+     * @param permissions To set permissions
      */
     public void setPermissions(Set<Permission> permissions) {
         setPermissions(GlobalAuthorizationScope.get(), permissions);
     }
 
     /**
-     * 获取在全局范围内设置直接授予Actor的权限，不包括从角色和用户组中继承下来的权限
-     * @return 用户拥有的全部权限
+     * Get set permissions granted directly Actor in a global scope, excluding inherited from roles and user group permissions
+     * @return All the user has permissions
      */
     public Set<Permission> getPermissions() {
         return getPermissions(GlobalAuthorizationScope.get());
     }
 
     /**
-     * 获取全局范围内用户拥有的全部权限，包括从角色和用户组中继承下来的权限
-     * @return 用户拥有的全部权限
+     * Get full access globally owned by the user, including the role inherited from user groups and permissions
+     * @return All the user has permissions
      */
     public Set<Permission> getAllPermissions() {
         return getAllPermissions(GlobalAuthorizationScope.get());
     }
 
     /**
-     * 判断Actor在全局范围内是否拥有指定的权限
-     * @param permission 权限
-     * @return 如果拥有指定的权限则返回true，否则返回false
+     * Analyzing Actor globally whether it has the specified permission
+     * @param permission Competence
+     * @return If you have specific permission to return true, otherwise false
      */
     public boolean hasPermission(Permission permission) {
         return getAllPermissions(GlobalAuthorizationScope.get()).contains(permission);
     }
 
-    /*=====================================带范围的=============================*/
+    /*=====================================With a range of=============================*/
 
     public void grantAuthorities(AuthorizationScope scope, Authority... authorities) {
         for (Authority authority : authorities) {
@@ -238,17 +245,17 @@ public abstract class Actor extends AbstractEntity {
     }
 
     /**
-     * 判断是否拥有指定的权限
-     * @param permission 权限
-     * @return 如果拥有指定的权限则返回true，否则返回false
+     * Determine whether it has the specified permission
+     * @param permission Competence
+     * @return If you have specific permission to return true, otherwise false
      */
     public boolean hasPermission(Permission permission, AuthorizationScope scope) {
         return getAllPermissions(scope).contains(permission);
     }
 
     /**
-     * 失效参与者，同时失效它参与的授权信息
-     * @param date 失效日期
+     * Failure participants invalidated authorization information it participates
+     * @param date Expiration date
      */
     @Override
     public void disable(Date date) {
@@ -262,7 +269,7 @@ public abstract class Actor extends AbstractEntity {
     }
 
     /**
-     * 删除参与者，同时删除其参与的授权信息
+     * Remove participants, and remove the authorization of their participation
      */
     @Override
     public void remove() {
@@ -276,11 +283,11 @@ public abstract class Actor extends AbstractEntity {
     }
 
     /**
-     * 根据名字获取某种类型的Actor
-     * @param actorClass Actor的类
-     * @param name 名称
-     * @param <T> Actor的类型
-     * @return 如果找到，返回该Actor，否则返回null
+     * Get some type of Actor by name
+     * @param actorClass Actor the type
+     * @param name name
+     * @param <T> Actor type
+     * @return If found, return to the Actor, otherwise return null
      */
     public static <T extends Actor> T getByName(Class<T> actorClass, String name) {
         return AbstractEntity.getByProperty(actorClass, "name", name);

@@ -9,14 +9,17 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * 用户组。用户组可以包含用户和其他用户组
- * Created by yyang on 15/1/24.
+ * user group. User group can contain users and other user groups
  */
 @Entity
 @DiscriminatorValue("GROUP")
 public class UserGroup extends Actor {
 
-    @ManyToMany
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@ManyToMany
     @JoinTable(name = "security_group_member_relationship",
         joinColumns = @JoinColumn(name = "group_id"),
         inverseJoinColumns = @JoinColumn(name = "member_id"))
@@ -99,18 +102,18 @@ public class UserGroup extends Actor {
     }
 
     /**
-     * 根据ID获取用户组。
-     * @param id 用户组ID
-     * @return 如果找到指定组ID的用户则返回该用户组，否则返回null
+     * According to ID to get user groups.
+     * @param id User Group ID
+     * @return If it finds the specified group ID of the user is returned to the user group, otherwise return null
      */
     public static UserGroup get(long id) {
         return get(UserGroup.class, id);
     }
 
     /**
-     * 根据名称获取用户组。
-     * @param name 名称
-     * @return 如果找到指定名字的用户组则返回该用户组，否则返回null
+     * It is based on the user group name.
+     * @param name name
+     * @return If you find the name of the specified user group is returned to the user group, otherwise return null
      */
     public static UserGroup getByName(String name) {
         return getByName(UserGroup.class, name);

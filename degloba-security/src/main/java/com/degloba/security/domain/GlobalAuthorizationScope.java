@@ -3,18 +3,21 @@ package com.degloba.security.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * Created by yyang on 15/7/27.
  */
 @Entity
 @DiscriminatorValue("GLOBAL")
 public class GlobalAuthorizationScope extends AuthorizationScope {
 
-    protected GlobalAuthorizationScope() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected GlobalAuthorizationScope() {
         super("GLOBAL");
     }
 

@@ -6,14 +6,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 缺省授权范围。在数据库中记录范围的包含与被包含关系。
- * Created by yyang on 15/8/16.
+ * Default mandate. Record in the database contains a range with the inclusion relation.
  */
 @Entity
 @DiscriminatorValue("DEFAULT")
 public class DefaultAuthorizationScope extends AuthorizationScope {
 
-    @ManyToOne
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne
     @JoinTable(name = "security_authorization_scope_relationship",
         joinColumns = @JoinColumn(name = "parent_id"),
         inverseJoinColumns = @JoinColumn(name = "child_id"))

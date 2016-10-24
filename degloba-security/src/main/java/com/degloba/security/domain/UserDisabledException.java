@@ -1,7 +1,6 @@
 package com.degloba.security.domain;
 
 /**
- * Created by yyang on 15/8/5.
  */
 public class UserDisabledException extends SecurityException {
     public UserDisabledException() {

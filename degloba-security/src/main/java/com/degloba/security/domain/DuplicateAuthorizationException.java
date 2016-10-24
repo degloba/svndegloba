@@ -1,10 +1,14 @@
 package com.degloba.security.domain;
 
 /**
- * Created by yyang on 15/7/27.
  */
 public class DuplicateAuthorizationException extends SecurityException {
-    public DuplicateAuthorizationException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DuplicateAuthorizationException() {
     }
 
     public DuplicateAuthorizationException(String message) {

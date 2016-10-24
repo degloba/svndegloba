@@ -6,7 +6,6 @@ import java.util.Date;
 import com.degloba.event.api.AbstractEvent;
 
 /**
- * Created by yyang on 15/2/10.
  */
 public class ActorDisabledEvent<T extends Actor> extends AbstractEvent {
     private T actor;

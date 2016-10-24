@@ -3,25 +3,32 @@ package com.degloba.security.domain;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import java.util.*;
 
 /**
- * 授权信息，记录对参与者的权限授予
- * Created by yyang on 15/1/13.
+ * Authorization information recording permissions granted to participants
  */
 @Entity
 @Table(name = "security_authorizations")
 public class Authorization extends AbstractEntity {
 
-    //参与者
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	//Participants
     @ManyToOne
     private Actor actor;
 
-    //权限
+    //Competence
     @ManyToOne
     private Authority authority;
 
-    //授权范围
+    //Mandate
     @ManyToOne
     private AuthorizationScope scope;
 
@@ -56,9 +63,9 @@ public class Authorization extends AbstractEntity {
     }
 
     /**
-     * 根据参与者查找授权信息
-     * @param actor 参与者
-     * @return 参与者的所有有效授权信息
+     * According to the participants to find licensing information
+     * @param actor Participants
+     * @return All valid authorization information participants
      */
     static List<Authorization> findByActor(Actor actor) {
         return getRepository().createCriteriaQuery(Authorization.class)
@@ -76,9 +83,9 @@ public class Authorization extends AbstractEntity {
     }
 
     /**
-     * 根据权限查找授权信息
-     * @param authority 权限
-     * @return 权限的所有有效授权信息
+     * Find authorization information based on the permissions
+     * @param authority Competence
+     * @return All valid authorization information rights
      */
     static List<Authorization> findByAuthority(Authority authority) {
         return getRepository().createCriteriaQuery(Authorization.class)
@@ -88,12 +95,12 @@ public class Authorization extends AbstractEntity {
     }
 
     /**
-     * 查找指定范围内被授予指定参与者的指定类型的所有权力
-     * @param actor 参与者
-     * @param scope 授权范围
-     * @param authorityClass 权力的类
-     * @param <T> 权力的类型
-     * @return 该参与者的权限集合
+     * Find all the powers to be granted within a specified range of the specified participants of the specified type
+     * @param actor Participants
+     * @param scope Mandate
+     * @param authorityClass Class power
+     * @param <T> Type of power
+     * @return The participants set permissions
      */
     static <T extends Authority> Set<T> getAuthoritiesOfActor(Actor actor, AuthorizationScope scope, Class<T> authorityClass) {
         Set<T> results = new HashSet<T>();

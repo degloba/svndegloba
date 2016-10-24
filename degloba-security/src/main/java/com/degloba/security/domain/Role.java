@@ -7,15 +7,18 @@ import javax.persistence.ManyToMany;
 import java.util.*;
 
 /**
- * 用户角色。角色是许可Permission的集合。如果一批Permission总是作为一个整体授予某个
- * 或某些Actor，则为这批Permission定义一个Role并命名之，然后可以将这个role授予Actor。
- * Created by yyang on 15/1/13.
+ * User roles. Role is a collection of Permission permission. If a group as a whole is always Permission granted a
+ * Or certain Actor, compared with a defined group of Permission Role and name it, and then can grant Actor this role.
  */
 @Entity
 @DiscriminatorValue("ROLE")
 public class Role extends Authority {
 
-    @ManyToMany
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@ManyToMany
     @JoinTable(name = "security_role_permission")
     private Set<Permission> permissions = new HashSet<Permission>();
 

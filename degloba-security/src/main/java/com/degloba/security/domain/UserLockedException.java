@@ -1,10 +1,14 @@
 package com.degloba.security.domain;
 
 /**
- * Created by yyang on 15/8/5.
  */
 public class UserLockedException extends SecurityException {
-    public UserLockedException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UserLockedException() {
     }
 
     public UserLockedException(String message) {

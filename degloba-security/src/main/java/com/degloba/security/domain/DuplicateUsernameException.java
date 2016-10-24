@@ -1,11 +1,15 @@
 package com.degloba.security.domain;
 
 /**
- * 用户名重复异常
- * Created by yyang on 15/7/27.
+ * Username repeated anomalies
  */
 public class DuplicateUsernameException extends SecurityException {
-    public DuplicateUsernameException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DuplicateUsernameException() {
         super();
     }
 

@@ -1,10 +1,14 @@
 package com.degloba.security.domain;
 
 /**
- * Created by yyang on 15/8/5.
  */
 public class UserNotFoundException extends SecurityException {
-    public UserNotFoundException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UserNotFoundException() {
     }
 
     public UserNotFoundException(String message) {

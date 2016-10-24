@@ -1,20 +1,21 @@
 package com.degloba.security.domain;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import javax.persistence.*;
 import java.util.*;
 
 /**
- * 许可，代表对系统一项细粒度功能的访问权限。或者不太精确地说，代表一项具体的系统功能
- * Created by yyang on 15/1/13.
+ * License, a representative of the system fine-grained access functionality. Or less precisely, on behalf of a specific system functions
  */
 @Entity
 @DiscriminatorValue("PERM")
 public class Permission extends Authority {
 
-    protected Permission() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected Permission() {
     }
 
     public Permission(String name) {

@@ -4,20 +4,27 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * 权限，是许可Permission与角色Role的共同基类。可以将Authority授予给参与者Actor（是用户User和用户组UserGroup的共同基类）
- * Created by yyang on 15/1/19.
+ * Privilege is the common base class of license Permission and roles Role. Authority can be granted to the participants Actor (common base class user and user group UserGroup User's)
  */
 @Entity
 @Table(name = "security_authorities")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Authority extends AbstractEntity {
 
-    private String name;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String name;
 
     private String description;
 
@@ -50,8 +57,8 @@ public class Authority extends AbstractEntity {
     }
 
     /**
-     * 失效Permission，同时失效与其有关的授权信息
-     * @param date 失效日期
+     * Failure Permission, while failures relating to authorization information
+     * @param date Expiration date
      */
     @Override
     public void disable(Date date) {
@@ -62,7 +69,7 @@ public class Authority extends AbstractEntity {
     }
 
     /**
-     * 删除权限，同时删除与其有关的授权信息
+     * Delete permissions, and delete information relating to authorized
      */
     @Override
     public void remove() {

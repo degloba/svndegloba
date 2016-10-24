@@ -9,16 +9,20 @@ import java.util.*;
 
 /**
  * Los usuarios del sistema. Los usuarios del sistema a menudo se corresponde con un personal
- * Created by yyang on 15/1/13.
  */
 @Entity
 @DiscriminatorValue("USER")
 public class User extends Actor implements Principal {
 
-    //口令
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	//Password
     private String password;
 
-    //口令提示
+    //Password Hint
     private String passwordHint;
 
     // Si se ha bloqueado. usuarios bloqueados no se pueden volver a conectarse hasta desbloqueado
@@ -62,7 +66,7 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 锁定员工。被锁定的员工无法登录，直至解锁
+     * Lock employees. Locked employees can not log back in until unlocked
      */
     public void lock() {
         this.locked = true;
@@ -70,7 +74,7 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 解锁员工。解锁后的员工可以登录系统
+     * Unlock employees. Employees can log into the system after unlocking
      */
     public void unlock() {
         this.locked = false;
@@ -86,7 +90,7 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 判断口令是否匹配
+     * Determine whether the password matches
      * @param password
      * @return
      */
@@ -99,9 +103,9 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 判断系统中是否已存在指定名字的用户
-     * @param username 要检查的用户名
-     * @return 如果已存在返回true，否则返回false
+     * Whether there has been the name of the judge designated system user
+     * @param username Error
+     * @return If it already exists returns true, false otherwise
      */
     public static boolean existsUsername(String username) {
         return getByName(username) != null;
@@ -109,7 +113,7 @@ public class User extends Actor implements Principal {
 
     /**
      * Se basa en el ID de usuario. Este usuario puede estar en el estado fallido.
-     * @param id 用户ID
+     * @param id User ID
      * @return Si encuentra el usuario especifica se devuelve el ID de usuario, si no regreso null
      */
     public static User get(long id) {
@@ -117,27 +121,27 @@ public class User extends Actor implements Principal {
     }
 
     /**
-     * 根据用户名获取用户。此用户有可能处于失效状态。
-     * @param name 用户名
-     * @return 如果找到指定名字的用户则返回该用户，否则返回null
+     * Get the user based on the user name. This user may be in the failed state.
+     * @param name username
+     * @return If you find the name of the specified user is returned to the user, otherwise return null
      */
     public static User getByName(String name) {
         return getByName(User.class, name);
     }
 
     /**
-     * 列出系统全部用户
-     * @return 系统的全部用户
+     * Lists all system users
+     * @return All users of the system users
      */
     public static List<User> list() {
         return findAll(User.class);
     }
 
     /**
-     * 根据提供的用户名和口令验证用户的有效性
-     * @param username 用户名
-     * @param password 口令
-     * @return 如果用户存在，口令匹配，而且没有失效或锁定，则验证成功，返回true；否则验证失败，返回false
+     * Verify the validity of the user based on user name and password provided
+     * @param username username
+     * @param password Password
+     * @return If the user exists, passwords match, and has not expired or locked, the validation is successful, returns true; otherwise the validation fails, returns false
      */
     public static boolean authenticate(String username, String password) {
         User user = getByName(username);

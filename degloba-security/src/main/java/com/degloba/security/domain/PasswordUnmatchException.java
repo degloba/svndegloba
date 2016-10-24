@@ -1,10 +1,14 @@
 package com.degloba.security.domain;
 
 /**
- * Created by yyang on 15/7/27.
  */
 public class PasswordUnmatchException extends SecurityException {
-    public PasswordUnmatchException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PasswordUnmatchException() {
     }
 
     public PasswordUnmatchException(String message) {
