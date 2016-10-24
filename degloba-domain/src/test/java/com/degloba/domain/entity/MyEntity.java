@@ -6,7 +6,11 @@ import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 @Entity
 public class MyEntity extends BaseAggregateRoot {
-    private String name;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String name;
 
     public MyEntity() {
     	this.name="prova";

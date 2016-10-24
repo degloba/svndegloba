@@ -1,7 +1,5 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
-
-//////import com.degloba.domain.Entity;
 import com.degloba.domain.InstanceFactory;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
@@ -23,13 +21,13 @@ public class CriteriaQuery {
 
     private final IEntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
-    private final Class<? extends Entity> entityClass;
+    private final Class<? extends IEntity> entityClass;
     private int firstResult;
     private int maxResults;
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(IEntityRepository repository, Class<? extends Entity> entityClass) {
+    public CriteriaQuery(IEntityRepository repository, Class<? extends IEntity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

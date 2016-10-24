@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.crm.domain;
+package com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

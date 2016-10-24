@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Entity interface areas. All Entity class must implement this interface either directly or indirectly. It is mainly from the tag role, in order to unify the processing system Entity like.
  */
-public interface Entity extends Serializable {
+public interface IEntity extends Serializable {
 
 	/**
 	 * Obtain ID entity. Each instance of the Entity class must have a unique Id to identify themselves.

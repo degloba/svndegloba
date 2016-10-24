@@ -12,7 +12,7 @@ import java.util.List;
 public class SqlQuery extends BaseQuery<SqlQuery> {
 
     private final String sql;
-    private Class<? extends Entity> resultEntityClass;
+    private Class<? extends IEntity> resultEntityClass;
 
     /**
      * Storage and use SQL statements to create SQL queries.
@@ -37,7 +37,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * Return query results entity type. The result is applied to the case of an entity or entities list.
      * @return Entity type (if the result is a collection that is the type of the collection element) query results
      */
-    public Class<? extends Entity> getResultEntityClass() {
+    public Class<? extends IEntity> getResultEntityClass() {
         return resultEntityClass;
     }
 
@@ -47,7 +47,7 @@ public class SqlQuery extends BaseQuery<SqlQuery> {
      * @param resultEntityClass To set the type of query results
      * @return The object itself
      */
-    public SqlQuery setResultEntityClass(Class<? extends Entity> resultEntityClass) {
+    public SqlQuery setResultEntityClass(Class<? extends IEntity> resultEntityClass) {
         this.resultEntityClass = resultEntityClass;
         return this;
     }

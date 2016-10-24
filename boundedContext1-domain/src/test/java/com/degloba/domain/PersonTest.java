@@ -30,7 +30,7 @@ public class PersonTest extends AbstractIntegrationTest {
         person2 = new Person("a", "c");
         person2.setIdNumber("p2");
         person2.setIm(ImType.QQ, "666666");
-        person2.setIm(ImType.MSN, "ryyang@hotmail.com");
+        person2.setIm(ImType.MSN, "degloba@degloba.com");
         person2.save();
     }
 

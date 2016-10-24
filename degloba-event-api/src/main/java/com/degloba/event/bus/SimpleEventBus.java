@@ -15,8 +15,7 @@ import java.util.List;
 
 
 /**
- * 简单的进程内事件总线
- * @author yyang
+ * Within a simple process event bus
  */
 public final class SimpleEventBus implements IEventBus {
 
