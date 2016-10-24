@@ -36,9 +36,9 @@
 		<class>com.degloba.ecommerce.sales.invoicing.domain.Tax</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
-		<class>com.degloba.ecommerce.sales.purchase.domain.Purchase</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
-		<class>com.degloba.ecommerce.sales.purchase.domain.PurchaseItem</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem</class>
 		
 		
 		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
