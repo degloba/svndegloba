@@ -33,15 +33,15 @@
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
 		<!-- Sales -->
-		<class>com.degloba.ecommerce.sales.invoicing.domain.Tax</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.InvoiceLine</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.Invoice</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem</class>
 		
 		
-		<class>com.degloba.ecommerce.shipping.domain.Shipment</class>
+		<class>com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment</class>
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>
