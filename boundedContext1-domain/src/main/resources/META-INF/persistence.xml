@@ -19,9 +19,9 @@
 		<!-- *************** -->
 		
 		<!-- Travel -->
-		<class>com.degloba.travel.domain.Booking</class>
-		<class>com.degloba.travel.domain.Hotel</class>
-		<class>com.degloba.travel.domain.User</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
 		
 		<!-- Organisation -->
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
@@ -34,7 +34,7 @@
 		
 		<!-- Sales -->
 		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax</class>
-		<class>com.degloba.ecommerce.sales.productscatalog.domain.ProductData</class>
+		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice</class>
