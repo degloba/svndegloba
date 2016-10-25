@@ -1,12 +1,12 @@
-package com.degloba.ecommerce.sales.application.command.handler;
+package com.degloba.ecommerce.sales.application.commands.handler;
 
 import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.CommandHandler;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+
 // Application
-import com.degloba.ecommerce.sales.application.command.AddProdctCommand;
+import com.degloba.ecommerce.sales.application.commands.AddProdctCommand;
 // Domain
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
@@ -20,15 +20,10 @@ import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Rese
 @CommandHandlerAnnotation
 public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand, Void>{
 
+
 	@Inject
-	private IEntityRepository entityRepository;
-	
-	@Inject
-	private ISalesRepository productRepository; 
-	
-	@Inject
-	private ISalesRepository salesRepository;
-	
+	private ISalesRepository salesRepository; 
+
 	
 	@Inject
 	private SuggestionService suggestionService;
@@ -39,9 +34,9 @@ public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand,
 	
 	@Override
 	public Void handle(AddProdctCommand command) {
-		Reservation reservation = entityRepository.load(Reservation.class,command.getOrderId());
+		Reservation reservation = salesRepository.load(Reservation.class,command.getOrderId());
 		
-		Product product = entityRepository.load(Product.class,command.getProductId());
+		Product product = salesRepository.load(Product.class,command.getProductId());
 		
 		if (! product.isAvailabe()){
 			Client client = loadClient();	
@@ -50,7 +45,7 @@ public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand,
 			
 		reservation.add(product, command.getQuantity());
 		
-		entityRepository.save(reservation);
+		salesRepository.save(reservation);
 		
 		return null;
 	}
