@@ -1,6 +1,7 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.DomainRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 
 /**
@@ -8,7 +9,7 @@ import com.degloba.domain.annotations.DomainRepository;
  * 
  */
 @DomainRepository
-public interface IOrganisationRepository {
+public interface IOrganisationRepository extends IEntityRepository{
 
 
 }

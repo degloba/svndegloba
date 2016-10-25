@@ -1,6 +1,8 @@
 package com.degloba.organisation.application.service;
 
 
+import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
+
 // Application
 
 
@@ -12,6 +14,8 @@ import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 import java.util.Date;
 
+import javax.inject.Inject;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
 // Domain
@@ -22,14 +26,14 @@ import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 public class OrganisationApplicationImpl implements IOrganisationService {
 	
 	
-    //////@Inject
-    private IEntityRepository organisationRepository;
+    @Inject
+    private IOrganisationRepository organisationRepository;
 
-   public IEntityRepository getRepository() {
+   public IOrganisationRepository getRepository() {
 		return organisationRepository;
 	}
 
-	public void setRepository(IEntityRepository organisationRepository) {
+	public void setRepository(IOrganisationRepository organisationRepository) {
 		this.organisationRepository = organisationRepository;
 	}
 
@@ -74,7 +78,7 @@ public class OrganisationApplicationImpl implements IOrganisationService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrganisationApplicationImpl(IEntityRepository organisationRepository) {
+	public OrganisationApplicationImpl(IOrganisationRepository organisationRepository) {
 		super();
 		this.organisationRepository = organisationRepository;
 	}

@@ -11,6 +11,7 @@ import com.degloba.organisation.application.service.IOrganisationService;
 // Domain (organisation)
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
@@ -33,12 +34,12 @@ public abstract class OrganisationServiceTest {
 
     private IOrganisationService instance;
 
-    protected IEntityRepository repository;
+    protected IOrganisationRepository repository;
 
     @Before
     public void setUp() {
         instance = createInstance();
-        repository = mock(IEntityRepository.class);
+        repository = mock(IOrganisationRepository.class);
         //AbstractEntity.setRepository(repository);
     }
 
