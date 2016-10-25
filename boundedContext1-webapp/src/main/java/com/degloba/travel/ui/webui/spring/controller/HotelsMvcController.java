@@ -6,9 +6,6 @@ import java.security.Principal;
 import javax.inject.Inject;
 
 
-import com.degloba.travel.application.api.BookingService;
-
-import com.degloba.travel.services.SearchCriteria;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.degloba.travel.application.SearchCriteria;
+import com.degloba.travel.application.service.ITravelService;
+
 @Controller
 public class HotelsMvcController {
 
  	@Inject 
- 	private BookingService bookingService;
+ 	private ITravelService bookingService;
 
 	@RequestMapping(value = "/hotels/search", method = RequestMethod.GET)
 	public void search(SearchCriteria searchCriteria, Principal currentUser, Model model) {

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.listeners;
+package com.degloba.ecommerce.shipping.application.listeners;
 
 import javax.inject.Inject;
 
@@ -7,10 +7,12 @@ import javax.inject.Inject;
 import com.degloba.ecommerce.shipping.domain.factories.ShipmentFactory;
 import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShippingRepository;
 import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment;
-import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
+import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
+
 // CQRS (ecommerce)
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
+
 import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
+import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
 // Event
 import com.degloba.event.annotations.EventListeners;
 import com.degloba.event.annotations.EventListener;

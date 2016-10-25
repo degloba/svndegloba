@@ -1,4 +1,4 @@
-package com.degloba.organisation.application.api;
+package com.degloba.organisation.application.service;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;

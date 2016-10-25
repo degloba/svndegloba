@@ -1,4 +1,4 @@
-package com.degloba.travel.application.impl;
+package com.degloba.travel.application.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import com.degloba.travel.application.SearchCriteria;
+
 // Domain
 
 // Application
-import com.degloba.travel.application.api.BookingService;
+
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
 import com.degloba.travel.domain.persistence.rdbms.jpa.User;
@@ -29,7 +31,7 @@ import com.degloba.travel.domain.persistence.rdbms.jpa.User;
  */
 @Service("bookingService")
 @Repository
-public class JpaBookingService implements BookingService, Serializable {
+public class JpaBookingService implements ITravelService, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -144,7 +146,7 @@ public class JpaBookingService implements BookingService, Serializable {
 	}
 
 	@Override
-	public List<Hotel> findHotels(com.degloba.travel.services.SearchCriteria criteria) {
+	public List<Hotel> findHotels(SearchCriteria criteria) {
 		// TODO Auto-generated method stub
 		return null;
 	}

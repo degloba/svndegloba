@@ -17,8 +17,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-
-import com.degloba.rent.cqrs.readmodel.IRentFinder;
+import com.degloba.rent.cqrs.readmodel.finders.IRentFinder;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 

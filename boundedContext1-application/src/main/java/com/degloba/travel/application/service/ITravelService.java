@@ -1,14 +1,10 @@
-package com.degloba.travel.application.api;
+package com.degloba.travel.application.service;
 
+import com.degloba.travel.application.SearchCriteria;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
 import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 
-// Domain
-
-
-
-import com.degloba.travel.services.SearchCriteria;
 
 import java.util.List;
 
@@ -16,7 +12,7 @@ import java.util.List;
  * A service interface for retrieving hotels and bookings from a backing repository. Also supports the ability to cancel
  * a booking.
  */
-public interface BookingService {
+public interface ITravelService {
 
 
     /**

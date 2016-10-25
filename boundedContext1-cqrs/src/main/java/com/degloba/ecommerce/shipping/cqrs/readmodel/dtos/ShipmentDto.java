@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.cqrs.readmodel;
+package com.degloba.ecommerce.shipping.cqrs.readmodel.dtos;
 
 import java.io.Serializable;
 

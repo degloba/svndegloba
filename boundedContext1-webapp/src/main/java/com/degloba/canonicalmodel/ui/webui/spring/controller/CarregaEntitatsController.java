@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
-
-
-import com.degloba.rent.cqrs.readmodel.IRentFinder;
+import com.degloba.rent.cqrs.readmodel.finders.IRentFinder;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.googlecode.objectify.Key;

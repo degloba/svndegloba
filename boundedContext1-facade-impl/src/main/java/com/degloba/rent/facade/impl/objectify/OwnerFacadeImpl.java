@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.IRentService;
+import com.degloba.rent.application.service.IRentService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.degloba.rent.facade.objectify.OwnerFacade;
@@ -12,7 +12,11 @@ import com.degloba.rent.facade.objectify.OwnerFacade;
 
 public class OwnerFacadeImpl implements OwnerFacade, Serializable {
 
-    @Inject
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Inject
     protected IRentService ownerApplicationObjectify;
 
     public OwnerFacadeImpl(IRentService application) {

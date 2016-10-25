@@ -1,4 +1,4 @@
-package com.degloba.rent.cqrs.readmodel.impl;
+package com.degloba.rent.cqrs.readmodel.finders;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.rent.cqrs.readmodel.IRentFinder;
+
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;

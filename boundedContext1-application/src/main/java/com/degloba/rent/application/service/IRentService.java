@@ -1,4 +1,4 @@
-package com.degloba.rent.application.api;
+package com.degloba.rent.application.service;
 
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 //Entitats NoSql/GoogleDatastore (Api Objectify)

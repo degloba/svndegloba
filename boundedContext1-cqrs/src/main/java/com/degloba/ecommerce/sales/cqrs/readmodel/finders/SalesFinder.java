@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.cqrs.readmodel.impl;
+package com.degloba.ecommerce.sales.cqrs.readmodel.finders;
 
 import static com.google.common.collect.Lists.transform;
 
@@ -17,18 +17,18 @@ import com.degloba.domain.annotations.FinderImpl;
 
 // CQRS (ecommerce)
 
-import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferedProductDto;
-
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderStatus;
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderedProductDto;
 import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservedProduct;
 import com.google.common.base.Function;
-import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
-import com.degloba.ecommerce.sales.cqrs.readmodel.offer.OfferQuery;
+
+import com.degloba.ecommerce.sales.offer.OfferQuery;
+import com.degloba.ecommerce.sales.offer.dtos.OfferedProductDto;
+import com.degloba.ecommerce.sales.orders.OrderQuery;
+import com.degloba.ecommerce.sales.orders.OrderStatus;
+import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
+import com.degloba.ecommerce.sales.orders.dtos.OrderedProductDto;
+
 
 @FinderImpl
 public class SalesFinder implements ISalesFinder {

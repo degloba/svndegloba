@@ -18,11 +18,12 @@ import com.degloba.cqrs.command.Gate;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 // Ecommerce
-import com.degloba.ecommerce.shipping.application.api.commands.DeliverShipmentCommand;
-import com.degloba.ecommerce.shipping.application.api.commands.SendShipmentCommand;
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.cqrs.readmodel.IShipmentFinder;
 
+
+import com.degloba.ecommerce.shipping.application.commands.DeliverShipmentCommand;
+import com.degloba.ecommerce.shipping.application.commands.SendShipmentCommand;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.dtos.ShipmentDto;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.finders.IShipmentFinder;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 

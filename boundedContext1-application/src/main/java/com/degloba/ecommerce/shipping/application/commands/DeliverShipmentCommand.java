@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.application.api.commands;
+package com.degloba.ecommerce.shipping.application.commands;
 
 import java.io.Serializable;
 

@@ -3,16 +3,19 @@ package com.degloba.travel.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
+import com.degloba.travel.application.SearchCriteria;
+
+import com.degloba.travel.application.service.ITravelService;
+
 // Domain
 
 // Application
-import com.degloba.travel.application.api.BookingService;
+
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Bookings;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Hotels;
 import com.degloba.travel.domain.persistence.rdbms.jpa.User;
-import com.degloba.travel.services.SearchCriteria;
 
 // Spring
 import org.springframework.stereotype.Controller;
@@ -42,7 +45,7 @@ public class HotelsRestController {
 	static final String acceptHeader = "Accept=application/json, application/xml";
 
 	@Autowired
-	private BookingService bookingService;
+	private ITravelService bookingService;
 
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)

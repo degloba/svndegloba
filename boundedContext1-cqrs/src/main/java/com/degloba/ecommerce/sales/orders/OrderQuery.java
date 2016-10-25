@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.cqrs.readmodel.orders;
+package com.degloba.ecommerce.sales.orders;
 
 
 public class OrderQuery {

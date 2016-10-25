@@ -1,8 +1,9 @@
-package com.degloba.ecommerce.sales.cqrs.readmodel.orders;
+package com.degloba.ecommerce.sales.orders.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.degloba.ecommerce.sales.orders.OrderStatus;
 import com.google.appengine.api.datastore.Key;
 
 

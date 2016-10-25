@@ -5,15 +5,8 @@ import java.util.Date;
 
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-
-// Domain
-
-
-
-// Application (organisation)
-import com.degloba.organisation.application.api.IOrganisationService;
-import com.degloba.organisation.application.impl.OrganisationApplicationImpl;
-
+import com.degloba.organisation.application.service.IOrganisationService;
+import com.degloba.organisation.application.service.OrganisationApplicationImpl;
 //Domain (organisation)
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;

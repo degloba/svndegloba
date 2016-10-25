@@ -32,9 +32,10 @@ import com.degloba.travel.integration.spring.EmailNotificationService;
 
 // Integration (degloba)
 import com.degloba.integration.spring.services.NotificationGateway;
+import com.degloba.travel.application.service.ITravelService;
 
 // Application
-import com.degloba.travel.application.api.BookingService;
+
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
 import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 
@@ -67,7 +68,7 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
     private Log log = LogFactory.getLog(getClass());
 
     @Autowired
-    private BookingService bookingService;
+    private ITravelService bookingService;
 
     @Autowired
     private NotificationGateway notificationGateway;

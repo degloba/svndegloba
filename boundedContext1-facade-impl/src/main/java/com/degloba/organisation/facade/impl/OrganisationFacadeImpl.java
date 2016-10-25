@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.degloba.organisation.application.api.IOrganisationService;
+import com.degloba.organisation.application.service.IOrganisationService;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;

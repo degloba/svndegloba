@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.ecommerce.sales.application.command.OrderDetailsCommand;
+import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
 import com.degloba.ecommerce.sales.application.service.IOrderingService;
 

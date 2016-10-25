@@ -1,8 +1,8 @@
-package com.degloba.rent.application.impl;
+package com.degloba.rent.application.service;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.api.IRentService;
+
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IRentRepository;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;

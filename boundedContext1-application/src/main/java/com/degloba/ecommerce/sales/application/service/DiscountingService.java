@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.application.internal.discounts;
+package com.degloba.ecommerce.sales.application.service;
 
 import com.degloba.domain.annotations.InternalApplicationService;
 

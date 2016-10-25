@@ -1,8 +1,8 @@
-package com.degloba.organisation.application.impl;
+package com.degloba.organisation.application.service;
 
 
 // Application
-import com.degloba.organisation.application.api.IOrganisationService;
+
 
 // Domain
 import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;

@@ -1,11 +1,10 @@
 package com.degloba.ecommerce.sales.application.service;
 
 
-import com.degloba.ecommerce.sales.application.command.OrderDetailsCommand;
+import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
-// Domain
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
 
 /*

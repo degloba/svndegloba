@@ -9,13 +9,10 @@ import com.degloba.cqrs.query.PaginatedResult;
 
 
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
-import com.degloba.ecommerce.sales.application.internal.discounts.DiscountingService;
-import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
-// CQRS (ecommerce)
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;
-
-import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderQuery;
-
+import com.degloba.ecommerce.sales.application.service.DiscountingService;
+import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
+import com.degloba.ecommerce.sales.orders.OrderQuery;
+import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
 // Domain
 import com.degloba.domain.sharedkernel.Money;
 

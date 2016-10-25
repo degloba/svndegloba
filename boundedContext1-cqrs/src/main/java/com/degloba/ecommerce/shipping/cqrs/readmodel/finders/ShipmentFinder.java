@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.cqrs.readmodel.impl;
+package com.degloba.ecommerce.shipping.cqrs.readmodel.finders;
 
 import java.util.List;
 
@@ -11,10 +11,9 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 // CQRS (ecommerce)
-import com.degloba.ecommerce.shipping.cqrs.readmodel.ShipmentDto;
-import com.degloba.ecommerce.shipping.cqrs.readmodel.IShipmentFinder;
 
 import com.degloba.cqrs.query.annotations.Finder;
+import com.degloba.ecommerce.shipping.cqrs.readmodel.dtos.ShipmentDto;
 
 
 @Finder
