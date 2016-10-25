@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.application.api.service;
+package com.degloba.ecommerce.sales.application.exceptions;
 
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 

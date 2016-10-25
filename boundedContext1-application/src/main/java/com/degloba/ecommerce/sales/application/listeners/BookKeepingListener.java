@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.internal.bookkeeping;
+package com.degloba.ecommerce.sales.application.listeners;
 
 import javax.inject.Inject;
 

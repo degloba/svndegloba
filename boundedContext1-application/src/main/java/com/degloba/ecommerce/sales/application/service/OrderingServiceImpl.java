@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.application.impl;
+package com.degloba.ecommerce.sales.application.service;
 
 import javax.inject.Inject;
 
@@ -7,12 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.ecommerce.sales.application.command.OrderDetailsCommand;
+import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
+import com.degloba.ecommerce.sales.application.service.IOrderingService;
 
-
-
-import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
-import com.degloba.ecommerce.sales.application.api.service.OfferChangedException;
-import com.degloba.ecommerce.sales.application.api.service.IOrderingService;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;

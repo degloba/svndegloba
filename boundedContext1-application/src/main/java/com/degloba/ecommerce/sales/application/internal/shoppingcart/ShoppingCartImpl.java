@@ -1,10 +1,9 @@
-package com.degloba.ecommerce.sales.internal.shoppingcart;
+package com.degloba.ecommerce.sales.application.internal.shoppingcart;
 
 
 import com.degloba.domain.annotations.InternalApplicationService;
+import com.degloba.ecommerce.sales.application.service.IShoppingCart;
 
-// Application
-import com.degloba.ecommerce.sales.application.api.service.IShoppingCart;
 
 @InternalApplicationService
 public class ShoppingCartImpl implements IShoppingCart{

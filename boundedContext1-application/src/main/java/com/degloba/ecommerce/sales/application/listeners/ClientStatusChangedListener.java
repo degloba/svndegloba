@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.listeners;
+package com.degloba.ecommerce.sales.application.listeners;
 
 import javax.inject.Inject;
 
@@ -7,8 +7,9 @@ import com.degloba.cqrs.query.PaginatedResult;
 
 // Ecommerce
 
-import com.degloba.ecommerce.sales.internal.discounts.DiscountingService;
+
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
+import com.degloba.ecommerce.sales.application.internal.discounts.DiscountingService;
 import com.degloba.ecommerce.sales.cqrs.readmodel.ISalesFinder;
 // CQRS (ecommerce)
 import com.degloba.ecommerce.sales.cqrs.readmodel.orders.OrderDto;

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.application.api.handler;
+package com.degloba.ecommerce.sales.application.command.handler;
 
 import javax.inject.Inject;
 
@@ -6,8 +6,7 @@ import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.CommandHandler;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 // Application
-import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
-
+import com.degloba.ecommerce.sales.application.command.AddProdctCommand;
 // Domain
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
