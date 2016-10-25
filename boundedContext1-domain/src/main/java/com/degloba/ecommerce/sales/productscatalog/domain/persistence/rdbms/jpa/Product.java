@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.productscatalog.domain;
+package com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 
@@ -16,6 +16,11 @@ import com.google.appengine.api.datastore.Key;
 @Entity
 @AggregateRoot
 public class Product extends BaseAggregateRoot{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Embedded
 	private Money price;

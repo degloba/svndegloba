@@ -7,9 +7,9 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 
-import com.degloba.ecommerce.sales.productscatalog.domain.ProductData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.sharedkernel.Money;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
 
 
 /**

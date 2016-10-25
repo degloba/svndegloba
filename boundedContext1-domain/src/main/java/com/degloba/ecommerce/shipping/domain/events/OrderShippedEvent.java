@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.google.appengine.api.datastore.Key;
 
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 
 @SuppressWarnings("serial")
 public class OrderShippedEvent implements Serializable {

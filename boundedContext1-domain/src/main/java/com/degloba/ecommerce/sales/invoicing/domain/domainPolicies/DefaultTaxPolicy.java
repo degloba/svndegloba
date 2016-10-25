@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.tax;
+package com.degloba.ecommerce.sales.invoicing.domain.domainPolicies;
 
 import java.math.BigDecimal;
 
@@ -6,11 +6,10 @@ import com.degloba.domain.annotations.DomainPolicyImpl;
 
 import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.ITaxPolicy;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
-import com.degloba.ecommerce.sales.productscatalog.domain.ProductType;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
 import com.degloba.domain.sharedkernel.Money;
 
 /**
- * Sample Policy impl<br> 
  * 
  * @author degloba
  *

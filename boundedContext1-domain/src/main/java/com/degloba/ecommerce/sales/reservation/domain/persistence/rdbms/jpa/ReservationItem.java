@@ -4,9 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 @Entity
 class ReservationItem extends BaseEntity{

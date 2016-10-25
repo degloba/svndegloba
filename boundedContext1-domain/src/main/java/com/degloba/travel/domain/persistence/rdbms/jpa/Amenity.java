@@ -1,4 +1,4 @@
-package com.degloba.travel.domain;
+package com.degloba.travel.domain.persistence.rdbms.jpa;
 
 import javax.xml.bind.annotation.XmlEnum;
 

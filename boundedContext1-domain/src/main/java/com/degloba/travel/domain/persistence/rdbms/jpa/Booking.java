@@ -1,4 +1,4 @@
-package com.degloba.travel.domain;
+package com.degloba.travel.domain.persistence.rdbms.jpa;
 
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;

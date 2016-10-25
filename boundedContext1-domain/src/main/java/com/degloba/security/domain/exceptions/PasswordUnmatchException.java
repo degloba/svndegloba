@@ -1,4 +1,4 @@
-package com.degloba.security.canonicalmodel.exceptions;
+package com.degloba.security.domain.exceptions;
 
 /**
  */

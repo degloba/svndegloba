@@ -30,7 +30,7 @@ import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
 import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 import com.degloba.domain.sharedkernel.Money;
 import com.google.appengine.api.datastore.Key;
 

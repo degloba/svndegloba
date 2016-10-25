@@ -1,8 +1,9 @@
 package com.degloba.ecommerce.sales.equivalent.specification;
 
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
+
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.domain.specification.CompositeSpecification;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 public class SimilarPrice extends CompositeSpecification<Product>{
 

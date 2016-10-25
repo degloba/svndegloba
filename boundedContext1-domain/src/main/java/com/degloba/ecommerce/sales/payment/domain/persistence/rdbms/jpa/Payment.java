@@ -9,7 +9,7 @@ import javax.persistence.Transient;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
-import com.degloba.ecommerce.canonicalmodel.events.PaymentRolledBackEvent;
+import com.degloba.ecommerce.sales.domain.events.PaymentRolledBackEvent;
 import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
 
 
@@ -21,6 +21,11 @@ import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
 //@AggregateRoot
 @Entity
 public class Payment extends BaseAggregateRoot{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Embedded
 	private ClientData clientData;

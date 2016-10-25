@@ -1,4 +1,4 @@
-package com.degloba.security.canonicalmodel.events;
+package com.degloba.security.domain.events;
 
 
 import java.util.Date;

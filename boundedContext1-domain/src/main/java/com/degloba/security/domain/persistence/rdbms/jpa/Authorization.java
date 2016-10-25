@@ -5,7 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
-import com.degloba.security.canonicalmodel.exceptions.DuplicateAuthorizationException;
+import com.degloba.security.domain.exceptions.DuplicateAuthorizationException;
 
 import java.util.*;
 
