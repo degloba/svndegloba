@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.domainServices;
+package com.degloba.ecommerce.sales.invoicing.domain.services;
 
 import javax.inject.Inject;
 
@@ -6,13 +6,13 @@ import com.degloba.domain.annotations.DomainService;
 
 import com.degloba.domain.sharedkernel.Money;
 
-import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.ITaxPolicy;
 import com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceFactory;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.RequestItem;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
+import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
 
 
 /**

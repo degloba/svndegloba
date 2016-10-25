@@ -9,11 +9,12 @@ import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 
 
-import com.degloba.ecommerce.sales.invoicing.domain.domainServices.BookKeeper;
-import com.degloba.ecommerce.sales.invoicing.domain.domainServices.TaxAdvisor;
+
 import com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceRequestFactory;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
+import com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeper;
+import com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisor;
 import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
 // Events
 import com.degloba.event.annotations.EventListeners;

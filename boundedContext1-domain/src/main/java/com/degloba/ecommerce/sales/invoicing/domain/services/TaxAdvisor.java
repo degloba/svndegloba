@@ -1,9 +1,9 @@
-package com.degloba.ecommerce.sales.invoicing.domain.domainServices;
+package com.degloba.ecommerce.sales.invoicing.domain.services;
 
 import com.degloba.domain.annotations.DomainService;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.DefaultTaxPolicy;
-import com.degloba.ecommerce.sales.invoicing.domain.domainPolicies.ITaxPolicy;
+import com.degloba.ecommerce.sales.invoicing.domain.policies.DefaultTaxPolicy;
+import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
 
 
 @DomainService

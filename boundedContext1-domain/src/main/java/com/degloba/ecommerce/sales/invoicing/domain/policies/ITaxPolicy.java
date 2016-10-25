@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.domainPolicies;
+package com.degloba.ecommerce.sales.invoicing.domain.policies;
 
 import com.degloba.domain.annotations.DomainPolicy;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
