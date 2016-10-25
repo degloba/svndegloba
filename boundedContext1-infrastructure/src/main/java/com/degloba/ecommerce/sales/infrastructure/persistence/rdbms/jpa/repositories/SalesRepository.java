@@ -8,7 +8,7 @@ import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
 
 
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 
 /**

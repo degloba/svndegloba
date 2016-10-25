@@ -14,12 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 // Domain
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.Hotel;
-import com.degloba.travel.domain.User;
 
 // Application
 import com.degloba.travel.application.api.BookingService;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 
 
 /**

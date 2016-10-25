@@ -2,13 +2,14 @@ package com.degloba.ecommerce.crm.application.commands;
 
 import java.io.Serializable;
 
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
 
 //CQRS
 import com.degloba.cqrs.command.annotations.Command;
 
 // Domain
 
-import com.degloba.ecommerce.crm.domain.Customer.CustomerStatus;
+;
 
 /**
  * @author degloba

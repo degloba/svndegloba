@@ -9,16 +9,16 @@ import org.springframework.cache.annotation.Cacheable;
 
 
 // Domain (travel)
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.Hotel;
-import com.degloba.travel.domain.User;
+
 
 // Spring Integration (travel)
 import com.degloba.travel.integration.spring.config.EmailNotificationServiceBooking;
 
 // Application/Service  (travel)
 import com.degloba.travel.application.api.BookingService;
-
+import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 
 // Spring
 import org.springframework.stereotype.Repository;

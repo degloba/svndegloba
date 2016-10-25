@@ -2,9 +2,10 @@ package com.degloba.ecommerce.sales.application.api.service;
 
 
 import com.degloba.ecommerce.sales.application.api.command.OrderDetailsCommand;
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
 // Domain
-import com.degloba.ecommerce.sales.offer.domain.Offer;
+
 
 /*
  *  degloba

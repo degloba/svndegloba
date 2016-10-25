@@ -10,7 +10,7 @@ import com.degloba.security.spring.gae.security.AppRole;
 import com.degloba.security.spring.gae.security.GaeUserAuthentication;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.degloba.security.spring.gae.users.UserRegistry;
-import com.degloba.travel.domain.User;
+
 //import java.util.logging.Logger;
 import com.google.appengine.api.users.UserServiceFactory;
 

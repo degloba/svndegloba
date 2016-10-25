@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 // Domain
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.Bookings;
-import com.degloba.travel.domain.Hotel;
-import com.degloba.travel.domain.Hotels;
-import com.degloba.travel.domain.User;
 
 // Application
 import com.degloba.travel.application.api.BookingService;
-
+import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Bookings;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Hotels;
+import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 import com.degloba.travel.services.SearchCriteria;
 
 // Spring

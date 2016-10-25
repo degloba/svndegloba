@@ -1,9 +1,11 @@
 package com.degloba.travel.application.api;
 
+import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
+import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.travel.domain.persistence.rdbms.jpa.User;
+
 // Domain
-import com.degloba.travel.domain.Booking;
-import com.degloba.travel.domain.Hotel;
-import com.degloba.travel.domain.User;
+
 
 
 import com.degloba.travel.services.SearchCriteria;

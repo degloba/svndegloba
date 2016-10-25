@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.application.api.service;
 
-import com.degloba.ecommerce.sales.offer.domain.Offer;
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
 @SuppressWarnings("serial")
 public class OfferChangedException extends RuntimeException {

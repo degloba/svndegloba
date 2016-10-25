@@ -16,22 +16,18 @@ import com.degloba.ecommerce.sales.application.api.service.IOrderingService;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
-import com.degloba.ecommerce.sales.offer.domain.DiscountFactory;
-import com.degloba.ecommerce.sales.offer.domain.DiscountPolicy;
-import com.degloba.ecommerce.sales.offer.domain.Offer;
-import com.degloba.ecommerce.sales.payment.domain.Payment;
 
 
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
-import com.degloba.ecommerce.sales.purchase.domain.IPurchaseRepository;
-
-import com.degloba.ecommerce.sales.purchase.domain.Purchase;
-import com.degloba.ecommerce.sales.purchase.domain.PurchaseFactory;
-
-
-import com.degloba.ecommerce.sales.reservation.domain.Reservation;
-import com.degloba.ecommerce.sales.reservation.domain.ReservationFactory;
-
+import com.degloba.ecommerce.sales.offer.domain.factories.DiscountFactory;
+import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
+import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
+import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.sales.purchase.domain.factories.PurchaseFactory;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.IPurchaseRepository;
+import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
+import com.degloba.ecommerce.sales.reservation.domain.factories.ReservationFactory;
+import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
 import com.degloba.ecommerce.system.application.SystemUser;

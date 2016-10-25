@@ -12,10 +12,8 @@ import com.degloba.ecommerce.sales.application.api.command.AddProdctCommand;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;
-
-import com.degloba.ecommerce.sales.productscatalog.domain.Product;
-
-import com.degloba.ecommerce.sales.reservation.domain.Reservation;
+import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
 
 
 ///////////////import com.degloba.ecommerce.system.SystemUser;
