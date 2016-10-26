@@ -22,7 +22,7 @@ import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 import com.degloba.ecommerce.sales.purchase.domain.factories.PurchaseFactory;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.IPurchaseRepository;
+
 import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
 import com.degloba.ecommerce.sales.reservation.domain.factories.ReservationFactory;
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
@@ -57,9 +57,6 @@ public class OrderingServiceImpl implements IOrderingService {
 
 	@Inject
 	private PurchaseFactory purchaseFactory;
-
-	@Inject
-	private IPurchaseRepository purchaseRepository;
 	
 	@Inject
 	private ISalesRepository productRepository;
