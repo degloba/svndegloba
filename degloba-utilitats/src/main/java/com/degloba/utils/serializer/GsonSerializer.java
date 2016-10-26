@@ -3,8 +3,7 @@ package com.degloba.utils.serializer;
 import com.google.gson.*;
 import com.degloba.utils.ObjectSerializer;
 
-/**
- * Created by yyang on 14-9-16.
+/*
  */
 public class GsonSerializer implements ObjectSerializer {
 

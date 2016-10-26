@@ -6,8 +6,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by yyang on 14/11/9.
+/*
  */
 public class GsonSerializerBuilder {
     private GsonBuilder builder;
