@@ -11,7 +11,13 @@ import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 public class EmployeeArchieve extends BaseAggregateRoot {
     
     
-    @OneToOne
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	@OneToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 

@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /*import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;*/
@@ -71,6 +73,7 @@ public class Reservation extends BaseAggregateRoot{
 	@Embedded
 	private ClientData clientData;
 
+	@Temporal(TemporalType.DATE)
 	private Date createDate;
 
 	@SuppressWarnings("unused")

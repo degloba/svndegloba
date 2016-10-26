@@ -8,7 +8,7 @@ import javax.persistence.InheritanceType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
-//@DiscriminatorValue("Comapny")
+@DiscriminatorValue("Comapny")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class CompanyDepartment extends Organization {
 

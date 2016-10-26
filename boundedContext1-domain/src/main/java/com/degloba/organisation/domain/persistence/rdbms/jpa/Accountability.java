@@ -8,7 +8,7 @@ import javax.persistence.*;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.utils.DateUtils;
 
-//@Entity
+@Entity
 //@Table(name = "accountabilities")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)

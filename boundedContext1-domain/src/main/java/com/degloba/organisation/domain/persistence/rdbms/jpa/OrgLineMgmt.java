@@ -12,8 +12,8 @@ import javax.persistence.NamedQuery;
 
 
 @Entity
-//@DiscriminatorValue("OrgLineMgmt")
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorValue("OrgLineMgmt")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({
 		@NamedQuery(name = "OrgLineMgmt.getParentOfOrganization", query = "select o.commissioner from OrgLineMgmt o where o.responsible = :organization and o.fromDate <= :date and o.toDate > :date"),
 		@NamedQuery(name = "OrgLineMgmt.findChildrenOfOrganization", query = "select o.responsible from OrgLineMgmt o where o.commissioner = :organization and o.fromDate <= :date and o.toDate > :date"),
