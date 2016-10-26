@@ -24,9 +24,9 @@ public abstract class BaseEntity implements IEntity {
 
    private static final long serialVersionUID = 8882145540383345037L;
 
-public static final String FIND_ALL = null;
-
-public static final String TOTAL_RESULT = null;
+	public static final String FIND_ALL = null;
+	
+	public static final String TOTAL_RESULT = null;
 
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
    // annotated as ordinal in sake of performance
