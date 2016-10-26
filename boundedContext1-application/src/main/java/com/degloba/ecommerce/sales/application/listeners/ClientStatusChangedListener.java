@@ -9,7 +9,7 @@ import com.degloba.cqrs.query.PaginatedResult;
 
 
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
-import com.degloba.ecommerce.sales.application.service.DiscountingService;
+import com.degloba.ecommerce.sales.application.services.DiscountingService;
 import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
 import com.degloba.ecommerce.sales.orders.OrderQuery;
 import com.degloba.ecommerce.sales.orders.dtos.OrderDto;

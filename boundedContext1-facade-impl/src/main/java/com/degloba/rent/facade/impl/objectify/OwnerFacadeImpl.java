@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import com.degloba.rent.application.service.IRentService;
+import com.degloba.rent.application.services.IRentService;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.degloba.rent.facade.objectify.OwnerFacade;

@@ -18,13 +18,13 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
  *
  */
 @CommandHandlerAnnotation
-public class ChangeCustomerStatusCommandHandler implements ICommandHandler<ChangeCustomerStatusCommand>{
+public class ChangeCustomerStatusCommandHandler implements ICommandHandler<ChangeCustomerStatusCommand,Boolean>{
 
 	@Inject
 	private ICrmRepository crmRepository; 
 	
 	@Override
-	public Void handle(ChangeCustomerStatusCommand command) {
+	public Boolean handle(ChangeCustomerStatusCommand command) {
 		Customer customer = crmRepository.get(Customer.class,command.getCustomerId());
 		customer.changeStatus(command.getStatus());
 		crmRepository.save(customer);		

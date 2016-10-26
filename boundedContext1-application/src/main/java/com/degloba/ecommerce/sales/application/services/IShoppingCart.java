@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.application.service;
+package com.degloba.ecommerce.sales.application.services;
 
 
 

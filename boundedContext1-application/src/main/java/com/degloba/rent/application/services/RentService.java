@@ -1,4 +1,4 @@
-package com.degloba.rent.application.service;
+package com.degloba.rent.application.services;
 
 import javax.inject.Inject;
 

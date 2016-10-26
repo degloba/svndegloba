@@ -32,7 +32,7 @@ import com.degloba.travel.integration.spring.EmailNotificationService;
 
 // Integration (degloba)
 import com.degloba.integration.spring.services.NotificationGateway;
-import com.degloba.travel.application.service.ITravelService;
+import com.degloba.travel.application.services.ITravelService;
 
 // Application
 

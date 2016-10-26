@@ -7,7 +7,7 @@ import java.util.Date;
 
 import com.degloba.utils.DateUtils;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.organisation.application.service.IOrganisationService;
+import com.degloba.organisation.application.services.IOrganisationService;
 // Domain (organisation)
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;

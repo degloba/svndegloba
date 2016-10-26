@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import com.degloba.travel.application.SearchCriteria;
 
-import com.degloba.travel.application.service.ITravelService;
+import com.degloba.travel.application.services.ITravelService;
 
 // Domain
 

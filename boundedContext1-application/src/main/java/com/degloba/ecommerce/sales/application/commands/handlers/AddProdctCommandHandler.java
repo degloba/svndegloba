@@ -1,9 +1,9 @@
-package com.degloba.ecommerce.sales.application.commands.handler;
+package com.degloba.ecommerce.sales.application.commands.handlers;
 
 import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
-import com.degloba.cqrs.command.handler.CommandHandler;
+import com.degloba.cqrs.command.handler.ICommandHandler;
 
 // Application
 import com.degloba.ecommerce.sales.application.commands.AddProdctCommand;
@@ -18,7 +18,7 @@ import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Rese
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
 @CommandHandlerAnnotation
-public class AddProdctCommandHandler implements CommandHandler<AddProdctCommand, Void>{
+public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand, Void>{
 
 
 	@Inject

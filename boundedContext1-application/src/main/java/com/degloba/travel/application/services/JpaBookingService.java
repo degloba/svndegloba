@@ -1,4 +1,4 @@
-package com.degloba.travel.application.service;
+package com.degloba.travel.application.services;
 
 import java.io.Serializable;
 import java.util.List;

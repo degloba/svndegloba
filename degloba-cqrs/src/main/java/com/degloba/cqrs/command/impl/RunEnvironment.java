@@ -16,14 +16,14 @@ import com.degloba.cqrs.command.handler.ICommandHandler;
 public class RunEnvironment {
 
 	public interface IHandlersProvider{
-		ICommandHandler<Object> getHandler(Object command);
+		ICommandHandler<Object,Object> getHandler(Object command);
 	}
 	
 	@Inject
 	private IHandlersProvider handlersProvider;
 	
 	public Object run(Object command) {		
-		ICommandHandler<Object> handler = handlersProvider.getHandler(command);
+		ICommandHandler<Object,Object> handler = handlersProvider.getHandler(command);
 		
 		//You can add Your own capabilities here: dependency injection, security, transaction management, logging, profiling, spying, storing commands, etc
 		

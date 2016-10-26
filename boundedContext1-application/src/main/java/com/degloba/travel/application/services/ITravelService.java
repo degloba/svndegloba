@@ -1,4 +1,4 @@
-package com.degloba.travel.application.service;
+package com.degloba.travel.application.services;
 
 import com.degloba.travel.application.SearchCriteria;
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;

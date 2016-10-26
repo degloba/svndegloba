@@ -4,23 +4,23 @@ package com.degloba.cqrs.command.decorator;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandlerFactory;
 
-public class ContainerCommandHandlerDecorator<TCommand> implements ICommandHandler<TCommand>
+public class ContainerCommandHandlerDecorator<TCommand,R> implements ICommandHandler<TCommand,R>
 {
-    private ICommandHandlerFactory<TCommand> _factory;
-    public ContainerCommandHandlerDecorator(ICommandHandlerFactory<TCommand> factory)
+    private ICommandHandlerFactory<TCommand,R> _factory;
+    public ContainerCommandHandlerDecorator(ICommandHandlerFactory<TCommand,R> factory)
     {
         _factory = factory;
     }
 
 	
-    public Object handle(TCommand command)
+    public R handle(TCommand command)
     {
-        ICommandHandler<TCommand> handler = null;
+        ICommandHandler<TCommand,R> handler = null;
         try
         {
-            ICommandHandler<TCommand> commandHandler = _factory.CreateByName(command.getClass().getName());
+            ICommandHandler<TCommand,R> commandHandler = _factory.CreateByName(command.getClass().getName());
 
-            handler = (ICommandHandler<TCommand>)commandHandler;
+            handler = (ICommandHandler<TCommand,R>)commandHandler;
             handler.handle(command);
         }
         finally
@@ -28,12 +28,12 @@ public class ContainerCommandHandlerDecorator<TCommand> implements ICommandHandl
             if (handler != null) 
                 _factory.Release(handler);
         }
-		return handler;
+		return null;
     }
 
     
     // getters - setters
-	public ICommandHandlerFactory<TCommand> get_factory() {
+	public ICommandHandlerFactory<TCommand,R> get_factory() {
 		return _factory;
 	}
 

@@ -1,9 +1,9 @@
 package com.degloba.cqrs.command.handler;
 
-public interface ICommandHandlerFactory<C> {
+public interface ICommandHandlerFactory<C,R> {
 
-    ICommandHandler<C> Create(C command);
-    ICommandHandler<C> CreateByName(String name);
+    ICommandHandler<C,R> Create(C command);
+    ICommandHandler<C,R> CreateByName(String name);
 
-    void Release(ICommandHandler<C> handler);
+    void Release(ICommandHandler<C,R> handler);
 }

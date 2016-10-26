@@ -7,9 +7,6 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerS
 //CQRS
 import com.degloba.cqrs.command.annotations.Command;
 
-// Domain
-
-;
 
 /**
  * @author degloba

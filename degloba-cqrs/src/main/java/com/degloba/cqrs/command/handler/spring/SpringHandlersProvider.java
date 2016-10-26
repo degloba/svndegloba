@@ -29,12 +29,12 @@ public class SpringHandlersProvider implements IHandlersProvider, ApplicationLis
     private Map<Class<?>, String> handlers = new HashMap<Class<?>, String>();
 
     @SuppressWarnings("unchecked")
-    public ICommandHandler<Object> getHandler(Object command) {
+    public ICommandHandler<Object,Object> getHandler(Object command) {
         String beanName = handlers.get(command.getClass());
         if (beanName == null) {
             throw new RuntimeException("command handler not found. Command class is " + command.getClass());
         }
-        ICommandHandler<Object> handler = beanFactory.getBean(beanName, ICommandHandler.class);
+        ICommandHandler<Object,Object> handler = beanFactory.getBean(beanName, ICommandHandler.class);
         return handler;
     }
 
