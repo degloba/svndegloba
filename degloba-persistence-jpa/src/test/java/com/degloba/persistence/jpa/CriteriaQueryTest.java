@@ -10,7 +10,7 @@ import com.degloba.domain.CriterionBuilder;
 import com.degloba.domain.InstanceFactory;
 import com.degloba.persistence.test.domain.Dictionary;
 import com.degloba.persistence.test.domain.DictionaryCategory;
-import com.google.appengine.api.datastore.Key;
+
 
 import org.junit.Before;
 import org.junit.Test;
