@@ -2,9 +2,6 @@ package com.degloba.ecommerce.sales.domain.events;
 
 import java.io.Serializable;
 
-// Google app engine
-//import com.google.appengine.api.datastore.Key;
-
 // Domain
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;

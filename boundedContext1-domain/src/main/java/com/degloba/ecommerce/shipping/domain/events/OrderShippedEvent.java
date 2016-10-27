@@ -2,25 +2,22 @@ package com.degloba.ecommerce.shipping.domain.events;
 
 import java.io.Serializable;
 
-import com.google.appengine.api.datastore.Key;
-
-
 @SuppressWarnings("serial")
 public class OrderShippedEvent implements Serializable {
 
-    private final Key orderId;
-    private final Key shipmentId;
+    private final long orderId;
+    private final long shipmentId;
 
-    public OrderShippedEvent(Key orderId, Key shipmentId) {
+    public OrderShippedEvent(long orderId, long shipmentId) {
         this.orderId = orderId;
         this.shipmentId = shipmentId;
     }
 
-    public Key getOrderId() {
+    public long getOrderId() {
         return orderId;
     }
 
-    public Key getShipmentId() {
+    public long getShipmentId() {
         return shipmentId;
     }
 }

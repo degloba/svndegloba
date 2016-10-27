@@ -14,8 +14,8 @@ import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Rese
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation.ReservationStatus;
 
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+/*import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;*/
 
 @DomainFactory
 public class ReservationFactory {
@@ -27,8 +27,8 @@ public class ReservationFactory {
 		if (! canReserve(client))
 			throw new DomainOperationException(client.getAggregateId(), "Client can not create reservations");
 		
-		Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString());
-		Reservation reservation = new Reservation(aggregateId, ReservationStatus.OPENED, client.generateSnapshot(), new Date());
+		/////Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString());
+		Reservation reservation = new Reservation(1, ReservationStatus.OPENED, client.generateSnapshot(), new Date());
 		spring.autowireBean(reservation);
 		
 		addGratis(reservation, client);

@@ -7,9 +7,15 @@ import javax.persistence.Embeddable;
 
 import org.apache.commons.lang3.Validate;
 
-@SuppressWarnings("serial")
+
+/*
+ * JPA Implementation Patterns: Using UUIDs As Primary Keys
+ */
+
 @Embeddable
 public class AggregateId implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	private String aggregateId;
 

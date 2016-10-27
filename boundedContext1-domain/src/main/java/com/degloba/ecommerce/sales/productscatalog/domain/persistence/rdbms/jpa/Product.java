@@ -11,7 +11,7 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 @Entity
 @AggregateRoot
@@ -33,7 +33,7 @@ public class Product extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Product(){}
 	
-	Product(Key aggregateId, Money price, String name, ProductType productType){
+	Product(long aggregateId, Money price, String name, ProductType productType){
 		///////this.aggregateId = aggregateId;
 		this.price = price;
 		this.name = name;

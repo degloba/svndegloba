@@ -1,29 +1,27 @@
 package com.degloba.ecommerce.sales.application.commands;
 
-import com.google.appengine.api.datastore.Key;
-
 import com.degloba.cqrs.command.annotations.Command;
 
 
 @Command
 public class AddProdctCommand {
 
-	private Key orderId;
-	private Key productId;
+	private long orderId;
+	private long productId;
 	private int quantity;
 	
-	public AddProdctCommand(Key orderId, Key productId,
+	public AddProdctCommand(long orderId, long productId,
 			int quantity) {
 		this.orderId = orderId;
 		this.productId = productId;
 		this.quantity = quantity;
 	}
 	
-	public Key getOrderId() {
+	public long getOrderId() {
 		return orderId;
 	}
 	
-	public Key getProductId() {
+	public long getProductId() {
 		return productId;
 	}
 	

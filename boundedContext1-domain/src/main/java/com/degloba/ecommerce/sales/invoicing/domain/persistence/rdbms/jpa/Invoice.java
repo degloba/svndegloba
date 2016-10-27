@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * 
@@ -53,7 +53,7 @@ public class Invoice extends BaseAggregateRoot {
 	///////////@Fetch(FetchMode.JOIN)
 	private List<InvoiceLine> items;
 
-	public Invoice(Key invoiceId, ClientData client) {
+	public Invoice(long invoiceId, ClientData client) {
 		///////this.aggregateId = invoiceId;
 		this.client = client;
 		this.items = new ArrayList<InvoiceLine>();

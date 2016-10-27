@@ -34,7 +34,7 @@ import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
 import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 import com.degloba.domain.sharedkernel.Money;
-import com.google.appengine.api.datastore.Key;
+
 
 /**
  * Reservation is just a "wish list". System can not guarantee that user can buy desired products.</br>
@@ -79,7 +79,7 @@ public class Reservation extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Reservation() {}
 
-	public Reservation(Key aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
+	public Reservation(long aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
 		///////this.aggregateId = aggregateId;
 		this.status = status;
 		this.clientData = clientData;

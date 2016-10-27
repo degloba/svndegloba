@@ -2,8 +2,6 @@ package com.degloba.ecommerce.shipping.application.commands;
 
 import java.io.Serializable;
 
-import com.google.appengine.api.datastore.Key;
-
 import com.degloba.cqrs.command.annotations.Command;
 
 
