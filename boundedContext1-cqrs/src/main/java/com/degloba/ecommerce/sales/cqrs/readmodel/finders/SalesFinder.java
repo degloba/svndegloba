@@ -14,8 +14,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
-import com.degloba.ecommerce.sales.offer.cqrs.OfferQuery;
-import com.degloba.ecommerce.sales.offer.cqrs.dtos.OfferedProductDto;
+import com.degloba.ecommerce.sales.offer.cqrs.readmodel.OfferQuery;
+import com.degloba.ecommerce.sales.offer.cqrs.readmodel.dtos.OfferedProductDto;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderStatus;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
