@@ -369,10 +369,21 @@
 			<version>0.4</version>
 		</dependency>
 		
-		<dependency>
+		
+		<!-- ******************** -->
+		<!--  Implementacions JPA -->
+		<!-- ******************** -->
+		<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.6.4</version>
 		</dependency>
+		
 		
 		<dependency>
 			<groupId>org.datanucleus</groupId>
@@ -389,6 +400,7 @@
 			<version>2.2.1</version>
 		</dependency>
 
+		
     </dependencies>
     
 
