@@ -17,10 +17,6 @@ import com.degloba.gcm.domain.persistence.nosql.mongo.spring.GCMTokenRegister;
 import com.degloba.gcm.domain.persistence.nosql.mongo.spring.IGCMTokenRegisterRepository;
 
 
-//Domain (usuaris)
-
-
-
 @DomainRepositoryImpl
 public class GCMTokenRegisterRepository implements IGCMTokenRegisterRepository{ 
 	static final Logger logger = LoggerFactory.getLogger(GCMTokenRegisterRepository.class); 

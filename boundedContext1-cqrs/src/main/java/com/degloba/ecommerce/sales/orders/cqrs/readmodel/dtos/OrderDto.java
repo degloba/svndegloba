@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderStatus;
-import com.google.appengine.api.datastore.Key;
 
 
 public class OrderDto {

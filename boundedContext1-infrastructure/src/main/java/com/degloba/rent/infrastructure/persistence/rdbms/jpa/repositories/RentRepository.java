@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
 import com.degloba.rent.domain.persistence.rdbms.jpa.IRentRepository;
 import com.degloba.rent.domain.persistence.rdbms.jpa.PhotoJpa;

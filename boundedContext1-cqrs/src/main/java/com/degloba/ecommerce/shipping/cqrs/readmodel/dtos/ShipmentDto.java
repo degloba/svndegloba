@@ -2,29 +2,26 @@ package com.degloba.ecommerce.shipping.cqrs.readmodel.dtos;
 
 import java.io.Serializable;
 
-
-import com.google.appengine.api.datastore.Key;
-
 import com.degloba.ecommerce.shipping.domain.ShippingStatus;
 
 @SuppressWarnings("serial")
 public class ShipmentDto implements Serializable {
 
-    private Key shipmentId;
-    private Key orderId;
+    private long shipmentId;
+    private long orderId;
     private ShippingStatus status;
 
-    public ShipmentDto(Key shipmentId, Key orderId, ShippingStatus status) {
+    public ShipmentDto(long shipmentId, long orderId, ShippingStatus status) {
         this.shipmentId = shipmentId;
         this.orderId = orderId;
         this.status = status;
     }
 
-    public Key getShipmentId() {
+    public long getShipmentId() {
         return shipmentId;
     }
 
-    public Key getOrderId() {
+    public long getOrderId() {
         return orderId;
     }
 
