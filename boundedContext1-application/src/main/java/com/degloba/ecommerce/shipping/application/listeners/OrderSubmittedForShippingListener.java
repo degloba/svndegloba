@@ -12,7 +12,7 @@ import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
 // CQRS (ecommerce)
 
 import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
-import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
 // Event
 import com.degloba.event.annotations.EventListeners;
 import com.degloba.event.annotations.EventListener;

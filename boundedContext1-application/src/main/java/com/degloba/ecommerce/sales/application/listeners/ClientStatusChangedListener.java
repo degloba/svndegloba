@@ -5,14 +5,12 @@ import javax.inject.Inject;
 // CQRS
 import com.degloba.cqrs.query.PaginatedResult;
 
-// Ecommerce
-
 
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
 import com.degloba.ecommerce.sales.application.services.DiscountingService;
 import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
-import com.degloba.ecommerce.sales.orders.OrderQuery;
-import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
 // Domain
 import com.degloba.domain.sharedkernel.Money;
 

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.offer;
+package com.degloba.ecommerce.sales.offer.cqrs;
 
 public class OfferQuery {
 

@@ -9,9 +9,16 @@
 	
 	  <threadsafe>true</threadsafe>
   
+	  <use-google-connector-j>true</use-google-connector-j>
+  
 	  <!-- Configure java.util.logging -->
 	  <system-properties>
 	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+	    
+	    
+	    <property name="cloudsql.url.dev" value="jdbc:mysql://127.0.0.1:3306/degloba?user=root"/>
+		<!-- <property name="cloudsql.url" value="jdbc:google:mysql://<your-project-id>:<your-instance-name>/<your-database-name>?user=root";"/>
+         -->
 	</system-properties>
   
 	  

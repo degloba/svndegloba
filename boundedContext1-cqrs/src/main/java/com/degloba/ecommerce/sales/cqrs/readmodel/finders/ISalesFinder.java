@@ -5,10 +5,11 @@ import java.util.List;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.cqrs.query.annotations.Finder;
-import com.degloba.ecommerce.sales.offer.OfferQuery;
-import com.degloba.ecommerce.sales.offer.dtos.OfferedProductDto;
-import com.degloba.ecommerce.sales.orders.OrderQuery;
-import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
+import com.degloba.ecommerce.sales.offer.cqrs.OfferQuery;
+import com.degloba.ecommerce.sales.offer.cqrs.dtos.OfferedProductDto;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
+
 
 
 @Finder

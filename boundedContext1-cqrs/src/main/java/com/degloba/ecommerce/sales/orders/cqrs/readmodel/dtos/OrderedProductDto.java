@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.orders.dtos;
+package com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos;
 
 // TODO more attrs
 public class OrderedProductDto {

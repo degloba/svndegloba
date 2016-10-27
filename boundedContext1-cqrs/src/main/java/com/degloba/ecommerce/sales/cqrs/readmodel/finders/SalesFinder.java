@@ -14,6 +14,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
+import com.degloba.ecommerce.sales.offer.cqrs.OfferQuery;
+import com.degloba.ecommerce.sales.offer.cqrs.dtos.OfferedProductDto;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderStatus;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
+import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderedProductDto;
 
 // CQRS (ecommerce)
 
@@ -22,12 +28,7 @@ import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Rese
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservedProduct;
 import com.google.common.base.Function;
 
-import com.degloba.ecommerce.sales.offer.OfferQuery;
-import com.degloba.ecommerce.sales.offer.dtos.OfferedProductDto;
-import com.degloba.ecommerce.sales.orders.OrderQuery;
-import com.degloba.ecommerce.sales.orders.OrderStatus;
-import com.degloba.ecommerce.sales.orders.dtos.OrderDto;
-import com.degloba.ecommerce.sales.orders.dtos.OrderedProductDto;
+
 
 
 @FinderImpl
