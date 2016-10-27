@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
 import com.degloba.ecommerce.sales.application.services.IOrderingService;
@@ -47,9 +47,6 @@ public class OrderingServiceImpl implements IOrderingService {
 	private SystemUser systemUser;*/
 	
 	@Inject
-	private IEntityRepository entityRepository;
-	
-	@Inject
 	private ISalesRepository salesRepository;
 
 	@Inject
@@ -70,7 +67,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	// @Secured requires BUYER role
 	public long createOrder() {
 		Reservation reservation = reservationFactory.create(loadClient());
-		entityRepository.save(reservation);
+		salesRepository.save(reservation);
 		return reservation.getAggregateId();
 	}
 
@@ -98,7 +95,7 @@ public class OrderingServiceImpl implements IOrderingService {
 			
 		reservation.add(product, quantity);
 		
-		entityRepository.save(reservation);
+		salesRepository.save(reservation);
 	}
 	
 	/**
@@ -106,7 +103,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
 	public Offer calculateOffer(long orderId) {
-		Reservation reservation = entityRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 
 		DiscountPolicy discountPolicy = discountFactory.create(loadClient());
 		
@@ -134,7 +131,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
 	public void confirm(long orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
 			throws OfferChangedException {
-		Reservation reservation = entityRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 		if (reservation.isClosed())
 			throw new DomainOperationException(reservation.getAggregateId(), "reservation is already closed");
 		
@@ -158,19 +155,19 @@ public class OrderingServiceImpl implements IOrderingService {
 		if (! client.canAfford(purchase.getTotalCost()))
 			throw new DomainOperationException(client.getAggregateId(), "client has insufficent money");
 		
-		entityRepository.save(purchase);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
+		salesRepository.save(purchase);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
 		
 		/*
 		 * Sample model where one aggregate creates another. Client does not manage payment lifecycle, therefore application must manage it. 
 		 */
 		Payment payment = client.charge(purchase.getTotalCost());
-		entityRepository.save(payment);
+		salesRepository.save(payment);
 		
 		purchase.confirm();	
 		reservation.close();				
 		
-		entityRepository.save(reservation);
-		entityRepository.save(client);
+		salesRepository.save(reservation);
+		salesRepository.save(client);
 		
 	}
 	

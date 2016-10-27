@@ -3,12 +3,11 @@ package com.degloba.domain;
 import com.degloba.utils.DateUtils;
 import org.junit.Test;
 
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
 // Entitats de domini 
 
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-
+import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
 import com.degloba.organisation.utils.OrganisationUtils;
 
 import java.util.Date;
@@ -30,7 +29,7 @@ public class ProvesTest extends AbstractIntegrationTest {
         company.save();
         
         // 2.-
-        IEntityRepository repository = InstanceFactory.getInstance(IEntityRepository.class);
+        IOrganisationRepository repository = InstanceFactory.getInstance(IOrganisationRepository.class);
         
         // 3.-
         List<Company> companies = repository.findAll(Company.class);

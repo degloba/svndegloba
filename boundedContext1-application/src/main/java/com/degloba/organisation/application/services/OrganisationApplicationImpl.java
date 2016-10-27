@@ -18,10 +18,6 @@ import javax.inject.Inject;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
-// Domain
-
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-
 
 public class OrganisationApplicationImpl implements IOrganisationService {
 	

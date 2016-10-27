@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+
 import com.degloba.organisation.application.services.IOrganisationService;
 import com.degloba.organisation.application.services.OrganisationApplicationImpl;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
