@@ -14,8 +14,10 @@
     <properties>
     
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>       
-        <primefaces-version>5.3</primefaces-version> 
-                  
+        <primefaces-version>5.3</primefaces-version>
+
+        <cloudsql.url>jdbc:google:mysql://your-instance-name/demo?user=root</cloudsql.url>
+        <cloudsql.url.dev>jdbc:mysql://localhost/degloba?user=root</cloudsql.url.dev>
     </properties>
     
     

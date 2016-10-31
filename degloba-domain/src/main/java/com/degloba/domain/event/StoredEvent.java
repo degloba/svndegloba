@@ -5,65 +5,113 @@ import com.degloba.domain.InstanceFactory;
 import com.degloba.utils.Assert;
 import com.degloba.utils.ObjectSerializer;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id; 
 
 import java.util.Date;
 
 /**
  * Stored in the form of the event.
  */
-@Entity
-@Table(name = "stored_events")
-public class StoredEvent {
 
-    @Id
-    private String eventId;       //Event ID, the ID associated with the field event DomainEvent
-    private String typeName;    //Event Type Name
-    private Date occurredOn;    //Event time
-    private String eventBody;   //A string representation of the body with the incident
 
-    private static ObjectSerializer serializer;
+	/** 
+	 * * A simple POJO representing a EventStore 
+	 **/ 
+	@Document public class StoredEvent { 
+		
+		 @Id 
+		 private String entityId; 
+		 
+		 private String eventId;       //Event ID, the ID associated with the field event DomainEvent
+		 private String typeName;    //Event Type Name
+		 private Date occurredOn;    //Event time
+		 private String eventBody;   //A string representation of the body with the incident
 
-    protected StoredEvent() {
-    }
+		 private static ObjectSerializer serializer;
+		 
 
-    protected StoredEvent(String typeName, Date occurredOn, String eventBody) {
-        Assert.notNull(occurredOn, "occurredOn is null!");
-        Assert.notEmpty(typeName, "typeName is null or empty!");
-        this.typeName = typeName;
-        this.eventBody = eventBody;
-        this.occurredOn = occurredOn;
-    }
+		 protected StoredEvent() {
+		    }
 
-    private StoredEvent(String typeName, Date occurredOn, String eventBody, String eventId) {
-        this(typeName, occurredOn, eventBody);
-        this.eventId = eventId;
-    }
+		 protected StoredEvent(String typeName, Date occurredOn, String eventBody) {
+		        Assert.notNull(occurredOn, "occurredOn is null!");
+		        Assert.notEmpty(typeName, "typeName is null or empty!");
+		        this.typeName = typeName;
+		        this.eventBody = eventBody;
+		        this.occurredOn = occurredOn;
+		    }
 
-    public static final ObjectSerializer getSerializer() {
-        if (serializer == null) {
-            serializer = InstanceFactory.getInstance(ObjectSerializer.class);
-        }
-        return serializer;
-    }
+		 private StoredEvent(String typeName, Date occurredOn, String eventBody, String eventId) {
+		        this(typeName, occurredOn, eventBody);
+		        this.eventId = eventId;
+		    }
+		    
+		 public StoredEvent(String entityId, String eventId, String typeName, Date occurredOn, String eventBody) {
+			super();
+			this.entityId = entityId;
+			this.eventId = eventId;
+			this.typeName = typeName;
+			this.occurredOn = occurredOn;
+			this.eventBody = eventBody;
+		}
 
-    public Date getOccurredOn() {
-        return occurredOn;
-    }
+		public String getEntityId() {
+			return entityId;
+		}
 
-    public String getEventBody() {
-        return eventBody;
-    }
+		public void setEntityId(String entityId) {
+			this.entityId = entityId;
+		}
 
-    public String getEventId() {
-        return eventId;
-    }
+		
+		public String getEventId() {
+			return eventId;
+		}
 
-    public String getTypeName() {
-        return typeName;
-    }
+		public void setEventId(String eventId) {
+			this.eventId = eventId;
+		}
+
+		public String getTypeName() {
+			return typeName;
+		}
+
+		public void setTypeName(String typeName) {
+			this.typeName = typeName;
+		}
+
+		public Date getOccurredOn() {
+			return occurredOn;
+		}
+
+		public void setOccurredOn(Date occurredOn) {
+			this.occurredOn = occurredOn;
+		}
+
+		public String getEventBody() {
+			return eventBody;
+		}
+
+		public void setEventBody(String eventBody) {
+			this.eventBody = eventBody;
+		}
+
+		/*public static ObjectSerializer getSerializer() {
+			return serializer;
+		}*/
+	    public static  ObjectSerializer getSerializer() {
+	        if (serializer == null) {
+	            serializer = InstanceFactory.getInstance(ObjectSerializer.class);
+	        }
+	        return serializer;
+	    }
+		
+
+		public void setSerializer(ObjectSerializer serializer) {
+			StoredEvent.serializer = serializer;
+		}
+
 
     public static StoredEvent fromDomainEvent(DomainEvent event) {
         Assert.notNull(event);
@@ -111,5 +159,6 @@ public class StoredEvent {
         return "StoredEvent [eventBody=" + eventBody + ", eventId=" + eventId + ", occurredOn=" + occurredOn + ", typeName="
                 + typeName + "]";
     }
+
 
 }

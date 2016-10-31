@@ -120,8 +120,16 @@
  	  		<!-- *********************** -->
  	  		
  	  		<!-- JPA/RDBMS(MySql)/EclipseLink  -->
+ 	  		
+ 	  		<!-- Development -->
  	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false"/>
+ 	  		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false"/>
+ 	  		
+ 	  		<!-- Production 
+ 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.GoogleDriver"/>
+ 	  		<property name="javax.persistence.jdbc.url" value="jdbc:google:mysql://your-instance-name/demo?user=root"/> -->
+            
+            
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="robledo00"/>
  	  		
