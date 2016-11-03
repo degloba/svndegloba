@@ -13,12 +13,12 @@ public class DomainEventBusImplTest {
 
     private EventBus eventBus;
 
-    private IStoredEventRepository eventStore;
+    private IStoredDomainEventRepository eventStore;
 
     @Before
     public void setUp() {
         eventBus = mock(EventBus.class);
-        eventStore = mock(IStoredEventRepository.class);
+        eventStore = mock(IStoredDomainEventRepository.class);
         instance = new DomainEventBusImpl(eventBus, eventStore);
     }
 

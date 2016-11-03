@@ -33,7 +33,7 @@ import com.degloba.domain.annotations.DomainRepositoryImpl;
  *  
  */ 
 @DomainRepositoryImpl
-public class StoredDomainEventRepository implements IStoredEventRepository{ 
+public class StoredDomainEventRepository implements IStoredDomainEventRepository{ 
 	static final Logger logger = LoggerFactory.getLogger(StoredDomainEventRepository.class); 
 
 	@Autowired 

@@ -10,9 +10,9 @@ public class DomainEventBusImpl implements IDomainEventBus {
 
     private EventBus eventBus;
 
-    private IStoredEventRepository storedEventRepository;
+    private IStoredDomainEventRepository storedEventRepository;
 
-    public DomainEventBusImpl(EventBus eventBus, IStoredEventRepository storedEventRepository) {
+    public DomainEventBusImpl(EventBus eventBus, IStoredDomainEventRepository storedEventRepository) {
         Assert.notNull(eventBus, "EventBus is null!");
         Assert.notNull(storedEventRepository, "EventStore is null!");
         this.eventBus = eventBus;
