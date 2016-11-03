@@ -9,7 +9,7 @@ import com.degloba.domain.annotations.DomainRepository;
 
 
 @DomainRepository
-public interface IStoredEventRepository extends MongoRepository<StoredEvent, String> {
+public interface IStoredEventRepository extends MongoRepository<StoredDomainEvent, String> {
 
 /*	public void logAllPersons();  		
 	public void insertPersonWithNameJohnAndRandomAge(); 	
@@ -24,7 +24,7 @@ public interface IStoredEventRepository extends MongoRepository<StoredEvent, Str
      * @param occurredTo   The upper limit time of the incident
      * @return Collection event occurred a specified time frame, according to time of occurrence in ascending order.
      */
-    public List<StoredEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
+    public List<StoredDomainEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
 
     /**
      * Get A collection of historical events that occur after the specified time and the.
@@ -33,7 +33,7 @@ public interface IStoredEventRepository extends MongoRepository<StoredEvent, Str
      * @return Its collection of events that occur after the specified time, 
      * according to time of occurrence in ascending order.
      */
-    public List<StoredEvent> findStoredEventsSince(Date occurredFrom);
+    public List<StoredDomainEvent> findStoredEventsSince(Date occurredFrom);
 
     /**
      * Insert a new field events to the event store
@@ -41,7 +41,7 @@ public interface IStoredEventRepository extends MongoRepository<StoredEvent, Str
      * @param domainEvent A field event
      * @return Field events stored on behalf of the event
      */
-    public StoredEvent append(DomainEvent domainEvent);
+    public StoredDomainEvent append(ADomainEvent domainEvent);
 
     /**
      * Close event storage

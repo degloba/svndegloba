@@ -10,15 +10,21 @@ import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
-/**
- * Stored in the form of the event.
- */
-
 
 	/** 
-	 * * A simple POJO representing a EventStore 
+	 * A simple POJO representing a EventStore
+	 * 
+	 * Representa la entidad de persistencia asociada a un evento del dominio (persistido en MongoDB)
+	 * 
+	 * Contiene un campo com el evento que realmente se ha generado (eventBody).
+	 * 
+	 * Ejemplo : DomainEventSub que extends ADomainEvent
+	 * 
+	 * eventBody = un evento de tipo "DomainEvent" serializado
+	 * 
+	 *  
 	 **/ 
-	@Document public class StoredEvent { 
+	@Document public class StoredDomainEvent { 
 		
 		 @Id 
 		 private String entityId; 
@@ -31,10 +37,10 @@ import java.util.Date;
 		 private static ObjectSerializer serializer;
 		 
 
-		 protected StoredEvent() {
+		 protected StoredDomainEvent() {
 		    }
 
-		 protected StoredEvent(String typeName, Date occurredOn, String eventBody) {
+		 protected StoredDomainEvent(String typeName, Date occurredOn, String eventBody) {
 		        Assert.notNull(occurredOn, "occurredOn is null!");
 		        Assert.notEmpty(typeName, "typeName is null or empty!");
 		        this.typeName = typeName;
@@ -42,12 +48,12 @@ import java.util.Date;
 		        this.occurredOn = occurredOn;
 		    }
 
-		 private StoredEvent(String typeName, Date occurredOn, String eventBody, String eventId) {
+		 private StoredDomainEvent(String typeName, Date occurredOn, String eventBody, String eventId) {
 		        this(typeName, occurredOn, eventBody);
 		        this.eventId = eventId;
 		    }
 		    
-		 public StoredEvent(String entityId, String eventId, String typeName, Date occurredOn, String eventBody) {
+		 public StoredDomainEvent(String entityId, String eventId, String typeName, Date occurredOn, String eventBody) {
 			super();
 			this.entityId = entityId;
 			this.eventId = eventId;
@@ -109,18 +115,18 @@ import java.util.Date;
 		
 
 		public void setSerializer(ObjectSerializer serializer) {
-			StoredEvent.serializer = serializer;
+			StoredDomainEvent.serializer = serializer;
 		}
 
 
-    public static StoredEvent fromDomainEvent(DomainEvent event) {
+    public static StoredDomainEvent fromDomainEvent(ADomainEvent event) {
         Assert.notNull(event);
-        return new StoredEvent(event.getClass().getName(), event.getOccurredOn(),
+        return new StoredDomainEvent(event.getClass().getName(), event.getOccurredOn(),
                 getSerializer().serialize(event), event.getId());
     }
 
     @SuppressWarnings("unchecked")
-	public <T extends DomainEvent> T toDomainEvent() {
+	public <T extends ADomainEvent> T toDomainEvent() {
         Class<T> domainEventClass = null;
 
         try {
@@ -138,7 +144,7 @@ import java.util.Date;
         boolean equalObjects = false;
 
         if (anObject != null && this.getClass() == anObject.getClass()) {
-            StoredEvent typedObject = (StoredEvent) anObject;
+        	StoredDomainEvent typedObject = (StoredDomainEvent) anObject;
             equalObjects = this.eventId == typedObject.eventId;
         }
 

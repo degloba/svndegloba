@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
 import com.degloba.rent.domain.persistence.rdbms.jpa.IRentRepository;
+import com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class CategoriesTest extends AbstractIntegrationTest {
 
 
-	private Subcategory subcategory;
+	private SubcategoryJpa subcategory;
 	
     @Before
     public void setUp() throws Exception {
@@ -25,7 +26,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
 	    category.setDescription("Oci");
 	    
         // Categories/Subcategories
-	    subcategory = new Subcategory();
+	    subcategory = new SubcategoryJpa();
 	    subcategory.setDescription("Natacion");
 	    
 	    ///////subcategory.setCategory(category);

@@ -27,16 +27,19 @@ import com.degloba.domain.annotations.DomainRepositoryImpl;
 
 
 /** 
- *  Repository for {@link EventStore}s 
+ *  Repository for {@link StoredDomainEvent}s 
+ *  
+ *  El repositorio está implementado en MongoDB
+ *  
  */ 
 @DomainRepositoryImpl
-public class StoredEventRepository implements IStoredEventRepository{ 
-	static final Logger logger = LoggerFactory.getLogger(StoredEventRepository.class); 
+public class StoredDomainEventRepository implements IStoredEventRepository{ 
+	static final Logger logger = LoggerFactory.getLogger(StoredDomainEventRepository.class); 
 
 	@Autowired 
 	MongoTemplate mongoTemplate; 
 	
-	private Class<StoredEvent> clazz = null;
+	private Class<StoredDomainEvent> clazz = null;
 	
 	public MongoTemplate getMongoTemplate() {
 		return mongoTemplate;
@@ -51,25 +54,25 @@ public class StoredEventRepository implements IStoredEventRepository{
 	 *  */ 
 	
 	public void createEventStoreCollection() { 
-		if (!mongoTemplate.collectionExists(StoredEvent.class)) { 
-			mongoTemplate.createCollection(StoredEvent.class); } } 
+		if (!mongoTemplate.collectionExists(StoredDomainEvent.class)) { 
+			mongoTemplate.createCollection(StoredDomainEvent.class); } } 
 	
 	/** 
 	 * * Drops the {@link EventStore} collection if the collection does already exists 
 	 * */ 
 	public void dropEventStoreCollection() { 
-		if (mongoTemplate.collectionExists(StoredEvent.class)) { 
-			mongoTemplate.dropCollection(StoredEvent.class); 
+		if (mongoTemplate.collectionExists(StoredDomainEvent.class)) { 
+			mongoTemplate.dropCollection(StoredDomainEvent.class); 
 			} 
 		}
 	
 	@Override
-	public <S extends StoredEvent> List<S> insert(Iterable<S> entities) {
+	public <S extends StoredDomainEvent> List<S> insert(Iterable<S> entities) {
 		return this.insert(entities);
 	}
 		
 	@Override
-	public <S extends StoredEvent> List<S> save(Iterable<S> entities) {
+	public <S extends StoredDomainEvent> List<S> save(Iterable<S> entities) {
 		return this.save(entities);
 		
 		/*List<S> result = convertIterableToList(entities);
@@ -94,7 +97,7 @@ public class StoredEventRepository implements IStoredEventRepository{
 	}
 	
 	@Override
-	public List<StoredEvent> findAll() {		
+	public List<StoredDomainEvent> findAll() {		
 		return this.findAll();
 		
 		/*logger.info("PersonRepository:findAll",clazz);
@@ -110,7 +113,7 @@ public class StoredEventRepository implements IStoredEventRepository{
 	}
 	
 	@Override
-	public List<StoredEvent> findAll(Sort sort) {
+	public List<StoredDomainEvent> findAll(Sort sort) {
 		return this.findAll(sort);
 		
 		/*Query query = new Query().with(sort);
@@ -118,35 +121,35 @@ public class StoredEventRepository implements IStoredEventRepository{
 	}
 	
 	@Override
-	public <S extends StoredEvent> S insert(S entity) {	
+	public <S extends StoredDomainEvent> S insert(S entity) {	
 		return this.insert(entity);			
 	}
 	
 	@Override
-	public Page<StoredEvent> findAll(Pageable pageable) {
+	public Page<StoredDomainEvent> findAll(Pageable pageable) {
 		return this.findAll(pageable);
 	}
 	
 	@Override
-	public <S extends StoredEvent> S save(S entity) {
+	public <S extends StoredDomainEvent> S save(S entity) {
 		return this.save(entity);		
 	}
 	
 	@Override
-	public StoredEvent findOne(String id) {
+	public StoredDomainEvent findOne(String id) {
 		return mongoTemplate.findOne(new Query(Criteria.where("id").is(id)), clazz) ;
 	}
 	
 	@Override
 	public boolean exists(String id) {
-		StoredEvent resource = mongoTemplate.findById(new ObjectId(id), clazz);
+		StoredDomainEvent resource = mongoTemplate.findById(new ObjectId(id), clazz);
         clazz = null;
         if(resource == null) return false;
         return true;
 	}
 	
 	@Override
-	public Iterable<StoredEvent> findAll(Iterable<String> ids) {
+	public Iterable<StoredDomainEvent> findAll(Iterable<String> ids) {
 		return this.findAll(ids);
 	}
 	
@@ -167,12 +170,12 @@ public class StoredEventRepository implements IStoredEventRepository{
 	}
 	
 	@Override
-	public void delete(StoredEvent entity) {
+	public void delete(StoredDomainEvent entity) {
 		this.delete(entity);		
 	}
 	
 	@Override
-	public void delete(Iterable<? extends StoredEvent> entities) {
+	public void delete(Iterable<? extends StoredDomainEvent> entities) {
 		this.delete(entities);		
 	}
 	
@@ -206,29 +209,30 @@ public class StoredEventRepository implements IStoredEventRepository{
         return list;
     }
 	@Override
-	public List<StoredEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo) {
+	public List<StoredDomainEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public List<StoredEvent> findStoredEventsSince(Date occurredFrom) {
+	public List<StoredDomainEvent> findStoredEventsSince(Date occurredFrom) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public StoredEvent append(DomainEvent domainEvent) {
-		// TODO Auto-generated method stub
-		return null;
+	public StoredDomainEvent append(ADomainEvent domainEvent) {
+		return StoredDomainEvent.fromDomainEvent(domainEvent);
 	}
+	
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
-		
+		this.close();		
 	}
+	
 	@Override
 	public long countStoredEvents() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.count();		
 	}
 
 	

@@ -24,7 +24,7 @@ public class DomainEventBusImplTest {
 
     @Test
     public void publishEvent() {
-        DomainEvent event = new DomainEventSub();
+        ADomainEvent event = new DomainEventSub();
         instance.publishEvent(event);
         verify(eventBus).post(event);
         verify(eventStore).append(event);

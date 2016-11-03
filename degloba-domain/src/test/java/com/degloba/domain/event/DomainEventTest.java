@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class DomainEventTest {
 
-    private DomainEvent instance;
+    private ADomainEvent instance;
 
     @Test
     public void constructor() {
@@ -37,7 +37,7 @@ public class DomainEventTest {
         assertThat(instance.getOccurredOn(), is(occurredOn));
     }
 
-    private class SubDomainEvent extends DomainEvent {
+    private class SubDomainEvent extends ADomainEvent {
         public SubDomainEvent() {
         }
 

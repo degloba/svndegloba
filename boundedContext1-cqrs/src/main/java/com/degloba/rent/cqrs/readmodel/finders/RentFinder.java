@@ -45,7 +45,7 @@ public class RentFinder implements IRentFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<Category> findCategories() {
-        String jpql = "select c from com.degloba.rent.domain.jpa.Category c JOIN c.subcategories s";
+        String jpql = "select c from com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa c";
         Query query = entityManager.createQuery(jpql);
         List<Category> categories =  query.getResultList();
         entityManager.clear();

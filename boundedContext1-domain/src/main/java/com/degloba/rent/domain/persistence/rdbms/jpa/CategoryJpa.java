@@ -36,7 +36,7 @@ public class CategoryJpa extends BaseAggregateRoot
 	}
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Subcategory> subcategories = new ArrayList<Subcategory>();
+    private List<SubcategoryJpa> subcategories = new ArrayList<SubcategoryJpa>();
 	
 	
 	 // getters and setters
@@ -51,18 +51,17 @@ public class CategoryJpa extends BaseAggregateRoot
 	}
 
 
-	public List<Subcategory> getSubcategories() {
+	public List<SubcategoryJpa> getSubcategories() {
 		return subcategories;
 	}
 
 
-	public void setSubcategories(List<Subcategory> subcategories) {
+	public void setSubcategories(List<SubcategoryJpa> subcategories) {
 		this.subcategories = subcategories;
 	}
 
 
-
-
+	
 	
 	
 }

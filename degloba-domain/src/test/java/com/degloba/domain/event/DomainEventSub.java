@@ -3,7 +3,7 @@ package com.degloba.domain.event;
 import java.util.Date;
 
 
-public class DomainEventSub extends DomainEvent {
+public class DomainEventSub extends ADomainEvent {
 
     private String prop1;
 

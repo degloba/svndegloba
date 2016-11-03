@@ -1,5 +1,6 @@
 package com.degloba.domain.event;
 
+import com.degloba.event.api.AbstractEvent;
 import com.degloba.utils.Assert;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.UUID;
 /**
  * Event base class field event areas event represents a business meaning, such as employee mobility or restructuring
  */
-public abstract class DomainEvent {
+public abstract class ADomainEvent extends AbstractEvent{
 
     private String id = UUID.randomUUID().toString();
 
@@ -16,7 +17,7 @@ public abstract class DomainEvent {
 
     private int version = 1;
 
-    public DomainEvent() {
+    public ADomainEvent() {
         this(new Date(), 1);
     }
 
@@ -24,7 +25,7 @@ public abstract class DomainEvent {
      *
      * @param occurredOn Time of occurrence
      */
-    public DomainEvent(Date occurredOn) {
+    public ADomainEvent(Date occurredOn) {
         this(occurredOn, 1);
     }
 
@@ -33,7 +34,7 @@ public abstract class DomainEvent {
      * @param occurredOn Time of occurrence
      * @param version Version
      */
-    public DomainEvent(Date occurredOn, int version) {
+    public ADomainEvent(Date occurredOn, int version) {
         Assert.notNull(occurredOn);
         this.occurredOn = new Date(occurredOn.getTime());
         this.version = version;
@@ -76,10 +77,10 @@ public abstract class DomainEvent {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof DomainEvent)) {
+        if (!(other instanceof ADomainEvent)) {
             return false;
         }
-        DomainEvent that = (DomainEvent) other;
+        ADomainEvent that = (ADomainEvent) other;
         return this.getId().equals(that.getId());
     }
 

@@ -18,7 +18,7 @@ import java.util.Date;
 
 public class StoredEventTest {
 
-    private StoredEvent instance;
+    private StoredDomainEvent instance;
 
     private String typeName = DomainEventSub.class.getName();
 
@@ -37,7 +37,7 @@ public class StoredEventTest {
 
     @Test
     public void toDomainEvent() {
-        instance = StoredEvent.fromDomainEvent(event);
+        instance = StoredDomainEvent.fromDomainEvent(event);
         DomainEventSub event1 = instance.toDomainEvent();
         assertThat(event1.getId(), is(event.getId()));
         assertThat(event1.getOccurredOn(), is(event.getOccurredOn()));
@@ -48,7 +48,7 @@ public class StoredEventTest {
 
     @Test
     public void fromDomainEvent() {
-        instance = StoredEvent.fromDomainEvent(event);
+        instance = StoredDomainEvent.fromDomainEvent(event);
         assertThat(instance.getEventId(), is(event.getId()));
         assertThat(instance.getOccurredOn(), is(event.getOccurredOn()));
         assertThat(instance.getTypeName(), is(event.getClass().getName()));
