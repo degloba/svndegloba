@@ -9,7 +9,7 @@ import com.degloba.domain.annotations.DomainRepository;
 
 
 @DomainRepository
-public interface IStoredEventRepository extends MongoRepository<StoredDomainEvent, String> {
+public interface IStoredDomainEventRepository extends MongoRepository<StoredDomainEvent, String> {
 
 /*	public void logAllPersons();  		
 	public void insertPersonWithNameJohnAndRandomAge(); 	
