@@ -2,8 +2,8 @@ package com.degloba.domain.event;
 
 import com.google.common.eventbus.EventBus;
 
-import java.util.Date;
-
+import com.degloba.event.api.IEvent;
+import com.degloba.event.api.IEventListener;
 import com.degloba.utils.Assert;
 
 public class DomainEventBusImpl implements IDomainEventBus {
@@ -35,24 +35,20 @@ public class DomainEventBusImpl implements IDomainEventBus {
 
 
 	@Override
-	public String id() {
-		// TODO Auto-generated method stub
-		return null;
+	public void register(IEventListener<?>... handlers) {
+		eventBus.register(handlers);		
 	}
 
 
 	@Override
-	public Date occurredOn() {
-		// TODO Auto-generated method stub
-		return null;
+	public void post(IEvent event) {
+		eventBus.post(event);
 	}
 
 
 	@Override
-	public int version() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void unregister(IEventListener<?>... handlers) {
+		eventBus.unregister(handlers);		
 	}
-
 
 }
