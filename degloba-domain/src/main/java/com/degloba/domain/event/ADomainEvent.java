@@ -3,13 +3,14 @@ package com.degloba.domain.event;
 import com.degloba.event.api.AbstractEvent;
 import com.degloba.utils.Assert;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
 /**
  * Event base class field event areas event represents a business meaning, such as employee mobility or restructuring
  */
-public abstract class ADomainEvent extends AbstractEvent{
+public abstract class ADomainEvent extends AbstractEvent implements Serializable{
 
     private String id = UUID.randomUUID().toString();
 
