@@ -35,5 +35,13 @@ public class CategoryFacadeImpl implements CategoryFacade {
 		this.rentService = rentService;
 	}
 
+	public IRentService getRentService() {
+		return rentService;
+	}
+
+	public void setRentService(IRentService rentService) {
+		this.rentService = rentService;
+	}
+
 		
 }

@@ -58,4 +58,14 @@ public class RentService implements IRentService {
 
 	}
 
+	public IRentRepository getRentRepositoryObjectify() {
+		return rentRepositoryObjectify;
+	}
+
+	public void setRentRepositoryObjectify(IRentRepository rentRepositoryObjectify) {
+		this.rentRepositoryObjectify = rentRepositoryObjectify;
+	}
+	
+	
+
 }

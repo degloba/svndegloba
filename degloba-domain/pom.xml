@@ -15,6 +15,11 @@
 
     <dependencies>
        
+       <!-- pels Events -->
+       <dependency>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>		 
+		</dependency>
              
         <!-- JPA -->
 		<dependency>
