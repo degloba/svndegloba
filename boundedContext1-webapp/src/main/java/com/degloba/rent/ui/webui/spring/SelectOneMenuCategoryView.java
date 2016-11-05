@@ -40,18 +40,18 @@ public class SelectOneMenuCategoryView {
     	
 	@PostConstruct
     public void init() {
-                 
+                 		
 		//categories
 		categories = new HashMap<String, String>();
 		
-		for (Category c : categoryFinder.findCategories()) {
+		/*for (Category c : categoryFinder.findCategories()) {
 			categories.put(c.getDescription(), c.getDescription());
 			
 			//subcategories = subcategoryFinder.findSubcategoriesByCategory(c);
 			
 			data.put(c.getDescription(),subcategories );
 			
-		  }
+		  }*/
 		   
     }
 	

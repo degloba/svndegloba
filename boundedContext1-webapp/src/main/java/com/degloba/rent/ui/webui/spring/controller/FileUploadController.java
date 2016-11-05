@@ -38,7 +38,7 @@ public class FileUploadController {
 	 	
     
     @Inject
-    protected IRentRepository rentrRepositoryObjectify;
+    protected IRentRepository rentRepositoryObjectify;
 
      /*
       * Manipula l'Event "Upload" de Primefaces  
@@ -60,13 +60,13 @@ public class FileUploadController {
 					Photo photo = new Photo();
 				   	    		    		    
 				    // 3.- Recuperem el "Product" (Objectify)
-					Key<Product> product = this.rentrRepositoryObjectify.getKey(Product.class, productView.getProductId());
+					Key<Product> product = this.rentRepositoryObjectify.getKey(Product.class, productView.getProductId());
 							    
 					photo.setProduct(product);
 					photo.setIdGcs(file);
 							  
 				    // 2.- Persistim "Photo" (Objectify)
-					this.rentrRepositoryObjectify.create(photo);
+					this.rentRepositoryObjectify.create(photo);
 						    
 			} catch (IOException | GeneralSecurityException e) {
 				// TODO Auto-generated catch block

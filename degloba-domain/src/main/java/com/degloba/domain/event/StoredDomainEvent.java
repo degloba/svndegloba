@@ -3,12 +3,15 @@ package com.degloba.domain.event;
 import com.degloba.domain.InstanceFactory;
 
 import com.degloba.utils.Assert;
-import com.degloba.utils.ObjectSerializer;
+import com.degloba.utils.IObjectSerializer;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.annotation.Id; 
+import org.springframework.data.annotation.Id;
 
+import java.io.IOException;
 import java.util.Date;
+
+import javax.inject.Inject;
 
 
 	/** 
@@ -34,7 +37,8 @@ import java.util.Date;
 		 private Date occurredOn;    //Event time
 		 private String eventBody;   //A string representation of the body with the incident
 
-		 private static ObjectSerializer serializer;
+		 @Inject
+		 private static IObjectSerializer serializer;
 		 
 
 		 protected StoredDomainEvent() {
@@ -106,23 +110,30 @@ import java.util.Date;
 		/*public static ObjectSerializer getSerializer() {
 			return serializer;
 		}*/
-	    public static  ObjectSerializer getSerializer() {
+	    public static  IObjectSerializer getSerializer() {
 	        if (serializer == null) {
-	            serializer = InstanceFactory.getInstance(ObjectSerializer.class);
+	            serializer = InstanceFactory.getInstance(IObjectSerializer.class);
 	        }
 	        return serializer;
 	    }
 		
 
-		public void setSerializer(ObjectSerializer serializer) {
+		public void setSerializer(IObjectSerializer serializer) {
 			StoredDomainEvent.serializer = serializer;
 		}
 
 
     public static StoredDomainEvent fromDomainEvent(ADomainEvent event) {
         Assert.notNull(event);
-        return new StoredDomainEvent(event.getClass().getName(), event.getOccurredOn(),
-                getSerializer().serialize(event), event.getId());
+        try {
+			return new StoredDomainEvent(event.getClass().getName(), event.getOccurredOn(),
+			        getSerializer().serialize(event), event.getId());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        return null;
     }
 
     @SuppressWarnings("unchecked")

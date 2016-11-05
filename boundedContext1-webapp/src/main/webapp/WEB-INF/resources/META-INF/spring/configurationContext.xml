@@ -83,8 +83,10 @@
 		class="com.degloba.organisation.application.services.OrganisationApplicationImpl">
 		    <constructor-arg name="organisationRepository" ref="organisationRepository"/>      	 
 	</bean>
-	<bean id="bookingService"
-		class="com.degloba.travel.application.services.JpaBookingService" />
+	
+	<bean id="bookingService" class="com.degloba.travel.application.services.JpaBookingService" />
+		
+	<bean id="rentService" class="com.degloba.rent.application.services.RentService" />
 
 
 	<!-- ******************* -->
@@ -94,7 +96,11 @@
 		 <property name="application" ref="application"></property> 
 	</bean> 
 	
+	<bean id="facadeCategoryObjectify" class="com.degloba.rent.facade.impl.objectify.CategoryFacadeImpl">
+		 <property name="rentService" ref="rentService"></property> 
+	</bean> 
 	
+
 	<!-- ******************* -->
 	<!-- FACTORIES           -->	
 	<!-- ******************* -->
@@ -119,15 +125,16 @@
 	<!-- ****************** -->		
 	<!-- JSF BEANS          -->
 	<!-- ****************** -->	
-	<context:component-scan base-package="com.degloba.rent.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf"/> 	
+	<context:component-scan base-package="com.degloba.rent.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf,com.degloba.utils.serializer"/> 	
 	
 	
 	
-	<bean
-		class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeper" />
-	<bean
-		class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisor" />
-	<bean
-		class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeper" />
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisor" />
+	<bean class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
+		
+		
+	<bean id="com.degloba.utils.IObjectSerializer" class="com.degloba.utils.serializer.ObjectSerializer" />	
+		
 
 </beans>
