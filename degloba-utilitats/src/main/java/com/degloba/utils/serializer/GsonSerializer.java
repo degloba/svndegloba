@@ -1,11 +1,14 @@
 package com.degloba.utils.serializer;
 
 import com.google.gson.*;
-import com.degloba.utils.ObjectSerializer;
+
+import java.io.Serializable;
+
+import com.degloba.utils.IObjectSerializer;
 
 /*
  */
-public class GsonSerializer implements ObjectSerializer {
+public class GsonSerializer implements IObjectSerializer {
 
     private Gson gson;
 
@@ -18,7 +21,7 @@ public class GsonSerializer implements ObjectSerializer {
     }
 
     @Override
-    public String serialize(Object anObject) {
+    public String serialize(Serializable anObject) {
         return gson.toJson(anObject);
     }
 
