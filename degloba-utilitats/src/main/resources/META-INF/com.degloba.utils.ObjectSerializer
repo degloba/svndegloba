@@ -1,1 +1,1 @@
-com.degloba.utils.internal.GsonObjectSerializer
+com.degloba.utils.serializer.GsonSerializer
