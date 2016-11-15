@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**
@@ -80,7 +81,7 @@ public class Offer {
 		return true;
 	}
 
-	private OfferItem findItem(long productId) {
+	private OfferItem findItem(AggregateId productId) {
 		for (OfferItem item : availabeItems){
 			if (item.getProductData().getProductId() == productId)
 				return item;

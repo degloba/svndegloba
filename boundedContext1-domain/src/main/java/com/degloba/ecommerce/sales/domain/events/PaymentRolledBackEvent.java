@@ -2,6 +2,7 @@ package com.degloba.ecommerce.sales.domain.events;
 
 import java.io.Serializable;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 // Event
 import com.degloba.event.annotations.Event;
 
@@ -10,13 +11,13 @@ import com.degloba.event.annotations.Event;
 @Event
 public class PaymentRolledBackEvent implements Serializable{
 
-	private long paymentId;
+	private AggregateId paymentId;
 	
-	public PaymentRolledBackEvent(long paymentId){
+	public PaymentRolledBackEvent(AggregateId paymentId){
 		this.paymentId = paymentId;
 	}
 	
-	public long getPaymentId() {
+	public AggregateId getPaymentId() {
 		return paymentId;
 	}
 

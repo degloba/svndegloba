@@ -7,17 +7,20 @@ import javax.persistence.Embeddable;
 
 import org.apache.commons.lang3.Validate;
 
+
+/*
+ * https://github.com/BottegaIT/ddd-leaven-v2
+ */
+
 @SuppressWarnings("serial")
 @Embeddable
 public class AggregateId implements Serializable {
 	
     private String aggregateId; 
-    //private String idValue;
     
     public AggregateId(String aggregateId) {                
     	Validate.notNull(aggregateId);                
     	this.aggregateId = aggregateId;        
-    	//this.idValue = idValue;
     	}        
     
     public AggregateId() {        
@@ -60,9 +63,15 @@ public class AggregateId implements Serializable {
     		return aggregateId;        
     }
 
-	/*public String getIdValue() {
-		return idValue;
-	}*/
+	public String getAggregateId() {
+		return aggregateId;
+	}
+
+	public void setAggregateId(String aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
+
 
 
 

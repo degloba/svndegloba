@@ -17,6 +17,7 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 public class OrganisationApplicationImpl implements IOrganisationService {
@@ -35,8 +36,8 @@ public class OrganisationApplicationImpl implements IOrganisationService {
 
  
     @Override
-    public <T extends BaseEntity> T getEntity(Class<T> entityClass, long entityId) {
-        return organisationRepository.get(entityClass, entityId);
+    public <T extends BaseEntity> T getEntity(Class<T> entityClass, AggregateId entityId) {
+        return organisationRepository.get(entityClass, entityId.getId());
     }
 
     @Override

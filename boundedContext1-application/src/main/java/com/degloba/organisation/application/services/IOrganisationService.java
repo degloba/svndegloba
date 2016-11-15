@@ -2,6 +2,7 @@ package com.degloba.organisation.application.services;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 public interface IOrganisationService {
 
-	<T extends BaseEntity> T getEntity(Class<T> entityClass, long entityId);
+	<T extends BaseEntity> T getEntity(Class<T> entityClass, AggregateId entityId);
 	 
     void createOrganization(Organization orgToCreate, Organization parent, Date date);
 

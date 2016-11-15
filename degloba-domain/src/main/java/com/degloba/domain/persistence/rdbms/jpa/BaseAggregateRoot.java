@@ -7,14 +7,19 @@ import java.util.Map;
 
 // CDI Java EE 6
 import javax.inject.Inject;
-
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.EmbeddedId;
 // JPA
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.Column;
 
 
 
@@ -24,6 +29,7 @@ import org.springframework.context.annotation.Scope;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
@@ -47,11 +53,34 @@ import com.degloba.utils.BeanUtils;
 
 		private static final long serialVersionUID = 1L;
 		   
+		
+		public static enum AggregateStatus {
+			ACTIVE, ARCHIVE
+		}
+		
 		/**
 		 * control de concurrencia
 		 */
 		@Version
 		private Long version;
+		
+		@Enumerated(EnumType.ORDINAL)
+		private AggregateStatus aggregateStatus = AggregateStatus.ACTIVE;
+				
+
+		@EmbeddedId
+		@AttributeOverrides({
+			  @AttributeOverride(name = "idValue", column = @Column(name = "aggregateId", nullable = false))})
+		protected AggregateId aggregateId;
+		
+
+		
+		/*
+		 * Domain Publisher
+		 */
+		@Transient
+		@Inject
+		protected IDomainEventPublisher<IDomainEvent<Object>> eventPublisher;
 				
 		private Boolean actiu; //esborrat logic
 		
@@ -61,36 +90,23 @@ import com.degloba.utils.BeanUtils;
 		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaFi;
 		
-		@Temporal(TemporalType.DATE)
-		private Date DataIniciSeleccio;
-		
-
-		@Transient
-		@Inject
-		protected IDomainEventPublisher<IDomainEvent<Object>> eventPublisher;
 		
 		public void markAsRemoved() {
-			//aggregateStatus = AggregateStatus.ARCHIVE;
+			aggregateStatus = AggregateStatus.ARCHIVE;
 		}
 		
-		public long getAggregateId() {
-			return getId();
+		public AggregateId getAggregateId() {
+			return aggregateId;
 		}
 
 		public boolean isRemoved() {
-			return true;
-			////////////////return aggregateStatus == AggregateStatus.ARCHIVE;
+			return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
 		protected void domainError(String message) {
 			throw new DomainOperationException(getAggregateId(), message);
 		}
-		
-	
-	/*	protected void domainError(String message) { 
-					throw new DomainOperationException(aggregateId, message); 
-				} */
-
+			
 
     // getters - setters
 	
@@ -126,23 +142,28 @@ import com.degloba.utils.BeanUtils;
 		DataVigenciaFi = dataVigenciaFi;
 	}
 
-	public Date getDataIniciSeleccio() {
-		return DataIniciSeleccio;
+	
+  
+	public AggregateStatus getAggregateStatus() {
+		return aggregateStatus;
 	}
 
-	public void setDataIniciSeleccio(Date dataIniciSeleccio) {
-		DataIniciSeleccio = dataIniciSeleccio;
+	public void setAggregateStatus(AggregateStatus aggregateStatus) {
+		this.aggregateStatus = aggregateStatus;
 	}
-	
-	
-	 /**
-     * Sample of Domain Event usage<br>
-     * Event Publisher is injected by Factory/Repo 
-     
-    @Transient
-    protected DomainEventPublisher eventPublisher; */
 
-   
+	public IDomainEventPublisher<IDomainEvent<Object>> getEventPublisher() {
+		return eventPublisher;
+	}
+
+	public void setEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
 	/**
      * Sample technique of injecting Event Publisher into the Aggregate.<br>
      * <br>
@@ -159,12 +180,22 @@ import com.degloba.utils.BeanUtils;
 		return eventPublisher;
 	}
 
-
+	   /**
+	    * Get Natural key. Natural key is to determine the two entities of the same type on the basis of operational equivalence. If the same type of two
+	    * Business entities the same primary key, then that the two entities are identical, represent the same entity.
+	    * Natural key by one or more entities, attributes.
+	    * @return Consisting of an array of attributes of Natural key.
+	    */
 	    public String[] businessKeys() {
 	        return new String[] {};
 	    }
 
 
+	    /**
+	     * Gets a hash value based Natural key. Used to determine whether two entities equivalent.
+	     * The equivalent of two different hashCode same entity, the two entities are not equivalent hashCode.
+	     * @return Hashes entities
+	     */
 	    @Override
 	    public int hashCode() {
 	        HashCodeBuilder builder = new HashCodeBuilder(13, 37);
@@ -177,6 +208,11 @@ import com.degloba.utils.BeanUtils;
 	    }
 
 	
+	    /**
+	     * Natural key judgments based on two entities are equal.
+	     * @param other Another entity
+	     * @return If this is the equivalent entities and other returns true, otherwise false
+	     */
 	    @Override
 	    public boolean equals(Object other) {
 	        if (this == other) {
@@ -199,6 +235,7 @@ import com.degloba.utils.BeanUtils;
 	        }
 	        return builder.isEquals();
 	    }
-	    
+
+    
 	   
 }

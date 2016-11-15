@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 @Entity
+@AggregateRoot
 public class EmployeeArchieve extends BaseAggregateRoot {
     
     

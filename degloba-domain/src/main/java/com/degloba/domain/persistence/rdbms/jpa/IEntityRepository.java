@@ -40,7 +40,7 @@ public interface IEntityRepository {
      * @param id Entity identification
      * @return If the Entity instance exists, returns true, otherwise false
      */
-    <T extends BaseEntity> boolean exists(Class<T> clazz, long id);
+    <T extends BaseEntity> boolean exists(Class<T> clazz, String id);
 
     /**
      * Get the Entity in the specified type, the specified ID
@@ -51,7 +51,7 @@ public interface IEntityRepository {
      * @return An Entity instance.
      */
     ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
-    <T extends BaseEntity> T get(Class<T> clazz, long id);
+    <T extends BaseEntity> T get(Class<T> clazz, String id);
 
     /**
      * Load the specified type, specify the ID of the Entity

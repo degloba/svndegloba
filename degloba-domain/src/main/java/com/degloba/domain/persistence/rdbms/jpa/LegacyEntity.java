@@ -3,6 +3,7 @@ package com.degloba.domain.persistence.rdbms.jpa;
 import javax.persistence.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,8 +41,8 @@ public abstract class LegacyEntity extends BaseEntity {
 /*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
         return getRepository().get(clazz, id);
     }*/
-    public static <T extends BaseEntity> T get(Class<T> clazz, long id) {
-        return getRepository().get(clazz, id);
+    public static <T extends BaseEntity> T get(Class<T> clazz, AggregateId id) {
+        return getRepository().get(clazz, id.getId());
     }    
 
     /**

@@ -7,7 +7,7 @@ import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
 
 
 @DomainService
-public class TaxAdvisor {
+public class TaxAdvisorService {
 
 	public ITaxPolicy suggestBestTax(Client client){
 		//TODO explore domain rules

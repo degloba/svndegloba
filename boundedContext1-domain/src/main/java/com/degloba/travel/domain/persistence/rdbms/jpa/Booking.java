@@ -1,11 +1,11 @@
 package com.degloba.travel.domain.persistence.rdbms.jpa;
 
-import org.springframework.binding.message.MessageBuilder;
+/*import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
-import org.springframework.binding.validation.ValidationContext;
+import org.springframework.binding.validation.ValidationContext;*/
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.travel.util.*;
 
 import javax.persistence.*;
@@ -223,7 +223,7 @@ public class Booking implements Serializable {
 	}
 
 	// TODO replace with JSR 303
-	public void validateEnterBookingDetails(ValidationContext context) {
+	/*public void validateEnterBookingDetails(ValidationContext context) {
 		MessageContext messages = context.getMessageContext();
 		if (checkinDate.before(today())) {
 			messages.addMessage(new MessageBuilder().error().source(
@@ -232,7 +232,7 @@ public class Booking implements Serializable {
 		} else if (checkoutDate.before(checkinDate)) {
 			messages.addMessage(new MessageBuilder().error().source( "checkoutDate").code( "booking.checkoutDate.beforeCheckinDate").build());
 		}
-	}
+	}*/
 
 	private Date today() {
 		Calendar calendar = Calendar.getInstance();

@@ -1,6 +1,9 @@
 package com.degloba.security.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
+
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import java.util.*;
 
 /**
@@ -28,8 +31,8 @@ public class Permission extends Authority {
         return permission;
     }
 
-    public static Permission get(long id) {
-        return get(Permission.class, id);
+    public static Permission get(AggregateId id) {
+        return get(Permission.class, id.getId());
     }
 
     public static Permission getByName(String name) {

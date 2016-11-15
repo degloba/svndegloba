@@ -1,22 +1,23 @@
 package com.degloba.ecommerce.sales.application.exceptions;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
 @SuppressWarnings("serial")
 public class OfferChangedException extends RuntimeException {
 	
-	private long orderId;
+	private AggregateId orderId;
 	private Offer seenOffer;
 	private Offer newOffer;
 	
-	public OfferChangedException(long orderId, Offer seenOffer,
+	public OfferChangedException(AggregateId orderId, Offer seenOffer,
 			Offer newOffer) {
 		this.orderId = orderId;
 		this.seenOffer = seenOffer;
 		this.newOffer = newOffer;
 	}
 	
-	public long getOrderId() {
+	public AggregateId getOrderId() {
 		return orderId;
 	}
 	

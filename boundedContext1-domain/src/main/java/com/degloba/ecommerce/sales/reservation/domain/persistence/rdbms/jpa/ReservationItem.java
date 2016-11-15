@@ -5,6 +5,7 @@ import javax.persistence.ManyToOne;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
@@ -32,7 +33,7 @@ class ReservationItem extends BaseEntity{
 	void changeQuantityBy(int change) {
 		int changed = quantity + change;
 		if (changed <= 0)
-			throw new DomainOperationException(1, "change below 1");
+			throw new DomainOperationException(AggregateId.generate(), "change below 1");
 		this.quantity = changed;
 	}
 	

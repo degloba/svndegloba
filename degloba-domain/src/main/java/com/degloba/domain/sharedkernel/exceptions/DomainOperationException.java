@@ -1,17 +1,18 @@
 package com.degloba.domain.sharedkernel.exceptions;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 @SuppressWarnings("serial")
 public class DomainOperationException extends RuntimeException{
 
-	private long aggregateId;
+	private AggregateId aggregateId;
 
-	public DomainOperationException(long aggregateId, String message){
+	public DomainOperationException(AggregateId aggregateId, String message){
 		super(message);
 		this.aggregateId = aggregateId;
 	}
 	
-	public long getAggregateId() {
+	public AggregateId getAggregateId() {
 		return aggregateId;
 	}
 }

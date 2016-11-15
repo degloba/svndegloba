@@ -7,6 +7,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 import com.degloba.domain.annotations.ValueObject;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**

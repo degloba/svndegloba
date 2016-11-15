@@ -6,6 +6,7 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerS
 
 //CQRS
 import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**
@@ -16,17 +17,17 @@ import com.degloba.cqrs.command.annotations.Command;
 @Command
 public class ChangeCustomerStatusCommand implements Serializable{
 
-	private long customerId;
+	private AggregateId customerId;
 	
 	private CustomerStatus status;
 
-	public ChangeCustomerStatusCommand(long customerId, CustomerStatus status) {
+	public ChangeCustomerStatusCommand(AggregateId customerId, CustomerStatus status) {
 		super();
 		this.customerId = customerId;
 		this.status = status;
 	}
 
-	public long getCustomerId() {
+	public AggregateId getCustomerId() {
 		return customerId;
 	}
 

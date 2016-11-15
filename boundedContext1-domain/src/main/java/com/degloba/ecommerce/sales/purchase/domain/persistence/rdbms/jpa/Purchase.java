@@ -16,11 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
+import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
 
 
 /**
@@ -59,7 +59,7 @@ public class Purchase extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private  Purchase() {}
 
-	public Purchase(long aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
+	public Purchase(AggregateId aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
 		///////this.aggregateId = aggregateId;
 		this.clientData = clientData;
@@ -71,7 +71,8 @@ public class Purchase extends BaseAggregateRoot{
 	
 	public void confirm() {
 		paid = true;
-		////////////////////eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
+		
+		eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
 	}
 	
 	public boolean isPaid() {
@@ -93,5 +94,6 @@ public class Purchase extends BaseAggregateRoot{
 	public Collection<PurchaseItem> getItems() {
 		return (Collection<PurchaseItem>) Collections.unmodifiableCollection(items);
 	}
-	
+
+
 }

@@ -5,8 +5,7 @@ import java.util.List;
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
@@ -25,7 +24,7 @@ public class SalesRepository extends EntityRepository implements ISalesRepositor
 	}
 
 	@Override
-	public Product load(Class<Product> class1, long productId) {
+	public Product load(Class<Product> class1, AggregateId productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -10,8 +10,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class PhotoJpa extends BaseAggregateRoot 
-	implements Serializable {
+public class PhotoJpa extends BaseAggregateRoot implements Serializable {
   	
 	
     /**
@@ -50,5 +49,6 @@ public class PhotoJpa extends BaseAggregateRoot
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
 
 }

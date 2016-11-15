@@ -56,6 +56,5 @@ public class PurchaseItem extends BaseEntity{
 	public Money getTotalCost() {
 		return totalCost;
 	}
-
-	
+		
 }

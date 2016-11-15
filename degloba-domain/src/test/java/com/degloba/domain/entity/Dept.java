@@ -31,4 +31,5 @@ public class Dept extends Organization {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 }

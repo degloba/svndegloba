@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.shipping.domain.ShippingStatus;
 import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 
@@ -23,8 +24,8 @@ public class Shipment extends BaseAggregateRoot {
 	private static final long serialVersionUID = 1L;
 	@AttributeOverrides({
 		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  
-    private long orderId;
-    private long aggregateId;
+    private AggregateId orderId;
+    private AggregateId aggregateId;
 
     private ShippingStatus status;
 
@@ -32,7 +33,7 @@ public class Shipment extends BaseAggregateRoot {
     @SuppressWarnings("unused")
 	private Shipment() {}
 
-    public Shipment(long shipmentId, long orderId) {
+    public Shipment(AggregateId shipmentId, AggregateId orderId) {
         this.aggregateId = shipmentId;
     	this.orderId = orderId;
         this.status = ShippingStatus.WAITING;
@@ -60,9 +61,10 @@ public class Shipment extends BaseAggregateRoot {
         eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
     }
 
-    public long getOrderId() {
-    	
-  return orderId;
+    public AggregateId getOrderId() {    	
+    	return orderId;
     }
+
+
 
 }

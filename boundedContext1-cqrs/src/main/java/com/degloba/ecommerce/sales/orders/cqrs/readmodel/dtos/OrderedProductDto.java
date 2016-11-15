@@ -1,14 +1,16 @@
 package com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 // TODO more attrs
 public class OrderedProductDto {
-	private long offerId;
+	private AggregateId offerId;
 
-	public long getOfferId() {
+	public AggregateId getOfferId() {
 		return offerId;
 	}
 
-	public void setOfferId(long offerId) {
+	public void setOfferId(AggregateId offerId) {
 		this.offerId = offerId;
 	}
 }

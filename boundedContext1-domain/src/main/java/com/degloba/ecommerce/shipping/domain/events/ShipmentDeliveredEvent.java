@@ -2,17 +2,19 @@ package com.degloba.ecommerce.shipping.domain.events;
 
 import java.io.Serializable;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 
 @SuppressWarnings("serial")
 public class ShipmentDeliveredEvent implements Serializable {
 
-    private final long shipmentId;
+    private final AggregateId shipmentId;
 
-    public ShipmentDeliveredEvent(long shipmentId) {
+    public ShipmentDeliveredEvent(AggregateId shipmentId) {
         this.shipmentId = shipmentId;
     }
 
-    public long getShipmentId() {
+    public AggregateId getShipmentId() {
         return shipmentId;
     }
 }

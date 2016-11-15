@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 // CQRS
 import com.degloba.cqrs.command.Gate;
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 // Ecommerce
@@ -46,7 +46,7 @@ public class ShipmentsListController {
     @RequestMapping(value = "/send", method = RequestMethod.POST)
     public String shipOrder(@RequestParam("shipmentId") String shipmentId) {
     	/////Key aggregateId = KeyFactory.stringToKey( shipmentId);
-    	long aggregateId = Long.parseLong(shipmentId);
+    	AggregateId aggregateId = AggregateId.generate();   //Long.parseLong(shipmentId);
         gate.dispatch(new SendShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }
@@ -54,7 +54,7 @@ public class ShipmentsListController {
     @RequestMapping(value = "/deliver", method = RequestMethod.POST)
     public String receiveShipment(@RequestParam("shipmentId") String shipmentId) {
     	////////Key aggregateId = KeyFactory.stringToKey( shipmentId);
-    	long aggregateId = Long.parseLong(shipmentId);
+    	AggregateId aggregateId = AggregateId.generate();  //Long.parseLong(shipmentId);
         gate.dispatch(new DeliverShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }

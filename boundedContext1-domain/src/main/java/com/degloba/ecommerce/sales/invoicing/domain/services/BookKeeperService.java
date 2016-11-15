@@ -29,7 +29,7 @@ import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
  *
  */
 @DomainService
-public class BookKeeper {
+public class BookKeeperService {
 	
 
 	@Inject

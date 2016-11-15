@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.offer.cqrs.readmodel.OfferQuery;
 import com.degloba.ecommerce.sales.offer.cqrs.readmodel.dtos.OfferedProductDto;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
@@ -52,7 +53,7 @@ public class SalesFinder implements ISalesFinder {
 	}
 	
 	@Override
-	public OrderDto find(long orderId) {
+	public OrderDto find(AggregateId orderId) {
 		Reservation reservation = entityManager.find(Reservation.class, orderId);
 		Purchase purchase = entityManager.find(Purchase.class, orderId);
 		

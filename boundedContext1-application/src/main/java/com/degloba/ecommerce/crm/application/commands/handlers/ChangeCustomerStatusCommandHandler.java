@@ -25,7 +25,7 @@ public class ChangeCustomerStatusCommandHandler implements ICommandHandler<Chang
 	
 	@Override
 	public Boolean handle(ChangeCustomerStatusCommand command) {
-		Customer customer = crmRepository.get(Customer.class,command.getCustomerId());
+		Customer customer = crmRepository.get(Customer.class,command.getCustomerId().getId());
 		customer.changeStatus(command.getStatus());
 		crmRepository.save(customer);		
 		return null;

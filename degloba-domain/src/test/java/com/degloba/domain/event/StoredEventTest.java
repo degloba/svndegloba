@@ -7,12 +7,13 @@ import static org.mockito.Mockito.*;
 
 import com.degloba.domain.InstanceFactory;
 import com.degloba.utils.DateUtils;
-import com.degloba.utils.ObjectSerializer;
+import com.degloba.utils.IObjectSerializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.io.IOException;
 import java.util.Date;
 
 
@@ -25,14 +26,19 @@ public class StoredEventTest {
     private DomainEventSub event = event();
 
     @Mock
-    private ObjectSerializer serializer;
+    private IObjectSerializer serializer;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(serializer.deserialize("theEventBody", DomainEventSub.class)).thenReturn(event);
-        when(serializer.serialize(event)).thenReturn("theEventBody");
-        InstanceFactory.bind(ObjectSerializer.class, serializer);
+        try {
+			when(serializer.serialize(event)).thenReturn("theEventBody");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        InstanceFactory.bind(IObjectSerializer.class, serializer);
     }
 
     @Test

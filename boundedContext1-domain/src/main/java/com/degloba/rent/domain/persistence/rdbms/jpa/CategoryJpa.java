@@ -62,6 +62,4 @@ public class CategoryJpa extends BaseAggregateRoot
 
 
 	
-	
-	
 }

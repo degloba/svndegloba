@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 
 
@@ -12,11 +12,11 @@ public class ReservedProduct {
 	
 	private Money totalCost;
 	
-	private long productId;
+	private AggregateId productId;
 
 	private int quantity;
 	
-	public ReservedProduct(long productId, String name, int quantity, Money totalCost) {
+	public ReservedProduct(AggregateId productId, String name, int quantity, Money totalCost) {
 		this.productId = productId;
 		this.name = name;
 		this.quantity = quantity;
@@ -31,7 +31,7 @@ public class ReservedProduct {
 		return totalCost;
 	}
 	
-	public long getProductId() {
+	public AggregateId getProductId() {
 		return productId;
 	}
 

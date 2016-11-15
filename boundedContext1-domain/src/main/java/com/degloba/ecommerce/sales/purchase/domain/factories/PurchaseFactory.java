@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
@@ -33,7 +34,7 @@ public class PurchaseFactory {
 	 * @param offer
 	 * @return
 	 */
-	public Purchase create(long orderId, Client client, Offer offer){
+	public Purchase create(AggregateId orderId, Client client, Offer offer){
 		if (! canPurchse(client, offer.getAvailabeItems()))
 			throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
 		

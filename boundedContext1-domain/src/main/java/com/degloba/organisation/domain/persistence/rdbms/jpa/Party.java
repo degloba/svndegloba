@@ -23,11 +23,9 @@ public abstract class Party extends BaseAggregateRoot {
     // Name
     private String name;
 
-    // 创建日期
     @Temporal(TemporalType.DATE)
     private Date createDate = new Date();
 
-    // 终结日期
     @Temporal(TemporalType.DATE)
     private Date terminateDate = DateUtils.MAX_DATE;
 

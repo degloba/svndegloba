@@ -96,5 +96,4 @@ public class DictionaryCategory extends BaseAggregateRoot {
         return name;
     }
 
-	
 }

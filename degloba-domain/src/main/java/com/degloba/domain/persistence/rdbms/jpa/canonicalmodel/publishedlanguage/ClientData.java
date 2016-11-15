@@ -1,7 +1,10 @@
 package com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage;
 
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 
 import com.degloba.domain.annotations.ValueObject;
 
@@ -15,21 +18,21 @@ import com.degloba.domain.annotations.ValueObject;
 @Embeddable
 public class ClientData {
 	
-	//@Embedded
+	@Embedded
 	/*@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
-*/	private long aggregateId;
+	*/private AggregateId aggregateId;
 	
 	private String name;
 
 	public ClientData(){}
 	
-	public ClientData(long aggregateId, String name) {
+	public ClientData(AggregateId aggregateId, String name) {
 		this.aggregateId = aggregateId;
 		this.name = name;
 	}
 	
-	public long getAggregateId() {
+	public AggregateId getAggregateId() {
 		return aggregateId;
 	}
 	

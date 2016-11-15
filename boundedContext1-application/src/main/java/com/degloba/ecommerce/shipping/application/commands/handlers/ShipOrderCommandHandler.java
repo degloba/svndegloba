@@ -18,7 +18,7 @@ public class ShipOrderCommandHandler implements ICommandHandler<SendShipmentComm
 
     @Override
     public Void handle(SendShipmentCommand command) {
-        Shipment shipment = shippingRepository.get(Shipment.class,command.getShipmentId());
+        Shipment shipment = shippingRepository.get(Shipment.class,command.getShipmentId().getId());
         shipment.ship();
         return null;
     }

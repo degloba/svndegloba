@@ -21,4 +21,5 @@ public class Job extends Party {
         return new ToStringBuilder(this).append(getName()).build();
     }
 
+
 }

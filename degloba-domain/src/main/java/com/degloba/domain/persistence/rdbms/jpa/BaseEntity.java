@@ -9,7 +9,6 @@ import javax.persistence.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-
 import com.degloba.domain.InstanceFactory;
 import com.degloba.utils.BeanUtils;
 
@@ -22,7 +21,7 @@ import com.degloba.utils.BeanUtils;
 @MappedSuperclass
 public abstract class BaseEntity implements IEntity {
 
-   private static final long serialVersionUID = 8882145540383345037L;
+	private static final long serialVersionUID = 8882145540383345037L;
 
 	public static final String FIND_ALL = null;
 	
@@ -37,38 +36,20 @@ public abstract class BaseEntity implements IEntity {
 
    @Id  
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
+   private String id;
    
-   
-   /*    @EmbeddedId
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-	private AggregateId aggregateId; */
-   
-
-/*   @Enumerated(EnumType.ORDINAL)
-   private EntityStatus entityStatus = EntityStatus.ACTIVE;
-
-   public void markAsRemoved() {
-       entityStatus = EntityStatus.ARCHIVE;
-   }*/
-   
-   
+          
    // getters - setters
    
-   public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
  	
-/*   public EntityStatus getEntityStatus() {
-       return entityStatus;
-   }*/
-   
+	public String getId() {
+		return id;
+	}
 
+   
    /**
     * Determine whether the entity already exists in the database.
     * @return If the entity that owns the id of the database already exists returns true, otherwise false.
@@ -182,7 +163,6 @@ public abstract class BaseEntity implements IEntity {
    public void remove() {
        getRepository().remove(this);
    }
-
 
 
 }

@@ -21,6 +21,7 @@ import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
 import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -155,14 +156,14 @@ public class EntityRepository implements IEntityRepository {
 	}
 
 	@Override
-	public <T extends BaseEntity> boolean exists(Class<T> clazz, long id) {
+	public <T extends BaseEntity> boolean exists(Class<T> clazz, String id) {
 		 T entity = entityManager.find(clazz, id);
 		 return entity != null;
 	}
 
 
 	@Override
-	public <T extends BaseEntity> T get(Class<T> clazz, long id) {		// 
+	public <T extends BaseEntity> T get(Class<T> clazz, String id) {		// 
 		return entityManager.find(clazz, id);
 	}
 

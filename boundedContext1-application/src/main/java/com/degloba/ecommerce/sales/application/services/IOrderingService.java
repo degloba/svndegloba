@@ -1,6 +1,7 @@
 package com.degloba.ecommerce.sales.application.services;
 
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
 
@@ -14,15 +15,15 @@ import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
  */
 public interface IOrderingService {
 	// 1.
-	public long createOrder();
+	public AggregateId createOrder();
 
 	// 2.
-	public void addProduct(long orderId, long productId, int quantity);
+	public void addProduct(AggregateId orderId, AggregateId productId, int quantity);
 	
 	// 3. 
-	public Offer calculateOffer(long orderId);
+	public Offer calculateOffer(AggregateId orderId);
 
 	// 4.
-	public void confirm(long orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
+	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
 			throws OfferChangedException;
 }

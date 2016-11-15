@@ -4,7 +4,9 @@ import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 
 import com.degloba.domain.sharedkernel.Money;
@@ -13,7 +15,7 @@ import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 
 
 @Entity
-//@AggregateRoot
+@AggregateRoot
 public class Client extends BaseAggregateRoot{
 
 	private String name;
@@ -23,8 +25,7 @@ public class Client extends BaseAggregateRoot{
 	private PaymentFactory paymentFactory;
 	
 	public ClientData generateSnapshot(){
-		return null;
-		/////////////return new ClientData(Key, name);
+		return new ClientData(AggregateId.generate(), name);
 	}
 
 	public boolean canAfford(Money amount) {		
@@ -47,4 +48,6 @@ public class Client extends BaseAggregateRoot{
 		
 		return paymentFactory.createPayment(generateSnapshot(), amount);
 	}
+
+
 }

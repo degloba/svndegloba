@@ -11,6 +11,7 @@ import com.degloba.ecommerce.sales.application.services.DiscountingService;
 import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 // Domain
 import com.degloba.domain.sharedkernel.Money;
 
@@ -49,7 +50,7 @@ public class ClientStatusChangedListener {
 		}
 	}
 
-	private Money calculateDiscout(long customerId) {
+	private Money calculateDiscout(AggregateId customerId) {
 		// TODO explore domain rules
 		return new Money(10);
 	}

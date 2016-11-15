@@ -44,7 +44,7 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>			
 		
 		
-		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId</class>
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
 		<!-- Sales -->

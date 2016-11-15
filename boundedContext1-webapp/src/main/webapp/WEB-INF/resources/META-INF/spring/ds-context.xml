@@ -74,12 +74,12 @@
 		
 		 <!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
 		 
-<!-- 		<mongo:mongo host="localhost" port="27017" /> 
+		<mongo:mongo host="localhost" port="27017" /> 
 	
 	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	    <constructor-arg name="mongo" ref="mongo"/>
 	    <constructor-arg name="databaseName" value="casino"/>
-	</bean>   --> 
+	</bean>    
 		 
 	<!-- <bean id="topicRepository" class="com.degloba.gcm.infrastructure.jpa.repositories.TopicRepository">
 		<property name="mongoTemplate" ref="mongoTemplate"/>

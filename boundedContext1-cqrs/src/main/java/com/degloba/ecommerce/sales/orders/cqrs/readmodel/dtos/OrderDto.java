@@ -3,21 +3,22 @@ package com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderStatus;
 
 
 public class OrderDto {
 
-	private long orderId;
+	private AggregateId orderId;
 	private List<OrderedProductDto> orderedProducts = new ArrayList<OrderedProductDto>();
 	private OrderStatus status;
 	private Boolean confirmable;
 
-	public long getOrderId() {
+	public AggregateId getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(long orderId) {
+	public void setOrderId(AggregateId orderId) {
 		this.orderId = orderId;
 	}
 

@@ -4,6 +4,7 @@ package com.degloba.domain.persistence.rdbms.jpa;
 import javax.persistence.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,26 +21,24 @@ public abstract class AbstractEntity extends BaseEntity {
    
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name = "id")
-   private long id;
+   private String id;
 
    @Version
    @Column(name = "version")
    private int version;
 
-   //å¤±æ•ˆæ—¶é—´
    @Temporal(TemporalType.TIMESTAMP)
    private Date expired;
    
-   //æ˜¯å�¦å·²ç»�å¤±æ•ˆ
    private boolean disabled;
    
    
    @Override
-   public long getId() {
+   public String getId() {
        return id;
    }
 
-   public void setId(long id) {
+   public void setId(String id) {
        this.id = id;
    }
 
@@ -59,7 +58,7 @@ public abstract class AbstractEntity extends BaseEntity {
        getRepository().remove(this);
    }
 
-   public static  <E extends BaseEntity> E get(Class<E> clazz, long id) {
+   public static  <E extends BaseEntity> E get(Class<E> clazz, String id) {
        return (E) getRepository().get(clazz, id);
    }
 

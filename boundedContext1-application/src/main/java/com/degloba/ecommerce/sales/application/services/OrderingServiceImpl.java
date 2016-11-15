@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
 import com.degloba.ecommerce.sales.application.services.IOrderingService;
@@ -65,7 +65,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	private SuggestionService suggestionService;
 
 	// @Secured requires BUYER role
-	public long createOrder() {
+	public AggregateId createOrder() {
 		Reservation reservation = reservationFactory.create(loadClient());
 		salesRepository.save(reservation);
 		return reservation.getAggregateId();
@@ -82,7 +82,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * Reservation add product by given quantity
 	 */
 	@Override
-	public void addProduct(long orderId, long productId,
+	public void addProduct(AggregateId orderId, AggregateId productId,
 			int quantity) {
 		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 		
@@ -102,7 +102,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * Can be invoked many times for the same order (with different params).<br>
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
-	public Offer calculateOffer(long orderId) {
+	public Offer calculateOffer(AggregateId orderId) {
 		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 
 		DiscountPolicy discountPolicy = discountFactory.create(loadClient());
@@ -129,7 +129,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 */
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
-	public void confirm(long orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
+	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
 			throws OfferChangedException {
 		Reservation reservation = salesRepository.load(Reservation.class,orderId);
 		if (reservation.isClosed())

@@ -3,6 +3,7 @@ package com.degloba.security.domain.persistence.rdbms.jpa;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.security.domain.exceptions.DuplicateUsernameException;
 import com.degloba.security.domain.exceptions.PasswordUnmatchException;
 
@@ -119,8 +120,8 @@ public class User extends Actor implements Principal {
      * @param id User ID
      * @return Si encuentra el usuario especifica se devuelve el ID de usuario, si no regreso null
      */
-    public static User get(long id) {
-        return get(User.class, id);
+    public static User get(AggregateId id) {
+        return get(User.class, id.getId());
     }
 
     /**

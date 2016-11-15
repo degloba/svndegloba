@@ -2,6 +2,7 @@ package com.degloba.organisation.facade;
 
 import java.util.Date;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 
@@ -12,15 +13,15 @@ import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
  */
 public interface OrganisationFacade {
 
-    void createOrganization(OrganizationDto orgToCreate, long parentOrgId, Date date);
+    void createOrganization(OrganizationDto orgToCreate, AggregateId parentOrgId, Date date);
 
-    void terminateParty(long partyId, Date date);
+    void terminateParty(AggregateId partyId, Date date);
 
-    void changeParentOfOrganization(long organizationId, long newParentId, Date date);
+    void changeParentOfOrganization(AggregateId organizationId, AggregateId newParentId, Date date);
 
-    void createPostUnderOrganization(PostDto postDto, long organizationId, Date date);
+    void createPostUnderOrganization(PostDto postDto, AggregateId organizationId, Date date);
 
-    PostDto getPost(long postId);
+    PostDto getPost(AggregateId postId);
     
     void setPost(Post post);
 

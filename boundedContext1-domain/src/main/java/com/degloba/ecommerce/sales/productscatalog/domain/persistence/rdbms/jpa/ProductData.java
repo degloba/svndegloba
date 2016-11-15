@@ -13,8 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.ValueObject;
-
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 
 
@@ -23,7 +22,7 @@ import com.degloba.domain.sharedkernel.Money;
 public class ProductData {
 
 	/////////@Embedded
-	private long productId;
+	private AggregateId productId;
 	
 	@Embedded
 	@AttributeOverrides({
@@ -43,7 +42,7 @@ public class ProductData {
 	@SuppressWarnings("unused")
 	private ProductData(){}
 	
-	ProductData(long productId, Money price, String name, ProductType type, 
+	ProductData(AggregateId productId, Money price, String name, ProductType type, 
 			Date snapshotDate) {
 		this.productId = productId;
 		this.price = price;
@@ -52,7 +51,7 @@ public class ProductData {
 		this.type = type;
 	}
 
-	public long getProductId() {
+	public AggregateId getProductId() {
 		return productId;
 	}
 

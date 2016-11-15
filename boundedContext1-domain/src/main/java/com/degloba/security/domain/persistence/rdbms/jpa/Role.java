@@ -4,6 +4,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import java.util.*;
 
 /**
@@ -50,8 +53,8 @@ public class Role extends Authority {
         return getPermissions().contains(permission);
     }
 
-    public static Role get(long id) {
-        return get(Role.class, id);
+    public static Role get(AggregateId id) {
+        return get(Role.class, id.getId());
     }
 
     public static Role getByName(String name) {

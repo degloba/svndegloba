@@ -122,6 +122,8 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 	
 	@Override
 	public <S extends StoredDomainEvent> S insert(S entity) {	
+		
+		this.createEventStoreCollection();
 		return this.insert(entity);			
 	}
 	

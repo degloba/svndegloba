@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 
@@ -18,6 +19,6 @@ public interface ISalesRepository extends IEntityRepository {
 
 	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
 
-	public Product load(Class<Product> class1, long productId);
+	public Product load(Class<Product> class1, AggregateId productId);
 
 }

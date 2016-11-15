@@ -1,11 +1,17 @@
 package com.degloba.domain.event;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class DomainEventSub extends ADomainEvent {
+public class DomainEventSub extends ADomainEvent implements Serializable{
 
-    private String prop1;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String prop1;
 
     private String prop2;
 

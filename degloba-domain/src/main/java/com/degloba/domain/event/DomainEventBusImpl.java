@@ -22,7 +22,9 @@ public class DomainEventBusImpl implements IDomainEventBus {
 
     public void publishEvent(ADomainEvent event) {
         eventBus.post(event);
-        storedEventRepository.append(event);
+        StoredDomainEvent storedDomainEvent = storedEventRepository.append(event);
+        
+        storedEventRepository.insert(storedDomainEvent);
     }
 
     public void registerSubscriber(Object subscriber) {

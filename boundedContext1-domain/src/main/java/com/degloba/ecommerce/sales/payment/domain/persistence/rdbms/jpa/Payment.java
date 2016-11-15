@@ -51,4 +51,5 @@ public class Payment extends BaseAggregateRoot{
 		eventPublisher.publish(new PaymentRolledBackEvent(getAggregateId()));
 		return paymentFactory.createPayment(clientData, amount.multiplyBy(-1));
 	}
+
 }

@@ -13,7 +13,7 @@ public interface IEntity extends Serializable {
 	 * EntityId Must be serialized.
 	 * @return Id Entity instance.
 	 */
-	long getId();
+	String getId();
 	
 	/**
 	 * Are already exists in the database

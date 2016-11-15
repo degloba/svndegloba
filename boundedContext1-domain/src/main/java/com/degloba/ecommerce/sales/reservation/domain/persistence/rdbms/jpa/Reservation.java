@@ -22,8 +22,7 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.annotations.Function;
 import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
-
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
@@ -79,7 +78,7 @@ public class Reservation extends BaseAggregateRoot{
 	@SuppressWarnings("unused")
 	private Reservation() {}
 
-	public Reservation(long aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
+	public Reservation(AggregateId aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
 		///////this.aggregateId = aggregateId;
 		this.status = status;
 		this.clientData = clientData;
@@ -192,4 +191,5 @@ public class Reservation extends BaseAggregateRoot{
 	public ReservationStatus getStatus() {
 		return status;
 	}
+
 }

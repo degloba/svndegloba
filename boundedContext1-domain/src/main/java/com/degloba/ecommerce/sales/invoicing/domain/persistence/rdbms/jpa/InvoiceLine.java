@@ -78,4 +78,6 @@ public class InvoiceLine extends BaseEntity{
 	public Tax getTax(){
 		return tax;
 	}
+
+
 }

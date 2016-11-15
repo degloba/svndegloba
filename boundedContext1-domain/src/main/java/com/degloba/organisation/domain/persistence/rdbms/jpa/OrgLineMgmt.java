@@ -49,4 +49,5 @@ public class OrgLineMgmt extends Accountability<Organization , Organization > {
 		return getRepository().createNamedQuery("OrgLineMgmt.findByResponsible")
 				.addParameter("organization", responsible).addParameter("date", date).singleResult();
 	}
+
 }
