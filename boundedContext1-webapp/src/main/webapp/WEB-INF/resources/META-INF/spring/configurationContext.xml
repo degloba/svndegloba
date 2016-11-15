@@ -129,8 +129,8 @@
 	
 	
 	
-	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeper" />
-	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisor" />
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeperService" />
+	<bean class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisorService" />
 	<bean class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
 		
 		
