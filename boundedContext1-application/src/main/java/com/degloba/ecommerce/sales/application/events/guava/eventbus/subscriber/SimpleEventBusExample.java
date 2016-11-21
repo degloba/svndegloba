@@ -11,6 +11,10 @@ public class SimpleEventBusExample {
 	        eventBus.register(new CashPurchaseEventSubscriber());
 	        System.out.println("Post Simple EventBus Example");
 	        eventBus.post(new CashPurchaseEvent(1223,"chocolate"));
+	        
+	        // Register MultiHandlerSubscriber "subscriber" in EventBus
+	        MultiHandlerSubscriber.instance(eventBus);
+	        eventBus.post(new CashPurchaseEvent(3333,"chocolate2"));
 
 	}
 
