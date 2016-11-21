@@ -2,7 +2,10 @@ package com.degloba.ecommerce.shipping.domain.events;
 
 import java.io.Serializable;
 
+import com.degloba.event.annotations.Event;
+
 @SuppressWarnings("serial")
+@Event
 public class OrderShippedEvent implements Serializable {
 
     private final long orderId;
