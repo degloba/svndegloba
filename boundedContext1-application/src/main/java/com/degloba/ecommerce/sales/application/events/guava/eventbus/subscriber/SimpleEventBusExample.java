@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber;
 
 
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CashPurchaseEvent;
+import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
 import com.google.common.eventbus.EventBus;
 
 public class SimpleEventBusExample {

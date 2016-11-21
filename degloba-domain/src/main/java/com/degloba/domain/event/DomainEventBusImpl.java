@@ -6,6 +6,12 @@ import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventListener;
 import com.degloba.utils.Assert;
 
+
+/*
+ * 1.- Implementa "EventBus" con Google Guava
+ * 2.- Guarda el evento "publish" en un repositorio de Eventos
+ * 
+ */
 public class DomainEventBusImpl implements IDomainEventBus {
 
     private EventBus eventBus;

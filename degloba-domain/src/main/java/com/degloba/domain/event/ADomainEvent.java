@@ -12,7 +12,12 @@ import java.util.UUID;
  */
 public abstract class ADomainEvent extends AbstractEvent implements Serializable{
 
-    private String id = UUID.randomUUID().toString();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String id = UUID.randomUUID().toString();
 
     private Date occurredOn = new Date();
 

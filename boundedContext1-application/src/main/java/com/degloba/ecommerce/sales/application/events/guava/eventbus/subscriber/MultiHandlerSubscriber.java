@@ -3,8 +3,8 @@ package com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CashPurchaseEvent;
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
+import com.degloba.ecommerce.sales.application.events.CreditPurchaseEvent;
 import com.degloba.event.guava.eventbus.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;

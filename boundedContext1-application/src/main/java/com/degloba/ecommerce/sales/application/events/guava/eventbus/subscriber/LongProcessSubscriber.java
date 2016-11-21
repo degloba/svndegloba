@@ -2,8 +2,8 @@ package com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber
 
 import java.util.concurrent.CountDownLatch;
 
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CashPurchaseEvent;
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
+import com.degloba.ecommerce.sales.application.events.CreditPurchaseEvent;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.Subscribe;

@@ -1,7 +1,8 @@
 package com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber;
 
 
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.events.CreditPurchaseEvent;
+
+import com.degloba.ecommerce.sales.application.events.CreditPurchaseEvent;
 import com.degloba.event.guava.eventbus.subscriber.EventSubscriber;
 import com.google.common.eventbus.Subscribe;
 
