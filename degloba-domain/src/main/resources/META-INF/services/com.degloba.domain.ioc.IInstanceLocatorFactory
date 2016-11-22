@@ -1,1 +1,1 @@
-com.degloba.domain.internal.bean.InstanceLocatorFactoryImpl
+com.degloba.domain.ioc.InstanceLocatorFactoryImpl
