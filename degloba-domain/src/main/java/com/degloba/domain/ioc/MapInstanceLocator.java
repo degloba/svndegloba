@@ -1,6 +1,6 @@
-package com.degloba.domain.internal.bean;
+package com.degloba.domain.ioc;
 
-import com.degloba.domain.IInstanceLocator;
+import com.degloba.domain.ioc.IInstanceLocator;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;

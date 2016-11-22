@@ -1,8 +1,8 @@
-package com.degloba.domain.internal.bean;
+package com.degloba.domain.ioc;
 
-import com.degloba.domain.IInstanceLocator;
-import com.degloba.domain.IInstanceLocatorFactory;
-import com.degloba.domain.IInstanceProvider;
+import com.degloba.domain.ioc.IInstanceLocator;
+import com.degloba.domain.ioc.IInstanceLocatorFactory;
+import com.degloba.domain.ioc.IInstanceProvider;
 
 import java.util.Map;
 
