@@ -1,6 +1,6 @@
 package com.degloba.ioc.spring.factory;
 
-import com.degloba.domain.IInstanceProvider;
+import com.degloba.domain.ioc.IInstanceProvider;
 import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotUniqueException;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;

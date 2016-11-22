@@ -1,6 +1,6 @@
 package com.degloba.ioc.test;
 
-import com.degloba.domain.IInstanceProvider;
+import com.degloba.domain.ioc.IInstanceProvider;
 import org.junit.Before;
 import org.junit.Test;
 

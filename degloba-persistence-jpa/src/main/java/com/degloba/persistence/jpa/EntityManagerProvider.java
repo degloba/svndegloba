@@ -1,6 +1,6 @@
 package com.degloba.persistence.jpa;
 
-import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
 
 import javax.persistence.EntityManager;
