@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.ioc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

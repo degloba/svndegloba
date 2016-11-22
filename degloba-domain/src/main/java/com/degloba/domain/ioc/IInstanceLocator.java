@@ -1,4 +1,4 @@
-package com.degloba.domain;
+package com.degloba.domain.ioc;
 
 import java.lang.annotation.Annotation;
 
