@@ -5,7 +5,7 @@ import static org.hamcrest.MatcherAssert.*;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
-import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.utils.DateUtils;
 import com.degloba.utils.IObjectSerializer;
 import org.junit.Before;

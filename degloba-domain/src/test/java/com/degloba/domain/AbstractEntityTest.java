@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.degloba.domain.entity.MyEntity;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
