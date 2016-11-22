@@ -1,6 +1,6 @@
 package com.degloba.domain.event;
 
-import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.ioc.InstanceFactory;
 
 import com.degloba.utils.Assert;
 import com.degloba.utils.IObjectSerializer;
