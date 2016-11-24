@@ -19,15 +19,19 @@
 		<!-- *************** -->
 		
 		<!-- Travel -->
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
 		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
+		
+		
 		
 		<!-- Organisation -->
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
+		
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>		
+			
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Accountability</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Company</class>
@@ -98,10 +102,11 @@
 			<property name="datanucleus.ConnectionPassword" value="robledo00" /> -->
 			
 			<!-- Change the "nucleus" to your database name, and the user/password -->
-            <!--  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="robledo00"/>  -->
+            <property name="javax.persistence.jdbc.password" value="robledo00"/> 
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
                     
             
             <!--  <property name="javax.jpa.option.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />

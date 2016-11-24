@@ -80,11 +80,12 @@
  			<!-- <property name="datanucleus.storeManagerType" value="rdbms" />  -->
  			
  			<!-- Change the "nucleus" to your database name, and the user/password -->
-           <!--  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="robledo00"/>
-			       -->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			      
 		</properties>    
 	</persistence-unit>
 	
