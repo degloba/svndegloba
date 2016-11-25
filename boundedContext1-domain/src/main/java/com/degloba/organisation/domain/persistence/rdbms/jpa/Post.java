@@ -16,19 +16,19 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
 @DiscriminatorValue("Post")
-/*@NamedQueries(
+@NamedQueries(
         @NamedQuery(name = "Party.findByOrganization", query = "select o from Post o where o.organization = :organization and o.createDate <= :date and o.terminateDate > :date"))
-*/public class Post extends Party {
+public class Post extends Party {
 
     private static final long serialVersionUID = -2205967098970951498L;
 
-   /* @ManyToOne
-    ///////@JoinColumn(name = "org_id")
+    @ManyToOne
+    @JoinColumn(name = "org_id")
     private Organization organization;
 
     @ManyToOne
     ///////@JoinColumn(name = "job_id")
-    private Job job;*/
+    private Job job;
 
     public Post() {
         super();
@@ -38,7 +38,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
         super(name);
     }
 
-   /* public Organization getOrganization() {
+    public Organization getOrganization() {
         return organization;
     }
 
@@ -52,7 +52,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
     public void setJob(Job job) {
         this.job = job;
-    }*/
+    }
 
     public static List<Post> findByOrganization(Organization organization,
             Date date) {

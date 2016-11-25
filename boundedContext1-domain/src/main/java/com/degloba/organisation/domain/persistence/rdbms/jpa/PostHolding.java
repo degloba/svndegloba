@@ -11,10 +11,10 @@ import java.util.List;
 
 @Entity
 @DiscriminatorValue("PostHolding")
-/*@NamedQueries({
+@NamedQueries({
         @NamedQuery(name = "PostHolding.getPostsOfEmployee", query = "select o.commissioner from PostHolding o where o.responsible = :employee and o.fromDate <= :date and o.toDate > :date"),
         @NamedQuery(name = "PostHolding.getEmployeesOfPost", query = "select o.responsible from PostHolding o where o.commissioner = :post and o.fromDate <= :date and o.toDate > :date")})
-*/public class PostHolding extends Accountability<Post, Employee> {
+public class PostHolding extends Accountability<Post, Employee> {
 
     private static final long serialVersionUID = 7390804525640459582L;
 
@@ -35,10 +35,10 @@ import java.util.List;
                 .addParameter("post", post).addParameter("date", date).list();
     }
 
-   /* @Override
+    @Override
     public String toString() {
         return new ToStringBuilder(this).append(getCommissioner())
                 .append(getResponsible()).build();
-    }*/
+    }
 
 }
