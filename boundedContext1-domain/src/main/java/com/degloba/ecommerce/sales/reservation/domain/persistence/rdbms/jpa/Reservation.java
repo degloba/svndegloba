@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -24,6 +29,7 @@ import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
@@ -50,12 +56,13 @@ import com.degloba.domain.sharedkernel.Money;
 
 @Entity
 @AggregateRoot
-public class Reservation extends BaseAggregateRoot{
+public class Reservation extends AbstractEntity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	public enum ReservationStatus{
 		OPENED, CLOSED

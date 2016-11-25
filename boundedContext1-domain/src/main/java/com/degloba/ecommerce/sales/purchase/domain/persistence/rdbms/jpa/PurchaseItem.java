@@ -28,13 +28,6 @@ public class PurchaseItem extends AbstractEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
-/*	@EmbeddedId
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-	protected AggregateId aggregateId;*/
-	
 
 	@Embedded
 	private ProductData productData;

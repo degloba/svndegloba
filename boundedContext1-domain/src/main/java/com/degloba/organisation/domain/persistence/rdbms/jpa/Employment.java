@@ -12,10 +12,10 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
 ///@DiscriminatorValue("Employment")
-/*@NamedQueries({
+@NamedQueries({
     @NamedQuery(name = "Employment.getEmployer", query = "select o.commissioner from Employment o where o.responsible = :employee and o.fromDate <= :date and o.toDate > :date"),
     @NamedQuery(name = "Employment.getEmployees", query = "select o.responsible from Employment o where o.commissioner = :employer and o.fromDate <= :date and o.toDate > :date")})
-*/public class Employment extends Accountability<Company, Employee> {
+public class Employment extends Accountability<Company, Employee> {
 
     private static final long serialVersionUID = 7390804525640459582L;
 
