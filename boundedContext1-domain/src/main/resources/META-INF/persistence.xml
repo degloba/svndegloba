@@ -19,14 +19,14 @@
 		<!-- *************** -->
 		
 		<!-- Travel -->
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
+		<!-- <class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
 		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
 		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
-		
+		 -->
 		
 		
 		<!-- Organisation -->
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<!-- <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>	
@@ -45,14 +45,14 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Party</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>	
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>			
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>	 -->		
 		
 		
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
 		<!-- Sales -->
-		<class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
+		<!-- <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
@@ -73,11 +73,13 @@
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>
-		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
+		 -->
 		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class>
+		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
+
 		 
 		
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
         
 		<properties>     
 			

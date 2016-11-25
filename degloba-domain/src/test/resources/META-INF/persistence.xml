@@ -2,27 +2,29 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">    
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
  
-	<persistence-unit name="transactions-optional">    
-	    
+	<persistence-unit name="transactions-optional">      
+	
 		<!-- Opció 1 : Datanucleus -->  
 		<!--  <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>  -->
 		
 		<!-- Opció 2 : EclipseLink -->
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>   
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>      
+		
 		
 		<!-- *************** -->
 		<!-- EntitatS domini -->
 		<!-- *************** -->
 		
 		<!-- Travel -->
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
+		<!-- <class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class>
 		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class> -->
 		
 		<!-- Organisation -->
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<!-- <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>		
@@ -40,13 +42,13 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Party</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>			
+		 -->
 		
-		
-		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.AggregateId</class>
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
 		<!-- Sales -->
-		<class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
+		<!-- <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
@@ -66,34 +68,91 @@
 		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservationItem</class>		
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
-		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> -->
 		
-			<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class>
-			<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
+				<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class>
+		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
 
 		 
 		
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
-		<properties>            
-	<!-- 		<property name="datanucleus.NontransactionalRead" value="true"/>            
+        
+		<properties>     
+			
+			<!-- *********************** -->	       
+			<!-- Opció 1 :  Datanucleus  -->
+			<!-- *********************** -->	
+		
+			<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->			   		
+			<!-- <property name="datanucleus.NontransactionalRead" value="true"/>            
 			<property name="datanucleus.NontransactionalWrite" value="true"/>            
-			<property name="datanucleus.ConnectionURL" value="appengine"/> 			
-			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			 							
- 			<property name="datanucleus.singletonEMFForName" value="true"/>	  -->
- 			
- 			<!-- <property name="datanucleus.storeManagerType" value="rdbms" />  -->
- 			
- 			<!-- Change the "nucleus" to your database name, and the user/password -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+			<property name="datanucleus.ConnectionURL" value="appengine"/> 
+			<property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/> 			
+ 	  		<property name="datanucleus.singletonEMFForName" value="true"/>  -->
+ 	  		
+ 	  		
+ 	  		<!-- JPA/RDBMS/Datanucleus  -->
+ 	  		<!-- 
+ 	  		<property name="datanucleus.storeManagerType" value="rdbms" />				
+			<property name="datanucleus.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+			<property name="datanucleus.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+			<property name="datanucleus.ConnectionUserName" value="root" />
+			<property name="datanucleus.ConnectionPassword" value="robledo00" /> -->
+			
+			<!-- Change the "nucleus" to your database name, and the user/password -->
+            <!--  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="robledo00"/>  -->
+                    
+            
+            <!--  <property name="javax.jpa.option.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false" />
+            <property name="javax.jpa.option.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+            <property name="javax.jpa.option.ConnectionUserName" value="root" />
+            <property name="javax.jpa.option.ConnectionPassword" value="robledo00" /> -->
+              
+            
+    		<!--  <property name="datanucleus.schema.autoCreateAll" value="true"/>
+            <property name="datanucleus.schema.validateTables" value="false"/>
+            <property name="datanucleus.schema.validateConstraints" value="false"/> -->
+			 
+			
+ 	  	
+ 	  	
+ 	  		<!-- *********************** -->
+ 	  		<!-- Opció 2 :  EclipseLink  -->
+ 	  		<!-- *********************** -->
+ 	  		
+ 	  		<!-- JPA/RDBMS(MySql)/EclipseLink  -->
+ 	  		
+ 	  		<!-- Development -->
+ 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+ 	  		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/degloba?useServerPrepStmts=false"/>
+ 	  		
+ 	  		<!-- Production 
+ 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.GoogleDriver"/>
+ 	  		<property name="javax.persistence.jdbc.url" value="jdbc:google:mysql://your-instance-name/demo?user=root"/> -->
+            
+            
+            <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="robledo00"/>
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-			      
+ 	  		
+			<property name="eclipselink.logging.level" value="FINEST"/>
+            <!--  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/> -->
+ 	  		
+ 	  	
 		</properties>    
 	</persistence-unit>
 	
- 	<!-- <persistence-unit name="mongodb">
+	
+	<!-- ********************************** -->
+	<!-- JPA/MongoDB/Datanucleus            -->
+	<!-- ********************************** --> 
+	<!-- <persistence-unit name="mongodb">
+	
 		<provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
 		<class>com.degloba.boundedContext.domain.Person</class> 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -103,15 +162,21 @@
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
             <property name="datanucleus.schema.validateTables" value="false"/>
             <property name="datanucleus.schema.validateConstraints" value="false"/>
-          
             
             <property name="datanucleus.ConnectionURL" value="mongodb:/local"/>  
             <property name="datanucleus.storeManagerType" value="mongodb" />  
            	<property name="datanucleus.autoCreateSchema" value="true" />  
         
         </properties>  	
-	</persistence-unit> 
-	 -->
+	</persistence-unit>  -->
+	
+
+
+	<!-- ************************* -->
+	<!-- JPA/Appengine/Datanucleus -->
+	<!-- ************************* -->	 
+	 
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
 	<!-- <persistence-unit name="originalStorageVersion" transaction-type="RESOURCE_LOCAL">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
@@ -122,9 +187,10 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.storageVersion" value="PARENTS_DO_NOT_REFER_TO_CHILDREN"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="transactional_ds_non_transactional_ops_not_allowed">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="transactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -133,9 +199,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit>  -->
 
-    <persistence-unit name="transactional_ds_non_transactional_ops_allowed">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+	<!--     <persistence-unit name="transactional_ds_non_transactional_ops_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -147,8 +214,10 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
     </persistence-unit>
+ -->
 
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_not_allowed">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_not_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -158,9 +227,11 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed">
+
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -172,9 +243,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed_singleton">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="nontransactional_ds_non_transactional_ops_allowed_singleton">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -187,9 +259,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="datastoreserviceconfigprops">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="datastoreserviceconfigprops">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
@@ -201,9 +274,10 @@
 			<property name="datanucleus.cache.level2.type" value="None"/>
             <property name="datanucleus.nontx.atomic" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="allowXGTxns">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="allowXGTxns">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
@@ -212,9 +286,10 @@
             <property name="datanucleus.nontx.atomic" value="true"/>
             <property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit> -->
 
-    <persistence-unit name="disallowXGTxns">
+	<!-- JPA/Datanucleus/Datastore (no és aconsellable utilitzar JPA per accedir al datastore.Utilitzar alguna API com Objectify) -->
+    <!-- <persistence-unit name="disallowXGTxns">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
