@@ -1,5 +1,6 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import javax.persistence.*;
@@ -8,18 +9,21 @@ import java.util.*;
 
 @Entity
 @Table(name = "persons")
-public class Person extends BaseAggregateRoot {
+public class Person extends AbstractEntity {
 
     private static final long serialVersionUID = 4180083929142881138L;
 
+    @Column(name = "person_id")
+    private String idd;
+       
     @Embedded
     private PersonName name;
 
     private String idNumber;
 
-    @ElementCollection
-    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "person_id"))
-    private Set<Email> emails = new HashSet<Email>();
+/*    @ElementCollection
+    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "email_id"))
+    private Set<Email> emails = new HashSet<Email>();*/
 
     @ElementCollection
     @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id"))
@@ -68,7 +72,7 @@ public class Person extends BaseAggregateRoot {
         this.idNumber = idNumber;
     }
 
-    public Set<Email> getEmails() {
+    /*public Set<Email> getEmails() {
         return Collections.unmodifiableSet(emails);
     }
 
@@ -85,7 +89,7 @@ public class Person extends BaseAggregateRoot {
 
     public void removeEmail(Email email) {
         emails.remove(email);
-    }
+    }*/
 
     public Map<ImType, String> getIms() {
         return Collections.unmodifiableMap(ims);
@@ -135,6 +139,12 @@ public class Person extends BaseAggregateRoot {
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

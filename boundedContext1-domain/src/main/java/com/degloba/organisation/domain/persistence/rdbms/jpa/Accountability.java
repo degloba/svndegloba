@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.utils.DateUtils;
 
@@ -16,17 +17,17 @@ import com.degloba.utils.DateUtils;
     @NamedNativeQuery(name = "Accountability.findAccountabilitiesByParty",
             query = "select o from Accountability o where (o.commissioner = :party or o.responsible = :party) and o.fromDate <= :date and o.toDate > :date")})
 @MappedSuperclass
-public abstract class Accountability<C extends Party, R extends Party> extends BaseAggregateRoot {
+public abstract class Accountability<C extends Party, R extends Party> extends AbstractEntity {
 
     private static final long serialVersionUID = 3456398163374995470L;
 
-    @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
+/*    @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "commissioner_id")
     private C commissioner;
 
     @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "responsible_id")
-    private R responsible;
+    private R responsible;*/
 
     @Temporal(TemporalType.DATE)
     @Column(name = "from_date")
@@ -40,13 +41,13 @@ public abstract class Accountability<C extends Party, R extends Party> extends B
     }
 
     public Accountability(C commissioner, R responsible, Date fromDate) {
-        this.commissioner = commissioner;
-        this.responsible = responsible;
+        //this.commissioner = commissioner;
+    	////this.responsible = responsible;
         this.fromDate = new Date(fromDate.getTime());
         this.toDate = DateUtils.MAX_DATE;
     }
 
-    public C getCommissioner() {
+/*    public C getCommissioner() {
         return commissioner;
     }
 
@@ -60,7 +61,7 @@ public abstract class Accountability<C extends Party, R extends Party> extends B
 
     public void setResponsible(R responsible) {
         this.responsible = responsible;
-    }
+    }*/
 
     public Date getFromDate() {
         return new Date(fromDate.getTime());

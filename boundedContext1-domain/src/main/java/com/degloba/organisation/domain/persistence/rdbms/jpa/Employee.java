@@ -44,9 +44,5 @@ public class Employee extends Party {
 		this.person = person;
 	}
 
-	@Override
-	public String getId() {
-		return this.getAggregateId().getId();	
-	}
 
 }

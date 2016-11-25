@@ -1,16 +1,22 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @Entity
-@AggregateRoot
-public class EmployeeArchieve extends BaseAggregateRoot {
+//@AggregateRoot
+public class EmployeeArchieve extends AbstractEntity {
     
     
     /**
@@ -18,18 +24,23 @@ public class EmployeeArchieve extends BaseAggregateRoot {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+/*	@EmbeddedId
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+	protected AggregateId aggregateId;*/
 	
-	@OneToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+	
+	/*@OneToOne
+    ///////@JoinColumn(name = "employee_id")
+    private Employee employee;*/
 
-    public Employee getEmployee() {
+    /*public Employee getEmployee() {
         return employee;
     }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
+    }*/
 
     @Override
     public String[] businessKeys() {
