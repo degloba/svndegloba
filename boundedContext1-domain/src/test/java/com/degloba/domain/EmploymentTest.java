@@ -25,7 +25,7 @@ public class EmploymentTest extends AbstractIntegrationTest {
         Person deglobaPersona = organisationUtils.createPerson("tres", "deglobaPersona");
         
         Employee deglobaEmp = organisationUtils.createEmployee(deglobaPersona, date);
-        deglobaEmp.setPerson(deglobaPersona);
+       /////// deglobaEmp.setPerson(deglobaPersona);
         
         deglobaEmp.save();
         

@@ -4,6 +4,7 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.ImType;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 import com.degloba.rent.domain.persistence.rdbms.jpa.IRentRepository;
