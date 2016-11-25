@@ -2,13 +2,18 @@ package com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 
@@ -21,6 +26,7 @@ public class Product extends BaseAggregateRoot{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	@Embedded
 	private Money price;
