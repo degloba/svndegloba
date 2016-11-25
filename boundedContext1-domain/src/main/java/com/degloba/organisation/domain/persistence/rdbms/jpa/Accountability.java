@@ -21,13 +21,13 @@ public abstract class Accountability<C extends Party, R extends Party> extends A
 
     private static final long serialVersionUID = 3456398163374995470L;
 
-/*    @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "commissioner_id")
     private C commissioner;
 
     @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "responsible_id")
-    private R responsible;*/
+    private R responsible;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "from_date")
@@ -47,7 +47,7 @@ public abstract class Accountability<C extends Party, R extends Party> extends A
         this.toDate = DateUtils.MAX_DATE;
     }
 
-/*    public C getCommissioner() {
+    public C getCommissioner() {
         return commissioner;
     }
 
@@ -61,7 +61,7 @@ public abstract class Accountability<C extends Party, R extends Party> extends A
 
     public void setResponsible(R responsible) {
         this.responsible = responsible;
-    }*/
+    }
 
     public Date getFromDate() {
         return new Date(fromDate.getTime());

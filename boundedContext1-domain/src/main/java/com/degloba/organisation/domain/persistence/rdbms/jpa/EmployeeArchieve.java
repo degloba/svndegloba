@@ -24,15 +24,6 @@ public class EmployeeArchieve extends AbstractEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-/*	@EmbeddedId
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
-	protected AggregateId aggregateId;*/
-	
-	
-	/*@OneToOne
-    ///////@JoinColumn(name = "employee_id")
-    private Employee employee;*/
 
     /*public Employee getEmployee() {
         return employee;

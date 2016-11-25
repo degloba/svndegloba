@@ -15,9 +15,9 @@ public class Email implements IValueObject {
 	
 	private static final long serialVersionUID = -734927401730610904L;
 	
-/*	@ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "person_id", nullable = false, referencedColumnName="person_id")
-	private Person person_id;*/
+	private Person person_id;
 	
 	
 	@Column(name = "email_id")
