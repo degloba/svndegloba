@@ -4,11 +4,14 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.ValueObject;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
 
@@ -19,12 +22,19 @@ import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.
  */
 @ValueObject
 @Entity
-public class PurchaseItem extends BaseEntity{
+public class PurchaseItem extends AbstractEntity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+/*	@EmbeddedId
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+	protected AggregateId aggregateId;*/
+	
 
 	@Embedded
 	private ProductData productData;

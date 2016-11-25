@@ -1,10 +1,15 @@
 package com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa;
 
 import javax.inject.Inject;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
@@ -16,7 +21,7 @@ import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 
 @Entity
 @AggregateRoot
-public class Client extends BaseAggregateRoot{
+public class Client extends AbstractEntity{
 
 	private String name;
 	

@@ -3,8 +3,11 @@ package com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.shipping.domain.ShippingStatus;
@@ -15,18 +18,19 @@ import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
  * @author degloba
  */
 @Entity
-//@AggregateRoot
-public class Shipment extends BaseAggregateRoot {
+@AggregateRoot
+public class Shipment extends AbstractEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
 	@AttributeOverrides({
 		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  
     private AggregateId orderId;
-    private AggregateId aggregateId;
-
+	
     private ShippingStatus status;
 
     
@@ -58,7 +62,7 @@ public class Shipment extends BaseAggregateRoot {
             throw new IllegalStateException("cannot deliver in status " + status);
         }
         status = ShippingStatus.DELIVERED;
-        eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
+        ////////eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
     }
 
     public AggregateId getOrderId() {    	

@@ -9,12 +9,18 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 
@@ -24,15 +30,16 @@ import com.degloba.domain.sharedkernel.Money;
  * @author degloba
  * 
  */
-//@AggregateRoot
+@AggregateRoot
 @Entity
-public class Invoice extends BaseAggregateRoot {
+public class Invoice extends AbstractEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	@Embedded
 	private ClientData client;
 

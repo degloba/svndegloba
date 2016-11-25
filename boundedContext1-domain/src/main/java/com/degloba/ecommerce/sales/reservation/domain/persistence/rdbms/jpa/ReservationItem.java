@@ -1,21 +1,28 @@
 package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
-
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 @Entity
-class ReservationItem extends BaseEntity{
+class ReservationItem extends AbstractEntity{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	@ManyToOne
 	private Product product;

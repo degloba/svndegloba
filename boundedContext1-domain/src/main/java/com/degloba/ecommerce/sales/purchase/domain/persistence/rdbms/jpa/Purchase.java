@@ -5,10 +5,15 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
@@ -18,6 +23,7 @@ import javax.persistence.TemporalType;
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
@@ -31,7 +37,7 @@ import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
  */
 @Entity
 @AggregateRoot
-public class Purchase extends BaseAggregateRoot{
+public class Purchase extends AbstractEntity{
 
 	/**
 	 * 
@@ -72,7 +78,7 @@ public class Purchase extends BaseAggregateRoot{
 	public void confirm() {
 		paid = true;
 		
-		eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
+		//////eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
 	}
 	
 	public boolean isPaid() {
