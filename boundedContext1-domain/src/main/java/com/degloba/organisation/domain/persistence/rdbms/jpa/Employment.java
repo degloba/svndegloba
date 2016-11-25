@@ -36,10 +36,10 @@ public class Employment extends Accountability<Company, Employee> {
                 .addParameter("employer", employer).addParameter("date", date).list();
     }
 
-   /* @Override
+    @Override
     public String toString() {
         return new ToStringBuilder(this).append(getCommissioner())
                 .append(getResponsible()).build();
-    }*/
+    }
 
 }

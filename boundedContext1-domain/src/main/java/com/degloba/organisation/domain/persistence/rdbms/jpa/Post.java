@@ -27,7 +27,7 @@ public class Post extends Party {
     private Organization organization;
 
     @ManyToOne
-    ///////@JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_id")
     private Job job;
 
     public Post() {
