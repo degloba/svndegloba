@@ -55,8 +55,9 @@ import com.degloba.domain.sharedkernel.Money;
 })
 
 @Entity
-@AggregateRoot
-public class Reservation extends AbstractEntity{
+//@AggregateRoot
+//public class Reservation extends AbstractEntity{
+public class Reservation extends BaseAggregateRoot{
 	
 	/**
 	 * 
@@ -68,11 +69,19 @@ public class Reservation extends AbstractEntity{
 		OPENED, CLOSED
 	}
 	
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "reservationId", nullable = false))})
+	@Column(name="reservationId")
+	protected AggregateId aggregateId;
+	
+	
 	@Enumerated(EnumType.STRING)
 	private ReservationStatus status;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
-	@JoinColumn(name = "reservation")
+//	@JoinColumn(name = "reservation")
 	///////@Fetch(FetchMode.JOIN)
 	private List<ReservationItem> items;
 
@@ -86,7 +95,7 @@ public class Reservation extends AbstractEntity{
 	private Reservation() {}
 
 	public Reservation(AggregateId aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
-		///////this.aggregateId = aggregateId;
+		this.aggregateId = aggregateId;
 		this.status = status;
 		this.clientData = clientData;
 		this.createDate = createDate;
@@ -197,6 +206,12 @@ public class Reservation extends AbstractEntity{
 	
 	public ReservationStatus getStatus() {
 		return status;
+	}
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return this.aggregateId.getAggregateId();
 	}
 
 }
