@@ -29,6 +29,7 @@ import org.springframework.context.annotation.Scope;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.event.domain.IDomainEvent;
@@ -68,19 +69,29 @@ import com.degloba.utils.BeanUtils;
 		private AggregateStatus aggregateStatus = AggregateStatus.ACTIVE;
 				
 
-		@EmbeddedId
+/*		@EmbeddedId		
 		@AttributeOverrides({
-			  @AttributeOverride(name = "idValue", column = @Column(name = "aggregateId", nullable = false))})
-		protected AggregateId aggregateId;
-		
+			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+		@Column(name="aggregateId")
+		protected AggregateId aggregateId;*/
+			
 
 		
 		/*
-		 * Domain Publisher
+		 * Domain Publisher (Opción 1)
 		 */
 		@Transient
 		@Inject
 		protected IDomainEventPublisher<IDomainEvent<Object>> eventPublisher;
+		
+		
+		/*
+		 * Domain Publisher (Opción 2)
+		 */
+		@Transient
+		@Inject
+		protected IDomainEventBus dominaEventBus;
+				
 				
 		private Boolean actiu; //esborrat logic
 		
@@ -95,17 +106,21 @@ import com.degloba.utils.BeanUtils;
 			aggregateStatus = AggregateStatus.ARCHIVE;
 		}
 		
-		public AggregateId getAggregateId() {
+		/*public AggregateId getAggregateId() {
 			return aggregateId;
 		}
+		
+		public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+		}*/
 
 		public boolean isRemoved() {
 			return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
-		protected void domainError(String message) {
+		/*protected void domainError(String message) {
 			throw new DomainOperationException(getAggregateId(), message);
-		}
+		}*/
 			
 
     // getters - setters
@@ -160,9 +175,6 @@ import com.degloba.utils.BeanUtils;
 		this.eventPublisher = eventPublisher;
 	}
 
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
-	}
 
 	/**
      * Sample technique of injecting Event Publisher into the Aggregate.<br>

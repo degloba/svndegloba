@@ -9,7 +9,7 @@ import javax.persistence.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.InstanceFactory;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.utils.BeanUtils;
 
 
@@ -34,20 +34,20 @@ public abstract class BaseEntity implements IEntity {
    }*/
 
 
-   @Id  
+/*   @Id  
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private String id;
+   private String id;*/
    
           
    // getters - setters
    
-	public void setId(String id) {
+/*	public void setId(String id) {
 		this.id = id;
 	}
  	
 	public String getId() {
 		return id;
-	}
+	}*/
 
    
    /**

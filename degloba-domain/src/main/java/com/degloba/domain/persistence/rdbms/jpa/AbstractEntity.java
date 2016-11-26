@@ -19,6 +19,7 @@ public abstract class AbstractEntity extends BaseEntity {
 
    private static final long serialVersionUID = 8882145540383345037L;
    
+   @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name = "id")
    private String id;
@@ -33,20 +34,22 @@ public abstract class AbstractEntity extends BaseEntity {
    private boolean disabled;
    
    
-   @Override
+/*   @Override
    public String getId() {
        return id;
    }
 
    public void setId(String id) {
        this.id = id;
-   }
+   }*/
+   
+   
 
    public int getVersion() {
        return version;
    }
 
-   public void setVersion(int version) {
+public void setVersion(int version) {
        this.version = version;
    }
 
@@ -113,4 +116,13 @@ public abstract class AbstractEntity extends BaseEntity {
         expired = date;
         save();
     }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+    
 }
