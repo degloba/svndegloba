@@ -21,16 +21,32 @@ import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 
 @Entity
 @AggregateRoot
-public class Client extends AbstractEntity{
+///public class Client extends AbstractEntity{
+public class Client extends BaseAggregateRoot{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	private String name;
+	
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
+	@Column(name="clientId")
+	protected AggregateId aggregateId;
+	
 	
 	@Inject
 	@Transient
 	private PaymentFactory paymentFactory;
 	
 	public ClientData generateSnapshot(){
-		return new ClientData(AggregateId.generate(), name);
+		return null;
+//		return new ClientData(AggregateId.generate(), name);
 	}
 
 	public boolean canAfford(Money amount) {		
@@ -52,6 +68,28 @@ public class Client extends AbstractEntity{
 		// TODO facade to the payment module
 		
 		return paymentFactory.createPayment(generateSnapshot(), amount);
+	}
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return this.aggregateId.getAggregateId();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public AggregateId getAggregateId() {
+		return aggregateId;
+	}
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
 	}
 
 

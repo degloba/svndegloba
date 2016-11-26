@@ -73,7 +73,7 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 	@Override
 	public String getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.aggregateId.getAggregateId();
 	}
 
 

@@ -1,7 +1,6 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import javax.persistence.*;
 
@@ -21,12 +20,12 @@ public class Person extends AbstractEntity {
 
     private String idNumber;
 
-/*    @ElementCollection
-    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "email_id"))
-    private Set<Email> emails = new HashSet<Email>();*/
+    @ElementCollection
+    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "person_id_email"))
+    private Set<Email> emails = new HashSet<Email>();
 
     @ElementCollection
-    @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id"))
+    @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id_ims"))
     @MapKeyColumn(name = "im_type")
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "im_address")
@@ -72,7 +71,7 @@ public class Person extends AbstractEntity {
         this.idNumber = idNumber;
     }
 
-    /*public Set<Email> getEmails() {
+  /*  public Set<Email> getEmails() {
         return Collections.unmodifiableSet(emails);
     }
 

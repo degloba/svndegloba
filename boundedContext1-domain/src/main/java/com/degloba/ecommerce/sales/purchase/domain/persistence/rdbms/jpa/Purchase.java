@@ -37,17 +37,26 @@ import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
  */
 @Entity
 @AggregateRoot
-public class Purchase extends AbstractEntity{
+//public class Purchase extends AbstractEntity{
+public class Purchase extends BaseAggregateRoot{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "purchaseId", nullable = false))})
+	@Column(name="purchaseId")
+	protected AggregateId aggregateId;
+	
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	///////@Fetch(FetchMode.JOIN)
 	@OrderColumn(name = "itemNumber")
-	@JoinColumn(name = "purchase_id")
+//	@JoinColumn(name = "purchase_id")
 	private List<PurchaseItem> items;
 	
 	private boolean paid;
@@ -67,7 +76,7 @@ public class Purchase extends AbstractEntity{
 
 	public Purchase(AggregateId aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
-		///////this.aggregateId = aggregateId;
+		this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.items = items;
 		this.purchaseDate = purchaseDate;
@@ -78,7 +87,7 @@ public class Purchase extends AbstractEntity{
 	public void confirm() {
 		paid = true;
 		
-		//////eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
+		eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
 	}
 	
 	public boolean isPaid() {
@@ -99,6 +108,20 @@ public class Purchase extends AbstractEntity{
 	
 	public Collection<PurchaseItem> getItems() {
 		return (Collection<PurchaseItem>) Collections.unmodifiableCollection(items);
+	}
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AggregateId getAggregateId() {
+		return aggregateId;
+	}
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
 	}
 
 

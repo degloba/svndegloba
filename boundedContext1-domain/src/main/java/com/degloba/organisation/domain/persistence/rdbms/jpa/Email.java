@@ -16,7 +16,7 @@ public class Email implements IValueObject {
 	private static final long serialVersionUID = -734927401730610904L;
 	
 	@ManyToOne
-	@JoinColumn(name = "person_id", nullable = false, referencedColumnName="person_id")
+	//////@JoinColumn(name = "person_id", nullable = false, referencedColumnName="aggregateId")
 	private Person person_id;
 	
 	
@@ -58,6 +58,14 @@ public class Email implements IValueObject {
 	@Override
 	public String toString() {
 		return address;
+	}
+
+	public Person getPerson_id() {
+		return person_id;
+	}
+
+	public void setPerson_id(Person person_id) {
+		this.person_id = person_id;
 	}
 
 	

@@ -2,6 +2,7 @@ package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
 import java.io.Serializable;
@@ -17,6 +18,12 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "photoId", nullable = false))})
+	@Column(name="photoId")
+	protected AggregateId aggregateId;
 
 	private String idGcs; 
   
@@ -48,6 +55,13 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return this.aggregateId.getAggregateId();
 	}
 
 
