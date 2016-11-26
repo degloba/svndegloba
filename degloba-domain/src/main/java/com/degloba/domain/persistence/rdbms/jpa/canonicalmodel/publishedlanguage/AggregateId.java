@@ -3,7 +3,9 @@ package com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguag
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Id;
 
 import org.apache.commons.lang3.Validate;
 
@@ -16,6 +18,7 @@ import org.apache.commons.lang3.Validate;
 @Embeddable
 public class AggregateId implements Serializable {
 	
+	@Column(name = "aggregateId", length = 255, unique=true, nullable=false)
     private String aggregateId; 
     
     public AggregateId(String aggregateId) {                
@@ -63,8 +66,8 @@ public class AggregateId implements Serializable {
     		return aggregateId;        
     }
 
-	public String getAggregateId() {
-		return aggregateId;
+	public AggregateId getAggregateId() {
+		return this;
 	}
 
 	public void setAggregateId(String aggregateId) {
