@@ -48,7 +48,7 @@ public class EntityRepository implements IEntityRepository {
   
 
 	@PersistenceContext(unitName="transactions-optional")
-    @Qualifier(value="entityManagerFactoryDatastore")
+    ///////////@Qualifier(value="entityManagerFactoryDatastore")
     protected EntityManager entityManager;
 	
     
@@ -156,14 +156,14 @@ public class EntityRepository implements IEntityRepository {
 	}
 
 	@Override
-	public <T extends BaseEntity> boolean exists(Class<T> clazz, String id) {
+	public <T extends BaseEntity> boolean exists(Class<T> clazz, Serializable id) {
 		 T entity = entityManager.find(clazz, id);
 		 return entity != null;
 	}
 
 
 	@Override
-	public <T extends BaseEntity> T get(Class<T> clazz, String id) {		// 
+	public <T extends BaseEntity> T get(Class<T> clazz, Serializable id) {		// 
 		return entityManager.find(clazz, id);
 	}
 
