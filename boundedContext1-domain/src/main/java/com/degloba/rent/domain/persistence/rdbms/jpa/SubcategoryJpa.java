@@ -62,12 +62,6 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 		this.category = category;
 	}
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public AggregateId getAggregateId() {
 		return aggregateId;
 	}
@@ -80,6 +74,11 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 		throw new DomainOperationException(getAggregateId(), message);
 	}
 
+	
+	@Override
+	public Serializable getId() {
+		return this.aggregateId;
+	}
 	
 	
 }

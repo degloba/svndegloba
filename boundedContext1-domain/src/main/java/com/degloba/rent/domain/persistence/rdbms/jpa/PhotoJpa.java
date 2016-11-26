@@ -59,9 +59,8 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 
 
 	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return this.aggregateId.getAggregateId();
+	public Serializable getId() {
+		return this.aggregateId;
 	}
 
 

@@ -1,5 +1,6 @@
 package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -209,9 +210,8 @@ public class Reservation extends BaseAggregateRoot{
 	}
 
 	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return this.aggregateId.getAggregateId();
+	public Serializable getId() {
+		return this.aggregateId;
 	}
 
 	public AggregateId getAggregateId() {

@@ -1,5 +1,7 @@
 package com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa;
 
+import java.io.Serializable;
+
 import javax.inject.Inject;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -71,9 +73,9 @@ public class Client extends BaseAggregateRoot{
 	}
 
 	@Override
-	public String getId() {
+	public Serializable getId() {
 		// TODO Auto-generated method stub
-		return this.aggregateId.getAggregateId();
+		return this.aggregateId;
 	}
 
 	public String getName() {

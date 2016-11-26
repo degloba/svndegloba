@@ -22,7 +22,7 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 	
 	private String nou;
 	
-	@EmbeddedId	
+	@EmbeddedId
 	@AttributeOverrides({
 		  @AttributeOverride(name = "aggregateId", column = @Column(name = "categoryId", nullable = false))})
 	@Column(name="categoryId")
@@ -70,13 +70,6 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 	}
 
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return this.aggregateId.getAggregateId();
-	}
-
-
 	public AggregateId getAggregateId() {
 		return aggregateId;
 	}
@@ -88,6 +81,13 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 
 	protected void domainError(String message) {
 		throw new DomainOperationException(getAggregateId(), message);
+	}
+
+
+	@Override
+	public Serializable getId() {
+		// TODO Auto-generated method stub
+		return this.aggregateId;
 	}
 	
 }
