@@ -3,21 +3,30 @@ package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
+import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 import java.io.Serializable;
 import java.util.*;
 
 @Entity
-public class CategoryJpa extends BaseAggregateRoot
-	implements Serializable
-	 {
+public class CategoryJpa extends BaseAggregateRoot implements Serializable
+{
 	
-
 	private static final long serialVersionUID = 1L;
+	
 	private String description;
+	
 	private String nou;
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "categoryId", nullable = false))})
+	@Column(name="categoryId")
+	protected AggregateId aggregateId;
 
   
 	public String getNou() {
@@ -61,5 +70,24 @@ public class CategoryJpa extends BaseAggregateRoot
 	}
 
 
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public AggregateId getAggregateId() {
+		return aggregateId;
+	}
+
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
+	protected void domainError(String message) {
+		throw new DomainOperationException(getAggregateId(), message);
+	}
 	
 }
