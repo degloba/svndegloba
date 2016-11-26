@@ -214,4 +214,15 @@ public class Reservation extends BaseAggregateRoot{
 		return this.aggregateId.getAggregateId();
 	}
 
+	public AggregateId getAggregateId() {
+		return aggregateId;
+	}
+
+	public void setAggregateId(AggregateId aggregateId) {
+		this.aggregateId = aggregateId;
+	}
+
+	
+	
+	
 }

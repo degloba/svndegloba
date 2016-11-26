@@ -19,12 +19,19 @@ import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
  */
 @Entity
 @AggregateRoot
-public class Shipment extends AbstractEntity {
+//public class Shipment extends AbstractEntity {
+public class Shipment extends BaseAggregateRoot {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@EmbeddedId	
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "shipmentId", nullable = false))})
+	@Column(name="shipmentId")
+	protected AggregateId aggregateId;
 	
 	
 	@AttributeOverrides({
@@ -68,6 +75,12 @@ public class Shipment extends AbstractEntity {
     public AggregateId getOrderId() {    	
     	return orderId;
     }
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 
