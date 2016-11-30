@@ -69,11 +69,11 @@ import com.degloba.utils.BeanUtils;
 		private AggregateStatus aggregateStatus = AggregateStatus.ACTIVE;
 				
 
-/*		@EmbeddedId		
+		@EmbeddedId		
 		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})  
 		@Column(name="aggregateId")
-		protected AggregateId aggregateId;*/
+		protected AggregateId aggregateId;
 			
 
 		
@@ -118,13 +118,13 @@ import com.degloba.utils.BeanUtils;
 
     // getters - setters
 	
-/*	public AggregateId getAggregateId() {
+	public AggregateId getAggregateId() {
 			return aggregateId;
 		}
 
 		public void setAggregateId(AggregateId aggregateId) {
 			this.aggregateId = aggregateId;
-		}*/
+		}
 
 	public Boolean getActiu() {
 		return actiu;
