@@ -7,7 +7,6 @@ import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 import java.io.Serializable;
 import java.util.*;
@@ -20,7 +19,6 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 	
 	private String description;
 	
-	private String nou;
 	
 	@EmbeddedId
 	@AttributeOverrides({
@@ -28,20 +26,10 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 	@Column(name="categoryId")
 	protected AggregateId aggregateId;
 
-  
-	public String getNou() {
-		return nou;
-	}
-
-
-	public void setNou(String nou) {
-		this.nou = nou;
-	}
-
-
 	public CategoryJpa() {
 		super();
-		// TODO Auto-generated constructor stub
+		
+		this.setAggregateId(AggregateId.generate());
 	}
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
@@ -85,8 +73,7 @@ public class CategoryJpa extends BaseAggregateRoot implements Serializable
 
 
 	@Override
-	public Serializable getId() {
-		// TODO Auto-generated method stub
+	public Serializable getId() {		
 		return this.aggregateId;
 	}
 	

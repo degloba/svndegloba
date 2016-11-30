@@ -8,12 +8,11 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
 
 @Entity
@@ -70,11 +69,7 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 		this.aggregateId = aggregateId;
 	}
 
-	protected void domainError(String message) {
-		throw new DomainOperationException(getAggregateId(), message);
-	}
 
-	
 	@Override
 	public Serializable getId() {
 		return this.aggregateId;

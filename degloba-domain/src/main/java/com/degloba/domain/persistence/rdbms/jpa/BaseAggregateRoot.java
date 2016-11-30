@@ -71,7 +71,7 @@ import com.degloba.utils.BeanUtils;
 
 /*		@EmbeddedId		
 		@AttributeOverrides({
-			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})
+			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})  
 		@Column(name="aggregateId")
 		protected AggregateId aggregateId;*/
 			
@@ -106,25 +106,26 @@ import com.degloba.utils.BeanUtils;
 			aggregateStatus = AggregateStatus.ARCHIVE;
 		}
 		
-		/*public AggregateId getAggregateId() {
-			return aggregateId;
-		}
 		
-		public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
-		}*/
-
 		public boolean isRemoved() {
 			return aggregateStatus == AggregateStatus.ARCHIVE;
 		}
 		
-		/*protected void domainError(String message) {
-			throw new DomainOperationException(getAggregateId(), message);
-		}*/
+		protected void domainError(String message) {
+//			throw new DomainOperationException(getAggregateId(), message);
+		}
 			
 
     // getters - setters
 	
+/*	public AggregateId getAggregateId() {
+			return aggregateId;
+		}
+
+		public void setAggregateId(AggregateId aggregateId) {
+			this.aggregateId = aggregateId;
+		}*/
+
 	public Boolean getActiu() {
 		return actiu;
 	}
@@ -247,6 +248,29 @@ import com.degloba.utils.BeanUtils;
 	        }
 	        return builder.isEquals();
 	    }
+	    
+	    
+	    
+
+	/*	public AggregateId getAggregateId() {
+			return aggregateId;
+		}
+
+
+		public void setAggregateId(AggregateId aggregateId) {
+			this.aggregateId = aggregateId;
+		}*/
+
+
+		public BaseAggregateRoot() {
+			super();
+						
+			// Inicializacion
+//			this.setAggregateId(AggregateId.generate());
+//			this.DataVigenciaIni = Calendar.getInstance().getTime();
+			this.aggregateStatus = AggregateStatus.ACTIVE;
+			
+		}
 
     
 	   
