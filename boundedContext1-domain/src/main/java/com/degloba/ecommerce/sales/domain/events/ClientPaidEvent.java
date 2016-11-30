@@ -2,6 +2,7 @@ package com.degloba.ecommerce.sales.domain.events;
 
 import java.io.Serializable;
 
+import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 // Domain
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.sharedkernel.Money;
@@ -18,18 +19,18 @@ import com.degloba.event.annotations.Event;
 @Event
 public class ClientPaidEvent implements Serializable {
 
-    private final long paymentId;
+    private final AggregateId paymentId;
     private ClientData clientData;
     private Money amount;
     
     
-    public ClientPaidEvent(long paymentId, ClientData clientData, Money amount) {
+    public ClientPaidEvent(AggregateId paymentId, ClientData clientData, Money amount) {
         this.paymentId = paymentId;
         this.clientData = clientData;
         this.amount = amount;
     }
 
-	public long getPaymentId() {
+	public AggregateId getPaymentId() {
 		return paymentId;
 	}
 	

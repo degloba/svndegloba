@@ -1,5 +1,7 @@
 package com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa;
 
+import java.io.Serializable;
+
 import javax.inject.Inject;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -25,12 +27,21 @@ import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
  */
 //@AggregateRoot
 @Entity
-public class Payment extends AbstractEntity{
+//public class Payment extends AbstractEntity{
+public class Payment extends BaseAggregateRoot implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+			
+	
+	@EmbeddedId
+	@AttributeOverrides({
+		  @AttributeOverride(name = "aggregateId", column = @Column(name = "paymentId", nullable = false))})
+	@Column(name="paymentId")
+	protected AggregateId aggregateId;
+	
 
 	@Embedded
 	private ClientData clientData;
@@ -45,16 +56,22 @@ public class Payment extends AbstractEntity{
 	@SuppressWarnings("unused")
 	private Payment(){}
 	
-	public Payment(long aggregateId, ClientData clientData, Money amount) {
-		///////this.aggregateId = aggregateId;
+	public Payment(AggregateId aggregateId, ClientData clientData, Money amount) {
+		this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.amount = amount;
 	}
 
 	public Payment rollBack(){
 		//TODO explore domain rules
-		/////eventPublisher.publish(new PaymentRolledBackEvent(getAggregateId()));
+		eventPublisher.publish(new PaymentRolledBackEvent(getAggregateId()));
+		
 		return paymentFactory.createPayment(clientData, amount.multiplyBy(-1));
+	}
+
+	@Override
+	public Serializable getId() {
+		return this.aggregateId;
 	}
 
 }

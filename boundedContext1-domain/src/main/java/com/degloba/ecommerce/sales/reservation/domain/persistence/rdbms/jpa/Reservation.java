@@ -106,9 +106,9 @@ public class Reservation extends BaseAggregateRoot{
 	@Invariant({"closed", "duplicates"})
 	public void add(Product product, int quantity){
 		if (isClosed())
-			//domainError("Reservation already closed");
+			domainError("Reservation already closed");
 		if (!product.isAvailabe())
-			//domainError("Product is no longer available");
+			domainError("Product is no longer available");
 		
 		if (contains(product)){
 			increase(product, quantity);			
@@ -177,7 +177,7 @@ public class Reservation extends BaseAggregateRoot{
 	@Invariant({"closed"})
 	public void close(){
 		if (isClosed())
-			//domainError("Reservation is already closed");
+			domainError("Reservation is already closed");
 		status = ReservationStatus.CLOSED;
 	}
 
