@@ -51,7 +51,7 @@
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
-		<!-- Sales OK 
+		<!-- Sales OK -->
 		 <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
@@ -72,7 +72,7 @@
 		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservationItem</class>		
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
-		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> -->
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> 
 		 
 		 
 				<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
