@@ -26,7 +26,7 @@
 		
 		
 		<!-- Organisation OK -->
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<!-- <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>	
@@ -45,14 +45,14 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Party</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>	
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>	  		
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class> -->	  		
 		
 		
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
 		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
 		<!-- Sales OK -->
-		<!-- <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
+		 <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
@@ -72,12 +72,15 @@
 		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservationItem</class>		
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
-		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> -->
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> 
 		 
 		 
-		 <!-- 		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
-		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class> -->
-
+				<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
+		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class> 
+		
+							<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2</class>
+		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa2</class> 
+ 
 		
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
