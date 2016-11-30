@@ -266,7 +266,7 @@ import com.degloba.utils.BeanUtils;
 			super();
 						
 			// Inicializacion
-//			this.setAggregateId(AggregateId.generate());
+			this.setAggregateId(AggregateId.generate());
 //			this.DataVigenciaIni = Calendar.getInstance().getTime();
 			this.aggregateStatus = AggregateStatus.ACTIVE;
 			

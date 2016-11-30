@@ -27,9 +27,7 @@ public class CategoryJpa2 extends BaseAggregateRoot implements Serializable
 	protected AggregateId aggregateId;
 
 	public CategoryJpa2() {
-		super();
-		
-		this.setAggregateId(AggregateId.generate());
+		super();		
 	}
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
