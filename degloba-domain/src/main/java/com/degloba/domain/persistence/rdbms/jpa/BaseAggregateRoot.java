@@ -112,7 +112,7 @@ import com.degloba.utils.BeanUtils;
 		}
 		
 		protected void domainError(String message) {
-//			throw new DomainOperationException(getAggregateId(), message);
+			throw new DomainOperationException(getAggregateId(), message);
 		}
 			
 
@@ -250,18 +250,6 @@ import com.degloba.utils.BeanUtils;
 	    }
 	    
 	    
-	    
-
-	/*	public AggregateId getAggregateId() {
-			return aggregateId;
-		}
-
-
-		public void setAggregateId(AggregateId aggregateId) {
-			this.aggregateId = aggregateId;
-		}*/
-
-
 		public BaseAggregateRoot() {
 			super();
 						
