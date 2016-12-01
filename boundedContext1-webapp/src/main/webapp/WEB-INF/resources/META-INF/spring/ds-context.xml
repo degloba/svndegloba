@@ -91,6 +91,23 @@
 	</bean>   -->
 	
 	
+	 	<bean id="eventBus" class="com.google.common.eventbus.EventBus"/>
+		 
+	  
+	
+ 	<bean id="storedDomainEventRepository" class="com.degloba.domain.event.StoredDomainEventRepository">
+		<!-- <property name="mongoTemplate" ref="mongoTemplate"/> -->
+		<constructor-arg name="mongoTemplate" ref="mongoTemplate"/> 
+	</bean>   
+	
+	
+	<bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl">		
+		<constructor-arg name="eventBus" ref="eventBus"/> 
+		<constructor-arg name="storedDomainEventRepository" ref="storedDomainEventRepository"/> 
+	</bean>   
+	
+	
+	
     <!-- ************ -->
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
@@ -105,7 +122,7 @@
 	
 	<bean id="shipmentRepository" class="com.degloba.ecommerce.shipping.infrastructure.persistence.rdbms.jpa.repositories.ShippingRepository" />	
   	
-  		<bean id="rentrRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
+	<bean id="rentrRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
   	
 	
 </beans>

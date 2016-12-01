@@ -24,9 +24,12 @@ import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.event.DomainEventBusImpl;
+import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.domain.event.StoredDomainEventRepository;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
+import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
 import com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
@@ -83,7 +86,11 @@ public class ProductView implements Serializable{
 		 EventBus eventbus = new EventBus();
 		 eventbus.register(new CashPurchaseEventSubscriber());
 		 
-		 DomainEventBusImpl d = new DomainEventBusImpl(eventbus,new StoredDomainEventRepository());
+//		 DomainEventBusImpl d = new DomainEventBusImpl(eventbus,new StoredDomainEventRepository());
+		 
+		 
+		 IDomainEventBus d =  InstanceFactory.getInstance(IDomainEventBus.class);
+		 
 		 d.publishEvent(new CashPurchaseEvent(1232,"chocolate"));
 		 
 		 

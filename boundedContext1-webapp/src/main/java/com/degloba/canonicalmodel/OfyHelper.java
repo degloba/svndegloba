@@ -3,7 +3,7 @@ package com.degloba.canonicalmodel;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-
+import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 
@@ -22,12 +22,12 @@ public class OfyHelper implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent arg0) {
 		// This will be invoked as part of a warmup request, or the first user request if no warmup
 	    // request.
-	    //////////ObjectifyService.register(Category.class);
+	    ObjectifyService.register(Category.class);
 	    ObjectifyService.register(Subcategory.class);
 	    //////////ObjectifyService.register(Photo.class);
-	    ObjectifyService.register(Location.class);
+	   /* ObjectifyService.register(Location.class);
 	    ObjectifyService.register(Product.class);
-	    ObjectifyService.register(Owner.class);
+	    ObjectifyService.register(Owner.class);*/
 	}
 
 }

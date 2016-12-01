@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.bson.types.ObjectId;
 import org.slf4j.Logger; 
 import org.slf4j.LoggerFactory;
@@ -36,10 +38,23 @@ import com.degloba.domain.annotations.DomainRepositoryImpl;
 public class StoredDomainEventRepository implements IStoredDomainEventRepository{ 
 	static final Logger logger = LoggerFactory.getLogger(StoredDomainEventRepository.class); 
 
-	@Autowired 
+//	@Inject
 	MongoTemplate mongoTemplate; 
 	
 	private Class<StoredDomainEvent> clazz = null;
+	
+	
+	public StoredDomainEventRepository() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public StoredDomainEventRepository(MongoTemplate mongoTemplate) {
+		super();
+		this.mongoTemplate = mongoTemplate;
+	}
+	
 	
 	public MongoTemplate getMongoTemplate() {
 		return mongoTemplate;
@@ -124,6 +139,7 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 	public <S extends StoredDomainEvent> S insert(S entity) {	
 		
 		this.createEventStoreCollection();
+		mongoTemplate.insert(entity);
 		return this.insert(entity);			
 	}
 	
@@ -232,10 +248,10 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 		this.close();		
 	}
 	
-	@Override
+/*	@Override
 	public long countStoredEvents() {
 		return this.count();		
-	}
+	}*/
 
 	
 

@@ -53,5 +53,5 @@ public interface IStoredDomainEventRepository extends MongoRepository<StoredDoma
      *
      * @return Number of stored events
      */
-    public long countStoredEvents();
+//    public long countStoredEvents();
 }
