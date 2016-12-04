@@ -21,7 +21,7 @@ import com.degloba.domain.sharedkernel.Money;
 @ValueObject
 public class ProductData {
 
-	/////////@Embedded
+	@Embedded
 	private AggregateId productId;
 	
 	@Embedded

@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
@@ -26,7 +26,7 @@ import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.
  *
  */
 @Entity
-public class InvoiceLine extends AbstractEntity{
+public class InvoiceLine extends BaseEntity{
 		
 	/**
 	 * 
@@ -41,8 +41,8 @@ public class InvoiceLine extends AbstractEntity{
 	
 	@Embedded
 	@AttributeOverrides({
-		@AttributeOverride(name = "denomination", column = @Column(name = "net_denomination")),
-		@AttributeOverride(name = "currencyCode", column = @Column(name = "net_currencyCode")) })
+		@AttributeOverride(name = "denomination", column = @Column(name = "NET_DENOMINATION")),
+		@AttributeOverride(name = "currencyCode", column = @Column(name = "NET_CURRENCYCODE")) })
 	private Money net;
 	
 	@Embedded

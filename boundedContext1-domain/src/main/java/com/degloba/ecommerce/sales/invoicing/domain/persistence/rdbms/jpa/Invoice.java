@@ -20,8 +20,9 @@ import javax.persistence.OneToMany;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.sharedkernel.Money;
 
 
@@ -32,7 +33,7 @@ import com.degloba.domain.sharedkernel.Money;
  */
 @AggregateRoot
 @Entity
-public class Invoice extends AbstractEntity {
+public class Invoice extends BaseAggregateRoot {
 
 	/**
 	 * 
@@ -45,8 +46,8 @@ public class Invoice extends AbstractEntity {
 
 	@Embedded
 	@AttributeOverrides({
-			@AttributeOverride(name = "denomination", column = @Column(name = "net_denomination")),
-			@AttributeOverride(name = "currencyCode", column = @Column(name = "net_currencyCode")) })
+			@AttributeOverride(name = "denomination", column = @Column(name = "NET_DENOMINATION")),
+			@AttributeOverride(name = "currencyCode", column = @Column(name = "NET_CURRENCYCODE")) })
 	private Money net;
 
 	@Embedded
@@ -56,7 +57,7 @@ public class Invoice extends AbstractEntity {
 	private Money gros;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-	@JoinColumn(name = "invoiceId")
+//	@JoinColumn(name = "invoiceId")
 	///////////@Fetch(FetchMode.JOIN)
 	private List<InvoiceLine> items;
 

@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
@@ -37,7 +37,6 @@ import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
  */
 @Entity
 @AggregateRoot
-//public class Purchase extends AbstractEntity{
 public class Purchase extends BaseAggregateRoot{
 
 	/**
@@ -45,16 +44,9 @@ public class Purchase extends BaseAggregateRoot{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "purchaseId", nullable = false))})
-	@Column(name="purchaseId")
-	protected AggregateId aggregateId;
-	
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-	///////@Fetch(FetchMode.JOIN)
+//	@Fetch(FetchMode.JOIN)
 	@OrderColumn(name = "itemNumber")
 //	@JoinColumn(name = "purchase_id")
 	private List<PurchaseItem> items;
@@ -108,20 +100,6 @@ public class Purchase extends BaseAggregateRoot{
 	
 	public Collection<PurchaseItem> getItems() {
 		return (Collection<PurchaseItem>) Collections.unmodifiableCollection(items);
-	}
-
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
-
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
 	}
 
 

@@ -2,11 +2,13 @@ package com.degloba.domain.entity;
 
 import java.util.Random;
 
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
 
 
-public abstract class Organization extends BaseAggregateRoot {
+public abstract class Organization extends BaseEntity {
 
 	private static final long serialVersionUID = -545941352163679365L;
 	private Long id;

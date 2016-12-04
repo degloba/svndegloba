@@ -7,7 +7,8 @@ import java.util.Map;
 
 import com.degloba.domain.entity.MyEntity;
 import com.degloba.domain.ioc.InstanceFactory;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
@@ -34,12 +35,12 @@ public class AbstractEntityTest {
     public void setUp() throws Exception {
         instance = new MyEntity();
         MockitoAnnotations.initMocks(this);
-        AbstractEntity.setRepository(repository);
+        BaseEntity.setRepository(repository);
     }
 
     @After
     public void tearDown() throws Exception {
-        AbstractEntity.setRepository(null);
+    	BaseEntity.setRepository(null);
     }
 
    /* @Test
@@ -87,11 +88,11 @@ public class AbstractEntityTest {
      */
     @Test
     public void testRepositoryAccessor() {
-        assertSame(repository, AbstractEntity.getRepository());
+        assertSame(repository, BaseEntity.getRepository());
         
-        AbstractEntity.setRepository(null);
+        BaseEntity.setRepository(null);
         InstanceFactory.bind(IEntityRepository.class, repository);
-        assertSame(repository, AbstractEntity.getRepository());
+        assertSame(repository, BaseEntity.getRepository());
     }
 
     /**
@@ -128,7 +129,7 @@ public class AbstractEntityTest {
     public void testGetUnmodified() {
         MyEntity entity2 = new MyEntity("nnn");
         when(repository.getUnmodified(MyEntity.class, instance)).thenReturn(entity2);
-        assertEquals(entity2, AbstractEntity.getUnmodified(MyEntity.class, instance));
+        assertEquals(entity2, BaseEntity.getUnmodified(MyEntity.class, instance));
     }
 
     /**
@@ -137,7 +138,7 @@ public class AbstractEntityTest {
     @Test
     public void testLoad() {
         when(repository.load(MyEntity.class, 3L)).thenReturn(instance);
-        assertEquals(instance, AbstractEntity.load(MyEntity.class, 3L));
+        assertEquals(instance, BaseEntity.load(MyEntity.class, 3L));
     }
 
     /**
@@ -149,7 +150,7 @@ public class AbstractEntityTest {
         CriteriaQuery query = mock(CriteriaQuery.class);
         when(repository.createCriteriaQuery(MyEntity.class)).thenReturn(query);
         when(query.list()).thenReturn(list);
-        assertEquals(list, AbstractEntity.findAll(MyEntity.class));
+        assertEquals(list, BaseEntity.findAll(MyEntity.class));
     }
 
     /**
@@ -159,7 +160,7 @@ public class AbstractEntityTest {
     public void testFindByProperty() {
         List list = Collections.singletonList(instance);
         when(repository.findByProperty(MyEntity.class, "name", "abc")).thenReturn(list);
-        assertEquals(list, AbstractEntity.findByProperty(MyEntity.class, "name", "abc"));
+        assertEquals(list, BaseEntity.findByProperty(MyEntity.class, "name", "abc"));
     }
 
     /**
@@ -170,7 +171,7 @@ public class AbstractEntityTest {
         List list = Collections.singletonList(instance);
         Map props = Collections.singletonMap("name", "abc");
         when(repository.findByProperties(MyEntity.class, NamedParameters.create(props))).thenReturn(list);
-        assertEquals(list, AbstractEntity.findByProperties(MyEntity.class, props));
+        assertEquals(list, BaseEntity.findByProperties(MyEntity.class, props));
     }
 
 }

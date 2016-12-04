@@ -12,7 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
@@ -21,19 +21,12 @@ import com.degloba.domain.sharedkernel.Money;
 
 @Entity
 @AggregateRoot
-//public class Product extends AbstractEntity{
 public class Product extends BaseAggregateRoot{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "productId", nullable = false))})
-	@Column(name="productId")
-	protected AggregateId aggregateId;
 	
 
 	@Embedded
@@ -72,20 +65,6 @@ public class Product extends BaseAggregateRoot{
 	
 	public ProductData generateSnapshot(){
 		return new ProductData(getAggregateId(), price, name, productType, new Date());
-	}
-
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
-
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
 	}
 	
 }

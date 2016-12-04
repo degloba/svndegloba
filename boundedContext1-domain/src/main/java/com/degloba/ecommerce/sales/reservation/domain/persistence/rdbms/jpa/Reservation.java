@@ -30,7 +30,7 @@ import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
@@ -56,8 +56,7 @@ import com.degloba.domain.sharedkernel.Money;
 })
 
 @Entity
-//@AggregateRoot
-//public class Reservation extends AbstractEntity{
+@AggregateRoot
 public class Reservation extends BaseAggregateRoot{
 	
 	/**
@@ -70,14 +69,7 @@ public class Reservation extends BaseAggregateRoot{
 		OPENED, CLOSED
 	}
 	
-	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "reservationId", nullable = false))})
-	@Column(name="reservationId")
-	protected AggregateId aggregateId;
-	
-	
+		
 	@Enumerated(EnumType.STRING)
 	private ReservationStatus status;
 
@@ -209,20 +201,6 @@ public class Reservation extends BaseAggregateRoot{
 		return status;
 	}
 
-	@Override
-	public Serializable getId() {
-		return this.aggregateId;
-	}
-
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
-
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
-	}
-
-	
 	
 	
 }

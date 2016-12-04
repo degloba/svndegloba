@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
@@ -23,7 +22,6 @@ import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 
 @Entity
 @AggregateRoot
-///public class Client extends AbstractEntity{
 public class Client extends BaseAggregateRoot{
 
 	/**
@@ -35,20 +33,12 @@ public class Client extends BaseAggregateRoot{
 	private String name;
 	
 	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
-	@Column(name="clientId")
-	protected AggregateId aggregateId;
-	
-	
 	@Inject
 	@Transient
 	private PaymentFactory paymentFactory;
 	
-	public ClientData generateSnapshot(){
-		return null;
-//		return new ClientData(AggregateId.generate(), name);
+	public ClientData generateSnapshot(){		
+		return new ClientData(aggregateId, name);
 	}
 
 	public boolean canAfford(Money amount) {		
@@ -65,18 +55,13 @@ public class Client extends BaseAggregateRoot{
 	 */
 	public Payment charge(Money amount) {
 		if (! canAfford(amount)){			
-			//////////domainError("Can not afford: " + amount);
+			domainError("Can not afford: " + amount);
 		}
 		// TODO facade to the payment module
 		
 		return paymentFactory.createPayment(generateSnapshot(), amount);
 	}
 
-	@Override
-	public Serializable getId() {
-		// TODO Auto-generated method stub
-		return this.aggregateId;
-	}
 
 	public String getName() {
 		return name;
@@ -84,14 +69,6 @@ public class Client extends BaseAggregateRoot{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
-
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
 	}
 
 

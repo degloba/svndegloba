@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
@@ -16,19 +16,13 @@ import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 
 @Entity
-//class ReservationItem extends AbstractEntity{
-class ReservationItem extends BaseAggregateRoot{
+class ReservationItem extends BaseEntity{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "reservationItemId", nullable = false))})
-	@Column(name="reservationItemId")
-	protected AggregateId aggregateId;
 	
 	@ManyToOne
 	private Product product;
@@ -59,9 +53,15 @@ class ReservationItem extends BaseAggregateRoot{
 	}
 
 	@Override
-	public String getId() {
+	public boolean existed() {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
+	}
+
+	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
