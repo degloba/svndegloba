@@ -1,5 +1,8 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 // JPA
@@ -29,25 +32,101 @@ public abstract class BaseEntity implements IEntity {
 
 	// ALWAYS ADD NEW STATUS AT THE END - because the entityStatus field is
    // annotated as ordinal in sake of performance
- /*  public static enum EntityStatus {
-       ACTIVE, ARCHIVE
-   }*/
+	 /*  public static enum EntityStatus {
+	       ACTIVE, ARCHIVE
+	   }*/
 
 
-/*   @Id  
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private String id;*/
-   
-          
-   // getters - setters
-   
-/*	public void setId(String id) {
-		this.id = id;
-	}
- 	
-	public String getId() {
-		return id;
-	}*/
+	   @Id  
+	   @GeneratedValue(strategy = GenerationType.IDENTITY)  
+	   private Long id;
+	   
+	   
+	   @Version
+	   @Column(name = "version")
+	   private int version;
+	   
+	   
+	   @Temporal(TemporalType.TIMESTAMP)
+	   private Date expired;
+	   
+	   private boolean disabled;
+	          
+	   // getters - setters
+	   
+		public void setId(Long id) {
+			this.id = id;
+		}
+	 	
+		public Long getId() {
+			return id;
+		}
+		
+		   public int getVersion() {
+		       return version;
+		   }
+
+		public void setVersion(int version) {
+		       this.version = version;
+		   }
+		
+
+		   public static  <E extends BaseEntity> E get(Class<E> clazz, String id) {
+		       return (E) getRepository().get(clazz, id);
+		   }
+
+		   public static <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
+		       return (T) getRepository().getUnmodified(clazz, entity);
+		   }
+
+		   public static <T extends BaseEntity> T load(Class<T> clazz, Serializable id) {
+		       return (T) getRepository().load(clazz, id);
+		   }
+
+		   public static <E extends BaseEntity> List<E> findAll(Class<E> clazz) {
+		       return getRepository().createCriteriaQuery(clazz).list();
+		   }
+
+		   public static <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+		       return getRepository().findByProperty(clazz, propName, value);
+		   }
+
+		    public static <E extends BaseEntity> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+		       return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
+		   }
+		    
+		    
+		    /**
+		     * åˆ¤æ–­å®žä½“æ˜¯å�¦å·²ç»�å¤±æ•ˆ
+		     * @return å¦‚æžœå®žä½“å·²ç»�å¤±æ•ˆåˆ™è¿”å›žtrueï¼Œå�¦åˆ™è¿”å›žfalse
+		     */
+		    public boolean isDisabled() {
+		        return disabled;
+		    }
+		    
+		    
+		    /**
+		     * æ ¹æ�®å�•ä¸ªå±žæ€§å€¼ä»¥â€œå±žæ€§=å±žæ€§å€¼â€�çš„æ–¹å¼�æŸ¥æ‰¾ç¬¦å�ˆæ�¡ä»¶çš„å�•ä¸ªå®žä½“ï¼Œé€šå¸¸ç”¨äºŽæ ¹æ�®ä¸šåŠ¡ä¸»é”®æ‰¾åˆ°å”¯ä¸€å®žä½“
+		     * @param <T> å®žä½“æ‰€å±žçš„ç±»åž‹
+		     * @param clazz å®žä½“æ‰€å±žçš„ç±»
+		     * @param propName å±žæ€§å��
+		     * @param value åŒ¹é…�çš„å±žæ€§å€¼
+		     * @return ç¬¦å�ˆæ�¡ä»¶çš„å®žä½“åˆ—è¡¨
+		     */
+		    public static <T extends BaseEntity> T getByProperty(Class<T> clazz, String propName, Object value) {
+		        List<T> entities = findByProperty(clazz, propName, value);
+		        return entities == null || entities.isEmpty() ? null : entities.get(0);
+		    }
+		    
+		    /**
+		     * ä½¿å®žä½“å¤±æ•ˆï¼Œå¯¹ç³»ç»Ÿæ�¥è¯´ï¼Œç­‰ä»·äºŽå®žä½“å·²ç»�åœ¨é€»è¾‘ä¸Šè¢«åˆ é™¤
+		     */
+		    public void disable(Date date) {
+		        disabled = true;
+		        expired = date;
+		        save();
+		    }
+
 
    
    /**
@@ -146,10 +225,10 @@ public abstract class BaseEntity implements IEntity {
            builder.append(thisPropValues.get(businessKey), otherPropValues.get(businessKey));
        }
        return builder.isEquals();
-   }
+	}
+
    
   
-	
 /**
     * The entity itself persisted to the database
     */

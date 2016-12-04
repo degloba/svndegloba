@@ -27,7 +27,7 @@ public class CriteriaQuery {
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(IEntityRepository repository, Class<? extends IEntity> entityClass) {
+    public CriteriaQuery(IEntityRepository repository, Class<? extends BaseEntity> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

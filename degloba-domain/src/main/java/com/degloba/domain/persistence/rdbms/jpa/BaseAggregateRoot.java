@@ -1,6 +1,7 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -14,8 +15,10 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.MapsId;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -48,9 +51,8 @@ import com.degloba.utils.BeanUtils;
 
 	/////////////@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
-	@Entity
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot extends BaseEntity {
+	public abstract class BaseAggregateRoot {   
 
 		private static final long serialVersionUID = 1L;
 		   
@@ -58,6 +60,13 @@ import com.degloba.utils.BeanUtils;
 		public static enum AggregateStatus {
 			ACTIVE, ARCHIVE
 		}
+		
+		
+		@EmbeddedId		
+		@AttributeOverrides({
+			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})  
+		protected AggregateId aggregateId;
+		
 		
 		/**
 		 * control de concurrencia
@@ -68,14 +77,6 @@ import com.degloba.utils.BeanUtils;
 		@Enumerated(EnumType.ORDINAL)
 		private AggregateStatus aggregateStatus = AggregateStatus.ACTIVE;
 				
-
-		@EmbeddedId		
-		@AttributeOverrides({
-			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})  
-		@Column(name="aggregateId")
-		protected AggregateId aggregateId;
-			
-
 		
 		/*
 		 * Domain Publisher (Opción 1)
@@ -90,7 +91,7 @@ import com.degloba.utils.BeanUtils;
 		 */
 		@Transient
 		@Inject
-		protected IDomainEventBus dominaEventBus;
+		protected IDomainEventBus domainEventBus;
 				
 				
 		private Boolean actiu; //esborrat logic
@@ -116,9 +117,9 @@ import com.degloba.utils.BeanUtils;
 		}
 			
 
-    // getters - setters
+		// getters - setters
 	
-	public AggregateId getAggregateId() {
+		public AggregateId getAggregateId() {
 			return aggregateId;
 		}
 
@@ -126,55 +127,55 @@ import com.degloba.utils.BeanUtils;
 			this.aggregateId = aggregateId;
 		}
 
-	public Boolean getActiu() {
-		return actiu;
-	}
+		public Boolean getActiu() {
+			return actiu;
+		}
 
-	public void setActiu(Boolean actiu) {
-		this.actiu = actiu;
-	}
+		public void setActiu(Boolean actiu) {
+			this.actiu = actiu;
+		}
 
-	public Long getVersion() {
-		return version;
-	}
-
-	public void setVersion(Long version) {
-		this.version = version;
-	}
-
-	public Date getDataVigenciaIni() {
-		return DataVigenciaIni;
-	}
-
-	public void setDataVigenciaIni(Date dataVigenciaIni) {
-		DataVigenciaIni = dataVigenciaIni;
-	}
-
-	public Date getDataVigenciaFi() {
-		return DataVigenciaFi;
-	}
-
-	public void setDataVigenciaFi(Date dataVigenciaFi) {
-		DataVigenciaFi = dataVigenciaFi;
-	}
-
+		public Long getVersion() {
+			return version;
+		}
 	
-  
-	public AggregateStatus getAggregateStatus() {
-		return aggregateStatus;
-	}
+		public void setVersion(Long version) {
+			this.version = version;
+		}
+	
+		public Date getDataVigenciaIni() {
+			return DataVigenciaIni;
+		}
 
-	public void setAggregateStatus(AggregateStatus aggregateStatus) {
-		this.aggregateStatus = aggregateStatus;
-	}
+		public void setDataVigenciaIni(Date dataVigenciaIni) {
+			DataVigenciaIni = dataVigenciaIni;
+		}
+	
+		public Date getDataVigenciaFi() {
+			return DataVigenciaFi;
+		}
 
-	public IDomainEventPublisher<IDomainEvent<Object>> getEventPublisher() {
-		return eventPublisher;
-	}
+		public void setDataVigenciaFi(Date dataVigenciaFi) {
+			DataVigenciaFi = dataVigenciaFi;
+		}
+	
+		
+	  
+		public AggregateStatus getAggregateStatus() {
+			return aggregateStatus;
+		}
 
-	public void setEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> eventPublisher) {
-		this.eventPublisher = eventPublisher;
-	}
+		public void setAggregateStatus(AggregateStatus aggregateStatus) {
+			this.aggregateStatus = aggregateStatus;
+		}
+	
+		public IDomainEventPublisher<IDomainEvent<Object>> getEventPublisher() {
+			return eventPublisher;
+		}
+
+		public void setEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> eventPublisher) {
+			this.eventPublisher = eventPublisher;
+		}
 
 
 	/**
@@ -183,17 +184,28 @@ import com.degloba.utils.BeanUtils;
      * Can be called only once by Factory/Repository<br>
      * Visible for package (Factory/Repository)
      */
-   public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher) {
-        if (this.eventPublisher != null)
-            throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
-        this.eventPublisher = domainEventPublisher;
-    }
+	   public void setDomainEventPublisher(IDomainEventPublisher<IDomainEvent<Object>> domainEventPublisher) {
+	        if (this.eventPublisher != null)
+	            throw new IllegalStateException("Publisher is already set! Probably You have logical error in code");
+	        this.eventPublisher = domainEventPublisher;
+	    }
+	
+		public IDomainEventPublisher<IDomainEvent<Object>> getDomainEventPublisher() {
+			return eventPublisher;
+		}
+		
+		
+		public IDomainEventBus getDomainEventBus() {
+			return domainEventBus;
+		}
 
-	public IDomainEventPublisher<IDomainEvent<Object>> getDomainEventPublisher() {
-		return eventPublisher;
-	}
+	
+		public void setDomainEventBus(IDomainEventBus domainEventBus) {
+			this.domainEventBus = domainEventBus;
+		}
 
-	   /**
+
+	/**
 	    * Get Natural key. Natural key is to determine the two entities of the same type on the basis of operational equivalence. If the same type of two
 	    * Business entities the same primary key, then that the two entities are identical, represent the same entity.
 	    * Natural key by one or more entities, attributes.
@@ -254,12 +266,11 @@ import com.degloba.utils.BeanUtils;
 			super();
 						
 			// Inicializacion
-			this.setAggregateId(AggregateId.generate());
-//			this.DataVigenciaIni = Calendar.getInstance().getTime();
+			//this.setAggregateId(AggregateId.generate());
+			this.DataVigenciaIni = Calendar.getInstance().getTime();
 			this.aggregateStatus = AggregateStatus.ACTIVE;
 			
 		}
 
-    
 	   
 }
