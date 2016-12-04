@@ -52,7 +52,7 @@ import com.degloba.utils.BeanUtils;
 	/////////////@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@MappedSuperclass
-	public abstract class BaseAggregateRoot {   
+	public abstract class BaseAggregateRoot {  // extends BaseEntity{   
 
 		private static final long serialVersionUID = 1L;
 		   

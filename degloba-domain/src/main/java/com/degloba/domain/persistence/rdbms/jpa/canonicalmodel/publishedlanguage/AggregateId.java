@@ -75,6 +75,8 @@ Error Code: 1170
     		return aggregateId;        
     }
 
+    
+    @Column(name = "aggregateId", length = 255, unique=true, nullable=false)
 	public String getAggregateId() {
 		return aggregateId;
 	}
