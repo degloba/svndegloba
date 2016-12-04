@@ -1,8 +1,8 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.utils.Assert;
 import com.degloba.utils.DateUtils;
 
@@ -14,7 +14,7 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
 @MappedSuperclass
-public abstract class Party extends AbstractEntity {
+public abstract class Party extends BaseEntity {
 
     private static final long serialVersionUID = -6083088250263550905L;
     

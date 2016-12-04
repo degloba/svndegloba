@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.security.domain.exceptions.DuplicateAuthorizationException;
 
 import java.util.*;
@@ -14,7 +14,7 @@ import java.util.*;
  */
 @Entity
 @Table(name = "security_authorizations")
-public class Authorization extends AbstractEntity {
+public class Authorization extends BaseEntity {
 
     /**
 	 * 

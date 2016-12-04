@@ -1,6 +1,7 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import javax.persistence.*;
 
@@ -8,7 +9,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "persons")
-public class Person extends AbstractEntity {
+public class Person extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 4180083929142881138L;
 
@@ -140,10 +141,5 @@ public class Person extends AbstractEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

@@ -32,7 +32,7 @@ public class Permission extends Authority {
     }
 
     public static Permission get(AggregateId id) {
-        return get(Permission.class, id.getId());
+        return get(Permission.class, id.getAggregateId());
     }
 
     public static Permission getByName(String name) {

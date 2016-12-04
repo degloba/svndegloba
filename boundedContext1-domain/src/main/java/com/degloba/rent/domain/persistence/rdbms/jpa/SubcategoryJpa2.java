@@ -9,14 +9,18 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
+import com.degloba.domain.annotations.ValueObject;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @Entity
-public class SubcategoryJpa2 extends BaseAggregateRoot implements Serializable {
+@ValueObject
+public class SubcategoryJpa2 extends BaseEntity implements Serializable {
 	
 	/**
 	 * 
@@ -24,11 +28,11 @@ public class SubcategoryJpa2 extends BaseAggregateRoot implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	@EmbeddedId	
+/*	@EmbeddedId	
 	@AttributeOverrides({
 		  @AttributeOverride(name = "aggregateId", column = @Column(name = "subcategoryId", nullable = false))})
 	@Column(name="subcategoryId")
-	protected AggregateId aggregateId;
+	protected AggregateId aggregateId;*/
 	
 	
 	String description;
@@ -38,7 +42,8 @@ public class SubcategoryJpa2 extends BaseAggregateRoot implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
     
-
+   
+//  	@JoinColumn(name = "aggregateId", referencedColumnName = "aggregateId", insertable = false, updatable = false)
    	@ManyToOne
     private CategoryJpa2 category;
 	
@@ -61,19 +66,32 @@ public class SubcategoryJpa2 extends BaseAggregateRoot implements Serializable {
 		this.category = category;
 	}
 
-	public AggregateId getAggregateId() {
+	@Override
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	/*public AggregateId getAggregateId() {
 		return aggregateId;
 	}
 
 	public void setAggregateId(AggregateId aggregateId) {
 		this.aggregateId = aggregateId;
-	}
+	}*/
 
 
-	@Override
+/*	@Override
 	public Serializable getId() {
 		return this.aggregateId;
-	}
+	}*/
 	
 	
 }

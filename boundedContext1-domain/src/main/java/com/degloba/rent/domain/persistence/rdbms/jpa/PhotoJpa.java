@@ -19,11 +19,6 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId	
-	@AttributeOverrides({
-		  @AttributeOverride(name = "aggregateId", column = @Column(name = "photoId", nullable = false))})
-	@Column(name="photoId")
-	protected AggregateId aggregateId;
 
 	private String idGcs; 
   
@@ -56,12 +51,5 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
-
-	@Override
-	public Serializable getId() {
-		return this.aggregateId;
-	}
-
 
 }

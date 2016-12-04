@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.utils.DateUtils;
 
 @Entity
@@ -17,7 +17,7 @@ import com.degloba.utils.DateUtils;
     @NamedNativeQuery(name = "Accountability.findAccountabilitiesByParty",
             query = "select o from Accountability o where (o.commissioner = :party or o.responsible = :party) and o.fromDate <= :date and o.toDate > :date")})
 @MappedSuperclass
-public abstract class Accountability<C extends Party, R extends Party> extends AbstractEntity {
+public abstract class Accountability<C extends Party, R extends Party> extends BaseEntity {
 
     private static final long serialVersionUID = 3456398163374995470L;
 

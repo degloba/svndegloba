@@ -61,19 +61,5 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 		this.category = category;
 	}
 
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
 
-	public void setAggregateId(AggregateId aggregateId) {
-		this.aggregateId = aggregateId;
-	}
-
-
-	@Override
-	public Serializable getId() {
-		return this.aggregateId;
-	}
-	
-	
 }

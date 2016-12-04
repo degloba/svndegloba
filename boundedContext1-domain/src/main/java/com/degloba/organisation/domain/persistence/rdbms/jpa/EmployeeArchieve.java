@@ -9,14 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 @Entity
 //@AggregateRoot
-public class EmployeeArchieve extends AbstractEntity {
+public class EmployeeArchieve extends BaseEntity {
     
     
     /**

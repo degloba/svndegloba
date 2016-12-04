@@ -5,8 +5,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
 
 /**
@@ -15,7 +16,7 @@ import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
  */
 @Entity
 @AggregateRoot
-public class Customer extends AbstractEntity{
+public class Customer extends BaseEntity{
 
 	/**
 	 * 

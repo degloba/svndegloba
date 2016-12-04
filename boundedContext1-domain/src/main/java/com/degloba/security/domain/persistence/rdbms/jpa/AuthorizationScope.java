@@ -5,7 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
 import java.util.Set;
 
@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "security_authority_scopes")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class AuthorizationScope extends AbstractEntity {
+public abstract class AuthorizationScope extends BaseEntity {
 
     /**
 	 * 

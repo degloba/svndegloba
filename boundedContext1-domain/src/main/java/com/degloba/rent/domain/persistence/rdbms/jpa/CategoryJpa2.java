@@ -3,7 +3,7 @@ package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
@@ -20,12 +20,12 @@ public class CategoryJpa2 extends BaseAggregateRoot implements Serializable
 	private String description;
 	
 	
-	@EmbeddedId
+	/*@EmbeddedId
 	@AttributeOverrides({
 		  @AttributeOverride(name = "aggregateId", column = @Column(name = "categoryId", nullable = false))})
 	@Column(name="categoryId")
-	protected AggregateId aggregateId;
-
+	protected AggregateId aggregateId;*/
+	
 	public CategoryJpa2() {
 		super();		
 	}
@@ -56,23 +56,37 @@ public class CategoryJpa2 extends BaseAggregateRoot implements Serializable
 	}
 
 
-	public AggregateId getAggregateId() {
+	/*public AggregateId getAggregateId() {
 		return aggregateId;
 	}
 
 
 	public void setAggregateId(AggregateId aggregateId) {
 		this.aggregateId = aggregateId;
-	}
+	}*/
 
 	protected void domainError(String message) {
-		throw new DomainOperationException(getAggregateId(), message);
+//		throw new DomainOperationException(getAggregateId(), message);
+	}
+
+
+	/*@Override
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 
 	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
+	}*/
+
+
+	/*@Override
 	public Serializable getId() {		
 		return this.aggregateId;
-	}
+	}*/
 	
 }
