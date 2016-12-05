@@ -34,7 +34,7 @@ public class ProvesTest extends AbstractIntegrationTest {
         
         // 3.-
         List<Company> companies = repository.findAll(Company.class);
-        Company compania = repository.get(Company.class,company.getId());
+        Company compania = repository.get(Company.class,company.getAggregateId());
         
         assertEquals(company,compania); 
         assertEquals(company,companies.get(0)); 

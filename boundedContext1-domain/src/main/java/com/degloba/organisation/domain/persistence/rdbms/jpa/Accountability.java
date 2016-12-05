@@ -17,7 +17,7 @@ import com.degloba.utils.DateUtils;
     @NamedNativeQuery(name = "Accountability.findAccountabilitiesByParty",
             query = "select o from Accountability o where (o.commissioner = :party or o.responsible = :party) and o.fromDate <= :date and o.toDate > :date")})
 @MappedSuperclass
-public abstract class Accountability<C extends Party, R extends Party> extends BaseEntity {
+public abstract class Accountability<C extends Party, R extends Party> extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 3456398163374995470L;
 

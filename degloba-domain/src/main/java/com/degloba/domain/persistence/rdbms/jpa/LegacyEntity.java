@@ -13,7 +13,7 @@ import java.util.Map;
  * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
  */
 @MappedSuperclass
-public abstract class LegacyEntity extends BaseEntity {
+public abstract class LegacyEntity extends BaseAggregateRoot {
 
     private static final long serialVersionUID = 8882145540383345037L;
 
@@ -41,7 +41,7 @@ public abstract class LegacyEntity extends BaseEntity {
 /*    public static <T extends Entity> T get(Class<T> clazz, Serializable id) {
         return getRepository().get(clazz, id);
     }*/
-    public static <T extends BaseEntity> T get(Class<T> clazz, AggregateId id) {
+    public static <T extends BaseAggregateRoot> T get(Class<T> clazz, AggregateId id) {
         return getRepository().get(clazz, id.getAggregateId());
     }    
 
@@ -52,7 +52,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param entity  Entity
      * @return Entity Unmodified version.
      */
-    public static <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
+    public static <T extends BaseAggregateRoot> T getUnmodified(Class<T> clazz, T entity) {
         return getRepository().getUnmodified(clazz, entity);
     }
 
@@ -63,7 +63,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param id ID entity
      * @return Type T or T subtypes, ID is the id Entity.
      */
-    public static <T extends BaseEntity> T load(Class<T> clazz, Serializable id) {
+    public static <T extends BaseAggregateRoot> T load(Class<T> clazz, Serializable id) {
         return getRepository().load(clazz, id);
     }
 
@@ -73,7 +73,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param clazz Entity Class belongs
      * @return Eligible Entity List
      */
-    public static <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
+    public static <T extends BaseAggregateRoot> List<T> findAll(Class<T> clazz) {
         return getRepository().createCriteriaQuery(clazz).list();
     }
 
@@ -85,7 +85,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param value Property values match
      * @return Eligible Entity List
      */
-    public static <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+    public static <T extends BaseAggregateRoot> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
         return getRepository().findByProperty(clazz, propName, value);
     }
 
@@ -96,7 +96,7 @@ public abstract class LegacyEntity extends BaseEntity {
      * @param propValues Attribute value matching conditions
      * @return Eligible Entity List
      */
-    public static <T extends BaseEntity> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
+    public static <T extends BaseAggregateRoot> List<T> findByProperties(Class<T> clazz, Map<String, Object> propValues) {
         return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
     }
 }

@@ -81,8 +81,11 @@ Error Code: 1170
 		return aggregateId;
 	}
 
+    /*
+     * Comentat perque dona error
+    
 	public void setAggregateId(String aggregateId) {
 		this.aggregateId = aggregateId;
-	}
+	} */
 
 }

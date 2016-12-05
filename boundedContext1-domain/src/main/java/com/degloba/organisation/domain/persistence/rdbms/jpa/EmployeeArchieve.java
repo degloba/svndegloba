@@ -38,5 +38,19 @@ public class EmployeeArchieve extends BaseEntity {
     public String[] businessKeys() {
         return new String[] {"employee"};
     }
+
+
+	@Override
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
     
 }

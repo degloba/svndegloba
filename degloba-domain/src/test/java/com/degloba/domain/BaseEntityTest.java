@@ -3,7 +3,7 @@ package com.degloba.domain;
 import com.degloba.domain.entity.Company;
 import com.degloba.domain.entity.Dept;
 import com.degloba.domain.entity.Organization;
-
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 
@@ -28,13 +28,13 @@ public class BaseEntityTest {
     @Before
     public void setUp() {
         repository = mock(IEntityRepository.class);
-        BaseEntity.setRepository(repository);
+        BaseAggregateRoot.setRepository(repository);
     }
 
     @After
     public void tearDown() {
         reset(repository);
-        BaseEntity.setRepository(null);
+        BaseAggregateRoot.setRepository(null);
     }
 
  /*   @Test

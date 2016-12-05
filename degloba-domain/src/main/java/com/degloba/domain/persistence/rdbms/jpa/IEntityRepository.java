@@ -21,7 +21,7 @@ public interface IEntityRepository {
      * @param entity To store the Entity instance.
      * @return After persistent current Entity
      */
-     <T extends BaseEntity> T save(T entity);
+     <T extends BaseAggregateRoot> T save(T entity);
     
 
     /**
@@ -30,7 +30,7 @@ public interface IEntityRepository {
      *
      * @param entity To delete the Entity instance.
      */
-    void remove(BaseEntity entity);
+    void remove(BaseAggregateRoot entity);
 
     /**
      * Determine whether there is a specified ID Entity instance in Repository.
@@ -40,7 +40,7 @@ public interface IEntityRepository {
      * @param id Entity identification
      * @return If the Entity instance exists, returns true, otherwise false
      */
-    <T extends BaseEntity> boolean exists(Class<T> clazz, Serializable id);
+    <T extends BaseAggregateRoot> boolean exists(Class<T> clazz, Serializable id);
 
     /**
      * Get the Entity in the specified type, the specified ID
@@ -51,7 +51,7 @@ public interface IEntityRepository {
      * @return An Entity instance.
      */
     ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
-    <T extends BaseEntity> T get(Class<T> clazz, Serializable id);
+    <T extends BaseAggregateRoot> T get(Class<T> clazz, Serializable id);
 
     /**
      * Load the specified type, specify the ID of the Entity
@@ -61,7 +61,7 @@ public interface IEntityRepository {
      * @param id Entity identification
      * @return An Entity instance.
      */
-    <T extends BaseEntity> T load(Class<T> clazz, Serializable id);
+    <T extends BaseAggregateRoot> T load(Class<T> clazz, Serializable id);
 
     /**
      * From Repository in Getentity parameters represent unmodified Entity
@@ -71,7 +71,7 @@ public interface IEntityRepository {
      * @param entity To query the Entity
      * @return Parameter entity in the unmodified version Repository
      */
-    <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity);
+    <T extends BaseAggregateRoot> T getUnmodified(Class<T> clazz, T entity);
     
     /**
      * Entity specified type from the Get Repository according to Natural key
@@ -81,7 +81,7 @@ public interface IEntityRepository {
      * @param keyValues Representatives named primary key business parameters. key primary key Property name, value as a primary key attribute values
      * @return An Entity instance.
      */
-    <T extends BaseEntity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
+    <T extends BaseAggregateRoot> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
      * Find all Entity of specified type
@@ -90,7 +90,7 @@ public interface IEntityRepository {
      * @param clazz Class entities
      * @return Eligible Entity collection
      */
-    <T extends BaseEntity> List<T> findAll(Class<T> clazz);
+    <T extends BaseAggregateRoot> List<T> findAll(Class<T> clazz);
 
     /**
      * Creating conditions for inquiry
@@ -99,7 +99,7 @@ public interface IEntityRepository {
      * @param <T> Class type entities
      * @return A conditional query
      */
-    <T extends BaseEntity> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
+    <T extends BaseAggregateRoot> CriteriaQuery createCriteriaQuery(Class<T> entityClass);
 
     /**
      *Execution condition query returns Eligible Entity List
@@ -230,7 +230,7 @@ public interface IEntityRepository {
      * @param settings Query Settings
      * @return Examples and example of a similar type T
      */
-    <T extends BaseEntity, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
+    <T extends BaseAggregateRoot, E extends T> List<T> findByExample(E example, ExampleSettings<T> settings);
 
     /**
      * Find Entity based on the value of a single attribute
@@ -241,7 +241,7 @@ public interface IEntityRepository {
      * @param propertyValue Match Property Value
      * @return Clazz type, the value of property is equal to the set propertyName propertyValue of the Entity
      */
-    <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
+    <T extends BaseAggregateRoot> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue);
 
     /**
      * Find more properties based on the value Entity
@@ -251,7 +251,7 @@ public interface IEntityRepository {
      * @param properties Named parameters, including key is Property name, value is to match Property Value.
      * @return Type clazz, multiple attributes are equal to a specified set of Property Value of Entity.
      */
-    <T extends BaseEntity> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
+    <T extends BaseAggregateRoot> List<T> findByProperties(Class<T> clazz, NamedParameters properties);
     
     /**
      * GetNamed query string query
@@ -272,7 +272,7 @@ public interface IEntityRepository {
      *
      * @param entity To refresh the Entity
      */
-    void refresh(BaseEntity entity);
+    void refresh(BaseAggregateRoot entity);
 
     /**
      * Empty persistent cache
@@ -280,10 +280,10 @@ public interface IEntityRepository {
     void clear();
 
 
-    <T extends BaseEntity>List<T> find(Class<T> entityClass, QueryCriterion criterion);
+    <T extends BaseAggregateRoot>List<T> find(Class<T> entityClass, QueryCriterion criterion);
 
 
-    <T extends BaseEntity>T getSingleResult(Class<T> entityClass, QueryCriterion criterion);
+    <T extends BaseAggregateRoot>T getSingleResult(Class<T> entityClass, QueryCriterion criterion);
 
 
 

@@ -64,18 +64,18 @@ public class EntityRepository implements IEntityRepository {
 	
 
     @Override
-    public <T extends BaseEntity, E extends T> List<T> findByExample(
+    public <T extends BaseAggregateRoot, E extends T> List<T> findByExample(
             final E example, final ExampleSettings<T> settings) {
         throw new RuntimeException("not implemented yet!");
     }
 
     @Override
-    public <T extends BaseEntity> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
+    public <T extends BaseAggregateRoot> List<T> findByProperty(Class<T> clazz, String propertyName, Object propertyValue) {
         return find(new CriteriaQuery(this, clazz).eq(propertyName, propertyValue));
     }
 
     @Override
-    public <T extends BaseEntity> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
+    public <T extends BaseAggregateRoot> List<T> findByProperties(Class<T> clazz, NamedParameters properties) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(this, clazz);
         for (Map.Entry<String, Object> each : properties.getParams().entrySet()) {
             criteriaQuery = criteriaQuery.eq(each.getKey(), each.getValue());
@@ -134,71 +134,71 @@ public class EntityRepository implements IEntityRepository {
 
 
 	@Override
-	public <T extends BaseEntity> T save(T entity) {
+	public <T extends BaseAggregateRoot> T save(T entity) {
 		 if (entity.notExisted()) {
 			 entityManager.persist(entity);
 	            LOGGER.info("create a entity: " + entity.getClass() + "/"
-	                    + entity.getId() + ".");
+	                    + entity.getAggregateId().getAggregateId() + ".");
 	            return entity;
 	        }
 	        T result = entityManager.merge(entity);
 	        LOGGER.info("update a entity: " + entity.getClass() + "/"
-	                + entity.getId() + ".");
+	                + entity.getAggregateId().getAggregateId() + ".");
 	        return result;
 	}
 
 
 	@Override
-	public void remove(BaseEntity entity) {
-		entityManager.remove(get(entity.getClass(), entity.getId()));
+	public void remove(BaseAggregateRoot entity) {
+		entityManager.remove(get(entity.getClass(), entity.getAggregateId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
-                + entity.getId() + ".");	
+                + entity.getAggregateId().getAggregateId() + ".");	
 	}
 
 	@Override
-	public <T extends BaseEntity> boolean exists(Class<T> clazz, Serializable id) {
+	public <T extends BaseAggregateRoot> boolean exists(Class<T> clazz, Serializable id) {
 		 T entity = entityManager.find(clazz, id);
 		 return entity != null;
 	}
 
 
 	@Override
-	public <T extends BaseEntity> T get(Class<T> clazz, Serializable id) {		// 
+	public <T extends BaseAggregateRoot> T get(Class<T> clazz, Serializable id) {		// 
 		return entityManager.find(clazz, id);
 	}
 
 
 	@Override
-	public <T extends BaseEntity> T load(Class<T> clazz, Serializable id) { 
+	public <T extends BaseAggregateRoot> T load(Class<T> clazz, Serializable id) { 
 		 return entityManager.getReference(clazz, id);
 	}
 
 
 	@Override
-	public <T extends BaseEntity> T getUnmodified(Class<T> clazz, T entity) {
+	public <T extends BaseAggregateRoot> T getUnmodified(Class<T> clazz, T entity) {
 		 entityManager.detach(entity);
-		 return get(clazz, entity.getId());
+		 return get(clazz, entity.getAggregateId());
 	}
 
 	@Override
-	public <T extends BaseEntity> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
+	public <T extends BaseAggregateRoot> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues) {
 		List<T> results = findByProperties(clazz, keyValues);
         return results.isEmpty() ? null : results.get(0);
 	}
 
 	@Override
-	public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
+	public <T extends BaseAggregateRoot> List<T> findAll(Class<T> clazz) {
 		 String queryString = "select o from " + clazz.getName() + " as o";
 		 return entityManager.createQuery(queryString).getResultList();
 	}
 
 	@Override
-	public <T extends BaseEntity> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
+	public <T extends BaseAggregateRoot> CriteriaQuery createCriteriaQuery(Class<T> entityClass) {
 		 return new CriteriaQuery(this, entityClass);
 	}
 
 	 @Override
-	 public <T extends BaseEntity> List<T> find(Class<T> entityClass, QueryCriterion criterion) {
+	 public <T extends BaseAggregateRoot> List<T> find(Class<T> entityClass, QueryCriterion criterion) {
 	        return find(createCriteriaQuery(entityClass).and(criterion));
 	    }
 	 
@@ -217,7 +217,7 @@ public class EntityRepository implements IEntityRepository {
 	}
 	
 	 @Override
-	    public <T extends BaseEntity> T getSingleResult(Class<T> entityClass, QueryCriterion criterion) {
+	    public <T extends BaseAggregateRoot> T getSingleResult(Class<T> entityClass, QueryCriterion criterion) {
 	        return getSingleResult(createCriteriaQuery(entityClass).and(criterion));
 	    }
 
@@ -328,7 +328,7 @@ public class EntityRepository implements IEntityRepository {
 	}
 
 	@Override
-	public void refresh(BaseEntity entity) {
+	public void refresh(BaseAggregateRoot entity) {
 		 entityManager.refresh(entity);		
 	}
 

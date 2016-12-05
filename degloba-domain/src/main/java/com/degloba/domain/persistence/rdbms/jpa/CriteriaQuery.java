@@ -21,13 +21,13 @@ public class CriteriaQuery {
 
     private final IEntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
-    private final Class<? extends IEntity> entityClass;
+    private final Class<? extends BaseAggregateRoot> entityClass;
     private int firstResult;
     private int maxResults;
     private QueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
-    public CriteriaQuery(IEntityRepository repository, Class<? extends BaseEntity> entityClass) {
+    public CriteriaQuery(IEntityRepository repository, Class<? extends BaseAggregateRoot> entityClass) {
         Assert.notNull(repository);
         Assert.notNull(entityClass);
         this.repository = repository;

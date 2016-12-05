@@ -16,7 +16,7 @@ import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
  */
 @Entity
 @AggregateRoot
-public class Customer extends BaseEntity{
+public class Customer extends BaseAggregateRoot{
 
 	/**
 	 * 

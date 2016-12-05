@@ -2,7 +2,7 @@ package com.degloba.security.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ import java.util.*;
 @Entity
 @Table(name = "security_actors")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Actor extends BaseEntity {
+public abstract class Actor extends BaseAggregateRoot {
 
     /**
 	 * 
@@ -290,6 +290,6 @@ public abstract class Actor extends BaseEntity {
      * @return If found, return to the Actor, otherwise return null
      */
     public static <T extends Actor> T getByName(Class<T> actorClass, String name) {
-        return BaseEntity.getByProperty(actorClass, "name", name);
+        return BaseAggregateRoot.getByProperty(actorClass, "name", name);
     }
 }

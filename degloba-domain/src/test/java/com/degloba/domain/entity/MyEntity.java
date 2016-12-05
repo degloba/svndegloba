@@ -6,7 +6,7 @@ import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
 @Entity
-public class MyEntity extends BaseEntity {
+public class MyEntity extends BaseAggregateRoot {
     /**
 	 * 
 	 */

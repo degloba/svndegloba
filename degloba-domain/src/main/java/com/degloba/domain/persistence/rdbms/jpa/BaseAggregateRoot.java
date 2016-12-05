@@ -1,8 +1,10 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 
@@ -33,6 +35,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.domain.event.IDomainEventBus;
+import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.event.domain.IDomainEvent;
@@ -61,6 +64,7 @@ import com.degloba.utils.BeanUtils;
 			ACTIVE, ARCHIVE
 		}
 		
+		private boolean disabled;
 		
 		@EmbeddedId		
 		@AttributeOverrides({
@@ -96,6 +100,9 @@ import com.degloba.utils.BeanUtils;
 				
 		private Boolean actiu; //esborrat logic
 		
+		@Temporal(TemporalType.TIMESTAMP)
+		private Date expired;
+		   
 		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaIni;
 		
@@ -272,5 +279,107 @@ import com.degloba.utils.BeanUtils;
 			
 		}
 
+		
+		 public boolean isDisabled() {
+		        return disabled;
+		    }
+		    
+
+	
+		    
+		    public void disable(Date date) {
+		        disabled = true;
+		        expired = date;
+		        save();
+		    }
 	   
+		
+		public static  <E extends BaseAggregateRoot> E get(Class<E> clazz, String id) {
+		       return (E) getRepository().get(clazz, id);
+		   }
+
+		   public static <T extends BaseAggregateRoot> T getUnmodified(Class<T> clazz, T entity) {
+		       return (T) getRepository().getUnmodified(clazz, entity);
+		   }
+
+		   public static <T extends BaseAggregateRoot> T load(Class<T> clazz, Serializable id) {
+		       return (T) getRepository().load(clazz, id);
+		   }
+
+		   public static <E extends BaseAggregateRoot> List<E> findAll(Class<E> clazz) {
+		       return getRepository().createCriteriaQuery(clazz).list();
+		   }
+
+		   public static <T extends BaseAggregateRoot> List<T> findByProperty(Class<T> clazz, String propName, Object value) {
+		       return getRepository().findByProperty(clazz, propName, value);
+		   }
+
+		    public static <E extends BaseAggregateRoot> List<E> findByProperties(Class<E> clazz, Map<String, Object> propValues) {
+		       return getRepository().findByProperties(clazz, NamedParameters.create(propValues));
+		   }
+		    
+		    public static <T extends BaseAggregateRoot> T getByProperty(Class<T> clazz, String propName, Object value) {
+		        List<T> entities = findByProperty(clazz, propName, value);
+		        return entities == null || entities.isEmpty() ? null : entities.get(0);
+		    }
+		    
+		    /**
+		     * Determine whether the entity already exists in the database.
+		     * @return If the entity that owns the id of the database already exists returns true, otherwise false.
+		     */
+		    public boolean existed() {
+		        Object id = getAggregateId();
+		        if (id == null) {
+		            return false;
+		        }
+		        if (id instanceof Number && ((Number)id).intValue() == 0) {
+		            return false;
+		        }
+		        return getRepository().exists(getClass(), getAggregateId());
+		    }
+
+		    /**
+		     * Determines whether the entity does not exist in the database.
+		     * @return If the entity that owns the id is already in the database returns false, otherwise it returns true.
+		     */
+		    public boolean notExisted() {
+		        return !existed();
+		    }
+		    
+		    private static IEntityRepository repository;
+
+		    /**
+		     * Get warehousing object instance. If you do not have a warehouse to get an instance of the IoC container through InstanceFactory.
+		     * @return Warehousing object instance
+		     */
+		    public static IEntityRepository getRepository() {
+		        if (repository == null) {
+		            repository = InstanceFactory.getInstance(IEntityRepository.class);
+		        }
+		        return repository;
+		    }
+
+		    /**
+		     * Set warehousing instance. This method is mainly used for unit testing. Product warehousing systems usually get through IoC container instance.
+		     * @param repository To set up an instance of an object storage
+		     */
+		    public static void setRepository(IEntityRepository repository) {
+		        BaseAggregateRoot.repository = repository;
+		    }
+		    
+		    
+		    /**
+		     * The entity itself persisted to the database
+		     */
+		    public void save() {
+		        getRepository().save(this);
+		    }
+
+		    /**
+		     * Entity itself will be deleted from the database
+		     */
+		    public void remove() {
+		        getRepository().remove(this);
+		    }
+		    
 }

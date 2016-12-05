@@ -5,6 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 
 import java.util.Date;
@@ -16,7 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name = "security_authorities")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Authority extends BaseEntity {
+public class Authority extends BaseAggregateRoot {
 
     /**
 	 * 
@@ -86,6 +87,6 @@ public class Authority extends BaseEntity {
      * @return If found, return to the Authority, otherwise return null
      */
     public static <T extends Authority> T getByName(Class<T> authorityClass, String name) {
-        return BaseEntity.getByProperty(authorityClass, "name", name);
+        return BaseAggregateRoot.getByProperty(authorityClass, "name", name);
     }
 }

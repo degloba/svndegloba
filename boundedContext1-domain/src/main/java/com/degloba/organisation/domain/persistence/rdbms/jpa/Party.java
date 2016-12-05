@@ -14,7 +14,7 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "CATEGORY", discriminatorType = DiscriminatorType.STRING)
 @MappedSuperclass
-public abstract class Party extends BaseEntity {
+public abstract class Party extends BaseAggregateRoot {
 
     private static final long serialVersionUID = -6083088250263550905L;
     
