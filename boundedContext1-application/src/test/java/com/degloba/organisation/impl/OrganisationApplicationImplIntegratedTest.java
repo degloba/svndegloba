@@ -2,9 +2,8 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
-
-import com.degloba.domain.persistence.rdbms.jpa.AbstractEntity;
-
+import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.organisation.application.services.IOrganisationService;
 import com.degloba.organisation.application.services.OrganisationApplicationImpl;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
@@ -35,12 +34,12 @@ public class OrganisationApplicationImplIntegratedTest {
     public void setUp() {
         repository = mock(IOrganisationRepository.class);
         instance = new OrganisationApplicationImpl(repository);
-        AbstractEntity.setRepository(repository);
+        BaseAggregateRoot.setRepository(repository);
     }
 
     @After
     public void tearDown() {
-        AbstractEntity.setRepository(null);
+    	BaseAggregateRoot.setRepository(null);
     }
 
     /**
