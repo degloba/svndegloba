@@ -39,9 +39,9 @@ public class BookKeepingListener {
 	
 	@EventListener
 	public void handle(OrderSubmittedEvent event){
-		Purchase purchase = salesRepository.get(Purchase.class,event.getOrderId().getId());
+		Purchase purchase = salesRepository.get(Purchase.class,event.getOrderId());
 		
-		Client client = salesRepository.get(Client.class,purchase.getClientData().getAggregateId().getId());
+		Client client = salesRepository.get(Client.class,purchase.getClientData().getAggregateId());
 		InvoiceRequest request  = invoiceRequestFactory.create(client, purchase); 
 		Invoice invoice = bookKeeper.issuance(request, taxAdvisor.suggestBestTax(client));
 		
