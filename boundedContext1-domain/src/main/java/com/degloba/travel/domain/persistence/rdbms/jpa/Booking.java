@@ -5,7 +5,6 @@ import org.springframework.binding.message.MessageContext;
 import org.springframework.binding.validation.ValidationContext;*/
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.travel.util.*;
 
 import javax.persistence.*;
