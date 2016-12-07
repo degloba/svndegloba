@@ -17,6 +17,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -76,6 +77,10 @@ public class Reservation extends BaseAggregateRoot{
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
 //	@JoinColumn(name = "reservation")
 	///////@Fetch(FetchMode.JOIN)
+    @JoinColumns(
+    	    {@JoinColumn(name = "reservation", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
 	private List<ReservationItem> items;
 
 	@Embedded

@@ -54,7 +54,7 @@ public class Role extends Authority {
     }
 
     public static Role get(AggregateId id) {
-        return get(Role.class, id.getAggregateId());
+        return get(Role.class, id);
     }
 
     public static Role getByName(String name) {

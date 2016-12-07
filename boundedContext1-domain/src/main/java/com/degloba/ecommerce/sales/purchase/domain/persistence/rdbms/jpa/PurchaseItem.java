@@ -1,19 +1,18 @@
 package com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa;
 
-import java.io.Serializable;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
+
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.ValueObject;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+
 import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
 
@@ -60,6 +59,18 @@ public class PurchaseItem extends BaseEntity{
 
 	public Money getTotalCost() {
 		return totalCost;
+	}
+
+	@Override
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

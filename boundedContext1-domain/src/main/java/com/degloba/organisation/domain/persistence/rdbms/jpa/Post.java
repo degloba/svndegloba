@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,11 +24,19 @@ public class Post extends Party {
     private static final long serialVersionUID = -2205967098970951498L;
 
     @ManyToOne
-    @JoinColumn(name = "org_id")
+//    @JoinColumn(name = "org_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "org_id", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
     private Organization organization;
 
     @ManyToOne
-    @JoinColumn(name = "job_id")
+//    @JoinColumn(name = "job_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "job_Id", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
     private Job job;
 
     public Post() {

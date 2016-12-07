@@ -90,4 +90,18 @@ public class InvoiceLine extends BaseEntity{
 	}
 
 
+	@Override
+	public boolean existed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean notExisted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 }

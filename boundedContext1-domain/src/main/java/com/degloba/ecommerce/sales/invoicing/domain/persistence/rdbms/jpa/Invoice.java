@@ -15,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
@@ -59,6 +60,10 @@ public class Invoice extends BaseAggregateRoot {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 //	@JoinColumn(name = "invoiceId")
 	///////////@Fetch(FetchMode.JOIN)
+    @JoinColumns(
+    	    {@JoinColumn(name = "invoiceId", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
 	private List<InvoiceLine> items;
 
 	public Invoice(long invoiceId, ClientData client) {

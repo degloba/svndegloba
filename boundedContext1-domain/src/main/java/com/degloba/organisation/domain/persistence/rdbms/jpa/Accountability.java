@@ -22,11 +22,19 @@ public abstract class Accountability<C extends Party, R extends Party> extends B
     private static final long serialVersionUID = 3456398163374995470L;
 
     @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "commissioner_id")
+//    @JoinColumn(name = "commissioner_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "commissioner_id", referencedColumnName = "COMISSIONER",
+    	                 insertable = false, updatable = false)
+    	     })
     private C commissioner;
 
     @ManyToOne(targetEntity = Party.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "responsible_id")
+//    @JoinColumn(name = "responsible_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "responsible_id", referencedColumnName = "RESPONSIBLE",
+    	                 insertable = false, updatable = false)
+    	     })
     private R responsible;
 
     @Temporal(TemporalType.DATE)

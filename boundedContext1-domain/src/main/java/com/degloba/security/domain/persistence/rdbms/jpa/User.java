@@ -121,7 +121,7 @@ public class User extends Actor implements Principal {
      * @return Si encuentra el usuario especifica se devuelve el ID de usuario, si no regreso null
      */
     public static User get(AggregateId id) {
-        return get(User.class, id.getAggregateId());
+        return get(User.class, id);
     }
 
     /**

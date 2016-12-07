@@ -9,13 +9,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("Employee")
+//@DiscriminatorValue("Employee")
 public class Employee extends Party {
 
     private static final long serialVersionUID = -7339118476080239701L;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id")
+//    @JoinColumn(name = "person_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "person_id", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
     private Person person;
 
     protected Employee() {

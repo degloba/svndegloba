@@ -3,6 +3,7 @@ package com.degloba.organisation.domain.persistence.rdbms.jpa;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -17,6 +18,10 @@ public class Email implements IValueObject {
 	
 	@ManyToOne
 	//////@JoinColumn(name = "person_id", nullable = false, referencedColumnName="aggregateId")
+	 @JoinColumns(
+	    	    {@JoinColumn(name = "person_id", referencedColumnName = "PERSON",
+	    	                 insertable = false, updatable = false)
+	    	     })
 	private Person person_id;
 	
 	
@@ -60,14 +65,5 @@ public class Email implements IValueObject {
 		return address;
 	}
 
-	public Person getPerson_id() {
-		return person_id;
-	}
-
-	public void setPerson_id(Person person_id) {
-		this.person_id = person_id;
-	}
-
-	
 	
 }

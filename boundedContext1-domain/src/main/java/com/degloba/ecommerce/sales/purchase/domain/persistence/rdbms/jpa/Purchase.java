@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Temporal;
@@ -49,6 +50,10 @@ public class Purchase extends BaseAggregateRoot{
 //	@Fetch(FetchMode.JOIN)
 	@OrderColumn(name = "itemNumber")
 //	@JoinColumn(name = "purchase_id")
+    @JoinColumns(
+    	    {@JoinColumn(name = "purchase_id", referencedColumnName = "aggregateId",
+    	                 insertable = false, updatable = false)
+    	     })
 	private List<PurchaseItem> items;
 	
 	private boolean paid;

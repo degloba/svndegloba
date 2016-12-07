@@ -14,7 +14,7 @@ public class Person extends BaseAggregateRoot {
     private static final long serialVersionUID = 4180083929142881138L;
 
     @Column(name = "person_id")
-    private String idd;
+    private String id;
        
     @Embedded
     private PersonName name;
@@ -22,11 +22,21 @@ public class Person extends BaseAggregateRoot {
     private String idNumber;
 
     @ElementCollection
-    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "person_id_email"))
+//    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "person_id_email"))
+    @CollectionTable(name = "person_emails")
+    @JoinColumns(
+    	    {@JoinColumn(name = "aggregateId", referencedColumnName = "EMAIL",
+    	                 insertable = false, updatable = false)
+    	     })
     private Set<Email> emails = new HashSet<Email>();
 
     @ElementCollection
-    @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id_ims"))
+//    @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id_ims"))
+    @CollectionTable(name = "person_ims")   
+    @JoinColumns(
+    	    {@JoinColumn(name = "person_id_ims", referencedColumnName = "IMS",
+    	                 insertable = false, updatable = false)
+    	     })
     @MapKeyColumn(name = "im_type")
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "im_address")

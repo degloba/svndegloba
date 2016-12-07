@@ -35,6 +35,6 @@ public interface ISalesRepository extends IEntityRepository {
 	
 	// Purchase
 	
-	public <T extends BaseAggregateRoot> void save(T reservation);
+	public <T extends BaseAggregateRoot> T save(T reservation);
 
 }

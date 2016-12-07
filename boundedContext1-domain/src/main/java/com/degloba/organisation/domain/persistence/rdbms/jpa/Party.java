@@ -70,23 +70,12 @@ public abstract class Party extends BaseAggregateRoot {
         this.terminateDate = terminateDate;
     }
 
-    /**
-     * 判断在指定的日期是否“存活”，即参数date处于其生命周期内。
-     *
-     * @param date
-     * @return
-     */
     public boolean isActive(Date date) {
         return DateUtils.isSameDay(date, getCreateDate())
                 || date.after(getCreateDate())
                 && date.before(getTerminateDate());
     }
 
-    /**
-     * 终结当事人，例如撤销机构、撤销岗位、员工离职退休等
-     *
-     * @param date
-     */
     @SuppressWarnings("rawtypes")
     public void terminate(Date date) {
         for (Accountability each : Accountability.findAccountabilitiesByParty(this, date)) {
