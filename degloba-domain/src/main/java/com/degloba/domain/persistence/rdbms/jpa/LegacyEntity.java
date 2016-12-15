@@ -42,7 +42,7 @@ public abstract class LegacyEntity extends BaseAggregateRoot {
         return getRepository().get(clazz, id);
     }*/
     public static <T extends BaseAggregateRoot> T get(Class<T> clazz, AggregateId id) {
-        return getRepository().get(clazz, id.getAggregateId());
+        return getRepository().get(clazz, id);
     }    
 
     /**
