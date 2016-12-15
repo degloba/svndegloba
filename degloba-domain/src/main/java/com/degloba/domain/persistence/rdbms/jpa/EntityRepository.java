@@ -133,17 +133,18 @@ public class EntityRepository implements IEntityRepository {
     }*/
 
 
+    
 	@Override
 	public <T extends BaseAggregateRoot> T save(T entity) {
 		 if (entity.notExisted()) {
 			 entityManager.persist(entity);
 	            LOGGER.info("create a entity: " + entity.getClass() + "/"
-	                    + entity.getAggregateId().getAggregateId() + ".");
+	                    + entity.getAggregateId().toString() + ".");
 	            return entity;
 	        }
 	        T result = entityManager.merge(entity);
 	        LOGGER.info("update a entity: " + entity.getClass() + "/"
-	                + entity.getAggregateId().getAggregateId() + ".");
+	                + entity.getAggregateId().toString() + ".");
 	        return result;
 	}
 
@@ -152,7 +153,7 @@ public class EntityRepository implements IEntityRepository {
 	public void remove(BaseAggregateRoot entity) {
 		entityManager.remove(get(entity.getClass(), entity.getAggregateId()));
         LOGGER.info("remove a entity: " + entity.getClass() + "/"
-                + entity.getAggregateId().getAggregateId() + ".");	
+                + entity.getAggregateId().toString() + ".");	
 	}
 
 	@Override
