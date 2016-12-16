@@ -18,69 +18,71 @@
 		<!-- EntitatS domini -->
 		<!-- *************** -->
 		
-		<!-- Travel  OK -->
-		<!--  <class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
+		<!-- Travel  https://github.com/cloudfoundry-samples/spring-travel -->
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
 		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class> -->
+		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Booking</class> 
 		 
 		
 		
-		<!-- Organisation OK -->
-		<!-- <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<!-- Organisation   https://github.com/dayatang/dddlib/tree/master/dddlib-examples -->
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>	
+		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Email</class>
-			
+	 		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonEducationInfo</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Accountability</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Company</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.CompanyDepartment</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Department</class>
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Employee</class>
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Employee</class> 
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.EmployeeArchieve</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Employment</class>		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Job</class>	
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Organization</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Party</class>	
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>	
-		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class> -->	  		
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Post</class>	 
+		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class> 	  		
 		
 		
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
-		<class>com.degloba.ecommerce.canonicalmodel.publishedlanguage.ClientData</class>
 		
-		<!-- Sales OK -->
+		
+		<!-- Sales   https://github.com/BottegaIT/ddd-leaven-v2 -->
 		 <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
 		
 		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine</class>
-		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice</class>
-		
+		 <class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine</class>
+		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice</class> 
+		 
 		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class>
 		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem</class>
 				
-		<class>com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment</class>
+		 <class>com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment</class>
 		
-		<class> com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment</class>
+		<class> com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment</class>  
 		
-		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation</class>
+	 	 <class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation</class>
 		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservationItem</class>		
-		
+	 
 		<class>com.degloba.domain.sharedkernel.Money</class>
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> 
 		 
 		 
-				<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
-		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class> 
-		
-						<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2</class>
+ 		<!-- 		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
+		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class>  
+		 -->
+	 	<!-- 				<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2</class>
 		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa2</class> 
- 
+   -->
+	
 		
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
