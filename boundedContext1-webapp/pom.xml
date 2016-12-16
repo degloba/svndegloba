@@ -303,14 +303,6 @@
     	</dependency>
     	
     	
-    	<!-- NO S'UTILITZA SI GAE -->
-    	  <dependency> 
-       <groupId>com.google.identitytoolkit</groupId> 
-       <artifactId>gitkitclient</artifactId> 
-       <version>LATEST</version> 
-     </dependency>
-     <!-- NO S'UTILITZA SI GAE -->  
-    	
     	<dependency> 
        <groupId>org.mortbay.jetty</groupId> 
       <artifactId>jetty</artifactId> 
