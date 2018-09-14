@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+  <application>wwwdegloba-1350</application>
+  <version>1</version>
+	
+	  <!--
+	    By default, App Engine sends requests serially to a given web server.
+	    To allow App Engine to send multiple requests in parallel specify: -->
+	
+	  <threadsafe>true</threadsafe>
+  
+	  <use-google-connector-j>true</use-google-connector-j>
+  
+	  <!-- Configure java.util.logging -->
+	  <system-properties>
+	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+	    
+		<property name="cloudsql.url" value="${cloudsql.url}"/>
+    	<property name="cloudsql.url.dev" value="${cloudsql.url.dev}"/>
+	    
+	</system-properties>
+  
+	  
+	<sessions-enabled>true</sessions-enabled>  
+	
+	<!-- XMPP -->
+	 <inbound-services>
+    	<service>xmpp_message</service>
+    	<service>xmpp_presence</service>
+  	</inbound-services>
+  
+	  
+	
+	<!-- <async-session-persistence enabled="false" />
+  
+    <resource-files>
+        <exclude path="/static-resources/**" />
+    </resource-files>
+    
+    <static-files> 
+	    		
+	    <include path="/static-resources/**.*"/> 
+	    <include path="/*.ico"/> 	
+	    
+	    <include path="/*.html"/>
+
+	    <exclude path="/WEB-INF/views/*/*.xhtml" />
+	    <exclude path="/WEB-INF/views/*.xhtml" />
+	    
+    </static-files> -->
+    
+    <static-files>        
+        <include path="/well-known/acme-challenge/*/*.html"/>
+        
+
+        <include path="/resources/images/**.*"/>
+        <include path="/resources/js/**.*"/>
+        <include path="/resources/js/lib/*.js"/>
+		<include path="/WEB-INF/resources/css/*.css"/>
+		
+		<include path="/app/resources/jquery/js/**.*"/>
+		
+		<exclude path="/**.xhtml" /> 
+		<exclude path="/app/WEB-INF/views/**.xhtml" /> 
+			
+        
+	</static-files>
+
+</appengine-web-app>

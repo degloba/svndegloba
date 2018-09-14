@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+	    <artifactId>casino-boundedContext1</artifactId>
+	    <groupId>com.degloba</groupId>
+	    <version>4.4.3-SNAPSHOT</version>
+	</parent>
+  
+	<artifactId>boundedContext1-webapp</artifactId>
+    <packaging>war</packaging>
+	<name>Casino - boundedContext1 - webapp</name>
+
+    <properties>
+    
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>       
+        <primefaces-version>5.3</primefaces-version>
+
+        <cloudsql.url>jdbc:google:mysql://your-instance-name/demo?user=root</cloudsql.url>
+        <cloudsql.url.dev>jdbc:mysql://localhost/degloba?user=root</cloudsql.url.dev>
+    </properties>
+    
+    
+    <repositories>
+		
+	</repositories>
+    
+    
+    <dependencies>
+       
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-facade-impl</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency> 
+        
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-infrastructure</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency> 
+    
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-facade</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>boundedContext1-application</artifactId>
+            <version>${project.version}</version>            
+        </dependency> 
+        
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-ioc-spring</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        
+	  	<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-persistence-jpa</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>          
+        </dependency>          
+        
+		
+		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>commons-logging</artifactId>
+            		<groupId>commons-logging</groupId>
+            	</exclusion>
+            </exclusions>
+        </dependency>
+    
+        
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        
+		<dependency> 
+ 			<groupId>com.google.code.gson</groupId> 
+ 			<artifactId>gson</artifactId> 
+ 			<scope>compile</scope> 
+		</dependency> 
+           
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>  
+            <scope>provided</scope>
+        </dependency>        		
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency> 
+        
+        <!-- Spring --> 
+        <!-- Deploying a WAR in an Old (Servlet 2.5) Container 
+        Spring Boot uses Servlet 3.0 APIs to initialize the ServletContext so you can’t use the same application out of the box in a Servlet 2.5 container. 
+        It is however possible to run a Spring Boot application on an older container with some special tools-->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-legacy</artifactId>     
+            <version>1.0.2.RELEASE</version>       
+        </dependency>   -->
+       
+
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <scope>runtime</scope>
+        </dependency> 
+       
+        
+        <!-- Spring WebFlow -->
+		<dependency>                         
+			<groupId>org.springframework.webflow</groupId> 
+			<artifactId>spring-faces</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>  
+        		
+     <!--    <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js</artifactId>
+        </dependency> -->
+        
+        <!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity-version}</version>
+		</dependency> 
+		
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+			<version>2.2.4.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency> 
+		
+		
+		<!-- Primafaces -->
+ 		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces-version}</version>
+		</dependency> 
+		
+		<!-- Richfaces -->
+<!-- 		<dependency>
+    		<groupId>org.richfaces.core</groupId>
+    		<artifactId>richfaces-core-api</artifactId>
+    	</dependency>
+        <dependency>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-components-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.richfaces.core</groupId>
+            <artifactId>richfaces-core-impl</artifactId>
+        </dependency> -->
+		<!-- <dependency>
+	    	<groupId>org.richfaces.cdk</groupId>
+	    	<artifactId>annotations</artifactId>
+	    	<version>${org.richfaces.bom.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+    	</dependency>        --> 
+		
+				
+		<!-- Referencies Llibreries -->			
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>degloba-utilitats</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>	
+ 			 
+		<dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- ********* -->
+        <!-- JSF       -->
+        <!-- ********* -->
+         <dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+		 <dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>  
+		
+		<!--  <dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+		</dependency>  -->
+		
+ 		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+			<version>1.0</version>
+		</dependency>  
+		
+	
+		<!-- JSR 303 validation -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
+
+        <dependency>
+        	<groupId>org.pac4j</groupId>
+        	<artifactId>pac4j-core</artifactId>
+        	<version>1.8.0</version>
+        </dependency>
+
+
+	<!--  used to convert the response data into JSON string. 
+		Necessari per la classe/bean jsonMessageConverter -->
+         <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.2.3</version>
+        </dependency>
+
+
+         <dependency>
+         	<groupId>org.apache.tomcat.embed</groupId>
+         	<artifactId>tomcat-embed-core</artifactId>
+         	<version>7.0.54</version>
+         </dependency> 
+       
+        <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-jdk14</artifactId>
+        	<version>1.7.13</version>
+        </dependency>
+        
+        <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <scope>compile</scope>
+    </dependency>
+        
+        <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+      <version>1.2.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+    
+    <!-- *********** -->
+    <!-- BACKEND API -->
+    <!-- *********** -->
+    
+      <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-endpoints</artifactId>
+            <version>${google.appengine}</version>
+        </dependency> 
+
+    	<dependency>
+    		<groupId>com.google.gcm</groupId>
+    		<artifactId>gcm-server</artifactId>
+    		<version>1.0.0</version>
+    	</dependency>
+    	
+    	
+    	<dependency> 
+       <groupId>org.mortbay.jetty</groupId> 
+      <artifactId>jetty</artifactId> 
+       <version>6.1.26</version> 
+     </dependency> 
+     
+     
+     <dependency> 
+ 			<groupId>com.googlecode.jsontoken</groupId> 
+ 			<artifactId>jsontoken</artifactId> 
+ 			<version>1.1</version> 
+ 			<scope>compile</scope>
+ 			<exclusions>
+ 				<exclusion>
+ 					<artifactId>commons-codec</artifactId>
+ 					<groupId>commons-codec</groupId>
+ 				</exclusion>
+ 			</exclusions>
+     </dependency>
+
+
+
+      <dependency>
+     	<groupId>org.json</groupId>
+     	<artifactId>json</artifactId>
+     	<version>20140107</version>
+     	<scope>compile</scope>
+     </dependency> 
+         
+		
+		<dependency>
+        	<groupId>${project.groupId}</groupId>
+        	<artifactId>degloba-security</artifactId>
+        	<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-identitytoolkit</artifactId>
+			<version>v3-rev216-1.22.0</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		 <dependency>
+			<groupId>com.google.appengine.tools</groupId>
+			<artifactId>appengine-gcs-client</artifactId>
+			<version>RELEASE</version>
+		</dependency> 
+		<dependency>
+			<groupId>gmultipart</groupId>
+			<artifactId>gmultipart</artifactId>
+			<version>0.4</version>
+		</dependency>
+		
+		
+		<!-- ******************** -->
+		<!--  Implementacions JPA -->
+		<!-- ******************** -->
+		<!-- <dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jpa</artifactId>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>juel</groupId>
+			<artifactId>juel-impl</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		
+    </dependencies>
+    
+
+    <build>
+        <plugins>
+        	
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>                
+	            <configuration>
+	                <source>${jdk.version}</source>
+	                <target>${jdk.version}</target>
+	            </configuration>
+            </plugin> 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> 
+                                    
+        </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.apache.maven.plugins
+        								</groupId>
+        								<artifactId>
+        									maven-dependency-plugin
+        								</artifactId>
+        								<versionRange>
+        									[2.6,)
+        								</versionRange>
+        								<goals>
+        									<goal>copy</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        		
+				<!-- <plugin>
+	                <groupId>org.richfaces.cdk</groupId>
+	                <artifactId>maven-richfaces-resources-plugin</artifactId>
+	                <version>${org.richfaces.bom.version}</version>
+	                <configuration>
+	                
+		                <skins>
+				            <skin>blueSky</skin>
+				        </skins>
+		 		          <excludedFiles>
+				            <exclude>^\Qorg.richfaces.renderkit.html.images.\E.*</exclude>
+				            <exclude>^\Qorg.richfaces.renderkit.html.iconimages.\E.*</exclude>
+				        </excludedFiles>
+				        <includedContentTypes>
+				            <include>application/javascript</include>
+				            <include>text/css</include>
+				            <include>image/.+</include>
+				        </includedContentTypes>
+				        <fileNameMappings>
+				            <property>
+				                <name>^.*showcase.*/([^/]+\.css)$</name>
+				                <value>org.richfaces.showcase.css/$1</value>
+				            </property>
+				            <property>
+				                <name>^.+/([^/]+\.(png|gif|jpg))$</name>
+				                <value>org.richfaces.images/$1</value>
+				            </property>
+				            <property>
+				                <name>^.+/([^/]+\.css)$</name>
+				                <value>org.richfaces.css/$1</value>
+				            </property>
+				        </fileNameMappings>
+	                
+	                </configuration>
+	                <executions>
+		                <execution>
+				            <id>process-resources</id>
+				            <goals>
+				                <goal>process</goal>
+				            </goals>
+				            <configuration>
+				            
+				                default RichFaces mapping file, can be anywhere on the classpath, but then you will
+				                     will need to configure Resource Mapping configuration file location in web.xml,
+				                     refer to RichFaces Developer Guide
+				                <staticResourceMappingFile>${project.build.outputDirectory}/META-INF/richfaces/static-resource-mappings.properties</staticResourceMappingFile>
+				                
+				                resources will be placed in JAR/META-INF/resources/com.acme.staticResources/
+				                     or WAR/WEB-INF/classes/META-INF/resources/com.acme.staticResources/
+				                     depending on packaging of this project
+				                <resourcesOutputDir>${project.build.outputDirectory}/META-INF/resources/com.acme.staticResources/</resourcesOutputDir>
+				                
+				                resources will be located under JSF_RESOURCE_ROOT/com.acme.staticResources (e.g. JAR/META-INF/com.acme.staticResources)
+				                <staticResourcePrefix>com.acme.staticResources/</staticResourcePrefix>
+				                
+				                resources will be packaged, refer to RichFaces Developer Guide
+				                <pack>true</pack>
+				                
+				                resources will be compressed, refer to RichFaces Developer Guide
+				                <compress>true</compress>
+				                
+				            </configuration>
+				        </execution>
+		                                   
+                	</executions>
+            	</plugin>	    
+            	 -->
+            	
+    <!--         	<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <version>1.0</version>
+        <dependencies>
+          NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972)
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outxml>true</outxml>
+          <aspectLibraries>
+            <aspectLibrary>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-aspects</artifactId>
+            </aspectLibrary>
+            <aspectLibrary>
+              <groupId>org.springframework.data</groupId>
+              <artifactId>spring-data-mongodb-cross-store</artifactId>
+            </aspectLibrary>
+          </aspectLibraries>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin> -->
+      
+       <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>${google.appengine}</version>
+                <configuration>
+                    <enableJarClasses>false</enableJarClasses>
+                    <version>${app.version}</version>
+                    <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
+                    <!-- address>0.0.0.0</address>
+                    <port>8080</port -->
+                    <!-- Comment in the below snippet to enable local debugging with a remote debugger
+                         like those included with Eclipse or IntelliJ -->
+                    <!-- jvmFlags>
+                      <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag>
+                    </jvmFlags -->
+                </configuration>
+            </plugin>
+      
+                    	                		
+</plugins>
+
+</pluginManagement>
+
+        
+        <!-- NOTA : In case you're using Maven for building of your application, make sure that the key store is placed 
+        in the resources folder in your build, not in the java or webapp. Maven tends to corrupt the keystore 
+        during building unless it's placed in the resources folder. 
+        http://stackoverflow.com/questions/26764806/java-io-ioexception-invalid-keystore-format-spring-security-saml-extension -->
+        <!-- <resources>
+	        <resource>
+		        <directory>src/main/resources</directory>
+		        <filtering>true</filtering>
+		        <excludes>
+		            <exclude>**/*.jks</exclude>
+		        </excludes>
+	    	</resource>
+	   		<resource>
+		        <directory>src/main/resources</directory>
+		        <filtering>false</filtering>
+		        <includes>
+		            <include>**/*.jks</include>
+		        </includes>
+	    	</resource>
+        </resources>
+          -->
+    </build>
+    
+
+</project>
