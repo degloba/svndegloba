@@ -8,8 +8,6 @@ import com.google.cloud.Page;
 import com.google.cloud.ReadChannel;
 import com.google.cloud.ServiceAccountSigner;
 import com.google.cloud.WriteChannel;
-import com.google.cloud.storage.Acl;
-import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.Acl.User;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.BlobId;

@@ -1,8 +1,6 @@
 package com.degloba.domain.persistence.rdbms.jpa;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+
 import java.util.Map;
 
 // JPA
@@ -12,7 +10,6 @@ import javax.persistence.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.utils.BeanUtils;
 
 

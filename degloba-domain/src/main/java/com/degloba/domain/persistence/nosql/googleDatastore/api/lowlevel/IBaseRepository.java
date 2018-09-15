@@ -8,11 +8,7 @@ import com.degloba.domain.annotations.DomainRepository;
 
 
 import com.google.cloud.datastore.Batch;
-import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.Datastore.TransactionCallable;
-import com.google.cloud.datastore.DatastoreReaderWriter;
 import com.google.cloud.datastore.Entity;
-import com.google.cloud.datastore.IncompleteKey;
 import com.google.cloud.datastore.Key;
 import com.google.cloud.datastore.KeyFactory;
 

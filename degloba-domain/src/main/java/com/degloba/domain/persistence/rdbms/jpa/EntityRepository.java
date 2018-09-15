@@ -7,8 +7,6 @@ import java.util.Map;
 
 // JPA
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -21,13 +19,12 @@ import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 
 import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
 import com.degloba.domain.persistence.rdbms.jpa.QueryCriterion;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // Spring
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

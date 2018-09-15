@@ -14,13 +14,11 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.EmbeddedId;
 // JPA
-import javax.persistence.Entity;
+
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.MapsId;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;

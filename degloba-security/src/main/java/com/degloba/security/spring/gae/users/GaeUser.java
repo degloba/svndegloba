@@ -1,12 +1,11 @@
 package com.degloba.security.spring.gae.users;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
 
-import org.springframework.security.core.GrantedAuthority;
 
 import com.degloba.security.spring.gae.security.AppRole;
 

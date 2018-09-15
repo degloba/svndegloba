@@ -2,6 +2,10 @@ package com.degloba.domain.entity;
 
 public class Dept extends Organization {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int level;
 
 	public Dept(String name, int level) {

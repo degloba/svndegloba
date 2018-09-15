@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Id;
 
 import org.apache.commons.lang3.Validate;
 

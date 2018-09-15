@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.google.cloud.datastore.Batch;
 import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.Datastore.TransactionCallable;
 import com.google.cloud.datastore.DatastoreException;
 import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;

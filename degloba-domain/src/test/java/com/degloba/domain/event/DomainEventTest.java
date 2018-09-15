@@ -38,7 +38,12 @@ public class DomainEventTest {
     }
 
     private class SubDomainEvent extends ADomainEvent {
-        public SubDomainEvent() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public SubDomainEvent() {
         }
 
         public SubDomainEvent(Date occurredOn) {

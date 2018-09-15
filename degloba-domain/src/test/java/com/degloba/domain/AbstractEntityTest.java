@@ -8,7 +8,6 @@ import java.util.Map;
 import com.degloba.domain.entity.MyEntity;
 import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
@@ -146,7 +145,7 @@ public class AbstractEntityTest {
      */
     @Test
     public void testFindAll() {
-        List list = Arrays.asList("a", "b");
+        List<Object> list = Arrays.asList("a", "b");
         CriteriaQuery query = mock(CriteriaQuery.class);
         when(repository.createCriteriaQuery(MyEntity.class)).thenReturn(query);
         when(query.list()).thenReturn(list);
@@ -158,7 +157,7 @@ public class AbstractEntityTest {
      */
     @Test
     public void testFindByProperty() {
-        List list = Collections.singletonList(instance);
+        List<MyEntity> list = Collections.singletonList(instance);
         when(repository.findByProperty(MyEntity.class, "name", "abc")).thenReturn(list);
         assertEquals(list, BaseAggregateRoot.findByProperty(MyEntity.class, "name", "abc"));
     }
@@ -168,8 +167,8 @@ public class AbstractEntityTest {
      */
     @Test
     public void testFindByProperties() {
-        List list = Collections.singletonList(instance);
-        Map props = Collections.singletonMap("name", "abc");
+        List<MyEntity> list = Collections.singletonList(instance);
+        Map<String, Object> props = Collections.singletonMap("name", "abc");
         when(repository.findByProperties(MyEntity.class, NamedParameters.create(props))).thenReturn(list);
         assertEquals(list, BaseAggregateRoot.findByProperties(MyEntity.class, props));
     }

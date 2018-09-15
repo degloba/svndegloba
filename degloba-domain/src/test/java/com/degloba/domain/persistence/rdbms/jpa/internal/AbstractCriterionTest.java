@@ -4,9 +4,8 @@ import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 import static org.junit.Assert.*;
 
 import com.degloba.domain.persistence.rdbms.jpa.internal.AbstractCriterion;
-import com.degloba.domain.persistence.rdbms.jpa.internal.AndCriterion;
 import com.degloba.domain.persistence.rdbms.jpa.internal.NotCriterion;
-import com.degloba.domain.persistence.rdbms.jpa.internal.OrCriterion;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
