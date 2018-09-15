@@ -12,7 +12,7 @@ import com.degloba.infrastructure.sagas.impl.SagaInstance;
  */
 public interface ISagaManager<T extends SagaInstance<D>, D> {
 
-    void removeSaga(T saga);
+    void removeSaga(SagaInstance<D> sagaInstance);
 
     D createNewSagaData();
 }

@@ -19,6 +19,7 @@ import javax.persistence.NoResultException;
 // Spring
 import org.springframework.stereotype.Component;
 
+import com.degloba.event.api.IEvent;
 // Events
 import com.degloba.event.impl.SimpleEventPublisher;
 import com.degloba.event.impl.handlers.IEventHandler;
@@ -30,16 +31,15 @@ import com.degloba.infrastructure.sagas.SagaAction;
 // Sagas
 
 
-
 @Component
-public class SimpleSagaEngine implements ISagaEngine {
+public class SimpleSagaEngine<S extends SagaInstance<D>, D> implements ISagaEngine<IEvent> {
 
-    private final ISagaRegistry sagaRegistry;
+    private final ISagaRegistry<S, D> sagaRegistry;
 
     private final SimpleEventPublisher eventPublisher;
 
     @Inject
-    public SimpleSagaEngine(ISagaRegistry sagaRegistry, SimpleEventPublisher eventPublisher) {
+    public SimpleSagaEngine(ISagaRegistry<S,D> sagaRegistry, SimpleEventPublisher eventPublisher) {
         this.sagaRegistry = sagaRegistry;
         this.eventPublisher = eventPublisher;
     }
@@ -50,41 +50,41 @@ public class SimpleSagaEngine implements ISagaEngine {
     }
 
     @SuppressWarnings("rawtypes")
-    public void handleSagasEvent(Object event) {
-        Collection<ISagaManager> loaders = sagaRegistry.getLoadersForEvent(event);
-        for (ISagaManager loader : loaders) {
-            SagaInstance sagaInstance = loadSaga(loader, event);
-            invokeSagaActionForEvent(sagaInstance, event);
+    public void handleSagasEvent(S saga) {
+        Collection<ISagaManager<S, D>> loaders = sagaRegistry.getLoadersForEvent(saga);
+        for (ISagaManager<S, D> loader : loaders) {
+            SagaInstance<D> sagaInstance = loadSaga(loader, saga);
+            invokeSagaActionForEvent(sagaInstance, saga);
             if (sagaInstance.isCompleted()) {
                 loader.removeSaga(sagaInstance);
             }
         }
     }
-
-    private SagaInstance loadSaga(ISagaManager loader, Object event) {
-        Class<? extends SagaInstance> sagaType = determineSagaTypeByLoader(loader);
-        Object sagaData = loadSagaData(loader, event);
+ 
+    private SagaInstance<D> loadSaga(ISagaManager<S, D> loader, S saga) {
+        Class<? extends SagaInstance<D>> sagaType = determineSagaTypeByLoader(loader);
+        D sagaData = loadSagaData(loader, saga);
         if (sagaData == null) {
             sagaData = loader.createNewSagaData();
         }
-        SagaInstance sagaInstance = sagaRegistry.createSagaInstance(sagaType);
+        SagaInstance<D> sagaInstance = sagaRegistry.createSagaInstance(sagaType);
         sagaInstance.setData(sagaData);
         return sagaInstance;
     }
 
     // TODO determine saga type more reliably
-    private Class<? extends SagaInstance> determineSagaTypeByLoader(ISagaManager loader) {
+    private Class<? extends SagaInstance<D>> determineSagaTypeByLoader(ISagaManager<S, D> loader) {
         Type type = ((ParameterizedType) loader.getClass().getGenericInterfaces()[0]).getActualTypeArguments()[0];
-        return (Class<? extends SagaInstance>) type;
+        return (Class<? extends SagaInstance<D>>) type;
     }
 
     /**
      * TODO handle exception in more generic way
      */
-    private Object loadSagaData(ISagaManager<SagaInstance<?>, ?> loader, Object event) {
-        Method loaderMethod = findHandlerMethodForEvent(loader.getClass(), event);
+    private D loadSagaData(ISagaManager<S, D> loader, S saga) {
+        Method loaderMethod = findHandlerMethodForEvent(loader.getClass(), saga);
         try {
-            Object sagaData = loaderMethod.invoke(loader, event);
+            D sagaData = (D) loaderMethod.invoke(loader, saga);
             return sagaData;
         } catch (InvocationTargetException e) {
             // NRE is ok here, it means that saga hasn't been started yet
@@ -119,20 +119,28 @@ public class SimpleSagaEngine implements ISagaEngine {
         throw new RuntimeException("no method handling " + event.getClass());
     }
 
-    private static class SagaEventHandler implements IEventHandler {
+    private static class SagaEventHandler<T extends IEvent> implements IEventHandler<T> {
 
-        private final ISagaEngine sagaEngine;
+        private final ISagaEngine<T> sagaEngine;
 
-        public SagaEventHandler(ISagaEngine sagaEngine) {
+        public SagaEventHandler(ISagaEngine<T> sagaEngine) {
             this.sagaEngine = sagaEngine;
         }
 
-        public boolean canHandle(Object event) {
+        public boolean canHandle(T event) {
             return true;
         }
 
-        public void handle(Object event) {
+        public void handle(T event) {
             sagaEngine.handleSagasEvent(event);
         }
     }
+
+	@Override
+	public void handleSagasEvent(IEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

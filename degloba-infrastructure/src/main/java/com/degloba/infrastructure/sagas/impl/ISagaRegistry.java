@@ -4,9 +4,9 @@ import java.util.Collection;
 
 import com.degloba.infrastructure.sagas.ISagaManager;
 
-public interface ISagaRegistry {
+public interface ISagaRegistry<T extends SagaInstance<D>, D> {
 
-    Collection<ISagaManager> getLoadersForEvent(Object event);
+    Collection<ISagaManager<T, D>> getLoadersForEvent(Object event);
 
-    SagaInstance<?> createSagaInstance(Class<? extends SagaInstance> sagaType);
+    SagaInstance<D> createSagaInstance(Class<? extends SagaInstance<D>> sagaType);
 }

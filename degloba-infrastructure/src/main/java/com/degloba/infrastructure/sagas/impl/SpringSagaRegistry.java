@@ -44,7 +44,7 @@ public class SpringSagaRegistry implements ISagaRegistry, ApplicationListener<Co
         return results;
     }
 
-    public SagaInstance createSagaInstance(Class<? extends SagaInstance> sagaType) {
+    public SagaInstance createSagaInstance(Class sagaType) {
         return (SagaInstance) beanFactory.getBean(sagaType);
     }
 
