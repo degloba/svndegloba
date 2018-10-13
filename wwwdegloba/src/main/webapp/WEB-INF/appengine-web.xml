@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <application>wwwdegloba-1350</application>
-  <version>1</version>
+    <runtime>java8</runtime>
+   
 	
 	  <!--
 	    By default, App Engine sends requests serially to a given web server.
@@ -60,8 +60,8 @@
 		
 		<include path="/app/resources/jquery/js/**.*"/>
 		
-		<exclude path="/**.xhtml" /> 
-		<exclude path="/app/WEB-INF/views/**.xhtml" /> 
+		<exclude path="/**.xhtml"/> 
+		<exclude path="/app/WEB-INF/views/**.xhtml"/> 
 			
         
 	</static-files>
