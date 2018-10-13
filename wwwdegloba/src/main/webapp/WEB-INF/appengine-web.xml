@@ -15,8 +15,8 @@
 	  <system-properties>
 	    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
 	    
-		<property name="cloudsql.url" value="${cloudsql.url}"/>
-    	<property name="cloudsql.url.dev" value="${cloudsql.url.dev}"/>
+		<!-- <property name="cloudsql.url" value="${cloudsql.url}"/>
+    	<property name="cloudsql.url.dev" value="${cloudsql.url.dev}"/> -->
 	    
 	</system-properties>
   
@@ -31,7 +31,7 @@
   
 	  
 	
-	<!-- <async-session-persistence enabled="false" />
+	<!-- <async-session-persistence enabled="false" /> -->
   
     <resource-files>
         <exclude path="/static-resources/**" />
@@ -43,16 +43,26 @@
 	    <include path="/*.ico"/> 	
 	    
 	    <include path="/*.html"/>
+	    
+	    	     <include path="/resources/images/**.*"/>
+        <include path="/resources/js/**.*"/>
+        <include path="/resources/js/lib/*.js"/>
+		<include path="/WEB-INF/resources/css/*.css"/>
+		
+		<include path="/app/resources/jquery/js/**.*"/> 
 
 	    <exclude path="/WEB-INF/views/*/*.xhtml" />
-	    <exclude path="/WEB-INF/views/*.xhtml" />
+	    <exclude path="/app/WEB-INF/views/*.xhtml" />
 	    
-    </static-files> -->
-    
-    <static-files>        
-        <include path="/well-known/acme-challenge/*/*.html"/>
-        
 
+		
+		
+	    
+    </static-files> 
+    
+     <!--  <static-files>        
+        <include path="/well-known/acme-challenge/*/*.html"/>  
+        
         <include path="/resources/images/**.*"/>
         <include path="/resources/js/**.*"/>
         <include path="/resources/js/lib/*.js"/>
@@ -61,9 +71,9 @@
 		<include path="/app/resources/jquery/js/**.*"/>
 		
 		<exclude path="/**.xhtml"/> 
-		<exclude path="/app/WEB-INF/views/**.xhtml"/> 
+		<exclude path="/WEB-INF/views/**.xhtml"/>     
 			
         
-	</static-files>
+	</static-files>   -->
 
 </appengine-web-app>

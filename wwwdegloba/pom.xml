@@ -13,6 +13,8 @@
 
     <properties>
     
+   
+    
          <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>       
         <primefaces-version>6.2</primefaces-version>
 
