@@ -235,7 +235,7 @@
          <dependency>
          	<groupId>org.apache.tomcat.embed</groupId>
          	<artifactId>tomcat-embed-core</artifactId>
-         	<version>7.0.54</version>
+         	<version>7.0.90</version>
          </dependency> 
        
         <dependency>
