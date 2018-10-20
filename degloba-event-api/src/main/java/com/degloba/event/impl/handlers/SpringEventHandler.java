@@ -4,8 +4,10 @@ import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.BeanFactory;
 
+import com.degloba.event.api.IEvent;
 
-public class SpringEventHandler implements IEventHandler {
+
+public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
 
     private final Class<?> eventType;
     private final String beanName;
@@ -19,11 +21,11 @@ public class SpringEventHandler implements IEventHandler {
         this.beanFactory = beanFactory;
     }
 
-    public boolean canHandle(Object event) {
+    public boolean canHandle(T event) {
         return eventType.isAssignableFrom(event.getClass());
     }
 
-    public void handle(Object event) {
+    public void handle(T event) {
         Object bean = beanFactory.getBean(beanName);
         try {
             method.invoke(bean, event);

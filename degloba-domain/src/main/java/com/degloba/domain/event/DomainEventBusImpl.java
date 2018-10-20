@@ -14,7 +14,7 @@ import com.degloba.utils.Assert;
  * 2.- Guarda el evento "publish" en un repositorio de Eventos
  * 
  */
-public class DomainEventBusImpl implements IDomainEventBus {
+public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> {
 
 	@Inject
     private EventBus eventBus;
@@ -61,7 +61,7 @@ public class DomainEventBusImpl implements IDomainEventBus {
 
 
 	@Override
-	public void register(IEventListener<?>... handlers) {
+	public void register(IEventListener<T> handlers) {
 		eventBus.register(handlers);		
 	}
 
@@ -73,7 +73,7 @@ public class DomainEventBusImpl implements IDomainEventBus {
 
 
 	@Override
-	public void unregister(IEventListener<?>... handlers) {
+	public void unregister(IEventListener<T> handlers) {
 		eventBus.unregister(handlers);		
 	}
 
@@ -96,5 +96,6 @@ public class DomainEventBusImpl implements IDomainEventBus {
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
 	}
+
 
 }

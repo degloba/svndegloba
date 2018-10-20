@@ -1,5 +1,6 @@
 package com.degloba.domain.event;
 
+import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventBus;
 
 /**
@@ -8,7 +9,7 @@ import com.degloba.event.api.IEventBus;
  * When the only parameter, and markedSubscribe the way, when the bus in the event there is a new type of event publishing and the matching parameter of the method, the event
  * Bus will be the event object as an argument to call the event a subscriber subscription method.
  */
-public interface IDomainEventBus extends IEventBus{
+public interface IDomainEventBus<T extends IEvent> extends IEventBus<T>{
 
     /**
      * The field event to all registered event subscriber

@@ -13,7 +13,12 @@ import org.primefaces.model.map.LatLngBounds;
 ////////@ManagedBean
 public class EventGmapView implements Serializable {
      
-    public void onStateChange(StateChangeEvent event) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void onStateChange(StateChangeEvent event) {
         LatLngBounds bounds = event.getBounds();
         int zoomLevel = event.getZoomLevel();
           

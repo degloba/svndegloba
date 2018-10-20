@@ -49,7 +49,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
                 
                 if (listenerAnnotation.asynchronous()){
                 	//TODO just a temporary fake impl
-                	IEventHandler<T> handler = new AsynchronousEventHandler(eventType, beanName, method, beanFactory);
+                	IEventHandler<T> handler = new AsynchronousEventHandler<T>(eventType, beanName, method, beanFactory);
                 	//TODO add to some queue
                 	eventPublisher.registerEventHandler(handler);                	
                 }
