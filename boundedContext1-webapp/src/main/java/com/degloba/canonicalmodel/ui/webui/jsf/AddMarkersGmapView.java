@@ -3,7 +3,6 @@ package com.degloba.canonicalmodel.ui.webui.jsf;
 import java.io.Serializable;
 import javax.annotation.PostConstruct; 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
   
 import org.primefaces.model.map.DefaultMapModel;
@@ -11,10 +10,15 @@ import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
  
-@ManagedBean
+//@ManagedBean
 public class AddMarkersGmapView implements Serializable {
      
-    private MapModel emptyModel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private MapModel emptyModel;
       
     private String title;
       

@@ -48,7 +48,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
+    <param-value>classpath*:/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
   </context-param>
   <context-param>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
@@ -146,9 +146,9 @@
 	</context-param>	      
   
 
-<!--   <listener>
+   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener> -->
+  </listener> 
   
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>

@@ -122,7 +122,7 @@
 	
 	<bean id="shipmentRepository" class="com.degloba.ecommerce.shipping.infrastructure.persistence.rdbms.jpa.repositories.ShippingRepository" />	
   	
-	<bean id="rentrRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
+	<bean id="rentRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
   	
 	
 </beans>

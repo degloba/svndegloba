@@ -2,7 +2,11 @@ package com.degloba.ecommerce.sales.application.events;
 
 public class CreditPurchaseEvent extends PurchaseEvent {
 
-    private String creditCardNumber;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String creditCardNumber;
     private String item;
 
     public CreditPurchaseEvent(long amount, String item, String creditCardNumber) {

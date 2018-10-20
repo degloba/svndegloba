@@ -8,8 +8,6 @@ import javax.annotation.PostConstruct;
 
 // JSF
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 
 // 
@@ -54,8 +52,8 @@ import javax.validation.constraints.Size;
  *
  */
 @Component
-@ManagedBean
-@SessionScoped
+//@ManagedBean
+//@SessionScoped
 public class ProductView implements Serializable{
 	
 	/**
@@ -94,7 +92,7 @@ public class ProductView implements Serializable{
 //		 DomainEventBusImpl d = new DomainEventBusImpl(eventbus,new StoredDomainEventRepository());
 		 
 		 
-		 IDomainEventBus d =  InstanceFactory.getInstance(IDomainEventBus.class);
+		 IDomainEventBus<?> d =  InstanceFactory.getInstance(IDomainEventBus.class);
 		 
 		 d.publishEvent(new CashPurchaseEvent(1232,"chocolate"));
 		 

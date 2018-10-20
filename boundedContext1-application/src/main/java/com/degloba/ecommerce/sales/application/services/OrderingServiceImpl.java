@@ -28,7 +28,6 @@ import com.degloba.ecommerce.sales.reservation.domain.factories.ReservationFacto
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
-import com.degloba.ecommerce.system.application.SystemUser;
 
 /**
  * Ordering Use Case steps<br>
@@ -84,9 +83,9 @@ public class OrderingServiceImpl implements IOrderingService {
 	@Override
 	public void addProduct(AggregateId orderId, AggregateId productId,
 			int quantity) {
-		Reservation reservation = salesRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.loadReservation(Reservation.class,orderId);
 		
-		Product product = productRepository.load(Product.class,productId);
+		Product product = productRepository.loadProduct(Product.class,productId);
 		
 		if (! product.isAvailabe()){
 			Client client = loadClient();	
@@ -103,7 +102,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
 	public Offer calculateOffer(AggregateId orderId) {
-		Reservation reservation = salesRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.loadReservation(Reservation.class,orderId);
 
 		DiscountPolicy discountPolicy = discountFactory.create(loadClient());
 		
@@ -131,7 +130,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
 	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
 			throws OfferChangedException {
-		Reservation reservation = salesRepository.load(Reservation.class,orderId);
+		Reservation reservation = salesRepository.loadReservation(Reservation.class,orderId);
 		if (reservation.isClosed())
 			throw new DomainOperationException(reservation.getAggregateId(), "reservation is already closed");
 		
