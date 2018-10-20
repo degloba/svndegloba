@@ -5,6 +5,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
     <artifactId>degloba-domain</artifactId>
     <packaging>jar</packaging>
@@ -45,11 +46,6 @@
 		<!-- Llibreries degloba -->
 		<!-- ****************** -->                        
 		<dependency>
-           	<groupId>${project.groupId}</groupId>
-           	<artifactId>degloba-utilitats</artifactId>
-           	<version>0.0.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
 			<version>${project.version}</version>
@@ -86,7 +82,12 @@
 			<artifactId>google-cloud-datastore</artifactId>
 			<version>0.4.0</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-utilitats</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -216,4 +217,4 @@
            
         </plugins>
     </build>
-</project>
+    </project>
