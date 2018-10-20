@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 // Event (degloba)
 import com.degloba.event.annotations.EventListener;
+import com.degloba.event.api.IEvent;
 import com.degloba.event.impl.SimpleEventPublisher;
 import com.degloba.event.impl.handlers.AsynchronousEventHandler;
 import com.degloba.event.impl.handlers.IEventHandler;
@@ -28,12 +29,12 @@ import com.degloba.infrastructure.sagas.impl.SagaInstance;
  * (if needed).
  */
 @Component
-public class EventListenerBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
+public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPostProcessor, BeanFactoryAware {
 
     private BeanFactory beanFactory;
     
     @Inject
-    private SimpleEventPublisher eventPublisher;
+    private SimpleEventPublisher<T> eventPublisher;
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (!(bean instanceof SagaInstance)) {
@@ -48,12 +49,12 @@ public class EventListenerBeanPostProcessor implements BeanPostProcessor, BeanFa
                 
                 if (listenerAnnotation.asynchronous()){
                 	//TODO just a temporary fake impl
-                	IEventHandler handler = new AsynchronousEventHandler(eventType, beanName, method, beanFactory);
+                	IEventHandler<T> handler = new AsynchronousEventHandler(eventType, beanName, method, beanFactory);
                 	//TODO add to some queue
                 	eventPublisher.registerEventHandler(handler);                	
                 }
                 else{                
-                	IEventHandler handler = new SpringEventHandler(eventType, beanName, method, beanFactory);
+                	IEventHandler<T> handler = new SpringEventHandler<T>(eventType, beanName, method, beanFactory);
                 	eventPublisher.registerEventHandler(handler);
                 }                                
             }

@@ -36,10 +36,10 @@ public class SimpleSagaEngine<S extends SagaInstance<D>, D> implements ISagaEngi
 
     private final ISagaRegistry<S, D> sagaRegistry;
 
-    private final SimpleEventPublisher eventPublisher;
+    private final SimpleEventPublisher<IEvent> eventPublisher;
 
     @Inject
-    public SimpleSagaEngine(ISagaRegistry<S,D> sagaRegistry, SimpleEventPublisher eventPublisher) {
+    public SimpleSagaEngine(ISagaRegistry<S,D> sagaRegistry, SimpleEventPublisher<IEvent> eventPublisher) {
         this.sagaRegistry = sagaRegistry;
         this.eventPublisher = eventPublisher;
     }

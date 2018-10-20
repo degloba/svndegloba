@@ -1,7 +1,9 @@
 package com.degloba.event.impl.handlers;
 
-public interface IEventHandler {
-    boolean canHandle(Object event);
+import com.degloba.event.api.IEvent;
 
-    void handle(Object event);
+public interface IEventHandler<T extends IEvent> {
+    boolean canHandle(T event);
+
+    void handle(T event);
 }
