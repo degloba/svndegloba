@@ -35,7 +35,11 @@ import javax.persistence.NamedQuery;
 @Entity(name = "bookalias")
 @NamedQuery(name="namedQuery", query = "SELECT from com.degloba.persistence.test.domain.jpa.Book b where title = 'yam'")
 public class Book implements Serializable {
-  @Id
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+@Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   @Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
   private String id;

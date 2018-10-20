@@ -177,7 +177,7 @@ public class HasPolymorphicRelationsListJPA {
     }
 
     public List<BidirTopStringPkList> getBidirChildren() {
-      return (List) bidirChildren;
+      return (List<BidirTopStringPkList>) bidirChildren;
     }
 
     public void nullBidirChildren() {

@@ -18,7 +18,7 @@ public class HasEmbeddableCollection {
 
   @Embedded
   @ElementCollection
-  Set<EmbeddableJPA> theSet = new HashSet();
+  Set<EmbeddableJPA> theSet = new HashSet<EmbeddableJPA>();
 
   public Long getId() {
     return id;

@@ -30,7 +30,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class HasOneToManyUnencodedStringPkSetJPA implements HasOneToManyUnencodedStringPkJPA {
 
-  @Id
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Id
   private String id;
 
   @OneToMany(cascade = CascadeType.ALL)

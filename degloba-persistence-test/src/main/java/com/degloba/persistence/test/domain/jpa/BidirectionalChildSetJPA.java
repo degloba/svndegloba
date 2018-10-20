@@ -31,7 +31,12 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class BidirectionalChildSetJPA implements BidirectionalChildJPA {
-  @Id
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   @Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
   private String id;

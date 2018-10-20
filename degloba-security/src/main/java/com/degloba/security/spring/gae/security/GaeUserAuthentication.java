@@ -15,6 +15,10 @@ import com.degloba.security.spring.gae.users.GaeUser;
  * @author Luke Taylor
  */
 public class GaeUserAuthentication implements Authentication {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final GaeUser principal;
 	private final Object details;
 	private boolean authenticated;

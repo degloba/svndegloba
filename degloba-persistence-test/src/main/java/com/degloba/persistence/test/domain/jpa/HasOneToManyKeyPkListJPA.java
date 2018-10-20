@@ -33,7 +33,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class HasOneToManyKeyPkListJPA implements HasOneToManyKeyPkJPA {
 
-  @Id
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Key id;
 

@@ -17,6 +17,10 @@ import com.degloba.security.spring.gae.security.AppRole;
  * @author Luke Taylor
  */
 public class GaeUser implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final String userId;
 	private final String email;
 	private final String nickname;
