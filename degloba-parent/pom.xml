@@ -10,10 +10,10 @@
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	
 	<!-- Spring -->
-	<spring.version>4.2.2.RELEASE</spring.version>  
-	<springwebflow.version>2.4.2.RELEASE</springwebflow.version>
-	<springsecurity-version>4.0.3.RELEASE</springsecurity-version>  
-	<spring.integration.version>4.2.2.RELEASE</spring.integration.version>  
+	<spring.version>5.1.0.RELEASE</spring.version>  
+	<springwebflow.version>2.5.0.RELEASE</springwebflow.version>
+	<springsecurity-version>5.1.0.RELEASE</springsecurity-version>  
+	<spring.integration.version>5.0.8.RELEASE</spring.integration.version>  
 		
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
 	
@@ -137,7 +137,7 @@
         	<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>5.1.13</version>
+			<version>6.0.2</version>
 		</dependency>
 		
         
@@ -493,14 +493,14 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.9</version>
                 </plugin>
-                <plugin>
+                <!-- <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>2.7</version>
                     <configuration>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
-                </plugin>
+                </plugin> -->
                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

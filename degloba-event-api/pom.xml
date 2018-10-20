@@ -4,8 +4,9 @@
     
     <parent>
         <groupId>com.degloba</groupId>
-        <artifactId>casino-boundedContext1</artifactId>
+        <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
     
     <artifactId>degloba-event-api</artifactId>
@@ -43,7 +44,7 @@
         <dependency>
         	<groupId>com.degloba</groupId>
         	<artifactId>degloba-utilitats</artifactId>
-        	<version>0.0.3-SNAPSHOT</version>
+        	<version>4.4.3-SNAPSHOT</version>
         </dependency>
         
         <dependency>
