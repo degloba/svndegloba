@@ -39,7 +39,6 @@ public class ProductData {
 	private ProductType type;
 
 	
-	@SuppressWarnings("unused")
 	private ProductData(){}
 	
 	ProductData(AggregateId productId, Money price, String name, ProductType type, 

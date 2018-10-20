@@ -78,7 +78,6 @@ public class Invoice extends BaseAggregateRoot {
 	/**
 	 * For JPA Only
 	 */
-	@SuppressWarnings("unused")
 	private Invoice(){}
 
 	public void addItem(InvoiceLine item) {

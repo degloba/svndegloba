@@ -45,7 +45,6 @@ public class Payment extends BaseAggregateRoot implements Serializable {
 	@Inject
 	private PaymentFactory paymentFactory;
 	
-	@SuppressWarnings("unused")
 	private Payment(){}
 	
 	public Payment(AggregateId aggregateId, ClientData clientData, Money amount) {

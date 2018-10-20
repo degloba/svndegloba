@@ -37,7 +37,6 @@ public class Product extends BaseAggregateRoot{
 	@Enumerated(EnumType.STRING)
 	private ProductType productType;
 	
-	@SuppressWarnings("unused")
 	private Product(){}
 	
 	Product(AggregateId aggregateId, Money price, String name, ProductType productType){

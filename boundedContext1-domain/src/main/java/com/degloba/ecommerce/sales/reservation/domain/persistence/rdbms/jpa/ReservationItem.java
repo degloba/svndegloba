@@ -29,7 +29,6 @@ class ReservationItem extends BaseEntity{
 	
 	private int quantity;
 
-	@SuppressWarnings("unused")
 	private ReservationItem(){}
 	
 	ReservationItem(Product product, int quantity) {

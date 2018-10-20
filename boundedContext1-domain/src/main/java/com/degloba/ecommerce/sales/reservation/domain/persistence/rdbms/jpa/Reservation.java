@@ -89,7 +89,6 @@ public class Reservation extends BaseAggregateRoot{
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
 
-	@SuppressWarnings("unused")
 	private Reservation() {}
 
 	public Reservation(AggregateId aggregateId, ReservationStatus status, ClientData clientData, Date createDate){

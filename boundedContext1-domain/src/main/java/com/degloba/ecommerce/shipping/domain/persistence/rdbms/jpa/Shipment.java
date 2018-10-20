@@ -34,8 +34,7 @@ public class Shipment extends BaseAggregateRoot {
     private ShippingStatus status;
 
     
-    @SuppressWarnings("unused")
-	private Shipment() {}
+    private Shipment() {}
 
     public Shipment(AggregateId shipmentId, AggregateId orderId) {
         this.aggregateId = shipmentId;

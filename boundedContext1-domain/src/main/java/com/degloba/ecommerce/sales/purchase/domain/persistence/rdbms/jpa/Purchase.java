@@ -68,7 +68,6 @@ public class Purchase extends BaseAggregateRoot{
 	private Money totalCost;
 
 	
-	@SuppressWarnings("unused")
 	private  Purchase() {}
 
 	public Purchase(AggregateId aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
