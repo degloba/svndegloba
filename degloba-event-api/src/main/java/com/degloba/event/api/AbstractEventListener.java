@@ -14,7 +14,7 @@ public abstract class AbstractEventListener<T extends IEvent> implements IEventL
     }
 
     //
-    private boolean supports(IEvent event) {
+    private boolean supports(T event) {
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         Class<?> eventClass = (Class<?>) parameterizedType.getActualTypeArguments()[0];
         //System.out.println("Event class is: " + eventClass);

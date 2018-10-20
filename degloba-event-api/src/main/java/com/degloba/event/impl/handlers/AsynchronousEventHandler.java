@@ -4,13 +4,15 @@ import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.BeanFactory;
 
+import com.degloba.event.api.IEvent;
+
 /**
  * TODO this is just a fake impl, based on standard synchronous impl
  * 
  * @author degloba
  *
  */
-public class AsynchronousEventHandler extends SpringEventHandler{
+public class AsynchronousEventHandler<T extends IEvent> extends SpringEventHandler<T>{
 
 	/**
 	 * @param eventType

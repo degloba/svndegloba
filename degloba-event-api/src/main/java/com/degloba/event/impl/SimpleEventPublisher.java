@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 // Spring
 import org.springframework.stereotype.Component;
 
+import com.degloba.event.api.IEvent;
 // Events
 import com.degloba.event.application.IApplicationEventPublisher;
 import com.degloba.event.domain.IDomainEvent;
@@ -19,27 +20,24 @@ import com.degloba.event.impl.handlers.IEventHandler;
 
 
 @Component
-public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent<Object>>, IApplicationEventPublisher<Object> {
+public class SimpleEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<Object> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEventPublisher.class);
 
-    private Set<IEventHandler> eventHandlers = new HashSet<IEventHandler>();
+    private Set<IEventHandler<T>> eventHandlers = new HashSet<IEventHandler<T>>();
 
-    public void registerEventHandler(IEventHandler handler) {
+    public void registerEventHandler(IEventHandler<T> handler) {
         eventHandlers.add(handler);
         // new SpringEventHandler(eventType, beanName, method));
     }
 
-    public void publish(Serializable event) {
+
+    public void publish(T event) {
         doPublish(event);
     }
 
-    public void publish(IDomainEvent<Object> event) {
-        doPublish(event);
-    }
-
-    protected void doPublish(Object event) {
-        for (IEventHandler handler : new ArrayList<IEventHandler>(eventHandlers)) {
+    protected void doPublish(T event) {
+        for (IEventHandler<T> handler : new ArrayList<IEventHandler<T>>(eventHandlers)) {
             if (handler.canHandle(event)) {
                 try {
                     handler.handle(event);
@@ -51,6 +49,20 @@ public class SimpleEventPublisher implements IDomainEventPublisher<IDomainEvent<
     }
 
 	public void publish(Object event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void publish(IDomainEvent<T> event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void publish(Serializable event) {
 		// TODO Auto-generated method stub
 		
 	}
