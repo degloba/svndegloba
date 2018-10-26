@@ -52,7 +52,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-application</artifactId>
-            <version>${project.version}</version>            
+            <version>${project.version}</version>  
         </dependency> 
         
 		<dependency>
@@ -396,12 +396,21 @@
 			<artifactId>boundedContext1-domain</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>8.0</version>
+		</dependency>
     </dependencies>
     
 
     <build>
         <plugins>
-        	
+               	
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>                

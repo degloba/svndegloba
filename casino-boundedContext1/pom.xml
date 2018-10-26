@@ -4,8 +4,9 @@
 	
     <parent>
         <groupId>com.degloba</groupId>
-        <artifactId>casino</artifactId>
+        <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
     
     <artifactId>casino-boundedContext1</artifactId>
@@ -463,7 +464,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
-                    <targetJdk>1.7</targetJdk>
+                    <targetJdk>1.8</targetJdk>
                     <format>xml</format>
                     <linkXRef>true</linkXRef>
                     <minimumTokens>100</minimumTokens>
@@ -548,7 +549,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.13</slf4j.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.9.5</mockito.version>
@@ -757,4 +758,4 @@
     	<module>../boundedContext1-facade-impl</module>
     	<module>../boundedContext1-webapp</module>    	
     </modules>
-</project>
+    </project>
