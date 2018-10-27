@@ -36,6 +36,7 @@ import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.event.api.IEvent;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 import com.degloba.utils.BeanUtils;
@@ -55,9 +56,6 @@ import com.degloba.utils.BeanUtils;
 	@MappedSuperclass
 	public abstract class BaseAggregateRoot {  // extends BaseEntity{   
 
-		private static final long serialVersionUID = 1L;
-		   
-		
 		public static enum AggregateStatus {
 			ACTIVE, ARCHIVE
 		}
@@ -93,7 +91,7 @@ import com.degloba.utils.BeanUtils;
 		 */
 		@Transient
 		@Inject
-		protected IDomainEventBus domainEventBus;
+		protected IDomainEventBus<IEvent> domainEventBus;
 				
 				
 		private Boolean actiu; //esborrat logic
@@ -200,12 +198,12 @@ import com.degloba.utils.BeanUtils;
 		}
 		
 		
-		public IDomainEventBus getDomainEventBus() {
+		public IDomainEventBus<IEvent> getDomainEventBus() {
 			return domainEventBus;
 		}
 
 	
-		public void setDomainEventBus(IDomainEventBus domainEventBus) {
+		public void setDomainEventBus(IDomainEventBus<IEvent> domainEventBus) {
 			this.domainEventBus = domainEventBus;
 		}
 

@@ -4,7 +4,7 @@ package com.degloba.persistence.test.domain;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -20,8 +20,6 @@ import java.util.List;
     @NamedQuery(name = "Dictionay.updateDescription", query = "update Dictionary set description = :description where category = :category"),
     @NamedQuery(name = "Dictionay.findNameAndOrder", query = "select o.code, o.text from  Dictionary o where o.category = :category")})
 public class Dictionary extends BaseAggregateRoot {
-
-    private static final long serialVersionUID = 5429887402331650527L;
 
     @Size(min = 1)
     private String code;

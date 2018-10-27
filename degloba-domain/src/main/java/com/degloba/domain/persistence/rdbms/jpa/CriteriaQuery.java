@@ -39,7 +39,7 @@ public class CriteriaQuery {
      *
      * @return Class root entity queries
      */
-    public Class getEntityClass() {
+    public Class<? extends BaseAggregateRoot> getEntityClass() {
         return entityClass;
     }
 

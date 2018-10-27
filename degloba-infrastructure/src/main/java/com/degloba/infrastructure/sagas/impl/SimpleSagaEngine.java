@@ -46,10 +46,9 @@ public class SimpleSagaEngine<S extends SagaInstance<D>, D> implements ISagaEngi
 
     @PostConstruct
     public void registerEventHandler() {
-        eventPublisher.registerEventHandler(new SagaEventHandler(this));
+        eventPublisher.registerEventHandler(new SagaEventHandler<IEvent>(this));
     }
 
-    @SuppressWarnings("rawtypes")
     public void handleSagasEvent(S saga) {
         Collection<ISagaManager<S, D>> loaders = sagaRegistry.getLoadersForEvent(saga);
         for (ISagaManager<S, D> loader : loaders) {

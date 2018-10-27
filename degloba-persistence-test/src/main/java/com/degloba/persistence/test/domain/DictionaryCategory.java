@@ -25,8 +25,6 @@ import javax.persistence.NamedQuery;
         query = "select count (*) from DictionaryCategory o where o.name =:name"))
 public class DictionaryCategory extends BaseAggregateRoot {
 
-    private static final long serialVersionUID = -2820088186350505379L;
-
     public static final String GENDER = "gender";
 
     public static final String NATIONALITY = "nationality";
