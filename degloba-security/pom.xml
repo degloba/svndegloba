@@ -17,11 +17,6 @@
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-event-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
        <!--  <dependency>
             <groupId>com.deglobab</groupId>
             <artifactId>degloba-spring-test</artifactId>
@@ -72,22 +67,7 @@
             <version>${jdbc.version}</version>
             <scope>test</scope>
         </dependency> -->
-        <dependency>
-        	<groupId>com.google.api-client</groupId>
-        	<artifactId>google-api-client</artifactId>
-        	<version>${com.google.api.client.version}</version>
-        	<exclusions>
-        		<exclusion>
-        			<artifactId>guava-jdk5</artifactId>
-        			<groupId>com.google.guava</groupId>
-        		</exclusion>
-        	</exclusions>
-        </dependency>
-        <dependency>
-        	<groupId>com.google.api-client</groupId>
-        	<artifactId>google-api-client-appengine</artifactId>
-        	<version>${com.google.api.client.version}</version>
-        </dependency>
+
         <dependency>
         	<groupId>com.google.api-client</groupId>
         	<artifactId>google-api-client-servlet</artifactId>
