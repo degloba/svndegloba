@@ -2,6 +2,10 @@ package com.degloba.domain.entity;
 
 public class Company extends Organization {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int level;
 
 	public Company(String name, int level) {

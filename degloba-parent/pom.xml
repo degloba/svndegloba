@@ -103,14 +103,7 @@
 
 	<!--  Spring -->
 	<dependencies>
-	
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-framework-bom</artifactId>
-			<version>${spring.version}</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
+		
 		       		
  		<dependency>                         
 			<groupId>org.springframework.webflow</groupId> 
@@ -401,6 +394,14 @@
 			<artifactId>objectify</artifactId>
 		<version>${google.appengine.objectify}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-framework-bom</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
 	      
 	</dependencies>
 	
@@ -409,8 +410,10 @@
 	
 	<dependencies>
 	
+	
+	
 		<!-- Spring -->
-		 <dependency>
+<!-- 		 <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>	
 			<exclusions>
@@ -432,7 +435,7 @@
 		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>            
-        </dependency>   
+        </dependency> -->   
 
 		<!-- Unit Testing -->
          <dependency>

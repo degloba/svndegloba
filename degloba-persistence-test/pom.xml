@@ -65,6 +65,11 @@
 			<artifactId>spring-data-mongodb</artifactId>
 		</dependency>
 
+ 	<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${google.appengine}</version>
+		</dependency>  
     </dependencies>
     
     

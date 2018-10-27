@@ -1,5 +1,6 @@
 package com.degloba.domain.event;
 
+import com.degloba.event.api.IEvent;
 import com.google.common.eventbus.EventBus;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,9 +8,9 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 
-public class DomainEventBusImplTest {
+public class DomainEventBusImplTest<T extends IEvent> {
 
-    private DomainEventBusImpl instance;
+    private DomainEventBusImpl<T> instance;
 
     private EventBus eventBus;
 
@@ -19,7 +20,7 @@ public class DomainEventBusImplTest {
     public void setUp() {
         eventBus = mock(EventBus.class);
         eventStore = mock(IStoredDomainEventRepository.class);
-        instance = new DomainEventBusImpl(eventBus, eventStore);
+        instance = new DomainEventBusImpl<T>(eventBus, eventStore);
     }
 
     @Test
