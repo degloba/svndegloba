@@ -1,8 +1,6 @@
 package com.degloba.billing;
 
 //billing - degloba
-import com.degloba.billing.ChargeResult;
-import com.degloba.billing.Receipt;
 import com.degloba.billing.IBillingService;
 import com.degloba.billing.ICreditCardProcessor;
 
@@ -11,7 +9,7 @@ import com.degloba.billing.ICreditCardProcessor;
 import com.degloba.logs.ITransactionLog;
 
 // Paypal
-import com.paypal.api.payments.CreditCard;
+
 
 
 public class RealBillingService implements IBillingService {  

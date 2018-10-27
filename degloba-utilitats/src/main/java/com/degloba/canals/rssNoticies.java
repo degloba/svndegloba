@@ -27,7 +27,7 @@ public class rssNoticies {
 		channel.setChannelUri("http://santasu.blogspot.com/feeds/posts/default?alt=rss");
 		doc.addChannel(channel);
 		
-		Enumeration ee = channel.items();
+		Enumeration<?> ee = channel.items();
 		
 
 
