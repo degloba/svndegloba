@@ -102,13 +102,6 @@
         </dependency>
     		
     		
-		<!-- ****** -->    		
-		<!-- Spring -->
-		<!-- ****** -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>   
-        </dependency>
         
         <!-- ************************************** -->
         <!-- Google App Engine (Testejar appengine) -->

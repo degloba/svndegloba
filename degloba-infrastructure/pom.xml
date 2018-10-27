@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <name>degloba Infrastructure</name>
     <description>Events + Spring data + Sagas</description>
-
+  
     <dependencies>
     
         
@@ -53,18 +53,8 @@
 			<artifactId>datanucleus-enhancer</artifactId>
 			<version>${datanucleus.maven.plugin}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-datastore</artifactId>
-			<version>0.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-pubsub</artifactId>
-			<version>0.4.0</version>
-		</dependency>
-		<dependency>
+		 
+		  <dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud</artifactId>
 			<version>0.4.0</version>
@@ -74,7 +64,9 @@
 					<artifactId>google-api-services-compute</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency>   
+		
+
     </dependencies>
 
     <build>
