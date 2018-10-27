@@ -196,10 +196,10 @@ public class PersonRepository2 implements IPersonRepository2 {
 		return repository.findByLastname(lastname);		
 	}
 	
-	@Override
+	/*@Override
 	public Page<Person> findByFirstname(String firstname, Pageable pageable) {
 		return repository.findByFirstname(firstname, pageable);
-	}
+	}*/
 
 
 }

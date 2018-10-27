@@ -10,7 +10,7 @@
     </parent>
     
     <artifactId>degloba-event-api</artifactId>
-    <name>Casino - boundedContext1- Structure - Application</name>
+    <name>Degloba Events</name>
     <url>http://maven.apache.org</url>
    
 	<dependencies>

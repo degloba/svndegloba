@@ -17,17 +17,6 @@
     	<!-- ****************** -->
     	<!-- Llibreries degloba -->
     	<!-- ****************** -->
-         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-domain</artifactId>
-            <version>${project.version}</version>
-            <exclusions>
-	            <exclusion>
-		            <groupId>com.googlecode.cedar-common</groupId>
-					<artifactId>objectify</artifactId>
-	            </exclusion>
-            </exclusions>
-        </dependency> 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>boundedContext1-cqrs</artifactId>
@@ -53,12 +42,16 @@
 		<!-- ******************************************* -->                    	
 		<!-- Objectify (Interface natiu Google datastore -->
 		<!-- ******************************************* --> 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>			
+		</dependency> -->
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-		
-    
     </dependencies>
     
     <build>

@@ -9,7 +9,7 @@
     </parent>
     <artifactId>degloba-domain</artifactId>
     <packaging>jar</packaging>
-    <name>API Interfaces and Base Classes Domain</name>
+    <name>API Interfaces and Base Classes Domain (degloba-domain)</name>
     <description>
         Most important module that provides the core interfaces and base classes.
     </description>
