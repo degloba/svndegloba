@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>  
   <artifactId>degloba-utilitats</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
   <description>classes d'utilitats</description>
   
 	<parent>
 		<groupId>com.degloba</groupId>
 		<artifactId>degloba-parent</artifactId>
 		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
 	</parent>
   
   <build>
@@ -76,11 +76,6 @@
         
                     
 	<!-- Paypal -->		  	
-    <dependency>
-    	<groupId>com.paypal.sdk</groupId>
-    	<artifactId>paypal-core</artifactId>
-    	<version>1.5.0</version>
-    </dependency>
     <dependency>
     	<groupId>com.paypal.sdk</groupId>
     	<artifactId>rest-api-sdk</artifactId>
@@ -175,10 +170,6 @@
         </dependency>	
         
         <!-- Java API for Microsoft Documents -->
-        <dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
@@ -192,15 +183,11 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>	
 		
-		 <dependency>
+		<!--  <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-        </dependency>	
-        
-		<dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>        
+        </dependency>	 -->
+        		 
 	   
 </dependencies>
 
