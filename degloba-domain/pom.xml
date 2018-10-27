@@ -47,12 +47,12 @@
 			<version>${project.version}</version>
 		</dependency>		
 
-
  	<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${google.appengine}</version>
 		</dependency>  
+
 		
 		
 		<!-- ******************************************* -->                    	
@@ -73,12 +73,16 @@
 			<!-- ************************************************ -->                    	
 		<!-- API Datastore (Interface nativa Google datastore -->
 		<!-- ************************************************ --> 
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-datastore</artifactId>
 			<version>0.4.0</version>
 		</dependency>
-
     </dependencies>
 
     <build>

@@ -37,10 +37,6 @@
         </dependency>
 		
 				
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>el-api</artifactId>
-        </dependency>
         
          <dependency>
             <groupId>org.aspectj</groupId>
