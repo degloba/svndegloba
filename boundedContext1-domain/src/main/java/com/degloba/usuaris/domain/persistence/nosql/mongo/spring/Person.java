@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 	 private String name; 
 	 private String homeTown; 
 	 private int age; 
+	 private String lastname;
 	 
 	 public Person(String name, int age) { 
 		 this.name = name; 
@@ -55,5 +56,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 		 @Override 
 		 public String toString() { 
 			 return "Person [id=" + personId + ", name=" + name + ", age=" + age + ", home town=" + homeTown + "]"; 
-	} 
+	}
+
+		public String getLastname() {
+			return lastname;
+		}
+
+		public void setLastname(String lastname) {
+			this.lastname = lastname;
+		} 
+		 
+		 
 		 } 

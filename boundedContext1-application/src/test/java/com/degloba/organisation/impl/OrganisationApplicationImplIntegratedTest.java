@@ -3,7 +3,6 @@ package com.degloba.organisation.impl;
 import java.util.Date;
 
 import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.organisation.application.services.IOrganisationService;
 import com.degloba.organisation.application.services.OrganisationApplicationImpl;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
@@ -13,9 +12,9 @@ import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 import org.junit.After;
-import org.junit.AfterClass;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

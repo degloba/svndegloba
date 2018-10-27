@@ -5,8 +5,8 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="security-config.xml"/>
-	<import resource="configurationContext.xml" />
+	<import resource="configurationContext.xml" /> 
 	<import resource="ds-context.xml"/>
-	<!-- <import resource="services-context.xml" />  -->
+	 <import resource="services-context.xml" />  
 	
 </beans>

@@ -12,7 +12,6 @@ import com.degloba.organisation.application.services.IOrganisationService;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;

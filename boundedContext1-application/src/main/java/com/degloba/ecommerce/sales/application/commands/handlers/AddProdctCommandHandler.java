@@ -34,9 +34,9 @@ public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand
 	
 	@Override
 	public Void handle(AddProdctCommand command) {
-		Reservation reservation = salesRepository.load(Reservation.class,command.getOrderId());
+		Reservation reservation = salesRepository.loadReservation(Reservation.class,command.getOrderId());
 		
-		Product product = salesRepository.load(Product.class,command.getProductId());
+		Product product = salesRepository.loadProduct(Product.class,command.getProductId());
 		
 		if (! product.isAvailabe()){
 			Client client = loadClient();	

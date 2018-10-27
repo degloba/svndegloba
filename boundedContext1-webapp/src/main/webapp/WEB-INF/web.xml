@@ -165,7 +165,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:/META-INF/spring/appServlet/ws-context.xml,classpath:/META-INF/spring/appServlet/servlet-context.xml</param-value>
+      <param-value>classpath*:/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -308,14 +308,14 @@
   </servlet-mapping>
     
   <!-- [START Objectify] -->
-    <filter>
+   <!--  <filter>
       <filter-name>ObjectifyFilter</filter-name>
       <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
     </filter>
     <filter-mapping>
       <filter-name>ObjectifyFilter</filter-name>
       <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
     <listener>
       <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
     </listener>

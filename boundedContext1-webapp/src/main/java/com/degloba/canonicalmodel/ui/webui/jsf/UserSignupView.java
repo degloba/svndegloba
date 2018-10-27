@@ -7,9 +7,10 @@ import javax.faces.event.ActionEvent;
 import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
  
-@Component
+
 //@ManagedBean
 //@RequestScoped
+@Component
 public class UserSignupView {
      
     private String name;
