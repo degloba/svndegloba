@@ -54,19 +54,18 @@
 			<version>${datanucleus.maven.plugin}</version>
 		</dependency>
 		 
-		  <dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud</artifactId>
-			<version>0.4.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.apis</groupId>
-					<artifactId>google-api-services-compute</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>   
-		
 
+
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-storage</artifactId>
+			<version>0.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-pubsub</artifactId>
+			<version>0.4.0</version>
+		</dependency>
     </dependencies>
 
     <build>

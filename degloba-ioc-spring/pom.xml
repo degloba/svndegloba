@@ -44,8 +44,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <optional>true</optional>
-            <version>5.1.0.RELEASE</version>
+            <optional>true</optional>           
         </dependency> 
               
 		<!-- ********************************** -->              
