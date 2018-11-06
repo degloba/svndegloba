@@ -17,34 +17,13 @@
             <artifactId>degloba-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
-       <!--  <dependency>
-            <groupId>com.deglobab</groupId>
-            <artifactId>degloba-spring-test</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency> -->
-        <!-- <dependency>
-            <groupId>com.degloba</groupId>
-            <artifactId>degloba-persistence-hibernate</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency> -->
+        
         <dependency>
             <groupId>com.degloba</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
-       <!--  <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <scope>test</scope>
-        </dependency> -->
-        <!-- <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-            <scope>test</scope>
-        </dependency> -->
        
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -61,12 +40,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- <dependency>
-            <groupId>${jdbc.groupId}</groupId>
-            <artifactId>${jdbc.artifactId}</artifactId>
-            <version>${jdbc.version}</version>
-            <scope>test</scope>
-        </dependency> -->
  
         <dependency>
         	<groupId>org.codehaus.jackson</groupId>
@@ -239,11 +212,7 @@
         <plugins>
     		<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>
-	            <configuration>
-	                <source>${jdk.version}</source>
-	                <target>${jdk.version}</target>
-	            </configuration>	            
+	            <artifactId>maven-compiler-plugin</artifactId>	            
 	        </plugin>
 		</plugins> 
     </build>
