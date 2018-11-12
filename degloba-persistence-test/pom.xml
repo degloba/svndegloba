@@ -46,15 +46,6 @@
 			<artifactId>datanucleus-api-jpa</artifactId>            
 		</dependency>
 			
-		<!-- **************** -->
-		<!-- Google Appengine -->
-		<!-- **************** -->		        
-	<!-- 	<dependency>
-         	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <scope>test</scope>
-        </dependency>  --> 
-        
         
         <!-- ******************* -->
         <!-- Spring data mongodb -->

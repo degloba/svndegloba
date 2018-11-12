@@ -10,7 +10,7 @@
     </parent>
     
     <artifactId>degloba-event-api</artifactId>
-    <name>Degloba Events</name>
+    <name>Events</name>
     <url>http://maven.apache.org</url>
    
 	<dependencies>

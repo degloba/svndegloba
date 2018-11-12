@@ -8,13 +8,12 @@
     </parent>
     <artifactId>degloba-ioc-spring</artifactId>
     <packaging>jar</packaging>
-    <name>deGloba IoC implemented by Springframework</name>
+    <name>IoC implemented by Springframework</name>
     <description>
         Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.
     </description>
 
     <properties>
-        <servlet.version>2.5</servlet.version>
         <jdbc.url><![CDATA[jdbc:h2:${basedir}/target/${db.name}]]></jdbc.url>
     </properties>
     

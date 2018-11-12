@@ -9,8 +9,15 @@
     
     <artifactId>degloba-infrastructure</artifactId>
     <packaging>jar</packaging>
-    <name>degloba Infrastructure</name>
+    <name>Infrastructure (google-cloud-storage, google-cloud-pubsub,..)</name>
     <description>Events + Spring data + Sagas</description>
+  
+  
+  <properties>
+  
+  		<com.google.cloud.vesion>0.4.0</com.google.cloud.vesion>
+  		
+  </properties>
   
     <dependencies>
     
@@ -29,11 +36,11 @@
         <!--  Spring  Data -->
         <!-- ************* -->
       
-		<dependency>
+ 		<dependency>
 		 	<groupId>org.springframework.data</groupId>
 		 	<artifactId>spring-data-mongodb</artifactId>		 
 		</dependency>
-        		
+        		 
 		
         <!-- per proves (classe : ServicesConfiguration) -->
 		<!-- <dependency>
@@ -57,12 +64,12 @@
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-storage</artifactId>
-			<version>0.4.0</version>
+			<version>${com.google.cloud.vesion}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
-			<version>0.4.0</version>
+			<version>${com.google.cloud.vesion}</version>
 		</dependency>
     </dependencies>
 
@@ -72,7 +79,7 @@
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>				
 	        </plugin>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <extensions>true</extensions>
@@ -94,7 +101,7 @@
                         <phase>package</phase>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
     <url>www.degloba.com</url>
