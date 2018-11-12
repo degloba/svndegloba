@@ -100,7 +100,7 @@
           
           <!-- <module>../degloba-ioc-test</module> -->
 
-           <module>../casino</module>  
+             
     </modules>     
        
 <dependencyManagement>
@@ -135,7 +135,7 @@
 		 <dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>2.12.0</version>
+			<version>3.9.0</version>
 		</dependency>
 		
         <!-- Spring data mongodb -->
@@ -431,7 +431,6 @@
             <scope>test</scope>
         </dependency>  
         
-
 	</dependencies>
 	
 	
@@ -492,14 +491,14 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.9</version>
                 </plugin>
-                <!-- <plugin>
+                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>${maven.resources.plugin}</version>
                     <configuration>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
-                </plugin> -->
+                </plugin> 
                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
