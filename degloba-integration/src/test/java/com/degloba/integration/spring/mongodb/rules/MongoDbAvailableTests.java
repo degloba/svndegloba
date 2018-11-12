@@ -132,15 +132,6 @@ public abstract class MongoDbAvailableTests {
 			super(new DefaultDbRefResolver(mongoDbFactory), mappingContext);
 		}
 
-		@Override
-		public void write(Object source, DBObject target) {
-			super.write(source, target);
-		}
-
-		@Override
-		public <S> S read(Class<S> clazz, DBObject source) {
-			return super.read(clazz, source);
-		}
 
 	}
 

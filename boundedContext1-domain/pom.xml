@@ -80,30 +80,26 @@
         <!-- ************************************ -->
         <!-- Per testejar contra Appengine Google -->
         <!-- ************************************ -->
-        <dependency>
+         <!-- <dependency>
          	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-labs</artifactId>
-            <version>${google.appengine.version}</version>
+            <artifactId>appengine-api-labs</artifactId>           
             <scope>test</scope>
         </dependency>        
         <dependency>
          	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>${google.appengine.version}</version>
+            <artifactId>appengine-api-stubs</artifactId>            
             <scope>test</scope>
-        </dependency>   
+        </dependency>   -->
           <dependency>
          	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-tools-sdk</artifactId>
-            <version>${google.appengine.version}</version>
-            <scope>test</scope>
-        </dependency>        
+            <artifactId>appengine-tools-sdk</artifactId>            
+            <scope>test</scope>          
+          </dependency>        
 		<dependency>
          	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${google.appengine.version}</version>
+            <artifactId>appengine-testing</artifactId>            
             <scope>test</scope>
-        </dependency> 
+		</dependency>  
         
        
 		<dependency>
