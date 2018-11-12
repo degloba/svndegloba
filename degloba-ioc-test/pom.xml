@@ -7,7 +7,7 @@
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>degloba-ioc-test</artifactId>
-    <name>deGloba IoC Test</name>
+    <name>IoC Test</name>
     <url>www.degloba.com</url>
        
     

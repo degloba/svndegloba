@@ -175,14 +175,14 @@ public abstract class AbstractMongoDbMessageStoreTests extends MongoDbAvailableT
 		p.setFname("John");
 		p.setLname("Doe");
 		Message<Person> inputMessage = MessageBuilder.withPayload(p).build();
-		Message<?> messageToStore = new AdviceMessage("foo", inputMessage);
+		Message<?> messageToStore = new AdviceMessage<Object>("foo", inputMessage);
 		store.addMessage(messageToStore);
 		Message<?> retrievedMessage = store.getMessage(messageToStore.getHeaders().getId());
 		assertNotNull(retrievedMessage);
 		assertTrue(retrievedMessage instanceof AdviceMessage);
 		assertEquals(messageToStore.getPayload(), retrievedMessage.getPayload());
 		assertEquals(messageToStore.getHeaders(), retrievedMessage.getHeaders());
-		assertEquals(inputMessage, ((AdviceMessage) retrievedMessage).getInputMessage());
+		assertEquals(inputMessage, ((AdviceMessage<?>) retrievedMessage).getInputMessage());
 		assertEquals(messageToStore, retrievedMessage);
 	}
 
@@ -194,12 +194,12 @@ public abstract class AbstractMongoDbMessageStoreTests extends MongoDbAvailableT
 		p.setFname("John");
 		p.setLname("Doe");
 		Message<Person> inputMessage = MessageBuilder.withPayload(p).build();
-		Message<?> messageToStore = new GenericMessage<Message<?>>(new AdviceMessage("foo", inputMessage));
+		Message<?> messageToStore = new GenericMessage<Message<?>>(new AdviceMessage<Object>("foo", inputMessage));
 		store.addMessage(messageToStore);
 		Message<?> retrievedMessage = store.getMessage(messageToStore.getHeaders().getId());
 		assertNotNull(retrievedMessage);
 		assertTrue(retrievedMessage.getPayload() instanceof AdviceMessage);
-		AdviceMessage adviceMessage = (AdviceMessage) retrievedMessage.getPayload();
+		AdviceMessage<?> adviceMessage = (AdviceMessage<?>) retrievedMessage.getPayload();
 		assertEquals("foo", adviceMessage.getPayload());
 		assertEquals(messageToStore.getHeaders(), retrievedMessage.getHeaders());
 		assertEquals(inputMessage, adviceMessage.getInputMessage());

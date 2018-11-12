@@ -7,6 +7,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import org.bson.conversions.Bson;
 import org.mockito.Mockito;
 
 import org.junit.Test;
@@ -115,7 +117,7 @@ public class MongoDbStoringMessageHandlerTests extends MongoDbAvailableTests {
 
 		assertEquals("Bob", person.getName());
 		assertEquals("PA", person.getAddress().getState());
-		verify(converter, times(1)).write(Mockito.any(), Mockito.any(DBObject.class));
+		verify(converter, times(1)).write(Mockito.any(), (Bson) Mockito.any(DBObject.class));
 	}
 
 	@Test
@@ -141,6 +143,6 @@ public class MongoDbStoringMessageHandlerTests extends MongoDbAvailableTests {
 
 		assertEquals("Bob", person.getName());
 		assertEquals("PA", person.getAddress().getState());
-		verify(converter, times(1)).write(Mockito.any(), Mockito.any(DBObject.class));
+		verify(converter, times(1)).write(Mockito.any(), (Bson) Mockito.any(DBObject.class));
 	}
 }

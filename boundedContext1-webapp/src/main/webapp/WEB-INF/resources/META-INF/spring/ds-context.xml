@@ -2,10 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo"	
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-				http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd">
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<!-- ******************************************** -->
 	<!-- BEANS RELACIONAT AMB LA PERSISTENCIA /SPRING -->
@@ -74,12 +74,12 @@
 		
 		 <!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
 		 
-		<mongo:mongo host="localhost" port="27017" /> 
+		<!-- <mongo: host="localhost" port="27017" />  -->
 	
-	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	 <!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	    <constructor-arg name="mongo" ref="mongo"/>
 	    <constructor-arg name="databaseName" value="casino"/>
-	</bean>    
+	</bean>     -->
 		 
 	<!-- <bean id="topicRepository" class="com.degloba.gcm.infrastructure.jpa.repositories.TopicRepository">
 		<property name="mongoTemplate" ref="mongoTemplate"/>
@@ -91,20 +91,20 @@
 	</bean>   -->
 	
 	
-	 	<bean id="eventBus" class="com.google.common.eventbus.EventBus"/>
+	 	<!-- <bean id="eventBus" class="com.google.common.eventbus.EventBus"/> -->
 		 
 	  
 	
- 	<bean id="storedDomainEventRepository" class="com.degloba.domain.event.StoredDomainEventRepository">
-		<!-- <property name="mongoTemplate" ref="mongoTemplate"/> -->
+ 	<!-- <bean id="storedDomainEventRepository" class="com.degloba.domain.event.StoredDomainEventRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
 		<constructor-arg name="mongoTemplate" ref="mongoTemplate"/> 
-	</bean>   
+	</bean>    -->
 	
 	
-	<bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl">		
+	<!-- <bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl">		
 		<constructor-arg name="eventBus" ref="eventBus"/> 
 		<constructor-arg name="storedDomainEventRepository" ref="storedDomainEventRepository"/> 
-	</bean>   
+	</bean>    -->
 	
 	
 	

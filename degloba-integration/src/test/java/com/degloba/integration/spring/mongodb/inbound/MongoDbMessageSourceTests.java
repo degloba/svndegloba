@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
+import org.bson.conversions.Bson;
 import org.junit.Test;
 
 // Spring
@@ -213,7 +214,7 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 
 		List<Person> persons = (List<Person>) messageSource.receive().getPayload();
 		assertEquals(3, persons.size());
-		verify(converter, times(3)).read((Class<Person>) Mockito.any(), Mockito.any(DBObject.class));
+		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(DBObject.class));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -240,7 +241,7 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 
 		List<Person> persons = (List<Person>) messageSource.receive().getPayload();
 		assertEquals(3, persons.size());
-		verify(converter, times(3)).read((Class<Person>) Mockito.any(), Mockito.any(DBObject.class));
+		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(DBObject.class));
 	}
 
 	@Test

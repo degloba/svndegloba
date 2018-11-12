@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>degloba-cqrs</artifactId>
     <packaging>jar</packaging>
-    <name>API Command Query Responsibility Segregation by deGloba</name>
+    <name>API Command Query Responsibility Segregation</name>
           	
 	<dependencies>
 	  

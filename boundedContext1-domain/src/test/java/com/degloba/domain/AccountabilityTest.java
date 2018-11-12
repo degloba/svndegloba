@@ -2,6 +2,7 @@ package com.degloba.domain;
 
 import com.degloba.utils.DateUtils;
 import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -26,6 +27,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class AccountabilityTest extends AbstractIntegrationTest {
 
     //@Transactional

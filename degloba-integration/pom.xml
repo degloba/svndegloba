@@ -9,7 +9,7 @@
     
     <artifactId>degloba-integration</artifactId>
     <packaging>jar</packaging>
-    <name>Degloba Integration</name>
+    <name>Integration (JMS, MAIL, MONGODB,...)</name>
     <description>
 
     </description>
