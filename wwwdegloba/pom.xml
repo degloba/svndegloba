@@ -89,6 +89,13 @@
             <version>1.0.2.RELEASE</version>       
         </dependency>   -->
        
+<!--  used to convert the response data into JSON string. 
+		Necessari per la classe/bean jsonMessageConverter -->
+         <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.9.7</version>        	
+         </dependency>
 
 		<dependency>
             <groupId>org.springframework</groupId>
@@ -217,7 +224,7 @@
          <dependency>
          	<groupId>org.apache.tomcat.embed</groupId>
          	<artifactId>tomcat-embed-core</artifactId>
-         	<version>7.0.90</version>
+         	<version>9.0.11</version>
          </dependency> 
        
         <dependency>
@@ -313,6 +320,7 @@
 			<groupId>javax.faces</groupId>
 			<artifactId>javax.faces-api</artifactId>
   <version>2.2</version>
+  <scope>runtime</scope>
  		</dependency> 
  		<!--  <dependency>
 			<groupId>javax</groupId>
@@ -344,6 +352,29 @@
     	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->		
     	
+    	<!--  used to convert the response data into JSON string. 
+		Necessari per la classe/bean jsonMessageConverter -->
+         <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.9.7</version>        	
+         </dependency>
+         
+    	    <dependency>
+    	<groupId>com.fasterxml.jackson.core</groupId>
+    	<artifactId>jackson-annotations</artifactId>
+    	<version>2.9.0</version>
+    </dependency>
+
+    	    <dependency>
+    	    	<groupId>org.springframework</groupId>
+    	    	<artifactId>spring-webmvc</artifactId>
+    	    </dependency>
+    	    <dependency>
+    	    	<groupId>commons-fileupload</groupId>
+    	    	<artifactId>commons-fileupload</artifactId>
+    	    	<version>1.3.3</version>
+    	    </dependency>
     </dependencies>
     
 
@@ -353,10 +384,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>                
-	            <configuration>
-	                <source>${jdk.version}</source>
-	                <target>${jdk.version}</target>
-	            </configuration>
             </plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
