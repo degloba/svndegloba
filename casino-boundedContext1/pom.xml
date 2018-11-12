@@ -584,6 +584,7 @@
                 
 	<javax.persistence>2.1.0</javax.persistence>
 			
+			<google.appengine.version>1.9.67</google.appengine.version>
        
     </properties>
 
