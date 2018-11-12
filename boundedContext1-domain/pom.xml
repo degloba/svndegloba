@@ -13,10 +13,6 @@
     <dependencies>
                 
         <!-- Compile/runtime dependencies -->
-        <!-- <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-        </dependency> -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -32,11 +28,6 @@
             <version>${project.version}</version>
             <scope>test</scope> 
 		</dependency>
-        <!-- <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency> -->
 		
 		<dependency>
             <groupId>${project.groupId}</groupId>
@@ -92,25 +83,25 @@
         <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-labs</artifactId>
-            <version>${google.appengine}</version>
+            <version>${google.appengine.version}</version>
             <scope>test</scope>
         </dependency>        
         <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
-            <version>${google.appengine}</version>
+            <version>${google.appengine.version}</version>
             <scope>test</scope>
         </dependency>   
           <dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-tools-sdk</artifactId>
-            <version>${google.appengine}</version>
+            <version>${google.appengine.version}</version>
             <scope>test</scope>
         </dependency>        
 		<dependency>
          	<groupId>com.google.appengine</groupId>
             <artifactId>appengine-testing</artifactId>
-            <version>${google.appengine}</version>
+            <version>${google.appengine.version}</version>
             <scope>test</scope>
         </dependency> 
         
@@ -118,18 +109,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		
-		<!-- ******************************************* -->                    	
-		<!-- Objectify (Interface natiu Google datastore -->
-		<!-- ******************************************* --> 
-		<!-- <dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>		
-		</dependency> -->
-		
+	
 		 <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -141,68 +125,34 @@
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>			
+		</dependency>
 
-		<!-- ******************************************* -->                    	
-		<!-- DataNucleus                                 -->
-		<!-- ******************************************* --> 
-		
-		 <!-- ***************************************** -->
-        <!-- Per testejar contra Datanucleus-appengine -->
-        <!-- ***************************************** -->
-        <!--  <dependency>
-			<groupId>com.google.appengine.orm</groupId>
-			<artifactId>datanucleus-appengine</artifactId>	
-			<scope>test</scope>	
-		</dependency> -->
-
-		
-		<!-- <dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-		</dependency>  
-		 <dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>
-				datanucleus-accessplatform-jpa-rdbms
-			</artifactId>
-			<version>3.0.4</version>
-			<type>pom</type>
-		</dependency> -->
-		
-		<!-- <dependency>
-			<groupId>org.ow2.asm</groupId>
-			<artifactId>asm</artifactId>
-			<version>5.0.4</version>
-		</dependency> -->
-
-
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.jpa</artifactId>
+			<version>2.7.3</version>
+			<scope>test</scope>
+		</dependency>
     </dependencies>
-    
+   
     
     <build>
-   
     
     <plugins>
     
-    		<!-- <plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>
-	            <configuration>
-	                <source>${jdk.version}</source>
-	                <target>${jdk.version}</target>
-	            </configuration>	            
-			</plugin> -->
     
     		<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
-        	<!--  <plugin>
+        	   <plugin>
 	                <groupId>org.apache.maven.plugins</groupId>
 	                <artifactId>maven-surefire-plugin</artifactId>
 	                <version>${maven.surefire.plugin.version}</version>
-	                <configuration>
+	                 <configuration>
           			<skipTests>true</skipTests>
-       		 	</configuration>
-        	</plugin>  -->
+       		 	</configuration> 
+        	</plugin>   
             
            <!--  <plugin>
                 <groupId>org.datanucleus</groupId>
