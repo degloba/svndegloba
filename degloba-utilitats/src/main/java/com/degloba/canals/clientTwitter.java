@@ -285,7 +285,8 @@ public class clientTwitter {
 	            System.out.println("Failed to read the system input.");
 	            System.exit( -1);
 	        }
-	    }
+		}
+
 
 		
 		public static void main(String[] args) {
