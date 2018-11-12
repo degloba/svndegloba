@@ -9,8 +9,6 @@ import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
-import com.degloba.ecommerce.sales.application.services.IOrderingService;
-
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.equivalent.SuggestionService;

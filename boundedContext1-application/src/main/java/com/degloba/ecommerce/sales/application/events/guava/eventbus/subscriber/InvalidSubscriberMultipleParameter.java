@@ -13,7 +13,7 @@ public class InvalidSubscriberMultipleParameter {
     }
 
     @Subscribe
-    public void handleCreditEvent(CreditPurchaseEvent event, Object foo) {
+    public void handleCreditEvent(CreditPurchaseEvent event) {
         //DO nothing this will not work
     }
 

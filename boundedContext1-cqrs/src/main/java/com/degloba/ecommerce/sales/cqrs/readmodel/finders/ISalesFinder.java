@@ -13,6 +13,7 @@ import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
 
 
 
+
 @Finder
 public interface ISalesFinder {
 

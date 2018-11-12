@@ -4,7 +4,6 @@ package com.degloba.ecommerce.sales.application.services;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
-
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 
 
