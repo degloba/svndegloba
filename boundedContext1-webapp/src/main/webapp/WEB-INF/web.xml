@@ -48,7 +48,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
+    <param-value>/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
   </context-param>
   <context-param>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
@@ -148,11 +148,11 @@
 
    <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener> 
+  </listener>  
   
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
-  </listener>
+  </listener> 
    <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener> 
@@ -165,7 +165,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath*:/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
+      <param-value>/WEB-INF/resources/META-INF/spring/appServlet/ws-context.xml,/WEB-INF/resources/META-INF/spring/appServlet/servlet-context.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -174,7 +174,7 @@
   <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gae</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
   <!-- <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>*.htm</url-pattern>
@@ -227,7 +227,7 @@
     <servlet-name>Resource Servlet</servlet-name>
     <url-pattern>/org.richfaces.resources/*</url-pattern>
   </servlet-mapping> -->
-  <servlet>
+  <!-- <servlet>
     <display-name>Remote API Servlet</display-name>
     <servlet-name>RemoteApiServlet</servlet-name>
     <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
@@ -236,7 +236,7 @@
   <servlet-mapping>
     <servlet-name>RemoteApiServlet</servlet-name>
     <url-pattern>/remote_api</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
@@ -247,7 +247,7 @@
     
     <filter> 
  		<filter-name>PrimeFaces FileUpload Filter</filter-name> 
- 		<filter-class>com.degloba.canonicalmodel.FileUploadFilter</filter-class>
+ 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
  		 <init-param>
             <param-name>thresholdSize</param-name>
             <param-value>2147483647</param-value>
@@ -267,9 +267,9 @@
 		DEFAULT PAGE
 	-->
 
-<!-- 	<welcome-file-list>
+ 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>	 -->
+	</welcome-file-list>	
   
 
   <security-constraint>
@@ -294,7 +294,7 @@
 	<!-- ############################################# -->
 	<!-- # Google API Endpoints                      # -->
 	<!-- ############################################# -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>SystemServiceServlet</servlet-name>
 		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
 		<init-param>
@@ -305,20 +305,20 @@
   <servlet-mapping>
     <servlet-name>SystemServiceServlet</servlet-name>
     <url-pattern>/_ah/spi/*</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
     
   <!-- [START Objectify] -->
-   <!--  <filter>
+<!--    <filter>
       <filter-name>ObjectifyFilter</filter-name>
       <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
     </filter>
     <filter-mapping>
       <filter-name>ObjectifyFilter</filter-name>
       <url-pattern>/*</url-pattern>
-    </filter-mapping> -->
-    <listener>
+    </filter-mapping>
+     <listener>
       <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
-    </listener>
+    </listener> -->
 <!-- [END Objectify] -->
   
 </web-app>

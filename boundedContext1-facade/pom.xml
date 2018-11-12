@@ -12,11 +12,12 @@
     
     <dependencies>
        
-    <dependency>
-    	<groupId>com.degloba</groupId>
-    	<artifactId>boundedContext1-domain</artifactId>
-    	<version>${project.version}</version>
-    </dependency>
+	    <dependency>
+	    	<groupId>com.degloba</groupId>
+	    	<artifactId>boundedContext1-domain</artifactId>
+	    	<version>${project.version}</version>
+	    </dependency>
+	    
     </dependencies>
     
     

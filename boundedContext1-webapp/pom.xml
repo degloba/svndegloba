@@ -84,13 +84,6 @@
             <scope>runtime</scope>
         </dependency>
         
-           
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servlet.version}</version>  
-            <scope>provided</scope>
-        </dependency>        		
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -188,12 +181,7 @@
     	</dependency>        --> 
 		
 				
-		<!-- Referencies Llibreries -->					
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>degloba-utilitats</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>	
+		<!-- Referencies Llibreries -->						
  			 
 		<!-- <dependency>
             <groupId>javax.servlet.jsp</groupId>
@@ -279,12 +267,12 @@
     <!-- *********** -->
     <!-- BACKEND API -->
     <!-- *********** -->
-     
+    <!--  
       <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-endpoints</artifactId>
             <version>${google.appengine.version}</version>
-        </dependency> 
+        </dependency>  -->
 
     	<dependency>
     		<groupId>com.google.gcm</groupId>
@@ -363,16 +351,6 @@
     	<dependency>
     		<groupId>com.degloba</groupId>
     		<artifactId>degloba-security</artifactId>
-    		<version>4.4.3-SNAPSHOT</version>
-    	</dependency>
-    	<dependency>
-    		<groupId>com.degloba</groupId>
-    		<artifactId>degloba-cqrs</artifactId>
-    		<version>4.4.3-SNAPSHOT</version>
-    	</dependency>
-    	<dependency>
-    		<groupId>com.degloba</groupId>
-    		<artifactId>degloba-infrastructure</artifactId>
     		<version>4.4.3-SNAPSHOT</version>
     	</dependency>
 
