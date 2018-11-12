@@ -10,7 +10,7 @@
   
 	<artifactId>boundedContext1-webapp</artifactId>
     <packaging>war</packaging>
-	<name>Casino - boundedContext1 - webapp</name>
+	<name>Casino webapp</name>
 
     <properties>
     
@@ -34,8 +34,6 @@
     <repositories>
 		
 	</repositories>
-    
-  
     
     
     <dependencies>
@@ -340,14 +338,10 @@
  		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>javax.faces-api</artifactId>
-  <version>2.2</version>
-  <scope>runtime</scope>
+			<version>2.2</version>
+			<scope>runtime</scope>
  		</dependency> 
- 		<!--  <dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>8.0</version>
-		</dependency> -->
+ 		
     	<dependency>
     		<groupId>com.degloba</groupId>
     		<artifactId>degloba-security</artifactId>
@@ -365,11 +359,11 @@
     	
     	<!--  used to convert the response data into JSON string. 
 		Necessari per la classe/bean jsonMessageConverter -->
-         <dependency>
+          <dependency>
         	<groupId>com.fasterxml.jackson.core</groupId>
         	<artifactId>jackson-databind</artifactId>
         	<version>2.9.7</version>        	
-         </dependency>
+         </dependency> 
          
     	    <dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
