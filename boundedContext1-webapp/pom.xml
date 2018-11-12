@@ -15,16 +15,27 @@
     <properties>
     
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>       
-        <primefaces-version>5.3</primefaces-version>
+        <primefaces-version>6.2</primefaces-version>
 
-        <cloudsql.url>jdbc:google:mysql://your-instance-name/demo?user=root</cloudsql.url>
-        <cloudsql.url.dev>jdbc:mysql://localhost/degloba?user=root</cloudsql.url.dev>
+        <!-- <cloudsql.url>jdbc:google:mysql://your-instance-name/demo?user=root</cloudsql.url>
+        <cloudsql.url.dev>jdbc:mysql://localhost/degloba?user=root</cloudsql.url.dev> -->
+        
+                    <!-- uncomment if you wish to set your project here project- gcloud is used otherwise -->
+    <!-- <app.deploy.project>your-app-id</app.deploy.project> -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+    <archiveClasses>true</archiveClasses>
     </properties>
     
     
     <repositories>
 		
 	</repositories>
+    
+  
     
     
     <dependencies>
@@ -61,26 +72,10 @@
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-        
-	  	<dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-persistence-jpa</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>          
-        </dependency>          
+                            
         
 		
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring)  -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-oxm</artifactId>
-            <exclusions>
-            	<exclusion>
-            		<artifactId>commons-logging</artifactId>
-            		<groupId>commons-logging</groupId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
     
         
         <dependency>
@@ -89,11 +84,11 @@
             <scope>runtime</scope>
         </dependency>
         
-		<dependency> 
+<!-- 		<dependency> 
  			<groupId>com.google.code.gson</groupId> 
  			<artifactId>gson</artifactId> 
  			<scope>compile</scope> 
-		</dependency> 
+		</dependency>  -->
            
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -117,6 +112,13 @@
             <version>1.0.2.RELEASE</version>       
         </dependency>   -->
        
+<!--  used to convert the response data into JSON string. 
+		Necessari per la classe/bean jsonMessageConverter -->
+         <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.9.7</version>        	
+         </dependency>
 
 		<dependency>
             <groupId>org.springframework</groupId>
@@ -162,8 +164,8 @@
 		</dependency> 
 		
 		
-		<!-- Primafaces -->
- 		<dependency>
+		<!-- Primafaces --> 
+		 <dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces-version}</version>
@@ -191,21 +193,22 @@
     	</dependency>        --> 
 		
 				
-		<!-- Referencies Llibreries -->			
+		<!-- Referencies Llibreries -->					
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>	
  			 
-		<dependency>
+		<!-- <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
+                  
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
         
         <!-- ********* -->
-        <!-- JSF       -->
+        <!--  JSF      -->      
         <!-- ********* -->
          <dependency>
 			<groupId>com.sun.faces</groupId>
@@ -233,10 +236,6 @@
 		
 	
 		<!-- JSR 303 validation -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-		</dependency>
 
 
         <dependency>
@@ -248,11 +247,6 @@
 
 	<!--  used to convert the response data into JSON string. 
 		Necessari per la classe/bean jsonMessageConverter -->
-         <dependency>
-        	<groupId>com.fasterxml.jackson.core</groupId>
-        	<artifactId>jackson-databind</artifactId>
-        	<version>2.9.7</version>        	
-         </dependency>
 
 
          <dependency>
@@ -276,7 +270,7 @@
         <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-
+ <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -290,7 +284,7 @@
     <!-- *********** -->
     <!-- BACKEND API -->
     <!-- *********** -->
-    
+     
       <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-endpoints</artifactId>
@@ -323,50 +317,23 @@
  				</exclusion>
  			</exclusions>
      </dependency>
-
-
-
-      <dependency>
-     	<groupId>org.json</groupId>
-     	<artifactId>json</artifactId>
-     	<version>20140107</version>
-     	<scope>compile</scope>
-     </dependency> 
-         
-		
-		<dependency>
-        	<groupId>${project.groupId}</groupId>
-        	<artifactId>degloba-security</artifactId>
-        	<version>${project.version}</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.google.apis</groupId>
-			<artifactId>google-api-services-identitytoolkit</artifactId>
-			<version>v3-rev216-1.22.0</version>
-		</dependency>
-
-		
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3</version>
-		</dependency>
-		 <!-- <dependency>
-			<groupId>com.google.appengine.tools</groupId>
-			<artifactId>appengine-gcs-client</artifactId>
-			<version>RELEASE</version>
-		</dependency>  -->
+ 
+        
+				 
+		<!-- <dependency>
+			<groupId>gmultipart</groupId>
+			<artifactId>gmultipart</artifactId>
+			<version>0.4</version>
+		</dependency> -->
 		
 		
 		<!-- ******************** -->
 		<!--  Implementacions JPA -->
 		<!-- ******************** -->
-		<!-- <dependency>
+		 <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
-		</dependency> -->
+		</dependency> 
 		
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
@@ -375,10 +342,6 @@
 		</dependency>
 		
 		
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-core</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
@@ -391,33 +354,74 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>boundedContext1-domain</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-		</dependency>
-		<dependency>
+ 		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+  <version>2.2</version>
+  <scope>runtime</scope>
+ 		</dependency> 
+ 		<!--  <dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>8.0</version>
-		</dependency>
+		</dependency> -->
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>degloba-security</artifactId>
+    		<version>4.4.3-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>degloba-cqrs</artifactId>
+    		<version>4.4.3-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>degloba-infrastructure</artifactId>
+    		<version>4.4.3-SNAPSHOT</version>
+    	</dependency>
+
+
+    	<dependency>
+    		<groupId>joda-time</groupId>
+    		<artifactId>joda-time</artifactId>
+    		<version>2.10</version>
+    	</dependency>
+    	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->		
+    	
+    	<!--  used to convert the response data into JSON string. 
+		Necessari per la classe/bean jsonMessageConverter -->
+         <dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
+        	<version>2.9.7</version>        	
+         </dependency>
+         
+    	    <dependency>
+    	<groupId>com.fasterxml.jackson.core</groupId>
+    	<artifactId>jackson-annotations</artifactId>
+    	<version>2.9.0</version>
+    </dependency>
+
+    	    <dependency>
+    	    	<groupId>org.springframework</groupId>
+    	    	<artifactId>spring-webmvc</artifactId>
+    	    </dependency>
+    	    <dependency>
+    	    	<groupId>commons-fileupload</groupId>
+    	    	<artifactId>commons-fileupload</artifactId>
+    	    	<version>1.3.3</version>
+    	    </dependency>
     </dependencies>
     
 
     <build>
         <plugins>
-               	
+        	
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>                
-	            <configuration>
-	                <source>${jdk.version}</source>
-	                <target>${jdk.version}</target>
-	            </configuration>
             </plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -485,8 +489,8 @@
         					</pluginExecutions>
         				</lifecycleMappingMetadata>
         			</configuration>
-        		</plugin>
-        		
+        		</plugin>        		       	  
+        		       	  
 				<!-- <plugin>
 	                <groupId>org.richfaces.cdk</groupId>
 	                <artifactId>maven-richfaces-resources-plugin</artifactId>
@@ -596,25 +600,7 @@
           <target>1.6</target>
         </configuration>
       </plugin> -->
-      
-      <!--  <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>${google.appengine}</version>
-                <configuration>
-                    <enableJarClasses>false</enableJarClasses>
-                    <version>${app.version}</version>
-                    Comment in the below snippet to bind to all IPs instead of just localhost
-                    address>0.0.0.0</address>
-                    <port>8080</port
-                    Comment in the below snippet to enable local debugging with a remote debugger
-                         like those included with Eclipse or IntelliJ
-                    jvmFlags>
-                      <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag>
-                    </jvmFlags
-                </configuration>
-            </plugin> -->
-      
+                        
                     	                		
 </plugins>
 
@@ -646,3 +632,4 @@
     
 
 </project>
+    
