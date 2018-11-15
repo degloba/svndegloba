@@ -11,122 +11,109 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd		
 		http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
-	<!--
-		DispatcherServlet Context: defines this servlet's request-processing infrastructure
-	-->
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
 
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<import resource="controllers.xml" />
-	<import resource="webflow.xml" />  
+	<import resource="webflow.xml" />
 
 
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<!-- Enables controllers mapped with @RequestMapping annotations, formatting annotations @NumberFormat @DateTimeFormat, and JSR 303 style validation -->
+	<!-- Enables controllers mapped with @RequestMapping annotations, formatting 
+		annotations @NumberFormat @DateTimeFormat, and JSR 303 style validation -->
 	<mvc:annotation-driven />
 
-	<!-- 
-		Enable serving of classpath with Spring 3 resource serving mechanism. For example:
-		/webflow-primefaces-showcase/app/resources/styles/blueprint/print.css
-	-->
-	
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/ directory -->
-	<mvc:resources order="0" mapping="/resources/**" location="/" />
-	<mvc:resources order="0" mapping="/js/**" location="/js/"/>
-    <mvc:resources order="0" mapping="/img/*" location="/img/"/>
-    <mvc:resources order="0" mapping="**.html" location="/"/>
-    <mvc:resources order="0" mapping="/css/**" location="/css/"/>
-    <mvc:resources order="0" mapping="/*/javax.faces.resource/**" location="/css/"/>
-    
-  
-	<!-- 
-		Enable processing of JSF 2 resource requests. For example:
-		/webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces
-	-->
+	<!-- Enable serving of classpath with Spring 3 resource serving mechanism. 
+		For example: /webflow-primefaces-showcase/app/resources/styles/blueprint/print.css -->
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/ directory -->
+	<mvc:resources order="0" mapping="/resources/**"
+		location="/" />
+	<mvc:resources order="0" mapping="/js/**" location="/js/" />
+	<mvc:resources order="0" mapping="/img/*"
+		location="/img/" />
+	<mvc:resources order="0" mapping="**.html" location="/" />
+	<mvc:resources order="0" mapping="/css/**"
+		location="/css/" />
+	<mvc:resources order="0"
+		mapping="/*/javax.faces.resource/**" location="/css/" />
+
+
+	<!-- Enable processing of JSF 2 resource requests. For example: /webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces -->
 	<faces:resources />
 
-	<!--
-		Maps request paths to flows in the flowRegistry; e.g. a path of
-		/hotels/booking looks for a flow with id "hotels/booking"
-	-->
-	 <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-	 	<property name="order" value="2" /> 
+	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking 
+		looks for a flow with id "hotels/booking" -->
+	<bean
+		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="order" value="2" />
 		<property name="flowRegistry" ref="flowRegistry" />
-	</bean> 
+	</bean>
 
-	<!--
-		Resolves views selected for rendering by @Controllers to .xhtml
-		resources in the /WEB-INF/views directory
-	-->
+	<!-- Resolves views selected for rendering by @Controllers to .xhtml resources 
+		in the /WEB-INF/views directory -->
 	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
- 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="cache" value="false" />
-		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
+		<property name="viewClass"
+			value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
 	</bean>
- 
- 	<!-- (Travel) <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">                 
-            <property name="viewClass"                         
-                value="org.springframework.web.servlet.view.tiles2.TilesView" />         
-	</bean> -->
-	
-	<!-- (Travel)  Configures the Tiles layout system --> 
-	<!-- <bean id="tilesConfigurer"                 
-		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">                 
-		<property name="definitions">                         
-			<list>                                 
-				<value>/WEB-INF/tiles.xml</value>                         
-			</list>                 
-		</property>         
-	</bean>   -->
-	
-	<!-- (Travel) -->   
-<!--  	<bean id="messageSource"                 
-		class="org.springframework.context.support.ResourceBundleMessageSource">                 
-		<property name="basenames">                         
-			<list>                                 
-				<value>com.completeview.i18n.messages</value>                         
-			</list>                 
-		</property>                 
-		<property name="useCodeAsDefaultMessage" value="true" />         
-	</bean>   -->
- 
- 	<!-- (Travel)´ --> 
-<!--   	<bean id="localeResolver"                 
-		class="org.springframework.web.servlet.i18n.FixedLocaleResolver">                 
-		<constructor-arg value="es" />         
-	</bean>   -->
-	
-	
-	<!-- Dispatches requests mapped to flows to FlowHandler implementations	-->
-	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+
+	<!-- (Travel) <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" 
+		/> </bean> -->
+
+	<!-- (Travel) Configures the Tiles layout system -->
+	<!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"> 
+		<property name="definitions"> <list> <value>/WEB-INF/tiles.xml</value> </list> 
+		</property> </bean> -->
+
+	<!-- (Travel) -->
+	<!-- <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+		<property name="basenames"> <list> <value>com.completeview.i18n.messages</value> 
+		</list> </property> <property name="useCodeAsDefaultMessage" value="true" 
+		/> </bean> -->
+
+	<!-- (Travel)´ -->
+	<!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver"> 
+		<constructor-arg value="es" /> </bean> -->
+
+
+	<!-- Dispatches requests mapped to flows to FlowHandler implementations -->
+	<bean
+		class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
-	
-	
-	<!-- (webflow-showcase) Dispatches requests mapped to flows to FlowHandler implementations -->
-	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-		<property name="flowExecutor" ref="flowExecutor"/>
-	</bean> -->
-	
-	  <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> 
-	
-<!-- ********************************************************************************** -->
-<!--  Travel -->
 
-  <!--  <bean class="com.degloba.canonicalmodel.ui.webui.spring.WebConfiguration"/>  -->
-  
-  <!--  (Travel)	<mvc:resources location="/static/" mapping="/static/**" />          
-	<context:component-scan base-package="com.degloba" 
-	    use-default-filters="false">                 
-    	<context:include-filter type="annotation"                         
-        	expression="org.springframework.stereotype.Controller" />         
-    </context:component-scan>   -->
-  
-  
-	<!-- Configures a handler for serving static resources by forwarding to the Servlet container's default Servlet. -->
-    <mvc:default-servlet-handler/>
-    
-  
-<!-- ********************************************************************************** -->
+
+	<!-- (webflow-showcase) Dispatches requests mapped to flows to FlowHandler 
+		implementations -->
+	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter"> 
+		<property name="flowExecutor" ref="flowExecutor"/> </bean> -->
+
+	<bean
+		class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+
+	<!-- ********************************************************************************** -->
+	<!-- Travel -->
+
+	<!-- <bean class="com.degloba.canonicalmodel.ui.webui.spring.WebConfiguration"/> -->
+
+	<!-- (Travel) <mvc:resources location="/static/" mapping="/static/**" /> 
+		<context:component-scan base-package="com.degloba" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" 
+		/> </context:component-scan> -->
+
+
+	<!-- Configures a handler for serving static resources by forwarding to 
+		the Servlet container's default Servlet. -->
+	<mvc:default-servlet-handler />
+
+
+	<!-- ********************************************************************************** -->
 </beans>
