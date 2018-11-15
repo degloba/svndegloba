@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      	xmlns:ui="http://java.sun.com/jsf/facelets"
-      	xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:p="http://primefaces.org/ui">
-      
-    <body>
-    
-	    <ui:composition>
-	
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+
+	<ui:composition>
+
 		<!--Put south/footer content here, if any-->
-	        
-	        <p:panelGrid columns="8" >
-	        
-	        <p:growl id="growlFooter" life="2000" />
-	        
-	        <p:commandLink id="ajax1" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-	        	<h:outputText value="Condiciones de uso" />
-		    </p:commandLink>
-		    
-		    <p:commandLink id="ajax2" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-		        <h:outputText value="Preguntas frecuentes" />
-		    </p:commandLink>
-		    
-		    <p:commandLink id="ajax3" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-		        <h:outputText value="Política de privacidad" />
-		    </p:commandLink>
-		    
-		    <p:commandLink id="ajax4" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-		        <h:outputText value="Cookies" />
-		    </p:commandLink>
-	    
-		     <p:commandLink id="ajax5" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-		        <h:outputText value="Reglas convivencia" />
-		    </p:commandLink>
-		    
-		     <p:commandLink id="ajax6" styleClass="enllac" update="growlFooter" actionListener="#{buttonView.buttonAction}">
-		        <h:outputText value="Consejos seguridad" />
-		    </p:commandLink>
-	
-	        </p:panelGrid>
-				
-	    </ui:composition>
-    </body>
+
+		<p:panelGrid columns="8">
+
+			<p:growl id="growlFooter" life="2000" />
+
+			<p:commandLink id="ajax1" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Condiciones de uso" />
+			</p:commandLink>
+
+			<p:commandLink id="ajax2" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Preguntas frecuentes" />
+			</p:commandLink>
+
+			<p:commandLink id="ajax3" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Política de privacidad" />
+			</p:commandLink>
+
+			<p:commandLink id="ajax4" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Cookies" />
+			</p:commandLink>
+
+			<p:commandLink id="ajax5" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Reglas convivencia" />
+			</p:commandLink>
+
+			<p:commandLink id="ajax6" styleClass="enllac" update="growlFooter"
+				actionListener="#{buttonView.buttonAction}">
+				<h:outputText value="Consejos seguridad" />
+			</p:commandLink>
+
+		</p:panelGrid>
+
+	</ui:composition>
+</body>
 </html>

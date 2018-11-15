@@ -2,32 +2,33 @@
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:p="http://primefaces.org/ui"
-   xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
-   
-   
-   <h:head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Rent by degloba - 2018</title>
-      
-      <link type="text/css" rel="stylesheet" href="/resources/css/degloba.css" />
-      
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Rent by degloba - 2018</title>
+
+	<link type="text/css" rel="stylesheet"
+		href="/resources/css/degloba.css" />
+
 	<!-- Firebase -->
-  	<!-- ***********************************************************************************************************************
+	<!-- ***********************************************************************************************************************
     * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
     *********************************************************************************************************************** -->
 	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
-	  
-      
-	<!-- Firebase Authentication (customitzat degloba)      -->  
+
+
+	<!-- Firebase Authentication (customitzat degloba)      -->
 	<script type="text/javascript" src="/resources/js/firebaseAuth.js"></script>
-    
-      
+
+
 	<!-- PRIMEFACEUI (http://www.primefaces.org/primeui/#setup) -->
-<!-- 
+	<!-- 
 	 <link rel="stylesheet" href="/resources/primefaces/themes/afterwork/theme.css" />
     <link rel="stylesheet" type="text/css" href="/resources/primefaces/font-awesome-4.6.3/css/font-awesome.css" />
     <link rel="stylesheet" href="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.css" />
@@ -35,85 +36,94 @@
     <script type="text/javascript" src="/resources/primefaces/jquery-3.1.0.js"></script>
     <script type="text/javascript" src="/resources/primefaces/jquery-ui-1.12.0/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/primefaces/primeui.min.js"></script>  -->
-   
-  <!--  <script>
+
+	<!--  <script>
           $(function() {
            $('#p1').puipassword();
         
            $('#p2').puipassword({inline:true}); 
        });
       </script> -->
-      
-     </h:head>
 
-				
-   <h:body id="body">
-   
-      <f:view contentType="text/html">
-          
-  		<!-- <h:form>
+</h:head>
+
+
+<h:body id="body">
+
+	<f:view contentType="text/html">
+
+		<!-- <h:form>
   			<input id="p1" name="p1" type="password" /> 	
 		</h:form> -->
-		
+
 		<h:form>
-		<p:growl id="messages" showDetail="true" life="2000" />
- 
-	    <p:gmap id="gmap" center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:100%;height:400px">
-	        <p:ajax event="stateChange" listener="#{eventView.onStateChange}" update="messages" />
-	        <p:ajax event="pointSelect" listener="#{eventView.onPointSelect}" update="messages" />
-	    </p:gmap>
-	    
-	    </h:form>
-	    
-<h:form enctype="multipart/form-data">
-	 	      			
-    	<br />
-		
-		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
-	    	ajax="false"
-	        mode="advanced" 
-	        update="messages2"
-	        sizeLimit="1000000" 
-	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+			<p:growl id="messages" showDetail="true" life="2000" />
 
-		<p:growl id="messages2" showDetail="true"/>
-    
-    	<br />
-    	   	
-	</h:form>
+			<p:gmap id="gmap" center="41.381542, 2.122893" zoom="15"
+				type="ROADMAP" style="width:100%;height:400px">
+				<p:ajax event="stateChange" listener="#{eventView.onStateChange}"
+					update="messages" />
+				<p:ajax event="pointSelect" listener="#{eventView.onPointSelect}"
+					update="messages" />
+			</p:gmap>
 
- 
-  	
-	<div id="wrapper"> <!--This is the Div 1 in the picture-->
-    	<div id="topBar"> <!--This is the Div 2 in the picture-->
-    	    				
-	        <div id="menu">
-	       			
-				<ui:insert name="footer" >
-		    		  <ui:include src="/WEB-INF/layouts/commonHeader.xhtml" />
-		    	</ui:insert>   
-					    
-	        </div> <!--This is the Div 5 in the picture-->
-       
-    	</div><!--Closing "topBar"-->
+		</h:form>
 
-    	<div id="central"> <!--This is the Div 3 in the picture-->
-        	<div id="top3"> <!--This is the Div 7 in the picture-->
-        
-				<ui:insert name="content" />
-			
-        	</div>
-    	</div><!--Closing "central"-->
-	    
-		<div id="footer">
-	    	<ui:insert name="footer" >
-				<ui:include src="/WEB-INF/layouts/commonFooter.xhtml" />
-	    	</ui:insert>    
+		<h:form enctype="multipart/form-data">
+
+			<br />
+
+			<p:fileUpload
+				fileUploadListener="#{fileUploadController.handleFileUpload}"
+				ajax="false" mode="advanced" update="messages2" sizeLimit="1000000"
+				allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+			<p:growl id="messages2" showDetail="true" />
+
+			<br />
+
+		</h:form>
+
+
+
+		<div id="wrapper">
+			<!--This is the Div 1 in the picture-->
+			<div id="topBar">
+				<!--This is the Div 2 in the picture-->
+
+				<div id="menu">
+
+					<ui:insert name="footer">
+						<ui:include src="/WEB-INF/layouts/commonHeader.xhtml" />
+					</ui:insert>
+
+				</div>
+				<!--This is the Div 5 in the picture-->
+
+			</div>
+			<!--Closing "topBar"-->
+
+			<div id="central">
+				<!--This is the Div 3 in the picture-->
+				<div id="top3">
+					<!--This is the Div 7 in the picture-->
+
+					<ui:insert name="content" />
+
+				</div>
+			</div>
+			<!--Closing "central"-->
+
+			<div id="footer">
+				<ui:insert name="footer">
+					<ui:include src="/WEB-INF/layouts/commonFooter.xhtml" />
+				</ui:insert>
+			</div>
+
 		</div>
-    
-	</div><!--Closing "wrapper"-->	
+		<!--Closing "wrapper"-->
 
-</f:view>
+	</f:view>
 </h:body>
 </html>
 

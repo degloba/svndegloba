@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:p="http://primefaces.org/ui"
-   xmlns:composite="http://java.sun.com/jsf/composite">
-   
-   <!-- Definim tots els controls -->
-   <composite:interface>
-		<composite:attribute name="categoriesValue" />
-		<composite:attribute name="subcategoriesValue" />
-   </composite:interface>
-   
-   
-   <composite:implementation>
-   
-		<p:panelGrid columns="1" id="categoriesPanel">
-		  
-			<h:outputLabel id="ww" value="#{cc.attrs.categoriesValue}"></h:outputLabel>
-			<h:outputText value="Categories " />
-		    	
-        	
-        	<p:selectOneMenu id="category" value="#{selectOneMenuCategoryView.categories}" effect="fold" editable="true">
-			 	<p:ajax event="change" listener="#{selectOneMenuCategoryView.onCategoryChange}" update="subcategory" />
-	        	<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
-	            <f:selectItems value="#{selectOneMenuCategoryView.categories}" />
-			</p:selectOneMenu>
-		
-			<p:outputLabel for="subcategory" value="Subcategory: " />
-            <p:selectOneMenu id="subcategory" value="#{selectOneMenuCategoryView.subcategory}">
-                <f:selectItem itemLabel="Select subcategory" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
-            </p:selectOneMenu>
-        	
-	    
-      	</p:panelGrid>
-            
-   </composite:implementation>
-   
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- Definim tots els controls -->
+<composite:interface>
+	<composite:attribute name="categoriesValue" />
+	<composite:attribute name="subcategoriesValue" />
+</composite:interface>
+
+
+<composite:implementation>
+
+	<p:panelGrid columns="1" id="categoriesPanel">
+
+		<h:outputLabel id="ww" value="#{cc.attrs.categoriesValue}"></h:outputLabel>
+		<h:outputText value="Categories " />
+
+
+		<p:selectOneMenu id="category"
+			value="#{selectOneMenuCategoryView.categories}" effect="fold"
+			editable="true">
+			<p:ajax event="change"
+				listener="#{selectOneMenuCategoryView.onCategoryChange}"
+				update="subcategory" />
+			<f:selectItem itemLabel="Select One" itemValue=""
+				noSelectionOption="true" />
+			<f:selectItems value="#{selectOneMenuCategoryView.categories}" />
+		</p:selectOneMenu>
+
+		<p:outputLabel for="subcategory" value="Subcategory: " />
+		<p:selectOneMenu id="subcategory"
+			value="#{selectOneMenuCategoryView.subcategory}">
+			<f:selectItem itemLabel="Select subcategory" itemValue=""
+				noSelectionOption="true" />
+			<f:selectItems value="#{selectOneMenuCategoryView.subcategories}" />
+		</p:selectOneMenu>
+
+
+	</p:panelGrid>
+
+</composite:implementation>
+
 </html>

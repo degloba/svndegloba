@@ -4,13 +4,13 @@
   "facelet-taglib_1_0.dtd">
 
 <facelet-taglib>
-   <namespace>http://degloba.com/richx</namespace>
-   <function>
-      <function-name>concat</function-name>
-      <function-class>com.degloba.facelets.funcions.FaceletsFunctions</function-class>
-      <function-signature>
-         java.lang.String concat(java.lang.String,java.lang.String)
-      </function-signature>
-   </function>
-   
+	<namespace>http://degloba.com/richx</namespace>
+	<function>
+		<function-name>concat</function-name>
+		<function-class>com.degloba.facelets.funcions.FaceletsFunctions</function-class>
+		<function-signature>
+			java.lang.String concat(java.lang.String,java.lang.String)
+		</function-signature>
+	</function>
+
 </facelet-taglib>

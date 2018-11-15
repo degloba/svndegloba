@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"  
-		xmlns:f="http://java.sun.com/jsf/core" 
-      	xmlns:ui="http://java.sun.com/jsf/facelets"
-      	xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:p="http://primefaces.org/ui"
-		xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
-      
-    <body>
- 
-	    <ui:composition>
-	       		
-	       	<!-- apliquem Primefaces Grid Css -->
-				       		
-			<div class="ui-g">
-			 <!--    <div class="ui-g-12 ui-md-6 ui-lg-3">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
+
+<body>
+
+	<ui:composition>
+
+		<!-- apliquem Primefaces Grid Css -->
+
+		<div class="ui-g">
+			<!--    <div class="ui-g-12 ui-md-6 ui-lg-3">
 			    	<button id="t-btn-show" type="button">About us</button>
 				</div> -->
-				
-			    <div class="ui-g-12 ui-md-6 ui-lg-3">
-			    	<degloba:logInSignupComponent id="logInSignupComponent" dialegSignup="dlgSignup" dialegLogin="dlgLogin"/>
-				</div>
-			    
-			    <div class="ui-g-12 ui-md-6 ui-lg-3">
-			    	<h:outputLink id="rentStuffOutputlink" value="productFlow" styleClass="enllac">
-						<h:outputText id="rentStuffOutputtext" value="Rent your stuff" />
-					</h:outputLink>   
-							
-			    </div>
-			    
-			    <div class="ui-g-12 ui-md-6 ui-lg-3">
 
-			    	 <h:outputLink id="carregaEntitats" value="carregaEntitats" styleClass="enllac">
-						<h:outputText value="Carrega" />
-					</h:outputLink>   
-			  
-			    </div>
+			<div class="ui-g-12 ui-md-6 ui-lg-3">
+				<degloba:logInSignupComponent id="logInSignupComponent"
+					dialegSignup="dlgSignup" dialegLogin="dlgLogin" />
 			</div>
- 
-				
-	    </ui:composition>
-	    
-    </body>
-    
+
+			<div class="ui-g-12 ui-md-6 ui-lg-3">
+				<h:outputLink id="rentStuffOutputlink" value="productFlow"
+					styleClass="enllac">
+					<h:outputText id="rentStuffOutputtext" value="Rent your stuff" />
+				</h:outputLink>
+
+			</div>
+
+			<div class="ui-g-12 ui-md-6 ui-lg-3">
+
+				<h:outputLink id="carregaEntitats" value="carregaEntitats"
+					styleClass="enllac">
+					<h:outputText value="Carrega" />
+				</h:outputLink>
+
+			</div>
+		</div>
+
+
+	</ui:composition>
+
+</body>
+
 </html>

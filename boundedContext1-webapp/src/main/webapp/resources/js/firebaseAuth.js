@@ -260,6 +260,7 @@
      */
     // [START buttoncallback]
     function toggleLogInFacebook() {
+    	alert("hola");
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.FacebookAuthProvider();

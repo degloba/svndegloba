@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:p="http://primefaces.org/ui"
-   xmlns:composite="http://java.sun.com/jsf/composite">
-   
-   <!-- Definim tots els controls -->
-   <composite:interface>
-		<!-- <composite:attribute name="imagesValue" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- Definim tots els controls -->
+<composite:interface>
+	<!-- <composite:attribute name="imagesValue" />
 		<composite:attribute name="priceValue" />
 		<composite:attribute name="nameValue" />
 		<composite:attribute name="descriptionValue" />
 		<composite:attribute name="categoryValue" />
 		<composite:attribute name="countVisitValue" />
 		<composite:attribute name="locationValue" /> -->
-   </composite:interface>
-   
-   
-   <composite:implementation>
-   
-   <h:form> 
-   
-	   <p:fieldset legend="Details product">
-		
-		<p:messages />
-		
-		<h:panelGrid columns="3" id="detailProductPanel" >
-				
-			<h:outputLabel for="name" value="Name: " />
-			<p:inputText id="name" value="#{productView.name}"/>
-			<p:message for="name" />
-			
-			<h:outputLabel for="description" value="Description: " />
-			<p:inputText id="description" value="#{productView.description}"/>
-			<p:message for="description" />
-			        
-	        <h:outputLabel value="Price: " for="price"/>
-			<p:inputText id="price" disabled="false" label="price" value="#{productView.price}"/> 
-			<p:message for="price" />
-							 		      	
-			<p:commandButton  update="detailProductPanel" value="Add product" action="addProductAction" />&nbsp;
+</composite:interface>
+
+
+<composite:implementation>
+
+	<h:form>
+
+		<p:fieldset legend="Details product">
+
+			<p:messages />
+
+			<h:panelGrid columns="3" id="detailProductPanel">
+
+				<h:outputLabel for="name" value="Name: " />
+				<p:inputText id="name" value="#{productView.name}" />
+				<p:message for="name" />
+
+				<h:outputLabel for="description" value="Description: " />
+				<p:inputText id="description" value="#{productView.description}" />
+				<p:message for="description" />
+
+				<h:outputLabel value="Price: " for="price" />
+				<p:inputText id="price" disabled="false" label="price"
+					value="#{productView.price}" />
+				<p:message for="price" />
+
+				<p:commandButton update="detailProductPanel" value="Add product"
+					action="addProductAction" />&nbsp;
 					
 					
 		</h:panelGrid>
-		
-		</p:fieldset>
-		
-	</h:form>	
-	
-	<h:form enctype="multipart/form-data">
-	 	      			
-    	<br />
-		
-		<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
-	    	ajax="false"
-	        mode="advanced" 
-	        update="messages2"
-	        sizeLimit="1000000" 
-	        allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
-		<p:growl id="messages2" showDetail="true"/>
-    
-    	<br />
-    	   	
+		</p:fieldset>
+
 	</h:form>
-	        
-   </composite:implementation>
-   
+
+	<h:form enctype="multipart/form-data">
+
+		<br />
+
+		<p:fileUpload
+			fileUploadListener="#{fileUploadController.handleFileUpload}"
+			ajax="false" mode="advanced" update="messages2" sizeLimit="1000000"
+			allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+		<p:growl id="messages2" showDetail="true" />
+
+		<br />
+
+	</h:form>
+
+</composite:implementation>
+
 </html>
