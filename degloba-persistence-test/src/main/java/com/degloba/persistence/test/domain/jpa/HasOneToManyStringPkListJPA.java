@@ -53,7 +53,7 @@ public class HasOneToManyStringPkListJPA {
   }
 
   public List<BidirectionalChildStringPkListJPA> getBidirChildren() {
-    return (List) bidirChildren;
+    return (List<BidirectionalChildStringPkListJPA>) bidirChildren;
   }
 
   public void nullBidirChildren() {

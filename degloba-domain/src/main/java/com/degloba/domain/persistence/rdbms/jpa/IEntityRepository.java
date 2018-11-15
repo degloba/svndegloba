@@ -50,7 +50,6 @@ public interface IEntityRepository {
      * @param id Entity identification
      * @return An Entity instance.
      */
-    ////////<T extends Entity> T get(Class<T> clazz, Serializable id);
     <T extends BaseAggregateRoot> T get(Class<T> clazz, Serializable id);
 
     /**
