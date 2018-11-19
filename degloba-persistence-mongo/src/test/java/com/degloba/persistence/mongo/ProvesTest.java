@@ -10,8 +10,8 @@ import com.degloba.persistence.test.domain.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -36,9 +36,10 @@ public class ProvesTest  {
    	//ApplicationContext ctx = new GenericXmlApplicationContext("SpringConfig.xml");
     
    	// For Annotation
-   	ApplicationContext ctx = 
+	   AbstractApplicationContext  ctx = 
                 new AnnotationConfigApplicationContext(SpringMongoConfig.class);
    	mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
+   	ctx.close();
     
    
        }

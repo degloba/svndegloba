@@ -76,7 +76,7 @@ public class DelayerHandlerRescheduleIntegrationTests extends MongoDbAvailableTe
 		ThreadPoolTaskScheduler taskScheduler = (ThreadPoolTaskScheduler) IntegrationContextUtils.getTaskScheduler(context);
 		taskScheduler.shutdown();
 		taskScheduler.getScheduledExecutor().awaitTermination(10, TimeUnit.SECONDS);
-		context.destroy();
+		context.close();
 
 		try {
 			context.getBean("input", MessageChannel.class);

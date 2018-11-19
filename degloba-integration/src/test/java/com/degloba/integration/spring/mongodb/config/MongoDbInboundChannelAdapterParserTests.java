@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
 import org.springframework.beans.factory.parsing.BeanDefinitionParsingException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.common.LiteralExpression;
@@ -33,6 +32,7 @@ public class MongoDbInboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(source, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(source, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("data", TestUtils.getPropertyValue(source, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test
@@ -49,6 +49,7 @@ public class MongoDbInboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(source, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(source, "collectionNameExpression") instanceof SpelExpression);
 		assertEquals("'foo'", TestUtils.getPropertyValue(source, "collectionNameExpression.expression"));
+		context.close();
 	}
 
 	@Test
@@ -65,6 +66,7 @@ public class MongoDbInboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(source, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(source, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("foo", TestUtils.getPropertyValue(source, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test
@@ -80,6 +82,7 @@ public class MongoDbInboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(source, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(source, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("foo", TestUtils.getPropertyValue(source, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test(expected=BeanDefinitionParsingException.class)

@@ -41,6 +41,7 @@ public class MongoDbOutboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(handler, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(handler, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("data", TestUtils.getPropertyValue(handler, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test
@@ -56,6 +57,7 @@ public class MongoDbOutboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(handler, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(handler, "collectionNameExpression") instanceof SpelExpression);
 		assertEquals("headers.collectionName", TestUtils.getPropertyValue(handler, "collectionNameExpression.expression"));
+		context.close();
 	}
 
 	@Test
@@ -71,6 +73,7 @@ public class MongoDbOutboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(handler, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(handler, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("foo", TestUtils.getPropertyValue(handler, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test
@@ -85,6 +88,7 @@ public class MongoDbOutboundChannelAdapterParserTests {
 		assertNotNull(TestUtils.getPropertyValue(handler, "evaluationContext"));
 		assertTrue(TestUtils.getPropertyValue(handler, "collectionNameExpression") instanceof LiteralExpression);
 		assertEquals("foo", TestUtils.getPropertyValue(handler, "collectionNameExpression.literalValue"));
+		context.close();
 	}
 
 	@Test(expected=BeanDefinitionParsingException.class)
@@ -105,7 +109,7 @@ public class MongoDbOutboundChannelAdapterParserTests {
 		MessageHandler handler = TestUtils.getPropertyValue(endpoint, "handler", MessageHandler.class);
 		assertTrue(AopUtils.isAopProxy(handler));
 		List<?> advisors = TestUtils.getPropertyValue(handler, "h.advised.advisors", List.class);
-		assertThat(TestUtils.getPropertyValue(advisors.get(0), "advice"), Matchers.instanceOf(RequestHandlerRetryAdvice.class));
+		assertThat(TestUtils.getPropertyValue(advisors.get(0), "advice"), Matchers.instanceOf(RequestHandlerRetryAdvice.class));		
 	}
 
 }

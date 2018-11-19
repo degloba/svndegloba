@@ -41,6 +41,7 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'name' : 'Bob'}"), Person.class, "data"));
+		context.close();
 	}
 
 	@Test
@@ -55,6 +56,7 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'name' : 'Bob'}"), Person.class, "foo"));
+		context.close();
 	}
 
 	@Test
@@ -69,6 +71,7 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'name' : 'Bob'}"), Person.class, "foo"));
+		context.close();
 	}
 
 	@Test
@@ -86,6 +89,7 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'foo' : 'bar'}"), BasicDBObject.class, "foo"));
+		context.close();
 	}
 
 	@Test
@@ -103,6 +107,7 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'foo' : 'bar'}"), BasicDBObject.class, "foo"));
+		context.close();
 	}
 
 	@Test
@@ -117,5 +122,6 @@ public class MongoDbOutboundChannelAdapterIntegrationTests extends MongoDbAvaila
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		assertNotNull(template.find(new BasicQuery("{'name' : 'Bob'}"), Person.class, "data"));
+		context.close();
 	}
 }

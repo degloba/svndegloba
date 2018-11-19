@@ -1,6 +1,6 @@
 package com.degloba.travel.integration.spring;
 
-import org.apache.commons.io.IOUtils;
+//////import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -84,7 +84,7 @@ public class EmailNotificationService implements NotificationService {
             context.put(k, model.get(k));
         StringWriter stringWriter = new StringWriter();
         this.velocityEngine.evaluate(context, stringWriter, "notifications", template);
-        IOUtils.closeQuietly(stringWriter);
+        /////IOUtils.closeQuietly(stringWriter);
         return stringWriter.toString();
     }
 
