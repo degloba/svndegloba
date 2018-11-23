@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appengine-web-app
 	xmlns="http://appengine.google.com/ns/1.0">
-	<application>wwwdegloba-1350</application>
-	<version>1</version>
+
 
 	<!-- By default, App Engine sends requests serially to a given web server. 
 		To allow App Engine to send multiple requests in parallel specify: -->
@@ -49,6 +48,7 @@
 		<include path="/resources/js/lib/*.js" />
 		<include path="/WEB-INF/resources/css/*.css" />
 
+		<include path="/app/resources/*.js" />
 		<include path="/app/resources/jquery/js/**.*" />
 
 		<exclude path="/**.xhtml" />

@@ -41,42 +41,51 @@
     <param-value>.xhtml</param-value>
   </context-param>
 	
-	  	<!-- Causes Facelets to refresh templates during development -->
+	<!-- Causes Facelets to refresh templates during development -->
   <context-param>
     <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
     <param-value>1</param-value>
   </context-param>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
-  </context-param>
+  
   <context-param>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
     <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
   </context-param>
+  
 <!--   <context-param>
     <param-name>javax.faces.CONFIG_FILES</param-name>
     <param-value></param-value>
   </context-param> -->
   
-  
-  <context-param>
+    <context-param>
     <param-name>javax.faces.FACELETS_BUFFER_SIZE</param-name>
     <param-value>65535</param-value>
   </context-param> 
-  
+    
+<!-- Setting this param to Development enables better error messages, 
+including in the client-side JavaScript,at the cost of some performance.
+While setting this param to Production will turn off some error messages, and emphasize performance. -->    
 	<context-param>
 	    <param-name>javax.faces.PROJECT_STAGE</param-name>
 	    <param-value>Production</param-value>
 	</context-param>
+	
+<!-- JSF removes anything in the page that is contained in <!– –>. -->	
 	<context-param>
 	    <param-name>javax.faces.SKIP_COMMENTS</param-name>
 	    <param-value>true</param-value>
 	</context-param>
+	
 	<context-param>
 	    <param-name>com.sun.faces.expressionFactory</param-name>
 	    <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
 	</context-param>
+	
+	    <!-- SPRING -->
+	  <context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
+	  </context-param>
   
     <!--
                We need to set annotation lifecycle provider manually as 
@@ -136,7 +145,7 @@
   </context-param> -->
   
   
-      
+	<!-- Primefaces -->      
   <context-param> <param-name>primefaces.UPLOADER</param-name> 
       <param-value>commons</param-value> 
       </context-param>
@@ -146,16 +155,19 @@
 	</context-param>	      
   
 
-   <listener>
+    <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener>  
+  </listener>   
   
+  <!-- Aquest listener hereda de org.springframework.web.context.ContextLoaderListener -->
   <listener>
     <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
   </listener> 
-   <listener>
+  
+<!--    <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener> 
+  </listener>  -->
+  
   
   <!-- ******************* -->
   <!--  Spring MVC Servlet -->
@@ -167,7 +179,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/resources/META-INF/spring/appServlet/ws-context.xml,/WEB-INF/resources/META-INF/spring/appServlet/servlet-context.xml</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup>
+    <load-on-startup>2</load-on-startup>
   </servlet>
   
   <!-- Definim les URLs que admet el Spring MVC Servlet -->
@@ -187,11 +199,12 @@
     <servlet-name>springmvcservlet</servlet-name>
     <url-pattern>/gcm/*</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-  </servlet>
+  </servlet> 
   
     <!-- Definim les URLs que admet el Faces Servlet -->
   <servlet-mapping>
@@ -205,6 +218,10 @@
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   
   <!-- **************************** -->
