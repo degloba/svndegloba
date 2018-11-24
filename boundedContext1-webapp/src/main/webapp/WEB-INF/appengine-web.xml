@@ -48,7 +48,13 @@
 		<include path="/resources/js/lib/*.js" />
 		<include path="/WEB-INF/resources/css/*.css" />
 
-		<include path="/app/resources/*.js" />
+		<include path="/app/resources/fa/*.css" />
+		<include path="/app/resources/fa/*.ttf" />
+		<include path="/app/resources/fa/*.woff2" />
+		<include path="/app/resources/fa/*.eot" />
+		<include path="/app/resources/fa/**.*" />
+		<include path="/app/resources/*.css" />
+		<include path="/app/resources/**.*" />
 		<include path="/app/resources/jquery/js/**.*" />
 
 		<exclude path="/**.xhtml" />
