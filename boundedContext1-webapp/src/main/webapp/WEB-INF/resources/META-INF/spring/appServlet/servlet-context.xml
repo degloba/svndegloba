@@ -29,16 +29,15 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/ directory -->
-	<mvc:resources order="0" mapping="/resources/**"
-		location="/" />
+	<mvc:resources order="0" mapping="/resources/**" location="/" />
 	<mvc:resources order="0" mapping="/js/**" location="/js/" />
-	<mvc:resources order="0" mapping="/img/*"
-		location="/img/" />
+	<mvc:resources order="0" mapping="/img/*" location="/img/" />
 	<mvc:resources order="0" mapping="**.html" location="/" />
-	<mvc:resources order="0" mapping="/css/**"
-		location="/css/" />
-	<mvc:resources order="0"
-		mapping="/*/javax.faces.resource/**" location="/css/" />
+	<mvc:resources order="0" mapping="/css/**" location="/css/" />
+	<mvc:resources order="0" mapping="/*/javax.faces.resource/**" location="/css/" />
+	
+	<mvc:resources order="0" mapping="/**/glyphicons-halflings-regular.*" location="/app/fonts/" />
+	
 
 
 	<!-- Enable processing of JSF 2 resource requests. For example: /webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces -->

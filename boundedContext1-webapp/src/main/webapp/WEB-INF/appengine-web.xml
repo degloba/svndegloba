@@ -39,7 +39,8 @@
 
 	<static-files>
 		<include path="/well-known/acme-challenge/*/*.html" />
-
+		
+		
 		<include path="/*.html" />
 		<include path="/resources/images/**.*" />
 		<include path="/resources/js/**.*" />
@@ -55,7 +56,8 @@
 		<include path="/app/resources/fa/**.*" />
 		<include path="/app/resources/*.js" />
 		<include path="/app/resources/*.css" />
-		<include path="/app/resources/**.*" />
+				
+		
 		<include path="/app/resources/jquery/js/**.*" />
 
 		<exclude path="/**.xhtml" />

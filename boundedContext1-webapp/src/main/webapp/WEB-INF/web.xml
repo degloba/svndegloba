@@ -46,7 +46,6 @@ pick up new versions of resources when ProjectStage is development.
   <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
   <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
  </context-param>
-
  <context-param>
   <description>Setting this param to Development enables better error messages, 
 including in the client-side JavaScript,at the cost of some performance.
@@ -70,7 +69,6 @@ If you want to save the state on the server (which is the default in the JavaSer
   <param-name>primefaces.FONT_AWESOME</param-name>
   <param-value>true</param-value>
  </context-param>
-
  <!--
                We need to set annotation lifecycle provider manually as 
                org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider.
@@ -220,17 +218,9 @@ If you want to save the state on the server (which is the default in the JavaSer
   <url-pattern>*.xhtml</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/index.xhtml</url-pattern>
-  </servlet-mapping>
-   <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/index.html</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/</url-pattern>
-</servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>/index.xhtml</url-pattern>
+ </servlet-mapping>
  <!-- **************************** 
        SPRING SECURITY        
  **************************** 
@@ -278,8 +268,9 @@ If you want to save the state on the server (which is the default in the JavaSer
   <servlet-mapping>
     <servlet-name>SystemServiceServlet</servlet-name>
     <url-pattern>/_ah/spi/*</url-pattern>
-  </servlet-mapping> 
- [START Objectify] 
+  </servlet-mapping> -->
+  
+ <!-- [START Objectify]   --> 
     <filter>
       <filter-name>ObjectifyFilter</filter-name>
       <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
@@ -291,7 +282,8 @@ If you want to save the state on the server (which is the default in the JavaSer
      <listener>
       <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
     </listener> 
- [END Objectify] -->
+ <!-- [END Objectify]   -->
+  
  <mime-mapping>
   <extension>eot</extension>
   <mime-type>application/vnd.ms-fontobject</mime-type>
@@ -316,12 +308,6 @@ If you want to save the state on the server (which is the default in the JavaSer
   <extension>woff2</extension>
   <mime-type>application/x-font-woff2</mime-type>
  </mime-mapping>
- <!-- 
-		DEFAULT PAGE
-	-->
- <welcome-file-list>
-  <welcome-file>index.html</welcome-file>
- </welcome-file-list>
  <security-constraint>
   <web-resource-collection>
    <web-resource-name>/.well-known</web-resource-name>

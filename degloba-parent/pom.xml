@@ -14,6 +14,8 @@
 	<springwebflow.version>2.5.0.RELEASE</springwebflow.version>
 	<springsecurity-version>5.1.0.RELEASE</springsecurity-version>  
 	<spring.integration.version>5.0.8.RELEASE</spring.integration.version>  
+	<springws.version>3.0.4.RELEASE</springws.version>
+	
 		
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
 	
@@ -52,7 +54,7 @@
 	
 	<commons.dbcp>1.4</commons.dbcp>
 	<mockito.version>2.23.0</mockito.version>
-	<junit.version>4.11</junit.version>
+	<junit.version>4.12</junit.version>
 	<validation.api.version>1.1.0.Final</validation.api.version>
 	<hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
 	<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>

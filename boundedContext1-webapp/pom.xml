@@ -82,11 +82,14 @@
             <scope>runtime</scope>
         </dependency>
         
-        <dependency>
+        <!-- JavaServer Pages Standard Tag Library (JSTL) is a collection of useful JSP tags 
+        	which encapsulates the core functionality common to many JSP applications. 
+        	Google AppEngine provides a default JSTL library and you don't have to include  -->
+<!--         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-        </dependency> 
+        </dependency>  -->
         
         <!-- Spring --> 
         <!-- Deploying a WAR in an Old (Servlet 2.5) Container 
@@ -98,8 +101,8 @@
             <version>1.0.2.RELEASE</version>       
         </dependency>   -->
        
-<!--  used to convert the response data into JSON string. 
-		Necessari per la classe/bean jsonMessageConverter -->
+		<!--  used to convert the response data into JSON string.
+			Necessari per la classe/bean jsonMessageConverter -->
          <dependency>
         	<groupId>com.fasterxml.jackson.core</groupId>
         	<artifactId>jackson-databind</artifactId>
@@ -140,7 +143,7 @@
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
-			<version>2.2.4.RELEASE</version>
+			<version>${springws.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>commons-logging</artifactId>
@@ -200,6 +203,13 @@
 			<artifactId>jsf-impl</artifactId>
 		</dependency>  
 		
+		 <dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>2.2</version>
+			<scope>runtime</scope>
+ 		</dependency> 
+		
 		<!--  <dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
@@ -218,16 +228,13 @@
 	
 		<!-- JSR 303 validation -->
 
-
-        <dependency>
+		<!-- pac4j is an easy and powerful security engine for Java to authenticate users, 
+			get their profiles and manage authorizations in order to secure web applications and web services.  -->
+<!--         <dependency>
         	<groupId>org.pac4j</groupId>
         	<artifactId>pac4j-core</artifactId>
         	<version>1.8.0</version>
-        </dependency>
-
-
-	<!--  used to convert the response data into JSON string. 
-		Necessari per la classe/bean jsonMessageConverter -->
+        </dependency> -->
 
 
          <dependency>
@@ -329,13 +336,6 @@
 			<version>2.2.1</version>
 		</dependency>
 
-
- 		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>javax.faces-api</artifactId>
-			<version>2.2</version>
-			<scope>runtime</scope>
- 		</dependency> 
  		
     	<dependency>
     		<groupId>com.degloba</groupId>
@@ -349,22 +349,13 @@
     		<artifactId>joda-time</artifactId>
     		<version>2.10</version>
     	</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->		
     	
-    	<!--  used to convert the response data into JSON string. 
-		Necessari per la classe/bean jsonMessageConverter -->
-          <dependency>
-        	<groupId>com.fasterxml.jackson.core</groupId>
-        	<artifactId>jackson-databind</artifactId>
-        	<version>2.9.7</version>        	
-         </dependency> 
          
-    	    <dependency>
-    	<groupId>com.fasterxml.jackson.core</groupId>
-    	<artifactId>jackson-annotations</artifactId>
-    	<version>2.9.0</version>
-    </dependency>
+    	<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>2.9.0</version>
+    	</dependency>
 
     	    <dependency>
     	    	<groupId>org.springframework</groupId>

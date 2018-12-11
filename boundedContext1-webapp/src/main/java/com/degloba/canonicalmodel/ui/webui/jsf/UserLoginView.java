@@ -1,15 +1,17 @@
 package com.degloba.canonicalmodel.ui.webui.jsf;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
- 
+
+import org.primefaces.PrimeFaces;
 import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
  
 
 //@ManagedBean
-//@ViewScoped
+@ViewScoped
 @Component
 public class UserLoginView {
         
@@ -49,8 +51,9 @@ public class UserLoginView {
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
+        
     }   
 	
 	public void loginGoogle(ActionEvent event) {
@@ -69,8 +72,8 @@ public class UserLoginView {
              message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
          }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
     }   
 	
 	public void loginTwitter(ActionEvent event) {
@@ -89,8 +92,8 @@ public class UserLoginView {
              message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
          }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
     }   
 	
 	public void loginFacebook(ActionEvent event) {
@@ -109,8 +112,8 @@ public class UserLoginView {
              message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
          }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
     }
 
 	public UserLoginView() {
