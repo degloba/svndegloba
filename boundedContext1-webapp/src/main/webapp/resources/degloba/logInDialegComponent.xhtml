@@ -5,6 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:composite="http://java.sun.com/jsf/composite">
 
 <composite:interface>
@@ -13,67 +14,59 @@
 
 <composite:implementation>
 
-	<p:dialog id="dlgLogin" header="Log In"
-		widgetVar="#{cc.attrs.dialegLogin}" resizable="false">
-
-		<h:form id="formLogin">
+		<b:form id="formLogin">
+		
+			<b:modal id="dlgLogin" title="Log In" styleClass="#{cc.attrs.dialegLogin}"
+           closable="false"  close-on-escape="true" backdrop="true">	
 
 			<p:growl widgetVar="growlLogin" id="growlLogin" sticky="true"
 				showDetail="true" life="3000" />
 
-			<h:panelGrid columns="1" cellpadding="5">
+			<b:panelGrid  columns="1" cellpadding="1">
 
 				<h:outputLabel for="emailLogin" value="Email Address" />
-				<p:inputText id="emailLogin" value="#{userLoginView.email}"
-					required="true" label="email" size="45" />
+				<b:inputText id="emailLogin" value="#{userLoginView.email}"	required="true"  />
 
-				<h:outputLink onclick="sendPasswordReset()">Forgot ?</h:outputLink>
+				<b:navLink onclick="sendPasswordReset()">Forgot ?</b:navLink>
+				
 
 				<h:outputLabel for="passwordLogin" value="Password" />
-				<p:password id="passwordLogin" value="#{userLoginView.password}"
-					required="true" label="password" />
+				<b:inputSecret id="passwordLogin" value="#{userLoginView.password}"
+					required="true" />
 
-				<p:commandButton type="button" value="Log In" update="growlLogin"
+				<b:commandButton type="button" value="Log In" update="growlLogin" large-screen="full-width" look="info"
 					onclick="toggleLogInEmail()" />
 
-			</h:panelGrid>
+			</b:panelGrid>
 
-		</h:form>
 
 		<h:outputLabel value="or" />
-
-		<h:form>
 
 			<p:growl id="growlLogSocials" sticky="true" showDetail="true"
 				life="3000" />
 
-			<h:panelGrid columns="1" cellpadding="5">
+			<b:panelGrid columns="1" cellpadding="1">
 
-				<p:commandButton type="button" value="Log In with Google"
+				<b:commandButton type="button" value="Log In with Google" iconAwesome="fa-google"
 					update="growlLogSocials" onclick="toggleLogInGoogle()"
-					style="width:360px" />
+					large-screen="full-width" />
 
-				<p:commandButton type="button" value="Log In with Twitter"
+				<b:commandButton type="button" value="Log In with Twitter" iconAwesome="fa-twitter"
 					update="growlLogSocials" onclick="toggleLogInTwitter()"
-					style="width:360px" />
+					large-screen="full-width" />
 
-				<p:commandButton type="button" value="Log In with Facebook"
+				<b:commandButton type="button" value="Log In with Facebook" iconAwesome="fa-facebook"
 					update="growlLogSocials" onclick="toggleLogInFacebook()"
-					style="width:360px" />
+					large-screen="full-width" />
 
 				<!-- 	<h:outputLabel for="permissionLogIn" value="We'll never post anything without your permission." />  
 	       -->
+				
 
-				<h:panelGrid columns="4" cellpadding="5">
-					<h:outputLabel>New to rent?</h:outputLabel>
-					<h:outputLink onclick="">Sign Up</h:outputLink>
-				</h:panelGrid>
+			</b:panelGrid>
 
-			</h:panelGrid>
-
-		</h:form>
-
-	</p:dialog>
+</b:modal>
+		</b:form>
 
 
 </composite:implementation>

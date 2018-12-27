@@ -186,7 +186,7 @@ If you want to save the state on the server (which is the default in the JavaSer
  <!-- Definim les URLs que admet el Spring MVC Servlet -->
  <servlet-mapping>
   <servlet-name>springmvcservlet</servlet-name>
-  <url-pattern>/gae</url-pattern>
+  <url-pattern>/gae/*</url-pattern>
  </servlet-mapping>
  <!-- <servlet-mapping>
     <servlet-name>springmvcservlet</servlet-name>

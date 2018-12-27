@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
 
 <composite:interface>
@@ -16,48 +16,44 @@
 
 <composite:implementation>
 
-	<h:panelGrid styleClass="top-aligned-columns" columns="5">
 
-		<p:commandButton id="btnSignup" value="Sign Up" type="button"
-			onclick="PF('#{cc.attrs.dialegLogin}').hide();PF('#{cc.attrs.dialegSignup}').show();" />
+	<b:form id="formUserLoggined">
 
-		<p:commandButton id="btnLogin" value="Log In" type="button"
-			onclick="PF('#{cc.attrs.dialegSignup}').hide();PF('#{cc.attrs.dialegLogin}').show();" />
+		<b:commandButton id="btnSignup" value="Sign Up" type="button" look="info" iconAwesome="fa-sign-in"
+			class="btn btn-default navbar-btn pull-right"  onclick="$('.#{cc.attrs.dialegLogin}').hide();$('.#{cc.attrs.dialegSignup}').modal('show')" />
 
-		<img id="google-user" src="" style="width: 25px;"></img>
-		<h:outputText id="nomUsuari" styleClass="enllac" />
+		<b:commandButton id="btnLogin" value="Log In" type="button" look="info" iconAwesome="fa-sign-in"
+			class="btn btn-default navbar-btn pull-right"  onclick="$('.#{cc.attrs.dialegSignup}').hide();$('.#{cc.attrs.dialegLogin}').modal('show')" />
 
-		<h:form id="formUserLoggined">
 
-			<p:growl id="messages" showDetail="false" />
 
-			<p:commandButton id="userLogginedButton" type="button"
-				icon="fa fa-user" />
+		<p:growl id="messages" showDetail="false" />
+
+		<img id="google-user" src="" style="width: 28px;"></img>
+		<h:outputText id="nomUsuari" styleClass="enllac" /> 
+		
+		<b:commandButton class="btn btn-default navbar-btn" id="userLogginedButton" type="button"	iconAwesome="user" />
 
 			<p:menu overlay="true" trigger="userLogginedButton" my="left top"
 				at="left bottom">
 				<p:submenu label="Document">
 					<p:menuitem value="My profile" update="messages" icon="fa fa-plus" />
 					<p:menuitem value="Settings" update="messages" icon="fa fa-refresh" />
-					<p:menuitem value="Logout" update="messages" icon="fa fa-user"
-						oncomplete="toggleLogInEmail()" />
+					<p:menuitem value="Logout" update="messages" icon="fa fa-user" ajax="false"
+						onclick="javascript:toggleLogInGoogle()" />
 				</p:submenu>
 			</p:menu>
 
-
-		</h:form>
+		
 
 
 		<!-- Components signUp/singIn -->
-		<degloba:signUpDialegComponent id="signUpDialegComponent"
-			dialegSignup="#{cc.attrs.dialegSignup}" />
+		<degloba:signUpDialegComponent id="signUpDialegComponent" dialegSignup="#{cc.attrs.dialegSignup}" />
 
-		<degloba:logInDialegComponent id="logInDialegComponent"
-			dialegLogin="#{cc.attrs.dialegLogin}" />
+		<degloba:logInDialegComponent id="logInDialegComponent"	dialegLogin="#{cc.attrs.dialegLogin}" />
 
-
-	</h:panelGrid>
+</b:form>
 
 </composite:implementation>
 
-</html>
+</ui:fragment>

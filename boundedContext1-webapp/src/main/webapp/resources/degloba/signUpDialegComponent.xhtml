@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"	
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:composite="http://java.sun.com/jsf/composite">
 
 <composite:interface>
@@ -14,67 +14,65 @@
 
 <composite:implementation>
 
-	<p:dialog id="dlgSignup" header="Sign Up"
-		widgetVar="#{cc.attrs.dialegSignup}" resizable="false">
-
-		<h:form id="formSignup">
-
+	<b:modal id="dlgSignup" title="Sign Up" styleClass="#{cc.attrs.dialegSignup}" 
+        	   closable="false"  close-on-escape="true" backdrop="true">	
+               	
+		<b:form id="formSignup">
+	
 			<p:growl widgetVar="growlSignup" id="growlSignup" sticky="true"
-				showDetail="true" life="3000" />
+				showDetail="true" life="3000" /> 
+				
+			<b:panelGrid columns="1">
 
-			<h:panelGrid columns="1" cellpadding="5">
+				<h:outputLabel  for="usernameSignup" value="Name" />
+				<b:inputText id="usernameSignup" value="#{userSignupView.name}"
+					required="true"  />
 
-				<h:outputLabel for="usernameSignup" value="Name" />
-				<p:inputText id="usernameSignup" value="#{userSignupView.name}"
-					required="true" label="name" size="20" />
-
-				<h:outputLabel for="emailSignup" value="Email Address" />
-				<p:inputText id="emailSignup" value="#{userSignupView.email}"
-					required="true" label="email" size="45" />
+				<h:outputLabel  for="emailSignup" value="Email Address" />
+				<b:inputText id="emailSignup" value="#{userSignupView.email}"
+					required="true"  />
 
 				<h:outputLabel for="passwordSignup" value="Password" />
-				<p:password id="passwordSignup" value="#{userSignupView.password}"
-					required="true" label="password" />
+				<b:inputSecret id="passwordSignup" value="#{userSignupView.password}"
+					required="true" />
 
-				<p:commandButton value="Sign Up" update="growlSignup" type="button"
-					onclick="handleSignUp()" />
+				<b:commandButton value="Sign Up" update="@form" look="info" ajax="true" type="button" dismiss="modal"
+					oncomplete="if(!validationFailed) { $('.formSignup').modal('hide') } " onclick="handleSignUp()" />
 
-				<h:outputLabel
-					value="By signing up you agree to our Terms and Privacy" />
+				<h:outputLabel 	value="By signing up you agree to our Terms and Privacy" />
 
-			</h:panelGrid>
-
-		</h:form>
-
+			</b:panelGrid>
+	
 		<h:outputLabel value="or" />
-
-		<h:form>
-
-			<p:growl id="growlSignupSocials" sticky="true" showDetail="true"
+		
+			<p:growl id="growlSignupSocials" sticky="false" showDetail="true"
 				life="3000" />
 
-			<h:panelGrid columns="1" cellpadding="5">
+			<b:panelGrid columns="1">
 
-				<p:commandButton type="button" value="Sign Up with Google"
+				<b:commandButton  type="button"  value="Sign Up with Google" iconAwesome="fa-google"
 					update="growlSignupSocials" onclick="toggleLogInGoogle()"
-					style="width:360px" />
+						large-screen="full-width" />
 
-				<p:commandButton type="button" value="Sign Up with Twitter"
+				<b:commandButton type="button" value="Sign Up with Twitter" iconAwesome="fa-twitter"
 					update="growlSignupSocials" onclick="toggleLogInTwitter()"
-					style="width:360px" />
+					large-screen="full-width"/>
 
-				<p:commandButton type="button" value="Sign Up with Facebook"
+				<b:commandButton type="button" value="Sign Up with Facebook" iconAwesome="fa-facebook"
 					update="growlSignupSocials" onclick="toggleLogInFacebook()"
-					style="width:360px" />
+					large-screen="full-width"/>
 
 				<!-- <h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />  -->
 
-			</h:panelGrid>
+			</b:panelGrid>
+		    
+		     <b:fetchBeanInfos />
+        <b:messages />	
+	</b:form>
 
-		</h:form>
-
-	</p:dialog>
+  </b:modal>
+ 
 
 </composite:implementation>
 
-</html>
+</ui:fragment>

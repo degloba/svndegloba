@@ -55,7 +55,8 @@
 		<include path="/app/resources/fa/*.eot" />
 		<include path="/app/resources/fa/**.*" />
 		<include path="/app/resources/*.js" />
-		<include path="/app/resources/*.css" />
+		<include path="/app/resources/*.js" />
+		<include path="/app/resources/images/**.*" />
 				
 		
 		<include path="/app/resources/jquery/js/**.*" />
