@@ -30,7 +30,7 @@
 
 	<!-- JSF MOJARRA
 	NO ACABA DE FUNCIONAR AMB LA VERSIO 2.2.x SOBRE GAE. SUBSTITUIT PER MYFACES ex : 2.2.12-->
-	<mojarra.version>2.1.7</mojarra.version>	
+	<mojarra.version>2.1.13</mojarra.version>	
 	
 	<!-- JSF MYFACES -->
 	<myfaces.version>2.2.10</myfaces.version>
