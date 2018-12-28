@@ -47,6 +47,7 @@
 		<include path="/resources/css/**.*" />
 		<include path="/resources/primefaces/**.*" />
 		<include path="/resources/js/lib/*.js" />
+		<include path="/resources/jquery/js/**.*" />
 		<include path="/WEB-INF/resources/css/*.css" />
 
 		<include path="/app/resources/fa/*.css" />

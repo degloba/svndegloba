@@ -1,18 +1,10 @@
-		
-
-
-		/* Firebase
-  		**********************************************************************************************************************
-       	* TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
-       	***********************************************************************************************************************/
-	/////////////<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
-
-	  // Initialize Firebase
+// Initialize Firebase
 	  var config = {
 	    apiKey: "AIzaSyDuTo74D7zmb6vO6bOV5Z1h7IABIEBM0hM",
 	    authDomain: "wwwdegloba-1350.firebaseapp.com",
 	    databaseURL: "https://wwwdegloba-1350.firebaseio.com",
 	    storageBucket: "wwwdegloba-1350.appspot.com",
+	    messagingSenderId: "246205539021"
 	  };
 	  firebase.initializeApp(config);
 
@@ -28,8 +20,8 @@
       
       // [END signout]
     } else {
-      var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
-      var password = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:passwordLogin').value;
+      var email = document.getElementById('input_logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
+      var password = document.getElementById('input_logInSignupComponent:logInDialegComponent:formLogin:passwordLogin').value;
            
       // Sign in with email and pass.
       // [START authwithemail]
@@ -62,9 +54,10 @@
    * Handles the sign up button press. (Register
    */
   function handleSignUp() {
-
-    var email = document.getElementById('logInSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
-    var password = document.getElementById('logInSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
+	  
+    var email = document.getElementById('input_logInSignupComponent:signUpDialegComponent:formSignup:emailSignup').value;
+    var password = document.getElementById('input_logInSignupComponent:signUpDialegComponent:formSignup:passwordSignup').value;
+    
     
     // Sign in with email and pass.
     // [START createwithemail]
@@ -72,6 +65,7 @@
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+    
       // [START_EXCLUDE]
       if (errorCode == 'auth/weak-password') {
         PF('growlSignup').renderMessage({"summary":"Warning",
@@ -82,7 +76,7 @@
         PF('growlSignup').renderMessage({"summary":"Warning",
   		  "detail":errorMessage,
   		  "severity":"warn"})
-      }
+      }      
       console.log(error);
       // [END_EXCLUDE]
     });
@@ -111,7 +105,7 @@
   }
   function sendPasswordReset() {  
 	 
-    var email = document.getElementById('logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
+    var email = document.getElementById('input_logInSignupComponent:logInDialegComponent:formLogin:emailLogin').value;
    
     // [START sendpasswordemail]
     firebase.auth().sendPasswordResetEmail(email).then(function() {
@@ -161,7 +155,7 @@
             var provider = new firebase.auth.GoogleAuthProvider();
             // [END createprovider]
             // [START addscopes]
-            provider.addScope('https://www.googleapis.com/auth/plus.login');
+            provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
             // [END addscopes]
             // [START signin]
             firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -169,8 +163,11 @@
               var token = result.credential.accessToken;
               // The signed-in user info.
               var user = result.user;
+              
+             ///////////// window.location = '/app/landing'; //After successful login, user will be redirected to home.html
+            	
               // [START_EXCLUDE]
-              //////document.getElementById('quickstart-oauthtoken').textContent = token;
+              document.getElementById('quickstart-oauthtoken').textContent = token;
               // [END_EXCLUDE]
             }).catch(function(error) {
               // Handle Errors here.
@@ -188,16 +185,20 @@
               } else {
                 console.error(error);
               }
+          	
               // [END_EXCLUDE]
             });
             // [END signin]
           } else {
             // [START signout]
             firebase.auth().signOut();
+            
+            //////alert("lll");
+            
             // [END signout]
           }
           // [START_EXCLUDE]
-          //////////document.getElementById('quickstart-sign-in').disabled = true;
+          document.getElementById('quickstart-sign-in').disabled = true;
           // [END_EXCLUDE]
         }
         // [END buttoncallback]
@@ -260,7 +261,7 @@
      */
     // [START buttoncallback]
     function toggleLogInFacebook() {
-    	alert("hola");
+    	
       if (!firebase.auth().currentUser) {
         // [START createprovider]
         var provider = new firebase.auth.FacebookAuthProvider();
@@ -302,7 +303,7 @@
         // [END signout]
       }
       // [START_EXCLUDE]
-      ////////////document.getElementById('quickstart-sign-in').disabled = true;
+      document.getElementById('quickstart-sign-in').disabled = true;
       
       // Ocultem el dialeg
     	$("#logInSignupComponent\\:signUpDialegComponent\\:dlgSignup").css("display", "none");
@@ -338,7 +339,7 @@
       // Result from Redirect auth flow.
       // [START getidptoken]
       firebase.auth().getRedirectResult().then(function(result) {
-                   
+                       	 
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
@@ -369,11 +370,15 @@
         // [END_EXCLUDE]
       });
       // [END getidptoken]
+      
+      
+      
       // Listening for auth state changes.
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {    	 
         if (user) {
         	    
+        	//alert("kkk");
         	// Visibilitzem el usuari loginat
         	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "inline");        	
         	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").val('user.email');
@@ -408,7 +413,9 @@
           var refreshToken = user.refreshToken;
           var providerData = user.providerData;         
           // [START_EXCLUDE]
-        
+          document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+          document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           
           // IMPORTANT !!!!
           // creem cookie per persistir
@@ -422,7 +429,7 @@
 				 if (profile.photoURL != null)
 					 {				
 						 document.getElementById('google-user').src = profile.photoURL;
-						 document.getElementById('logInSignupComponent:nomUsuari').textContent = profile.displayName;
+						 document.getElementById('nomUsuari').textContent = profile.displayName;
 								
 		        		//  if (profile.providerId == "google.com") {
 		        			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
@@ -454,7 +461,7 @@
         	//Ocultem el usuari loggedOut
         	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");
-        	$("#logInSignupComponent\\:nomUsuari").text("");
+        	$("nomUsuari").text("");
         	
            	// Visibilitzem botons Signup i Login
         	$("#logInSignupComponent\\:btnSignup").css("display", "block");
@@ -466,18 +473,21 @@
         	
           // User is signed out.
           // [START_EXCLUDE]
-          //document.getElementById('sign-in-status').textContent = 'Signed out';
-          ///////////document.getElementById('sign-in-google').textContent = 'Sign in with Google';
-          //document.getElementById('account-details').textContent = 'null';
-          //document.getElementById('oauthtoken').textContent = 'null';
+        	document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+            document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+            document.getElementById('quickstart-account-details').textContent = 'null';
+            document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE]
+        document.getElementById('quickstart-sign-in').disabled = false;
         //document.getElementById('sign-in-google').disabled = false;
         //document.getElementById('sign-in-twitter').disabled = false;
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
+      
+      document.getElementById('quickstart-sign-in').addEventListener('click', toggleLogInGoogle, false);
       //document.getElementById('sign-in-google').addEventListener('click', toggleSignInGoogle2, false);
       //document.getElementById('sign-in-twitter').addEventListener('click', toggleSignInTwitter, false);
     }

@@ -1,26 +1,79 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	template="/WEB-INF/layouts/standard.xhtml">
-
-	<ui:define name="title"></ui:define>
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	xmlns:b="http://bootsfaces.net/ui">
 
 
-	<ui:define name="notes">
-		<p>
-			Note that in "development" mode you can make changes to flow
-			definitions without the need to restart the server. The development
-			mode is specified in <span class="alt">src/main/webapp/WEB-INF/spring/appServlet/webflow.xml</span>.
-		</p>
-		<hr />
-	</ui:define>
+<!-- 
+		Stack the columns on mobile by making one full-width and the other half-width
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="10"  col-lg="8" style="background-color:#C0C0C0"><h:outputText value="col-xs=10  col-lg=8" /></b:column>
+		  <b:column col-xs="2"  col-lg="4" style="background-color:#C0C000"><h:outputText value="col-xs=2   col-lg=4" /></b:column>
+		</b:row>
+		Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="6" col-md="4" style="background-color:#C0A000"><h:outputText value="col-xs=6 col-md=4"/></b:column>
+		  <b:column col-xs="6" col-md="4" col-lg="12" style="background-color:#C0B000"><h:outputText value="col-xs=6 col-md=4 col-lg=12"/></b:column>
+		  <b:column col-xs="6" col-md="4" style="background-color:#C03000"><h:outputText value="col-xs=6 col-md=4"/></b:column>
+		</b:row>
+		Columns are always 50% wide, on mobile and desktop
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="6" style="background-color:#C0C0C0"><h:outputText value="col-xs=6"/></b:column>
+		  <b:column col-xs="6" style="background-color:#C0C030"><h:outputText value="col-xs=6"/></b:column>
+		</b:row> -->
 
-	<ui:define name="content">
 
 
 
-	</ui:define>
-</ui:composition>
+		<b:jumbotron>
+            <b:container>               
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. 
+                   Use it as a starting point to create something more unique.
+                </p>
+               
+            </b:container>
+
+        </b:jumbotron>
+
+				
+			<b:container fluid="true">
+	            <b:row>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	
+	<!-- AngularJS proves -->                    
+<!-- <div ng-app="gemStore">
+  <div class="container" ng-controller="StoreController as store">
+    <div class="product row" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price}}</em>
+      </h3>
+    </div>
+  </div>
+</div> -->
+	                    
+	                    
+	                    
+	                    <p>DonecCC id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	            </b:row>
+	           
+	            </b:container>
+		
+
+</ui:fragment>

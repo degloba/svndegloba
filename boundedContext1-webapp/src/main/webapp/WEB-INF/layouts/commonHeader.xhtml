@@ -8,6 +8,17 @@
 	
 	 <b:navBar brand="degloba" brandHref="#" fluid="true" >
 
+		<!--  Firebase Auth  proves  -->
+		<!-- Container where we'll display the user details -->
+          <div class="quickstart-user-details-container">
+            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <div id="quickstart-sign-in">Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="quickstart-account-details">null</code></pre>
+            <div id="quickstart-oauthtoken">Google OAuth Access Token:</div>
+            <pre><code id="quickstart-oauthtoken">null</code></pre>
+          </div>
+
+
 		<degloba:logInSignupComponent id="logInSignupComponent"	dialegSignup="dlgSignup" dialegLogin="dlgLogin" />
 		
 
