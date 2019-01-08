@@ -26,6 +26,8 @@
 		
 		<!--  AngularJS  -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
 
 	<!-- Firebase -->
@@ -129,27 +131,27 @@
 </h:head>
 
 
-<h:body>
-
+<h:body >
+   
 	<b:container fluid="true">
 	
 		<b:row>
 			<ui:include src="/WEB-INF/layouts/commonHeader.xhtml" />
-		</b:row>
+		</b:row> 
 					
 		<b:row>
-			<ui:include src="/WEB-INF/views/cos.xhtml" />
+			  <ui:include src="/WEB-INF/views/cos.xhtml" />        
 		</b:row>
 		
 		<ui:insert name="content"/>
 				
-		<b:row>
+<!-- 		<b:row>
 			<ui:include src="/WEB-INF/layouts/commonFooter.xhtml" />
-		</b:row>
+		</b:row> -->
 				
 	</b:container>
 	
-	<!-- AngularJS - degloba -->
+	<!-- Afegim el fitxer AngularJS/degloba que conté la configuració angular de l'aplicació -->
 	<script src="/resources/js/app.js"></script>
 	
 	
