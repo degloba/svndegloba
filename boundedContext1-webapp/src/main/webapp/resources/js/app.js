@@ -6,7 +6,10 @@
 
   // configure our routes
 app.config(['$routeProvider', function($routeProvider) {
-      $routeProvider      
+      $routeProvider 
+      .when('/XHTML', {        
+        templateUrl : "/app/landing"
+    })     
     .when('/red', {        
         templateUrl : "red.html"
     })
