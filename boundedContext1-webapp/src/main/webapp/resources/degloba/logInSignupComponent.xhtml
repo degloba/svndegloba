@@ -1,5 +1,5 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"	
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -40,10 +40,9 @@
 					<p:menuitem value="My profile" update="messages" icon="fa fa-plus" />
 					<p:menuitem value="Settings" update="messages" icon="fa fa-refresh" />
 					<p:menuitem value="Logout" update="messages" icon="fa fa-user" ajax="true"
-						onclick="javascript:toggleLogInGoogle()" />
+						onclick="PF('').toggleLogInGoogle();" />
 				</p:submenu>
 			</p:menu>
-
 
 
 
@@ -56,4 +55,4 @@
 
 </composite:implementation>
 
-</ui:fragment>
+</html>

@@ -13,10 +13,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileItemFactory;
+//import org.apache.commons.fileupload.FileItemFactory;
 
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.gmr.web.multipart.GFileItemFactory;
+//import org.apache.commons.fileupload.servlet.ServletFileUpload;
+//import org.gmr.web.multipart.GFileItemFactory;
 
 import org.primefaces.webapp.MultipartRequest;
 
@@ -42,14 +42,14 @@ public class FileUploadFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        boolean isMultipart = ServletFileUpload.isMultipartContent(httpServletRequest);
+        //boolean isMultipart = ServletFileUpload.isMultipartContent(httpServletRequest);
 
-        if(isMultipart) {
+        //if(isMultipart) {
             if(logger.isLoggable(Level.FINE))
                 logger.fine("**************Parsing file upload request");
 
             //start change
-            FileItemFactory diskFileItemFactory = new GFileItemFactory(); 
+            //FileItemFactory diskFileItemFactory = new GFileItemFactory(); 
            /* if(thresholdSize != null) {
                 diskFileItemFactory.setSizeThreshold(Integer.valueOf(thresholdSize));
             }
@@ -58,16 +58,16 @@ public class FileUploadFilter implements Filter {
             }*/
             //end change
 
-            ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
-            MultipartRequest multipartRequest = new MultipartRequest(httpServletRequest, servletFileUpload);
+            //ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
+            //MultipartRequest multipartRequest = new MultipartRequest(httpServletRequest, servletFileUpload);
 
             if(logger.isLoggable(Level.FINE))
                 logger.fine("File upload request parsed succesfully, continuing with filter chain with a wrapped multipart request");
 
-            filterChain.doFilter(multipartRequest, response);
-        } else {
-            filterChain.doFilter(request, response);
-        }
+            //filterChain.doFilter(multipartRequest, response);
+        //} else {
+          //  filterChain.doFilter(request, response);
+        //}
     }
 
     public void destroy() {

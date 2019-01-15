@@ -150,6 +150,7 @@
     // [START buttoncallback]
     function toggleLogInGoogle() {
         
+    	alert("toggleLogInGoogle");
     	if (!firebase.auth().currentUser) {
             // [START createprovider]
             var provider = new firebase.auth.GoogleAuthProvider();
@@ -163,9 +164,7 @@
               var token = result.credential.accessToken;
               // The signed-in user info.
               var user = result.user;
-              
-             ///////////// window.location = '/app/landing'; //After successful login, user will be redirected to home.html
-            	
+                                    
               // [START_EXCLUDE]
               document.getElementById('quickstart-oauthtoken').textContent = token;
               // [END_EXCLUDE]
@@ -193,7 +192,7 @@
             // [START signout]
             firebase.auth().signOut();
             
-            //////alert("lll");
+            alert("fora");
             
             // [END signout]
           }
@@ -244,6 +243,8 @@
       } else {
         // [START signout]
         firebase.auth().signOut();
+        
+        alert("fora");
         // [END signout]
       }
    // [START_EXCLUDE]
@@ -375,7 +376,8 @@
       
       // Listening for auth state changes.
       // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {    	 
+      firebase.auth().onAuthStateChanged(function(user) {    
+    	  //alert("onAuthStateChanged");
         if (user) {
         	    
         	//alert("kkk");
@@ -402,6 +404,9 @@
         		$("#carregaEntitats").css("display", "none");
         	}
         	
+        	//alert("hola");
+        	/////window.location.href = 'landingg'; //After successful login, user will be redirected to home.html
+        	
         	
         	//User is signed in.
           var displayName = user.displayName;
@@ -424,12 +429,16 @@
           // you have one. Use User.getToken() instead.
           // https://firebase.google.com/docs/auth/web/manage-users
 
+          //alert("yoyo");   arriba
 			 user.providerData.forEach(function (profile) {
 				 
+				 //alert("kkkk1");
 				 if (profile.photoURL != null)
-					 {				
-						 document.getElementById('google-user').src = profile.photoURL;
-						 document.getElementById('nomUsuari').textContent = profile.displayName;
+					 {
+					 
+					 //alert("kkkk3");
+						 //////document.getElementById('google-user').src = profile.photoURL;
+						 //////document.getElementById('nomUsuari').textContent = profile.displayName;
 								
 		        		//  if (profile.providerId == "google.com") {
 		        			  /////////////document.getElementById('sign-in-google').textContent = 'Sign out';
@@ -439,25 +448,21 @@
 		        		//	  document.getElementById('sign-in-twitter').textContent = 'Sign out';
 		        		//	  alert("facebook"); 
 		        		//  };
+						 
+						 //alert("kkkk6");
 				 
 					 }
+				 
+				/// alert("kkkk");   arriba
         	  }); 
         	//} 
-   
-          
-/*          document.getElementById('account-details').textContent = JSON.stringify({
-            displayName: displayName,
-            email: email,
-            emailVerified: emailVerified,
-            photoURL: photoURL,
-            isAnonymous: isAnonymous,
-            uid: uid,
-            refreshToken: refreshToken,
-            providerData: providerData
-          }, null, '  '); */
+  
           // [END_EXCLUDE]
         } else 
-            {              	
+            {        
+        	//alert("llll");
+        	//window.location = 'home'; //After successful login, user will be redirected to home.html
+        	
         	//Ocultem el usuari loggedOut
         	$("#logInSignupComponent\\:formUserLoggined\\:userLogginedButton").css("display", "none");
         	$("#google-user").css("display", "none");

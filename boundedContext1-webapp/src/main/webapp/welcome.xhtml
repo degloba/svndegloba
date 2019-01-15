@@ -6,6 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:degloba="http://java.sun.com/jsf/composite/degloba">
 
 
@@ -51,10 +52,6 @@
 <h:body id="body">
 
 	<f:view contentType="text/html">
-
-		<!-- <h:form>
-  			<input id="p1" name="p1" type="password" /> 	
-		</h:form> -->
 
 		<h:form>
 			<p:growl id="messages" showDetail="true" life="2000" />
@@ -124,6 +121,52 @@
 		<!--Closing "wrapper"-->
 
 	</f:view>
+	
+	
+	
+	<b:well>
+  <h:form>
+    <p:growl id="msgs1" showDetail="true" />
+    
+    
+    
+   <b:container fluid="true">
+  <b:row>
+    <b:column medium-screen="2">
+      <h:outputText value="Username:"/>
+    </b:column>
+    <b:column medium-screen="4">
+      <b:inputText placeholder="Username" />
+    </b:column>
+    <b:column medium-screen="6">
+      <b:message/>
+    </b:column>
+  </b:row>
+  <b:row>
+    <b:column medium-screen="2">
+      <h:outputText value="Password:" />
+    </b:column>
+    <b:column medium-screen="4">
+      <b:inputSecret placeholder="Password" />
+    </b:column>
+    <b:column medium-screen="6">
+      <b:message />
+    </b:column>
+  </b:row>
+  <b:row>
+    <b:column span="2" offset="2">
+      <b:commandButton value="login" look="primary" style="width:100%" />
+    </b:column>
+    <b:column span="2">
+      <b:commandButton value="password forgotten" look="danger" style="width:100%" />
+    </b:column>
+  </b:row>
+</b:container>
+    
+  </h:form>
+</b:well>
+	
+	
 </h:body>
 </html>
 

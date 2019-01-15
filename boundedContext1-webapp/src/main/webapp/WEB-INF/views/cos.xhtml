@@ -49,7 +49,6 @@
 							    </div>
 							  </div>
   
-					  			{{ message }}
 					  
 					  			<!-- Proves Routing Angular -->
 								<a href="#!red">Red</a>
@@ -59,7 +58,21 @@
 					
 								<!-- la part que anirà cambiant segons Angular -->
 								<div ng-view="vista"></div>
-           
+								
+								
+								<phone-list></phone-list>
+								
+								
+								<!-- Proves Injeccio de dependencies : Controller + Service + Factory -->
+								<div ng-app = "gemStore" ng-controller = "CalcController">
+							         <p>Enter a number: <input type = "number" ng-model = "number" /></p>
+							         <button ng-click = "square()">X<sup>2</sup></button>
+							         <p>Result: {{result}}</p>
+							         							         
+							      </div>
+			
+
+ 
 						</div>                    
 	                    
 	                    

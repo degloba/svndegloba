@@ -7,16 +7,14 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
 
 @Component
-@ManagedBean
-@SessionScoped
+//@ManagedBean
+//@SessionScoped
 public class SelectOneMenuSubcategoryView {
 
 	private Map<String,String> subcategories = new HashMap<String, String>();

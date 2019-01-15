@@ -12,6 +12,7 @@
 		in servlet-context resolves 'home' to /WEB-INF/views/home.xhtml -->
 
 	<mvc:view-controller path="/home" />
+	<mvc:view-controller path="/landing" />
 
 
 	<!-- Scan for Spring beans declared via annotations. -->

@@ -3,7 +3,8 @@ package com.degloba.canonicalmodel.ui.webui.jsf;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
- 
+
+import org.primefaces.PrimeFaces;
 import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
  
@@ -61,8 +62,8 @@ public class UserSignupView {
         }
          
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("signUpExist", signUpExist);
-        context.addCallbackParam("signUPType", signUPType);
+        PrimeFaces.current().ajax().addCallbackParam("signUpExist", signUpExist);
+        PrimeFaces.current().ajax().addCallbackParam("signUPType", signUPType);
     }   
 	
 	public void signupGoogle() {
@@ -83,8 +84,8 @@ public class UserSignupView {
         }
          
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("signUpExist", signUpExist);
-        context.addCallbackParam("signUPType", signUPType);
+        PrimeFaces.current().ajax().addCallbackParam("signUpExist", signUpExist);
+        PrimeFaces.current().ajax().addCallbackParam("signUPType", signUPType);
     }   
 	
 	public void signupTwitter(ActionEvent event) {
@@ -103,8 +104,8 @@ public class UserSignupView {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sign up ok", name);
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("signUpExist", signUpExist);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("signUpExist", signUpExist);
     }   
 	
 	public void signupFacebook(ActionEvent event) {
@@ -123,8 +124,8 @@ public class UserSignupView {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sign up ok", name);
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("signUpExist", signUpExist);
+        FacesContext.getCurrentInstance().addMessage(null, message);        
+        PrimeFaces.current().ajax().addCallbackParam("signUpExist", signUpExist);
     }
 
 	public UserSignupView() {

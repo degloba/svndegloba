@@ -48,7 +48,7 @@ public class FileUploadController {
     	    	
 	    	// recuperem el producte (JSF Bean)
 	    	FacesContext context = FacesContext.getCurrentInstance();
-	    	ProductView productView = context.getApplication().evaluateExpressionGet(context, "#{productView}", ProductView.class);
+	    	//ProductView productView = context.getApplication().evaluateExpressionGet(context, "#{productView}", ProductView.class);
 	    	
 		    String file = event.getFile().getFileName();
 		    	    	
@@ -60,9 +60,9 @@ public class FileUploadController {
 					Photo photo = new Photo();
 				   	    		    		    
 				    // 3.- Recuperem el "Product" (Objectify)
-					Key<Product> product = this.rentRepositoryObjectify.getKey(Product.class, productView.getProductId());
+					//Key<Product> product = this.rentRepositoryObjectify.getKey(Product.class, productView.getProductId());
 							    
-					photo.setProduct(product);
+					//photo.setProduct(product);
 					photo.setIdGcs(file);
 							  
 				    // 2.- Persistim "Photo" (Objectify)
