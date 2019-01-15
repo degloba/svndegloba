@@ -21,7 +21,7 @@
 	<!-- <bean id="repository" class="com.degloba.rent.infrastructure.persistence.rdbms.jpa.repositories.RentRepository" />   -->
  	 	
         
- <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
+<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> 
 	
 	<!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean below) -->
 <!--     <tx:advice id="txAdvice" transaction-manager="txManager">

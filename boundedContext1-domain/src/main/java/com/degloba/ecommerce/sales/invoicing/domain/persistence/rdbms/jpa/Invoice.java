@@ -58,12 +58,12 @@ public class Invoice extends BaseAggregateRoot {
 	private Money gros;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-//	@JoinColumn(name = "invoiceId")
+	//@JoinColumn(name = "invoiceId")
 	///////////@Fetch(FetchMode.JOIN)
-    @JoinColumns(
+/*    @JoinColumns(
     	    {@JoinColumn(name = "invoiceId", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
 	private List<InvoiceLine> items;
 
 	public Invoice(long invoiceId, ClientData client) {

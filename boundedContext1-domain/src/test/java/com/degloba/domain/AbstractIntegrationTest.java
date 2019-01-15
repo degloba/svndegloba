@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContext;
 //import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
+//import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,11 +28,12 @@ import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
  * Integration testing base class. For managing persistence and IoC infrastructure
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/applicationContext.xml")
-@TransactionConfiguration(transactionManager = "txManager")
+
+//@TransactionConfiguration(transactionManager = "txManager")
 //@Transactional
-@EnableTransactionManagement
+//@EnableTransactionManagement
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath*:applicationContext.xml")
 public class AbstractIntegrationTest {
 	
 	private final LocalServiceTestHelper helper =

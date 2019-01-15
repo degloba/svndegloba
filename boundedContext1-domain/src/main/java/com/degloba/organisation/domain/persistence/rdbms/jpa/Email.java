@@ -18,10 +18,10 @@ public class Email implements IValueObject {
 	
 	@ManyToOne
 	//////@JoinColumn(name = "person_id", nullable = false, referencedColumnName="aggregateId")
-	 @JoinColumns(
+/*	 @JoinColumns(
 	    	    {@JoinColumn(name = "person_id", referencedColumnName = "PERSON",
 	    	                 insertable = false, updatable = false)
-	    	     })
+	    	     })*/
 	private Person person_id;
 	
 	

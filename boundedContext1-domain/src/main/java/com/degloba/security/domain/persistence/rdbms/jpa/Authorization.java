@@ -104,7 +104,7 @@ public class Authorization extends BaseAggregateRoot {
      * @param <T> Type of power
      * @return The participants set permissions
      */
-    static <T extends Authority> Set<T> getAuthoritiesOfActor(Actor actor, AuthorizationScope scope, Class<T> authorityClass) {
+	static <T extends Authority> Set<T> getAuthoritiesOfActor(Actor actor, AuthorizationScope scope, Class<T> authorityClass) {
         Set<T> results = new HashSet<T>();
         for (Authorization authorization : findByActor(actor, scope)) {
             Authority authority = authorization.getAuthority();

@@ -10,7 +10,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.JsonMessageConverter;
+//import org.springframework.amqp.support.converter.JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 
 // Spring
@@ -33,7 +33,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 // Velocity
-import org.springframework.ui.velocity.VelocityEngineFactoryBean;
+//import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 
 //is used on a method that needs to be executed after dependency injection is done to perform any initialization
 import javax.annotation.PostConstruct;
@@ -76,10 +76,10 @@ public class IntegrationConfiguration {
     }
 
 
-    @Bean
+  /*  @Bean
     public VelocityEngineFactoryBean velocityEngineFactoryBean() {
         return new VelocityEngineFactoryBean();
-    }
+    }*/
 
 
     @Bean
@@ -109,18 +109,18 @@ public class IntegrationConfiguration {
     }
 
 
-    @Bean
+  /*  @Bean
     public AmqpTemplate rabbitTemplate() {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
-    }
+    }*/
 
 
-    @Bean
+   /* @Bean
     public MessageConverter jsonMessageConverter() {
         return new JsonMessageConverter();
-    }
+    }*/
 
     @Bean
     public ConnectionFactory connectionFactory() {

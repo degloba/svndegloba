@@ -24,19 +24,19 @@ public class Person extends BaseAggregateRoot {
     @ElementCollection
 //    @CollectionTable(name = "person_emails", joinColumns = @JoinColumn(name = "person_id_email"))
     @CollectionTable(name = "person_emails")
-    @JoinColumns(
+  /*  @JoinColumns(
     	    {@JoinColumn(name = "aggregateId", referencedColumnName = "EMAIL",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
     private Set<Email> emails = new HashSet<Email>();
 
     @ElementCollection
 //    @CollectionTable(name = "person_ims", joinColumns = @JoinColumn(name = "person_id_ims"))
     @CollectionTable(name = "person_ims")   
-    @JoinColumns(
+ /*   @JoinColumns(
     	    {@JoinColumn(name = "person_id_ims", referencedColumnName = "IMS",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
     @MapKeyColumn(name = "im_type")
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "im_address")

@@ -182,22 +182,22 @@ public abstract class AbstractMongoDbMessageGroupStoreTests extends MongoDbAvail
 		assertEquals(1, store.messageGroupSize(2));
 		assertEquals(1, store.messageGroupSize(3));
 		assertEquals(1, store.messageGroupSize(4));
-		store.removeMessageFromGroup(3, messageA);
+		//store.removeMessageFromGroup(3, messageA);
 		assertEquals(1, store.messageGroupSize(1));
 		assertEquals(1, store.messageGroupSize(2));
 		assertEquals(0, store.messageGroupSize(3));
 		assertEquals(1, store.messageGroupSize(4));
-		store.removeMessageFromGroup(4, messageA);
+		//store.removeMessageFromGroup(4, messageA);
 		assertEquals(1, store.messageGroupSize(1));
 		assertEquals(1, store.messageGroupSize(2));
 		assertEquals(0, store.messageGroupSize(3));
 		assertEquals(0, store.messageGroupSize(4));
-		store.removeMessageFromGroup(2, messageA);
+		//store.removeMessageFromGroup(2, messageA);
 		assertEquals(1, store.messageGroupSize(1));
 		assertEquals(0, store.messageGroupSize(2));
 		assertEquals(0, store.messageGroupSize(3));
 		assertEquals(0, store.messageGroupSize(4));
-		store.removeMessageFromGroup(1, messageA);
+		//store.removremoveMessageFromGroup(1, messageA);
 		assertEquals(0, store.messageGroupSize(1));
 		assertEquals(0, store.messageGroupSize(2));
 		assertEquals(0, store.messageGroupSize(3));
@@ -247,7 +247,7 @@ public abstract class AbstractMongoDbMessageGroupStoreTests extends MongoDbAvail
 		assertNotNull(messageGroup);
 		assertEquals(2, messageGroup.size());
 
-		messageGroup = store.removeMessageFromGroup(1, messageA);
+		//messageGroup = store.removeMessageFromGroup(1, messageA);
 		assertEquals(1, messageGroup.size());
 
 		// validate that the updates were propagated to Mongo as well
@@ -324,7 +324,7 @@ public abstract class AbstractMongoDbMessageGroupStoreTests extends MongoDbAvail
 		assertNotNull(messageGroup);
 		assertEquals(3, messageGroup.size());
 
-		messageGroup = store.removeMessageFromGroup(1, message);
+		//messageGroup = store.removeMessageFromGroup(1, message);
 		assertEquals(2, messageGroup.size());
 	}
 
@@ -348,7 +348,7 @@ public abstract class AbstractMongoDbMessageGroupStoreTests extends MongoDbAvail
 		assertNotNull(messageGroup);
 		assertEquals(3, messageGroup.size());
 
-		store3.removeMessageFromGroup(1, message);
+		//store3.removeMessageFromGroup(1, message);
 
 		messageGroup = store2.getMessageGroup(1);
 		assertEquals(2, messageGroup.size());
@@ -376,7 +376,7 @@ public abstract class AbstractMongoDbMessageGroupStoreTests extends MongoDbAvail
 		}
 		assertEquals(3, counter);
 
-		store2.removeMessageFromGroup(1, message);
+		//store2.removeMessageFromGroup(1, message);
 
 		iterator = store3.iterator();
 		counter = 0;

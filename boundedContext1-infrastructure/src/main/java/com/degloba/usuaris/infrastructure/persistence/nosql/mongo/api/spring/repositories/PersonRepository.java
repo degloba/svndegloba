@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger; 
@@ -11,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 //Spring
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+//import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -84,11 +87,11 @@ public class PersonRepository implements IPersonRepository{
 		return this.insert(entities);
 	}
 		
-	@Override
+	/*@Override
 	public <S extends Person> List<S> save(Iterable<S> entities) {
 		return this.save(entities);
 		
-		/*List<S> result = convertIterableToList(entities);
+		List<S> result = convertIterableToList(entities);
         boolean allNew = true;
 
         for (S entity : entities) {
@@ -106,8 +109,8 @@ public class PersonRepository implements IPersonRepository{
             }
         }
 
-        return result;*/
-	}
+        return result;
+	}*/
 	
 	@Override
 	public List<Person> findAll() {		
@@ -148,7 +151,7 @@ public class PersonRepository implements IPersonRepository{
 		return this.save(entity);		
 	}
 	
-	@Override
+	/*@Override
 	public Person findOne(String id) {
 		return mongoTemplate.findOne(new Query(Criteria.where("id").is(id)), clazz) ;
 	}
@@ -164,7 +167,7 @@ public class PersonRepository implements IPersonRepository{
 	@Override
 	public Iterable<Person> findAll(Iterable<String> ids) {
 		return this.findAll(ids);
-	}
+	}*/
 	
 	@Override
 	public long count() {
@@ -177,20 +180,20 @@ public class PersonRepository implements IPersonRepository{
         }
 	}
 	
-	@Override
+	/*@Override
 	public void delete(String id) {
 		this.delete(id);		
-	}
+	}*/
 	
 	@Override
 	public void delete(Person entity) {
 		this.delete(entity);		
 	}
 	
-	@Override
+	/*@Override
 	public void delete(Iterable<? extends Person> entities) {
 		this.delete(entities);		
-	}
+	}*/
 	
 	@Override
 	public void deleteAll() {
@@ -221,6 +224,86 @@ public class PersonRepository implements IPersonRepository{
 
         return list;
     }
+	@Override
+	public <S extends Person> List<S> saveAll(Iterable<S> entities) {
+		List<S> result = convertIterableToList(entities);
+        boolean allNew = true;
+
+        for (S entity : entities) {
+            if (allNew ) {
+                allNew = false;
+            }
+        }
+
+        if (allNew) {
+            mongoTemplate.insertAll(result);
+        } else {
+
+            for (S entity : result) {
+                save(entity);
+            }
+        }
+
+        return result;
+	}
+
+	@Override
+	public Optional<Person> findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean existsById(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public Iterable<Person> findAllById(Iterable<String> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void deleteById(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteAll(Iterable<? extends Person> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <S extends Person> List<S> findAll(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <S extends Person> List<S> findAll(Example<S> example, Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Person> long count(Example<S> example) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public <S extends Person> boolean exists(Example<S> example) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public <S extends Person> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <S extends Person> Page<S> findAll(Example<S> example, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 

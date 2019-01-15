@@ -28,14 +28,14 @@
 	<!-- ********************* -->
 	<!-- EntityManagerFactoryS -->	
 	<!-- ********************* -->
-	 <bean id="entityManagerFactoryDatastore" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+	 <!-- <bean id="entityManagerFactoryDatastore" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
           <property name="persistenceUnitName" value="transactions-optional" />          
     </bean>   
 
-	<!-- TransactionManagerS -->
+	TransactionManagerS
 	 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactoryDatastore" />    
-	</bean> 
+	</bean>  -->
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
@@ -91,7 +91,7 @@
 	</bean>   -->
 	
 	
-	 	<bean id="eventBus" class="com.google.common.eventbus.EventBus"/>
+	 	<!-- <bean id="eventBus" class="com.google.common.eventbus.EventBus"/> -->
 		 
 	  
 	
@@ -101,10 +101,10 @@
 	</bean>   
 	
 	
-	<bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl">		
+<!-- 	<bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl">		
 		<constructor-arg name="eventBus" ref="eventBus"/> 
 		<constructor-arg name="storedDomainEventRepository" ref="storedDomainEventRepository"/> 
-	</bean>   
+	</bean>  -->  
 	
 	
 	
@@ -112,9 +112,9 @@
 	<!-- REPOSITORIS  --> 
 	<!-- ************ -->
   	
-  	<bean id="repository" class="com.degloba.domain.persistence.rdbms.jpa.EntityRepository" /> 
+  	<!--<bean id="repository" class="com.degloba.domain.persistence.rdbms.jpa.EntityRepository" /> 
   	  
-	<bean id="organisationRepository" class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />
+	 <bean id="organisationRepository" class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />
 
 	<bean id="crmRepository" class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.jpa.repositories.CrmRepository" />
 	
@@ -123,6 +123,6 @@
 	<bean id="shipmentRepository" class="com.degloba.ecommerce.shipping.infrastructure.persistence.rdbms.jpa.repositories.ShippingRepository" />	
   	
 	<bean id="rentrRepositoryObjectify" class="com.degloba.rent.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />	
-  	
+   -->	
 	
 </beans>

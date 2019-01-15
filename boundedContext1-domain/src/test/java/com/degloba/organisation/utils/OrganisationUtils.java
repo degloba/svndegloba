@@ -43,7 +43,7 @@ public class OrganisationUtils {
     public Post createPost(String name, Organization organization, Date date) {
         Post result = new Post(name);
         result.setCreateDate(date);
-        result.setOrganization(organization);
+        //////////result.setOrganization(organization);
         result.save();
         return result;
     }

@@ -13,7 +13,7 @@ public interface IPersonRepository2 extends MongoRepository<Person, String> {
 
 	Iterable<Person> findByLastname(String lastname);
 
-    Page<Person> findByFirstname(String firstname, Pageable pageable);
+    //Page<Person> findByFirstname(String firstname, Pageable pageable);
 
     /////Person findByShippingAddresses(Address  address);
 	

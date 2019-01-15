@@ -53,9 +53,9 @@ public class Role extends Authority {
         return getPermissions().contains(permission);
     }
 
-    public static Role get(AggregateId id) {
+  /*  public static Role get(AggregateId id) {
         return get(Role.class, id);
-    }
+    }*/
 
     public static Role getByName(String name) {
         return getByName(Role.class, name);

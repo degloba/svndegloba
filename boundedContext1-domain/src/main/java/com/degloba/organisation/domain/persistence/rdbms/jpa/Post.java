@@ -25,18 +25,18 @@ public class Post extends Party {
 
     @ManyToOne
 //    @JoinColumn(name = "org_id")
-    @JoinColumns(
+/*    @JoinColumns(
     	    {@JoinColumn(name = "org_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
     private Organization organization;
 
     @ManyToOne
 //    @JoinColumn(name = "job_id")
-    @JoinColumns(
+/*    @JoinColumns(
     	    {@JoinColumn(name = "job_Id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
     private Job job;
 
     public Post() {

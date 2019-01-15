@@ -16,10 +16,10 @@ public class Employee extends Party {
 
     @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "person_id")
-    @JoinColumns(
+  /*  @JoinColumns(
     	    {@JoinColumn(name = "person_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
     private Person person;
 
     protected Employee() {

@@ -107,10 +107,10 @@ public class UserGroup extends Actor {
      * @param id User Group ID
      * @return If it finds the specified group ID of the user is returned to the user group, otherwise return null
      */
-    public static UserGroup get(AggregateId id) {
+   /* public static UserGroup get(AggregateId id) {
         return get(UserGroup.class, id);
     }
-
+*/
     /**
      * It is based on the user group name.
      * @param name name

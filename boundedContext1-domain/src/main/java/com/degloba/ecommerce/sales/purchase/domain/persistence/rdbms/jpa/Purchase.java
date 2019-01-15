@@ -49,11 +49,11 @@ public class Purchase extends BaseAggregateRoot{
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 //	@Fetch(FetchMode.JOIN)
 	@OrderColumn(name = "itemNumber")
-//	@JoinColumn(name = "purchase_id")
-    @JoinColumns(
+	//@JoinColumn(name = "purchase_id")
+/*    @JoinColumns(
     	    {@JoinColumn(name = "purchase_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
 	private List<PurchaseItem> items;
 	
 	private boolean paid;

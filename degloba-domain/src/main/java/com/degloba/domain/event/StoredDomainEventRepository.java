@@ -5,12 +5,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger; 
 import org.slf4j.LoggerFactory;
-
+import org.springframework.data.domain.Example;
 //Spring
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -84,11 +84,11 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 		return this.insert(entities);
 	}
 		
-	@Override
+	/*@Override
 	public <S extends StoredDomainEvent> List<S> save(Iterable<S> entities) {
 		return this.save(entities);
 		
-		/*List<S> result = convertIterableToList(entities);
+		List<S> result = convertIterableToList(entities);
         boolean allNew = true;
 
         for (S entity : entities) {
@@ -106,8 +106,8 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
             }
         }
 
-        return result;*/
-	}
+        return result;
+	}*/
 	
 	@Override
 	public List<StoredDomainEvent> findAll() {		
@@ -151,7 +151,7 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 		return this.save(entity);		
 	}
 	
-	@Override
+	/*@Override
 	public StoredDomainEvent findOne(String id) {
 		return mongoTemplate.findOne(new Query(Criteria.where("id").is(id)), clazz) ;
 	}
@@ -167,7 +167,7 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 	@Override
 	public Iterable<StoredDomainEvent> findAll(Iterable<String> ids) {
 		return this.findAll(ids);
-	}
+	}*/
 	
 	@Override
 	public long count() {
@@ -180,20 +180,20 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
         }
 	}
 	
-	@Override
+	/*@Override
 	public void delete(String id) {
 		this.delete(id);		
-	}
+	}*/
 	
 	@Override
 	public void delete(StoredDomainEvent entity) {
 		this.delete(entity);		
 	}
 	
-	@Override
+	/*@Override
 	public void delete(Iterable<? extends StoredDomainEvent> entities) {
 		this.delete(entities);		
-	}
+	}*/
 	
 	@Override
 	public void deleteAll() {
@@ -244,6 +244,90 @@ public class StoredDomainEventRepository implements IStoredDomainEventRepository
 	@Override
 	public void close() {
 		this.close();		
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> List<S> saveAll(Iterable<S> entities) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> List<S> findAll(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> List<S> findAll(Example<S> example, Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Optional<StoredDomainEvent> findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean existsById(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public Iterable<StoredDomainEvent> findAllById(Iterable<String> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void deleteById(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteAll(Iterable<? extends StoredDomainEvent> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> Page<S> findAll(Example<S> example, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> long count(Example<S> example) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public <S extends StoredDomainEvent> boolean exists(Example<S> example) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 /*	@Override

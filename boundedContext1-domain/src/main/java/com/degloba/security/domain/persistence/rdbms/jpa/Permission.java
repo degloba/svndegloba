@@ -31,9 +31,9 @@ public class Permission extends Authority {
         return permission;
     }
 
-    public static Permission get(AggregateId id) {
+ /*   public static Permission get(AggregateId id) {
         return get(Permission.class, id);
-    }
+    }*/
 
     public static Permission getByName(String name) {
         return getByName(Permission.class, name);

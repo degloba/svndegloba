@@ -69,7 +69,8 @@ public class InCriterion extends BasicCriterion {
         return result;
     }
 
-    private String createInString(Collection<? extends Object> value) {
+    @SuppressWarnings("unused")
+	private String createInString(Collection<? extends Object> value) {
         Set<Object> elements = new HashSet<Object>();
         for (Object item : value) {
             Object element;

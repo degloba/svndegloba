@@ -75,12 +75,12 @@ public class Reservation extends BaseAggregateRoot{
 	private ReservationStatus status;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
-//	@JoinColumn(name = "reservation")
+	//@JoinColumn(name = "reservation")
 	///////@Fetch(FetchMode.JOIN)
-    @JoinColumns(
+    /*@JoinColumns(
     	    {@JoinColumn(name = "reservation", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
-    	     })
+    	     })*/
 	private List<ReservationItem> items;
 
 	@Embedded

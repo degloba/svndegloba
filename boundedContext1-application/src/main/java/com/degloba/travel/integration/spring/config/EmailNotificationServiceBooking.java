@@ -1,6 +1,6 @@
 package com.degloba.travel.integration.spring.config;
 
-import org.apache.commons.io.IOUtils;
+///////import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -28,7 +28,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
 // Integration (Domain)
-import com.degloba.travel.integration.spring.EmailNotificationService;
+
 
 // Integration (degloba)
 import com.degloba.integration.spring.services.NotificationGateway;
@@ -38,6 +38,7 @@ import com.degloba.travel.application.services.ITravelService;
 
 import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
 import com.degloba.travel.domain.persistence.rdbms.jpa.User;
+import com.degloba.travel.integration.spring.EmailNotificationService;
 
 // Domain
 
@@ -93,8 +94,8 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
     @PostConstruct
     public void start() throws Exception {
         // read the templates in as strings and cache the results
-        cachedTemplates.put(this.textConfirmation, readTemplate(textConfirmation));
-        cachedTemplates.put(this.htmlConfirmation, readTemplate(htmlConfirmation));
+        //////cachedTemplates.put(this.textConfirmation, readTemplate(textConfirmation));
+        //////cachedTemplates.put(this.htmlConfirmation, readTemplate(htmlConfirmation));
     }
 
     private String mergeTemplate(User user, Booking booking, String tplBody) throws Exception {
@@ -114,7 +115,7 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
             context.put(k, model.get(k));
         StringWriter stringWriter = new StringWriter();
         this.velocityEngine.evaluate(context, stringWriter, "notifications", template);
-        IOUtils.closeQuietly(stringWriter);
+       // IOUtils.closeQuietly(stringWriter);
         return stringWriter.toString();
     }
 
@@ -194,7 +195,7 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
         }
     }
 
-    private String readTemplate(Resource resource) {
+   /* private String readTemplate(Resource resource) {
         InputStream inputStream = null;
         try {
             inputStream = resource.getInputStream();
@@ -208,5 +209,5 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
                 IOUtils.closeQuietly(inputStream);
             }
         }
-    }
+    }*/
 }

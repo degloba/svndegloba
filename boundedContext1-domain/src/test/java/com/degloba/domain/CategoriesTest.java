@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.degloba.domain.ioc.InstanceFactory;
 import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.rent.domain.factories.CategoryFactory;
+import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2;
@@ -21,8 +21,7 @@ import java.util.List;
 
 public class CategoriesTest extends AbstractIntegrationTest {
 
-
-	private SubcategoryJpa subcategory;
+	
 	private SubcategoryJpa2 subcategory2;
 	
     @Before
@@ -30,19 +29,23 @@ public class CategoriesTest extends AbstractIntegrationTest {
         super.setUp();
         
         
-        CategoryJpa category = new CategoryJpa();
+        Client c = new Client();
+               
+        
+        
+        CategoryJpa2 category = new CategoryJpa2();
 //        category.setAggregateId(AggregateId.generate()); //
         
 	    category.setDescription("Oci");
 	    
         // Categories/Subcategories
-	    subcategory = new SubcategoryJpa();
-	    subcategory.setAggregateId(AggregateId.generate());
+	    subcategory2 = new SubcategoryJpa2();
+//	    subcategory2.setAggregateId(AggregateId.generate());
 	    
-	    subcategory.setDescription("Natacion");
-	    subcategory.setCategory(category);
+	    subcategory2.setDescription("Natacion");
+	    subcategory2.setCategory(category);
 	    
-	    category.getSubcategories().add(subcategory);
+	    category.getSubcategories().add(subcategory2);
 	    	    
 	    
 	    // Categories/Subcategories
@@ -53,13 +56,13 @@ public class CategoriesTest extends AbstractIntegrationTest {
 //	    subcategory.setCategory(category);
 	    category.getSubcategories().add(subcategory);
 */	    	    
-	    category.save();
+//	    category.save();
 	    
 	    // ********************************************
 	    
 	    
-        CategoryJpa2 category2 = new CategoryJpa2();
-//      category2.setAggregateId(AggregateId.generate()); //
+      /*  CategoryJpa2 category2 = new CategoryJpa2();
+      category2.setAggregateId(AggregateId.generate()); //
       
 	    category2.setDescription("Oci");
 	    
@@ -73,23 +76,23 @@ public class CategoriesTest extends AbstractIntegrationTest {
 	    category2.getSubcategories().add(subcategory2);
 	    	    
 	    	    
-	    category2.save();
+	    category2.save();*/
 	    
 	    
     }
     
     @Test
     public void testSubcategories() {
-        String jpql = "select o from CategoryJpa o";
+        String jpql = "select o from CategoryJpa2 o";
         IEntityRepository rentRepository = InstanceFactory.getInstance(IEntityRepository.class);
-        List<CategoryJpa> categories = rentRepository.createJpqlQuery(jpql).list();
+        List<CategoryJpa2> categories = rentRepository.createJpqlQuery(jpql).list();
         
-        String jpql2 = "select o from SubcategoryJpa o";
-        List<SubcategoryJpa> subcategories = rentRepository.createJpqlQuery(jpql2).list();
+        String jpql2 = "select o from SubcategoryJpa2 o";
+        List<SubcategoryJpa2> subcategories = rentRepository.createJpqlQuery(jpql2).list();
                 
 //        assertEquals(subcategories.get(0).getDescription(),subcategory.getDescription());
         
-        assertEquals(2,categories.size());
+        assertEquals(1,categories.size());
     }
    
 

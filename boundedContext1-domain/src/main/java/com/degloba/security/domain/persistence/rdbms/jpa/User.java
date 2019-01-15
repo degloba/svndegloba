@@ -120,9 +120,9 @@ public class User extends Actor implements Principal {
      * @param id User ID
      * @return Si encuentra el usuario especifica se devuelve el ID de usuario, si no regreso null
      */
-    public static User get(AggregateId id) {
+    /*public static User get(AggregateId id) {
         return get(User.class, id);
-    }
+    }*/
 
     /**
      * Get the user based on the user name. This user may be in the failed state.
