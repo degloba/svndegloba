@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:annotation-config />
+
+	<!-- map all requests to /resources/** to the container default servlet 
+		(ie, don't let Spring handle them) -->
+
+	<bean id="defaultServletHttpRequestHandler"
+		class="org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler" />
+
+	<bean id="simpleUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<map>
+				<entry key="/resources/**"
+					value-ref="defaultServletHttpRequestHandler" />
+			</map>
+		</property>
+	</bean>
+
+
+	<!-- ************** -->
+	<!-- SYSTEM USER -->
+	<!-- ************** -->
+	<!-- <bean id="systemUser" class="com.degloba.system.application.SystemUser" 
+		/> -->
+
+	<!-- *********************** -->
+	<!-- GATE - COMMANDS/CQRS -->
+	<!-- *********************** -->
+	<bean id="handlersProvider"
+		class="com.degloba.cqrs.command.handler.spring.SpringHandlersProvider" />
+	<bean id="runEnvironment"
+		class="com.degloba.cqrs.command.impl.RunEnvironment">
+		<property name="handlersProvider" ref="handlersProvider"></property>
+	</bean>
+	<bean id="gate" class="com.degloba.cqrs.command.impl.StandardGate">
+		<property name="runEnvironment" ref="runEnvironment"></property>
+	</bean>
+
+	<!-- **************** -->
+	<!-- EVENT PUBLISHER -->
+	<!-- **************** -->
+	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" 
+		/> -->
+	<bean id="simpleEventPublisher"
+		class="com.degloba.event.impl.SimpleEventPublisher" />
+	<bean
+		class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
+
+	<!-- ********************************************** -->
+	<!-- HANDLERS/LISTENERS D'EVENTS (EventListeners) -->
+	<!-- ********************************************** -->
+	<bean
+		class="com.degloba.ecommerce.shipping.application.listeners.OrderSubmittedForShippingListener" />
+	<bean
+		class="com.degloba.ecommerce.sales.application.listeners.BookKeepingListener" />
+	<bean
+		class="com.degloba.ecommerce.sales.application.listeners.ClientStatusChangedListener" />
+
+	<!-- ********* -->
+	<!-- SAGAS -->
+	<!-- ********* -->
+	<bean id="springSagaRegistry"
+		class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+	<bean id="sagaRegistry"
+		class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+	<bean
+		class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
+
+
+	<!-- *************** -->
+	<!-- FINDERS/CQRS -->
+	<!-- *************** -->
+
+	<bean id="shipmentFinder"
+		class="com.degloba.ecommerce.shipping.cqrs.readmodel.finders.ShipmentFinder" />
+	<bean id="salesFinder"
+		class="com.degloba.ecommerce.sales.cqrs.readmodel.finders.SalesFinder" />
+	<bean id="categoryFinder"
+		class="com.degloba.rent.cqrs.readmodel.finders.RentFinder" />
+
+
+	<!-- ************************* -->
+	<!-- APPLICATIONS/SERVICES -->
+	<!-- ************************* -->
+	<bean id="application"
+		class="com.degloba.organisation.application.services.OrganisationApplicationImpl">
+		<constructor-arg name="organisationRepository"
+			ref="organisationRepository" />
+	</bean>
+
+	<bean id="bookingService"
+		class="com.degloba.travel.application.services.JpaBookingService" />
+
+	<bean id="rentService"
+		class="com.degloba.rent.application.services.RentService" />
+
+
+	<!-- ******************* -->
+	<!-- FACADES -->
+	<!-- ******************* -->
+	<bean id="facade"
+		class="com.degloba.organisation.facade.impl.OrganisationFacadeImpl">
+		<property name="application" ref="application"></property>
+	</bean>
+
+	<bean id="facadeCategoryObjectify"
+		class="com.degloba.rent.facade.impl.objectify.CategoryFacadeImpl">
+		<property name="rentService" ref="rentService"></property>
+	</bean>
+
+
+	<!-- ******************* -->
+	<!-- FACTORIES -->
+	<!-- ******************* -->
+	<bean id="shipmentFactory"
+		class="com.degloba.ecommerce.shipping.domain.factories.ShipmentFactory" />
+	<bean id="invoiceRequestFactory"
+		class="com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceRequestFactory" />
+	<bean id="invoiceFactory"
+		class="com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceFactory" />
+
+
+	<!-- ******************* -->
+	<!-- REGISTRE USUARIS -->
+	<!-- ******************* -->
+	<bean id="gaeAuthenticationProvider"
+		class="com.degloba.security.spring.gae.security.GoogleAccountsAuthenticationProvider">
+		<property name="userRegistry" ref="userRegistry" />
+	</bean>
+
+	<bean id="userRegistry"
+		class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+
+
+	<!-- ****************** -->
+	<!-- JSF BEANS -->
+	<!-- ****************** -->
+	<context:component-scan
+		base-package="com.degloba.rent.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf,com.degloba.utils.serializer" />
+
+
+	<!-- **************************** -->
+	<!-- DOMAIN/APPLICATION SERVICES -->
+	<!-- **************************** -->
+	<bean
+		class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeperService" />
+	<bean
+		class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisorService" />
+	<bean
+		class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
+
+
+	<bean id="com.degloba.utils.IObjectSerializer"
+		class="com.degloba.utils.serializer.ObjectSerializer" />
+
+
+</beans>
