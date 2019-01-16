@@ -1,0 +1,25 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:degloba="http://java.sun.com/jsf/composite/degloba"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+
+
+	<ui:define name="content">
+
+		<p:panel id="basic" header="Rent your stuff" footer="Rent your stuff"
+			style="margin-bottom:20px">
+
+			<degloba:detailProductComponent></degloba:detailProductComponent>
+
+			<br />
+
+		</p:panel>
+
+	</ui:define>
+
+</ui:composition>
