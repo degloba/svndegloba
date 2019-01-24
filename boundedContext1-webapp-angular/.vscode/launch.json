@@ -24,6 +24,13 @@
             "request": "launch",
             "url": "http://localhost:4200/#",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (3)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
