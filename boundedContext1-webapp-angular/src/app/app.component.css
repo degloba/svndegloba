@@ -1,0 +1,48 @@
+a{
+  text-decoration: none;
+}
+button.mat-menu-item{
+  font-size: 12px;
+}
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+ 
+
+.example-sidenav {
+  padding: 20px;
+}
+
+ 
+.flex-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+ 
+.element-flex{
+   align-self: flex-end ; 
+}
+
+.mat-card-content {
+    margin-bottom: 1em!important;
+}
+.mat-card {
+    padding: 0px!important;
+}
+
+.version{
+ font-size:8px;
+ position: absolute;
+ top:-1em; 
+ right: 0.5em;
+ 
+}
+.container{
+  position: absolute;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+

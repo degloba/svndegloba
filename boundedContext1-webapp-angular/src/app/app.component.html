@@ -1,21 +1,64 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar color="primary">
+
+
+  <mat-toolbar-column *ngIf="isLoggedIn">
+    <!-- <button md-icon-button md-button (click)="sidenav.toggle()"> -->
+    <button md-icon-button md-button [matMenuTriggerFor]="appMenu">
+     <img src="../assets/icon.png" style="width: 2.5em;"/>
+    </button>
+
+  </mat-toolbar-column>
+
+  <mat-toolbar-column class="flex-reverse">
+    <span class="version">{{version}}</span>
+    <button *ngIf="activaCancelBotton" class="element-flex" md-icon-button md-button (click)=goBack()>
+      <mat-icon class="icon">clear</mat-icon>
+    </button>
+    <button *ngIf="activaSaveBotton" class="element-flex" md-icon-button md-button (click)=goHome()>
+      <mat-icon class="icon">done</mat-icon>
+    </button>
+  </mat-toolbar-column>
+  
+</mat-toolbar>
+
+
+<mat-menu #appMenu="matMenu">
+ 
+  <button mat-menu-item routerLink="/">
+     <mat-icon >home</mat-icon>Home
+  </button>
+  <button mat-menu-item routerLink="profile">
+     <mat-icon  >account_box</mat-icon>Perfil
+  </button>
+  <button mat-menu-item routerLink="progress">
+     <mat-icon>insert_chart</mat-icon>Progreso
+  </button>
+ 
+  <button mat-menu-item (click)="doLogout()">
+     <mat-icon>launch</mat-icon>Salir
+  </button>
+</mat-menu> 
 
 <router-outlet></router-outlet>
+
+<!-- <md-sidenav-layout class="sidenav-layout" >
+
+  
+      <md-sidenav #sidenav mode="side" class="sidenav">
+          <md-toolbar color="primary">BigFood</md-toolbar>
+        <md-nav-list>
+          <a md-list-item routerLink="/">
+            <md-icon>home</md-icon>Home</a>
+          <a md-list-item routerLink="profile">
+            <md-icon>account_box</md-icon>Perfil</a>
+          <a md-list-item routerLink="progress">
+            <md-icon>insert_chart</md-icon>Progress</a>
+          <a md-list-item (click)="doLogout()">
+            <md-icon>launch</md-icon>Salir</a>
+        </md-nav-list>
+
+      </md-sidenav>
+   
+    
+      <router-outlet></router-outlet>
+  </md-sidenav-layout> -->
