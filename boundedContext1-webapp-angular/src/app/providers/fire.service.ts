@@ -5,6 +5,7 @@ import { Injectable, Input } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Injectable()
 export class FireService {
@@ -18,11 +19,14 @@ export class FireService {
   constructor(afAuth: AngularFireAuth, db: AngularFireDatabase) {
     this.user = afAuth.authState;
     this.foods = db.list('foods');
+    console.log('constructor fireserviceeeeee user ' + this.user);
     this.afAuth = afAuth;
+    console.log('constructor fireserviceeeeee ' + this.afAuth);
     this.database = firebase.database();
-    this.fireUser = JSON.parse(localStorage.getItem('fireUser'));
+     console.log('constructor fireserviceeeeee ' + this.database + ' LOCALsTORAGE : ' + localStorage);
+     this.fireUser = JSON.parse(localStorage.getItem('fireUser'));
+     console.log('constructor fireserviceeeeee ' + this.fireUser);
   }
-
   loginWithGoogle() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
@@ -36,6 +40,7 @@ export class FireService {
     return this.database.ref('/users/' + this.fireUser.uid).once('value');
   }
   getUserData() {
+      console.log('getuserdataaaaaa ' + this.fireUser);
     const database = firebase.database();
     return this.database.ref('/profiles/' + this.fireUser.uid).once('value');
   }

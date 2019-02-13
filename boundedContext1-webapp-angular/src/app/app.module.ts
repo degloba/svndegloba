@@ -26,11 +26,13 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { environment } from '../environments/environment';
 import * as firebase from 'firebase/app';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProgressPageComponent } from './progress-page/progress-page.component';
 import { ReportComponent } from './report/report.component';
+
 
 
 // Initialize Firebase
@@ -68,6 +70,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,

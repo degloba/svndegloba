@@ -1,25 +1,25 @@
-<input   mdInput class="big-font" placeholder="Search" [(ngModel)]="search" (keyup)="filter()"  >
+<input   matInput class="big-font" placeholder="Search" [(ngModel)]="search" (keyup)="filter()"  >
  
-<md-divider></md-divider>
-<md-tab-group>
-  <md-tab label="Recientes">
-    <md-card>
-      <md-card-content>
-        <md-list>
-            <md-list-item *ngFor="let food of filteredList" (click)="goToDetail(food)">
-              <span class="md-font" md-line> {{food.name}}  </span>
+<mat-divider></mat-divider>
+<mat-tab-group>
+  <mat-tab label="Recientes">
+    <mat-card>
+      <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let food of filteredList" (click)="goToDetail(food)">
+              <span class="mat-font" mat-line> {{food.name}}  </span>
               <section layout-align="end" layout-wrap>
-                <span class="md-font">  {{food.calories}}</span>
+                <span class="mat-font">  {{food.calories}}</span>
               </section>
-              <p md-line>
+              <p mat-line>
                 <span class="sm-font left grey">{{food.description}}, {{food.amount}}{{food.unit}}</span>
               </p>
-            </md-list-item>
+            </mat-list-item>
           
-        </md-list>
-      </md-card-content>
-    </md-card>
-  </md-tab>
-  <md-tab label="Comidas"></md-tab>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Comidas"></mat-tab>
 
-</md-tab-group>
+</mat-tab-group>

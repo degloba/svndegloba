@@ -3,6 +3,7 @@ import { EventService } from './providers/event.service';
 import { ActiveStateService } from './providers/active-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireList } from 'angularfire2/database';
+import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { FireService } from './providers/fire.service';
 import { AfterViewInit, Component, DoCheck, OnChanges, Output, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
@@ -31,11 +32,12 @@ export class AppComponent implements DoCheck, OnInit {
     private _state: ActiveStateService,
     private eventService: EventService,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public localStorage: AngularFireStorage
   ) {
+      console.log('hola soc');
     this.version = 'v.alfa';
     this.state = _state;
-
   }
   goBack() {
     localStorage.removeItem('userData');

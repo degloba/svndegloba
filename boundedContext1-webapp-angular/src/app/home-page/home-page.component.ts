@@ -73,7 +73,7 @@ export class HomePageComponent implements AfterViewChecked, OnInit {
     this.indexDays = 0;
     this.eventService.displaySave(false);
 
-
+console.log('homepageeee');
     this.meals = [
       { name: 'Desayuno', foods: [] },
       { name: 'Comida', foods: [] },

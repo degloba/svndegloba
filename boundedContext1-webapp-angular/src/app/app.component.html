@@ -1,23 +1,19 @@
 <mat-toolbar color="primary">
 
 
-  <mat-toolbar-column *ngIf="isLoggedIn">
     <!-- <button md-icon-button md-button (click)="sidenav.toggle()"> -->
-    <button md-icon-button md-button [matMenuTriggerFor]="appMenu">
+    <button mat-icon-button mat-button [matMenuTriggerFor]="appMenu">
      <img src="../assets/icon.png" style="width: 2.5em;"/>
     </button>
-
-  </mat-toolbar-column>
-
-  <mat-toolbar-column class="flex-reverse">
+ 
     <span class="version">{{version}}</span>
-    <button *ngIf="activaCancelBotton" class="element-flex" md-icon-button md-button (click)=goBack()>
+    <button *ngIf="activaCancelBotton" class="element-flex" mat-icon-button md-button (click)=goBack()>
       <mat-icon class="icon">clear</mat-icon>
     </button>
-    <button *ngIf="activaSaveBotton" class="element-flex" md-icon-button md-button (click)=goHome()>
+    <button *ngIf="activaSaveBotton" class="element-flex" mat-icon-button mat-button (click)=goHome()>
       <mat-icon class="icon">done</mat-icon>
     </button>
-  </mat-toolbar-column>
+ 
   
 </mat-toolbar>
 

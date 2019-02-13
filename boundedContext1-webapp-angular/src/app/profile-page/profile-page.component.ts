@@ -34,9 +34,13 @@ export class ProfilePageComponent implements OnInit {
   constructor(public fireService: FireService,
     private eventService: EventService,
     public dialog: MatDialog) {
+        console.log('profileeee' + fireService);
       this.countries = COUNTRIES;
       // fireService.setUserData(JSON.parse(localStorage.getItem('fireUser')), this.user);
       fireService.getUserData().then(snapshot => {
+
+console.log('profile2222');
+
         this.user = snapshot.val();
         this.myGoal =  this.goals[this.user.goals.weeklyGoal].value;
         this.pais = {
