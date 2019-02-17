@@ -50,8 +50,8 @@ export class FoodListComponent implements OnInit {
     this.foods = this.fireService.foods;
     this.selectedFood = undefined;
     this.foods.valueChanges().subscribe( snapshot => {
-      // this.myfoods =  snapshot;
-      // this.filteredList = snapshot;
+    // this.myfoods =  snapshot;
+    // this.filteredList = snapshot;
     });
 
   }

@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import {FireserviceService} from './../fireservice.service';
+import { AuthService } from '../shared/services/auth.service';
 import {Router} from '@angular/router';
 
 
@@ -14,13 +14,8 @@ export class LoginPageComponent implements OnInit {
 
     isLoggedIn: boolean;
 
-  constructor(public fire: FireserviceService, private rout: Router) { }
+  constructor(public fire: AuthService, private rout: Router) { }
 
-  login() {
-      this.fire.loginWithGoogle().then((data) => {
-          this.rout.navigate(['']);
-      });
-  }
 
   ngOnInit() {
   }
