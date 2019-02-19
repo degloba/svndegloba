@@ -19,12 +19,14 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
 // Auth service
 import { AuthService } from './shared/services/auth.service';
 
 // BigFood
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MatDialogModule, MatDialogRef, MatSidenav } from '@angular/material';
 import {
@@ -45,6 +47,7 @@ import { ReportComponent } from './report/report.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActiveStateService } from './providers/active-state.service';
 import { EventService } from './providers/event.service';
+import { PolicyListComponent } from './policy-list/policy-list.component';
 
 const MY_DATE_FORMATS = {
   parse: {
@@ -74,7 +77,9 @@ const MY_DATE_FORMATS = {
     DialogComponent,
     LongPressDirective,
     ProgressPageComponent,
-    ReportComponent
+    ReportComponent,
+    ProfilePageComponent,
+    PolicyListComponent
   ],
   exports: [
     AppComponent,
@@ -94,6 +99,7 @@ const MY_DATE_FORMATS = {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     ReactiveFormsModule,
     MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule, MatSliderModule,
     MatToolbarModule, MatIconModule, MatMenuModule, MatTabsModule, MatRadioModule,

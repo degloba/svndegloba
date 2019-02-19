@@ -2,45 +2,35 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { Food, Meal, User, Units, Goals, DietDays } from './../data-model';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, Input } from '@angular/core';
-import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+// import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+// import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AuthService } from '../shared/services/auth.service';
 import * as firebase from 'firebase/app';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFirestore, AngularFirestoreDocument , AngularFirestoreCollection} from '@angular/fire/firestore';
 
 @Injectable()
 export class FireService {
   user: Observable<firebase.User>;
-  foods: AngularFireList<any[]>;
-  afAuth: AngularFireAuth;
+  foods: AngularFirestoreCollection<any[]>;
+  afAuth: AuthService;
   fireUser: firebase.User;
   database: any;
   calendar: DietDays[];
 
-  constructor(afAuth: AngularFireAuth, db: AngularFireDatabase) {
-    this.user = afAuth.authState;
-    this.foods = db.list('foods');
-    console.log('constructor fireserviceeeeee user ' + this.user);
+  constructor(afAuth: AuthService, db: AngularFirestore) {
+    this.user = afAuth.afAuth.authState;
+    this.foods = db.collection('foods');
     this.afAuth = afAuth;
-    console.log('constructor fireserviceeeeee ' + this.afAuth);
     this.database = firebase.database();
-     console.log('constructor fireserviceeeeee ' + this.database + ' LOCALsTORAGE : ' + localStorage);
-     this.fireUser = JSON.parse(localStorage.getItem('fireUser'));
-     console.log('constructor fireserviceeeeee ' + this.fireUser);
-  }
-  loginWithGoogle() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.fireUser = JSON.parse(localStorage.getItem('fireUser'));
   }
 
-  logout() {
-    return this.afAuth.auth.signOut();
-  }
 
   getUser() {
     const database = firebase.database();
     return this.database.ref('/users/' + this.fireUser.uid).once('value');
   }
   getUserData() {
-      console.log('getuserdataaaaaa ' + this.fireUser);
     const database = firebase.database();
     return this.database.ref('/profiles/' + this.fireUser.uid).once('value');
   }

@@ -1,4 +1,4 @@
-import { FireService } from '../providers/fire.service';
+import { AuthService } from '../shared/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Units } from './../data-model';
 import { DialogComponent } from './../dialog/dialog.component';
@@ -33,18 +33,18 @@ export class FoodDetailComponent implements OnInit, OnDestroy {
   constructor(public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
-    private fireService: FireService) { }
+    private fireService: AuthService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       // In a real app: dispatch action to load the details here.
     });
-    this.fireService.getFoodById(this.id).then(food => {
-      this.food = food;
-      this.calculoPorcentaje();
+    // this.fireService.getFoodById(this.id).then(food => {
+    //   this.food = food;
+    //   this.calculoPorcentaje();
 
-    });
+    // });
   }
 
   openDialog(food) {

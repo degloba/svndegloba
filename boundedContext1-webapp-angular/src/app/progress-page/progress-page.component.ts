@@ -1,5 +1,5 @@
 import { DietDays, User } from './../data-model';
-import { FireService } from '../providers/fire.service';
+import { AuthService } from '../shared/services/auth.service';
 import { AfterViewInit, Component, OnInit, OnChanges } from '@angular/core';
 
 class Data {
@@ -13,7 +13,7 @@ class Data {
   styleUrls: ['./progress-page.component.css']
 })
 export class ProgressPageComponent implements OnInit {
-  fireService: FireService;
+  fireService: AuthService;
   user: User;
   days: DietDays[];
   typeData = ['weight', 'exercise', 'totalCalories'];
@@ -32,17 +32,17 @@ export class ProgressPageComponent implements OnInit {
   lineChartLegend = true;
   lineChartType = 'line';
 
-  constructor(fireService: FireService) {
+  constructor(fireService: AuthService) {
     this.fireService = fireService;
 
   }
   ngOnInit() {
     this.data = { type: 'weight', value: 0 };
     this.periodo = { type: 'semana', value: 0 };
-    this.fireService.getUserData().then(user => {
-      this.user = user.val();
-      this.loadChart();
-    });
+    // this.fireService.getUserData().then(user => {
+    //   this.user = user.val();
+    //   this.loadChart();
+    // });
   }
   loadChart() {
     this.days = JSON.parse(localStorage.getItem('days'));

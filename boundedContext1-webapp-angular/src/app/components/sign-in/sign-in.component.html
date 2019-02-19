@@ -34,6 +34,22 @@
         </button>
       </div>
 
+            <!-- Calling FacebookAuth Api from AuthService -->
+      <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
+          <i class="fab fa-facebook-plus-g"></i>
+          Log in with Facebook
+        </button>
+      </div>
+
+                  <!-- Calling EmailAuth Api from AuthService -->
+      <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="authService.EmailAuth()">
+          <i class="fab fa-facebook-plus-g"></i>
+          Log in with Email
+        </button>
+      </div>
+
       <div class="forgotPassword">
         <span routerLink="/forgot-password">Forgot Password?</span>
       </div>

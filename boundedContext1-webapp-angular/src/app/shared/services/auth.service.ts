@@ -87,6 +87,16 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
+    // Sign in with Facebook
+  FacebookAuth() {
+    return this.AuthLogin(new auth.FacebookAuthProvider());
+  }
+
+      // Sign in with Google
+  EmailAuth() {
+    return this.AuthLogin(new auth.EmailAuthProvider());
+  }
+
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
@@ -99,6 +109,7 @@ export class AuthService {
       window.alert(error);
     });
   }
+
 
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
@@ -126,3 +137,7 @@ export class AuthService {
   }
 
 }
+//   getUser() {
+//     const database = firebase.database();
+//     return this.database.ref('/users/' + this.fireUser.uid).once('value');
+//   }

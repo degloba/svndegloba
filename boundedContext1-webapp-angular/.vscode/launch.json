@@ -52,6 +52,48 @@
             "request": "launch",
             "url": "http://localhost:4200/#",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (7)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (8)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (9)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (10)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (11)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome boundedContext1-webapp-angular on Angular CLI Server (12)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

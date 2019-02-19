@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from './../providers/event.service';
 import { ActiveStateService } from './../providers/active-state.service';
 import { AngularFireList } from 'angularfire2/database';
-import { FireService } from './../providers/fire.service';
+import { AuthService } from '../shared/services/auth.service';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
@@ -31,7 +31,7 @@ export class FoodListComponent implements OnInit {
   search = '';
   filteredList: Food[];
   myfoods: Food[];
-  constructor(private fireService: FireService,
+  constructor(private fireService: AuthService,
     private activeStateService: ActiveStateService,
     private route: ActivatedRoute ,
     private router: Router) {
@@ -41,20 +41,20 @@ export class FoodListComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.getFoods();
+   // this.getFoods();
 
   }
 
-  getFoods() {
-    this.isLoading = true;
-    this.foods = this.fireService.foods;
-    this.selectedFood = undefined;
-    this.foods.valueChanges().subscribe( snapshot => {
-    // this.myfoods =  snapshot;
-    // this.filteredList = snapshot;
-    });
+//   getFoods() {
+//     this.isLoading = true;
+//     this.foods = this.fireService.foods;
+//     this.selectedFood = undefined;
+//     this.foods.valueChanges().subscribe( snapshot => {
+//     // this.myfoods =  snapshot;
+//     // this.filteredList = snapshot;
+//     });
 
-  }
+//   }
   select(food: Food) {
     this.selectedFood = food;
   }
