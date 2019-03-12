@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 // Reactive Form
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,6 +49,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActiveStateService } from './providers/active-state.service';
 import { EventService } from './providers/event.service';
 import { PolicyListComponent } from './policy-list/policy-list.component';
+import { MyNavComponent } from './my-nav/my-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const MY_DATE_FORMATS = {
   parse: {
@@ -79,7 +82,8 @@ const MY_DATE_FORMATS = {
     ProgressPageComponent,
     ReportComponent,
     ProfilePageComponent,
-    PolicyListComponent
+    PolicyListComponent,
+    MyNavComponent    
   ],
   exports: [
     AppComponent,
@@ -106,6 +110,8 @@ const MY_DATE_FORMATS = {
     MatSelectModule, MatDialogModule, MatProgressSpinnerModule, MatDatepickerModule,
     ReactiveFormsModule, FormsModule, MatNativeDateModule, ChartsModule, MatProgressBarModule,
     MatSidenavModule,
+    BrowserAnimationsModule,
+    LayoutModule
   ],
   providers: [AuthService, ActiveStateService, EventService,
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }],
