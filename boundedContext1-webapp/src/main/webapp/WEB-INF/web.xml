@@ -192,9 +192,27 @@ If you want to save the state on the server (which is the default in the JavaSer
  <!--    <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>  
+   
  ******************* 
   Spring MVC Servlet 
  ******************* -->
+ 
+   <!-- Wrap the backend with Endpoints Frameworks v2. -->
+    <servlet>
+        <servlet-name>EndpointsServlet</servlet-name>
+        <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value>com.degloba.echo.Echo</param-value>
+        </init-param>
+    </servlet>
+    <!-- Route API method requests to the backend. -->
+    <servlet-mapping>
+        <servlet-name>EndpointsServlet</servlet-name>
+        <url-pattern>/_ah/api/*</url-pattern>
+    </servlet-mapping>
+    
+    
  <servlet>
   <description>Spring MVC Servlet</description>
   <servlet-name>springmvcservlet</servlet-name>
