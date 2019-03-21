@@ -4,6 +4,12 @@
 
 export const environment = {
   production: false,
+  
+   // URL of development API
+   apiUrl: 'http://localhost:3000',
+ // apiUrl: 'https://wwwdegloba-1350.appspot.com/_ah/api/echo/v1',
+
+  
 
     firebase: {
         apiKey : 'AIzaSyDuTo74D7zmb6vO6bOV5Z1h7IABIEBM0hM',
