@@ -56,10 +56,6 @@
 		<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            	<artifactId>maven-compiler-plugin</artifactId>
-	            	<configuration>
-		                <source>${jdk.version}</source>
-		                <target>${jdk.version}</target>
-	            	</configuration>	            
 		</plugin>
 			
 		<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->

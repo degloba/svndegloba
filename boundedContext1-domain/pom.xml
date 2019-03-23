@@ -92,7 +92,7 @@
         </dependency>   -->
           <dependency>
          	<groupId>com.google.appengine</groupId>
-            <artifactId>appengine-tools-sdk</artifactId>            
+            <artifactId>appengine-tools-sdk</artifactId>                 
             <scope>test</scope>          
           </dependency>        
 		<dependency>
