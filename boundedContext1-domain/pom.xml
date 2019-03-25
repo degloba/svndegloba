@@ -8,7 +8,7 @@
     </parent>
     <artifactId>boundedContext1-domain</artifactId>
     <packaging>jar</packaging>
-    <name>Casino - boundedContext1 - Structure - Domain</name>
+    <name>Casino - boundedContext1 - Domain</name>
 
     <dependencies>
                 

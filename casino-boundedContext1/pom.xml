@@ -11,7 +11,7 @@
     
     <artifactId>casino-boundedContext1</artifactId>
     <packaging>pom</packaging>
-    <name>casino - boundedContext1 Structure</name>
+    <name>Casino - boundedContext1</name>
      
 
      <dependencyManagement>

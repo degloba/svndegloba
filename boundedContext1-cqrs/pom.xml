@@ -7,7 +7,7 @@
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>boundedContext1-cqrs</artifactId>
-    <name>Casino - boundedContext1- Structure - CQRS</name>
+    <name>Casino - boundedContext1 - CQRS</name>
     
     <dependencies>
         	
@@ -31,7 +31,11 @@
     
     		<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>	            
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>${jdk.version}</source>
+	                <target>${jdk.version}</target>
+	            </configuration>	            
 			</plugin>
 			
 		</plugins>

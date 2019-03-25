@@ -8,7 +8,7 @@
     </parent>
     <artifactId>boundedContext1-facade</artifactId>
     <packaging>jar</packaging>
-    <name>casino - boundedContext1 - Structure - Facade</name>
+    <name>Casino - boundedContext1 - Facade</name>
     
     <dependencies>
        
