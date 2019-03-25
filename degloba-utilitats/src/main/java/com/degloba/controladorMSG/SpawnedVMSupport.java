@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.hornetq.core.logging.Logger;
+//import org.hornetq.core.logging.Logger;
 
 /**
  * @author <a href="mailto:ovidiu@feodorov.com">Ovidiu Feodorov</a>
@@ -34,7 +34,7 @@ public class SpawnedVMSupport
 {
    // Constants -----------------------------------------------------
 
-   private static final Logger log = Logger.getLogger(SpawnedVMSupport.class);
+   //private static final Logger log = Logger.getLogger(SpawnedVMSupport.class);
 
    // Attributes ----------------------------------------------------
 
@@ -118,11 +118,11 @@ public class SpawnedVMSupport
 
       String commandLine = sb.toString();
 
-      SpawnedVMSupport.log.trace("command line: " + commandLine);
+      //SpawnedVMSupport.log.trace("command line: " + commandLine);
 
       Process process = Runtime.getRuntime().exec(commandLine, null, new File(configDir));
 
-      SpawnedVMSupport.log.trace("process: " + process);
+      //SpawnedVMSupport.log.trace("process: " + process);
 
       CountDownLatch latch = new CountDownLatch(1);
 
