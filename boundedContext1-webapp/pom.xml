@@ -5,7 +5,7 @@
    	<packaging>war</packaging>
    	<groupId>com.degloba</groupId>
 	<artifactId>boundedContext1-webapp</artifactId>
-	<name>Casino webapp</name>
+	<name>Casino - boundedContext1 - Webapp</name>
 	
     <parent>
 	    <artifactId>casino-boundedContext1</artifactId>

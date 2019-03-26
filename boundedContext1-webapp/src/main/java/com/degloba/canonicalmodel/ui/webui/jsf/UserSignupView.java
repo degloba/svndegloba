@@ -5,7 +5,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.PrimeFaces;
-import org.primefaces.context.RequestContext;
+
 import org.springframework.stereotype.Component;
  
 
@@ -47,8 +47,7 @@ public class UserSignupView {
 	public void signupEmail(ActionEvent event) {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Email
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean signUpExist = false;
         String signUPType = "email";
@@ -69,8 +68,7 @@ public class UserSignupView {
 	public void signupGoogle() {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Google
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean signUpExist = false;
         String signUPType = "google";
@@ -91,8 +89,7 @@ public class UserSignupView {
 	public void signupTwitter(ActionEvent event) {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Twitter
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean signUpExist = false;
          
@@ -111,8 +108,7 @@ public class UserSignupView {
 	public void signupFacebook(ActionEvent event) {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Facebook
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean signUpExist = false;
          

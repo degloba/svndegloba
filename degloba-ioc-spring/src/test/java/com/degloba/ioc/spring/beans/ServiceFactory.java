@@ -1,7 +1,9 @@
 package com.degloba.ioc.spring.beans;
 
-import com.degloba.ioc.test.MyService1;
+
 import org.springframework.beans.factory.FactoryBean;
+
+import com.degloba.ioc.test.MyService1;
 
 public class ServiceFactory implements FactoryBean<MyService1> {
 

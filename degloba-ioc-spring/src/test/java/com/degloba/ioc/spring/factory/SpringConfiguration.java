@@ -1,7 +1,12 @@
 package com.degloba.ioc.spring.factory;
 
 import com.degloba.ioc.spring.beans.ServiceFactory;
-import com.degloba.ioc.test.*;
+import com.degloba.ioc.test.MyService2;
+import com.degloba.ioc.test.MyService21;
+import com.degloba.ioc.test.MyService3;
+import com.degloba.ioc.test.Service;
+import com.degloba.ioc.test.Service2;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

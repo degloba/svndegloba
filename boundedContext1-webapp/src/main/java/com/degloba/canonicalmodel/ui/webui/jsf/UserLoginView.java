@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.PrimeFaces;
-import org.primefaces.context.RequestContext;
+
 import org.springframework.stereotype.Component;
  
 
@@ -38,8 +38,7 @@ public class UserLoginView {
 	public void loginEmail(ActionEvent event) {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Email
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean loggedIn = false;
          
@@ -60,7 +59,7 @@ public class UserLoginView {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Google
 				
-		RequestContext context = RequestContext.getCurrentInstance();
+		//RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean loggedIn = false;
          
@@ -80,8 +79,7 @@ public class UserLoginView {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Twitter
 				
-		RequestContext context = RequestContext.getCurrentInstance();
-        FacesMessage message = null;
+		FacesMessage message = null;
         boolean loggedIn = false;
          
         if(1 == 1) {
@@ -99,8 +97,7 @@ public class UserLoginView {
 	public void loginFacebook(ActionEvent event) {
 		
 		// Comprovar si ja està signUp a l'aplicació amb Facebook
-				
-		RequestContext context = RequestContext.getCurrentInstance();
+						
         FacesMessage message = null;
         boolean loggedIn = false;
          

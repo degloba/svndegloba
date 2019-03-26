@@ -196,22 +196,6 @@ If you want to save the state on the server (which is the default in the JavaSer
  ******************* 
   Spring MVC Servlet 
  ******************* -->
- 
-   <!-- Wrap the backend with Endpoints Frameworks v2. -->
-    <servlet>
-        <servlet-name>EndpointsServlet</servlet-name>
-        <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
-        <init-param>
-            <param-name>services</param-name>
-            <param-value>com.degloba.echo.Echo</param-value>
-        </init-param>
-    </servlet>
-    <!-- Route API method requests to the backend. -->
-    <servlet-mapping>
-        <servlet-name>EndpointsServlet</servlet-name>
-        <url-pattern>/_ah/api/*</url-pattern>
-    </servlet-mapping>
-    
     
  <servlet>
   <description>Spring MVC Servlet</description>
@@ -262,6 +246,8 @@ If you want to save the state on the server (which is the default in the JavaSer
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>*.xhtml</url-pattern>
  </servlet-mapping>
+ 
+ 
  <!-- **************************** 
        SPRING SECURITY        
  **************************** 
@@ -292,6 +278,23 @@ If you want to save the state on the server (which is the default in the JavaSer
     <servlet-name>RemoteApiServlet</servlet-name>
     <url-pattern>/remote_api</url-pattern>
   </servlet-mapping> -->
+  
+   <!-- Google Cloud Endpoints -->
+   <!-- Wrap the backend with Endpoints Frameworks v2. -->
+    <servlet>
+        <servlet-name>EndpointsServlet</servlet-name>
+        <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value>com.degloba.endpoints.Endpoint</param-value>
+        </init-param>
+    </servlet>
+    <!-- Route API method requests to the backend. -->
+    <servlet-mapping>
+        <servlet-name>EndpointsServlet</servlet-name>
+        <url-pattern>/_ah/api/*</url-pattern>
+    </servlet-mapping>
+  
  <session-config>
   <session-timeout>30</session-timeout>
  </session-config>
