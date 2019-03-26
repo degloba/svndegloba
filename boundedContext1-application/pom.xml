@@ -9,7 +9,7 @@
     </parent>
     
     <artifactId>boundedContext1-application</artifactId>
-    <name>Casino boundedContext1 - Application</name>
+    <name>Casino - boundedContext1 - Application</name>
     <url>http://maven.apache.org</url>
     
     <dependencies>
