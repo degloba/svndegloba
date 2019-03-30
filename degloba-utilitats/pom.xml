@@ -1,7 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>  
   <artifactId>degloba-utilitats</artifactId>
-  <description>classes d'utilitats</description>
+  <description>Degloba - classes d'utilitats</description>
+  <name>(degloba-utilitats) - utilitats</name>
   
 	<parent>
 		<groupId>com.degloba</groupId>
@@ -55,16 +56,6 @@
   
   	<!-- Unified Expression Language (JSF) -->    
         
-	<dependency>
-		<groupId>commons-validator</groupId>
-		<artifactId>commons-validator</artifactId>
-		<exclusions>
-			<exclusion>
-				<artifactId>commons-logging</artifactId>
-				<groupId>commons-logging</groupId>
-			</exclusion>
-		</exclusions>
-	</dependency>
         
                     
 	<!-- Paypal -->		  	
@@ -80,27 +71,6 @@
     	</exclusions>
     </dependency>
     
-    
-    <!-- HornetQ -->
-	<dependency>
-		<groupId>org.hornetq</groupId>
-		<artifactId>hornetq-core</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.hornetq</groupId>
-		<artifactId>hornetq-jms</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.hornetq</groupId>
-		<artifactId>hornetq-logging</artifactId>
-	</dependency>
-
-        
-	<dependency>
-		<groupId>javax.jms</groupId>
-		<artifactId>jms</artifactId>
-		<version>1.1</version>
-	</dependency>
         
 
 	<!-- NECESSARIES PERQUE UTILITZA GAE (tests, ...)-->
@@ -114,16 +84,16 @@
 	 	<!-- Canals (twitter, RSS,...)-->
 		<dependency>
 			<groupId>org.twitter4j</groupId>
-			<artifactId>twitter4j-appengine</artifactId>
-			<version>3.0.5</version>
+			<artifactId>twitter4j-core</artifactId>
+			<version>4.0.7</version>
 			<type>jar</type>
 			<scope>compile</scope>
-			<exclusions>
+			<!-- <exclusions>
 				<exclusion>
 					<artifactId>appengine-api-1.0-sdk</artifactId>
 					<groupId>com.google.appengine</groupId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>  
 
         <dependency>
@@ -154,5 +124,5 @@
 		<url>www.degloba.com</url>
 		<name>degloba</name>
 	</organization>
-	<name>Utilitats</name>
+
 </project>
