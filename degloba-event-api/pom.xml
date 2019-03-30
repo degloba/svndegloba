@@ -10,7 +10,7 @@
     </parent>
     
     <artifactId>degloba-event-api</artifactId>
-    <name>Events</name>
+    <name>(degloba-event-api) - events</name>
     <url>http://maven.apache.org</url>
    
 	<dependencies>
@@ -21,22 +21,10 @@
             <version>0.9.10</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-             <version>3.1.0</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
         	<groupId>com.degloba</groupId>
         	<artifactId>degloba-utilitats</artifactId>
@@ -52,7 +40,7 @@
     
      <build>
     
-    <pluginManagement>
+    <!-- <pluginManagement>
    	 
         <plugins>
         	  <plugin>
@@ -66,7 +54,7 @@
             
 		</plugins>
 		
-	</pluginManagement>
+	</pluginManagement> -->
 		
     </build>
     
