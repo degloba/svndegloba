@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+      <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>degloba-persistence</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+    </parent>
+    
+    
+  <artifactId>degloba-persistence-nosql</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <description>
+        Interfaz de almacenamiento de la aplicación NoSql .
+    </description>
+        <url>www.degloba.com</url>
+  
+  
+  <properties>
+  		
+		<!-- https://github.com/objectify/objectify -->
+  		<google.appengine.objectify.version>6.0.3</google.appengine.objectify.version> 
+  </properties>
+  
+  <dependencies>
+  
+  		<dependency>
+    		<groupId>com.google.cloud</groupId>
+    		<artifactId>google-cloud-datastore</artifactId>
+    		<version>1.65.0</version>
+    	</dependency>
+
+  		<dependency>
+  			<groupId>com.degloba</groupId>
+  			<artifactId>degloba-domain</artifactId>
+  			<version>4.4.3-SNAPSHOT</version>
+  		</dependency>
+  		
+  		
+  		<!-- [START Objectify_Dependencies] -->
+  		
+  		<dependency>
+  			<groupId>com.googlecode.objectify</groupId>
+  			<artifactId>objectify</artifactId>
+  			<version>6.0.3</version>
+  		</dependency>
+  		
+  		<!-- [END Objectify_Dependencies] -->
+  		
+  		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.9.0</version>
+		</dependency> 
+		
+				 <dependency>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>
+		 	<version>2.1.2.RELEASE</version>
+		 </dependency>
+  </dependencies>
+  
+  
+  <profiles>
+        <profile>
+            <id>mongodb</id>
+            <properties>
+                <nosql.type>mongodb</nosql.type>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>${maven.resources.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>copy-persistence-xml</id>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <phase>test-compile</phase>
+                                <configuration>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/src/test/resources/${nosql.type}</directory>
+                                            <includes>
+                                                <include>persistence.xml</include>
+                                            </includes>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                    <outputDirectory>target/test-classes/META-INF</outputDirectory>
+                                    <overwrite>true</overwrite>
+                                    <encoding>${project.build.sourceEncoding}</encoding>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+  
+</project>
