@@ -3,11 +3,11 @@ package com.degloba.event.api;
 import java.util.Date;
 
 /**
- * Evento
+ * Interfície : Event
  */
 public interface IEvent {
-
-    String id();
+	 
+	String id();
 
     Date occurredOn();
 

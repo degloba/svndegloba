@@ -5,8 +5,11 @@ import java.lang.reflect.Method;
 import org.springframework.beans.factory.BeanFactory;
 
 import com.degloba.event.api.IEvent;
+import com.degloba.event.api.IEventHandler;
 
-
+/**
+ * Classe : Handler d'events de tipus d'events {@link IEvent} implementat amb Spring
+ */
 public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
 
     private final Class<?> eventType;

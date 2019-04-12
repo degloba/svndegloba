@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Evento base 
+ * Classe : Event abstracte 
  */
 public abstract class AbstractEvent implements IEvent {
 

@@ -2,15 +2,12 @@ package com.degloba.event.domain;
 
 import java.io.Serializable;
 
-/**
- * @author degloba
- */
 
 /**
- * A domain event is something that is unique, but does not have a lifecycle.
- * The identity may be explicit, for example the sequence number of a payment,
- * or it could be derived from various aspects of the event such as where, when and what
- * has happened.
+ * Un {@link DomainEvent} és únic, però no té cicle de vida.
+ * La identitat pot ser explícita, per exemple, el número de seqüència d'un pagament,
+ * o es podria derivar de diversos aspectes de l'esdeveniment, com ara on, quan i què
+ * ha passat.
  */
 public interface IDomainEvent<T> extends Serializable {
 	

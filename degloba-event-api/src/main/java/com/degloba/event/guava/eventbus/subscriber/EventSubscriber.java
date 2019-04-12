@@ -7,6 +7,9 @@ import java.util.List;
 
 import com.google.common.eventbus.EventBus;
 
+/**
+ * Classe Abstracta : EventSubscriber (Implementació Google)
+ */
 public abstract class EventSubscriber<T> {
 
     protected List<T> events = new ArrayList<T>();

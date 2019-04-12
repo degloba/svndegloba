@@ -6,6 +6,8 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
+ * Anotació : EventListeners
+ * 
  * @author degloba
  * 
  */

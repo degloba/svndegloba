@@ -1,20 +1,22 @@
 package com.degloba.event.api;
 
 /**
- * Interfaz de bus de eventos. 
- * Llama a los controladores de eventos adecuadas para manejar estos eventos cuando se reciben en el sector eventos .
+ * Interficie : Bus d'Events de tipus {@link IEvent}
  */
 public interface IEventBus<T extends IEvent> {
 
     /**
-     * Registra controladores de eventos
-     * @param handlers Para registrar los manejadores de eventos
+     * @param handlers Per registrar {@link EventListener}S
      */
     void register(IEventListener<T> handlers);
 
+    /**
+     * @param handlers Per un-registrar {@link EventListener}S
+     */
     void unregister(IEventListener<T> handlers);
 
+    /**
+     * @param event Per "post" un {@link IEvent}
+     */
     void post(T event);
-
-
 }

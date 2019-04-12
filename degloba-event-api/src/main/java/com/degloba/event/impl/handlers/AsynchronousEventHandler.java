@@ -7,7 +7,7 @@ import org.springframework.beans.factory.BeanFactory;
 import com.degloba.event.api.IEvent;
 
 /**
- * TODO this is just a fake impl, based on standard synchronous impl
+ * Classe : EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
  * 
  * @author degloba
  *

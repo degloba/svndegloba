@@ -1,7 +1,7 @@
 package com.degloba.event.api;
 
 /**
- * Almacenamiento de Eventos
+ * Interfície : Magatzem d'events
  */
 public interface IEventStore {
 

@@ -12,17 +12,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.degloba.event.api.IEvent;
+import com.degloba.event.api.IEventHandler;
 // Events
 import com.degloba.event.application.IApplicationEventPublisher;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
-import com.degloba.event.impl.handlers.IEventHandler;
 
-
+/**
+ * Component : DomainEventPublisher de tipus d'event {@link IEvent}
+ */
 @Component
-public class SimpleEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<Object> {
+public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<Object> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleEventPublisher.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DomainEventPublisher.class);
 
     private Set<IEventHandler<T>> eventHandlers = new HashSet<IEventHandler<T>>();
 

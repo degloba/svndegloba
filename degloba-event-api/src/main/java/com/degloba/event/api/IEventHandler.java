@@ -1,7 +1,8 @@
-package com.degloba.event.impl.handlers;
+package com.degloba.event.api;
 
-import com.degloba.event.api.IEvent;
-
+/**
+ * Interfície :  Handler d'events de tipus {@link IEvent}
+ */
 public interface IEventHandler<T extends IEvent> {
     boolean canHandle(T event);
 

@@ -2,7 +2,9 @@ package com.degloba.event.api;
 
 import java.lang.reflect.ParameterizedType;
 
-
+/**
+ * Classe : EventListener abstracta de {@link IEvent}
+ */
 public abstract class AbstractEventListener<T extends IEvent> implements IEventListener<T> {
 
     @Override

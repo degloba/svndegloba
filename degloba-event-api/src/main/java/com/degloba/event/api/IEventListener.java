@@ -1,8 +1,7 @@
 package com.degloba.event.api;
 
 /**
- * Detector de eventos  
- * Toda clase de implementación debe tener un valor predeterminado ningún argumento constructo * 
+ * Interfície : Listener d'events de tipus {@link IEvent}
  */
 public interface IEventListener<T extends IEvent> {
 
