@@ -9,5 +9,7 @@ handlers:
 - url: /
   static_files: dist/index.html
   upload: dist/index.html
+  http_headers:
+    Access-Control-Allow-Origin: http://www.degloba.com
 skip_files:
 - ^(?!dist)  # Skip any files not in the dist folder

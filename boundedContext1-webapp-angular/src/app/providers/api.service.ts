@@ -23,10 +23,10 @@ export class ApiService {
   // API: GET /todos
   public getAllTodos(): Observable<Todo[]> {
       return this.http
-        .get(API_URL + '/items')
+        .get(API_URL)
         .map(response => {
           const todos = response.json();
-          return todos.map((todo) => new Todo(todo));
+          return todos.items.map((todo) => new Todo(todo));
         })
         .catch(this.handleError);
     }

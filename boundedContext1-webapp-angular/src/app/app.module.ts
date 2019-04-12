@@ -58,7 +58,6 @@ import { ActiveStateService } from './providers/active-state.service';
 import { EventService } from './providers/event.service';
 
 import { PolicyListComponent } from './policy-list/policy-list.component';
-import { MyNavComponent } from './my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
 // API Rest
@@ -100,8 +99,7 @@ const MY_DATE_FORMATS = {
     ProgressPageComponent,
     ReportComponent,
     ProfilePageComponent,
-    PolicyListComponent,
-    MyNavComponent  ,
+    PolicyListComponent,    
     TodoListComponent,
     TodoListFooterComponent,
     TodoListHeaderComponent,

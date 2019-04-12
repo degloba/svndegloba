@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   
    // URL of development API
-   apiUrl: 'http://localhost:3000',
- // apiUrl: 'https://wwwdegloba-1350.appspot.com/_ah/api/echo/v1',
+   // apiUrl: 'http://localhost:3000',   // AQUEST SEMBLA QUE TAMBÉ FUNCIONA QUAN DEPLOY A GCP
+  apiUrl: 'https://wwwdegloba-1350.appspot.com/_ah/api/echo/v1/todocollection',
 
   
 

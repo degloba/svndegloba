@@ -68,8 +68,10 @@
     			<artifactId>testng</artifactId>
     			<groupId>org.testng</groupId>
     		</exclusion>
+    		
+    		
     	</exclusions>
-    </dependency>
+    </dependency> 
     
         
 
@@ -103,10 +105,11 @@
         </dependency>	
         
         <!-- Java API for Microsoft Documents -->
-		<dependency>
+		 <dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-		</dependency>	
+			
+		 </dependency>	 
 		
 		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
 		(e.g. java.util.logging, logback, log4j) 
@@ -117,6 +120,12 @@
 		</dependency>	
 		
 	   
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		 
 </dependencies>
 
   

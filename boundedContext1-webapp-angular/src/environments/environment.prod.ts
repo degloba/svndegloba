@@ -24,6 +24,6 @@ export const environment = {
         databaseURL: 'https://wwwdegloba-1350.firebaseio.com',
         projectId: 'wwwdegloba-1350',
         storageBucket: 'wwwdegloba-1350.appspot.com',
-        messagingSenderId : 'xxxxxxx'
+        messagingSenderId : '246205539021'
   }
 };
