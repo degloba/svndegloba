@@ -14,7 +14,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.sales.offer.cqrs.readmodel.OfferQuery;
 import com.degloba.ecommerce.sales.offer.cqrs.readmodel.dtos.OfferedProductDto;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
@@ -28,9 +29,6 @@ import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchas
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservedProduct;
 import com.google.common.base.Function;
-
-
-
 
 @FinderImpl
 public class SalesFinder implements ISalesFinder {

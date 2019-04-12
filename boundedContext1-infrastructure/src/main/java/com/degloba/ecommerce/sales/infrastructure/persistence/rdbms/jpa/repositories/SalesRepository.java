@@ -4,15 +4,18 @@ import java.util.List;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
 /**
+ * Repositori + JPA : Vendes
+ * 
  * @author degloba
  *
  */

@@ -29,11 +29,10 @@ import com.degloba.domain.event.StoredDomainEventMongoDb;
 import com.degloba.persistence.nosql.mongodb.StoredDomainEventRepository;
 
 
-
 /** 
- *  Repository for {@link StoredDomainEventMongoDb}s 
+ *  Repositori per {@link StoredDomainEventMongoDb}s 
  *  
- *  El repositorio está implementado en MongoDB
+ *  El repositori està implementat en MongoDB
  *  
  */ 
 @DomainRepositoryImpl

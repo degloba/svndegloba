@@ -2,8 +2,9 @@ package com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
 
-import com.degloba.domain.sharedkernel.Money;
+
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.persistence.domain.sharedkernel.Money;
 
 @ValueObject
 public class OfferItem {

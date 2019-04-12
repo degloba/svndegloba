@@ -2,18 +2,15 @@ package com.degloba.ecommerce.sales.application.listeners;
 
 import javax.inject.Inject;
 
-// CQRS
 import com.degloba.cqrs.query.PaginatedResult;
-
 
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
 import com.degloba.ecommerce.sales.application.services.DiscountingService;
 import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
 import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-// Domain
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 // Events

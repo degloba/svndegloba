@@ -3,10 +3,8 @@ package com.degloba.ecommerce.crm.application.commands;
 import java.io.Serializable;
 
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
-
-//CQRS
+import com.degloba.persistence.domain.AggregateId;
 import com.degloba.cqrs.command.annotations.Command;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 
 
 /**

@@ -10,16 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * A user who can book hotels.
+ * Un usuari que pot fer reserves.
  */
 @XmlRootElement
 @Entity
 @Table(name = "customers")
 public class User implements Serializable {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private String username;

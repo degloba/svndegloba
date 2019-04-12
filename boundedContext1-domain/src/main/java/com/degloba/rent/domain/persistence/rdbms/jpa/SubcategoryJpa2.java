@@ -13,18 +13,15 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 @Entity
 @ValueObject
 public class SubcategoryJpa2 extends BaseEntity implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	

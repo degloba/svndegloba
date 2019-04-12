@@ -44,7 +44,7 @@ import com.degloba.domain.persistence.rdbms.jpa.internal.SizeLtCriterion;
 import com.degloba.domain.persistence.rdbms.jpa.internal.SizeNotEqCriterion;
 import com.degloba.domain.persistence.rdbms.jpa.internal.StartsWithTextCriterion;
 import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 import org.junit.Before;
 import org.junit.Test;

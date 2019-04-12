@@ -1,6 +1,7 @@
 package com.degloba.ecommerce.sales.orders.cqrs.readmodel;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+
 
 public class OrderQuery {
 

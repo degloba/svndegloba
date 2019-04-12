@@ -2,11 +2,12 @@ package com.degloba.ecommerce.crm.domain.events;
 
 import java.io.Serializable;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
 
 // Event
 import com.degloba.event.annotations.Event;
+import com.degloba.persistence.domain.AggregateId;
 
 
 @SuppressWarnings("serial")

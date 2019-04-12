@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.application.commands;
 
 import com.degloba.cqrs.command.annotations.Command;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
 
 
 @Command

@@ -143,6 +143,27 @@
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>                         
+			<groupId>org.springframework.webflow</groupId> 
+			<artifactId>spring-faces</artifactId>   	
+			<version>${springwebflow.version}</version>		                                 
+		</dependency>  
+		<dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-binding</artifactId>
+             <version>${springwebflow.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-webflow</artifactId>
+            <version>${springwebflow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js</artifactId>
+            <version>${springwebflow.version}</version>
+        </dependency>       
+        
             <dependency>
                 <groupId>aopalliance</groupId>
                 <artifactId>aopalliance</artifactId>
@@ -256,7 +277,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
+                    <version>3.1.1</version>
                     <configuration>
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
@@ -599,11 +620,21 @@
                 
 	<javax.persistence>2.1.0</javax.persistence>
 			
-			<google.appengine.version>1.9.67</google.appengine.version>
+			<google.appengine.version>1.9.71</google.appengine.version>
 			
 			<proxool.version>0.9.1</proxool.version>
 			
 			<servlet.version>2.5</servlet.version>
+			
+			
+			<springwebflow.version>2.5.0.RELEASE</springwebflow.version>
+			
+			
+		
+    	<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
+    	<datanucleus.core.version>3.1.3</datanucleus.core.version>
+    	<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
+    
        
     </properties>
 

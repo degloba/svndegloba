@@ -7,10 +7,13 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment;
 
-
+/*
+ * Fàbrica d'Enviament
+ */
 @DomainFactory
 public class ShipmentFactory {
 

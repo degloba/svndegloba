@@ -7,18 +7,13 @@
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>degloba-persistence-test</artifactId>
-    <name>deGloba Persistence Test</name>
+    <name>(degloba-persistence-test) - testos de persistencia</name>
     
     <dependencies>
     
     	<!-- ****************** -->
     	<!-- Llibreries degloba -->
     	<!-- ****************** -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         
         <!-- ************ -->
         <!-- Unit Testing -->
@@ -53,8 +48,24 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
+			<version>2.1.2.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>1.9.71</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-persistence-jpa</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
     
     
@@ -116,7 +127,7 @@
 	        
 	        
 	          <!-- DataNucleus Enhancer (versions 3.1.x)   -->
-             <plugin>
+            <!--  <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
                 <version>3.1.1</version>
@@ -160,7 +171,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>  
+            </plugin>   -->
    
         <!-- <plugin>
             <groupId>org.datanucleus</groupId>

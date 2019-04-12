@@ -3,8 +3,7 @@ package com.degloba.persistence.test.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

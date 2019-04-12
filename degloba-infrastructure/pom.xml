@@ -9,38 +9,18 @@
     
     <artifactId>degloba-infrastructure</artifactId>
     <packaging>jar</packaging>
-    <name>Infrastructure (google-cloud-storage, google-cloud-pubsub,..)</name>
+    <name>(degloba-infrastructure) - infrastructura (google-cloud-storage, google-cloud-pubsub,..)</name>
     <description>Events + Spring data + Sagas</description>
   
   
   <properties>
   
-  		<com.google.cloud.vesion>0.4.0</com.google.cloud.vesion>
+  		<com.google.cloud.version>1.62.0</com.google.cloud.version>
   		
   </properties>
   
     <dependencies>
     
-        
-		<!-- ****************** -->            
-		<!-- Llibreries degloba -->
-		<!-- ****************** -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>    
-        
-                
-		<!-- ************* -->
-        <!--  Spring  Data -->
-        <!-- ************* -->
-      
- 		<dependency>
-		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>		 
-		</dependency>
-        		 
 		
         <!-- per proves (classe : ServicesConfiguration) -->
 		<!-- <dependency>
@@ -55,22 +35,60 @@
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>				
 		</dependency> -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-enhancer</artifactId>
 			<version>${datanucleus.maven.plugin}</version>
-		</dependency>
-		 
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-storage</artifactId>
-			<version>${com.google.cloud.vesion}</version>
-		</dependency>
+		</dependency> -->
+		
+		
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
-			<version>${com.google.cloud.vesion}</version>
+			<version>1.62.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-event-api</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>com.google.api.grpc</groupId>
+			<artifactId>proto-google-cloud-pubsub-v1</artifactId>
+			<version>1.47.0</version>
+		</dependency> -->
+		
+		
+		<dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-persistence-nosql</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-storage</artifactId>
+			<version>1.69.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.auth</groupId>
+			<artifactId>google-auth-library-credentials</artifactId>
+			<version>0.13.0</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>gcloud-java</artifactId>
+			<version>0.2.8</version>
+		</dependency> -->
     </dependencies>
 
     <build>

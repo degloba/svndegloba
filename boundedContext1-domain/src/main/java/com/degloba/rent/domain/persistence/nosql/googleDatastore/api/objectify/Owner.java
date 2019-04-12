@@ -11,6 +11,9 @@ import com.googlecode.objectify.annotation.Id;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Entitat (Objectify) : Propietari
+ */
 @Entity
 public class Owner implements Serializable {
   

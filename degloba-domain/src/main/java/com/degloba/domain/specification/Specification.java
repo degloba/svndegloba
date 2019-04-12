@@ -1,7 +1,8 @@
 package com.degloba.domain.specification;
 
 /**
- * Business norms interface corresponds to the DDD "norms" concept of a book, used to determine business rules are met.
+ * La interfície de les normes de negoci correspon al concepte de "normes" de DDD, 
+ * que s’utilitza per determinar les normes de negoci.
  * @param <T> Type parameter that indicates specification applied to the target object type
  */
 public interface Specification<T> {

@@ -8,13 +8,10 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Event base class field event areas event represents a business meaning, such as employee mobility or restructuring
+ * Event associat a una entitat de domini
  */
-public abstract class ADomainEvent extends AbstractEvent implements Serializable{
+public abstract class DomainEvent extends AbstractEvent implements Serializable{
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private String id = UUID.randomUUID().toString();
@@ -23,7 +20,7 @@ public abstract class ADomainEvent extends AbstractEvent implements Serializable
 
     private int version = 1;
 
-    public ADomainEvent() {
+    public DomainEvent() {
         this(new Date(), 1);
     }
 
@@ -31,7 +28,7 @@ public abstract class ADomainEvent extends AbstractEvent implements Serializable
      *
      * @param occurredOn Time of occurrence
      */
-    public ADomainEvent(Date occurredOn) {
+    public DomainEvent(Date occurredOn) {
         this(occurredOn, 1);
     }
 
@@ -40,7 +37,7 @@ public abstract class ADomainEvent extends AbstractEvent implements Serializable
      * @param occurredOn Time of occurrence
      * @param version Version
      */
-    public ADomainEvent(Date occurredOn, int version) {
+    public DomainEvent(Date occurredOn, int version) {
         Assert.notNull(occurredOn);
         this.occurredOn = new Date(occurredOn.getTime());
         this.version = version;
@@ -83,10 +80,10 @@ public abstract class ADomainEvent extends AbstractEvent implements Serializable
         if (this == other) {
             return true;
         }
-        if (!(other instanceof ADomainEvent)) {
+        if (!(other instanceof DomainEvent)) {
             return false;
         }
-        ADomainEvent that = (ADomainEvent) other;
+        DomainEvent that = (DomainEvent) other;
         return this.getId().equals(that.getId());
     }
 

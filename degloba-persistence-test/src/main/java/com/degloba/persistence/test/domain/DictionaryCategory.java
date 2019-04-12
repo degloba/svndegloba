@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.HashSet;
 import java.util.List;

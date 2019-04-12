@@ -3,9 +3,7 @@ package com.degloba.security.domain.exceptions;
 /**
  */
 public class DuplicateAuthorizationException extends SecurityException {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public DuplicateAuthorizationException() {

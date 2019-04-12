@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.sales.application.commands;
 
-// CQRS
+
 import com.degloba.cqrs.command.annotations.Command;
 
 @Command

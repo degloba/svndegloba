@@ -9,18 +9,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
+/*
+ * Un Item d'una Reserva
+ */
 @Entity
 class ReservationItem extends BaseEntity{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	

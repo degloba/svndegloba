@@ -12,11 +12,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.domain.AggregateId;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 @Entity

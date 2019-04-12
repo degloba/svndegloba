@@ -1,7 +1,7 @@
 package com.degloba.domain.event;
 
-import com.degloba.domain.ioc.InstanceFactory;
-
+import com.degloba.domain.event.StoredDomainEventMongoDb;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.utils.Assert;
 import com.degloba.utils.IObjectSerializer;
 
@@ -15,19 +15,9 @@ import javax.inject.Inject;
 
 
 	/** 
-	 * A simple POJO representing a EventStore
-	 * 
-	 * Representa la entidad de persistencia asociada a un evento del dominio (persistido en MongoDB)
-	 * 
-	 * Contiene un campo com el evento que realmente se ha generado (eventBody).
-	 * 
-	 * Ejemplo : DomainEventSub que extends ADomainEvent
-	 * 
-	 * eventBody = un evento de tipo "DomainEvent" serializado
-	 * 
-	 *  
+	 * Representa la entitat de persistencia associada a un event de domini (persistit amb MongoDB)
 	 **/ 
-	@Document public class StoredDomainEvent { 
+	@Document public class StoredDomainEventMongoDb { 
 		
 		 @Id 
 		 private String entityId; 
@@ -41,10 +31,10 @@ import javax.inject.Inject;
 		 private static IObjectSerializer serializer;
 		 
 
-		 protected StoredDomainEvent() {
+		 protected StoredDomainEventMongoDb() {
 		    }
 
-		 protected StoredDomainEvent(String typeName, Date occurredOn, String eventBody) {
+		 protected StoredDomainEventMongoDb(String typeName, Date occurredOn, String eventBody) {
 		        Assert.notNull(occurredOn, "occurredOn is null!");
 		        Assert.notEmpty(typeName, "typeName is null or empty!");
 		        this.typeName = typeName;
@@ -52,12 +42,12 @@ import javax.inject.Inject;
 		        this.occurredOn = occurredOn;
 		    }
 
-		 private StoredDomainEvent(String typeName, Date occurredOn, String eventBody, String eventId) {
+		 private StoredDomainEventMongoDb(String typeName, Date occurredOn, String eventBody, String eventId) {
 		        this(typeName, occurredOn, eventBody);
 		        this.eventId = eventId;
 		    }
 		    
-		 public StoredDomainEvent(String entityId, String eventId, String typeName, Date occurredOn, String eventBody) {
+		 public StoredDomainEventMongoDb(String entityId, String eventId, String typeName, Date occurredOn, String eventBody) {
 			super();
 			this.entityId = entityId;
 			this.eventId = eventId;
@@ -119,14 +109,14 @@ import javax.inject.Inject;
 		
 
 		public void setSerializer(IObjectSerializer serializer) {
-			StoredDomainEvent.serializer = serializer;
+			StoredDomainEventMongoDb.serializer = serializer;
 		}
 
 
-    public static StoredDomainEvent fromDomainEvent(ADomainEvent event) {
+    public static StoredDomainEventMongoDb fromDomainEvent(DomainEvent event) {
         Assert.notNull(event);
         try {
-			return new StoredDomainEvent(event.getClass().getName(), event.getOccurredOn(),
+			return new StoredDomainEventMongoDb(event.getClass().getName(), event.getOccurredOn(),
 			        getSerializer().serialize(event), event.getId());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -137,7 +127,7 @@ import javax.inject.Inject;
     }
 
     @SuppressWarnings("unchecked")
-	public <T extends ADomainEvent> T toDomainEvent() {
+	public <T extends DomainEvent> T toDomainEvent() {
         Class<T> domainEventClass = null;
 
         try {
@@ -155,7 +145,7 @@ import javax.inject.Inject;
         boolean equalObjects = false;
 
         if (anObject != null && this.getClass() == anObject.getClass()) {
-        	StoredDomainEvent typedObject = (StoredDomainEvent) anObject;
+        	StoredDomainEventMongoDb typedObject = (StoredDomainEventMongoDb) anObject;
             equalObjects = this.eventId == typedObject.eventId;
         }
 

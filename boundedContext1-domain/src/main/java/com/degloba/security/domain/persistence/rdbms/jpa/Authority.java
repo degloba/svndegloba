@@ -5,23 +5,20 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.Date;
 
 
 /**
- * Privilege is the common base class of license Permission and roles Role. Authority can be granted to the participants Actor (common base class user and user group UserGroup User's)
+ * El privilegi és la classe base comuna de permisos i permisos de rol. 
+ * L’autoritat es pot concedir als participants Actor (usuari de la classe base comú i usuari del grup d’usuaris)
  */
 @Entity
 @Table(name = "security_authorities")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Authority extends BaseAggregateRoot {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private String name;

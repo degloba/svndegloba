@@ -3,7 +3,7 @@ package com.degloba.security.domain.persistence.rdbms.jpa;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.security.domain.exceptions.DuplicateUsernameException;
 import com.degloba.security.domain.exceptions.PasswordUnmatchException;
 

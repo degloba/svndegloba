@@ -1,4 +1,4 @@
-package com.degloba.domain.sharedkernel;
+package com.degloba.persistence.domain.sharedkernel;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

@@ -13,7 +13,6 @@ import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.S
 @Finder
 public interface IRentFinder {
 	
-
     List<Category> findCategories();
 
     Category findCategoryBySubcategory(Subcategory subcategory);

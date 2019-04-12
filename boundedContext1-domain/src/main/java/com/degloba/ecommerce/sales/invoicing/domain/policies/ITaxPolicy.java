@@ -3,9 +3,11 @@ package com.degloba.ecommerce.sales.invoicing.domain.policies;
 import com.degloba.domain.annotations.DomainPolicy;
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
+
 
 /**
+ * Política d'Impost
  * 
  * @author degloba
  *
@@ -14,7 +16,8 @@ import com.degloba.domain.sharedkernel.Money;
 public interface ITaxPolicy {	
 
 	/**
-	 * calculates tax per product type based on net value
+	 * calcula impostos per tipus de producte segons el valor net
+	 * 
 	 * @param productType
 	 * @param net
 	 * @return

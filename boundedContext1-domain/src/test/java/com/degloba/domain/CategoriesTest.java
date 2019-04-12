@@ -4,10 +4,10 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.degloba.domain.ioc.InstanceFactory;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
 import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2;

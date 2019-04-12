@@ -29,10 +29,6 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.annotations.Function;
 import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
-
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
@@ -40,12 +36,17 @@ import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
 import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.ClientData;
+import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+
 
 
 /**
- * Reservation is just a "wish list". System can not guarantee that user can buy desired products.</br>
- * Reservation generates Offer VO, that is calculated based on current prices and current avability.
+ * La reserva és només una "llista de desitjos". 
+ * El sistema no pot garantir que l'usuari pugui comprar els productes desitjats. </br>
+ * La reserva genera Oferta VO, que es calcula segons els preus actuals i la disponibilitat actual.
  * 
  * @author degloba
  *

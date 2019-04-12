@@ -1,13 +1,12 @@
 package com.degloba.organisation.application.services;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
-
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.Date;
 

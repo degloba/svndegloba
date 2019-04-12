@@ -11,13 +11,13 @@ import javax.persistence.Entity;
 import com.degloba.domain.annotations.ValueObject;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-
-import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 /**
- * Models purchased items - contains copied data in case on catalog proces and discount change 
+ * Els articles comprats contenen dades copiades en cas de procediment de catàleg i canvi de descompte
+ * 
  * @author degloba
  *
  */

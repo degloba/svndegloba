@@ -12,7 +12,6 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 
 
-
 /**
  * @author degloba
  *

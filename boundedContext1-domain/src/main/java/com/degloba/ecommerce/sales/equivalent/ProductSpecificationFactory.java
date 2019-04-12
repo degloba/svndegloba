@@ -6,7 +6,7 @@ import com.degloba.ecommerce.sales.equivalent.specification.SameCategory;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarName;
 import com.degloba.ecommerce.sales.equivalent.specification.SimilarPrice;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.domain.specification.DisjunctionSpecification;
 import com.degloba.domain.specification.Specification;
 

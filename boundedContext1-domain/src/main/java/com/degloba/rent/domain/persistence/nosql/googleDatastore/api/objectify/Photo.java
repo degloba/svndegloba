@@ -8,14 +8,12 @@ import com.googlecode.objectify.annotation.Parent;
 
 import java.io.Serializable;
 
-
+/**
+ * Entitat (Objectify) : Foto
+ */
 @Entity
 public class Photo implements Serializable {
   	
-	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

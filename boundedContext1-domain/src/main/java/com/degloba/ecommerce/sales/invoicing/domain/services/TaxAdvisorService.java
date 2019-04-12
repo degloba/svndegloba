@@ -5,7 +5,9 @@ import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.invoicing.domain.policies.DefaultTaxPolicy;
 import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
 
-
+/*
+ * Servei Assessor fiscal
+ */
 @DomainService
 public class TaxAdvisorService {
 

@@ -7,7 +7,7 @@
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>degloba-ioc-test</artifactId>
-    <name>IoC Test</name>
+    <name>(degloba-ioc-test) - testos IoC</name>
     <url>www.degloba.com</url>
        
     
@@ -18,20 +18,32 @@
             <scope>compile</scope>
         </dependency>
        
-         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+       <dependency>
+			<groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+		</dependency>
+		
+  
+		  <dependency>
+		  	<groupId>com.degloba</groupId>
+		  	<artifactId>degloba-ioc-spring</artifactId>
+		  	<version>4.4.3-SNAPSHOT</version>
+		  </dependency>
+		  <dependency>
+		  	<groupId>org.kie.modules</groupId>
+		  	<artifactId>org-apache-commons-lang3</artifactId>
+		  	<version>6.5.0.Final</version>
+		  	<classifier>tests</classifier>
+		  </dependency>
     </dependencies>
     
     <build>
-	    <plugins>
+	    <!-- <plugins>
 	    	<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
 	        </plugin>
-	    </plugins>
+	    </plugins> -->
     
     </build>
 </project>

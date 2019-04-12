@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.sales.equivalent.specification;
 
 
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.domain.specification.CompositeSpecification;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 

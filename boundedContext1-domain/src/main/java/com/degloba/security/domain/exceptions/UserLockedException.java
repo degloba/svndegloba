@@ -1,6 +1,7 @@
 package com.degloba.security.domain.exceptions;
 
 /**
+ * Excepcio usuari bloquejat
  */
 public class UserLockedException extends SecurityException {
     /**

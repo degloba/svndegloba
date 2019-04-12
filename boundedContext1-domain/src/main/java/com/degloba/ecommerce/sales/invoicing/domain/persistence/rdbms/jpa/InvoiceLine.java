@@ -14,11 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 /**

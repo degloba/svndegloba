@@ -6,11 +6,12 @@ import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 /**
+ * Client
+ * 
  * @author degloba
  *
  */
@@ -18,12 +19,11 @@ import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
 @AggregateRoot
 public class Customer extends BaseAggregateRoot{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-
+/*
+ * Tipus de client
+ */
 	public enum CustomerStatus{
 		STANDARD, VIP, PLATINUM
 	}

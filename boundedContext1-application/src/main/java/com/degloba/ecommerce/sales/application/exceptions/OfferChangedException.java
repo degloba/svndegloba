@@ -1,7 +1,8 @@
 package com.degloba.ecommerce.sales.application.exceptions;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
+import com.degloba.persistence.domain.AggregateId;
 
 @SuppressWarnings("serial")
 public class OfferChangedException extends RuntimeException {

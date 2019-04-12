@@ -11,21 +11,25 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.sharedkernel.Money;
+
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.ClientData;
+import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.domain.events.PaymentRolledBackEvent;
 import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
 
-
+//@AggregateRoot
 /**
+ * 
+ * Pagament
  * 
  * @author degloba
  *
  */
-//@AggregateRoot
 @Entity
 public class Payment extends BaseAggregateRoot implements Serializable {
 
@@ -47,6 +51,9 @@ public class Payment extends BaseAggregateRoot implements Serializable {
 	
 	private Payment(){}
 	
+	/*
+	 *  Pagament
+	 */
 	public Payment(AggregateId aggregateId, ClientData clientData, Money amount) {
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;

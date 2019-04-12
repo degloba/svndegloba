@@ -6,8 +6,12 @@ import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoic
 import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.RequestItem;
 import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
 import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem;
-import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
 
+/*
+ * Fàbrica de Peticions de Factura
+ * Per cada Compra
+ */
 @DomainFactory
 public class InvoiceRequestFactory {
 

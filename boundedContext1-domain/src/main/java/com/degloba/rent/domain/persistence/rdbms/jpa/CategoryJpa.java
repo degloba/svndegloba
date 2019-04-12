@@ -3,13 +3,19 @@ package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
-
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Entitat (JPA) : Categoria
+ * 
+ * @author pere
+ *
+ */
 @Entity
 public class CategoryJpa extends BaseAggregateRoot implements Serializable
 {

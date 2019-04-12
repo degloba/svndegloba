@@ -1,31 +1,26 @@
 package com.degloba.infrastructure.events.impl;
 
-// Reflection
 import java.lang.reflect.Method;
 
 import javax.inject.Inject;
 
-// Spring
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-// Event (degloba)
 import com.degloba.event.annotations.EventListener;
 import com.degloba.event.api.IEvent;
-import com.degloba.event.impl.SimpleEventPublisher;
+import com.degloba.event.api.IEventHandler;
+import com.degloba.event.impl.DomainEventPublisher;
 import com.degloba.event.impl.handlers.AsynchronousEventHandler;
-import com.degloba.event.impl.handlers.IEventHandler;
 import com.degloba.event.impl.handlers.SpringEventHandler;
 
-
-// Sagas
 import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
- * Registers spring beans methods as event handlers in spring event publisher
+ * Registra mètodes beans Spring com handlers d'events in spring event publisher
  * (if needed).
  */
 @Component
@@ -34,7 +29,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
     private BeanFactory beanFactory;
     
     @Inject
-    private SimpleEventPublisher<T> eventPublisher;
+    private DomainEventPublisher<T> eventPublisher;
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (!(bean instanceof SagaInstance)) {
@@ -69,6 +64,6 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
 
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
-        eventPublisher = beanFactory.getBean(SimpleEventPublisher.class);
+        eventPublisher = beanFactory.getBean(DomainEventPublisher.class);
     }
 }

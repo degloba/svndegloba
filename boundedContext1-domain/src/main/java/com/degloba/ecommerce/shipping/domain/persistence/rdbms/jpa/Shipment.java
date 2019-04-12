@@ -7,23 +7,23 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.shipping.domain.ShippingStatus;
 import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 
 
 /**
+ * Entitat : Enviament
+ * 
  * @author degloba
  */
 @Entity
 @AggregateRoot
 public class Shipment extends BaseAggregateRoot {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	

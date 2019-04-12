@@ -1,25 +1,26 @@
 package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
 
-
+/**
+ * Entitat (JPA) : Foto
+ * 
+ * @author pere
+ *
+ */
 @Entity
 public class PhotoJpa extends BaseAggregateRoot implements Serializable {
   	
-	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-
 	private String idGcs; 
   
 	

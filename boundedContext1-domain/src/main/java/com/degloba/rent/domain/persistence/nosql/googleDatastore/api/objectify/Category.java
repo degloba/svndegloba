@@ -9,10 +9,11 @@ import com.googlecode.objectify.annotation.Parent;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Entitat (Objectify) : Categoria 
+ */
 @Entity
-public class Category implements Serializable
-	 {
-
+public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

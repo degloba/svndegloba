@@ -13,15 +13,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A hotel where users may book stays.
+ * Un hotel on els usuaris poden reservar estades.
  */
 @XmlRootElement
 @Entity
 public class Hotel implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private Set<Booking> reservations = new HashSet<Booking>();

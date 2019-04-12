@@ -10,6 +10,9 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Parent;
 
+/**
+ * Entitat (Objectify) : Producte
+ */
 @Entity
 public class Product implements Serializable {
 	

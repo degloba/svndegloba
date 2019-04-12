@@ -4,8 +4,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document; 
 
 /** 
- * * A simple POJO representing a GCM Token (Android devices) 
- * **/ 
+ *
+ * Entitat/Document (MongoDB) : GCM Token (Android devices) 
+ * 
+ * @author pere
+ *
+ **/ 
 @Document public class GCMTokenRegister { 
 	 @Id private String GCMTokenRegisterId; 
 	 

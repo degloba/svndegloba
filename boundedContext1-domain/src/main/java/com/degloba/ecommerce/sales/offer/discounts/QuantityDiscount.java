@@ -1,22 +1,19 @@
 package com.degloba.ecommerce.sales.offer.discounts;
 
-
-
 import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
 import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
 
-public class QuantityDiscount implements DiscountPolicy{
+
+public class QuantityDiscount implements DiscountPolicy {
+ /*
+  * Ratio de Descompte
+  */
 	private double rebateRatio;
 	
 	private int mininalQuantity;
 	
-	/**
-	 * 
-	 * @param rebate value of the rebate in % 
-	 * @param mininalQuantity minimal quantity of the purchase that allows rebate
-	 */
 	public QuantityDiscount(double rebate, int mininalQuantity) {
 		rebateRatio = rebate / 100;
 		this.mininalQuantity = mininalQuantity;

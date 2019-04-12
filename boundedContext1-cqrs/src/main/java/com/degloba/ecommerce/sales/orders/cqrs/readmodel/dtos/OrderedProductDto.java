@@ -1,6 +1,7 @@
 package com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 // TODO more attrs
 public class OrderedProductDto {

@@ -5,6 +5,9 @@ import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.sales.offer.discounts.QuantityDiscount;
 import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
 
+/*
+ * Fàbrica de Descompte
+ */
 @DomainFactory
 public class DiscountFactory {
 

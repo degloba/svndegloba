@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 // CQRS
 import com.degloba.cqrs.command.Gate;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 // Ecommerce
@@ -24,6 +24,7 @@ import com.degloba.ecommerce.shipping.application.commands.DeliverShipmentComman
 import com.degloba.ecommerce.shipping.application.commands.SendShipmentCommand;
 import com.degloba.ecommerce.shipping.cqrs.readmodel.dtos.ShipmentDto;
 import com.degloba.ecommerce.shipping.cqrs.readmodel.finders.IShipmentFinder;
+import com.degloba.persistence.domain.AggregateId;
 
 
 @Controller

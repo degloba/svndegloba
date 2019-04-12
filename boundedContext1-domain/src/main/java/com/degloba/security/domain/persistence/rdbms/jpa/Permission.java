@@ -2,7 +2,7 @@ package com.degloba.security.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 
 import java.util.*;
 

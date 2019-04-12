@@ -7,7 +7,9 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Unindex;
 
-
+/**
+ * Entitat (Objectify) : Usuari
+ */
 @Entity
 public class User  {
  

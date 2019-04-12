@@ -7,6 +7,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Hotels
+ */
 @XmlRootElement    (name = "hotels")
 public class Hotels {
 	private List<Hotel> hotels ;

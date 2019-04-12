@@ -1,9 +1,8 @@
 package com.degloba.ecommerce.sales.application.services;
 
 import com.degloba.domain.annotations.InternalApplicationService;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-// Domain
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 @InternalApplicationService

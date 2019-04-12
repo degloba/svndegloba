@@ -21,24 +21,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
-import com.degloba.domain.event.DomainEventBusImpl;
 import com.degloba.domain.event.IDomainEventBus;
-import com.degloba.domain.event.StoredDomainEventRepository;
-import com.degloba.domain.ioc.InstanceFactory;
-import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
-import com.degloba.domain.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
 import com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
+import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
+import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 import com.google.common.eventbus.EventBus;
 
-// Entitats/Objectify
 
-
-
-//
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 

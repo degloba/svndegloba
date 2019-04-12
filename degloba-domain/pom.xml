@@ -7,9 +7,10 @@
         <version>4.4.3-SNAPSHOT</version>
         <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
+    
     <artifactId>degloba-domain</artifactId>
     <packaging>jar</packaging>
-    <name>API Interfaces and Base Classes Domain (degloba-domain)</name>
+    <name>(degloba-domain) - interfaces i classes de domini base</name>
     <description>
         Most important module that provides the core interfaces and base classes.
     </description>
@@ -17,60 +18,30 @@
     <dependencies>
        
        <!-- pels Events -->
-       <dependency>
+        <dependency>
 		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>		 
+		 	<artifactId>spring-data-mongodb</artifactId>
+		 	<version>2.1.2.RELEASE</version>		 
+		</dependency> 
+           
+		 <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
-             
-        <!-- JPA -->	
 		
-   
-		<!-- necessari per les entitats abstractes -->                  
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>			
-		</dependency>
-           
-           
-		<!-- ****************** -->                    	
-		<!-- Llibreries degloba -->
-		<!-- ****************** -->                        
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>		
-
- 		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${google.appengine.version}</version>
-		</dependency>  
-
-		
-		
-		<!-- ******************************************* -->                    	
-		<!-- Objectify (Interface Google datastore       -->
-		<!-- ******************************************* --> 
-		<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>			
-		</dependency>
-
-		
-		<!-- ************************************************ -->                    	
-		<!-- API Datastore (Interface nativa Google datastore -->
-		<!-- ************************************************ --> 
-
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-datastore</artifactId>
-			<version>0.4.0</version>
+			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-ioc-spring</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
 		</dependency>
     </dependencies>
 
@@ -149,7 +120,7 @@
             </plugin>
             
              <!-- DataNucleus Enhancer (versions 3.1.x)  --> 
-             <plugin>
+             <!-- <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
                 <version>${datanucleus.maven.plugin}</version>
@@ -193,7 +164,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>  
+            </plugin>   -->
            
         </plugins>
     </build>

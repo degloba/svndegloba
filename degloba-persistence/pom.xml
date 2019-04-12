@@ -9,16 +9,27 @@
     
     <artifactId>degloba-persistence</artifactId>
     <packaging>pom</packaging>
-    <name>Implementa el API de Persistencia</name>
-    <description>Interfaz de almacenamiento</description>
-
+    <name>(degloba-persistence) - pom</name>
+    <description>Interfìcie de magatzem</description>
+    <url>www.degloba.com</url>
+  
+  <properties>
+ 		
+  		
+  </properties>
+  
   
     <modules>
         
 		<module>../degloba-persistence-jpa</module>
+		<module>../degloba-persistence-nosql</module>
         <module>../degloba-persistence-test</module>
          
     </modules>
     
-    <url>www.degloba.com</url>
+   	<dependencies> 
+
+		  
+	</dependencies>
+	
 </project>

@@ -2,7 +2,8 @@ package com.degloba.ecommerce.sales.domain.events;
 
 import java.io.Serializable;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 // Event
 import com.degloba.event.annotations.Event;
 

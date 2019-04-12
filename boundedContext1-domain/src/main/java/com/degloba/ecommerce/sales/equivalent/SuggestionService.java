@@ -12,7 +12,7 @@ import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.
 import com.degloba.domain.specification.Specification;
 
 /**
- * Sample Decision Support feature: suggests equivalent of the product based on client's habits. 
+ * Funció de suport a la decisió de mostra: suggereix un equivalent del producte basat en els hàbits del client.
  * 
  * @author degloba
  *

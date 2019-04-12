@@ -3,7 +3,8 @@ package com.degloba.ecommerce.shipping.application.commands;
 import java.io.Serializable;
 
 import com.degloba.cqrs.command.annotations.Command;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.domain.AggregateId;
+
 
 
 @SuppressWarnings("serial")

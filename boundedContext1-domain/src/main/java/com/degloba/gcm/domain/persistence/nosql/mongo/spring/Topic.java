@@ -3,6 +3,12 @@ package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Entitat/Document (MongoDB) : Tema
+ * 
+ * @author pere
+ *
+ */
 @Document 
 public class Topic { 
 	 @Id private String topicId; 

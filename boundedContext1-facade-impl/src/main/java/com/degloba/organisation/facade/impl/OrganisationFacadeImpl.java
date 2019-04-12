@@ -8,13 +8,14 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+
 import com.degloba.organisation.application.services.IOrganisationService;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
 import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;
 import com.degloba.organisation.facade.PostDto;
 import com.degloba.organisation.facade.assembler.PostAssembler;
+import com.degloba.persistence.domain.AggregateId;
 
 
 /**

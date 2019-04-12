@@ -1,8 +1,8 @@
 package com.degloba.ecommerce.sales.application.events;
 
-import com.degloba.domain.event.ADomainEvent;
+import com.degloba.domain.event.DomainEvent;
 
-public abstract class PurchaseEvent extends ADomainEvent{
+public abstract class PurchaseEvent extends DomainEvent{
     /**
 	 * 
 	 */

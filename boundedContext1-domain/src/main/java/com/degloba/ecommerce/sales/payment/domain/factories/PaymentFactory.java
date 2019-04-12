@@ -3,10 +3,11 @@ package com.degloba.ecommerce.sales.payment.domain.factories;
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.domain.AggregateId;
 // Domain
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.ClientData;
+import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.ecommerce.sales.domain.events.ClientPaidEvent;
 import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 // Event

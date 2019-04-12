@@ -5,13 +5,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.Set;
 
 /**
- * Mandate, the mandate of the specified user or group of users, such as Joe Smith has a user permissions recruitment, but only in Guangzhou Branch recruitment, "Guangzhou Branch" is the mandate
+ * El mandat, el mandat de l’usuari especificat o el grup d’usuaris, com ara Joe Smith, 
+ * té un reclutament de permisos d’usuari, però només a Guangzhou Branch és el mandat de "Sucursal de Guangzhou".
  */
 @Entity
 @Table(name = "security_authority_scopes")

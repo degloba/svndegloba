@@ -6,14 +6,12 @@ import com.googlecode.objectify.annotation.Id;
 
 import java.io.Serializable;
 
-
+/**
+ * Entitat (Objectify) : Situacio
+ */
 @Entity
-public class Location implements Serializable
-	 {
+public class Location implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

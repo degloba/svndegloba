@@ -22,16 +22,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.sharedkernel.Money;
+
 import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
+import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.domain.ClientData;
+import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 /**
- * Models fact of purchase.
+ * Compra
  * 
  * @author degloba
  *

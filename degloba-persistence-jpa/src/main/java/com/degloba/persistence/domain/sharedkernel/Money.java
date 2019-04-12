@@ -1,4 +1,4 @@
-package com.degloba.domain.sharedkernel;
+package com.degloba.persistence.domain.sharedkernel;
 
 
 import java.io.Serializable;
@@ -8,10 +8,8 @@ import java.util.Currency;
 
 import javax.persistence.Embeddable;
 
-//import org.fest.util.Objects;
 
 import com.degloba.domain.annotations.ValueObject;
-
 
 
 /**

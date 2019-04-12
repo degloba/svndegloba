@@ -1,7 +1,7 @@
-package com.degloba.domain.sharedkernel.exceptions;
+package com.degloba.ioc.sharedkernel.exceptions;
 
 /**
- * IoC. This exception is thrown or subclass instance when accessing IoC container (Spring, Guice, etc.) exception occurs.
+ * IoC. Aquesta excepció es produeix per algun dels proveidors/contenidors IoC (Spring, Guice, etc.).
  */
 public class IocException extends RuntimeException {
 

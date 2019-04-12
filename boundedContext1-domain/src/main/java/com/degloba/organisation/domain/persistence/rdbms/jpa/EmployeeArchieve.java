@@ -10,9 +10,9 @@ import javax.persistence.OneToOne;
 
 import com.degloba.domain.annotations.AggregateRoot;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 @Entity

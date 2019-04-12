@@ -1,9 +1,9 @@
 package com.degloba.organisation.domain.persistence.rdbms.jpa;
 
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-
 import javax.persistence.*;
+
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.*;
 

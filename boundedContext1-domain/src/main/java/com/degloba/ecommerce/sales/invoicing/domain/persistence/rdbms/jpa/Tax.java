@@ -7,9 +7,11 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.domain.sharedkernel.Money;
+import com.degloba.persistence.domain.sharedkernel.Money;
+
 
 /**
+ * Impost
  * 
  * @author degloba
  *

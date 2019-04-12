@@ -2,7 +2,7 @@ package com.degloba.domain.repository;
 
 
 import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
-import com.degloba.domain.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.domain.persistence.rdbms.jpa.JpqlQuery;
 import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
 

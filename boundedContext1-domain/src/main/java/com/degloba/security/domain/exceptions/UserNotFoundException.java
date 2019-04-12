@@ -1,11 +1,10 @@
 package com.degloba.security.domain.exceptions;
 
 /**
+ * Excepcio Usuari no trobat
  */
 public class UserNotFoundException extends SecurityException {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public UserNotFoundException() {

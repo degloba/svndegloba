@@ -3,10 +3,10 @@ package com.degloba.rent.domain.persistence.rdbms.jpa;
 
 import javax.persistence.*;
 
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.domain.sharedkernel.exceptions.DomainOperationException;
 
 import java.io.Serializable;
 import java.util.*;

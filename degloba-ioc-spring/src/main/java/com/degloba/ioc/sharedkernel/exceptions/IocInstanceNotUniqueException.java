@@ -1,4 +1,4 @@
-package com.degloba.domain.sharedkernel.exceptions;
+package com.degloba.ioc.sharedkernel.exceptions;
 
 /**
  * Exception thrown when attempting to Get Bean instance IoC container does not exist.

@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
 
+/** 
+*
+* Repositori (MongoDB) : Temes
+* 
+* @author pere
+*
+**/ 
 @DomainRepository
 public interface ITopicRepository {
 

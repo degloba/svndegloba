@@ -9,13 +9,15 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Parent;
 
 
-
+/**
+ * Entitat (Objectify) : Subcategoria
+ * 
+ * @author pere
+ *
+ */
 @Entity
 public class Subcategory implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id

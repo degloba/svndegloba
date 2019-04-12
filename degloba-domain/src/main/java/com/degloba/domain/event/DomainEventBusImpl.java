@@ -20,7 +20,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
     private EventBus eventBus;
 
     @Inject
-    private IStoredDomainEventRepository storedDomainEventRepository;
+    private IStoredDomainEventMongoRepository storedDomainEventRepository;
 
     
     public DomainEventBusImpl() {
@@ -29,7 +29,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 	}
 
 
-	public DomainEventBusImpl(EventBus eventBus, IStoredDomainEventRepository storedDomainEventRepository) {
+	public DomainEventBusImpl(EventBus eventBus, IStoredDomainEventMongoRepository storedDomainEventRepository) {
         Assert.notNull(eventBus, "EventBus is null!");
         Assert.notNull(storedDomainEventRepository, "EventStore is null!");
         this.eventBus = eventBus;
@@ -38,15 +38,15 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
     
 	
 
-    public DomainEventBusImpl(IStoredDomainEventRepository storedDomainEventRepository) {
+    public DomainEventBusImpl(IStoredDomainEventMongoRepository storedDomainEventRepository) {
 		super();
 		this.storedDomainEventRepository = storedDomainEventRepository;
 	}
 
 
-	public void publishEvent(ADomainEvent event) {
+	public void publishEvent(DomainEvent event) {
         eventBus.post(event);
-        StoredDomainEvent storedDomainEvent = storedDomainEventRepository.append(event);
+        StoredDomainEventMongoDb storedDomainEvent = storedDomainEventRepository.append(event);
         
         storedDomainEventRepository.insert(storedDomainEvent);
     }
@@ -78,12 +78,12 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 	}
 
 
-	public IStoredDomainEventRepository getStoredDomainEventRepository() {
+	public IStoredDomainEventMongoRepository getStoredDomainEventRepository() {
 		return storedDomainEventRepository;
 	}
 
 
-	public void setStoredDomainEventRepository(IStoredDomainEventRepository storedDomainEventRepository) {
+	public void setStoredDomainEventRepository(IStoredDomainEventMongoRepository storedDomainEventRepository) {
 		this.storedDomainEventRepository = storedDomainEventRepository;
 	}
 
