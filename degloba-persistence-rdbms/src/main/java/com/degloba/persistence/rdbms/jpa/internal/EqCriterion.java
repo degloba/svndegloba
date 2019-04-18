@@ -1,0 +1,12 @@
+package com.degloba.persistence.rdbms.jpa.internal;
+
+/**
+ * On behalf of property equal to the specified value of the query
+ */
+public class EqCriterion extends ValueCompareCriterion {
+
+    public EqCriterion(String propName, Object value) {
+        super(propName, value);
+        setOperator(" = ");
+    }
+}
