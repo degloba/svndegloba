@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.degloba</groupId>
+  <artifactId>degloba-bigdata</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+   <properties>
+  		
+		<!-- https://github.com/objectify/objectify -->
+  		<google.appengine.objectify.version>6.0.3</google.appengine.objectify.version> 
+  		  		
+  		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
+    	<bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
+	    <failOnMissingWebXml>false</failOnMissingWebXml>
+	    
+	    <bigtable.version>1.4.0</bigtable.version>
+  </properties>
+  
+  <dependencies>
+  
+  		 
+	<dependency>
+      <groupId>com.google.cloud.bigtable</groupId>
+      <artifactId>bigtable-hbase-1.x</artifactId>
+      <version>1.10.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.google.cloud.bigtable</groupId>
+      <artifactId>bigtable-hbase-mapreduce</artifactId>
+      <version>${bigtable.version}</version>
+    </dependency>
+    
+  </dependencies>
+</project>
