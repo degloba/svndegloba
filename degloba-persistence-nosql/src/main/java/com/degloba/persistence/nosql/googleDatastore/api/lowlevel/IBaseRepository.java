@@ -1,12 +1,9 @@
 package com.degloba.persistence.nosql.googleDatastore.api.lowlevel;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
 
-// Google Datastore
 import com.google.cloud.datastore.Batch;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.Key;
@@ -14,8 +11,8 @@ import com.google.cloud.datastore.KeyFactory;
 
 import com.google.cloud.datastore.Transaction;
 
-/*
- * Repository d'entitats de domini utilitzant Google Datastore 
+/**
+ * Repositori d'entitats de domini utilitzant Google Datastore 
  */
 @DomainRepository
 public interface IBaseRepository {

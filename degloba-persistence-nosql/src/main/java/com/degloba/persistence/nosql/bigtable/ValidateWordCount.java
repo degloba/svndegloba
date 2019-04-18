@@ -16,6 +16,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
 
 /**
  * https://github.com/GoogleCloudPlatform/cloud-bigtable-examples/edit/master/java/dataproc-wordcount/src/main/java/com/example/bigtable/sample/ValidateWordCount.java
+ * Cloud Bigtable suporta les API de l'HBase 1.0 i posteriors.
  * 
  * @author pere
  *

@@ -21,7 +21,7 @@
   
     <modules>
         
-		<module>../degloba-persistence-jpa</module>
+		<module>../degloba-persistence-rdbms</module>
 		<module>../degloba-persistence-nosql</module>
         <module>../degloba-persistence-test</module>
          

@@ -24,6 +24,10 @@ import org.apache.hadoop.util.GenericOptionsParser;
 
 /**
  * Escriu els mateixos resultats de WordCount a una nova taula
+ * 
+ * Logica MapReduce
+ * 
+ * Agrupa per una key (alfanumerica) i el Reducer reb per cada key una llista de "valors"
  */
 public class WordCountHBase {
 
@@ -46,7 +50,9 @@ public class WordCountHBase {
     @Override
     public void map(Object key, Text value, Context context) throws IOException,
         InterruptedException {
+    	
       StringTokenizer itr = new StringTokenizer(value.toString());
+      
       ImmutableBytesWritable word = new ImmutableBytesWritable();
       while (itr.hasMoreTokens()) {
         word.set(Bytes.toBytes(itr.nextToken()));
@@ -55,22 +61,33 @@ public class WordCountHBase {
     }
   }
 
+  /**
+   * Reducer
+   * 
+   * @author pere
+   *
+   */
   public static class MyTableReducer extends
       TableReducer<ImmutableBytesWritable, IntWritable, ImmutableBytesWritable> {
 
     @Override
     public void reduce(ImmutableBytesWritable key, Iterable<IntWritable> values, Context context)
         throws IOException, InterruptedException {
+    	
+      // l�gica d'exemple sobre els valors agrupats per la clau
       int sum = sum(values);
-      Put put = new Put(key.get());
+      
+                
+      Put put = new Put(key.get());  // valor de la key
       put.addColumn(COLUMN_FAMILY, COUNT_COLUMN_NAME, Bytes.toBytes(sum));
       context.write(null, put);
     }
 
+    // l�gica d'exemple sobre els valors agrupats per la clau
     public int sum(Iterable<IntWritable> values) {
       int i = 0;
       for (IntWritable val : values) {
-        i += val.get();
+        i += val.get();   // valor de la llista
       }
       return i;
     }
@@ -87,6 +104,7 @@ public class WordCountHBase {
     Job job = Job.getInstance(conf, "word count");
 
     for (int i = 0; i < otherArgs.length - 1; ++i) {
+      // fitxer de'entrada en el m�n MapReduce
       FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
     }
 
@@ -98,6 +116,7 @@ public class WordCountHBase {
       LOG.error("Could not create the table.", e);
     }
 
+    // 
     job.setJarByClass(WordCountHBase.class);
     job.setMapperClass(TokenizerMapper.class);
     job.setMapOutputValueClass(IntWritable.class);

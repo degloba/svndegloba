@@ -13,7 +13,12 @@ import com.googlecode.objectify.impl.Keys;
 import com.googlecode.objectify.impl.TypeUtils;
 
 
-
+/**
+ * Repositori implementat amb Google Cloud DataStore/Objectify
+ * 
+ * @author pere
+ *
+ */
 public class BaseRepository implements IBaseRepository{
 
 	

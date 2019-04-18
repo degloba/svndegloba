@@ -7,6 +7,7 @@ import com.google.cloud.datastore.ProjectionEntity;
 import com.google.cloud.datastore.Query;
 import com.google.cloud.datastore.QueryResults;
 
+/** Consulta */
 public class DatastoreQuery {
 
 	private final Datastore datastore;
@@ -16,7 +17,7 @@ public class DatastoreQuery {
 	  }
 
 	  /**
-	   * Example of creating and running a GQL query.
+	   * Crea i executa una GQL query.
 	   */
 	  // [TARGET gqlQueryBuilder(String)]
 	  // [VARIABLE "my_kind"]
@@ -31,7 +32,7 @@ public class DatastoreQuery {
 	  }
 
 	  /**
-	   * Example of creating and running a typed GQL query.
+	   * Crea i executa una typed GQL query.
 	   */
 	  // [TARGET gqlQueryBuilder(ResultType, String)]
 	  // [VARIABLE "my_kind"]
@@ -46,7 +47,7 @@ public class DatastoreQuery {
 	  }
 
 	  /**
-	   * Example of creating and running an entity query.
+	   * Crea i executa una consulta d'entitats.
 	   */
 	  // [TARGET entityQueryBuilder()]
 	  // [VARIABLE "my_kind"]

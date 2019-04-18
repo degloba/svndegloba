@@ -6,6 +6,12 @@ import java.util.List;
 import com.degloba.domain.annotations.DomainRepository;
 import com.googlecode.objectify.Key;
 
+/**
+ * Interfície : Google Cloud DataStore/Objectify
+ * 
+ * @author pere
+ *
+ */
 @DomainRepository
 public interface IBaseRepository{
 

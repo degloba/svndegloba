@@ -23,8 +23,10 @@ import com.google.cloud.datastore.StructuredQuery.PropertyFilter;
 import com.google.common.collect.Lists;
 import com.google.cloud.datastore.Transaction;
 
-/*
- * https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples
+/**
+ * Classe : Repositori implementat amb Google Cloud DataStore/Natiu<br><br>
+ * 
+ * {@link https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples }
  */
 public class BaseRepository implements IBaseRepository{
 		
