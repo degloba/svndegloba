@@ -9,11 +9,7 @@
 		<!-- https://github.com/objectify/objectify -->
   		<google.appengine.objectify.version>6.0.3</google.appengine.objectify.version> 
   		  		
-  		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
-    	<bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
-	    <failOnMissingWebXml>false</failOnMissingWebXml>
-	    
-	    <bigtable.version>1.4.0</bigtable.version>
+
   </properties>
   
   <dependencies>
