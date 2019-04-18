@@ -1,7 +1,7 @@
 package com.degloba.ioc.sharedkernel.exceptions;
 
 /**
- * Exception thrown when attempting to Get Bean instance IoC container does not exist.
+ * Excepció llançada quan s'intenta recupera una instancia bean d'un contenidor IOC que no existeix.
  */
 public class IocInstanceNotFoundException extends IocException {
 
