@@ -19,17 +19,21 @@
   <dependencies>
   
   		 
-	<dependency>
-      <groupId>com.google.cloud.bigtable</groupId>
-      <artifactId>bigtable-hbase-1.x</artifactId>
-      <version>1.10.0</version>
-    </dependency>
-    
+
+   
+    <!-- [START PubSub] -->
     <dependency>
-      <groupId>com.google.cloud.bigtable</groupId>
-      <artifactId>bigtable-hbase-mapreduce</artifactId>
-      <version>${bigtable.version}</version>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-pubsub</artifactId>
+      <version>1.62.0</version>
     </dependency>
-    
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-datastore</artifactId>
+      <version>1.62.0</version>
+    </dependency>
+    <!-- [END dependencies] -->
+
+
   </dependencies>
 </project>
