@@ -1,4 +1,4 @@
-package com.degloba.pubSub;
+package com.degloba.bigdata.pubSub;
 
 /* Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -24,47 +24,60 @@ import com.google.common.util.concurrent.MoreExecutors;
 import com.google.protobuf.ByteString;
 import com.google.pubsub.v1.ProjectTopicName;
 import com.google.pubsub.v1.PubsubMessage;
+import com.google.pubsub.v1.Topic;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * A snippet for Google Cloud Pub/Sub showing how to create a Pub/Sub topic and asynchronously
- * publish messages to it.
+ * Per crear un {@link com.google.pubsub.v1.Topic} Pub/Sub i publicar missatges en ell de forma assíncrona.
  */
 public class CreateTopicAndPublishMessages {
 
-  public static void createTopic() throws Exception {
-    ProjectTopicName topic = ProjectTopicName.of("my-project-id", "my-topic-id");
+	/**
+	 * Crea un {@link Topic}
+	 * 
+	 * @param projecte
+	 * @param noutopic
+	 * @return
+	 * @throws Exception
+	 */
+  public static ProjectTopicName createTopic(String projecte, String noutopic) throws Exception {
+    ProjectTopicName topic = ProjectTopicName.of(projecte, noutopic);
     try (TopicAdminClient topicAdminClient = TopicAdminClient.create()) {
-      topicAdminClient.createTopic(topic);
+     topicAdminClient.createTopic(topic);
     }
+    return topic;
   }
 
-  public static void publishMessages() throws Exception {
+  /**
+   * Publica una llista de {@link String}S en un {@link Topic}
+   * 
+   * @param messages
+   * @throws Exception
+   */
+  public static void publishMessages(List<String> messages) throws Exception {
     // [START pubsub_publish]
     ProjectTopicName topicName = ProjectTopicName.of("my-project-id", "my-topic-id");
     Publisher publisher = null;
     List<ApiFuture<String>> messageIdFutures = new ArrayList<>();
 
     try {
-      // Create a publisher instance with default settings bound to the topic
+      // Crea una instància {@link Publisher} amb la configuració predeterminada lligada al {@link Topic}
       publisher = Publisher.newBuilder(topicName).build();
 
-      List<String> messages = Arrays.asList("first message", "second message");
-
-      // schedule publishing one message at a time : messages get automatically batched
+      // programa la publicació d'un missatge a la vegada: els missatges es recullen automàticament
       for (String message : messages) {
         ByteString data = ByteString.copyFromUtf8(message);
         PubsubMessage pubsubMessage = PubsubMessage.newBuilder().setData(data).build();
 
-        // Once published, returns a server-assigned message id (unique within the topic)
+        // Un cop publicat, retorna un identificador de missatge assignat pel servidor (únic dins del {@link Topic)
         ApiFuture<String> messageIdFuture = publisher.publish(pubsubMessage);
         messageIdFutures.add(messageIdFuture);
       }
     } finally {
-      // wait on any pending publish requests.
+      // espera les sol·licituds de publicació pendents.
       List<String> messageIds = ApiFutures.allAsList(messageIdFutures).get();
 
       for (String messageId : messageIds) {
@@ -72,7 +85,7 @@ public class CreateTopicAndPublishMessages {
       }
 
       if (publisher != null) {
-        // When finished with the publisher, shutdown to free up resources.
+        // Quan ja hem acabat amb el {@link Publisher}, alliberem recursos.
         publisher.shutdown();
         publisher.awaitTermination(1, TimeUnit.MINUTES);
       }
@@ -80,16 +93,23 @@ public class CreateTopicAndPublishMessages {
     // [END pubsub_publish]
   }
 
-  public static void publishMessagesWithErrorHandler() throws Exception {
+  /**
+   * Publica una llista de {@link String}S en un {@link Topic}
+   * Afegeix un Callback per capturar si la publicació ha acabat amb èxit o ha fallat
+   * 
+   * @param projecte
+   * @param topic
+   * @param messages
+   * @throws Exception
+   */
+  public static void publishMessagesWithErrorHandler(String projecte, String topic, List<String> messages) throws Exception {
     // [START pubsub_publish_error_handler]
-    ProjectTopicName topicName = ProjectTopicName.of("my-project-id", "my-topic-id");
+    ProjectTopicName topicName = ProjectTopicName.of(projecte, topic);
     Publisher publisher = null;
 
     try {
       // Create a publisher instance with default settings bound to the topic
       publisher = Publisher.newBuilder(topicName).build();
-
-      List<String> messages = Arrays.asList("first message", "second message");
 
       for (final String message : messages) {
         ByteString data = ByteString.copyFromUtf8(message);
@@ -133,7 +153,7 @@ public class CreateTopicAndPublishMessages {
   }
 
   public static void main(String... args) throws Exception {
-    createTopic();
-    publishMessages();
+    // createTopic();
+    // publishMessages();
   }
 }
