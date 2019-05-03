@@ -2,7 +2,7 @@ package com.degloba.security.spring.gae.users;
 
 /**
  *
- * Service used to maintain a list of users who are registered with the application.
+ * Servei que s’utilitza per mantenir una llista d’usuaris registrats a l’aplicació.
  *
  * @author Luke Taylor
  */

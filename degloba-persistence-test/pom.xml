@@ -38,8 +38,8 @@
 
 		<dependency>
         	<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-api-jpa</artifactId>            
-		</dependency>
+			<artifactId>datanucleus-api-jpa</artifactId>   
+			</dependency>
 			
         
         <!-- ******************* -->
@@ -58,12 +58,12 @@
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>1.9.71</version>
-		</dependency>
+			<artifactId>appengine-api-1.0-sdk</artifactId>	
+			<version>${google.appengine.version}</version>
+			</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-jpa</artifactId>
+			<artifactId>degloba-persistence-rdbms</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
     </dependencies>
