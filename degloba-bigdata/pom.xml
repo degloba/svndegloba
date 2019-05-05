@@ -1,6 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>degloba-parent</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
+    </parent>
+    
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.degloba</groupId>
   <artifactId>degloba-bigdata</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
@@ -8,16 +14,44 @@
   		
 		<!-- https://github.com/objectify/objectify -->
   		<google.appengine.objectify.version>6.0.3</google.appengine.objectify.version> 
-  		  		
+  		
+  		<apache_beam.version>2.11.0</apache_beam.version>
+  		
+  		<beam.version>2.8.0</beam.version>
+  		
+  		<bigtable.version>1.10.0</bigtable.version>
+  		<bigtable.table>Dataflow_test</bigtable.table>
+	    <inputFile></inputFile>
+	    <region>us-central1</region>
+	    <network>default</network>
+	    <subnetwork></subnetwork>
+	    <serviceAccount></serviceAccount>
+	    <usePublicIps>true</usePublicIps>
+	    <headers></headers>
+	    <bq.query>SELECT year, month, day, wikimedia_project, language, title, views FROM `bigquery-samples.wikipedia_benchmark.Wiki1M` limit 1000000</bq.query>
+	    <pubsubTopic>projects/${bigtable.projectID}/topics/shakes</pubsubTopic>
+	    <bigtable.hbase.version>${bigtable.version}</bigtable.hbase.version>
 
+
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  		  		
   </properties>
   
   <dependencies>
   
-  		 
+  		 <dependency>
+       <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-bigquery</artifactId>
+      <version>1.62.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-monitoring</artifactId>
+      <version>1.62.0</version>
+    </dependency> 
 
    
-    <!-- [START PubSub] -->
+   <!-- [START PubSub] -->
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-pubsub</artifactId>
@@ -27,9 +61,70 @@
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-datastore</artifactId>
       <version>1.62.0</version>
+    </dependency> 
+    
+
+<!-- Apache Beam -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-core</artifactId>
+      <version>${apache_beam.version}</version>
     </dependency>
-    <!-- [END dependencies] -->
+
+<!-- Adds a dependency on the Beam Google Cloud Platform IO module. -->
+   <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+      <version>${apache_beam.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.api.grpc</groupId>
+          <artifactId>grpc-google-common-protos</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency> 
+
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-runners-direct-java</artifactId>
+      <version>${apache_beam.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+      <version>${apache_beam.version}</version>
+    </dependency> 
+
+ <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-extensions-google-cloud-platform-core</artifactId>
+        <version>${beam.version}</version>
+    </dependency>
 
 
-  </dependencies>
+<!-- [START bigquerydatatransfer_java_dependencies] -->
+     <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-bigquerydatatransfer</artifactId>
+      <version>0.80.0-beta</version>
+    </dependency> 
+    <!-- [END bigquerydatatransfer_java_dependencies] -->
+    <dependency>
+    	<groupId>com.google.cloud.bigtable</groupId>
+    	<artifactId>bigtable-beam-import</artifactId>
+    	<version>1.10.0</version>
+    </dependency>
+  
+ 
+ <!-- [START bigtable_dataflow_connector_dep] -->
+    <dependency>
+        <groupId>com.google.cloud.bigtable</groupId>
+        <artifactId>bigtable-hbase-beam</artifactId>
+        <version>1.5.0</version>
+    </dependency>
+    <!-- [END bigtable_dataflow_connector_dep] -->
+    
+    </dependencies>
+  
 </project>

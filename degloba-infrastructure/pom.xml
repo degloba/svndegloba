@@ -5,12 +5,14 @@
         <groupId>com.degloba</groupId>
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
     
     <artifactId>degloba-infrastructure</artifactId>
     <packaging>jar</packaging>
     <name>(degloba-infrastructure) - infrastructura (google-cloud-storage, google-cloud-pubsub,..)</name>
     <description>Events + Spring data + Sagas</description>
+    <url>www.degloba.com</url>
   
   
   <properties>
@@ -45,13 +47,11 @@
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
-			<version>1.62.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
+			</dependency>
 <!-- 		<dependency>
 			<groupId>com.google.api.grpc</groupId>
 			<artifactId>proto-google-cloud-pubsub-v1</artifactId>
@@ -64,26 +64,14 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
     </dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-nosql</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
+
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-storage</artifactId>
 			<version>1.69.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.auth</groupId>
-			<artifactId>google-auth-library-credentials</artifactId>
-			<version>0.13.0</version>
-		</dependency>
+
 		<!-- <dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>gcloud-java</artifactId>
@@ -122,5 +110,5 @@
             </plugin> -->
         </plugins>
     </build>
-    <url>www.degloba.com</url>
+
 </project>

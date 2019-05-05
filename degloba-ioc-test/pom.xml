@@ -5,7 +5,9 @@
         <groupId>com.degloba</groupId>
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
+    
     <artifactId>degloba-ioc-test</artifactId>
     <name>(degloba-ioc-test) - testos IoC</name>
     <url>www.degloba.com</url>
@@ -27,8 +29,7 @@
 		  <dependency>
 		  	<groupId>com.degloba</groupId>
 		  	<artifactId>degloba-ioc-spring</artifactId>
-		  	<version>4.4.3-SNAPSHOT</version>
-		  </dependency>
+		  	</dependency>
 		  <dependency>
 		  	<groupId>org.kie.modules</groupId>
 		  	<artifactId>org-apache-commons-lang3</artifactId>

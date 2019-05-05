@@ -6,6 +6,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>casino-boundedContext1</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
     </parent>
     
     <artifactId>boundedContext1-application</artifactId>
@@ -14,9 +15,6 @@
     
     <dependencies>
    
-    	<!-- ****************** -->
-    	<!-- Llibreries degloba -->
-    	<!-- ****************** -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>boundedContext1-cqrs</artifactId>
@@ -38,16 +36,6 @@
         	<artifactId>datanucleus-api-jpa</artifactId>        
 		</dependency>	 -->	
 		
-				
-		<!-- ******************************************* -->                    	
-		<!-- Objectify (Interface natiu Google datastore -->
-		<!-- ******************************************* --> 
-		<!-- <dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>			
-		</dependency> -->
-
-
     </dependencies>
     
     <build>

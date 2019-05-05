@@ -6,6 +6,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>casino-boundedContext1</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
     </parent>
     
     <artifactId>boundedContext1-integration</artifactId>
@@ -19,11 +20,11 @@
     	<!-- ****************** -->
     	<!-- Llibreries degloba -->
     	<!-- ****************** -->
-         <dependency>
+<!--          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
             <version>${project.version}</version>
-        </dependency> 
+        </dependency>  -->
 				
 		<dependency>
             <groupId>${project.groupId}</groupId>
@@ -32,11 +33,11 @@
             <scope>runtime</scope>        
 		</dependency>
 		
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-integration</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 		
 		
 		
@@ -52,23 +53,12 @@
 		<!-- ******************* -->
 		<!--  Spring Integration -->
 		<!-- ******************* -->
-		
-		   <dependency>
-        	<groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-xml</artifactId>
-            <version>${spring.integration.version}</version>
-		</dependency> 
+		 
   <!--    	<dependency>
         	<groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-websocket </artifactId>
-            <version>${spring.integration.version}</version>
-		</dependency>  -->
-		<dependency>
-	    	<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-ws</artifactId>
-			<version>${spring.integration.version}</version>
-			<scope>compile</scope>
-    	</dependency>			
+            <version>${springframework.integration.version}</version>
+		</dependency>  -->			
 		
 		<!-- *********** -->
 		<!-- Spring Boot -->
@@ -93,11 +83,6 @@
     </dependency> -->
     
     
-        <dependency>
-        	<groupId>xml-apis</groupId>
-        	<artifactId>xml-apis</artifactId>
-        	<version>1.4.01</version>
-        </dependency>
 	   
 	
     </dependencies>

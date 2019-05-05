@@ -5,6 +5,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>casino-boundedContext1</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
     </parent>
     <artifactId>boundedContext1-facade</artifactId>
     <packaging>jar</packaging>

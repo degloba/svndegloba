@@ -5,24 +5,20 @@
         <groupId>com.degloba</groupId>
         <artifactId>degloba-parent</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../degloba-parent/pom.xml</relativePath>
     </parent>
+    
     <artifactId>degloba-ioc-spring</artifactId>
     <packaging>jar</packaging>
     <name>(degloba-ioc-spring) - IoC implementat amb Springframework</name>
-    <description>
-        Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.
-    </description>
+    <description>Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.</description>
 
     <properties>
-        <jdbc.url><![CDATA[jdbc:h2:${basedir}/target/${db.name}]]></jdbc.url>
+       
     </properties>
     
     <dependencies>
-    
-    	<!-- ****************** -->
-    	<!-- Llibreries degloba -->
-    	<!-- ****************** -->
-        
+       
         
         <!-- ****** -->
         <!-- Spring -->
@@ -56,15 +52,9 @@
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
-    	<!-- <dependency>
-    		<groupId>com.degloba</groupId>
-    		<artifactId>degloba-domain</artifactId>
-    		<version>4.4.3-SNAPSHOT</version>
-    	</dependency> -->
     	<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-context</artifactId>
-    		<version>5.1.5.RELEASE</version>
     	</dependency>
     	<dependency>
     		<groupId>javax.inject</groupId>

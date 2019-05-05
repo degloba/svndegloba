@@ -6,6 +6,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>casino-boundedContext1</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+		<relativePath>../casino-boundedContext1/pom.xml</relativePath>
     </parent>
     
     <artifactId>boundedContext1-infrastructure</artifactId>
@@ -15,31 +16,22 @@
     
     <dependencies>
   
-    
-    	<!-- ****************** -->
-    	<!-- Llibreries degloba -->
-    	<!-- ****************** -->
          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>boundedContext1-domain</artifactId>
-            <version>${project.version}</version>                    
+            <version>${project.version}</version> 
         </dependency> 
 				
 		<dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>degloba-persistence-jpa</artifactId>
+            <artifactId>degloba-persistence-rdbms</artifactId>
             <version>${project.version}</version>        
 		</dependency>
 			
-		<dependency>
-			<groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
-			<version>${project.version}</version>
 		</dependency>
     </dependencies>
     

@@ -5,6 +5,7 @@
         <groupId>com.degloba</groupId>
         <artifactId>casino-boundedContext1</artifactId>
         <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
     </parent>
     <artifactId>boundedContext1-domain</artifactId>
     <packaging>jar</packaging>
@@ -13,10 +14,6 @@
     <dependencies>
                 
         <!-- Compile/runtime dependencies -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
         
         
         <!-- ****************** -->
@@ -29,7 +26,7 @@
             <scope>test</scope> 
 		</dependency>
 		
-		<dependency>
+		<!-- <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-infrastructure</artifactId>
             <version>${project.version}</version>    
@@ -39,22 +36,13 @@
             		<groupId>org.datanucleus</groupId>
             	</exclusion>
             </exclusions>    
-		</dependency>
+		</dependency> -->
 
-<!--         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <scope>test</scope>
-        </dependency>   -->
        
        	<!-- ******* -->
         <!--  Spring -->
         <!-- ******* -->       
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-           <!--  <scope>test</scope> -->
-        </dependency>
+        
 		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -101,14 +89,6 @@
             <scope>test</scope>
 		</dependency>  
         
-       
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		
 	
 		 <dependency>
 			<groupId>mysql</groupId>
@@ -121,21 +101,9 @@
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>			
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>2.7.3</version>
-			<scope>test</scope>
-		</dependency>
 		 <dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-jpa</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
+			<artifactId>degloba-persistence-rdbms</artifactId>
 		</dependency> 
 		
 		
@@ -152,12 +120,10 @@
   		<dependency>
   			<groupId>com.google.appengine</groupId>
   			<artifactId>appengine-api-1.0-sdk</artifactId>
-  			<version>${google.appengine.version}</version>
   		</dependency>
   		<dependency>
   			<groupId>com.degloba</groupId>
   			<artifactId>degloba-persistence-nosql</artifactId>
-  			<version>0.0.1-SNAPSHOT</version>
   		</dependency>
     </dependencies>
    
@@ -203,7 +169,7 @@
     </build>
    
    <properties>
-   <google.appengine.version>1.9.71</google.appengine.version>
+   
    </properties>
     
 </project>
