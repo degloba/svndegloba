@@ -1,6 +1,6 @@
 package com.degloba.ioc.spring.webapp;
 
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.ioc.spring.factory.SpringInstanceProvider;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;

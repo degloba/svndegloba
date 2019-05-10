@@ -9,7 +9,9 @@ import org.slf4j.LoggerFactory;
 import java.lang.annotation.Annotation;
 
 /**
+ * @author degloba
  * 
+ * @category Proveidor d'instàncies (Spring o qualsevol framework que sigui capaç de subministrar instàncies)
  */
 public class InstanceProviderInstanceLocator implements IInstanceLocator {
 

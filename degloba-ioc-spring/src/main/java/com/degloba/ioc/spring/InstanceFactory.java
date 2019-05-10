@@ -40,13 +40,14 @@ public class InstanceFactory {
      */
     private static final Map<Object, Object> instances = new HashMap<Object, Object>();
 
-
-    // Exemples de proveïdors, representen el veritable contenidor IoC
     private static IInstanceProvider instanceProvider;
-       
-    
+           
     private static IInstanceLocatorFactory instanceLocatorFactory = ServiceLoader.load(IInstanceLocatorFactory.class).iterator().next();
 
+    /**
+     * Llista de cercadors d'instàncies.
+     * Poden ser de diferent tipus :  {@link InstanceProviderInstanceLocator}, {@link MapInstanceLocator}, {@link ServiceLoaderInstanceLocator}
+     */
     private static List<IInstanceLocator> instanceLocators = new ArrayList<IInstanceLocator>();
 
     static {

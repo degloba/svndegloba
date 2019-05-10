@@ -4,11 +4,26 @@ import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * @author degloba
+ * 
+ * @category Encapsula un {@link Map} d'instàncies java permetent recuperar una instància a partir  
+ * 
+ * <ul>
+ * <li>del seu Tipus</li>
+ * <li>del seu Nom</li>
+ * <li>d'una {@link Anotation}</li>
+ * </ul>
+ */
 public class MapInstanceLocator implements IInstanceLocator {
 
     private Map<Object, Object> instances = new HashMap<Object, Object>();
 
+    /**
+     * @category Encapsula un {@link Map} d'instàncies java
+     * 
+     * @param instances
+     */
     public MapInstanceLocator(Map<Object, Object> instances) {
         this.instances = instances;
     }

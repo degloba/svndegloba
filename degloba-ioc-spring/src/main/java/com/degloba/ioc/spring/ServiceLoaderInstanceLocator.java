@@ -13,7 +13,9 @@ import java.util.ServiceLoader;
 import java.util.Set;
 
 /**
+ * @author degloba
  * 
+ * @category Cercador que utilitza un proveidor IOC (Spring, Guice,..) per cercar beans
  */
 public class ServiceLoaderInstanceLocator implements IInstanceLocator {
 

@@ -4,8 +4,11 @@ package com.degloba.ioc.spring;
 import java.lang.annotation.Annotation;
 
 /**
- * Examples provider interface, and its implementation class to the adapter to find ways Bean delegate the task to the real IoC container, 
- * such as SpringIoC or Google Guice.
+ * @author degloba
+ * 
+ * @category Proveidor d'instàncies java.
+ * La classe que l'implementa es pot adaptar a per exemple un contenidor IoC real,com SpringIoC o Google Guice, o qualsevol altra
+ * framework que proveeixi instàncies.
  */
 public interface IInstanceProvider {
 
