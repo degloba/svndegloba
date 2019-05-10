@@ -1,7 +1,10 @@
 package com.degloba.ioc.sharedkernel.exceptions;
 
 /**
- * Exception thrown when attempting to Get Bean instance IoC container does not exist.
+ * @author degloba
+ * 
+ * @category Excepció llançada quan hi ha més d'una instància de bean de un tipus.Aquesta classe SI està vinculada a IOC (no necesariament Spring)
+ * 
  */
 public class IocInstanceNotUniqueException extends IocException {
 

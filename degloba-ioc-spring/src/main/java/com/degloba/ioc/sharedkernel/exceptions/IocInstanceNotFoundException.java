@@ -1,7 +1,9 @@
 package com.degloba.ioc.sharedkernel.exceptions;
 
 /**
- * Excepció llançada quan s'intenta recupera una instancia bean d'un contenidor IOC que no existeix.
+ * @author degloba
+ * 
+ * @category Excepció llançada quan s'intenta recuperar una instancia bean d'un contenidor IOC que no existeix.
  */
 public class IocInstanceNotFoundException extends IocException {
 
