@@ -8,11 +8,15 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.degloba.cqrs.command.annotations.Command;
 
 /**
- * Manages command execution history based on {@link Command} annotation attributes<br>
- * Commands that are annotated as unique=true are stored in this history.<br>
- * History checks if the same command (equals) is called again.<br>
- * <br>
- * Each command class has it's own entries in history - history length can be parameterized via constructor parameter. 
+ * Gestiona l’historial d’execució de {@link Command} basant-se en els atributs d’anotacions (java.lang.annotation)<br>
+ * Les ordres "anotades" com unique = true s’emmagatzemen en aquest historial
+ * <ul>
+ * <li> La història comprova si la mateixa {@link Command} es cridada una altra vegada. <br>
+ * </li>
+ * <li>
+ * Cada tipus (classe) de {@link Command} té les seves pròpies entrades en l’historial: la longitud del històric es pot parametritzar a través del paràmetre del constructor.
+ * </li>
+ * </ul>
  * 
  * @author degloba
  * 
@@ -32,8 +36,8 @@ class GateHistory {
 	private static final int DEFAULT_MAX_HISTORY_CAPACITY = 3;
 
 	/**
-	 * History model. Each command class has map of executions (command instance
-	 * and time)
+	 * Model de l'històric. Cada tipus (classe) de {@link Command} té un {@link Map} d'execucions (instància de la {@link Command}
+	 * i data)
 	 */
 	@SuppressWarnings("rawtypes")
 	private Map<Class, CommandExecutionsMap> history = new ConcurrentHashMap<Class, CommandExecutionsMap>();
@@ -51,8 +55,8 @@ class GateHistory {
 	/**
 	 * 
 	 * @param command
-	 * @return true if command is not a repetition, false if command is
-	 *         repetition and should not be executed now
+	 * @return true si la {@link Command} no és una repetició, false si {@link Command} és una
+	 *         repetició i no s’hauria d’executar ara
 	 */
 	public boolean register(Object command) {
 		if (!isUnique(command))
@@ -81,15 +85,13 @@ class GateHistory {
 		if (!command.getClass().isAnnotationPresent(Command.class))
 			return false;
 
-		Command commandAnnotation = command.getClass().getAnnotation(
-				Command.class);
+		Command commandAnnotation = command.getClass().getAnnotation(Command.class);
 
 		return commandAnnotation.unique();
 	}
 
 	private Long getUniqueStorageTimeout(Object command) {
-		Command commandAnnotation = command.getClass().getAnnotation(
-				Command.class);
+		Command commandAnnotation = command.getClass().getAnnotation(Command.class);
 		return commandAnnotation.uniqueStorageTimeout();
 	}
 

@@ -10,7 +10,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * WorkAround : en Java no s'admet carpetes web amb "."
+ * @author degloba
+ * 
+ * @category WorkAround : en Java no s'admet carpetes web amb "."
  * 
  * Filter que mapeja les peticions /.well-known amb /well-known
  * Mirar : https://cultiv.nl/blog/lets-encrypt-on-windows/

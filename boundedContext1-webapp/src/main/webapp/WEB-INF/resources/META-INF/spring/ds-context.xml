@@ -106,7 +106,7 @@
 	<!-- ************ -->
 
 	<bean id="repository"
-		class="com.degloba.domain.persistence.rdbms.jpa.EntityRepository" />
+		class="com.degloba.persistence.rdbms.jpa.EntityRepository" />
 
 	<bean id="organisationRepository"
 		class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />

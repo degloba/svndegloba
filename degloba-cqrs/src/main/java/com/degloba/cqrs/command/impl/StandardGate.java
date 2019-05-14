@@ -9,7 +9,21 @@ import org.springframework.stereotype.Component;
 import com.degloba.cqrs.command.Gate;
 import com.degloba.cqrs.command.annotations.Command;
 
-
+/**
+ * 
+ * @author degloba
+ * 
+ * @category Runtime del CQRS. Té definit :
+ * <ul>
+ * <li>
+ * un històric de {@link Command} executades
+ * </li>
+ * <li>
+ * el Runtime CQRS propiament dit
+ * </li>
+ * </ul>
+ *
+ */
 @Component
 public class StandardGate implements Gate {
 	
@@ -28,7 +42,7 @@ public class StandardGate implements Gate {
 		}
 			
 		if (isAsynchronous(command)){
-			//TODO add to the queue. Queue should send this command to the RunEnvironment
+			//TODO afegir a la cua. La cua ha d’enviar aquesta {@link Command} al RunEnvironment
 			return null;
 		}
 		
@@ -37,10 +51,14 @@ public class StandardGate implements Gate {
 	}
 
 	/**
+	 * @category Retorna si el {@link Command} es assícron o no
+	 * En el cas assíncron hauríem de posar el {@link Command} en una cua 
+	 * 
 	 * @param command
 	 * @return
 	 */
 	private boolean isAsynchronous(Object command) {
+		// comprovem que el {@link Object} es un {@link Commnad}
 		if (! command.getClass().isAnnotationPresent(Command.class))
 			return false;
 		

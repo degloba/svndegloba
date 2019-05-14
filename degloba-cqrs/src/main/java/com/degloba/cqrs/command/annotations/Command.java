@@ -6,28 +6,34 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
+/**
+ * @author degloba
+ *
+ * @category {@link Annotation}
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Command {
 	/**
-	 * Suggestion for a Server that this command may be run in asynchronous way.
+	 * defineix si aquesta comanda es pot executar de manera asíncrona.
 	 * <br>
-	 * If true than {@link CommandHandler} must return void - otherwise Serwer will throw an exception 
+	 * Si true llavors {@link ICommandHandler} ha de retornar void - en qualsevol altra cas llançarà una excepció 
 	 * @return
 	 */
     boolean asynchronous() default false;
 
     /**
-     * Suggestion for a Server that this command should checked if the same command is sent again.<br>
+     * defineix si aquesta comanda hauria de ser testejada per evitar que la mateixa comanda sigui enviada un altra vegada.<br>
      * If true than command class must implement equals and hashCode
      * @return
      */
     boolean unique() default false;
 
     /**
-     * If unique is true than this property may specify maximum timeout in miliseconds before same command can be executed
+     * Si unique es true llavors aquesta propietat pot especificar el temps d'espera en milisegonds abans que 
+     * la mateixa comanda pugui ser executada
+     * 
      * @return
      */
     long uniqueStorageTimeout() default 0L;

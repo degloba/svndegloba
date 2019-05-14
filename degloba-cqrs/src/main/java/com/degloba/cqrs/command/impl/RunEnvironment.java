@@ -10,11 +10,18 @@ import com.degloba.cqrs.command.handler.ICommandHandler;
 
 /**
  * @author degloba
+ * 
+ * @category {@link Component} Spring que va executant {@link Command}
+ * 
  * @param <K>
  */
 @Component
 public class RunEnvironment {
 
+	/**
+	 * @category Interficie : Proveidor de {@link ICommandHandler} a partir d'un {@link Command}
+	 * 
+	 */
 	public interface IHandlersProvider{
 		ICommandHandler<Object,Object> getHandler(Object command);
 	}

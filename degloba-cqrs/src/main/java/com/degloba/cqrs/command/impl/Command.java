@@ -1,6 +1,11 @@
 package com.degloba.cqrs.command.impl;
 
-
+/**
+ * @author degloba
+ * 
+ * @category
+ *
+ */
 public interface Command {
 	/**
 	 * Suggestion for a Server that this command may be run in asynchronous way.

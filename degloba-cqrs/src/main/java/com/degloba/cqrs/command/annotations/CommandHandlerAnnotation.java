@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author degloba
+ * 
+ * @category Anotació que defineix un {@link Component} Spring
  */
 @Component
 @Transactional

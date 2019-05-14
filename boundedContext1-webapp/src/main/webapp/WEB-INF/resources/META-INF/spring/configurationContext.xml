@@ -50,10 +50,10 @@
 	<!-- **************** -->
 	<!-- EVENT PUBLISHER -->
 	<!-- **************** -->
-	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.SimpleEventPublisher" 
+	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.DomainEventPublisher" 
 		/> -->
-	<bean id="simpleEventPublisher"
-		class="com.degloba.event.impl.SimpleEventPublisher" />
+	<bean id="domainEventPublisher"
+		class="com.degloba.event.impl.DomainEventPublisher" />
 	<bean
 		class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
 
@@ -140,7 +140,7 @@
 	</bean>
 
 	<bean id="userRegistry"
-		class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" />
+		class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" /> 
 
 
 	<!-- ****************** -->
@@ -161,8 +161,8 @@
 		class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
 
 
-	<bean id="com.degloba.utils.IObjectSerializer"
-		class="com.degloba.utils.serializer.ObjectSerializer" />
+<!-- 	<bean id="com.degloba.utils.IObjectSerializer"
+		class="com.degloba.utils.serializer.ObjectSerializer" /> -->
 
 
 </beans>

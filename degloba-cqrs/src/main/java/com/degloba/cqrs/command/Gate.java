@@ -1,11 +1,11 @@
 package com.degloba.cqrs.command;
 
 /**
- * Main access point to the Application.<br>
- * It handles:
+ * Punt d’accés principal a CQRS (Command Query Responsability Segregation)<br> 
+ * Gestiona:
  * <ul>
- * <li>filtering command duplicates
- * <li>command queues for asynchronous commands 
+ * <li>filtratge de {@link Command} duplicades
+ * <li>encua {@link Command}s pel cas de les que son asíncrones
  * </ul>
  * 
  * @author degloba

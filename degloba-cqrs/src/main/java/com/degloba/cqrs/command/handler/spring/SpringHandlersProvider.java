@@ -20,6 +20,12 @@ import org.springframework.stereotype.Component;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.cqrs.command.impl.RunEnvironment.IHandlersProvider;
 
+/**
+ * 
+ * @author degloba
+ *
+ * @category {@link Component} Spring que encapsula un {@link Map} de handlers i retorna un handler a partir del {@link Command} 
+ */
 @Component
 public class SpringHandlersProvider implements IHandlersProvider, ApplicationListener<ContextRefreshedEvent> {
 
