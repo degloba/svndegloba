@@ -7,7 +7,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
-import { Food } from '../data-model';
+import { Food } from '../model/data-model';
 import { MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';

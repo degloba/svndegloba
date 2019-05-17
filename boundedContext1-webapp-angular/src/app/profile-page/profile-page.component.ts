@@ -1,7 +1,7 @@
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
 import { EventService } from '../providers/event.service';
-import { Goals, UNITS, COUNTRIES, Units, User } from './../data-model';
+import { Goals, UNITS, COUNTRIES, Units, User } from './../model/data-model';
 import { AuthService } from '../shared/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';

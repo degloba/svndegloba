@@ -1,4 +1,4 @@
-import { DietDays, User } from './../data-model';
+import { DietDays, User } from './../model/data-model';
 import { AuthService } from '../shared/services/auth.service';
 import { AfterViewInit, Component, OnInit, OnChanges } from '@angular/core';
 

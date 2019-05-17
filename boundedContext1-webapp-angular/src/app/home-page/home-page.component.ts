@@ -9,7 +9,7 @@ import {
   Meal,
   Units,
   User
-} from './../data-model';
+} from './../model/data-model';
 import { EventService } from '../providers/event.service';
 import { AngularFireList } from 'angularfire2/database';
 import { AuthService } from '../shared/services/auth.service';

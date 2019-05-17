@@ -1,9 +1,9 @@
-import { Units } from './../data-model';
+import { Units } from './../model/data-model';
 import { elementAt } from 'rxjs/operator/elementAt';
 import { EventService } from './../providers/event.service';
 import * as events from 'events';
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import { COUNTRIES, Food, Macros, UNITS, User, UserData } from '../data-model';
+import { COUNTRIES, Food, Macros, UNITS, User, UserData } from '../model/data-model';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
