@@ -4,26 +4,27 @@ import java.io.Serializable;
 
 
 /**
- * Entity interface areas. All Entity class must implement this interface either directly or indirectly. It is mainly from the tag role, in order to unify the processing system Entity like.
+ * Totes les classes d'entitat han d'implementar aquesta interfície sigui directa o indirectament.</br>
+ * It is mainly from the tag role, in order to unify the processing system Entity like.
  */
 public interface IEntity extends Serializable {
 
 	/**
-	 * Obtain ID entity. Each instance of the Entity class must have a unique Id to identify themselves.
-	 * EntityId Must be serialized.
-	 * @return Id Entity instance.
+	 * Obté l'ID de l'entitat. Cada instància de la classe Entity ha de tenir un identificador únic.
+	 * EntityId Ha de ser {@link Serializable}.
+	 * @return Id Instància de l'entitat.
 	 */
 	Serializable getId();
 	
 	/**
-	 * Are already exists in the database
+	 * Si ja existeix a la base de dades
 	 * @return Otherwise, it returns false if the Entity to exist in the database, returns true,
 	 */
 	boolean existed();
 	
 	/**
-	 * Are not exist in the database
-     * @return Otherwise, it returns true if the Entity to exist in the database, it returns false,
+	 * Si no existeix a la base de dades
+     * @return Otherwise, it returns {@code true} if the Entity to exist in the database, it returns false,
 	 */
 	boolean notExisted();
 }
