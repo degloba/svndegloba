@@ -1,9 +1,8 @@
 package com.degloba.event.bus;
 
 import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventBus;
 import com.degloba.event.api.IEventListener;
-import com.degloba.event.api.IEventStore;
+import com.degloba.event.persistence.IEventStore;
 import com.degloba.utils.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,7 @@ import java.util.List;
 
 
 /**
- * Classe : Bus d'Events de tipus {@link IEvent} 
+ * @category Bus d'events de tipus {@link IEvent}.</br> 
  * Conté un {@link IEventStore} i una llista de {@link IEventListener}S
  */
 public final class EventBus<T extends IEvent> implements IEventBus<T> {
@@ -24,6 +23,9 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
 
     private IEventStore eventStore;
 
+    /**
+     * Llista de {@link IEventListener}
+     */
     private List<IEventListener<T>> listeners = new ArrayList<IEventListener<T>>();
 
     public EventBus(IEventStore eventStore) {
@@ -41,6 +43,9 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
         return listeners;
     }
 
+    /**
+     * Registra afegint als ja registrats una llista de {@link IEventListener}
+     */
     @Override
     public void register(IEventListener<T> listeners) {
         this.listeners.addAll(Arrays.asList(listeners));

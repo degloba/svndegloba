@@ -6,7 +6,9 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Classe : Event abstracte 
+ * @author degloba
+ * 
+ * @category Event abstracte que implementa {@link IEvent}
  */
 public abstract class AbstractEvent implements IEvent {
 

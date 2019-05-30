@@ -1,7 +1,12 @@
-package com.degloba.event.api;
+package com.degloba.event.bus;
+
+import com.degloba.event.api.IEvent;
+import com.degloba.event.api.IEventListener;
 
 /**
- * Interficie : Bus d'Events de tipus {@link IEvent}
+ * @author degloba
+ * 
+ * @category Interficie : Bus d'events de tipus {@link IEvent}
  */
 public interface IEventBus<T extends IEvent> {
 

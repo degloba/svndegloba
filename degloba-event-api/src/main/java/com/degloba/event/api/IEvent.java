@@ -3,7 +3,9 @@ package com.degloba.event.api;
 import java.util.Date;
 
 /**
- * Interfície : Event
+ * @author degloba
+ * 
+ * @category Interfície : Event
  */
 public interface IEvent {
 	 
