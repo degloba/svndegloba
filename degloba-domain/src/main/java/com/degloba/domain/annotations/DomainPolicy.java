@@ -9,8 +9,9 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
- * 
  * @author degloba
+ * 
+ * @category Política de domini
  *
  */
 @Component
