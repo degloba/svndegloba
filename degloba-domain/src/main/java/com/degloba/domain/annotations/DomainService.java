@@ -1,12 +1,6 @@
 package com.degloba.domain.annotations;
 
-/**
- * 
- * @author degloba
- * 
- * @category Defineix la Interficie del Servei de Domini
- * No lligat al model de Domini (cap entitat)
- */
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,6 +11,11 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 //import org.springframework.stereotype.Service;
 
+/**
+ * @author degloba
+ * 
+ * @category Defineix un servei de domini
+ */
 @Component
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
