@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 //import org.springframework.stereotype.Service;
 
 /**
- * 
  * @author degloba
+ * 
+ * @category Fàbrica d'entitats de domini
  * 
  */
 @Component
