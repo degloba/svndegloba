@@ -16,23 +16,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The internal implementation of objects created by Spring IoC ApplicationContext.
+ * @category Implementació de {@link IInstanceProvider} utilitzant {@link ApplicationContext} del IOC de Spring.
  */
 public class SpringInstanceProvider implements IInstanceProvider {
 
     private ApplicationContext applicationContext;
 
     /**
-     * In the path of the configuration file to initialize a number of spring spring instance of the provider.
      *
-     * @param locations spring Set the configuration file path. spring from the classpath start getting these resource files.
+     * @param locations Spring estableix el path del fitxer de configuració.S'inicia a partir del classpath per començar 
+     * a obtenir aquests fitxers de recursos.
      */
     public SpringInstanceProvider(String... locations) {
         applicationContext = new ClassPathXmlApplicationContext(locations);
     }
 
     /**
-     * SpringProvider generated from ApplicationContext
+     * SpringProvider generat des de {@link ApplicationContext}
      *
      * @param applicationContext
      */
@@ -41,7 +41,7 @@ public class SpringInstanceProvider implements IInstanceProvider {
     }
 
     /**
-     * Initializes spring according to a number of examples provided by the Spring configuration file.
+     * Inicialitza Spring segons un nombre de classe anotades proporcionades pel fitxer de configuració de Spring.
      *
      * @param annotatedClasses
      */
@@ -50,9 +50,9 @@ public class SpringInstanceProvider implements IInstanceProvider {
     }
 
     /**
-     * Get in accordance with the type of the object instance. 
-     * Returns an instance of the class object belongs is T or its implementation class or sub-class. 
-     * If you can not find an instance of the type of returns null.
+     * Recupera una instància a partir del tipus de classe. 
+     * Retorna una instància de l'objecte de la classe de tipus T. 
+     * Si no troba una instància del tipus retorna null.
      * If you have deployed multiple types of Bean T NoUniqueBeanDefinitionException exception is thrown.
      *
      * @param <T>      Type Parameter
@@ -114,7 +114,7 @@ public class SpringInstanceProvider implements IInstanceProvider {
 
 
     /**
-     * Get object instance based on the type and Annotation. If you can not find an instance of the type of returns null.
+     * Recupera una instància basada en el tipus i {@link Annotation}.Si no troba una instància del tipus retorna null.
      * If there are two classes MyService1 and MyService2 implements the interface Service, which marked MyService2
      * TheAnnotation, so getInstance (Service.class, TheAnnotation.class) will return
      * Examples MyService2 of.
