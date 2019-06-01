@@ -7,8 +7,8 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**
- * Query base class for NamedQuery, JpqlQuery and SqlQuery provide common behavior.
- * @param <E> Types of queries
+ * @category Classe base per {@link NamedQuery}, {@link JpqlQuery} i {@link SqlQuery} i que porporciona un comportament comú
+ * @param <E> Tipus de consulta
  */
 public abstract class BaseQuery<E extends BaseQuery<?>> {
     private final IEntityRepository repository;

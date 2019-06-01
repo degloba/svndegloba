@@ -15,15 +15,15 @@ public class PositionalParameters implements QueryParameters {
     private Object[] params;
     
     /**
-     * Create an empty set of query parameters
-     * @return An array-based query parameter set
+     * Crea un conjunt buit de paràmetres de consulta
+     * @return Un conjunt de paràmetres de consulta basat en un array
      */
     public static PositionalParameters create() {
         return new PositionalParameters(new Object[]{});
     }
     
     /**
-     * Create a query parameter set, filled with an array of parameter values
+     * Crea un conjunt de paràmetres de consulta, omplert amb un array de valors de paràmetres
      * @param params Parameter value array
      * @return Senate based on parameters set array
      */
@@ -32,9 +32,9 @@ public class PositionalParameters implements QueryParameters {
     }
     
     /**
-     * Create a set of query parameters, filling parameter values list
-     * @param params List of parameter values
-     * @return An array based on the parameters set
+     * Crea un conjunt de paràmetres de consulta, omplert d'una llista de valors de paràmetres
+     * @param params Llista del valors de paràmetres
+     * @return Un array basat en tel conjunt de paràmetres
      */
     public static PositionalParameters create(List<Object> params) {
         return new PositionalParameters(params.toArray());
@@ -49,8 +49,8 @@ public class PositionalParameters implements QueryParameters {
     }
 
     /**
-     * Get the parameter value array
-     * @return Parameter array
+     * Recupera un array de valors de paràmetres
+     * @return Array de paràmetres
      */
     public Object[] getParams() {
         return Arrays.copyOf(params, params.length);
@@ -58,7 +58,7 @@ public class PositionalParameters implements QueryParameters {
 
     /**
      * Get the object hash
-     * @return The hash value of the object
+     * @return El valor hash del objecte
      */
     @Override
     public int hashCode() {
@@ -66,7 +66,7 @@ public class PositionalParameters implements QueryParameters {
     }
 
     /**
-     * Analyzing parameters set object Equivalence. 
+     * Analitza la igualtat  parameters set object Equivalence. 
      * If and only if the argument is an array of two PositionalParameters contain the same, the two objects is equivalent.
      * @param other Another object
      * @return If the current object is equivalent to the other returns true, otherwise it returns false.

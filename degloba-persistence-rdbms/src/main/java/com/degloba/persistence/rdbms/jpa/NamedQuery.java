@@ -6,8 +6,11 @@ import com.degloba.utils.Assert;
 
 import java.util.List;
 
+import javax.persistence.NamedNativeQuery;
+
 /**
- * Based on the query object named query. One of the four inquiries form DDDLib support.
+ * Basat en @NamedNativeQuery.</br> 
+ * One of the four inquiries form DDDLib support.
  * You can specify the location query parameters or named query parameters can also be taken for a subset of the query results.
  */
 public class NamedQuery extends BaseQuery<NamedQuery> {
@@ -15,9 +18,9 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     private final String queryName;
 
     /**
-     * Create a named query using the name of warehousing and named queries
-     * @param repository Warehousing
-     * @param queryName Naming names query
+     * Crea un {@link NamedQuery} utilitzant el nom d'un repositori i el nom de @NamedNativeQuery
+     * @param repository Repositori
+     * @param queryName nom de @NamedNativeQuery
      */
     public NamedQuery(IEntityRepository repository, String queryName) {
         super(repository);
@@ -26,7 +29,7 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     }
 
     /**
-     * Get the name of the named query
+     * Retorna el nom de @NamedNativeQuery
      * @return Named Query Name
      */
     public String getQueryName() {
@@ -44,7 +47,7 @@ public class NamedQuery extends BaseQuery<NamedQuery> {
     }
 
     /**
-     * Returns singleQuery results.
+     * Retorna singleQuery results.
      * @param <T> Type of query results
      * @return Query results.
      */

@@ -1,7 +1,8 @@
 package com.degloba.persistence.rdbms.jpa;
 
-import com.degloba.ioc.InstanceFactory;
+
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
+import com.degloba.ioc.spring.InstanceFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

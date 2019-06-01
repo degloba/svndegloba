@@ -9,7 +9,7 @@ import com.degloba.persistence.rdbms.jpa.QueryCriterion;
 
 
 /**
- * Interfície Repositori d'entitats implementat amb RDBMS/JPA 
+ * @category Repositori d'entitats rdbms implementat amb JPA 
  */
 public interface IEntityRepository {   
 	
@@ -83,7 +83,7 @@ public interface IEntityRepository {
     <T extends BaseAggregateRoot> T getByBusinessKeys(Class<T> clazz, NamedParameters keyValues);
 
     /**
-     * Cerca totes les entitats del tipus especificat
+     * Cerca totes les entitats d'un tipus
      *
      * @param <T> Tipus d'entitat
      * @param clazz Classe de l'entitat
@@ -145,7 +145,7 @@ public interface IEntityRepository {
     <T> T getSingleResult(JpqlQuery jpqlQuery);
 
     /**
-     * Perform the update Repository operation.
+     * Executa una operació d'update.
      *
      * @param jpqlQuery JPQL to execute the query.
      * @return Number of updated or deleted entities
@@ -161,7 +161,7 @@ public interface IEntityRepository {
     NamedQuery createNamedQuery(String queryName);
 
     /**
-     * Execute named queries return Eligible Entity List
+     * Executa una {@link NamedQuery} i retorna Eligible Entity List
      *
      * @param namedQuery Named queries to be executed
      * @param <T> Return result element type
@@ -170,7 +170,7 @@ public interface IEntityRepository {
     <T> List<T> find(NamedQuery namedQuery);
 
     /**
-     * Back to execute a named query and returns the qualified individual Entity
+     * Executa una {@link NamedQuery} i retorna the qualified individual Entity
      *
      * @param namedQuery Named queries to be executed
      * @param <T> To return the result type

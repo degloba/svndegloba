@@ -33,7 +33,7 @@ import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;

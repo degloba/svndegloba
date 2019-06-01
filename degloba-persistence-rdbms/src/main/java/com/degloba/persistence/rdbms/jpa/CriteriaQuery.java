@@ -6,7 +6,7 @@ import com.degloba.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.persistence.rdbms.jpa.QueryCriterion;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.OrderSettings;
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.utils.Assert;
 
 import java.util.*;

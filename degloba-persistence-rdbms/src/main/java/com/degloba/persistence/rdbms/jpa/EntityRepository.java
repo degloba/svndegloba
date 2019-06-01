@@ -27,10 +27,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
- * Multiple access to the database are performed by the same EntityManager.
+ * Multiples accessos a la BD son realitzats pel mateix {@link EntityManager}.</br>
  * 
- * In order to obtain the corresponding JPQL named query based on the name, we need to provide a NamedQueryParser. 
- * JPA specification does not enforce this requirement,
+ * Per tal d'obtenir el corresponent JPQL named query basat en el nom, necessitem proporcionar un NamedQueryParser. 
+ * L'especificació JPA no obliga aquest requeriment,
  * Depending on the JPA implementation, to configure the NamedQueryParser achieve IoC container.
  */
 @Repository

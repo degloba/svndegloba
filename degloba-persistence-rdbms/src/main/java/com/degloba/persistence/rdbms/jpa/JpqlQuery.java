@@ -6,15 +6,16 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**
- * Query string-based object query language. One of the four inquiries form DDDLib support.
+ * Query string-based object query language. 
+ * Una de les quatre inquiries form DDDLib support.
  * You can specify the location query parameters or named query parameters can also be taken for a subset of the query results.
  */
 public class JpqlQuery extends BaseQuery<JpqlQuery> {
     private final String jpql;
 
     /**
-     * Use Warehousing and JPQL statement creates JPQL query.
-     * @param repository Warehousing
+     * La utilització d'un repositori i d'una instrucció JPQL crea una JPQL query.
+     * @param repository Repositori
      * @param jpql JPQLQuery
      */
     public JpqlQuery(IEntityRepository repository, String jpql) {
@@ -32,8 +33,8 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
     }
 
     /**
-     * Return query results list.
-     * @param <T> Query results list element type
+     * Retorna una llista de resultats a partir de la {@link JpqlQuery}.
+     * @param <T> Tipus d'element de la llista de resultats de la {@link JpqlQuery}
      * @return Query results.
      */
     @Override
@@ -53,7 +54,7 @@ public class JpqlQuery extends BaseQuery<JpqlQuery> {
 
     /**
      * Perform the update warehousing operation.
-     * @return Number of updated or deleted entities
+     * @return Número d'entitats modificades o esborrades
      */
     @Override
     public int executeUpdate() {
