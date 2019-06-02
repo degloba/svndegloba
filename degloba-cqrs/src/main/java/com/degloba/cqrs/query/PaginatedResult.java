@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 
+ * @author degloba
+ *
+ * @param <T>
+ */
 public class PaginatedResult<T> implements Serializable {
     /**
 	 * 
