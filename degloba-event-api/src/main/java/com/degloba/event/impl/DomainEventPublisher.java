@@ -19,7 +19,7 @@ import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 
 /**
- * Component : DomainEventPublisher de tipus d'event {@link IEvent}
+ * @category Publicador d'events de domini de tipus d'event {@link IEvent}
  */
 @Component
 public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<Object> {

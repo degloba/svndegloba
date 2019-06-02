@@ -8,7 +8,7 @@ import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventHandler;
 
 /**
- * Classe : Handler d'events de tipus d'events {@link IEvent} implementat amb Spring
+ * @category Handler d'events de tipus d'events {@link IEvent} implementat amb Spring
  */
 public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
 
@@ -17,6 +17,14 @@ public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
     private final Method method;
     private final BeanFactory beanFactory;
 
+    /**
+     *  Handler d'events de tipus d'events {@link IEvent} implementat amb Spring
+     *  
+     * @param eventType
+     * @param beanName
+     * @param method
+     * @param beanFactory
+     */
     public SpringEventHandler(Class<?> eventType, String beanName, Method method, BeanFactory beanFactory) {
         this.eventType = eventType;
         this.beanName = beanName;
