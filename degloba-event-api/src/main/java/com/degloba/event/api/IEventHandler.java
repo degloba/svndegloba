@@ -1,7 +1,7 @@
 package com.degloba.event.api;
 
 /**
- * Interfície :  Handler d'events de tipus {@link IEvent}
+ * @category Interfície :  Handler d'events de tipus {@link IEvent}
  */
 public interface IEventHandler<T extends IEvent> {
     boolean canHandle(T event);

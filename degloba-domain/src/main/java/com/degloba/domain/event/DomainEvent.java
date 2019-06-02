@@ -8,7 +8,9 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Event associat a una entitat de domini
+ * @author degloba
+ * 
+ * @category Event associat a una entitat de domini
  */
 public abstract class DomainEvent extends AbstractEvent implements Serializable{
 
@@ -26,7 +28,7 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable{
 
     /**
      *
-     * @param occurredOn Time of occurrence
+     * @param occurredOn Temps d’ocurrència
      */
     public DomainEvent(Date occurredOn) {
         this(occurredOn, 1);
@@ -34,8 +36,8 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable{
 
     /**
      *
-     * @param occurredOn Time of occurrence
-     * @param version Version
+     * @param occurredOn Temps d’ocurrència
+     * @param version Versió
      */
     public DomainEvent(Date occurredOn, int version) {
         Assert.notNull(occurredOn);
@@ -44,8 +46,8 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable{
     }
 
     /**
-     * Get event ID
-     * @return ID event
+     * Obté l'identificador de l'event
+     * @return ID de l'event
      */
     public String getId() {
         return id;
@@ -53,14 +55,14 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable{
 
     /**
      * For test only
-     * @param id To set the ID
+     * @param id Configura l'ID
      */
     protected void setId(String id) {
         this.id = id;
     }
 
     /**
-     * Time to get the event
+     * Obté el temps d'ocurrència
      * @return Event time
      */
     public Date getOccurredOn() {
@@ -68,7 +70,7 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable{
     }
 
     /**
-     * Obtain version
+     * Obté la versió
      * @return Version of events
      */
     public int getVersion() {
