@@ -61,7 +61,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
         eventBus.post(event);
         
         IStoredDomainEvent storedDomainEvent = storedDomainEventRepository.append(event);        
-        storedDomainEventRepository.insert(storedDomainEvent);
+        //storedDomainEventRepository.insert(storedDomainEvent);
     }
 /*
  * (non-Javadoc)
@@ -123,6 +123,13 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
+	}
+
+
+	@Override
+	public void publishEvent(DomainEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

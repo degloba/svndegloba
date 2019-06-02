@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.event.domain.IDomainEvent;
-import com.degloba.persistence.nosql.StoredDomainEventMongoDb;
 
 
 /**

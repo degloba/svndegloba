@@ -1,15 +1,16 @@
-package com.degloba.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.domain.persistence.nosql.googledatastore.objectify;
 
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
+import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.googlecode.objectify.Key;
 
 /**
- * Interfície : Google Cloud DataStore/Objectify
+ * @category Repositori d'entitats de domini utilitzant Google Cloud DataStore/Objectify
  * 
- * @author pere
+ * @author degloba
  *
  */
 @DomainRepository
