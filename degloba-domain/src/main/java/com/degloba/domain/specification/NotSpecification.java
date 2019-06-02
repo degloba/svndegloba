@@ -5,7 +5,7 @@ import com.degloba.utils.Assert;
 /**
  * NOT specification for creating a new norm, as another specification "non-(NOT)" results of operations.
  *
- * @param <T> Type parameter that indicates specification applied to the target object type.
+ * @param <T> Indica el tipus d'objecte al que s'aplica l'especificació.
  */
 public class NotSpecification<T> extends AbstractSpecification<T> {
 
@@ -25,7 +25,7 @@ public class NotSpecification<T> extends AbstractSpecification<T> {
      * {@inheritDoc}
      *
      * @param t To be used to perform "non-(NOT)" operations specification.
-     * @return If t meet the specification t, it returns false, otherwise it returns true.
+     * @return Si t cumpleix l'especificació, retorna {@code false}, en qualsevol altra cas retorna {@code true}.
      */
     @Override
     public boolean isSatisfiedBy(final T t) {

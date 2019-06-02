@@ -15,6 +15,18 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * @author degloba
  * 
+ * @category Permet centralitzar la lògica de negoci a través de diversos components</br>
+ * <ul>
+ * <li>
+ * 		Si es vol minimitzar la lògica de negoci a la capa de la façana.
+ * </li>
+ * <li>
+ * 		Si es té una lògica de negoci que actua sobre diversos serveis o objectes de negoci.
+ * </li>
+ * <li>
+ *      Si es vol encapsular la lògica específica d'un cas d'ús fora dels Business Objects.
+ * </li>
+ * </ul>
  */
 
 @Component

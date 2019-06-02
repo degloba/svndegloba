@@ -7,7 +7,7 @@ import java.lang.annotation.Annotation;
  * @author degloba
  * 
  * @category Proveidor d'instàncies java.
- * La classe que l'implementa es pot adaptar a per exemple un contenidor IoC real,com SpringIoC o Google Guice, o qualsevol altra
+ * La classe que l'implementa es pot adaptar a per exemple un contenidor IoC real,com Spring IoC o Google Guice, o qualsevol altra
  * framework que proveeixi instàncies.
  */
 public interface IInstanceProvider {

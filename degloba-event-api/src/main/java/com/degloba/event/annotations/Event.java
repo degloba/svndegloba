@@ -1,7 +1,7 @@
 package com.degloba.event.annotations;
 
 /**
- * Anotació : Event
+ * @category Anotació : Event
  */
 public @interface Event {
 

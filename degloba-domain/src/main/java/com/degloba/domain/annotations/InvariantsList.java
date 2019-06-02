@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * list of all invariants supported by aggregate
+ * @category llista de tots els {@link Invariant}s suportat pel {@link AggregateRoot}
+ * 
  * @author degloba
  *
  */

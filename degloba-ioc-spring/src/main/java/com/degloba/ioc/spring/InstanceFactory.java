@@ -10,8 +10,9 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 
 /**
+ * @category
  * <p>
- * Classe Factory que actua com a contenidor IoC, mitjançant els quals podem obtenir instàncies desplegades de Beans al contenidor d’IoC. 
+ * Classe Factory que actua com a contenidor IoC, mitjançant els quals podem obtenir instàncies desplegades de Beans del contenidor d’IoC. 
  * Codi de client d'instànciaFactory per ocultar l'IoC
  * 
  * Implementació de la planta. Al fons, a través de la interfície de la política InstanceProvider,
@@ -36,7 +37,7 @@ public class InstanceFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(InstanceFactory.class);
 
     /**
-     * The following section is only used to provide code test function, do not use the product code
+     * La secció següent només s'utilitza per proporcionar funcions de codi de test, no utilitzeu el codi del producte
      */
     private static final Map<Object, Object> instances = new HashMap<Object, Object>();
 
@@ -59,7 +60,7 @@ public class InstanceFactory {
     }
 
     /**
-     * Set the instance provider.
+     * Set el proveidor d'instàncies.
      *
      * @param provider An example of those who provide examples.
      */
@@ -72,11 +73,13 @@ public class InstanceFactory {
     }
 
     /**
-     * Gets the object instances depending on the type. Returns an instance of the class object belongs to a T, or its implementation class or subclass. If you can not find an instance of this type is thrown.
+     * Obté una instància d'objecte depenent del tipus. 
+     * Retorna una instància de l'objecte de classe de tipus T, o la seva classe d'implementació o subclasse. 
+     * Si no pot trobar una instància d’aquest tipus llença una excepció {@link IocInstanceNotFoundException}.
      *
-     * @param <T> Type of object
-     * @param beanType Type object belongs
-     * @return Object instance of type T,
+     * @param <T> Tipus d'objecte
+     * @param beanType Tipus d'object al qual pertany
+     * @return Instància de l'objecte de tipus T,
      */
     public static <T> T getInstance(Class<T> beanType) {
         for (IInstanceLocator locator : instanceLocators) {
@@ -89,12 +92,15 @@ public class InstanceFactory {
     }
 
     /**
-     * Gets an object instance based on the type and name. Returns an instance of the class object belongs to a T, or its implementation class or subclass. Different IoC container in different ways to explain beanName.
-     * See detailed explanation of the way various InstanceProvider implementation class Javadoc. If you can not find an instance of this type is thrown.
+     * Obté una instància d'objecte segons el tipus i el nom. 
+     * Retorna una instància de l'objecte de classe de tipus T, o la seva classe d'implementació o subclasse. 
+     * Contenidor IoC diferent de diferents maneres d'explicar beanName.
+     * See detailed explanation of the way various InstanceProvider implementation class Javadoc. 
+     * Si no pot trobar una instància d’aquest tipus llença una excepcio {@link IocInstanceNotFoundException}.
      *
-     * @param <T> Type Parameter
-     * @param beanName bean The name
-     * @param beanType Type instance
+     * @param <T> Tipus d'objecte
+     * @param beanName Nom del bean
+     * @param beanType Tipus d'instància
      * @return Examples of the specified type.
      */
     public static <T> T getInstance(Class<T> beanType, String beanName) {
@@ -108,12 +114,15 @@ public class InstanceFactory {
     }
 
     /**
-     * Gets an object instance based on the type and Annotation. Returns an instance of the class object belongs to a T, or its implementation class or subclass. Different IoC container in different ways to explain annotation.
-     * See detailed explanation of the way various InstanceProvider implementation class Javadoc. If you can not find an instance of this type is thrown.
+     * Obté una instància d'objecte en funció del tipus i de l’anotació. 
+     * Retorna una instància de l'objecte de classe de tipus T, o la seva classe d'implementació o subclasse. 
+     * Contenidor IoC diferent de diferents maneres d'explicar l'anotació.
+     * See detailed explanation of the way various InstanceProvider implementation class Javadoc. 
+     * Si no pot trobar una instància d’aquest tipus llença una excepció {@link IocInstanceNotFoundException}.
      *
-     * @param <T> Type Parameter
-     * @param beanType Type instance
-     * @param annotationType Annotation type implementation class
+     * @param <T> Tipus
+     * @param beanType Tipus d'object al qual pertany
+     * @param annotationType Classe d'implementació de tipus {@link Annotation}
      * @return Examples of the specified type.
      */
     public static <T> T getInstance(Class<T> beanType, Class<? extends Annotation> annotationType) {
@@ -128,9 +137,9 @@ public class InstanceFactory {
     }
 
     /**
-     * The service is bound to a specific instance
+     * El servei està vinculat a una instància concreta
      *
-     * @param <T> Bean Type instance
+     * @param <T> Bean Tipus d'objecte
      * @param serviceInterface Registration Type
      * @param serviceImplementation Object instance
      */
@@ -139,9 +148,9 @@ public class InstanceFactory {
     }
 
     /**
-     * The service is bound to a specific instance and specify the name
+     * El servei està vinculat a una instància específica i especifica el nom
      *
-     * @param <T> Bean Type instance
+     * @param <T> Bean Tipus d'objecte
      * @param serviceInterface Registration Type
      * @param serviceImplementation Object instance
      * @param beanName Instance name
@@ -158,9 +167,9 @@ public class InstanceFactory {
     }
 
     /**
-     * The service is bound to a specific instance and specify the associated Annotation
+     * El servei es vincula a una instància específica i especifica la notació associada
      *
-     * @param <T> Bean Type instance
+     * @param <T> Bean Tipus d'objecte
      * @param serviceInterface Registration Type
      * @param serviceImplementation Object instance
      * @param annotationType Annotation type

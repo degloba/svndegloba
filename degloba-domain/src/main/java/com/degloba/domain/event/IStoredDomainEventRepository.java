@@ -4,34 +4,36 @@ import java.util.Date;
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
+import com.degloba.event.domain.IDomainEvent;
+import com.degloba.event.persistence.IStoredDomainEvent;
 
 
+/**
+ * @category Interfície : Repositori d'events d'entitats de domini
+ * 
+ * @author degloba
+ *
+ */
 @DomainRepository
 public interface IStoredDomainEventRepository {
 
-/*	public void logAllPersons();  		
-	public void insertPersonWithNameJohnAndRandomAge(); 	
-	public void createPersonCollection(); 
-	public void dropPersonCollection(); */
-	
-	  /**
-     * GetA collection of historical events occurred specified time range, 
-     * the time range includes occurredFrom, does not contain occurredTo.
+	 /**
+     * Recupera una llista d'events succeits en un interval de temps. 
      *
-     * @param occurredFrom Event time limit
-     * @param occurredTo   The upper limit time of the incident
-     * @return Collection event occurred a specified time frame, according to time of occurrence in ascending order.
+     * @param occurredFrom Data inicial de l'event
+     * @param occurredTo   Data final de l'event
+     * @return Una llista d’events que s’han produït en un interval de temps especificat, segons l’hora de l’aparició en ordre ascendent.
      */
-    public List<StoredDomainEventMongoDb> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
+    public List<IStoredDomainEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
 
     /**
-     * Get A collection of historical events that occur after the specified time and the.
+     * Recupera una llista d'events que han succeit després d'una data.
      *
-     * @param occurredFrom Event time limit
+     * @param occurredFrom Data inicial de l'event
      * @return Its collection of events that occur after the specified time, 
      * according to time of occurrence in ascending order.
      */
-    public List<StoredDomainEventMongoDb> findStoredEventsSince(Date occurredFrom);
+    public List<IStoredDomainEvent> findStoredEventsSince(Date occurredFrom);
 
     /**
      * Insert a new field events to the event store
@@ -39,17 +41,17 @@ public interface IStoredDomainEventRepository {
      * @param domainEvent A field event
      * @return Field events stored on behalf of the event
      */
-    public StoredDomainEventMongoDb append(DomainEvent domainEvent);
+    public IStoredDomainEvent append(IDomainEvent domainEvent);
 
     /**
-     * Close event storage
+     * Tanca el magatzem d'events
      */
     public void close();
 
     /**
-     * Statistics of stored events
+     * Estadístiques dels events guardats
      *
-     * @return Number of stored events
+     * @return Número d'events guardats
      */
 //    public long countStoredEvents();
 }

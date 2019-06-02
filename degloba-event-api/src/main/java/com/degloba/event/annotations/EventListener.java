@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Anotació : EventListener
+ * @category Anotació : EventListener
  * 
  * @author degloba
  * 

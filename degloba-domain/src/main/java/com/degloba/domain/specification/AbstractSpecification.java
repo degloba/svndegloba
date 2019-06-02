@@ -1,7 +1,7 @@
 package com.degloba.domain.specification;
 
 /**
- * Abstract norms to achieve, achieve the standard, "and," "or," "not" operation.
+ * Regles abstractes a aconseguir, operacions "and," "or," "not"
  *
  * @param <T> Generic parameters
  */

@@ -1,1 +1,1 @@
-com.degloba.domain.internal.repo.CriterionBuilderImpl
+com.degloba.persistence.rdbms.jpa.internal.CriterionBuilderImpl
