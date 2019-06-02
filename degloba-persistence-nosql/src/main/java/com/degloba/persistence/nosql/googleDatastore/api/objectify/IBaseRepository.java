@@ -1,10 +1,9 @@
-package com.degloba.domain.persistence.nosql.googledatastore.objectify;
+package com.degloba.persistence.nosql.googleDatastore.api.objectify;
 
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.googlecode.objectify.Key;
 
 /**
