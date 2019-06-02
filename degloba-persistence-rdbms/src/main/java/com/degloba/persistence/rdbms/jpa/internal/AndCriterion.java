@@ -19,10 +19,10 @@ public class AndCriterion extends AbstractCriterion {
     private final List<QueryCriterion> criterions;
 
     /**
-     * Create AND query conditions based on multiple search criteria. 
-     * Creation process removes the null or EmptyCriterion query criteria. In case
-     * The remaining two less than the query throws Exception.
-     * @param criterions To be used to perform an AND operation of query conditions
+     * Crea i consulta condicions basades en diversos criteris de cerca. 
+     * El procés de creació elimina els criteris de consulta nuls o EmptyCriterion. En el cas que
+     * el resultat tingui menys de dos llança una Exception.
+     * @param criterions S'utilitza per realitzar una operació AND de les condicions de la consulta
      */
     public AndCriterion(QueryCriterion... criterions) {
         Assert.notNull(criterions, "Criterions to \"AND\" is null!");
@@ -31,8 +31,8 @@ public class AndCriterion extends AbstractCriterion {
     }
 
     /**
-     * To get the query to perform the AND operation
-     * @return To be used to perform an AND operation of query conditions, 
+     * Per obtenir la consulta per dur a terme l’operació AND
+     * @return Llista que s'utilitzarà per realitzar una operació AND de les condicions de la consulta, 
      * in addition to Null and EmptyCriterion types of elements.
      */
     public List<QueryCriterion> getCriterons() {
@@ -57,8 +57,8 @@ public class AndCriterion extends AbstractCriterion {
 	}
 
 	/**
-     * Equivalence of judgment
-     * @param other To be used to convict like another object
+     * Equivalencia
+     * @param other S'utilitza per comprovar la equivalencia amb un altre objecte
      * @return If the current object and other equivalent returns true, false otherwise
      */
     @Override
