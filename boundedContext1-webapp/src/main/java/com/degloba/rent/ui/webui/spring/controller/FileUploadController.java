@@ -16,12 +16,9 @@ import org.primefaces.event.FileUploadEvent;
 // Spring
 import org.springframework.stereotype.Component;
 
-
-// Google Cloud Storage/degloba
-import com.degloba.gcs.StorageUtils;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IRentRepository;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 
 // Entitats/Objectify
 
@@ -38,7 +35,7 @@ public class FileUploadController {
 	 	
     
     @Inject
-    protected IRentRepository rentRepositoryObjectify;
+    protected ILloguerRepository rentRepositoryObjectify;
 
      /*
       * Manipula l'Event "Upload" de Primefaces  
@@ -53,7 +50,7 @@ public class FileUploadController {
 		    String file = event.getFile().getFileName();
 		    	    	
 		    // 1.- Insertem a GCS (Google Cloud Storage)
-			try {
+			/*try {
 					StorageUtils.uploadFile(file, event.getFile().getContentType(), event.getFile().getInputstream(),event.getFile().getSize(), "wwwdegloba-1350.appspot.com");
 								
 					 // 
@@ -71,7 +68,7 @@ public class FileUploadController {
 			} catch (IOException | GeneralSecurityException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 				    
     	}
 

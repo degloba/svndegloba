@@ -24,12 +24,12 @@ import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
 import com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.InstanceFactory;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 import com.google.common.eventbus.EventBus;
 
 
@@ -78,8 +78,8 @@ public class ProductView implements Serializable{
 	
 	 public void onAddProduct(RequestContext context) throws DatabaseException {
 		 
-		 // 1.- Envia el evento al "EventBus" (Google Guava) 
-		 // 2.- Guarda el evento "publish" en un repositorio de Eventos
+		 // 1.- Envia l'event al "EventBus" (Google Guava) 
+		 // 2.- Guarda l'event "publish" en un repositori d'events
 		 EventBus eventbus = new EventBus();
 		 eventbus.register(new CashPurchaseEventSubscriber());
 		 
@@ -101,16 +101,16 @@ public class ProductView implements Serializable{
 			      if ("uid".equals(cookie.getName())) {
 			    	  String uid = cookie.getValue();
 			    	  
-			    	 Owner o = ownerRepositoryObjectify.getById(Owner.class, uid);
+			    	 Propietari o = ownerRepositoryObjectify.getById(Propietari.class, uid);
 			    	  
 			    	 // Comprovem si tenim l'owner al datastore
 			    	 // si no, el creem
 			    	 String ownerId = "";
 			    	 if (o == null) {
-			    		 Owner owner = new Owner();
+			    		 Propietari propietari = new Propietari();
 				    	  
-				    	  owner.setId(uid);
-				    	  ownerId = ownerRepositoryObjectify.createWithKey(owner);
+				    	  propietari.setId(uid);
+				    	  ownerId = ownerRepositoryObjectify.createWithKey(propietari);
 			    	 }				    	  
 			    	 else {
 				    	  
@@ -118,14 +118,14 @@ public class ProductView implements Serializable{
 			    	 }
 			    	 
 			    	 // Producte
-			    	 Product product = new Product();
-			    	 product.setDescription(this.description);
-			    	 product.setPrice(price);
+			    	 Producte producte = new Producte();
+			    	 producte.setDescription(this.description);
+			    	 producte.setPrice(price);
 			    	 			    	
-			    	 product.setOwner(com.googlecode.objectify.Key.create(Owner.class, uid));
+			    	 producte.setOwner(com.googlecode.objectify.Key.create(Propietari.class, uid));
 			    	 
 			    	 // creem el producte i guardem el seu Id 
-			    	 productId = this.ownerRepositoryObjectify.createWithID(product);
+			    	 productId = this.ownerRepositoryObjectify.createWithID(producte);
 			    	  
 			      }
 			    }

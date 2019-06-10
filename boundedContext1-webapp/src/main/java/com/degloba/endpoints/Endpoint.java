@@ -42,14 +42,14 @@ import com.google.api.server.spi.response.UnauthorizedException;
 public class Endpoint {
 
   /**
-   * Echoes the received message back. If n is a non-negative integer, the message is copied that
-   * many times in the returned message.
-   *
-   * <p>Note that name is specified and will override the default name of "{class name}.{method
-   * name}". For example, the default is "endpoints.endpoint".
-   *
-   * <p>Note that httpMethod is not specified. This will default to a reasonable HTTP method
-   * depending on the API method name. In this case, the HTTP method will default to POST.
+   * Echo del missatge rebut. Si n és un enter enter no negatiu, es copia aquest missatge
+   * moltes vegades en el missatge retornat.
+   *
+   * <p> Tingueu en compte que el nom s’especifica i sobreescriurà el nom per defecte de "{nom de classe}.{nom del mètode}". 
+   * Per exemple, el valor per defecte és "Endpoint.echo".
+   *
+   * <p> Tingueu en compte que el mètode http no està especificat. Això passarà per defecte a un mètode HTTP raonable
+   * depenent del nom del mètode de l'API. En aquest cas, el mètode HTTP serà per defecte POST.
    */
   // [START endpoint_method]
   @ApiMethod(name = "echo")
@@ -59,14 +59,14 @@ public class Endpoint {
   // [END echo_method]
 
   /**
-   * Echoes the received message back. If n is a non-negative integer, the message is copied that
-   * many times in the returned message.
-   *
-   * <p>Note that name is specified and will override the default name of "{class name}.{method
-   * name}". For example, the default is "echo.echo".
-   *
-   * <p>Note that httpMethod is not specified. This will default to a reasonable HTTP method
-   * depending on the API method name. In this case, the HTTP method will default to POST.
+   * Echo del missatge rebut. Si n és un enter enter no negatiu, es copia aquest missatge
+   * moltes vegades en el missatge retornat.
+   *
+   * <p> Tingueu en compte que el nom s’especifica i sobreescriurà el nom per defecte de "{nom de classe}.{nom del mètode}". 
+   * Per exemple, el valor per defecte és "Endpoint.echo".
+   *
+   * <p> Tingueu en compte que httpMethod no està especificat. Això passarà per defecte a un mètode HTTP raonable
+   * depenent del nom del mètode de l'API. En aquest cas, el mètode HTTP serà per defecte POST.
    */
   // [START echo_path]
   @ApiMethod(name = "echo_path_parameter", path = "endpoint/{n}")
@@ -107,14 +107,14 @@ public class Endpoint {
   }
 
   /**
-   * Gets the authenticated user's email. If the user is not authenticated, this will return an HTTP
-   * 401.
-   *
-   * <p>Note that name is not specified. This will default to "{class name}.{method name}". For
-   * example, the default is "echo.getUserEmail".
-   *
-   * <p>Note that httpMethod is not required here. Without httpMethod, this will default to GET due
-   * to the API method name. httpMethod is added here for example purposes.
+   * Obté el correu electrònic de l’usuari autenticat. Si l’usuari no està autenticat, retornarà un HTTP
+   * 401.
+   *
+   * <p> Tingueu en compte que el nom no està especificat. Això passarà per defecte a "{nom de classe}.{Nom de mètode}". Per
+   * Per exemple, el valor per defecte és "Endpoint.getUserEmail".
+   *
+   * <p> Tingueu en compte que el httpMethod no és necessari aquí. Sense el httpMethod, es GET dueu per defecte
+   * al nom del mètode de l'API. httpMethod  s’afegeix aquí per a propòsits d’exemple.
    */
   // [START google_id_token_auth]
   @ApiMethod(

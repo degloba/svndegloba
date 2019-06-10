@@ -15,9 +15,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.rent.cqrs.readmodel.finders.IRentFinder;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguer.cqrs.readmodel.finders.ILloguerFinder;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 
 @Component
@@ -33,7 +33,7 @@ public class SelectOneMenuCategoryView {
     private List<Subcategory> subcategories;
     
     @Inject
-    private IRentFinder categoryFinder;
+    private ILloguerFinder categoryFinder;
     
     	
 	@PostConstruct

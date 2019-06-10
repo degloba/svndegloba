@@ -2,6 +2,7 @@ package com.degloba.travel.ui.webui.spring.controller;
 
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.degloba.travel.application.SearchCriteria;
 import com.degloba.travel.application.services.ITravelService;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
 
 @Controller
 public class HotelsMvcController {
@@ -25,27 +28,27 @@ public class HotelsMvcController {
 	@RequestMapping(value = "/hotels/search", method = RequestMethod.GET)
 	public void search(SearchCriteria searchCriteria, Principal currentUser, Model model) {
 		if (currentUser != null) {
-			/*List<Booking> booking = bookingService.findBookings(currentUser.getName());
-			model.addAttribute(booking);*/
+			List<Reserva> reserva = bookingService.findBookings(currentUser.getName());
+			model.addAttribute(reserva);
 		}
 	}
 
 	@RequestMapping(value = "/hotels", method = RequestMethod.GET)
 	public String list(SearchCriteria criteria, Model model) {
-		/*List<Hotel> hotels = bookingService.findHotels(criteria);
-		model.addAttribute(hotels);*/
+		List<Hotel> hotels = bookingService.findHotels(criteria);
+		model.addAttribute(hotels);
 		return "hotels/list";
 	}
 
 	@RequestMapping(value = "/hotels/{id}", method = RequestMethod.GET)
 	public String show(@PathVariable Long id, Model model) {
-		/////model.addAttribute(bookingService.findHotelById(id));
+		model.addAttribute(bookingService.findHotelById(id));
 		return "hotels/show";
 	}
 
 	@RequestMapping(value = "/bookings/{id}", method = RequestMethod.DELETE)
 	public String deleteBooking(@PathVariable Long id) {
-		/////bookingService.cancelBooking(id);
+		bookingService.cancelBooking(id);
 		return "redirect:../hotels/search";
 	}
 

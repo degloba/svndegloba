@@ -56,6 +56,12 @@
     
     
     <dependencies>
+    
+      		<dependency>
+  			<groupId>com.googlecode.objectify</groupId>
+  			<artifactId>objectify</artifactId>
+  			<version>6.0.3</version>
+  		</dependency>
        
 		<dependency>
             <groupId>${project.groupId}</groupId>
@@ -85,7 +91,7 @@
 		<dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>degloba-ioc-spring</artifactId>
-            <version>${project.version}</version>
+            <version>${degloba-ioc-spring.version}</version>
         </dependency>
                             
         
@@ -607,51 +613,6 @@
             	</plugin>	    
             	 -->
             	
-    <!--         	<plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>aspectj-maven-plugin</artifactId>
-        <version>1.0</version>
-        <dependencies>
-          NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972)
-          <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>${aspectj.version}</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test-compile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <outxml>true</outxml>
-          <aspectLibraries>
-            <aspectLibrary>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring-aspects</artifactId>
-            </aspectLibrary>
-            <aspectLibrary>
-              <groupId>org.springframework.data</groupId>
-              <artifactId>spring-data-mongodb-cross-store</artifactId>
-            </aspectLibrary>
-          </aspectLibraries>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin> -->
-                   
-                   
-
-   
       
       <plugin>
         <groupId>org.eclipse.jetty</groupId>

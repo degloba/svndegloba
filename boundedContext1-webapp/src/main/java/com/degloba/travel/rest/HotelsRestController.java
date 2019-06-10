@@ -6,16 +6,11 @@ import org.springframework.http.HttpStatus;
 import com.degloba.travel.application.SearchCriteria;
 
 import com.degloba.travel.application.services.ITravelService;
-
-// Domain
-
-// Application
-
-import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Bookings;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Hotels;
-import com.degloba.travel.domain.persistence.rdbms.jpa.User;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserves;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotels;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 // Spring
 import org.springframework.stereotype.Controller;
@@ -50,14 +45,14 @@ public class HotelsRestController {
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public User user( @PathVariable("id") String userId) {
+	public Usuari usuari( @PathVariable("id") String userId) {
 		return this.bookingService.findUser(userId);
 	}
 
 	@RequestMapping(value = "/bookings/{user}", method = RequestMethod.GET)
 	@ResponseBody
-	public Bookings bookingsForUser( @PathVariable("user") String user) {
-		return new Bookings(this.bookingService.findBookings(user));
+	public Reserves bookingsForUser( @PathVariable("user") String user) {
+		return new Reserves(this.bookingService.findBookings(user));
 	}
 
 	//http://localhost:8080/ws/hotel/1
@@ -70,7 +65,7 @@ public class HotelsRestController {
 	// todo whats the right way to handle this? currently its being handled using SPring Webflow on the web tier, the passwords are in the config. we need to make the config share the database jst like th rest of the service code, then make it so that REST clients can login as well.
 	@RequestMapping(value = "/users/login", method = RequestMethod.POST)
 	@ResponseBody
-	public User login(@RequestBody User u ) {
+	public Usuari login(@RequestBody Usuari u ) {
 
 		String usrname = u.getUsername();
 		String pw = u.getPassword();
@@ -132,20 +127,20 @@ public class HotelsRestController {
 		* */
 	@RequestMapping(value = "/bookings/{user}", method = RequestMethod.POST)
 	@ResponseBody
-	public Booking create(@RequestBody Booking booking) {
-		String usr = booking.getUser().getUsername();
-		long hotelId = booking.getHotel().getId();
+	public Reserva create(@RequestBody Reserva reserva) {
+		String usr = reserva.getUser().getUsername();
+		long hotelId = reserva.getHotel().getId();
 
-		Booking b = bookingService.createBooking(hotelId, usr);
-		b.setCheckoutDate(booking.getCheckoutDate());
-		b.setCheckinDate(booking.getCheckinDate());
-		b.setAmenities(booking.getAmenities());
-		b.setBeds(booking.getBeds());
-		b.setSmoking(booking.isSmoking());
-		b.setCreditCard(booking.getCreditCard());
-		b.setCreditCardExpiryMonth(booking.getCreditCardExpiryMonth());
-		b.setCreditCardName(booking.getCreditCardName());
-		b.setCreditCardExpiryYear(booking.getCreditCardExpiryYear());
+		Reserva b = bookingService.createBooking(hotelId, usr);
+		b.setCheckoutDate(reserva.getCheckoutDate());
+		b.setCheckinDate(reserva.getCheckinDate());
+		b.setAmenities(reserva.getAmenities());
+		b.setBeds(reserva.getBeds());
+		b.setSmoking(reserva.isSmoking());
+		b.setCreditCard(reserva.getCreditCard());
+		b.setCreditCardExpiryMonth(reserva.getCreditCardExpiryMonth());
+		b.setCreditCardName(reserva.getCreditCardName());
+		b.setCreditCardExpiryYear(reserva.getCreditCardExpiryYear());
 
 		bookingService.persistBooking(b);
 
