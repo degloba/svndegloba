@@ -1,6 +1,6 @@
 package com.degloba.event.domain;
 
-import java.io.Serializable;
+import com.degloba.event.api.IEvent;
 
 
 /**
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * o es podria derivar de diversos aspectes de l'esdeveniment, com ara on, quan i què
  * ha passat.
  */
-public interface IDomainEvent<T> extends Serializable {
+public interface IDomainEvent<T> extends IEvent {
 	
 	  /**
 	   * @param other The other domain event.

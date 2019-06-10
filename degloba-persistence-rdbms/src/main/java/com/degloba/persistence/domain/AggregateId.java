@@ -11,6 +11,11 @@ import org.apache.commons.lang3.Validate;
 
 
 /**
+ * @category Un agregat és un grup d'objectes de negoci que sempre han de ser consistents.
+ * Per tant, guardem i actualitzem els agregats en el seu conjunt dins d’una transacció.
+ * L'agregat és un patró important en DDD, que ajuda a mantenir la consistència dels nostres objectes empresarials. Tanmateix, 
+ * la idea d’agregat també és útil fora del context del DDD.
+ * 
  * https://github.com/BottegaIT/ddd-leaven-v2
  */
 @SuppressWarnings("serial")

@@ -20,7 +20,7 @@ import com.degloba.event.impl.handlers.SpringEventHandler;
 import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
- * Registra mètodes beans Spring com handlers d'events in spring event publisher
+ * @category Registra mètodes beans Spring com handlers d'events en spring {@link DomainEventPublisher}
  * (if needed).
  */
 @Component

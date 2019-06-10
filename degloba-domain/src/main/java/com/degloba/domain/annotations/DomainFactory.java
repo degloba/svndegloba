@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 
 // SPRING
 import org.springframework.stereotype.Component;
-//import org.springframework.stereotype.Service;
+
 
 /**
  * @author degloba
@@ -21,7 +21,3 @@ import org.springframework.stereotype.Component;
 public @interface DomainFactory {
 
 }
-/*@Service
-public @interface DomainFactory {
-
-}*/

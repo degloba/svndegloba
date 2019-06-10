@@ -11,9 +11,7 @@ import java.util.List;
  * @param <T>
  */
 public class PaginatedResult<T> implements Serializable {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private final List<T> items;
     private final int pageSize;

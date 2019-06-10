@@ -1,7 +1,7 @@
 package com.degloba.cqrs.command;
 
 /**
- * Punt d’accés principal a CQRS (Command Query Responsability Segregation)<br> 
+ * @category Punt d’accés principal a CQRS (Command Query Responsability Segregation)<br> 
  * Gestiona:
  * <ul>
  * <li>filtratge de {@link Command} duplicades

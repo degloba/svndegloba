@@ -8,22 +8,24 @@ package com.degloba.cqrs.command.impl;
  */
 public interface Command {
 	/**
-	 * Suggestion for a Server that this command may be run in asynchronous way.
+	 * @category Definim si la comanda es pot executar de manera asíncrona.
 	 * <br>
-	 * If true than {@link CommandHandler} must return void - otherwise Serwer will throw an exception 
+	 * Si true llavors {@link CommandHandler} ha de retornar void - en qualsevol altra cas el sistema llençarà una excepció 
+	 * 
 	 * @return
 	 */
     boolean asynchronous();
 
     /**
-     * Suggestion for a Server that this command should checked if the same command is sent again.<br>
-     * If true than command class must implement equals and hashCode
+     * @category Definim que s'hauria de testejar si la mateixa comanda s'ha enviat una altra vegada<br>
+     * Si true llavors command class must implement equals and hashCode
+     * 
      * @return
      */
     boolean unique();
 
     /**
-     * If unique is true than this property may specify maximum timeout in miliseconds before same command can be executed
+     * Si l'únic és True llavors aquesta propietat pot especificar el temps màxim en mil·lisegons abans que pugui executar-se el mateix
      * @return
      */
     long uniqueStorageTimeout();
