@@ -1,13 +1,13 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventService } from './../providers/event.service';
-import { ActiveStateService } from './../providers/active-state.service';
+import { EventService } from './../../providers/event.service';
+import { ActiveStateService } from '../../providers/active-state.service';
 import { AngularFireList } from 'angularfire2/database';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
-import { Food } from '../model/data-model';
+import { Food } from '../../model/data-model';
 import { MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';

@@ -13,7 +13,7 @@ export class Macros {
   fat = 0;
   hc = 0;
 }
-export class User {
+export class Persona {
   id: number;
   name: string;
   email: string;
@@ -62,7 +62,7 @@ export class Meal {
 export class UserData {
   constructor(
     public label: string,
-    public value: User,
+    public value: Persona,
     public nomvar: string
   ) { }
 }

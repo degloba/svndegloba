@@ -14,11 +14,11 @@ import { AppRoutingModule } from './shared/routing/app-routing.module';
 import { AppComponent } from './app.component';
 
 // Autentificacio components
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { SignInComponent } from './autenticacio/sign-in/sign-in.component';
+import { SignUpComponent } from './autenticacio/sign-up/sign-up.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './autenticacio/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './autenticacio/verify-email/verify-email.component';
 
 // Firebase services + environment module
 import { AngularFireModule } from '@angular/fire';
@@ -32,8 +32,8 @@ import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth.service';
 
 // BigFood
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { ProfilePageComponent } from './food/profile-page/profile-page.component';
+import { LoginPageComponent } from './autenticacio/login-page/login-page.component';
 import { MatDialogModule, MatDialogRef, MatSidenav } from '@angular/material';
 import {
   MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule,
@@ -44,12 +44,12 @@ import {
 
 import { ChartsModule } from 'ng2-charts';
 import { LongPressDirective } from './directives/long-press.directive';
-import { HomePageComponent } from './home-page/home-page.component';
-import { FoodListComponent } from './food-list/food-list.component';
-import { FoodDetailComponent } from './food-detail/food-detail.component';
+import { HomePageComponent } from './food/home-page/home-page.component';
+import { FoodListComponent } from './food/food-list/food-list.component';
+import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 
-import { DialogComponent } from './dialog/dialog.component';
-import { ProgressPageComponent } from './progress-page/progress-page.component';
+import { DialogComponent } from './food/dialog/dialog.component';
+import { ProgressPageComponent } from './food/progress-page/progress-page.component';
 import { ReportComponent } from './report/report.component';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -61,11 +61,11 @@ import { PolicyListComponent } from './policy-list/policy-list.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
 // API Rest
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
-import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
-import { TodoDataService } from './providers/todo-data.service';
-import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { TodoListFooterComponent } from './todo/todo-list-footer/todo-list-footer.component';
+import { TodoListHeaderComponent } from './todo/todo-list-header/todo-list-header.component';
+//////////import { TodoDataService } from './providers/todo-data.service';
+import { TodoListItemComponent } from './todo/todo-list-item/todo-list-item.component';
 import { ApiService } from './providers/api.service';
 
 
@@ -83,7 +83,7 @@ const MY_DATE_FORMATS = {
 };
 
 @NgModule({
-  declarations: [
+  declarations: [         
     AppComponent,
     SignInComponent,
     SignUpComponent,
@@ -118,7 +118,7 @@ const MY_DATE_FORMATS = {
     MatProgressBarModule, MatSidenavModule
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -133,9 +133,9 @@ const MY_DATE_FORMATS = {
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
-    HttpModule 
+    HttpModule
   ],
-  providers: [AuthService, ActiveStateService, EventService, TodoDataService, ApiService,
+  providers: [AuthService, ActiveStateService, EventService, ApiService,  //TodoDataService, 
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

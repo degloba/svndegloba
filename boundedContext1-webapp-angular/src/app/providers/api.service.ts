@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
 import { Http, Response } from '@angular/http';
-import { Todo } from '../todo';
+import { Todo } from '../model/todo';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

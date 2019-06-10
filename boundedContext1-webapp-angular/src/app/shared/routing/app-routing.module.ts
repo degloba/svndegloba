@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Required components for which route services to be activated
-import { SignInComponent } from '../../components/sign-in/sign-in.component';
-import { SignUpComponent } from '../../components/sign-up/sign-up.component';
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
-import { LoginPageComponent } from '../../login-page/login-page.component';
+import { SignInComponent } from '../../autenticacio/sign-in/sign-in.component';
+import { SignUpComponent } from '../../autenticacio/sign-up/sign-up.component';
+import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { ForgotPasswordComponent } from '../../autenticacio/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from '../../autenticacio/verify-email/verify-email.component';
+import { LoginPageComponent } from '../../autenticacio/login-page/login-page.component';
+
+import {HomePageComponent } from '../../food/home-page/home-page.component'
 
 // Import canActivate guard services
 import { AuthGuard } from '../../shared/guard/auth.guard';
@@ -23,7 +25,8 @@ const routes: Routes = [
     { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
-    { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
+    { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
+    { path: 'food', component: HomePageComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

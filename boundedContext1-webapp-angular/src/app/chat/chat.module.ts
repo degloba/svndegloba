@@ -23,7 +23,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MatSnackBarModule } from '@angular/material';
 
-import { AppComponent } from './app.component';
+// import { ChatComponent } from './chat.component';
 import { StylizePipe } from './stylize.pipe';
 import { environment } from '../../environments/environment';
 
@@ -46,7 +46,7 @@ if (!environment.firebase) {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    //ChatComponent,
     StylizePipe
   ],
   imports: [
@@ -60,6 +60,6 @@ if (!environment.firebase) {
     AngularFireAuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  //bootstrap: [ChatComponent]
 })
-export class AppModule { }
+export class ChatModule { }
