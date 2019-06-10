@@ -1,4 +1,4 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 
 import javax.persistence.Column;
@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * Un usuari que pot fer reserves.
+ * @category Un usuari que pot fer reserves.
  */
 @XmlRootElement
 @Entity
 @Table(name = "customers")
-public class User implements Serializable {
+public class Usuari implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -57,10 +57,10 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public User() {
+    public Usuari() {
     }
 
-    public User(String username, String password, String name) {
+    public Usuari(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.name = name;

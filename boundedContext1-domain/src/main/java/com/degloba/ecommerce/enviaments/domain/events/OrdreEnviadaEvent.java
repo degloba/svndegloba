@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.domain.events;
+package com.degloba.ecommerce.enviaments.domain.events;
 
 import java.io.Serializable;
 
@@ -6,12 +6,12 @@ import com.degloba.event.annotations.Event;
 
 @SuppressWarnings("serial")
 @Event
-public class OrderShippedEvent implements Serializable {
+public class OrdreEnviadaEvent implements Serializable {
 
     private final long orderId;
     private final long shipmentId;
 
-    public OrderShippedEvent(long orderId, long shipmentId) {
+    public OrdreEnviadaEvent(long orderId, long shipmentId) {
         this.orderId = orderId;
         this.shipmentId = shipmentId;
     }

@@ -1,12 +1,12 @@
-package com.degloba.ecommerce.sales.offer.discounts;
+package com.degloba.ecommerce.vendes.ofertes.descomptes;
 
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
-import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Descompte;
+import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
-public class QuantityDiscount implements DiscountPolicy {
+public class QuantityDiscount implements DescomptePolicy {
  /*
   * Ratio de Descompte
   */
@@ -20,9 +20,9 @@ public class QuantityDiscount implements DiscountPolicy {
 	}
 
 	@Override
-	public Discount applyDiscount(Product product, int quantity, Money regularCost) {
+	public Descompte applyDiscount(Producte producte, int quantity, Money regularCost) {
 		if (quantity >= mininalQuantity)
-			return new Discount("over: " + quantity, regularCost.multiplyBy(rebateRatio));
+			return new Descompte("over: " + quantity, regularCost.multiplyBy(rebateRatio));
 		return null;
 	}
 }

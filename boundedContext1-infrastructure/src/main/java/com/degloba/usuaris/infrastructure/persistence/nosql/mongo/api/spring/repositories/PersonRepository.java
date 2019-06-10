@@ -33,7 +33,7 @@ import com.degloba.usuaris.domain.persistence.nosql.mongo.spring.Person;
 
 
 /** 
- *  Repositori + NoSQL : {@link Person}s 
+ *  @category Repositori + NoSQL : {@link Person}s 
  */ 
 @DomainRepositoryImpl
 public class PersonRepository implements IPersonRepository{ 

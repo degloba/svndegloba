@@ -4,10 +4,10 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.InstanceFactory;
+import com.degloba.lloguer.domain.persistence.rdbms.jpa.ILloguerRepository;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.ImType;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
-import com.degloba.rent.domain.persistence.rdbms.jpa.IRentRepository;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class PersonTest extends AbstractIntegrationTest {
     @Test
     public void testGetIms() {
         String jpql = "select o from Person o join o.ims i where KEY(i) = :imType and i = :im";
-        IRentRepository repository = InstanceFactory.getInstance(IRentRepository.class);
+        ILloguerRepository repository = InstanceFactory.getInstance(ILloguerRepository.class);
         List<Person> persons = repository.createJpqlQuery(jpql)
                 .addParameter("imType", ImType.QQ).addParameter("im", "666666").list();
 /*        assertFalse(persons.contains(person1));

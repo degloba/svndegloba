@@ -1,8 +1,7 @@
 package com.degloba.ecommerce.shipping.infrastructure.persistence.rdbms.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-
-import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShippingRepository;
+import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentRepository;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
@@ -13,7 +12,7 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
  *
  */
 @DomainRepositoryImpl
-public class ShippingRepository extends EntityRepository implements IShippingRepository{
+public class ShippingRepository extends EntityRepository implements IEnviamentRepository{
 
 
 

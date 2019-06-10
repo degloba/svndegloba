@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 
@@ -22,7 +22,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 
 @Entity
 @AggregateRoot
-public class Product extends BaseAggregateRoot{
+public class Producte extends BaseAggregateRoot{
 
 	/**
 	 * 
@@ -36,15 +36,15 @@ public class Product extends BaseAggregateRoot{
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
-	private ProductType productType;
+	private TipusProducte tipusProducte;
 	
-	private Product(){}
+	private Producte(){}
 	
-	Product(AggregateId aggregateId, Money price, String name, ProductType productType){
+	Producte(AggregateId aggregateId, Money price, String name, TipusProducte tipusProducte){
 		this.aggregateId = aggregateId;
 		this.price = price;
 		this.name = name;
-		this.productType = productType;
+		this.tipusProducte = tipusProducte;
 	}
 	
 	public boolean isAvailabe(){		
@@ -59,12 +59,12 @@ public class Product extends BaseAggregateRoot{
 		return name;
 	}
 	
-	public ProductType getProductType() {
-		return productType;
+	public TipusProducte getProductType() {
+		return tipusProducte;
 	}
 	
 	public ProductData generateSnapshot(){
-		return new ProductData(getAggregateId(), price, name, productType, new Date());
+		return new ProductData(getAggregateId(), price, name, tipusProducte, new Date());
 	}
 	
 }

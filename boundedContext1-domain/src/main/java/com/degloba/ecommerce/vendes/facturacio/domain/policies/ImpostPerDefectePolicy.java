@@ -1,30 +1,31 @@
-package com.degloba.ecommerce.sales.invoicing.domain.policies;
+package com.degloba.ecommerce.vendes.facturacio.domain.policies;
 
 import java.math.BigDecimal;
 
 import com.degloba.domain.annotations.DomainPolicyImpl;
-
-
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Tax;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 /**
  * 
  * @author degloba
+ * 
+ * @category Política d'impost per defecte
+ * Es calcula l'impost segons el tipus de producte {@link TipusProducte}
  *
  */
 @DomainPolicyImpl
-public class DefaultTaxPolicy implements ITaxPolicy{
+public class ImpostPerDefectePolicy implements IImpostPolicy{
 				
 	
 	@Override
-	public Tax calculateTax(ProductType productType, Money net) {
+	public Tax calculateTax(TipusProducte tipusProducte, Money net) {
 		BigDecimal ratio = null;
 		String desc = null;
 		
-		switch (productType) {
+		switch (tipusProducte) {
 		case DRUG:
 			ratio = BigDecimal.valueOf(0.05);
 			desc = "5% (D)";
@@ -39,7 +40,7 @@ public class DefaultTaxPolicy implements ITaxPolicy{
 			break;
 			
 		default:
-			throw new IllegalArgumentException(productType + " not handled");
+			throw new IllegalArgumentException(tipusProducte + " not handled");
 		}
 				
 		Money tax = net.multiplyBy(ratio);

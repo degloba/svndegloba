@@ -1,23 +1,34 @@
-package com.degloba.ecommerce.sales.equivalent;
+package com.degloba.ecommerce.vendes.equivalent;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.equivalent.specification.SameCategory;
-import com.degloba.ecommerce.sales.equivalent.specification.SimilarName;
-import com.degloba.ecommerce.sales.equivalent.specification.SimilarPrice;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.domain.specification.DisjunctionSpecification;
 import com.degloba.domain.specification.Specification;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.equivalent.specification.SameCategory;
+import com.degloba.ecommerce.vendes.equivalent.specification.SimilarName;
+import com.degloba.ecommerce.vendes.equivalent.specification.SimilarPrice;
 
+/**
+ * @author degloba
+ *
+ * @category 
+ */
 @DomainFactory
 public class ProductSpecificationFactory {
 
+	/**
+	 * @category Crea (Fàbrica) una {@link Specification} de {@link Producte}
+	 * @param client
+	 * @param problematicProduct
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	public Specification<Product> create(Client client,
-			Product problematicProduct) {
+	public Specification<Producte> create(Client client,	Producte problematicProduct) {
+		
 		// TODO explore domain rules, maybe use genetic algorithm to breed spec;)
-		return new DisjunctionSpecification<Product>(
+		return new DisjunctionSpecification<Producte>(
 					new SimilarPrice(problematicProduct.getPrice(), generateAcceptableDifference(client)), 
 					new SimilarName(problematicProduct.getName()),
 					new SameCategory(problematicProduct.getProductType()));

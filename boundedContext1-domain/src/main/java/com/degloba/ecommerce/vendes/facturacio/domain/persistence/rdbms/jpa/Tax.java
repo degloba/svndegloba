@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -11,7 +11,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 /**
- * Impost
+ * @category Impost
  * 
  * @author degloba
  *

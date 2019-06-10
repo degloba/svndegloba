@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +33,7 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
  */
 @AggregateRoot
 @Entity
-public class Invoice extends BaseAggregateRoot {
+public class Factura extends BaseAggregateRoot {
 
 	/**
 	 * 
@@ -63,12 +63,12 @@ public class Invoice extends BaseAggregateRoot {
     	    {@JoinColumn(name = "invoiceId", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
     	     })*/
-	private List<InvoiceLine> items;
+	private List<LiniaFacturacio> items;
 
-	public Invoice(long invoiceId, ClientData client) {
+	public Factura(long invoiceId, ClientData client) {
 		///////this.aggregateId = invoiceId;
 		this.client = client;
-		this.items = new ArrayList<InvoiceLine>();
+		this.items = new ArrayList<LiniaFacturacio>();
 		
 		this.net = Money.ZERO;
 		this.gros = Money.ZERO;
@@ -77,9 +77,9 @@ public class Invoice extends BaseAggregateRoot {
 	/**
 	 * For JPA Only
 	 */
-	private Invoice(){}
+	private Factura(){}
 
-	public void addItem(InvoiceLine item) {
+	public void addItem(LiniaFacturacio item) {
 		items.add(item);
 
 		net = net.add(item.getNet());
@@ -90,7 +90,7 @@ public class Invoice extends BaseAggregateRoot {
 	 * 
 	 * @return immutable projection
 	 */
-	public List<InvoiceLine> getItems() {
+	public List<LiniaFacturacio> getItems() {
 		return Collections.unmodifiableList(items);
 	}
 

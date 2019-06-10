@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa;
 
 import java.io.Serializable;
 
@@ -11,10 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
-
-import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
-import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
+import com.degloba.ecommerce.vendes.pagaments.domain.factories.PaymentFactory;
+import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Payment;
 import com.degloba.persistence.domain.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;

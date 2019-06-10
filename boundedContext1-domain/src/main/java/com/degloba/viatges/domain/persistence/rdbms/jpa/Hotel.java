@@ -1,4 +1,4 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -21,7 +21,7 @@ public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Set<Booking> reservations = new HashSet<Booking>();
+	private Set<Reserva> reservations = new HashSet<Reserva>();
 
 	private Long id;
 
@@ -114,8 +114,8 @@ public class Hotel implements Serializable {
 		this.price = price;
 	}
 
-	public Booking createBooking(User user) {
-		return new Booking(this, user);
+	public Reserva createBooking(Usuari usuari) {
+		return new Reserva(this, usuari);
 	}
 
 	@Override
@@ -127,11 +127,11 @@ public class Hotel implements Serializable {
 	@OneToMany(mappedBy = "hotel")
 	@XmlTransient
 	@JsonIgnore
-	public Set<Booking> getReservations() {
+	public Set<Reserva> getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(Set<Booking> reservations) {
+	public void setReservations(Set<Reserva> reservations) {
 		this.reservations = reservations;
 	}
 }

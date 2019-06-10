@@ -4,8 +4,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 
 public class CategoryFacadeImpl implements CategoryFacade {

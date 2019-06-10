@@ -4,10 +4,9 @@ import java.util.List;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-
-import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
@@ -20,16 +19,16 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
  *
  */
 @DomainRepositoryImpl
-public class SalesRepository extends EntityRepository implements ISalesRepository{
+public class SalesRepository extends EntityRepository implements IVendaRepository{
 
 	@Override
-	public List<Product> findProductWhereBestBeforeExpiredIn(int days) {
+	public List<Producte> findProductWhereBestBeforeExpiredIn(int days) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Product loadProduct(Class<Product> class1, AggregateId productId) {
+	public Producte loadProduct(Class<Producte> class1, AggregateId productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.persistence.rdbms.jpa;
+package com.degloba.lloguer.domain.persistence.rdbms.jpa;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 /**
- * Repositori : Lloguer
+ * @category Repositori : Lloguer
  */
 @DomainRepository
-public interface IRentRepository extends IEntityRepository {
+public interface ILloguerRepository extends IEntityRepository {
 
 	public CategoryJpa loadCategory(long id);
 

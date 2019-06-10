@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa;
 
 import java.util.List;
 
@@ -13,8 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProductData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
@@ -24,7 +23,7 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
  *
  */
 @Entity
-public class InvoiceLine extends BaseEntity{
+public class LiniaFacturacio extends BaseEntity{
 		
 	/**
 	 * 
@@ -55,10 +54,10 @@ public class InvoiceLine extends BaseEntity{
 	/**
 	 * JPA only
 	 */
-	public InvoiceLine(){}
+	public LiniaFacturacio(){}
 	
 
-	public InvoiceLine(ProductData product, int quantity, Money net, Tax tax) {
+	public LiniaFacturacio(ProductData product, int quantity, Money net, Tax tax) {
 		this.product = product;
 		this.quantity = quantity;
 		this.net = net;

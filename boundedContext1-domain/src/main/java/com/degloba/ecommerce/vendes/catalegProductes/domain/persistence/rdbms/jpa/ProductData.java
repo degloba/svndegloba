@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 
@@ -37,12 +37,12 @@ public class ProductData {
 	private Date snapshotDate;
 	
 	@Enumerated(EnumType.STRING)
-	private ProductType type;
+	private TipusProducte type;
 
 	
 	private ProductData(){}
 	
-	ProductData(AggregateId productId, Money price, String name, ProductType type, 
+	ProductData(AggregateId productId, Money price, String name, TipusProducte type, 
 			Date snapshotDate) {
 		this.productId = productId;
 		this.price = price;
@@ -67,7 +67,7 @@ public class ProductData {
 		return snapshotDate;
 	}
 	
-	public ProductType getType() {
+	public TipusProducte getType() {
 		return type;
 	}
 

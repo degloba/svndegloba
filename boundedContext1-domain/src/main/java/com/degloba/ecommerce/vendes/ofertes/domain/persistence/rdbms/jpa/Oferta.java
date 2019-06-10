@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,23 +14,23 @@ import com.degloba.persistence.domain.AggregateId;
  *
  */
 @ValueObject
-public class Offer {
+public class Oferta {
 
-	private List<OfferItem> availableItems = new ArrayList<OfferItem>();
+	private List<OfertaItem> availableItems = new ArrayList<OfertaItem>();
 	
-	private List<OfferItem> unavailableItems = new ArrayList<OfferItem>();
+	private List<OfertaItem> unavailableItems = new ArrayList<OfertaItem>();
 	
 	
-	public Offer(List<OfferItem> availabeItems, List<OfferItem> unavailableItems) {
+	public Oferta(List<OfertaItem> availabeItems, List<OfertaItem> unavailableItems) {
 		this.availableItems = availabeItems;
 		this.unavailableItems = unavailableItems;
 	}
 
-	public List<OfferItem> getAvailableItems() {
+	public List<OfertaItem> getAvailableItems() {
 		return availableItems;
 	}
 	
-	public List<OfferItem> getUnavailableItems() {
+	public List<OfertaItem> getUnavailableItems() {
 		return unavailableItems;
 	}
 
@@ -51,7 +51,7 @@ public class Offer {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Offer other = (Offer) obj;
+		Oferta other = (Oferta) obj;
 		if (availableItems == null) {
 			if (other.availableItems != null)
 				return false;
@@ -66,12 +66,12 @@ public class Offer {
 	 * @param delta acceptable difference in percent
 	 * @return
 	 */
-	public boolean sameAs(Offer seenOffer, double delta) {
+	public boolean sameAs(Oferta seenOffer, double delta) {
 		if (! (availableItems.size() == seenOffer.availableItems.size()))
 			return false;
 		
-		for (OfferItem item : availableItems) {
-			OfferItem sameItem = seenOffer.findItem(item.getProductData().getProductId());
+		for (OfertaItem item : availableItems) {
+			OfertaItem sameItem = seenOffer.findItem(item.getProductData().getProductId());
 			if (sameItem == null)
 				return false;
 			if (!sameItem.sameAs(item, delta))
@@ -81,8 +81,8 @@ public class Offer {
 		return true;
 	}
 
-	private OfferItem findItem(AggregateId productId) {
-		for (OfferItem item : availableItems){
+	private OfertaItem findItem(AggregateId productId) {
+		for (OfertaItem item : availableItems){
 			if (item.getProductData().getProductId() == productId)
 				return item;
 		}

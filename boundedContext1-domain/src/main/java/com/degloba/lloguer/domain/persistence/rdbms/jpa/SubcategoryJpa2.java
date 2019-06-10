@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.persistence.rdbms.jpa;
+package com.degloba.lloguer.domain.persistence.rdbms.jpa;
 
 
 import java.io.Serializable;

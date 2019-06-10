@@ -1,35 +1,33 @@
-package com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
-
-
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProductData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 @ValueObject
-public class OfferItem {
+public class OfertaItem {
 
 	private ProductData productData;
 	
 	private int quantity;
 	
-	private Discount discount;
+	private Descompte descompte;
 	
 	private Money totalCost;
 	
 
-	public OfferItem(ProductData productData, int quantity) {
+	public OfertaItem(ProductData productData, int quantity) {
 		this(productData, quantity, null);
 	}
 	
-	public OfferItem(ProductData productData, int quantity, Discount discount) {
+	public OfertaItem(ProductData productData, int quantity, Descompte descompte) {
 		this.productData = productData;
 		this.quantity = quantity;
-		this.discount = discount;
+		this.descompte = descompte;
 		
 		Money discountValue = Money.ZERO;
-		if (discount != null)
-			 discountValue =  discountValue.subtract(discount.getValue());
+		if (descompte != null)
+			 discountValue =  discountValue.subtract(descompte.getValue());
 		
 		this.totalCost = productData.getPrice().multiplyBy(quantity).subtract(discountValue);
 	}
@@ -42,8 +40,8 @@ public class OfferItem {
 		return totalCost;
 	}
 
-	public Discount getDiscount() {
-		return discount;
+	public Descompte getDiscount() {
+		return descompte;
 	}
 	
 	public int getQuantity() {
@@ -55,7 +53,7 @@ public class OfferItem {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((discount == null) ? 0 : discount.hashCode());
+				+ ((descompte == null) ? 0 : descompte.hashCode());
 		result = prime * result
 				+ ((productData == null) ? 0 : productData.hashCode());
 		result = prime * result + quantity;
@@ -72,11 +70,11 @@ public class OfferItem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OfferItem other = (OfferItem) obj;
-		if (discount == null) {
-			if (other.discount != null)
+		OfertaItem other = (OfertaItem) obj;
+		if (descompte == null) {
+			if (other.descompte != null)
 				return false;
-		} else if (!discount.equals(other.discount))
+		} else if (!descompte.equals(other.descompte))
 			return false;
 		if (productData == null) {
 			if (other.productData != null)
@@ -99,7 +97,7 @@ public class OfferItem {
 	 * @param delta acceptable percentage difference 
 	 * @return
 	 */
-	public boolean sameAs(OfferItem item, double delta) {
+	public boolean sameAs(OfertaItem item, double delta) {
 		if (! productData.equals(item.productData))
 			return false;
 		

@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
 import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.degloba.rent.facade.objectify.OwnerFacade;
 
@@ -29,9 +29,9 @@ public class OwnerFacadeImpl implements OwnerFacade, Serializable {
 	}
 
 	@Override
-	public void createOwner(Owner owner) {
+	public void createOwner(Propietari propietari) {
 		// TODO Auto-generated method stub
-		ownerApplicationObjectify.createOwner(owner);
+		ownerApplicationObjectify.createOwner(propietari);
 	}
 
 	public IRentService getOwnerApplicationObjectify() {

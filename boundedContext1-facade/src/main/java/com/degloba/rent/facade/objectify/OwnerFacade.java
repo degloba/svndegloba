@@ -1,12 +1,12 @@
 package com.degloba.rent.facade.objectify;
 
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 
 /**
  * @author degloba
  */
 public interface OwnerFacade {
 
-    void createOwner(Owner owner);
+    void createOwner(Propietari propietari);
 
 }

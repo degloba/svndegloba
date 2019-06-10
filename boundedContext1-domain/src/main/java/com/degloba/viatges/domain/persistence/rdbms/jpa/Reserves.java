@@ -1,4 +1,4 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,27 +11,27 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Reserves
  */
 @XmlRootElement
-public class Bookings {
-	private List<Booking> bookings ;
+public class Reserves {
+	private List<Reserva> reservas ;
 
-	public Bookings() {
-		bookings = new ArrayList<Booking>();
+	public Reserves() {
+		reservas = new ArrayList<Reserva>();
 	}
 
-	public Bookings( Collection<Booking> bookings) {
-		this.bookings = new ArrayList<Booking>(bookings);
+	public Reserves( Collection<Reserva> reservas) {
+		this.reservas = new ArrayList<Reserva>(reservas);
 	}
 
-	public void addBooking(Booking b){
-		bookings.add(b);
+	public void addBooking(Reserva b){
+		reservas.add(b);
 	}
 
 	@XmlElement(name = "booking", required = true, nillable = false)
-	public List<Booking> getBookings() {
-		return bookings;
+	public List<Reserva> getBookings() {
+		return reservas;
 	}
 
-	public void setBookings(List<Booking> bookings) {
-		this.bookings = bookings;
+	public void setBookings(List<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 }

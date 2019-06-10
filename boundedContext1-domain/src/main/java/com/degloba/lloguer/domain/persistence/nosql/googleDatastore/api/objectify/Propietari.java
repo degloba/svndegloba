@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify;
 
 
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Address;
@@ -15,7 +15,7 @@ import java.util.*;
  * Entitat (Objectify) : Propietari
  */
 @Entity
-public class Owner implements Serializable {
+public class Propietari implements Serializable {
   
 	
     /**
@@ -57,12 +57,12 @@ public class Owner implements Serializable {
     Address mailAddress;
     
 
-    public Owner(String firstName, String lastName) {
+    public Propietari(String firstName, String lastName) {
         this.name = new PersonName(firstName, lastName);
     }
     
   
-    List<Key<Product>> products = new ArrayList<Key<Product>>();
+    List<Key<Producte>> productes = new ArrayList<Key<Producte>>();
 	
     
 
@@ -112,7 +112,7 @@ public class Owner implements Serializable {
         return name.toString();
     }
 
-	public Owner() {
+	public Propietari() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -157,12 +157,12 @@ public class Owner implements Serializable {
 		this.id = id;
 	}
 
-	public List<Key<Product>> getProducts() {
-		return products;
+	public List<Key<Producte>> getProducts() {
+		return productes;
 	}
 
-	public void setProducts(List<Key<Product>> products) {
-		this.products = products;
+	public void setProducts(List<Key<Producte>> productes) {
+		this.productes = productes;
 	}
 
 	

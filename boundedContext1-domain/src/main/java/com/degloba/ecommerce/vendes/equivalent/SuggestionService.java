@@ -1,18 +1,19 @@
-package com.degloba.ecommerce.sales.equivalent;
+package com.degloba.ecommerce.vendes.equivalent;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
 //////////import com.degloba.ecommerce.sales.readmodel.offer.Offer;
 import com.degloba.domain.specification.Specification;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 
 /**
- * Funció de suport a la decisió de mostra: suggereix un equivalent del producte basat en els hàbits del client.
+ * @category Servei de domini (funció) que dóna suport a la decisió de la selecció d'un producte.</br>
+ * Suggereix un equivalent del producte basat en els hàbits del client.
  * 
  * @author degloba
  *
@@ -21,7 +22,7 @@ import com.degloba.domain.specification.Specification;
 public class SuggestionService {
 
 	@Inject
-	private ISalesRepository productRepository;
+	private IVendaRepository productRepository;
 	
 	//////////@Inject
 	//////////private Offer offer;
@@ -29,12 +30,19 @@ public class SuggestionService {
 	@Inject
 	private ProductSpecificationFactory productSpecificationFactory;
 	
-	public Product suggestEquivalent(Product problematicProduct, Client client) {
-		List<Product> expiringProducts = productRepository.findProductWhereBestBeforeExpiredIn(5);
+	/**
+	 * 
+	 * 
+	 * @param problematicProduct
+	 * @param client
+	 * @return
+	 */
+	public Producte suggestEquivalent(Producte problematicProduct, Client client) {
+		List<Producte> expiringProducts = productRepository.findProductWhereBestBeforeExpiredIn(5);
 		
-		Specification<Product> specification = productSpecificationFactory.create(client, problematicProduct);
+		Specification<Producte> specification = productSpecificationFactory.create(client, problematicProduct);
 		
-		for (Product suggestedProduct : expiringProducts) {
+		for (Producte suggestedProduct : expiringProducts) {
 			if (specification.isSatisfiedBy(suggestedProduct))
 				return suggestedProduct;
 		}

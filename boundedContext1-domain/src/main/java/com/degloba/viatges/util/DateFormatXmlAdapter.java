@@ -1,4 +1,4 @@
-package com.degloba.travel.util;
+package com.degloba.viatges.util;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.text.DateFormat;

@@ -1,4 +1,4 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.Collection;

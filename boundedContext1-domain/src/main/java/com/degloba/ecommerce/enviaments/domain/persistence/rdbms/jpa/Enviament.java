@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -7,12 +7,12 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.ecommerce.enviaments.domain.EstatEnviament;
+import com.degloba.ecommerce.enviaments.domain.events.EnviamentLliuratEvent;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.ecommerce.shipping.domain.ShippingStatus;
-import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
 
 
 /**
@@ -22,7 +22,7 @@ import com.degloba.ecommerce.shipping.domain.events.ShipmentDeliveredEvent;
  */
 @Entity
 @AggregateRoot
-public class Shipment extends BaseAggregateRoot {
+public class Enviament extends BaseAggregateRoot {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -31,25 +31,25 @@ public class Shipment extends BaseAggregateRoot {
 		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  
     private AggregateId orderId;
 	
-    private ShippingStatus status;
+    private EstatEnviament status;
 
     
-    private Shipment() {}
+    private Enviament() {}
 
-    public Shipment(AggregateId shipmentId, AggregateId orderId) {
+    public Enviament(AggregateId shipmentId, AggregateId orderId) {
         this.aggregateId = shipmentId;
     	this.orderId = orderId;
-        this.status = ShippingStatus.WAITING;
+        this.status = EstatEnviament.WAITING;
     }
 
     /**
      * Shipment has been sent to the customer.
      */
     public void ship() {
-        if (status != ShippingStatus.WAITING) {
+        if (status != EstatEnviament.WAITING) {
             throw new IllegalStateException("cannot ship in status " + status);
         }
-        status = ShippingStatus.SENT;
+        status = EstatEnviament.SENT;
   ////////eventPublisher.publish(new OrderShippedEvent(orderId, getAggregateId()));
     }
 
@@ -57,10 +57,10 @@ public class Shipment extends BaseAggregateRoot {
      * Shipment has been confirmed received by the customer.
      */
     public void deliver() {
-        if (status != ShippingStatus.SENT) {
+        if (status != EstatEnviament.SENT) {
             throw new IllegalStateException("cannot deliver in status " + status);
         }
-        status = ShippingStatus.DELIVERED;
+        status = EstatEnviament.DELIVERED;
         ////////eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
     }
 

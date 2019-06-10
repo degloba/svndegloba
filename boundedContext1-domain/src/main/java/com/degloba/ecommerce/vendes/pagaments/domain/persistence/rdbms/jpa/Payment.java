@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa;
 
 import java.io.Serializable;
 
@@ -16,11 +16,11 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.ecommerce.vendes.domain.events.PaymentRolledBackEvent;
+import com.degloba.ecommerce.vendes.pagaments.domain.factories.PaymentFactory;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.ecommerce.sales.domain.events.PaymentRolledBackEvent;
-import com.degloba.ecommerce.sales.payment.domain.factories.PaymentFactory;
 
 //@AggregateRoot
 /**

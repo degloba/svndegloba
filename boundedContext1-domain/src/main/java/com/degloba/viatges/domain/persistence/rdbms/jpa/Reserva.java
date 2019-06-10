@@ -1,11 +1,11 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 /*import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.binding.validation.ValidationContext;*/
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.degloba.travel.util.*;
+import com.degloba.viatges.util.*;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -25,11 +25,11 @@ import java.util.Set;
 
 
 /**
- * Reserva d'hotel realitzada per un {@link User}
+ * Reserva d'hotel realitzada per un {@link Usuari}
  */
 @XmlRootElement (name = "BookAuthors") // , namespace = DomainConstants.NAMESPACE)
 @Entity
-public class Booking implements Serializable {
+public class Reserva implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class Booking implements Serializable {
 
 	private Long id;
 
-	private User user;
+	private Usuari usuari;
 
 	private Hotel hotel;
 
@@ -60,19 +60,19 @@ public class Booking implements Serializable {
 
 	private int beds;
 
-	private Set<Amenity> amenities = new HashSet<Amenity>();
+	private Set<Comoditat> comoditats = new HashSet<Comoditat>();
 
-	public Booking() {
+	public Reserva() {
 		Calendar calendar = Calendar.getInstance();
 		setCheckinDate(calendar.getTime());
 		calendar.add(Calendar.DAY_OF_MONTH, 1);
 		setCheckoutDate(calendar.getTime());
 	}
 
-	public Booking(Hotel hotel, User user) {
+	public Reserva(Hotel hotel, Usuari usuari) {
 		this();
 		this.hotel = hotel;
-		this.user = user;
+		this.usuari = usuari;
 	}
 
 	@XmlAttribute
@@ -125,12 +125,12 @@ public class Booking implements Serializable {
 	}
 
 	@ManyToOne
-	public User getUser() {
-		return user;
+	public Usuari getUser() {
+		return usuari;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(Usuari usuari) {
+		this.usuari = usuari;
 	}
 
 	@XmlJavaTypeAdapter( DateFormatXmlAdapter.class)
@@ -210,12 +210,12 @@ public class Booking implements Serializable {
 	@Transient
 	@XmlElement(name = "amenity", required = true, nillable = false)
 	@XmlElementWrapper
-	public Set<Amenity> getAmenities() {
-		return amenities;
+	public Set<Comoditat> getAmenities() {
+		return comoditats;
 	}
 
-	public void setAmenities(Set<Amenity> amenities) {
-		this.amenities = amenities;
+	public void setAmenities(Set<Comoditat> comoditats) {
+		this.comoditats = comoditats;
 	}
 
 	// TODO replace with JSR 303
@@ -238,6 +238,6 @@ public class Booking implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Booking(" + user + "," + hotel +"; from "  +dateFormat.format(getCheckinDate())+" to "+ dateFormat.format(getCheckoutDate())+ ")";
+		return "Booking(" + usuari + "," + hotel +"; from "  +dateFormat.format(getCheckinDate())+" to "+ dateFormat.format(getCheckoutDate())+ ")";
 	}
 }

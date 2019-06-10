@@ -1,11 +1,10 @@
-package com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa;
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
-
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
@@ -13,22 +12,22 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 /**
  * 
- * Repositori Vendes
+ * @category Repositori de {@link Sales}
  * 
  * @author degloba
  *
  */
 @DomainRepository
-public interface ISalesRepository extends IEntityRepository {
+public interface IVendaRepository extends IEntityRepository {
 
 	// Payment
 	
 	
 	// Producte
 	
-	public List<Product> findProductWhereBestBeforeExpiredIn(int days);
+	public List<Producte> findProductWhereBestBeforeExpiredIn(int days);
 
-	public Product loadProduct(Class<Product> clazz, AggregateId productId);
+	public Producte loadProduct(Class<Producte> clazz, AggregateId productId);
 	
 	
 	// Reserves

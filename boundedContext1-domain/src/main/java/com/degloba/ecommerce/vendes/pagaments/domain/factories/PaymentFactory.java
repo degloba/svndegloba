@@ -1,15 +1,15 @@
-package com.degloba.ecommerce.sales.payment.domain.factories;
+package com.degloba.ecommerce.vendes.pagaments.domain.factories;
 
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainFactory;
+import com.degloba.ecommerce.vendes.domain.events.PagatClientEvent;
+import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Payment;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.domain.AggregateId;
 // Domain
 import com.degloba.persistence.domain.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.ecommerce.sales.domain.events.ClientPaidEvent;
-import com.degloba.ecommerce.sales.payment.domain.persistence.rdbms.jpa.Payment;
 // Event
 import com.degloba.event.domain.IDomainEventPublisher;
 
@@ -26,7 +26,7 @@ public class PaymentFactory {
 	private IDomainEventPublisher<?> publisher;
 
 	public Payment createPayment(ClientData clientData, Money amount){
-		publisher.publish(new ClientPaidEvent(AggregateId.generate(), clientData, amount));
+		publisher.publish(new PagatClientEvent(AggregateId.generate(), clientData, amount));
 		
 		return new Payment(AggregateId.generate(), clientData, amount);
 	}

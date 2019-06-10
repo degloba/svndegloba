@@ -1,6 +1,6 @@
-package com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa;
 
-public enum ProductType {
+public enum TipusProducte {
 	DRUG, FOOD, STANDARD
 
 }

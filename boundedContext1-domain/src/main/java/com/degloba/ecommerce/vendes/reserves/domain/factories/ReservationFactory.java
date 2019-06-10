@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain.factories;
+package com.degloba.ecommerce.vendes.reserves.domain.factories;
 
 import java.util.Date;
 
@@ -7,17 +7,17 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
-import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation.ReservationStatus;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation.ReservationStatus;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
 
 
-/*
- * Factoria Reserva
+/**
+ * @author degloba
+ * 
+ * @category Factoria {@link Reservation}
  */
 @DomainFactory
 public class ReservationFactory {

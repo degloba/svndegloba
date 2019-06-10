@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.factories;
+package com.degloba.ecommerce.vendes.facturacio.domain.factories;
 
 import java.util.UUID;
 
@@ -7,9 +7,7 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-
-
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
 import com.degloba.persistence.domain.ClientData;
 
 
@@ -20,15 +18,15 @@ import com.degloba.persistence.domain.ClientData;
  *
  */
 @DomainFactory
-public class InvoiceFactory {
+public class FacturaFactory {
 
 	@Inject
 	private AutowireCapableBeanFactory spring;
 	
-	public Invoice create(ClientData client){
+	public Factura create(ClientData client){
 		//Key aggregateId = KeyFactory.stringToKey( UUID.randomUUID().toString());
-		Invoice invoice = new Invoice(1, client);
-		spring.autowireBean(invoice);
-		return invoice;
+		Factura factura = new Factura(1, client);
+		spring.autowireBean(factura);
+		return factura;
 	}
 }

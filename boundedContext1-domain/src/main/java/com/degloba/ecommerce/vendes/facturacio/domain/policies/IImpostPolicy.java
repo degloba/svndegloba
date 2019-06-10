@@ -1,27 +1,27 @@
-package com.degloba.ecommerce.sales.invoicing.domain.policies;
+package com.degloba.ecommerce.vendes.facturacio.domain.policies;
 
 import com.degloba.domain.annotations.DomainPolicy;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Tax;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 /**
- * Política d'Impost
+ * @category Política d'impostos
  * 
  * @author degloba
  *
  */
 @DomainPolicy
-public interface ITaxPolicy {	
+public interface IImpostPolicy {	
 
 	/**
 	 * calcula impostos per tipus de producte segons el valor net
 	 * 
-	 * @param productType
+	 * @param tipusProducte
 	 * @param net
 	 * @return
 	 */
-	public Tax calculateTax(ProductType productType, Money net);
+	public Tax calculateTax(TipusProducte tipusProducte, Money net);
 
 }

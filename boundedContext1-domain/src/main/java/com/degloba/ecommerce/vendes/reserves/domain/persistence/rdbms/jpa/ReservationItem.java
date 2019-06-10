@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
@@ -24,14 +23,14 @@ class ReservationItem extends BaseEntity{
 	
 	
 	@ManyToOne
-	private Product product;
+	private Producte producte;
 	
 	private int quantity;
 
 	private ReservationItem(){}
 	
-	ReservationItem(Product product, int quantity) {
-		this.product = product;
+	ReservationItem(Producte producte, int quantity) {
+		this.producte = producte;
 		this.quantity = quantity;
 	}
 
@@ -42,8 +41,8 @@ class ReservationItem extends BaseEntity{
 		this.quantity = changed;
 	}
 	
-	public Product getProduct() {
-		return product;
+	public Producte getProduct() {
+		return producte;
 	}
 
 	public int getQuantity() {

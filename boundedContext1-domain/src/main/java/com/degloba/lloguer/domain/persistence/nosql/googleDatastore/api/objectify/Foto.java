@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify;
 
 
 import com.googlecode.objectify.Key;
@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Entitat (Objectify) : Foto
  */
 @Entity
-public class Photo implements Serializable {
+public class Foto implements Serializable {
   	
 	private static final long serialVersionUID = 1L;
 
@@ -22,13 +22,13 @@ public class Photo implements Serializable {
 	String idGcs; 
   
 	
-	public Photo() {
+	public Foto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	
-	@Parent Key<Product> product;
+	@Parent Key<Producte> producte;
 
 	 	
 	public String getIdGcs() {
@@ -51,13 +51,13 @@ public class Photo implements Serializable {
 	}
 
 
-	public Key<Product> getProduct() {
-		return product;
+	public Key<Producte> getProduct() {
+		return producte;
 	}
 
 
-	public void setProduct(Key<Product> product) {
-		this.product = product;
+	public void setProduct(Key<Producte> producte) {
+		this.producte = producte;
 	}
 
 

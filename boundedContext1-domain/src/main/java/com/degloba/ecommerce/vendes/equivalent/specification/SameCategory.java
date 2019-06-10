@@ -1,21 +1,33 @@
-package com.degloba.ecommerce.sales.equivalent.specification;
+package com.degloba.ecommerce.vendes.equivalent.specification;
 
 
 import com.degloba.domain.specification.CompositeSpecification;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
 
-public class SameCategory extends CompositeSpecification<Product>{
+/**
+ * 
+ * @author degloba
+ * 
+ * @category Categoria similar</br>
+ * Donat el {@link TipusProducte} d'un {@link Producte}, ens diu si es igual al {@link TipusProducte} del {@link Producte} candidat
+ *
+ */
+public class SameCategory extends CompositeSpecification<Producte>{
 
-	private ProductType productType;
+	private TipusProducte tipusProducte;
 	
-	public SameCategory(ProductType productType) {
-		this.productType = productType;
+	/**
+	 * @category Categoria similar</br>
+ 	 * Donat el {@link TipusProducte} d'un {@link Producte}, ens diu si es igual al {@link TipusProducte} del {@link Producte} candidat
+	 */
+	public SameCategory(TipusProducte tipusProducte) {
+		this.tipusProducte = tipusProducte;
 	}
 
 	@Override
-	public boolean isSatisfiedBy(Product candidate) {
-		return candidate.getProductType().equals(productType);
+	public boolean isSatisfiedBy(Producte candidate) {
+		return candidate.getProductType().equals(tipusProducte);
 	}
 
 }

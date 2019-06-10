@@ -1,22 +1,3 @@
-/*
- * Copyright 2017 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-
-
-
 import com.degloba.domain.Message;
 import com.degloba.persistence.nosql.googleDatastore.api.lowlevel.DatabaseException;
 import com.google.cloud.datastore.Batch;
@@ -33,7 +14,10 @@ import com.google.cloud.datastore.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Repositori de missatges utilitzant la implementació Google Cloud Datastore/Natiu */
+/** 
+ * @category Repositori de missatges utilitzant la implementació Google Cloud Datastore/Natiu 
+ * 
+ */
 public class MessageRepositoryImpl implements IMessageRepository {
 
   private static MessageRepositoryImpl instance;
@@ -43,12 +27,11 @@ public class MessageRepositoryImpl implements IMessageRepository {
 
   @Override
   public void save(Message message) {
-    // Save message to "messages"
+
     Datastore datastore = getDatastoreInstance();
     Key key = datastore.allocateId(keyFactory.newKey());
 
-    Entity.Builder messageEntityBuilder = Entity.newBuilder(key)
-        .set("messageId", message.getMessageId());
+    Entity.Builder messageEntityBuilder = Entity.newBuilder(key).set("messageId", message.getMessageId());
 
     if (message.getData() != null) {
       messageEntityBuilder = messageEntityBuilder.set("data", message.getData());
@@ -60,9 +43,10 @@ public class MessageRepositoryImpl implements IMessageRepository {
     datastore.put(messageEntityBuilder.build());
   }
 
+  // Recupera un {@link Message} del {@link Datastore}
   @Override
   public List<Message> retrieve(int limit) {
-    // Get Message saved in Datastore
+    
     Datastore datastore = getDatastoreInstance();
     Query<Entity> query =
         Query.newEntityQueryBuilder()
@@ -89,6 +73,7 @@ public class MessageRepositoryImpl implements IMessageRepository {
     return messages;
   }
 
+  // Recupera un {@ink Datastore}
   private Datastore getDatastoreInstance() {
     return DatastoreOptions.getDefaultInstance().getService();
   }

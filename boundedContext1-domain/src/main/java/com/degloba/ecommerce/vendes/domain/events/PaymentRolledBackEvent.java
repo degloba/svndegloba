@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.domain.events;
+package com.degloba.ecommerce.vendes.domain.events;
 
 import java.io.Serializable;
 

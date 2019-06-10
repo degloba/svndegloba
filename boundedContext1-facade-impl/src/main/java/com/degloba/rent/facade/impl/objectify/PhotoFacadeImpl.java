@@ -2,8 +2,8 @@ package com.degloba.rent.facade.impl.objectify;
 
 import javax.inject.Inject;
 
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
 import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
 import com.degloba.rent.facade.objectify.PhotoFacade;
 
 
@@ -22,9 +22,9 @@ public class PhotoFacadeImpl implements PhotoFacade {
 	}
 
 	@Override
-	public void createPhoto(Photo photo) {
+	public void createPhoto(Foto foto) {
 		// TODO Auto-generated method stub
-		photoApplication.createPhoto(photo);
+		photoApplication.createPhoto(foto);
 	}
 
 	public IRentService getPhotoApplication() {

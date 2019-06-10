@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.domain.events;
+package com.degloba.ecommerce.vendes.domain.events;
 
 import java.io.Serializable;
 
@@ -10,11 +10,11 @@ import com.degloba.event.annotations.Event;
 
 @SuppressWarnings("serial")
 @Event
-public class OrderSubmittedEvent implements Serializable{
+public class OrdreEnviadaEvent implements Serializable{
 
 	private AggregateId orderId;
 	
-	public OrderSubmittedEvent(AggregateId orderId){
+	public OrdreEnviadaEvent(AggregateId orderId){
 		this.orderId = orderId;
 	}
 	

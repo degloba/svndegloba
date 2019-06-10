@@ -1,18 +1,20 @@
-package com.degloba.ecommerce.sales.invoicing.domain.services;
+package com.degloba.ecommerce.vendes.facturacio.domain.services;
 
 import com.degloba.domain.annotations.DomainService;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.invoicing.domain.policies.DefaultTaxPolicy;
-import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.facturacio.domain.policies.ImpostPerDefectePolicy;
+import com.degloba.ecommerce.vendes.facturacio.domain.policies.IImpostPolicy;
 
-/*
- * Servei Assessor fiscal
+/**
+ * @author degloba
+ * 
+ * @category Servei Assessor fiscal
  */
 @DomainService
 public class TaxAdvisorService {
 
-	public ITaxPolicy suggestBestTax(Client client){
+	public IImpostPolicy suggestBestTax(Client client){
 		//TODO explore domain rules
-		return new DefaultTaxPolicy();
+		return new ImpostPerDefectePolicy();
 	}
 }

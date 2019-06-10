@@ -1,11 +1,11 @@
-package com.degloba.ecommerce.sales.invoicing.domain.factories;
+package com.degloba.ecommerce.vendes.facturacio.domain.factories;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.RequestItem;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraItem;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.RequestItem;
 import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
 
 /*
@@ -13,16 +13,16 @@ import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationExc
  * Per cada Compra
  */
 @DomainFactory
-public class InvoiceRequestFactory {
+public class PeticioFacturaFactory {
 
-	public InvoiceRequest create(Client client, Purchase... purchases) {
-		InvoiceRequest request = new InvoiceRequest(client.generateSnapshot());
+	public PeticioFactura create(Client client, Compra... purchases) {
+		PeticioFactura request = new PeticioFactura(client.generateSnapshot());
 		
-		for (Purchase purchase : purchases) {
-			if (! purchase.isPaid())
-				throw new DomainOperationException(purchase.getAggregateId(), "Purchase is not paid");
+		for (Compra compra : purchases) {
+			if (! compra.isPaid())
+				throw new DomainOperationException(compra.getAggregateId(), "Purchase is not paid");
 			
-			for (PurchaseItem item : purchase.getItems()) {
+			for (CompraItem item : compra.getItems()) {
 				request.add(new RequestItem(item.getProductData(), item.getQuantity(), item.getTotalCost()));
 			}
 		}

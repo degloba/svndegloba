@@ -1,18 +1,18 @@
-package com.degloba.ecommerce.sales.domain.policies;
+package com.degloba.ecommerce.vendes.domain.policies;
 
 import com.degloba.domain.annotations.DomainPolicy;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Descompte;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 /**
- * Interficies Politica de Descompte
+ * @category Interficie : Politica de descompte
  *  
  * @author degloba
  */
 @DomainPolicy
-public interface DiscountPolicy {
+public interface DescomptePolicy {
 
-	public Discount applyDiscount(Product product, int quantity, Money reularCost);
+	public Descompte applyDiscount(Producte producte, int quantity, Money reularCost);
 }

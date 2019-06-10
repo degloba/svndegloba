@@ -1,16 +1,15 @@
-package com.degloba.ecommerce.sales.invoicing.domain.services;
+package com.degloba.ecommerce.vendes.facturacio.domain.services;
 
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
-
-import com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceFactory;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.RequestItem;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
-import com.degloba.ecommerce.sales.invoicing.domain.policies.ITaxPolicy;
+import com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturaFactory;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.LiniaFacturacio;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.RequestItem;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Tax;
+import com.degloba.ecommerce.vendes.facturacio.domain.policies.IImpostPolicy;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
@@ -31,20 +30,20 @@ public class BookKeeperService {
 	
 
 	@Inject
-	private InvoiceFactory invoiceFactory;
+	private FacturaFactory facturaFactory;
 	
-	public Invoice issuance(InvoiceRequest invoiceRequest, ITaxPolicy taxPolicy){
-		Invoice invoice = invoiceFactory.create(invoiceRequest.getClientData());
+	public Factura issuance(PeticioFactura peticioFactura, IImpostPolicy impostPolicy){
+		Factura factura = facturaFactory.create(peticioFactura.getClientData());
 		
-		for (RequestItem item : invoiceRequest.getItems()){
+		for (RequestItem item : peticioFactura.getItems()){
 			Money net = item.getTotalCost();			
-			Tax tax = taxPolicy.calculateTax(item.getProductData().getType(), net);			
+			Tax tax = impostPolicy.calculateTax(item.getProductData().getType(), net);			
 						
-			InvoiceLine invoiceLine = new InvoiceLine(item.getProductData(), item.getQuantity(), net, tax);			
-			invoice.addItem(invoiceLine);
+			LiniaFacturacio liniaFacturacio = new LiniaFacturacio(item.getProductData(), item.getQuantity(), net, tax);			
+			factura.addItem(liniaFacturacio);
 		}
 		
-		return invoice;
+		return factura;
 	}
 	
 }

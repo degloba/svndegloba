@@ -9,17 +9,17 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
+import com.degloba.lloguer.domain.persistence.rdbms.jpa.CategoryJpa;
+import com.degloba.lloguer.domain.persistence.rdbms.jpa.ILloguerRepository;
+import com.degloba.lloguer.domain.persistence.rdbms.jpa.PhotoJpa;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa;
-import com.degloba.rent.domain.persistence.rdbms.jpa.IRentRepository;
-import com.degloba.rent.domain.persistence.rdbms.jpa.PhotoJpa;
 
-/*
- * Repositori + JPA : Lloguer
+/**
+ * @category Repositori + JPA : Lloguer
  * 
  */
 @DomainRepositoryImpl
-public class RentRepository extends EntityRepository implements IRentRepository{
+public class RentRepository extends EntityRepository implements ILloguerRepository{
 	
 private final static Logger logger = Logger.getLogger(RentRepository.class.getName());
 	

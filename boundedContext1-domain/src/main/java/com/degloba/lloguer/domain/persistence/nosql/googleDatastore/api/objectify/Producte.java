@@ -1,4 +1,4 @@
-package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import com.googlecode.objectify.annotation.Parent;
  * Entitat (Objectify) : Producte
  */
 @Entity
-public class Product implements Serializable {
+public class Producte implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -25,17 +25,17 @@ public class Product implements Serializable {
 	Double price;
 	Subcategory subcategory;
 	
-	@Parent Key<Owner> owner;
+	@Parent Key<Propietari> propietari;
 		
 	///////////////////@Parent Key<Location> location;
 
 	  
-	public Product() {
+	public Producte() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	List<Key<Photo>> photos = new ArrayList<Key<Photo>>();
+	List<Key<Foto>> fotos = new ArrayList<Key<Foto>>();
 
 
 	// getters - setters
@@ -56,16 +56,16 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public List<Key<Photo>> getPhotos() {
-		return photos;
+	public List<Key<Foto>> getPhotos() {
+		return fotos;
 	}
 
-	public void setPhotos(List<Key<Photo>> photos) {
-		this.photos = photos;
+	public void setPhotos(List<Key<Foto>> fotos) {
+		this.fotos = fotos;
 	}
 
-	public void setOwner(Key<Owner> owner) {
-		this.owner = owner;
+	public void setOwner(Key<Propietari> propietari) {
+		this.propietari = propietari;
 	}
 
 	/*public void setLocation(Key<Location> location) {
@@ -80,8 +80,8 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
-	public Key<Owner> getOwner() {
-		return owner;
+	public Key<Propietari> getOwner() {
+		return propietari;
 	}
 
 	/*public Key<Location> getLocation() {

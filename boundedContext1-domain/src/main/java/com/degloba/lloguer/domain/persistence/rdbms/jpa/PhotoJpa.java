@@ -1,10 +1,10 @@
-package com.degloba.rent.domain.persistence.rdbms.jpa;
+package com.degloba.lloguer.domain.persistence.rdbms.jpa;
 
 
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
 
 import java.io.Serializable;
 
@@ -31,7 +31,7 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 
 	      
 	 @ManyToOne(fetch = FetchType.LAZY)
-	 private Product product;
+	 private Producte producte;
 
 	 	
 	public String getIdGcs() {
@@ -44,13 +44,13 @@ public class PhotoJpa extends BaseAggregateRoot implements Serializable {
 	}
 
 
-	public Product getProduct() {
-		return product;
+	public Producte getProduct() {
+		return producte;
 	}
 
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProduct(Producte producte) {
+		this.producte = producte;
 	}
 
 }

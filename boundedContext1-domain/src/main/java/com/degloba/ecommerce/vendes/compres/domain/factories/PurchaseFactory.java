@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain.factories;
+package com.degloba.ecommerce.vendes.compres.domain.factories;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,13 +9,11 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraItem;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
@@ -31,31 +29,31 @@ public class PurchaseFactory {
 	 * 
 	 * @param orderId correlation id - correlates purchases and reservations  
 	 * @param client
-	 * @param offer
+	 * @param oferta
 	 * @return
 	 */
-	public Purchase create(AggregateId orderId, Client client, Offer offer){
-		if (! canPurchse(client, offer.getAvailableItems()))
+	public Compra create(AggregateId orderId, Client client, Oferta oferta){
+		if (! canPurchse(client, oferta.getAvailableItems()))
 			throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
 		
-		ArrayList<PurchaseItem> items = new ArrayList<PurchaseItem>(offer.getAvailableItems().size());
+		ArrayList<CompraItem> items = new ArrayList<CompraItem>(oferta.getAvailableItems().size());
 		Money purchaseTotlCost = Money.ZERO;
 		
-		for (OfferItem item : offer.getAvailableItems()) {
-			PurchaseItem purchaseItem = new PurchaseItem(item.getProductData(), item.getQuantity(), item.getTotalCost());
-			items.add(purchaseItem);
-			purchaseTotlCost = purchaseTotlCost.add(purchaseItem.getTotalCost());
+		for (OfertaItem item : oferta.getAvailableItems()) {
+			CompraItem compraItem = new CompraItem(item.getProductData(), item.getQuantity(), item.getTotalCost());
+			items.add(compraItem);
+			purchaseTotlCost = purchaseTotlCost.add(compraItem.getTotalCost());
 		}
 		
-		Purchase purchase = new Purchase(orderId, client.generateSnapshot(),
+		Compra compra = new Compra(orderId, client.generateSnapshot(),
 				items, new Date(), false, purchaseTotlCost);
 		
-		spring.autowireBean(purchase);
+		spring.autowireBean(compra);
 		
-		return purchase;
+		return compra;
 	}
 
-	private boolean canPurchse(Client client, List<OfferItem> availabeItems) {
+	private boolean canPurchse(Client client, List<OfertaItem> availabeItems) {
 		return true;//TODO explore domain rules
 	}
 }

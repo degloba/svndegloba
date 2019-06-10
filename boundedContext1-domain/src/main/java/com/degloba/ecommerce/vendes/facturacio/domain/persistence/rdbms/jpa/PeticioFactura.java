@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,12 +10,12 @@ import com.degloba.persistence.domain.ClientData;
 
 
 @ValueObject
-public class InvoiceRequest {
+public class PeticioFactura {
 
 	private ClientData client;	
 	private List<RequestItem> items = new ArrayList<RequestItem>();
 	
-	public InvoiceRequest(ClientData client){
+	public PeticioFactura(ClientData client){
 		this.client = client;
 	}
 	

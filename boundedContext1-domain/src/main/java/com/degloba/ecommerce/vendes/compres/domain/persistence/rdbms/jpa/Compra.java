@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -22,9 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
-
-import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
+import com.degloba.ecommerce.vendes.domain.events.OrdreEnviadaEvent;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
@@ -32,14 +30,14 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 /**
- * Compra
+ * @category Compra
  * 
  * @author degloba
  *
  */
 @Entity
 @AggregateRoot
-public class Purchase extends BaseAggregateRoot{
+public class Compra extends BaseAggregateRoot{
 
 	/**
 	 * 
@@ -55,7 +53,7 @@ public class Purchase extends BaseAggregateRoot{
     	    {@JoinColumn(name = "purchase_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
     	     })*/
-	private List<PurchaseItem> items;
+	private List<CompraItem> items;
 	
 	private boolean paid;
 
@@ -69,9 +67,9 @@ public class Purchase extends BaseAggregateRoot{
 	private Money totalCost;
 
 	
-	private  Purchase() {}
+	private  Compra() {}
 
-	public Purchase(AggregateId aggregateId, ClientData clientData, List<PurchaseItem> items, Date purchaseDate,
+	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date purchaseDate,
 			boolean paid, Money totalCost){
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
@@ -84,7 +82,7 @@ public class Purchase extends BaseAggregateRoot{
 	public void confirm() {
 		paid = true;
 		
-		eventPublisher.publish(new OrderSubmittedEvent(getAggregateId()));
+		eventPublisher.publish(new OrdreEnviadaEvent(getAggregateId()));
 	}
 	
 	public boolean isPaid() {
@@ -103,8 +101,8 @@ public class Purchase extends BaseAggregateRoot{
 		return clientData;
 	}
 	
-	public Collection<PurchaseItem> getItems() {
-		return (Collection<PurchaseItem>) Collections.unmodifiableCollection(items);
+	public Collection<CompraItem> getItems() {
+		return (Collection<CompraItem>) Collections.unmodifiableCollection(items);
 	}
 
 

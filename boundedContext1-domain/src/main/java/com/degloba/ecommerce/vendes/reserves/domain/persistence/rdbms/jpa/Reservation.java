@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,13 +29,11 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.annotations.Function;
 import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
-
-
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Discount;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.OfferItem;
-import com.degloba.ecommerce.sales.offer.domain.policies.DiscountPolicy;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Descompte;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
+import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
@@ -44,11 +42,19 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 
 /**
- * La reserva és només una "llista de desitjos". 
- * El sistema no pot garantir que l'usuari pugui comprar els productes desitjats. </br>
- * La reserva genera Oferta VO, que es calcula segons els preus actuals i la disponibilitat actual.
- * 
  * @author degloba
+ * 
+ * @category 
+ * <ul>
+ * <li>La reserva és només una "llista de desitjos".
+ * </li>
+ * <li> 
+ * El sistema no pot garantir que l'usuari pugui comprar els productes desitjats. </br>
+ * </li>
+ * <li>
+ * La reserva genera {@link Oferta} , que es calcula segons els preus actuals i la disponibilitat actual.
+ * </li>
+ * 
  *
  */
 
@@ -61,12 +67,13 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 @AggregateRoot
 public class Reservation extends BaseAggregateRoot{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 
+	/**
+	 * @category Estat de la {@link Reservation}	 
+	 *
+	 */
 	public enum ReservationStatus{
 		OPENED, CLOSED
 	}
@@ -101,17 +108,17 @@ public class Reservation extends BaseAggregateRoot{
 	}
 
 	@Invariant({"closed", "duplicates"})
-	public void add(Product product, int quantity){
+	public void add(Producte producte, int quantity){
 		if (isClosed())
 			domainError("Reservation already closed");
-		if (!product.isAvailabe())
+		if (!producte.isAvailabe())
 			domainError("Product is no longer available");
 		
-		if (contains(product)){
-			increase(product, quantity);			
+		if (contains(producte)){
+			increase(producte, quantity);			
 		}
 		else{
-			addNew(product, quantity);
+			addNew(producte, quantity);
 		}
 	}
 	
@@ -119,49 +126,66 @@ public class Reservation extends BaseAggregateRoot{
 	 * Sample function closured by policy </br> 
 	 * Higher order function closured by policy function</br>
 	 * </br>
-	 * Function loads current prices, and prepares offer according to the current availability and given discount
-	 * @param discountPolicy
+	 * La funció carrega els preus actuals i prepara l'oferta segons la disponibilitat actual i el descompte donat
+	 * @param descomptePolicy
 	 * @return
 	 */
 	@Function
-	public Offer calculateOffer(DiscountPolicy discountPolicy) {
-		List<OfferItem> availabeItems = new ArrayList<OfferItem>();
-		List<OfferItem> unavailableItems = new ArrayList<OfferItem>();
+	public Oferta calculateOffer(DescomptePolicy descomptePolicy) {
+		List<OfertaItem> availabeItems = new ArrayList<OfertaItem>();
+		List<OfertaItem> unavailableItems = new ArrayList<OfertaItem>();
 		
 		for (ReservationItem item : items) {						
 			if (item.getProduct().isAvailabe()){
-				Discount discount = discountPolicy.applyDiscount(item.getProduct(), item.getQuantity(), item.getProduct().getPrice());
-				OfferItem offerItem = new OfferItem(item.getProduct().generateSnapshot(), item.getQuantity(), discount);
+				Descompte descompte = descomptePolicy.applyDiscount(item.getProduct(), item.getQuantity(), item.getProduct().getPrice());
+				OfertaItem ofertaItem = new OfertaItem(item.getProduct().generateSnapshot(), item.getQuantity(), descompte);
 				
-				availabeItems.add(offerItem);
+				availabeItems.add(ofertaItem);
 			}
 			else {
-				OfferItem offerItem = new OfferItem(item.getProduct().generateSnapshot(), item.getQuantity());
+				OfertaItem ofertaItem = new OfertaItem(item.getProduct().generateSnapshot(), item.getQuantity());
 				
-				unavailableItems.add(offerItem);
+				unavailableItems.add(ofertaItem);
 			}
 		}
 		
-		return new Offer(availabeItems, unavailableItems);
+		return new Oferta(availabeItems, unavailableItems);
 	}
 
-	private void addNew(Product product, int quantity) {
-		ReservationItem item = new ReservationItem(product, quantity);
+	/**
+	 * @category Afegeix una nou {@link Producte} i una quantitat
+	 * 
+	 * @param producte
+	 * @param quantity
+	 */
+	private void addNew(Producte producte, int quantity) {
+		ReservationItem item = new ReservationItem(producte, quantity);
 		items.add(item);
 	}
 
-	private void increase(Product product, int quantity) {
+	/**
+	 * @category Incrementa a un {@link Producte}, una quantitat
+	 * 
+	 * @param producte
+	 * @param quantity
+	 */
+	private void increase(Producte producte, int quantity) {
 		for (ReservationItem item : items) {
-			if (item.getProduct().equals(product)){
+			if (item.getProduct().equals(producte)){
 				item.changeQuantityBy(quantity);
 				break;
 			}
 		}
 	}
 
-	public boolean contains(Product product) {
+	/**
+	 * @category Retorna True si existeix el producte i False si no existeix 
+	 * @param producte
+	 * @return
+	 */
+	public boolean contains(Producte producte) {
 		for (ReservationItem item : items) {
-			if (item.getProduct().equals(product))
+			if (item.getProduct().equals(producte))
 				return true;
 		}
 		return false;
@@ -178,11 +202,11 @@ public class Reservation extends BaseAggregateRoot{
 		status = ReservationStatus.CLOSED;
 	}
 
-	public List<ReservedProduct> getReservedProducts() {
-		ArrayList<ReservedProduct> result = new ArrayList<ReservedProduct>(items.size());
+	public List<ProducteReservat> getReservedProducts() {
+		ArrayList<ProducteReservat> result = new ArrayList<ProducteReservat>(items.size());
 		
 		for (ReservationItem item : items) {
-			result.add(new ReservedProduct(item.getProduct().getAggregateId(), item.getProduct().getName(), item.getQuantity(), calculateItemCost(item)));
+			result.add(new ProducteReservat(item.getProduct().getAggregateId(), item.getProduct().getName(), item.getQuantity(), calculateItemCost(item)));
 		}
 		
 		return result;

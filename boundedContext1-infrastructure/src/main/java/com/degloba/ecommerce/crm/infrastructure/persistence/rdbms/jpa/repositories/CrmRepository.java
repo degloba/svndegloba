@@ -6,7 +6,6 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
-
 /**
  * Repositori + JPA : {@link Crm}
  * 

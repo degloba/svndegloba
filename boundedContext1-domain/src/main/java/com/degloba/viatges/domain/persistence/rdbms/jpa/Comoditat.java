@@ -1,8 +1,8 @@
-package com.degloba.travel.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domain.persistence.rdbms.jpa;
 
 import javax.xml.bind.annotation.XmlEnum;
 
 @XmlEnum
-public enum Amenity {
+public enum Comoditat {
 	OCEAN_VIEW, LATE_CHECKOUT, MINIBAR
 }

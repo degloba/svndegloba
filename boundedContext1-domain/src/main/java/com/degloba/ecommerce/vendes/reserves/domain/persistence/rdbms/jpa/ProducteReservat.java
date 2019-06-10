@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
@@ -7,7 +7,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 @ValueObject
-public class ReservedProduct {
+public class ProducteReservat {
 
 	private String name;
 	
@@ -17,7 +17,7 @@ public class ReservedProduct {
 
 	private int quantity;
 	
-	public ReservedProduct(AggregateId productId, String name, int quantity, Money totalCost) {
+	public ProducteReservat(AggregateId productId, String name, int quantity, Money totalCost) {
 		this.productId = productId;
 		this.name = name;
 		this.quantity = quantity;

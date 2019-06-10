@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa;
 
 
 import javax.persistence.AttributeOverride;
@@ -9,9 +9,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.ValueObject;
-
-
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProductData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
@@ -23,7 +21,7 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
  */
 @ValueObject
 @Entity
-public class PurchaseItem extends BaseEntity{
+public class CompraItem extends BaseEntity{
 	
 	/**
 	 * 
@@ -40,9 +38,9 @@ public class PurchaseItem extends BaseEntity{
 		@AttributeOverride(name = "currencyCode", column = @Column(name = "purchaseTotalCost_currencyCode")) })
 	private Money totalCost;
 	
-	private PurchaseItem() {}
+	private CompraItem() {}
 	
-	public PurchaseItem(ProductData productData, int quantity, Money totalCost) {
+	public CompraItem(ProductData productData, int quantity, Money totalCost) {
 		this.productData = productData;
 		this.quantity = quantity;
 		this.totalCost = totalCost;

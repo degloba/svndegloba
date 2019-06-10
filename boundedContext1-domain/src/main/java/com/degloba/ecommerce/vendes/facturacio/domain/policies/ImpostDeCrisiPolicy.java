@@ -1,28 +1,29 @@
-package com.degloba.ecommerce.sales.invoicing.domain.policies;
+package com.degloba.ecommerce.vendes.facturacio.domain.policies;
 
 import com.degloba.domain.annotations.DomainPolicyImpl;
-
-
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Tax;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductType;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Tax;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 /**
  * 
  * @author degloba
+ * 
+ * @category Política d'impost en el cas de "crisi"
+ * Es calcula l'impost d'un tipus de producte {@link TipusProducte}
  *
  */
 @DomainPolicyImpl
-public class CrysisTaxPolicy implements ITaxPolicy{
+public class ImpostDeCrisiPolicy implements IImpostPolicy{
 	
 	private double ratio;
 	
-	public CrysisTaxPolicy(double ratio){
+	public ImpostDeCrisiPolicy(double ratio){
 		this.ratio = ratio;
 	}
 	
 	@Override
-	public Tax calculateTax(ProductType productType, Money net) {
+	public Tax calculateTax(TipusProducte tipusProducte, Money net) {
 		String desc = "sorry";				
 		Money tax = net.multiplyBy(ratio);
 		return new Tax(tax, desc);

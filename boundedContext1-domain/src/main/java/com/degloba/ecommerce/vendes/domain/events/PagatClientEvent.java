@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.domain.events;
+package com.degloba.ecommerce.vendes.domain.events;
 
 import java.io.Serializable;
 
@@ -18,14 +18,14 @@ import com.degloba.event.annotations.Event;
  */
 @SuppressWarnings("serial")
 @Event
-public class ClientPaidEvent implements Serializable {
+public class PagatClientEvent implements Serializable {
 
     private final AggregateId paymentId;
     private ClientData clientData;
     private Money amount;
     
     
-    public ClientPaidEvent(AggregateId paymentId, ClientData clientData, Money amount) {
+    public PagatClientEvent(AggregateId paymentId, ClientData clientData, Money amount) {
         this.paymentId = paymentId;
         this.clientData = clientData;
         this.amount = amount;

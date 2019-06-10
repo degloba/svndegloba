@@ -1,10 +1,10 @@
-package com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 /**
- * Entitat (Objectify) : Adreça 
+ * @category Entitat (Objectify) : Adreça 
  */
 @Entity
 public class Address {

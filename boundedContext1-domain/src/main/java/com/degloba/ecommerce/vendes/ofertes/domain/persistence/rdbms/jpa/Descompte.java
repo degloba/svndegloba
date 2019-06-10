@@ -1,16 +1,16 @@
-package com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 @ValueObject
-public class Discount {
+public class Descompte {
 
 	private String cause;
 	
 	private Money value;
 
-	public Discount(String cause, Money value) {
+	public Descompte(String cause, Money value) {
 		this.cause = cause;
 		this.value = value;
 	}
@@ -40,7 +40,7 @@ public class Discount {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Discount other = (Discount) obj;
+		Descompte other = (Descompte) obj;
 		if (cause == null) {
 			if (other.cause != null)
 				return false;
