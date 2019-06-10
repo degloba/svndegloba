@@ -1,10 +1,9 @@
 package com.degloba.rent.application.services;
 
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-//Entitats NoSql/GoogleDatastore (Api Objectify)
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 
 //Entitats NoSql/GoogleDatastore (Api JPA)
@@ -24,9 +23,9 @@ public interface IRentService {
 
 	void createCategory(Category category);
 	
-    void createPhoto(Photo photo);
+    void createPhoto(Foto foto);
     
     void createSubcategory(Subcategory subcategory);
     
-    void createOwner(Owner owner);
+    void createOwner(Propietari propietari);
 }

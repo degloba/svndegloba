@@ -4,7 +4,7 @@ package com.degloba.ecommerce.sales.application.services;
 
 import com.degloba.ecommerce.sales.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.sales.application.exceptions.OfferChangedException;
-import com.degloba.ecommerce.sales.offer.domain.persistence.rdbms.jpa.Offer;
+import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.persistence.domain.AggregateId;
 
 
@@ -21,9 +21,9 @@ public interface IOrderingService {
 	public void addProduct(AggregateId orderId, AggregateId productId, int quantity);
 	
 	// 3. 
-	public Offer calculateOffer(AggregateId orderId);
+	public Oferta calculateOffer(AggregateId orderId);
 
 	// 4.
-	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Offer seenOffer)
+	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
 			throws OfferChangedException;
 }

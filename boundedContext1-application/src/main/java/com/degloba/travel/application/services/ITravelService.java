@@ -1,67 +1,66 @@
 package com.degloba.travel.application.services;
 
 import com.degloba.travel.application.SearchCriteria;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.travel.domain.persistence.rdbms.jpa.User;
-
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 import java.util.List;
 
 /**
- * A service interface for retrieving hotels and bookings from a backing repository. Also supports the ability to cancel
- * a booking.
+ * @category Un servei que serveix per recuperar {@link Hotel}s i {@link Reserves} des d'un repository. 
+ * També suporta la possibilitat de cancelar un {@link Reserva}.
  */
 public interface ITravelService {
 
 
     /**
-     * @param username the user name
-     * @return the user
+     * @param username el nom d'usuari
+     * @return {@link Usuari}
      */
-    User findUser(String username);
+    Usuari findUser(String username);
 
-    User login(String u, String pw);
+    Usuari login(String u, String pw);
 
     /**
-     * Find bookings made by the given user
+     * Busca {@link Reserves} fets per un {@link Usuari}
      *
-     * @param username the user's name
-     * @return their bookings
+     * @param username el nom de l'{@link Usuari}
+     * @return els seus {@link Reserves}
      */
-    List<Booking> findBookings(String username);
+    List<Reserva> findBookings(String username);
 
-    Booking findBookingById(Long id);
+    Reserva findBookingById(Long id);
 
     /**
-     * Find hotels available for booking by some criteria.
+     * Busca una llista d'hotels accessibles per reservar a partir d'un criteri.
      *
-     * @param criteria the search criteria
-     * @return a list of hotels meeting the criteria
+     * @param criteria el criteri de cerca
+     * @return una llista de {@link Hotel}s que cumpleix el criteri
      */
     List<Hotel> findHotels(SearchCriteria criteria);
 
     /**
-     * Find hotels by their identifier.
+     * Busca l'hotel pel seu identificador.
      *
      * @param id the hotel id
-     * @return the hotel
+     * @return {@link Hotel}
      */
     Hotel findHotelById(Long id);
 
     /**
-     * Create a new, transient hotel booking instance for the given user.
+     * Crea un nou, transient hotel booking instance for the given user.
      *
      * @param hotelId  the hotelId
      * @param userName the user name
      * @return the new transient booking instance
      */
-    Booking createBooking(Long hotelId, String userName);
+    Reserva createBooking(Long hotelId, String userName);
 
     /**
-     * Cancel an existing booking.
+     * Cancel.la un {@link Reserva} existent.
      *
-     * @param id the booking id
+     * @param id l'id de {@link Reserva}
      */
     void cancelBooking(Long id);
 
@@ -70,6 +69,6 @@ public interface ITravelService {
      *
      * @param bo booking to persist
      */
-    void persistBooking(Booking bo);
+    void persistBooking(Reserva bo);
 }
 

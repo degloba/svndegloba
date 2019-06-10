@@ -2,12 +2,11 @@ package com.degloba.rent.application.services;
 
 import javax.inject.Inject;
 
-
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.IRentRepository;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 
 public class RentService implements IRentService {
@@ -17,7 +16,7 @@ public class RentService implements IRentService {
 	
 	
 	@Inject
-	private IRentRepository rentRepositoryObjectify;
+	private ILloguerRepository rentRepositoryObjectify;
 
 
 
@@ -42,8 +41,8 @@ public class RentService implements IRentService {
 	}
 */
 	@Override
-	public void createPhoto(Photo photo) {
-		rentRepositoryObjectify.create(photo);
+	public void createPhoto(Foto foto) {
+		rentRepositoryObjectify.create(foto);
 	}
 
 	@Override
@@ -53,16 +52,16 @@ public class RentService implements IRentService {
 	}
 
 	@Override
-	public void createOwner(Owner owner) {
-		rentRepositoryObjectify.create(owner);
+	public void createOwner(Propietari propietari) {
+		rentRepositoryObjectify.create(propietari);
 
 	}
 
-	public IRentRepository getRentRepositoryObjectify() {
+	public ILloguerRepository getRentRepositoryObjectify() {
 		return rentRepositoryObjectify;
 	}
 
-	public void setRentRepositoryObjectify(IRentRepository rentRepositoryObjectify) {
+	public void setRentRepositoryObjectify(ILloguerRepository rentRepositoryObjectify) {
 		this.rentRepositoryObjectify = rentRepositoryObjectify;
 	}
 	

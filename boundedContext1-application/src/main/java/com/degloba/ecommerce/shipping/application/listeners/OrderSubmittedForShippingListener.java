@@ -2,29 +2,23 @@ package com.degloba.ecommerce.shipping.application.listeners;
 
 import javax.inject.Inject;
 
-// Ecommerce
-
-import com.degloba.ecommerce.shipping.domain.factories.ShipmentFactory;
-import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.IShippingRepository;
-import com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment;
-import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
-
-// CQRS (ecommerce)
-
-import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
-import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
+import com.degloba.ecommerce.enviaments.domain.factories.ShipmentFactory;
+import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentRepository;
+import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
+import com.degloba.ecommerce.vendes.cqrs.readmodel.finders.IVendaFinder;
+import com.degloba.ecommerce.vendes.domain.events.OrdreEnviadaEvent;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderDto;
 // Event
 import com.degloba.event.annotations.EventListeners;
 import com.degloba.event.annotations.EventListener;
 
 
 /**
- * When an order is submitted by a customer automatically create a shipment in
- * WAITING status.
+* Quan un client envia una comanda, crea automàticament un enviament en Estat d'espera.
  * 
- * NOTICE: This is an example of communication across multiple bounded contexts
- * using events. In this context we can't access Order aggregate directly so we
- * use DTO from the read model instead.
+ * NOTA: Aquest és un exemple de comunicació a través de múltiples bounded Context
+ * utilitzant events. En aquest context, no podem accedir a l'agregat {@link Order} directament, en lloc d'això 
+ * utilitzem DTO del model de lectura.
  * 
  */
 @EventListeners
@@ -34,15 +28,15 @@ public class OrderSubmittedForShippingListener {
     private ShipmentFactory factory;
 
     @Inject
-    private ISalesFinder salesFinder;
+    private IVendaFinder salesFinder;
 
     @Inject
-    private IShippingRepository shippingRepository;
+    private IEnviamentRepository enviamentRepository;
 
     @EventListener(asynchronous = true)
-    public void handle(OrderSubmittedEvent event) {
+    public void handle(OrdreEnviadaEvent event) {
         OrderDto orderDetails = salesFinder.find(event.getOrderId());
-        Shipment shipment = factory.createShipment(orderDetails.getOrderId());
-        shippingRepository.save(shipment);
+        Enviament enviament = factory.createShipment(orderDetails.getOrderId());
+        enviamentRepository.save(enviament);
     }
 }

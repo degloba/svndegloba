@@ -14,19 +14,15 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.degloba.travel.application.SearchCriteria;
-
-// Domain
-
-// Application
-
-import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
-import com.degloba.travel.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.travel.domain.persistence.rdbms.jpa.User;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 
 /**
- * A JPA-based implementation of the Booking Service. Delegates to a JPA entity manager to issue data access calls
- * against the backing repository. The EntityManager reference is provided by the managing container (Spring)
+ * @category Implementació d'un servei de reserves basat en JPA.</br>
+ * Delega en un {@link EntityManager} l'execució de les crides d'accés a dades contra el repositori.</br> 
+ * El contenidor de gestió proporciona la referència d’{@link EntityManager} (Spring)
  * automatically.
  */
 @Service("bookingService")
@@ -45,7 +41,7 @@ public class JpaBookingService implements ITravelService, Serializable {
 
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
-	public List<Booking> findBookings(String username) {
+	public List<Reserva> findBookings(String username) {
 		if (username != null) {
 			return em.createQuery("select b from com.degloba.travel.domain.Booking b where b.user.username = :username order by b.checkinDate")
 					.setParameter("username", username).getResultList();
@@ -85,23 +81,23 @@ public class JpaBookingService implements ITravelService, Serializable {
 	}
 
 	@Transactional(readOnly = true)
-	public Booking createBooking(Long hotelId, String username) {
+	public Reserva createBooking(Long hotelId, String username) {
 		Hotel hotel = em.find(Hotel.class, hotelId);
-		User user = findUser(username);
-		Booking booking = new Booking(hotel, user);
-		return booking;
+		Usuari usuari = findUser(username);
+		Reserva reserva = new Reserva(hotel, usuari);
+		return reserva;
 	}
 
 	@Transactional
-	public void persistBooking(Booking booking) {
-		em.persist(booking);
+	public void persistBooking(Reserva reserva) {
+		em.persist(reserva);
 	}
 
 	@Transactional
-	public void cancelBooking(Booking booking) {
-		booking = em.find(Booking.class, booking.getId());
-		if (booking != null) {
-			em.remove(booking);
+	public void cancelBooking(Reserva reserva) {
+		reserva = em.find(Reserva.class, reserva.getId());
+		if (reserva != null) {
+			em.remove(reserva);
 		}
 	}
 
@@ -116,8 +112,8 @@ public class JpaBookingService implements ITravelService, Serializable {
 	}
 
 	@Override
-	public User findUser(String username) {
-		return (User) em.createQuery("select u from com.degloba.travel.domain.User u where u.username = :username")
+	public Usuari findUser(String username) {
+		return (Usuari) em.createQuery("select u from com.degloba.travel.domain.User u where u.username = :username")
 				.setParameter("username", username).getSingleResult();
 	}
 
@@ -134,13 +130,13 @@ public class JpaBookingService implements ITravelService, Serializable {
 	}
 
 	@Override
-	public User login(String usrname, String pw) {
+	public Usuari login(String usrname, String pw) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Booking findBookingById(Long id) {
+	public Reserva findBookingById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

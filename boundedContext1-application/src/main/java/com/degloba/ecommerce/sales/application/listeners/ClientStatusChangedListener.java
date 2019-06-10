@@ -6,9 +6,9 @@ import com.degloba.cqrs.query.PaginatedResult;
 
 import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
 import com.degloba.ecommerce.sales.application.services.DiscountingService;
-import com.degloba.ecommerce.sales.cqrs.readmodel.finders.ISalesFinder;
-import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderQuery;
-import com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos.OrderDto;
+import com.degloba.ecommerce.vendes.cqrs.readmodel.finders.IVendaFinder;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.OrdreQuery;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderDto;
 import com.degloba.persistence.domain.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
@@ -21,7 +21,7 @@ import com.degloba.event.annotations.EventListener;
 /**
  * Sample Anti-corruption Layer: translates Customer-Client vocabulary
  * <br>
- * Applies discount 
+ * Aplica un descompte
  * 
  * @author degloba
  *
@@ -33,12 +33,14 @@ public class ClientStatusChangedListener {
 	private DiscountingService discountingService;
 	
 	@Inject
-	private ISalesFinder salesFinder;
+	private IVendaFinder salesFinder;
 	
 	@EventListener
 	public void handle(CustomerStatusChangedEvent event){
-		OrderQuery orderQuery = new OrderQuery(null, event.getCustomerId());
-		PaginatedResult<OrderDto> orders = salesFinder.query(orderQuery);
+		// recuperem la consulta de l'ordre a partir de l'id del client
+		OrdreQuery ordreQuery = new OrdreQuery(null, event.getCustomerId());
+		
+		PaginatedResult<OrderDto> orders = salesFinder.query(ordreQuery);
 		
 		Money discount = calculateDiscout(event.getCustomerId());
 		

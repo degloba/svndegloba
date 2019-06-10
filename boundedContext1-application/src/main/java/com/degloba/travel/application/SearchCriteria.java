@@ -3,7 +3,7 @@ package com.degloba.travel.application;
 import java.io.Serializable;
 
 /**
- * A backing bean for the main hotel search form. Encapsulates the criteria needed to perform a hotel search.
+ * @category Encapsula el criteri necessari per realitzar la cerca d'un hotel.
  */
 public class SearchCriteria implements Serializable {
 
@@ -15,12 +15,12 @@ public class SearchCriteria implements Serializable {
 	private String searchString = "";
 
 	/**
-	 * The maximum page size of the Hotel result list
+	 * El número màxim de pàgines de la llista de resultats d'hotels
 	 */
 	private int pageSize = 5;
 
 	/**
-	 * The page the user is currently on.
+	 * La pàgina actual en la que està l'usuari.
 	 */
 	private int currentPage = 1;
 

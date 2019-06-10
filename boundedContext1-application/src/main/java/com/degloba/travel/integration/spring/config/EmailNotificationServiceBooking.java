@@ -19,28 +19,16 @@ import org.springframework.util.Assert;
 //Spring - Messaging
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
-
-//Spring - Integration
 import org.springframework.integration.mail.MailHeaders;
-
-//Spring - Mail
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-// Integration (Domain)
-
-
-// Integration (degloba)
-import com.degloba.integration.spring.services.NotificationGateway;
-import com.degloba.travel.application.services.ITravelService;
-
-// Application
-
-import com.degloba.travel.domain.persistence.rdbms.jpa.Booking;
-import com.degloba.travel.domain.persistence.rdbms.jpa.User;
 import com.degloba.travel.integration.spring.EmailNotificationService;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.integration.spring.services.NotificationGateway;
 
-// Domain
+import com.degloba.travel.application.services.ITravelService;
 
 import javax.annotation.PostConstruct;
 import javax.mail.BodyPart;
@@ -58,7 +46,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Implements notifications using email. Most of the work is handled through Spring Integration
+ * @category Implementa les notificacions de {@link Reserva} utilitzant email. 
+ * La majoria del treball és gestionat per Spring Integration
  */
 @Component
 public class EmailNotificationServiceBooking extends EmailNotificationService {
@@ -98,14 +87,14 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
         //////cachedTemplates.put(this.htmlConfirmation, readTemplate(htmlConfirmation));
     }
 
-    private String mergeTemplate(User user, Booking booking, String tplBody) throws Exception {
+    private String mergeTemplate(Usuari usuari, Reserva reserva, String tplBody) throws Exception {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("name", user.getName());
-        model.put("email", user.getEmail());
-        model.put("bookingId", booking.getId());
-        model.put("bookingCheckin", booking.getCheckinDate());
-        model.put("hotelName", booking.getHotel().getName());
-        model.put("bookingCheckout", booking.getCheckoutDate());
+        model.put("name", usuari.getName());
+        model.put("email", usuari.getEmail());
+        model.put("bookingId", reserva.getId());
+        model.put("bookingCheckin", reserva.getCheckinDate());
+        model.put("hotelName", reserva.getHotel().getName());
+        model.put("bookingCheckout", reserva.getCheckoutDate());
         return mergeTemplate(model, tplBody);
     }
 
@@ -177,17 +166,17 @@ public class EmailNotificationServiceBooking extends EmailNotificationService {
 
     @Override
     public void sendConfirmationNotification(String userId, long bookingId) {
-        User user = bookingService.findUser(userId);
-        Booking booking = bookingService.findBookingById(bookingId);
+        Usuari usuari = bookingService.findUser(userId);
+        Reserva reserva = bookingService.findBookingById(bookingId);
 
         try {
-            String html = mergeTemplate(user, booking, cachedTemplates.get(htmlConfirmation));
-            String txt = mergeTemplate(user, booking, cachedTemplates.get(textConfirmation));
+            String html = mergeTemplate(usuari, reserva, cachedTemplates.get(htmlConfirmation));
+            String txt = mergeTemplate(usuari, reserva, cachedTemplates.get(textConfirmation));
             Map<String, String> m = new HashMap<String, String>();
             m.put("html", html);
             m.put("txt", txt);
 
-            notificationGateway.sendNotification(user.getEmail(), this.confirmationSubject, m);
+            notificationGateway.sendNotification(usuari.getEmail(), this.confirmationSubject, m);
 
 
         } catch (Exception e) {

@@ -14,6 +14,8 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 
 /**
  * @author degloba
+ * 
+ * @category Modifica l'estat d'un {@link Customer} a partir del {@link Command} {@link ChangeCustomerStatusCommand}
  *
  */
 @CommandHandlerAnnotation

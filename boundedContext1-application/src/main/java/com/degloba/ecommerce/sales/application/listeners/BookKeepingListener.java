@@ -2,22 +2,17 @@ package com.degloba.ecommerce.sales.application.listeners;
 
 import javax.inject.Inject;
 
-
-// Ecommerce 
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.domain.events.OrderSubmittedEvent;
-import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
-
-
-
-import com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceRequestFactory;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice;
-import com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceRequest;
-import com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeperService;
-import com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisorService;
-import com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase;
 // Events
 import com.degloba.event.annotations.EventListeners;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.domain.events.OrdreEnviadaEvent;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
+import com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticioFacturaFactory;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
+import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
+import com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService;
+import com.degloba.ecommerce.vendes.facturacio.domain.services.TaxAdvisorService;
 import com.degloba.event.annotations.EventListener;
 
 
@@ -28,23 +23,28 @@ public class BookKeepingListener {
 	private BookKeeperService bookKeeper;
 	
 	@Inject
-	private ISalesRepository salesRepository;
+	private IVendaRepository vendaRepository;
 		
 	@Inject
 	private TaxAdvisorService taxAdvisor;
 	
 	
 	@Inject
-	private InvoiceRequestFactory invoiceRequestFactory;
+	private PeticioFacturaFactory peticioFacturaFactory;
 	
 	@EventListener
-	public void handle(OrderSubmittedEvent event){
-		Purchase purchase = salesRepository.get(Purchase.class,event.getOrderId());
+	public void handle(OrdreEnviadaEvent event){
+		// recuperem la compra a partir de l'Id de l'ordre
+		Compra compra = vendaRepository.get(Compra.class, event.getOrderId());
 		
-		Client client = salesRepository.get(Client.class,purchase.getClientData().getAggregateId());
-		InvoiceRequest request  = invoiceRequestFactory.create(client, purchase); 
-		Invoice invoice = bookKeeper.issuance(request, taxAdvisor.suggestBestTax(client));
+		// recuperem el {@link Client} a partir de {@link Purchase}
+		Client client = vendaRepository.get(Client.class, compra.getClientData().getAggregateId());
 		
-		salesRepository.save(invoice);
+		PeticioFactura request  = peticioFacturaFactory.create(client, compra); 
+		
+		// Factura
+		Factura factura = bookKeeper.issuance(request, taxAdvisor.suggestBestTax(client));
+		
+		vendaRepository.save(factura);
 	}
 }

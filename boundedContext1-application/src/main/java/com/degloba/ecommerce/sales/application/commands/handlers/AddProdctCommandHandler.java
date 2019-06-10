@@ -7,12 +7,11 @@ import com.degloba.cqrs.command.handler.ICommandHandler;
 
 // Application
 import com.degloba.ecommerce.sales.application.commands.AddProdctCommand;
-// Domain
-import com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.sales.domain.persistence.rdbms.jpa.ISalesRepository;
-import com.degloba.ecommerce.sales.equivalent.SuggestionService;
-import com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product;
-import com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
+import com.degloba.ecommerce.vendes.equivalent.SuggestionService;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
 
 
 ///////////////import com.degloba.ecommerce.system.SystemUser;
@@ -22,7 +21,7 @@ public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand
 
 
 	@Inject
-	private ISalesRepository salesRepository; 
+	private IVendaRepository vendaRepository; 
 
 	
 	@Inject
@@ -34,18 +33,18 @@ public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand
 	
 	@Override
 	public Void handle(AddProdctCommand command) {
-		Reservation reservation = salesRepository.loadReservation(Reservation.class,command.getOrderId());
+		Reservation reservation = vendaRepository.loadReservation(Reservation.class,command.getOrderId());
 		
-		Product product = salesRepository.loadProduct(Product.class,command.getProductId());
+		Producte producte = vendaRepository.loadProduct(Producte.class,command.getProductId());
 		
-		if (! product.isAvailabe()){
+		if (! producte.isAvailabe()){
 			Client client = loadClient();	
-			product = suggestionService.suggestEquivalent(product, client);
+			producte = suggestionService.suggestEquivalent(producte, client);
 		}
 			
-		reservation.add(product, command.getQuantity());
+		reservation.add(producte, command.getQuantity());
 		
-		salesRepository.save(reservation);
+		vendaRepository.save(reservation);
 		
 		return null;
 	}
