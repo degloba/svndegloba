@@ -31,13 +31,7 @@
   
   <dependencies>
   
-  		<dependency>
-    		<groupId>com.google.cloud</groupId>
-    		<artifactId>google-cloud-datastore</artifactId>
-    		<version>1.65.0</version>
-    	</dependency>
-
-		
+	
   		
   		<!-- [START Objectify_Dependencies] -->
   		

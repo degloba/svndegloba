@@ -44,6 +44,14 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-persistence-nosql</artifactId>
 		</dependency> -->
+		
+		
+		<dependency>
+    		<groupId>com.google.cloud</groupId>
+    		<artifactId>google-cloud-datastore</artifactId>
+    		<version>1.65.0</version>
+    	</dependency>
+    	
     </dependencies>
 
     <build>
