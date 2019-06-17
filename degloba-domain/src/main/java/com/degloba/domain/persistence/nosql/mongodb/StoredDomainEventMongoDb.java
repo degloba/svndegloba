@@ -1,10 +1,10 @@
 package com.degloba.domain.persistence.nosql.mongodb;
 
 
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.degloba.domain.event.DomainEvent;
+import com.degloba.event.api.IEvent;
 import com.degloba.event.persistence.IStoredDomainEvent;
 import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.utils.Assert;
@@ -21,10 +21,11 @@ import javax.inject.Inject;
 	/** 
 	 * @author degloba
 	 * 
-	 * @category Representa l'entitat de persistencia associada a un event de domini (persistit amb MongoDB)</br>
+	 * @category Representa l'entitat de persistencia associada a un event de domini (persistit amb MongoDb/Spring)</br>
 	 * Utilitzem Spring Data per declarar-lo com un {@link Document}
 	 **/ 
-	@Document public class StoredDomainEventMongoDb implements IStoredDomainEvent { 
+	@Document 
+	public class StoredDomainEventMongoDb implements IStoredDomainEvent { 
 		
 		 @Id 
 		 private String entityId; 
@@ -173,6 +174,16 @@ import javax.inject.Inject;
         return "StoredEvent [eventBody=" + eventBody + ", eventId=" + eventId + ", occurredOn=" + occurredOn + ", typeName="
                 + typeName + "]";
     }
+
+    
+    
+    
+    
+	@Override
+	public void store(IEvent event) {
+		// TODO Auto-generated method stub
+		String a = "1";
+	}
 
 
 }

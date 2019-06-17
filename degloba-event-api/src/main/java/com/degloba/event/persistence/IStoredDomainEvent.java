@@ -1,6 +1,6 @@
 package com.degloba.event.persistence;
 
-import com.degloba.event.domain.IDomainEvent;
+import com.degloba.event.api.IEvent;
 
 /**
  * 
@@ -8,6 +8,6 @@ import com.degloba.event.domain.IDomainEvent;
  * 
  * @category Magatzem d'events de domini
  */
-public interface IStoredDomainEvent  extends IDomainEvent<Object> {
+public interface IStoredDomainEvent  extends IEventStore<IEvent> {
 
 }

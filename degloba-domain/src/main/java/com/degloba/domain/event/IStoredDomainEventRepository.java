@@ -9,7 +9,7 @@ import com.degloba.event.persistence.IStoredDomainEvent;
 
 
 /**
- * @category Interfície : Repositori d'events d'entitats de domini
+ * @category Repositori d'events d'entitats de domini
  * 
  * @author degloba
  *
@@ -38,10 +38,10 @@ public interface IStoredDomainEventRepository {
     /**
      * Insert a new field events to the event store
      *
-     * @param domainEvent A field event
+     * @param storedDomainEvent A field event
      * @return Field events stored on behalf of the event
      */
-    public IStoredDomainEvent append(IDomainEvent domainEvent);
+    public IStoredDomainEvent append(IStoredDomainEvent storedDomainEvent);
 
     /**
      * Tanca el magatzem d'events

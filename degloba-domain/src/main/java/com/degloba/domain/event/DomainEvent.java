@@ -12,7 +12,7 @@ import java.util.UUID;
  * 
  * @category Event associat a una entitat de domini
  */
-public abstract class DomainEvent extends AbstractEvent implements Serializable{
+public abstract class DomainEvent extends AbstractEvent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

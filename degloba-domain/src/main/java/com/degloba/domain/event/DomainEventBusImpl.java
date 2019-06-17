@@ -21,7 +21,7 @@ import com.degloba.utils.Assert;
  * 		Implementa un Bus d'events d'entitats de domini amb Google Guava<br>
  * </li>
  * <li>
- * 		Guarda l'event en un repositori d'Events implementat amb MongoDB
+ * 		Guarda l'event en un repositori d'events implementat amb MongoDB
  * </li>
  * </ul>
  * 
@@ -53,16 +53,23 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 		this.storedDomainEventRepository = storedDomainEventRepository;
 	}
 
-/*
+/**
  * (non-Javadoc)
  * @see com.degloba.domain.event.IDomainEventBus#publishEvent(com.degloba.domain.event.DomainEvent)
  */
-	public void publishEvent(IDomainEvent event) {
+	public void publishEvent(IStoredDomainEvent event) {
         eventBus.post(event);
         
-        IStoredDomainEvent storedDomainEvent = storedDomainEventRepository.append(event);        
-        storedDomainEventRepository.append(storedDomainEvent);
+        storedDomainEventRepository.append(event);        
     }
+	
+
+	@Override
+	public void publishEvent(DomainEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 /*
  * (non-Javadoc)
  * @see com.degloba.domain.event.IDomainEventBus#registerSubscriber(java.lang.Object)
@@ -125,12 +132,6 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 		this.eventBus = eventBus;
 	}
 
-
-	@Override
-	public void publishEvent(DomainEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }
