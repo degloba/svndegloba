@@ -1,4 +1,4 @@
-package com.degloba.rent.infrastructure.persistence.rdbms.jpa.repositories;
+package com.degloba.lloguers.infrastructure.persistence.rdbms.jpa.repositories;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,9 +9,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.CategoryJpa;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.ILloguerRepository;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.PhotoJpa;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguerRepository;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.PhotoJpa;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 /**
@@ -19,9 +19,9 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
  * 
  */
 @DomainRepositoryImpl
-public class RentRepository extends EntityRepository implements ILloguerRepository{
+public class LloguerRepository extends EntityRepository implements ILloguerRepository{
 	
-private final static Logger logger = Logger.getLogger(RentRepository.class.getName());
+private final static Logger logger = Logger.getLogger(LloguerRepository.class.getName());
 	
 	private EntityManager em;
 

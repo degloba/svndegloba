@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.sales.infrastructure.persistence.rdbms.jpa.repositories;
+package com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.jpa.repositories;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
  *
  */
 @DomainRepositoryImpl
-public class SalesRepository extends EntityRepository implements IVendaRepository{
+public class VendaRepository extends EntityRepository implements IVendaRepository{
 
 	@Override
 	public List<Producte> findProductWhereBestBeforeExpiredIn(int days) {
