@@ -1,18 +1,25 @@
-package com.degloba.ecommerce.sales.orders.cqrs.readmodel.dtos;
+package com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.OrdreStatus;
 import com.degloba.persistence.domain.AggregateId;
 
-import com.degloba.ecommerce.sales.orders.cqrs.readmodel.OrderStatus;
-
-
+/**
+ * 
+ * @author degloba
+ * 
+ * @category DTO (Objecte de transferencia de dades ) d'una ordre
+ * 
+ * Una ordre està formada per una llista de productes
+ *
+ */
 public class OrderDto {
 
 	private AggregateId orderId;
 	private List<OrderedProductDto> orderedProducts = new ArrayList<OrderedProductDto>();
-	private OrderStatus status;
+	private OrdreStatus status;
 	private Boolean confirmable;
 
 	public AggregateId getOrderId() {
@@ -31,11 +38,11 @@ public class OrderDto {
 		this.orderedProducts = orderedProducts;
 	}
 
-	public OrderStatus getStatus() {
+	public OrdreStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(OrderStatus status) {
+	public void setStatus(OrdreStatus status) {
 		this.status = status;
 	}
 

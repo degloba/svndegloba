@@ -1,6 +1,13 @@
-package com.degloba.ecommerce.sales.offer.cqrs.readmodel;
+package com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel;
 
-public class OfferQuery {
+/**
+ * 
+ * @author degloba
+ * 
+ * @category   Consulta (patró CQRS)
+ *
+ */
+public class OfertaQuery {
 
 	public boolean isBestBeforeExpired() {
 		// TODO Auto-generated method stub

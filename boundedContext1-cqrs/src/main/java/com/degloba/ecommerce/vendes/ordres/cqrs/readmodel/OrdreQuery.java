@@ -1,13 +1,20 @@
-package com.degloba.ecommerce.sales.orders.cqrs.readmodel;
+package com.degloba.ecommerce.vendes.ordres.cqrs.readmodel;
 
 import com.degloba.persistence.domain.AggregateId;
 
-
-public class OrderQuery {
+/**
+ * 
+ * @author degloba
+ * 
+ * @category Consulta : Order (patró CQRS)
+ * 
+ *
+ */
+public class OrdreQuery {
 
 	private String productName;
 	
-	public OrderQuery(String productName, AggregateId clientId){
+	public OrdreQuery(String productName, AggregateId clientId){
 		this.productName = productName;
 		//TODO search by client
 	}

@@ -1,5 +1,11 @@
-package com.degloba.ecommerce.sales.offer.cqrs.readmodel.dtos;
+package com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos;
 
-public class OfferedProductDto {
+/**
+ * 
+ * @author degloba
+ *
+ * @category DTO (Objecte de transferencia de dades ) d'un {@link OfferedProduct}
+ */
+public class ProducteOfertatDto {
 
 }
