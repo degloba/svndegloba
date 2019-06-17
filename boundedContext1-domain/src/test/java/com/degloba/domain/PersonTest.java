@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.ILloguerRepository;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguerRepository;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.ImType;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 

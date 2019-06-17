@@ -1,6 +1,6 @@
-package com.degloba.rent.facade.objectify;
+package com.degloba.lloguers.facade.objectify;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
 
 /**
  * @author degloba

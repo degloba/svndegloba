@@ -22,16 +22,16 @@ public class Reserves {
 		this.reservas = new ArrayList<Reserva>(reservas);
 	}
 
-	public void addBooking(Reserva b){
+	public void addReserva(Reserva b){
 		reservas.add(b);
 	}
 
-	@XmlElement(name = "booking", required = true, nillable = false)
-	public List<Reserva> getBookings() {
+	@XmlElement(name = "Reserva", required = true, nillable = false)
+	public List<Reserva> getReservas() {
 		return reservas;
 	}
 
-	public void setBookings(List<Reserva> reservas) {
+	public void setReservas(List<Reserva> reservas) {
 		this.reservas = reservas;
 	}
 }

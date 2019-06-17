@@ -114,7 +114,7 @@ public class Hotel implements Serializable {
 		this.price = price;
 	}
 
-	public Reserva createBooking(Usuari usuari) {
+	public Reserva createReserva(Usuari usuari) {
 		return new Reserva(this, usuari);
 	}
 

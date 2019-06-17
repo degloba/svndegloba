@@ -1,4 +1,4 @@
-package com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.degloba.rent.facade.jpa;
+package com.degloba.lloguers.facade.jpa;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 /**
  * @author degloba

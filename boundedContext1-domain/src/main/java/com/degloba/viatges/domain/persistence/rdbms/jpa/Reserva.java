@@ -219,14 +219,14 @@ public class Reserva implements Serializable {
 	}
 
 	// TODO replace with JSR 303
-	/*public void validateEnterBookingDetails(ValidationContext context) {
+	/*public void validateEnterReservaDetails(ValidationContext context) {
 		MessageContext messages = context.getMessageContext();
 		if (checkinDate.before(today())) {
 			messages.addMessage(new MessageBuilder().error().source(
-					"checkinDate").code("booking.checkinDate.beforeToday")
+					"checkinDate").code("Reserva.checkinDate.beforeToday")
 					.build());
 		} else if (checkoutDate.before(checkinDate)) {
-			messages.addMessage(new MessageBuilder().error().source( "checkoutDate").code( "booking.checkoutDate.beforeCheckinDate").build());
+			messages.addMessage(new MessageBuilder().error().source( "checkoutDate").code( "Reserva.checkoutDate.beforeCheckinDate").build());
 		}
 	}*/
 
@@ -238,6 +238,6 @@ public class Reserva implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Booking(" + usuari + "," + hotel +"; from "  +dateFormat.format(getCheckinDate())+" to "+ dateFormat.format(getCheckoutDate())+ ")";
+		return "Reserva(" + usuari + "," + hotel +"; from "  +dateFormat.format(getCheckinDate())+" to "+ dateFormat.format(getCheckoutDate())+ ")";
 	}
 }

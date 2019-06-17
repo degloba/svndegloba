@@ -8,12 +8,12 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.CategoryJpa;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.CategoryJpa2;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.ILloguerRepository;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.SubcategoryJpa;
-import com.degloba.lloguer.domain.persistence.rdbms.jpa.SubcategoryJpa2;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa2;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguerRepository;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.SubcategoryJpa;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.SubcategoryJpa2;
 
 import static org.junit.Assert.*;
 
