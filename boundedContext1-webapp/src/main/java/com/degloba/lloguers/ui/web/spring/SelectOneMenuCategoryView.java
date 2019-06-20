@@ -1,4 +1,4 @@
-package com.degloba.rent.ui.webui.spring;
+package com.degloba.lloguers.ui.web.spring;
 
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.lloguer.cqrs.readmodel.finders.ILloguerFinder;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.cqrs.readmodel.finders.ILloguerFinder;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
 
 
 @Component

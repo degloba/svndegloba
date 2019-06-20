@@ -1,4 +1,4 @@
-package com.degloba.rent.ui.webui.spring.controller;
+package com.degloba.lloguers.ui.web.spring.controller;
 
 
 import java.io.FileInputStream;

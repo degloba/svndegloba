@@ -1,4 +1,4 @@
-package com.degloba.rent.ui.webui.spring.controller;
+package com.degloba.lloguers.ui.web.spring.controller;
 
 import java.io.IOException;
 
@@ -16,15 +16,10 @@ import org.primefaces.event.FileUploadEvent;
 // Spring
 import org.springframework.stereotype.Component;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
-
-// Entitats/Objectify
-
-
-
-import com.degloba.rent.ui.webui.spring.ProductView;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.ui.web.spring.ProductView;
 import com.googlecode.objectify.Key;
 
 

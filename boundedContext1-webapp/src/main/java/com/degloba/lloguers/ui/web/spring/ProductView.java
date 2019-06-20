@@ -1,4 +1,4 @@
-package com.degloba.rent.ui.webui.spring;
+package com.degloba.lloguers.ui.web.spring;
 
 
 import java.io.Serializable;
@@ -22,11 +22,11 @@ import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.event.IDomainEventBus;
-import com.degloba.ecommerce.sales.application.events.CashPurchaseEvent;
-import com.degloba.ecommerce.sales.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
+import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
 import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;

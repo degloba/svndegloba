@@ -1,4 +1,4 @@
-package com.degloba.travel.ui.webui.spring.webflow;
+package com.degloba.viatges.ui.web.spring.webflow;
 
 import org.springframework.webflow.core.FlowException;
 import org.springframework.webflow.execution.FlowExecutionOutcome;
@@ -8,7 +8,7 @@ import org.springframework.webflow.mvc.servlet.AbstractFlowHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BookingFlowHandler extends AbstractFlowHandler {
+public class ReservesFlowHandler extends AbstractFlowHandler {
 
 	private static final String REDIRECT_URL = "contextRelative:/hotels/search";
 

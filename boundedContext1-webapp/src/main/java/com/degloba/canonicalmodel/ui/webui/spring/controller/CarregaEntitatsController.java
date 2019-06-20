@@ -7,11 +7,11 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.degloba.lloguers.cqrs.readmodel.finders.ILloguerFinder;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.facade.objectify.CategoryFacade;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
-import com.degloba.rent.cqrs.readmodel.finders.IRentFinder;
-import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.rent.facade.objectify.CategoryFacade;
 import com.googlecode.objectify.Key;
 
 import org.springframework.stereotype.Controller;
@@ -34,7 +34,7 @@ public class CarregaEntitatsController {
     protected CategoryFacade facadeCategoryObjectify;
     	    
     @Inject
-    protected IRentFinder finderCategory;
+    protected ILloguerFinder finderCategory;
     
     @Inject
     protected IBaseRepository categoryRepositoryObjectify;

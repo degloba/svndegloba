@@ -1,4 +1,4 @@
-package com.degloba.rent.ui.webui.spring;
+package com.degloba.lloguers.ui.web.spring;
 
 
 import java.util.HashMap;

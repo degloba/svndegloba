@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.shipping.ui.webui.spring.controller;
+package com.degloba.ecommerce.enviaments.ui.webui.spring.controller;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,15 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 // CQRS
 import com.degloba.cqrs.command.Gate;
-import com.degloba.ecommerce.enviament.cqrs.readmodel.dtos.EnviamentDto;
-import com.degloba.ecommerce.enviament.cqrs.readmodel.finders.IEnviamentFinder;
-
-//import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
-// Ecommerce
-
-
-import com.degloba.ecommerce.shipping.application.commands.DeliverShipmentCommand;
-import com.degloba.ecommerce.shipping.application.commands.SendShipmentCommand;
+import com.degloba.ecommerce.enviaments.application.commands.DeliverShipmentCommand;
+import com.degloba.ecommerce.enviaments.application.commands.SendShipmentCommand;
+import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
+import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
 
 
 @Controller
