@@ -82,12 +82,12 @@
 	<!-- FINDERS/CQRS -->
 	<!-- *************** -->
 
-	<bean id="shipmentFinder"
-		class="com.degloba.ecommerce.shipping.cqrs.readmodel.finders.ShipmentFinder" />
+	<bean id="enviamentFinder"
+		class="com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.EnviamentFinder" />
 	<bean id="salesFinder"
-		class="com.degloba.ecommerce.sales.cqrs.readmodel.finders.SalesFinder" />
+		class="com.degloba.ecommerce.vendes.cqrs.readmodel.finders.VendaFinder" />
 	<bean id="categoryFinder"
-		class="com.degloba.rent.cqrs.readmodel.finders.RentFinder" />
+		class="com.degloba.lloguers.cqrs.readmodel.finders.LloguerFinder" />
 
 
 	<!-- ************************* -->
@@ -99,11 +99,11 @@
 			ref="organisationRepository" />
 	</bean>
 
-	<bean id="bookingService"
-		class="com.degloba.travel.application.services.JpaBookingService" />
+	<bean id="ReservaService"
+		class="com.degloba.viatges.application.services.JpaReservaService" />
 
-	<bean id="rentService"
-		class="com.degloba.rent.application.services.RentService" />
+	<bean id="lloguerService"
+		class="com.degloba.lloguers.application.services.LloguerService" />
 
 
 	<!-- ******************* -->
@@ -115,8 +115,8 @@
 	</bean>
 
 	<bean id="facadeCategoryObjectify"
-		class="com.degloba.rent.facade.impl.objectify.CategoryFacadeImpl">
-		<property name="rentService" ref="rentService"></property>
+		class="com.degloba.lloguers.facade.impl.objectify.CategoryFacadeImpl">
+		<property name="lloguerService" ref="lloguerService"></property>
 	</bean>
 
 
@@ -124,11 +124,11 @@
 	<!-- FACTORIES -->
 	<!-- ******************* -->
 	<bean id="shipmentFactory"
-		class="com.degloba.ecommerce.shipping.domain.factories.ShipmentFactory" />
+		class="com.degloba.ecommerce.enviaments.domain.factories.ShipmentFactory" />
 	<bean id="invoiceRequestFactory"
-		class="com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceRequestFactory" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.InvoiceRequestFactory" />
 	<bean id="invoiceFactory"
-		class="com.degloba.ecommerce.sales.invoicing.domain.factories.InvoiceFactory" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.InvoiceFactory" />
 
 
 	<!-- ******************* -->
@@ -147,18 +147,18 @@
 	<!-- JSF BEANS -->
 	<!-- ****************** -->
 	<context:component-scan
-		base-package="com.degloba.rent.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf,com.degloba.utils.serializer" />
+		base-package="com.degloba.lloguers.ui.webui.spring,com.degloba.canonicalmodel.ui.webui.jsf,com.degloba.utils.serializer" />
 
 
 	<!-- **************************** -->
 	<!-- DOMAIN/APPLICATION SERVICES -->
 	<!-- **************************** -->
 	<bean
-		class="com.degloba.ecommerce.sales.invoicing.domain.services.BookKeeperService" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService" />
 	<bean
-		class="com.degloba.ecommerce.sales.invoicing.domain.services.TaxAdvisorService" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.services.TaxAdvisorService" />
 	<bean
-		class="com.degloba.ecommerce.sales.application.services.DiscountingService" />
+		class="com.degloba.ecommerce.vendes.application.services.DiscountingService" />
 
 
 <!-- 	<bean id="com.degloba.utils.IObjectSerializer"

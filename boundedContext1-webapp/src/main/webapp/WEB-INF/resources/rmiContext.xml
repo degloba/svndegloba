@@ -32,10 +32,10 @@
 	</bean>
 
 	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-		<property name="serviceName" value="ShipmentFinder" />
-		<property name="service" ref="jpaShipmentFinder" />
+		<property name="serviceName" value="EnviamentFinder" />
+		<property name="service" ref="jpaEnviamentFinder" />
 		<property name="serviceInterface"
-			value="com.insacosa.presentation.ShipmentFinder" />
+			value="com.insacosa.presentation.EnviamentFinder" />
 		<property name="registryPort" value="1199" />
 	</bean>
 </beans>
