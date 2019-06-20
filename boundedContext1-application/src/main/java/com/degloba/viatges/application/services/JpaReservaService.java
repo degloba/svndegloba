@@ -43,7 +43,7 @@ public class JpaReservaService implements IViatgesService, Serializable {
 	@SuppressWarnings("unchecked")
 	public List<Reserva> findReservas(String username) {
 		if (username != null) {
-			return em.createQuery("select b from com.degloba.travel.domain.Reserva b where b.user.username = :username order by b.checkinDate")
+			return em.createQuery("select b from com.degloba.viatges.domain.Reserva b where b.user.username = :username order by b.checkinDate")
 					.setParameter("username", username).getResultList();
 		} else {
 			return null;
@@ -113,7 +113,7 @@ public class JpaReservaService implements IViatgesService, Serializable {
 
 	@Override
 	public Usuari findUser(String username) {
-		return (Usuari) em.createQuery("select u from com.degloba.travel.domain.User u where u.username = :username")
+		return (Usuari) em.createQuery("select u from com.degloba.viatges.domain.User u where u.username = :username")
 				.setParameter("username", username).getSingleResult();
 	}
 

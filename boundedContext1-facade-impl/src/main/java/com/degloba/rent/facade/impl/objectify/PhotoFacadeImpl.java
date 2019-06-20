@@ -2,17 +2,17 @@ package com.degloba.rent.facade.impl.objectify;
 
 import javax.inject.Inject;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.facade.objectify.PhotoFacade;
+import com.degloba.lloguers.application.services.ILloguerService;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.facade.objectify.PhotoFacade;
 
 
 public class PhotoFacadeImpl implements PhotoFacade {
 
     @Inject
-    protected IRentService photoApplication;
+    protected ILloguerService photoApplication;
 
-    public PhotoFacadeImpl(IRentService application) {
+    public PhotoFacadeImpl(ILloguerService application) {
         this.photoApplication = application;
     }
    
@@ -27,11 +27,11 @@ public class PhotoFacadeImpl implements PhotoFacade {
 		photoApplication.createPhoto(foto);
 	}
 
-	public IRentService getPhotoApplication() {
+	public ILloguerService getPhotoApplication() {
 		return photoApplication;
 	}
 
-	public void setPhotoApplication(IRentService photoApplication) {
+	public void setPhotoApplication(ILloguerService photoApplication) {
 		this.photoApplication = photoApplication;
 	}
 	

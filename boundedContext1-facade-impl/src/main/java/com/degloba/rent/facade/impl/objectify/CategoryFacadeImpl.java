@@ -4,17 +4,17 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.facade.objectify.CategoryFacade;
+import com.degloba.lloguers.application.services.ILloguerService;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.facade.objectify.CategoryFacade;
 
 public class CategoryFacadeImpl implements CategoryFacade {
 
     @Inject
-    protected IRentService rentService;
+    protected ILloguerService lloguerService;
 
-    public CategoryFacadeImpl(IRentService application) {
-        this.rentService = application;
+    public CategoryFacadeImpl(ILloguerService application) {
+        this.lloguerService = application;
     }
    
 	public CategoryFacadeImpl() {
@@ -25,23 +25,23 @@ public class CategoryFacadeImpl implements CategoryFacade {
 	@Override
 	public void createCategory(Category category) {
 		// TODO Auto-generated method stub
-		rentService.createCategory(category);
+		lloguerService.createCategory(category);
 	}
 
-	public IRentService getCategoryApplicationObjectify() {
-		return rentService;
+	public ILloguerService getCategoryApplicationObjectify() {
+		return lloguerService;
 	}
 
-	public void setCategoryApplicationObjectify(IRentService rentService) {
-		this.rentService = rentService;
+	public void setCategoryApplicationObjectify(ILloguerService lloguerService) {
+		this.lloguerService = lloguerService;
 	}
 
-	public IRentService getRentService() {
-		return rentService;
+	public ILloguerService getRentService() {
+		return lloguerService;
 	}
 
-	public void setRentService(IRentService rentService) {
-		this.rentService = rentService;
+	public void setRentService(ILloguerService lloguerService) {
+		this.lloguerService = lloguerService;
 	}
 
 		

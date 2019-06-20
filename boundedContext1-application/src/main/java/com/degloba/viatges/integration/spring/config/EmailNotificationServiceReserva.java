@@ -23,7 +23,7 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-import com.degloba.travel.integration.spring.EmailNotificationService;
+import com.degloba.viatges.integration.spring.EmailNotificationService;
 import com.degloba.viatges.application.services.IViatgesService;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;

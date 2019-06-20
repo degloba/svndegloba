@@ -19,9 +19,9 @@
 		<!-- *************** -->
 		
 		<!-- Travel  https://github.com/cloudfoundry-samples/spring-travel -->
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.User</class>
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Hotel</class>
-		<class>com.degloba.travel.domain.persistence.rdbms.jpa.Reserva</class> 
+		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.User</class>
+		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel</class>
+		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva</class> 
 		 
 		
 		

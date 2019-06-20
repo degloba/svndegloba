@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import com.degloba.lloguer.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.rent.application.services.IRentService;
-import com.degloba.rent.facade.objectify.CategoryFacade;
-import com.degloba.rent.facade.objectify.OwnerFacade;
+import com.degloba.lloguers.application.services.ILloguerService;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.facade.objectify.CategoryFacade;
+import com.degloba.lloguers.facade.objectify.OwnerFacade;
 
 
 public class OwnerFacadeImpl implements OwnerFacade, Serializable {
@@ -17,9 +17,9 @@ public class OwnerFacadeImpl implements OwnerFacade, Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
-    protected IRentService ownerApplicationObjectify;
+    protected ILloguerService ownerApplicationObjectify;
 
-    public OwnerFacadeImpl(IRentService application) {
+    public OwnerFacadeImpl(ILloguerService application) {
         this.ownerApplicationObjectify = application;
     }
    
@@ -34,11 +34,11 @@ public class OwnerFacadeImpl implements OwnerFacade, Serializable {
 		ownerApplicationObjectify.createOwner(propietari);
 	}
 
-	public IRentService getOwnerApplicationObjectify() {
+	public ILloguerService getOwnerApplicationObjectify() {
 		return ownerApplicationObjectify;
 	}
 
-	public void setOwnerApplicationObjectify(IRentService ownerApplicationObjectify) {
+	public void setOwnerApplicationObjectify(ILloguerService ownerApplicationObjectify) {
 		this.ownerApplicationObjectify = ownerApplicationObjectify;
 	}
 
