@@ -1,4 +1,4 @@
-package com.degloba.travel.integration.spring;
+package com.degloba.viatges.integration.spring;
 
 //////import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -26,24 +26,16 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 //Spring - Integration
 import org.springframework.integration.mail.MailHeaders;
 
-
-// Domain
-
-
 import javax.annotation.PostConstruct;
-import javax.mail.BodyPart;
-import javax.mail.Multipart;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+
 
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Implements notifications using email. Most of the work is handled through Spring Integration
+ * @category Implementa els servei de notificacions utilitzant email.
+ * La majoria de la feina és manipulat a través de Spring Integration
  */
 @Component
 public class EmailNotificationService implements NotificationService {
@@ -111,7 +103,7 @@ public class EmailNotificationService implements NotificationService {
         final String txt = templates.get("txt");
 
 
-        this.mailSender.send(new MimeMessagePreparator() {
+        /*this.mailSender.send(new MimeMessagePreparator() {
             @Override
             public void prepare(MimeMessage mesg) throws Exception {
                 mesg.setFrom(new InternetAddress(emailFrom));
@@ -135,7 +127,7 @@ public class EmailNotificationService implements NotificationService {
 
                 mesg.setContent(mp);
             }
-        });
+        });*/
     }
 
 

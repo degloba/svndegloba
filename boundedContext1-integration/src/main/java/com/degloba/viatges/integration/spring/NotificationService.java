@@ -1,8 +1,8 @@
-package com.degloba.travel.integration.spring;
+package com.degloba.viatges.integration.spring;
 
 
 /**
- * Handles sending notifications
+ * Maneja l'enviament de notificacions
  */
 public interface NotificationService {
 

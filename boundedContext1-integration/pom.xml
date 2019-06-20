@@ -33,13 +33,11 @@
             <scope>runtime</scope>        
 		</dependency>
 		
-	<!-- 	<dependency>
+		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-integration</artifactId>
 			<version>${project.version}</version>
-		</dependency> -->
-		
-		
+		</dependency> 
 		
 		<!--  -->
 		<dependency>
@@ -48,7 +46,10 @@
 			<version>1.7</version>
 		</dependency>
 
-	
+	 <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 		
 		<!-- ******************* -->
 		<!--  Spring Integration -->
@@ -57,7 +58,6 @@
   <!--    	<dependency>
         	<groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-websocket </artifactId>
-            <version>${springframework.integration.version}</version>
 		</dependency>  -->			
 		
 		<!-- *********** -->
@@ -81,10 +81,9 @@
       <version>${spring.boot.version}</version>
       <scope>compile</scope>
     </dependency> -->
-    
-    
-	   
-	
+
+
+
     </dependencies>
     
     <build>

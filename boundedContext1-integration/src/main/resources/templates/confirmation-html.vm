@@ -8,7 +8,7 @@
 <p style = "font-family:Calibri, Arial, Helvetica,  serif; font-size:12pt; color:green;">
 <b>${name},</b>
 <br/><br/>
-Your booking for the hotel <b> ${hotelName}</b> from <b>${bookingCheckin} - ${bookingCheckout}</b> has been confirmed.
+Your Reserva for the hotel <b> ${hotelName}</b> from <b>${ReservaCheckin} - ${ReservaCheckout}</b> has been confirmed.
 <br/><br/>
 Thanks for using Spring Travel, and we hope you'll consider us for your next reservation.
 <br/><br/>
