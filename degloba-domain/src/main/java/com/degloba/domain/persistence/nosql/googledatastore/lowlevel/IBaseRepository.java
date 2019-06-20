@@ -89,31 +89,121 @@ public interface IBaseRepository {
 	/** A partir d'aqui els mètodes son de : 
 	 *  https://github.com/GoogleCloudPlatform/google-cloud-java/blob/master/google-cloud-examples/src/main/java/com/google/cloud/examples/datastore/snippets/DatastoreSnippets.java
 	 */
+	/**
+	 * 
+	 * @param callableResult
+	 * @return
+	 * 
+	 * @category Executa en una transaccio
+	 */
 	public String runInTransaction(final String callableResult);
 	
+	/**
+	 * 
+	 * @param clazz
+	 * @param lstKeyString
+	 * @return
+	 * 
+	 * @category crea un nou Batch
+	 */
 	public Batch newBatch(String clazz, ArrayList<String> lstKeyString);
 		
+	/**
+	 * 
+	 * @param clazz
+	 * @return0
+	 * 
+	 * Reserva una {@link Key}
+	 */
 	public Key allocateIdSingle(String clazz);
 	
+	/**
+	 * 
+	 * @param clazz
+	 * @return
+	 * 
+	 * @category reserva una llista de {@link Key}S en un unic batch
+	 */
 	 public List<Key> batchAllocateId(String clazz);
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param keyName1
+	  * @param keyName2
+	  * 
+	  * @category modifica multiples entitats
+	  */
 	 public void batchUpdateEntities(String clazz, String keyName1, String keyName2);
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param keyName
+	  * @param propertyName
+	  * @param value
+	  * 
+	  * @category afegir una unica entitat
+	  */
 	 public void putSingleEntity(String clazz, String keyName, String propertyName, String value);
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param keyName1
+	  * @param keyName2
+	  * 
+	  * @category afegir multiples entitats
+	  */
 	 public void batchPutEntities(String clazz, String keyName1, String keyName2);
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param keyName1
+	  * @param keyName2
+	  * 
+	  * @category esborrar multiples entitats
+	  */
 	 public void batchDeleteEntities(String clazz, String keyName1, String keyName2);
 	 
+	 /**
+	  * 
+	  * @return {@code KeyFactory}
+	  */
 	 public KeyFactory createKeyFactory();
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param keyName
+	  * @return entitat a partir del tipus i el nom de la clau
+	  */
 	 public Entity getEntityWithKey(String clazz, String keyName);
 	 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param lstKeyString
+	  * @return llista d'entitats d'un tipus a partir d'una llista de claus
+	  */
 	 public List<Entity> getEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString);
 		 
+	 /**
+	  * 
+	  * @param clazz
+	  * @param lstKeyString
+	  * @return
+	  */
 	 public List<Entity> fetchEntitiesWithKeys(String clazz, ArrayList<String> lstKeyString);
 	 
+	 /**
+	  * 
+	  * @param kind
+	  * @return
+	  */
 	 public List<Entity> runQuery(String kind);
+	 
 	 
 	 public List<Entity> runQueryOnProperty(String kind, String property, String value);
 	 

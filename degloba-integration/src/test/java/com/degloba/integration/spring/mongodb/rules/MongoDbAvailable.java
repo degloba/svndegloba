@@ -6,10 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation used for any test method that requires a running MongoDb process.
+ * Anotació utilitzada per a qualsevol mètode de test que requereixi un procés MongoDb en execució.
  * 
- * @author Oleg Zhurakousky
- * @since 2.1
+ * @author degloba
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})

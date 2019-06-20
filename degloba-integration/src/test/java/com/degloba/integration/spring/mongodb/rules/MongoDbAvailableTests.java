@@ -1,6 +1,6 @@
 package com.degloba.integration.spring.mongodb.rules;
 
-import com.mongodb.DBObject;
+
 import com.mongodb.MongoClient;
 import org.junit.Rule;
 
@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.MongoPersistentEntity;
 import org.springframework.data.mongodb.core.mapping.MongoPersistentProperty;
 
 /**
- * Convenience base class that enables unit test methods to rely upon the {@link MongoDbAvailable} annotation.
+ * Classe base que permet que els mètodes de test unitari depenguin de l'anotació {@link MongoDbAvailable}.
  *
  * @author Oleg Zhurakousky
  * @since 2.1
@@ -25,13 +25,25 @@ public abstract class MongoDbAvailableTests {
 	@Rule
 	public MongoDbAvailableRule redisAvailableRule = new MongoDbAvailableRule();
 
-
+	/**
+	 * 
+	 * @param additionalCollectionsToDrop
+	 * @return {@link MongoDbFactory}
+	 * @throws Exception
+	 */
 	protected MongoDbFactory prepareMongoFactory(String... additionalCollectionsToDrop) throws Exception {
 		MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(new MongoClient(), "test");
 		cleanupCollections(mongoDbFactory, additionalCollectionsToDrop);
 		return mongoDbFactory;
 	}
 
+	/**
+	 * 
+	 * @param mongoDbFactory
+	 * @param additionalCollectionsToDrop
+	 * 
+	 * @category elimina coleccions d'una bd MongoDB
+	 */
 	protected void cleanupCollections(MongoDbFactory mongoDbFactory, String... additionalCollectionsToDrop) {
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.dropCollection("messages");

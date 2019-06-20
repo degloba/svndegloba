@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.degloba.domain.persistence.nosql.googledatastore.lowlevel.DatabaseException;
+import com.degloba.domain.persistence.nosql.googledatastore.lowlevel.IBaseRepository;
 import com.google.cloud.datastore.Batch;
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Datastore.TransactionCallable;
@@ -46,13 +48,8 @@ public class BaseRepository implements IBaseRepository{
 		Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 	    KeyFactory keyFactory = datastore.newKeyFactory().setKind(clazz);
 	    Key key = keyFactory.newKey(keyName);
-	    Entity entity = Entity.newBuilder(key)
-	       // .set("name", "John Doe")
-	       // .set("age", 30)
-	       // .set("access_time", DateTime.now())
-	        .build();
-	    datastore.put(entity);
-		
+	    Entity entity = Entity.newBuilder(key).build();
+	    datastore.put(entity);		
 	}
 
 
@@ -93,12 +90,24 @@ public class BaseRepository implements IBaseRepository{
 	@Override
 	public <T> Key getKey(Key parent, Class<? extends T> kindClass, long id) {
 		// TODO Auto-generated method stub
+		//return this.datastore.newKeyFactory().get(parent,kindClass,id);
 		return null;
 	}
 
 	@Override
 	public <T> List<T> list(Class<T> clazz) {
-		// TODO Auto-generated method stub		
+		// TODO change so that it's not necessary to hold the entities in a list for integration testing
+	    // [START runQuery]
+	    /*StructuredQuery<T> query = Query.newEntityQueryBuilder().setKind(clazz).build();
+	    QueryResults<T> results = datastore.run(query);
+	    List<T> entities = Lists.newArrayList();
+	    while (results.hasNext()) {
+	      T result = results.next();
+	      // do something with result
+	      entities.add(result);
+	    }
+	    // [END runQuery]
+	    return entities;*/
 		return null;
 	}
 

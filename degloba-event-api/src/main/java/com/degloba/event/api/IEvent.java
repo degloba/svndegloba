@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * @author degloba
  * 
- * @category Interfície : Event
+ * @category Event
  */
 public interface IEvent {
 	 

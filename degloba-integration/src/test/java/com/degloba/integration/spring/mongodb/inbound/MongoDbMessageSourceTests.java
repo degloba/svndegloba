@@ -12,6 +12,9 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
+import org.bson.BSON;
+import org.bson.BsonArray;
+import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.junit.Test;
 
@@ -33,8 +36,6 @@ import org.springframework.integration.mongodb.inbound.MongoDbMessageSource;
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
 
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 
 /**
  * @author Amol Nayak
@@ -42,6 +43,8 @@ import com.mongodb.util.JSON;
  * @author Gary Russell
  *
  * @since 2.2
+ * 
+ * @category Testos de MongoDb + Spring Integration INBOUND
  *
  */
 public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
@@ -81,9 +84,9 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 		messageSource.setBeanFactory(mock(BeanFactory.class));
 		messageSource.afterPropertiesSet();
 		@SuppressWarnings("unchecked")
-		List<DBObject> results = ((List<DBObject>)messageSource.receive().getPayload());
+		List<Document> results = ((List<Document>)messageSource.receive().getPayload());
 		assertEquals(1, results.size());
-		DBObject resultObject = results.get(0);
+		Document resultObject = results.get(0);
 
 		assertEquals("Oleg", resultObject.get("name"));
 	}
@@ -214,7 +217,7 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 
 		List<Person> persons = (List<Person>) messageSource.receive().getPayload();
 		assertEquals(3, persons.size());
-		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(DBObject.class));
+		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(Document.class));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -241,7 +244,7 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 
 		List<Person> persons = (List<Person>) messageSource.receive().getPayload();
 		assertEquals(3, persons.size());
-		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(DBObject.class));
+		verify(converter, times(3)).read((Class<Person>) Mockito.any(), (Bson) Mockito.any(Document.class));
 	}
 
 	@Test
@@ -252,18 +255,23 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 
-		template.save(JSON.parse("{'name' : 'Manny', 'id' : 1}"), "data");
+		String json = "[{\"name\" : \"Manny\", \"id\" : 1}]";
+		BsonArray parse = BsonArray.parse(json);
+		
+		
+		template.save(parse, "data");
+		//template.save(BsonArray.parse("{'name' : 'Manny', 'id' : 1}"), "data");
 
 		Expression queryExpression = new LiteralExpression("{'name' : 'Manny'}");
 		MongoDbMessageSource messageSource = new MongoDbMessageSource(mongoDbFactory, queryExpression);
 		messageSource.setExpectSingleResult(true);
 		messageSource.setBeanFactory(mock(BeanFactory.class));
 		messageSource.afterPropertiesSet();
-		DBObject result = (DBObject) messageSource.receive().getPayload();
+		Document result = (Document) messageSource.receive().getPayload();
 		Object id = result.get("_id");
 		result.put("company","PepBoys");
 		template.save(result, "data");
-		result = (DBObject) messageSource.receive().getPayload();
+		result = (Document) messageSource.receive().getPayload();
 		assertEquals(id, result.get("_id"));
 	}
 }

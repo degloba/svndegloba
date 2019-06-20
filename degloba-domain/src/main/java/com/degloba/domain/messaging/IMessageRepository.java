@@ -21,12 +21,12 @@ import com.degloba.domain.persistence.nosql.googledatastore.lowlevel.IBaseReposi
 public interface IMessageRepository extends IBaseRepository {
 
   /** Guarda un {@link Message} a un repository */
-  void save(Message message);
+  void saveMessage(Message message);
 
   /**
    * Recupera el més recents {@link Message}S guardats.
    * @param limit número de {@link Message}
    * @return llista de {@link Message}
    */
-  List<Message> retrieve(int limit);
+  List<Message> retrieveMessages(int limit);
 }

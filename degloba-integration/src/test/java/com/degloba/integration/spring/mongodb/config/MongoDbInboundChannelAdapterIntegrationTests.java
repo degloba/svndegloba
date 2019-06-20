@@ -33,6 +33,9 @@ import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
 /**
  * @author Oleg Zhurakousky
  * @since 2.2
+ * 
+ * @category Testos unitaris de Spring/Integration sobre MongoDB<br/>.
+ * S'accedeix a MongoDB de maneres diferents utilitzant el fitexer de configuracio Spring/integration (xml) corresponent
  */
 public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailableTests {
 
@@ -60,14 +63,20 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithNamedMongoFactory() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterNamedFactory",
-				SourcePollingChannelAdapter.class);
+
+		// llegim del fitxer de configuració (Spring-Integration)
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
+		
+		// obtenim una instancia (Bean) de l'adaptador d'un {@link QueueChannel}
+		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterNamedFactory", SourcePollingChannelAdapter.class);
+		
+		// obtenim una instancia (Bean) de la cua "replayChannel"
 		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
 		spca.start();
 
@@ -81,14 +90,17 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithMongoTemplate() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
+		// creem un objecte a la bd MongoDb
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithTemplate",
-				SourcePollingChannelAdapter.class);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
+		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithTemplate", SourcePollingChannelAdapter.class);
+		
+		// obtenim una instancia (Bean) de la cua "replayChannel"
 		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
 		spca.start();
 
@@ -102,14 +114,15 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithNamedCollection() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
+		// creem un objecte a la bd MongoDb
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "foo");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithNamedCollection",
-				SourcePollingChannelAdapter.class);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
+		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithNamedCollection", SourcePollingChannelAdapter.class);
 		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
 		spca.start();
 
@@ -123,7 +136,10 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithNamedCollectionExpression() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
+		// creem un objecte a la bd MongoDb
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "foo");
 
@@ -144,7 +160,10 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithOnSuccessDisposition() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
+		// creem un objecte a la bd MongoDb
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "data");
 
@@ -164,14 +183,15 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 	@Test
 	@MongoDbAvailable
 	public void testWithMongoConverter() throws Exception {
+		// creem un {@link MongoDbFactory}
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
+		
+		// creem un objecte a la bd MongoDb
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		template.save(this.createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithConverter",
-				SourcePollingChannelAdapter.class);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
+		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithConverter", SourcePollingChannelAdapter.class);
 		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
 		spca.start();
 

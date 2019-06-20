@@ -12,7 +12,7 @@ import com.mongodb.MongoClientOptions;
 import com.mongodb.ServerAddress;
 
 /**
- * A {@link MethodRule} implementation that checks for a running MongoDB process.
+ * Una implementació d'un {@link MethodRule} que comprova un procés MongoDB en execució.
  *
  * @author Oleg Zhurakousky
  * @author Gary Russell

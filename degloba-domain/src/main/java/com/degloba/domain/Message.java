@@ -1,8 +1,7 @@
 package com.degloba.domain;
 
 /** 
- * @category Un missatge captura la informació del missatge Pubsub rebut sobre el EndPoint Push i és
- * persisteix
+ * @category Un missatge (POJO) on podem guardar qualsevol tipus d'informació 
  */
 public class Message {
 	

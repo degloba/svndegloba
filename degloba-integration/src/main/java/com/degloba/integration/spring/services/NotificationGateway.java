@@ -10,6 +10,12 @@ import org.springframework.messaging.handler.annotation.Payload;
 
 import java.util.Map;
 
+/**
+ * 
+ * @author degloba
+ *
+ * @category 
+ */
 public interface NotificationGateway {
 
     @Gateway(requestChannel = "enqueuedEmails")
