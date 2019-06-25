@@ -6,7 +6,7 @@ import com.degloba.domain.messaging.IMessageRepository;
 import com.degloba.persistence.nosql.googleDatastore.api.lowlevel.BaseRepository;
 
 import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.DatastoreOptions;
+
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.Key;
 import com.google.cloud.datastore.KeyFactory;
@@ -86,13 +86,6 @@ public class MessageRepositoryImpl extends BaseRepository
       messages.add(message);
     }
     return messages;
-  }
-
-  /**
-   * @return un {@link Datastore}
-   */
-  private Datastore getDatastoreInstance() {
-    return DatastoreOptions.getDefaultInstance().getService();
   }
 
 

@@ -56,7 +56,7 @@ public class StorageSnippets {
 		this.storage = storage;
 }
 	
-/** Example of creating a bucket. */
+/** crea un bucket. */
 // [TARGET create(BucketInfo, BucketTargetOption...)]
 // [VARIABLE "my_unique_bucket"]
 public Bucket createBucket(String bucketName) {
