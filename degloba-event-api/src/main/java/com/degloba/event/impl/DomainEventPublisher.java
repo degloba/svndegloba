@@ -1,6 +1,6 @@
 package com.degloba.event.impl;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +19,7 @@ import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 
 /**
- * @category Publicador d'events de domini de tipus d'event {@link IEvent}
+ * @category Publicador d'events de domini de tipus {@link IEvent}
  * <p/>
  * Els handlers estan en memoria ({@link HashSet})
  */
@@ -64,24 +64,9 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
         }
     }
 
-    @Override
+	@Override
 	public void publish(Object event) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	@Override
-	public void publish(IDomainEvent<T> event) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void publish(Serializable event) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

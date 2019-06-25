@@ -7,7 +7,7 @@ import org.springframework.beans.factory.BeanFactory;
 import com.degloba.event.api.IEvent;
 
 /**
- * Classe : EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
+ * EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
  * 
  * @author degloba
  *
@@ -20,8 +20,7 @@ public class AsynchronousEventHandler<T extends IEvent> extends SpringEventHandl
 	 * @param method
 	 * @param beanFactory
 	 */
-	public AsynchronousEventHandler(Class<?> eventType, String beanName,
-			Method method, BeanFactory beanFactory) {
+	public AsynchronousEventHandler(Class<?> eventType, String beanName, Method method, BeanFactory beanFactory) {
 		super(eventType, beanName, method, beanFactory);
 	}
 	
