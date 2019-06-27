@@ -9,14 +9,14 @@ import javax.persistence.Entity;
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.ecommerce.enviaments.domain.EstatEnviament;
 import com.degloba.ecommerce.enviaments.domain.events.EnviamentLliuratEvent;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 /**
- * Entitat : Enviament
+ * @category Entitat Enviament
  * 
  * @author degloba
  */
@@ -28,44 +28,44 @@ public class Enviament extends BaseAggregateRoot {
 	
 	
 	@AttributeOverrides({
-		@AttributeOverride(name = "aggregateId", column = @Column(name = "orderId"))})  
-    private AggregateId orderId;
+		@AttributeOverride(name = "aggregateId", column = @Column(name = "comandaId"))})  
+    private AggregateId comandaId;
 	
-    private EstatEnviament status;
+    private EstatEnviament estatEnviament;
 
     
     private Enviament() {}
 
-    public Enviament(AggregateId shipmentId, AggregateId orderId) {
-        this.aggregateId = shipmentId;
-    	this.orderId = orderId;
-        this.status = EstatEnviament.WAITING;
+    public Enviament(AggregateId enviamentId, AggregateId comandaId) {
+        this.aggregateId = enviamentId;
+    	this.comandaId = comandaId;
+        this.estatEnviament = EstatEnviament.WAITING;
     }
 
     /**
-     * Shipment has been sent to the customer.
+     * L'entrega ha estat enviada al client.
      */
     public void ship() {
-        if (status != EstatEnviament.WAITING) {
-            throw new IllegalStateException("cannot ship in status " + status);
+        if (estatEnviament != EstatEnviament.WAITING) {
+            throw new IllegalStateException("cannot ship in status " + estatEnviament);
         }
-        status = EstatEnviament.SENT;
-  ////////eventPublisher.publish(new OrderShippedEvent(orderId, getAggregateId()));
+        estatEnviament = EstatEnviament.SENT;
+  ////////eventPublisher.publish(new OrderShippedEvent(comandaId, getAggregateId()));
     }
 
     /**
-     * Shipment has been confirmed received by the customer.
+     * L'entrega ha estat confirmada com a rebuda pel client.
      */
-    public void deliver() {
-        if (status != EstatEnviament.SENT) {
-            throw new IllegalStateException("cannot deliver in status " + status);
+    public void entregar() {
+        if (estatEnviament != EstatEnviament.SENT) {
+            throw new IllegalStateException("cannot deliver in status " + estatEnviament);
         }
-        status = EstatEnviament.DELIVERED;
+        estatEnviament = EstatEnviament.DELIVERED;
         ////////eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
     }
 
-    public AggregateId getOrderId() {    	
-    	return orderId;
+    public AggregateId getComandaId() {    	
+    	return comandaId;
     }
 
 

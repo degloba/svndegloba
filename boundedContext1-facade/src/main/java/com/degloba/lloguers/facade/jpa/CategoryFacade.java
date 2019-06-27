@@ -1,12 +1,12 @@
 package com.degloba.lloguers.facade.jpa;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 
 /**
  * @author degloba
  */
 public interface CategoryFacade {
 
-    void createCategory(Category category);
+    void createCategory(Categoria categoria);
 
 }

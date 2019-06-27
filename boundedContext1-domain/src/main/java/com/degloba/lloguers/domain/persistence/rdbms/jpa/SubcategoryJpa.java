@@ -30,7 +30,7 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 	protected AggregateId aggregateId;
 	
 	
-	String description;
+	String descripcio;
   
    	public SubcategoryJpa() {
 		super();
@@ -44,12 +44,12 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
     
     // getters and setters
     
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 
 	public CategoryJpa getCategory() {

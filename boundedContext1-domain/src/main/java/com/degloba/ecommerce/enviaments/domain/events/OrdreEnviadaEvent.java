@@ -4,23 +4,29 @@ import java.io.Serializable;
 
 import com.degloba.event.annotations.Event;
 
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
 @SuppressWarnings("serial")
 @Event
 public class OrdreEnviadaEvent implements Serializable {
 
-    private final long orderId;
-    private final long shipmentId;
+    private final long comandaId;
+    private final long enviamentId;
 
-    public OrdreEnviadaEvent(long orderId, long shipmentId) {
-        this.orderId = orderId;
-        this.shipmentId = shipmentId;
+    public OrdreEnviadaEvent(long comandaId, long enviamentId) {
+        this.comandaId = comandaId;
+        this.enviamentId = enviamentId;
     }
 
-    public long getOrderId() {
-        return orderId;
+    public long getComandaId() {
+        return comandaId;
     }
 
-    public long getShipmentId() {
-        return shipmentId;
+    public long getEnviamentId() {
+        return enviamentId;
     }
 }

@@ -13,23 +13,23 @@ import java.util.*;
  * Entitat (Objectify) : Categoria 
  */
 @Entity
-public class Category implements Serializable {
+public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	Long id;
 	
-	String description;
+	String descripcio;
 	
 
-	public Category() {
+	public Categoria() {
 		super();		
 		// TODO Auto-generated constructor stub
 	}
 
 	
-    List<Key<Subcategory>> subcategories = new ArrayList<Key<Subcategory>>();
+    List<Key<SubCategoria>> subCategorias = new ArrayList<Key<SubCategoria>>();
 
 
 	public Long getId() {
@@ -42,23 +42,23 @@ public class Category implements Serializable {
 	}
 
 
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 
 
-	public List<Key<Subcategory>> getSubcategories() {
-		return subcategories;
+	public List<Key<SubCategoria>> getSubcategories() {
+		return subCategorias;
 	}
 
 
-	public void setSubcategories(List<Key<Subcategory>> subcategories) {
-		this.subcategories = subcategories;
+	public void setSubcategories(List<Key<SubCategoria>> subCategorias) {
+		this.subCategorias = subCategorias;
 	}
 	
 	

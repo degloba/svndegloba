@@ -21,9 +21,9 @@ public class Producte implements Serializable {
 	@Id
 	Long id;
 	
-	String description;
+	String descripcio;
 	Double price;
-	Subcategory subcategory;
+	SubCategoria subCategoria;
 	
 	@Parent Key<Propietari> propietari;
 		
@@ -40,12 +40,12 @@ public class Producte implements Serializable {
 
 	// getters - setters
 	
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 	
 	public Long getId() {
@@ -88,12 +88,12 @@ public class Producte implements Serializable {
 		return location;
 	}*/
 
-	public Subcategory getSubcategory() {
-		return subcategory;
+	public SubCategoria getSubcategory() {
+		return subCategoria;
 	}
 
-	public void setSubcategory(Subcategory subcategory) {
-		this.subcategory = subcategory;
+	public void setSubcategory(SubCategoria subCategoria) {
+		this.subCategoria = subCategoria;
 	}
 	
 	

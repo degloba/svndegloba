@@ -8,12 +8,12 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Location;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
 // Entitats NoSql/GoogleDatastore (Api JPA)
 
@@ -43,17 +43,17 @@ public class LloguerFinder implements ILloguerFinder {
 
     @SuppressWarnings("unchecked")
 	@Override
-    public List<Category> findCategories() {
+    public List<Categoria> findCategories() {
         String jpql = "select c from com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa c";
         Query query = entityManager.createQuery(jpql);
-        List<Category> categories =  query.getResultList();
+        List<Categoria> categorias =  query.getResultList();
         entityManager.clear();
         entityManager.close();
-        return categories;
+        return categorias;
     }
 
 	@Override
-	public Category findCategoryBySubcategory(Subcategory subcategory) {
+	public Categoria findCategoryBySubcategory(SubCategoria subCategoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,7 +65,7 @@ public class LloguerFinder implements ILloguerFinder {
 	}
 
 	@Override
-	public List<Producte> findProductBySubcategory(Subcategory subcategory) {
+	public List<Producte> findProductBySubcategory(SubCategoria subCategoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -83,7 +83,7 @@ public class LloguerFinder implements ILloguerFinder {
 	}
 
 	@Override
-	public List<Foto> findPhotosBySubcategory(Subcategory subcategory) {
+	public List<Foto> findPhotosBySubcategory(SubCategoria subCategoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -17,22 +17,22 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
  */
 @Entity
 @AggregateRoot
-public class Customer extends BaseAggregateRoot{
+public class Client extends BaseAggregateRoot{
 
 	private static final long serialVersionUID = 1L;
 
 /*
  * Tipus de client
  */
-	public enum CustomerStatus{
+	public enum EstatClient{
 		STANDARD, VIP, PLATINUM
 	}
 	
 	@Enumerated(EnumType.STRING)
-	private CustomerStatus status;
+	private EstatClient status;
 	
 	
-	public void changeStatus(CustomerStatus status){
+	public void canviaEstatClient(EstatClient status){
 		if (status.equals(this.status))
 			return;
 		

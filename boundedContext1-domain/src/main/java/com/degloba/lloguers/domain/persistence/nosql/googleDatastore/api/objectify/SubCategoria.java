@@ -16,31 +16,31 @@ import com.googlecode.objectify.annotation.Parent;
  *
  */
 @Entity
-public class Subcategory implements Serializable {
+public class SubCategoria implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	Long id;
 	
-	String description;
+	String descripcio;
   
-   	public Subcategory() {
+   	public SubCategoria() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
     
-    @Parent Key<Category> category;
+    @Parent Key<Categoria> categoria;
 
     
     // getters and setters
     
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 
 	public Long getId() {
@@ -51,12 +51,12 @@ public class Subcategory implements Serializable {
 		this.id = id;
 	}
 
-	public Key<Category> getCategory() {
-		return category;
+	public Key<Categoria> getCategory() {
+		return categoria;
 	}
 
-	public void setCategory(Key<Category> category) {
-		this.category = category;
+	public void setCategory(Key<Categoria> categoria) {
+		this.categoria = categoria;
 	}
 
 	

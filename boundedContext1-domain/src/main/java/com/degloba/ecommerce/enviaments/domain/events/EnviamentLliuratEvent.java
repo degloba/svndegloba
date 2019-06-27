@@ -2,7 +2,7 @@ package com.degloba.ecommerce.enviaments.domain.events;
 
 import java.io.Serializable;
 
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.event.annotations.Event;
 
@@ -11,13 +11,13 @@ import com.degloba.event.annotations.Event;
 @Event
 public class EnviamentLliuratEvent implements Serializable {
 
-    private final AggregateId shipmentId;
+    private final AggregateId enviamentId;
 
-    public EnviamentLliuratEvent(AggregateId shipmentId) {
-        this.shipmentId = shipmentId;
+    public EnviamentLliuratEvent(AggregateId enviamentId) {
+        this.enviamentId = enviamentId;
     }
 
-    public AggregateId getShipmentId() {
-        return shipmentId;
+    public AggregateId getEnviamentId() {
+        return enviamentId;
     }
 }

@@ -3,7 +3,7 @@ package com.degloba.rent.facade.impl.jpa;
 import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.facade.jpa.CategoryFacade;
 
 
@@ -22,9 +22,9 @@ public class CategoryFacadeImpl implements CategoryFacade {
 	}
 
 	@Override
-	public void createCategory(Category category) {
+	public void createCategory(Categoria categoria) {
 		// TODO Auto-generated method stub
-		categoryApplicationJpa.createCategory(category);
+		categoryApplicationJpa.createCategory(categoria);
 	}
 
 	public ILloguerService getCategoryApplicationJpa() {

@@ -31,7 +31,7 @@ public class EnviamentFinder implements IEnviamentFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<EnviamentDto> findShipment() {
-        String jpql = "select new com.degloba.ecommerce.enviaments.readmodel.EnviamentDto(s.id, s.orderId, s.status) from com.degloba.ecommerce.shipping.domain.Shipment s";
+        String jpql = "select new com.degloba.ecommerce.enviaments.readmodel.EnviamentDto(s.id, s.comandaId, s.status) from com.degloba.ecommerce.shipping.domain.Shipment s";
         Query query = entityManager.createQuery(jpql);
         return query.getResultList();
     }

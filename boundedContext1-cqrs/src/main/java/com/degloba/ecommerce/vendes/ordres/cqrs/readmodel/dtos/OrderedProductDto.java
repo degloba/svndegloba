@@ -1,12 +1,11 @@
 package com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos;
 
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 
-/**
+/** 
+ * @category Defineix un producte d'una {@link Commanda}
  * 
- * @author degloba
- *
- * @category Defineix un producte d'una ordre
+ *  * @author degloba
  */
 public class OrderedProductDto {
 	private AggregateId offerId;

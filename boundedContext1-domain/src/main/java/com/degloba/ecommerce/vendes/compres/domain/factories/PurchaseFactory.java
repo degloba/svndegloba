@@ -27,12 +27,12 @@ public class PurchaseFactory {
 	
 	/**
 	 * 
-	 * @param orderId correlation id - correlates purchases and reservations  
+	 * @param comandaId correlation id - correlates purchases and reservations  
 	 * @param client
 	 * @param oferta
 	 * @return
 	 */
-	public Compra create(AggregateId orderId, Client client, Oferta oferta){
+	public Compra create(AggregateId comandaId, Client client, Oferta oferta){
 		if (! canPurchse(client, oferta.getAvailableItems()))
 			throw new DomainOperationException(client.getAggregateId(), "client can not purchase");
 		
@@ -45,7 +45,7 @@ public class PurchaseFactory {
 			purchaseTotlCost = purchaseTotlCost.add(compraItem.getTotalCost());
 		}
 		
-		Compra compra = new Compra(orderId, client.generateSnapshot(),
+		Compra compra = new Compra(comandaId, client.generateSnapshot(),
 				items, new Date(), false, purchaseTotlCost);
 		
 		spring.autowireBean(compra);

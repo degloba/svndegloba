@@ -8,7 +8,7 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa;
 import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa2;
 import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguerRepository;
@@ -36,13 +36,13 @@ public class CategoriesTest extends AbstractIntegrationTest {
         CategoryJpa2 category = new CategoryJpa2();
 //        category.setAggregateId(AggregateId.generate()); //
         
-	    category.setDescription("Oci");
+	    category.setDescripcio("Oci");
 	    
         // Categories/Subcategories
 	    subcategory2 = new SubcategoryJpa2();
 //	    subcategory2.setAggregateId(AggregateId.generate());
 	    
-	    subcategory2.setDescription("Natacion");
+	    subcategory2.setDescripcio("Natacion");
 	    subcategory2.setCategory(category);
 	    
 	    category.getSubcategories().add(subcategory2);
@@ -50,7 +50,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
 	    
 	    // Categories/Subcategories
 /*	    subcategory = new SubcategoryJpa();
-	    subcategory.setDescription("Tenis");
+	    subcategory.setDescripcio("Tenis");
 //	    subcategory.setAggregateId(AggregateId.generate());
 	    
 //	    subcategory.setCategory(category);
@@ -64,13 +64,13 @@ public class CategoriesTest extends AbstractIntegrationTest {
       /*  CategoryJpa2 category2 = new CategoryJpa2();
       category2.setAggregateId(AggregateId.generate()); //
       
-	    category2.setDescription("Oci");
+	    category2.setDescripcio("Oci");
 	    
       // Categories/Subcategories
 	    subcategory2 = new SubcategoryJpa2();
 	    subcategory2.setAggregateId(AggregateId.generate());
 	    
-	    subcategory2.setDescription("Natacion");
+	    subcategory2.setDescripcio("Natacion");
 	    subcategory2.setCategory(category2);
 	    
 	    category2.getSubcategories().add(subcategory2);
@@ -90,7 +90,7 @@ public class CategoriesTest extends AbstractIntegrationTest {
         String jpql2 = "select o from SubcategoryJpa2 o";
         List<SubcategoryJpa2> subcategories = rentRepository.createJpqlQuery(jpql2).list();
                 
-//        assertEquals(subcategories.get(0).getDescription(),subcategory.getDescription());
+//        assertEquals(subcategories.get(0).getDescripcio(),subcategory.getDescripcio());
         
         assertEquals(1,categories.size());
     }

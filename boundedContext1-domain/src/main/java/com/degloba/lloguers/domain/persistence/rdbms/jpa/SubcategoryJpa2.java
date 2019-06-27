@@ -32,7 +32,7 @@ public class SubcategoryJpa2 extends BaseEntity implements Serializable {
 	protected AggregateId aggregateId;*/
 	
 	
-	String description;
+	String descripcio;
   
    	public SubcategoryJpa2() {
 		super();
@@ -47,12 +47,12 @@ public class SubcategoryJpa2 extends BaseEntity implements Serializable {
     
     // getters and setters
     
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 
 	public CategoryJpa2 getCategory() {

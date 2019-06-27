@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 import com.degloba.lloguers.application.services.ILloguerService;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.facade.objectify.CategoryFacade;
 
 public class CategoryFacadeImpl implements CategoryFacade {
@@ -23,9 +23,9 @@ public class CategoryFacadeImpl implements CategoryFacade {
 	}
 
 	@Override
-	public void createCategory(Category category) {
+	public void createCategory(Categoria categoria) {
 		// TODO Auto-generated method stub
-		lloguerService.createCategory(category);
+		lloguerService.createCategory(categoria);
 	}
 
 	public ILloguerService getCategoryApplicationObjectify() {

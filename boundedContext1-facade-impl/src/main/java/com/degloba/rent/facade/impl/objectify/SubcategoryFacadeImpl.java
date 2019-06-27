@@ -3,7 +3,7 @@ package com.degloba.rent.facade.impl.objectify;
 import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 import com.degloba.lloguers.facade.objectify.SubcategoryFacade;
 
 
@@ -22,9 +22,9 @@ public class SubcategoryFacadeImpl implements SubcategoryFacade {
 	}
 
 	@Override
-	public void createSubcategory(Subcategory Subcategory) {
+	public void createSubcategory(SubCategoria SubCategoria) {
 		// TODO Auto-generated method stub
-		subcategoryApplication.createSubcategory(Subcategory);
+		subcategoryApplication.createSubcategory(SubCategoria);
 	}
 
 	public ILloguerService getSubcategoryApplication() {

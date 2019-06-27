@@ -13,22 +13,22 @@ import com.degloba.ecommerce.enviaments.domain.EstatEnviament;
 @SuppressWarnings("serial")
 public class EnviamentDto implements Serializable {
 
-    private long shipmentId;
-    private long orderId;
+    private long enviamentId;
+    private long comandaId;
     private EstatEnviament status;
 
-    public EnviamentDto(long shipmentId, long orderId, EstatEnviament status) {
-        this.shipmentId = shipmentId;
-        this.orderId = orderId;
+    public EnviamentDto(long enviamentId, long comandaId, EstatEnviament status) {
+        this.enviamentId = enviamentId;
+        this.comandaId = comandaId;
         this.status = status;
     }
 
-    public long getShipmentId() {
-        return shipmentId;
+    public long getEnviamentId() {
+        return enviamentId;
     }
 
-    public long getOrderId() {
-        return orderId;
+    public long getComandaId() {
+        return comandaId;
     }
 
     public EstatEnviament getStatus() {

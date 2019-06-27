@@ -7,43 +7,44 @@ import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.cqrs.query.annotations.Finder;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos.ProducteOfertatDto;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.OrdreQuery;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderDto;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.ComandesQuery;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.ComandaDto;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+
 
 /**
  * 
- * @author degloba
+ * @category Finder (CQRS)
  * 
- * @category Interfície : Finder (CQRS)
+ * @author degloba
  *
  */
 @Finder
 public interface IVendaFinder {
 
 	/**
-	 * @category Retorna un {@link OrderDto} a partir del seu {@link AggregateId}
+	 * @category Retorna un {@link ComandaDto} a partir del seu {@link AggregateId}
 	 * 
-	 * @param orderId
+	 * @param comandaId
 	 * @return
 	 */
-	OrderDto find(AggregateId orderId);
+	ComandaDto find(AggregateId comandaId);
 
 	/**
-	 * @category Retorna un resultat paginat {@link PaginatedResult} de {@link OrderDto}
+	 * @category Retorna un resultat paginat {@link PaginatedResult} de {@link ComandaDto}
 	 * 
-	 * @param ordreQuery
+	 * @param comandesQuery
 	 * @return
 	 */
-	PaginatedResult<OrderDto> query(OrdreQuery ordreQuery);
+	PaginatedResult<ComandaDto> query(ComandesQuery comandesQuery);
 	
 	/**
 	 * @category Cerca una llista de {@link ProducteOfertatDto} a partir d'una {@link OfertaQuery}
 	 * 
-	 * @param query
+	 * @param ofertaQuery
 	 * @return
 	 */
-	List<ProducteOfertatDto> find(OfertaQuery query);
+	List<ProducteOfertatDto> find(OfertaQuery ofertaQuery);
 	
 	
 }

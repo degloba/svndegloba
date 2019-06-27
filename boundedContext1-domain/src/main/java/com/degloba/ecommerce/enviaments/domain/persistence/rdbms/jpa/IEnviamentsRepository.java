@@ -5,11 +5,11 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 
 /**
- * Interfície : Repositori Entitat Enviament
+ * @category Repositori entitats {@link Enviament}
  * 
  * @author degloba
  */
 @DomainRepository
-public interface IEnviamentRepository extends IEntityRepository {
+public interface IEnviamentsRepository extends IEntityRepository {
 
 }

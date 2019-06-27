@@ -17,7 +17,7 @@ public class CategoryJpa2 extends BaseAggregateRoot implements Serializable
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String description;
+	private String descripcio;
 	
 	
 	/*@EmbeddedId
@@ -36,13 +36,13 @@ public class CategoryJpa2 extends BaseAggregateRoot implements Serializable
 	
 	 // getters and setters
 	
-	public String getDescription() {
-		return description;
+	public String getDescripcio() {
+		return descripcio;
 	}
 
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcio(String descripcio) {
+		this.descripcio = descripcio;
 	}
 
 

@@ -10,11 +10,11 @@ import com.degloba.persistence.domain.AggregateId;
  * 
  *
  */
-public class OrdreQuery {
+public class ComandesQuery {
 
 	private String productName;
 	
-	public OrdreQuery(String productName, AggregateId clientId){
+	public ComandesQuery(String productName, AggregateId clientId){
 		this.productName = productName;
 		//TODO search by client
 	}

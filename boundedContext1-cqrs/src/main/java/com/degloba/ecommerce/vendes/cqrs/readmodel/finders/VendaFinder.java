@@ -18,9 +18,9 @@ import com.degloba.persistence.domain.AggregateId;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos.ProducteOfertatDto;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.OrdreQuery;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.OrdreStatus;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderDto;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.ComandesQuery;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.EstatComanda;
+import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderedProductDto;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.ProducteReservat;
@@ -55,26 +55,26 @@ public class VendaFinder implements IVendaFinder {
 	}
 	
 	@Override
-	public OrderDto find(AggregateId orderId) {
-		Reservation reservation = entityManager.find(Reservation.class, orderId);
-		Compra compra = entityManager.find(Compra.class, orderId);
+	public ComandaDto find(AggregateId comandaId) {
+		Reservation reservation = entityManager.find(Reservation.class, comandaId);
+		Compra compra = entityManager.find(Compra.class, comandaId);
 		
 		return toOrderDto(reservation, compra);
 	}
 
-	private OrderDto toOrderDto(Reservation reservation, Compra compra) {
-		OrderDto dto = new OrderDto();
+	private ComandaDto toOrderDto(Reservation reservation, Compra compra) {
+		ComandaDto dto = new ComandaDto();
 		dto.setOrderId(reservation.getAggregateId());
 		List<ProducteReservat> producteReservats = reservation.getReservedProducts();
 		dto.setOrderedProducts(new ArrayList<OrderedProductDto>(transform(producteReservats,
 				reservedProductToOrderedProductDto())));
 		if (compra != null) {
-			dto.setStatus(OrdreStatus.CONFIRMED);
+			dto.setStatus(EstatComanda.CONFIRMED);
 
 			// TODO CHECK PAYMENT!
 			
 		} else {
-			dto.setStatus(OrdreStatus.NEW);
+			dto.setStatus(EstatComanda.NEW);
 		}
 		return dto;
 	}
@@ -90,7 +90,7 @@ public class VendaFinder implements IVendaFinder {
 	}
 
 	@Override
-	public PaginatedResult<OrderDto> query(OrdreQuery ordreQuery) {
+	public PaginatedResult<ComandaDto> query(ComandesQuery comandesQuery) {
 		return null;
 	}
 

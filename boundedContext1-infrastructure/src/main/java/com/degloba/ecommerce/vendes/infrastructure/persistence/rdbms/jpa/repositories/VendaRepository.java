@@ -42,7 +42,7 @@ public class VendaRepository extends EntityRepository implements IVendaRepositor
 	}
 
 	@Override
-	public Reservation loadReservation(Class<Reservation> clazz, AggregateId orderId) {
+	public Reservation loadReservation(Class<Reservation> clazz, AggregateId comandaId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -32,7 +32,7 @@ public interface IVendaRepository extends IEntityRepository {
 	
 	// Reserves
 	
-	public Reservation loadReservation(Class<Reservation> clazz, AggregateId orderId);
+	public Reservation loadReservation(Class<Reservation> clazz, AggregateId comandaId);
 	
 	
 	// Compres

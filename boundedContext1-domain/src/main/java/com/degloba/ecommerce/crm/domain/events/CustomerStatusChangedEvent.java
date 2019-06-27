@@ -3,7 +3,7 @@ package com.degloba.ecommerce.crm.domain.events;
 import java.io.Serializable;
 
 
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 
 // Event
 import com.degloba.event.annotations.Event;
@@ -15,9 +15,9 @@ import com.degloba.persistence.domain.AggregateId;
 public class CustomerStatusChangedEvent implements Serializable {
 
     private final AggregateId customerId;
-    private final CustomerStatus status;
+    private final EstatClient status;
 
-    public CustomerStatusChangedEvent(AggregateId customerId, CustomerStatus status) {
+    public CustomerStatusChangedEvent(AggregateId customerId, EstatClient status) {
         this.customerId = customerId;
         this.status = status;
     }
@@ -26,7 +26,7 @@ public class CustomerStatusChangedEvent implements Serializable {
         return customerId;
     }
 
-    public CustomerStatus getStatus() {
+    public EstatClient getStatus() {
         return status;
     }
 }
