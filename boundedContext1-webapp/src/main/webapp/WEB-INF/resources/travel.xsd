@@ -2,13 +2,13 @@
 <xs:schema version="1.0"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:element name="booking" type="booking" />
+	<xs:element name="Reserva" type="Reserva" />
 
 	<xs:element name="hotel" type="hotel" />
 
 	<xs:element name="user" type="user" />
 
-	<xs:complexType name="booking">
+	<xs:complexType name="Reserva">
 		<xs:sequence>
 			<xs:element name="amenities" type="amenity"
 				nillable="true" minOccurs="0" maxOccurs="unbounded" />

@@ -22,7 +22,7 @@ import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.event.IDomainEventBus;
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
 import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
@@ -60,7 +60,7 @@ public class ProductView implements Serializable{
 	//@Size(min=2,max=5)  NO FUNCIONA.Mirar http://stackoverflow.com/questions/19216495/app-engine-jar-in-web-inf-lib-but-still-getting-java-lang-classnotfoundexceptio
 	String name;
 	
-	String description;
+	String descripcio;
 	
 		
 	@Digits(integer=3,fraction=2)
@@ -88,7 +88,7 @@ public class ProductView implements Serializable{
 		 
 		 IDomainEventBus<?> d =  InstanceFactory.getInstance(IDomainEventBus.class);
 		 
-		 d.publishEvent(new CashPurchaseEvent(1232,"chocolate"));
+		 d.publishEvent(new CompraEnEfectiuEvent(1232,"chocolate"));
 		 
 		 
 		 MvcExternalContext externalContext =
@@ -119,7 +119,7 @@ public class ProductView implements Serializable{
 			    	 
 			    	 // Producte
 			    	 Producte producte = new Producte();
-			    	 producte.setDescription(this.description);
+			    	 producte.setDescripcio(this.descripcio);
 			    	 producte.setPrice(price);
 			    	 			    	
 			    	 producte.setOwner(com.googlecode.objectify.Key.create(Propietari.class, uid));
@@ -148,12 +148,12 @@ public class ProductView implements Serializable{
 		       
 		    }
 
-		public String getDescription() {
-			return description;
+		public String getDescripcio() {
+			return descripcio;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
+		public void setDescripcio(String descripcio) {
+			this.descripcio = descripcio;
 		}
 
 		public Double getPrice() {

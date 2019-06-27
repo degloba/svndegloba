@@ -16,8 +16,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 import com.degloba.lloguers.cqrs.readmodel.finders.ILloguerFinder;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
 
 @Component
@@ -25,12 +25,12 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 @ViewScoped
 public class SelectOneMenuCategoryView {
 
-	private Map<String,List<Subcategory>> data = new HashMap<String, List<Subcategory>>();
+	private Map<String,List<SubCategoria>> data = new HashMap<String, List<SubCategoria>>();
 	
 	private String category; 
     private String subcategory; 
     private Map<String,String> categories;
-    private List<Subcategory> subcategories;
+    private List<SubCategoria> subCategorias;
     
     @Inject
     private ILloguerFinder categoryFinder;
@@ -43,11 +43,11 @@ public class SelectOneMenuCategoryView {
 		categories = new HashMap<String, String>();
 		
 		/*for (Category c : categoryFinder.findCategories()) {
-			categories.put(c.getDescription(), c.getDescription());
+			categories.put(c.getDescripcio(), c.getDescripcio());
 			
 			//subcategories = subcategoryFinder.findSubcategoriesByCategory(c);
 			
-			data.put(c.getDescription(),subcategories );
+			data.put(c.getDescripcio(),subcategories );
 			
 		  }*/
 		   
@@ -55,9 +55,9 @@ public class SelectOneMenuCategoryView {
 	
 	 public void onCategoryChange() {
 	        if(category !=null && !category.equals(""))
-	        	subcategories = data.get(category);
+	        	subCategorias = data.get(category);
 	        else
-	        	subcategories = new ArrayList<Subcategory>();
+	        	subCategorias = new ArrayList<SubCategoria>();
 	    }
 
 	 public void displayLocation() {
@@ -79,22 +79,22 @@ public class SelectOneMenuCategoryView {
 	}
 
 	
-	public Map<String, List<Subcategory>> getData() {
+	public Map<String, List<SubCategoria>> getData() {
 		return data;
 	}
 
-	public void setData(Map<String, List<Subcategory>> data) {
+	public void setData(Map<String, List<SubCategoria>> data) {
 		this.data = data;
 	}
 
 	
 
-	public List<Subcategory> getSubcategories() {
-		return subcategories;
+	public List<SubCategoria> getSubcategories() {
+		return subCategorias;
 	}
 
-	public void setSubcategories(List<Subcategory> subcategories) {
-		this.subcategories = subcategories;
+	public void setSubcategories(List<SubCategoria> subCategorias) {
+		this.subCategorias = subCategorias;
 	}
 
 	public String getCategory() {

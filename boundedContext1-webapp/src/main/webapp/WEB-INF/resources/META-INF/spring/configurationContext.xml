@@ -52,10 +52,8 @@
 	<!-- **************** -->
 	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.DomainEventPublisher" 
 		/> -->
-	<bean id="domainEventPublisher"
-		class="com.degloba.event.impl.DomainEventPublisher" />
-	<bean
-		class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
+	<bean id="domainEventPublisher" class="com.degloba.event.impl.DomainEventPublisher" />
+	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
 
 	<!-- ********************************************** -->
 	<!-- HANDLERS/LISTENERS D'EVENTS (EventListeners) -->

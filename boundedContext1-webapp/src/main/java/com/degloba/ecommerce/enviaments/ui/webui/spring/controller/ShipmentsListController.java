@@ -38,17 +38,17 @@ public class ShipmentsListController {
     }
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public String shipOrder(@RequestParam("shipmentId") String shipmentId) {
-    	/////Key aggregateId = KeyFactory.stringToKey( shipmentId);
-    	//AggregateId aggregateId = AggregateId.generate();   //Long.parseLong(shipmentId);
+    public String shipOrder(@RequestParam("enviamentId") String enviamentId) {
+    	/////Key aggregateId = KeyFactory.stringToKey( enviamentId);
+    	//AggregateId aggregateId = AggregateId.generate();   //Long.parseLong(enviamentId);
         //gate.dispatch(new SendShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }
 
     @RequestMapping(value = "/deliver", method = RequestMethod.POST)
-    public String receiveShipment(@RequestParam("shipmentId") String shipmentId) {
-    	////////Key aggregateId = KeyFactory.stringToKey( shipmentId);
-    	//AggregateId aggregateId = AggregateId.generate();  //Long.parseLong(shipmentId);
+    public String receiveShipment(@RequestParam("enviamentId") String enviamentId) {
+    	////////Key aggregateId = KeyFactory.stringToKey( enviamentId);
+    	//AggregateId aggregateId = AggregateId.generate();  //Long.parseLong(enviamentId);
         //gate.dispatch(new DeliverShipmentCommand(aggregateId));
         return "redirect:/shipping/shipment/list";
     }

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.degloba.lloguers.cqrs.readmodel.finders.ILloguerFinder;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.facade.objectify.CategoryFacade;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
@@ -48,17 +48,17 @@ public class CarregaEntitatsController {
 	    //*****************************************************************
 	    
 		// 1. CATEGORIA
-	    Category category = new Category();
-	    category.setDescription("Informatica");
+	    Categoria categoria = new Categoria();
+	    categoria.setDescripcio("Informatica");
 	    
 	    // Directament contra el Repository
-	    Long categoriaId = categoryRepositoryObjectify.createWithID(category);
+	    Long categoriaId = categoryRepositoryObjectify.createWithID(categoria);
 	    
-	    Key<Category> categoriaKey = categoryRepositoryObjectify.getKey(Category.class,categoriaId);
+	    Key<Categoria> categoriaKey = categoryRepositoryObjectify.getKey(Categoria.class,categoriaId);
 		    	    	
 	    // 2. SUBCATEGORIA
 	   /* Subcategory subcategory = new Subcategory();	    		    	    		           		   
-	    subcategory.setDescription("Tablet");	   
+	    subcategory.setDescripcio("Tablet");	   
 	    subcategory.setCategory(categoriaKey);
 	    
 	    Long subcategoriaId = categoryRepositoryObjectify.createWithID(subcategory);
@@ -69,7 +69,7 @@ public class CarregaEntitatsController {
 	    // Des de UI
 	    ///facadeCategoryObjectify.createCategory(category);
 	    try {
-			categoryRepositoryObjectify.update(Category.class, categoriaId, category);
+			categoryRepositoryObjectify.update(Categoria.class, categoriaId, categoria);
 		} catch (DatabaseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

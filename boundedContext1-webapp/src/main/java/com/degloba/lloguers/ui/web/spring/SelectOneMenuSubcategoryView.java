@@ -28,7 +28,7 @@ public class SelectOneMenuSubcategoryView {
 		
 		/*
 		for (Subcategory s : subcategoryFinder.findSubcategoriesByCategory(category)) {
-			subcategories.put(s.getDescription(), s.getDescription());
+			subcategories.put(s.getDescripcio(), s.getDescripcio());
 		  }*/
 		   
     }

@@ -240,7 +240,7 @@ CREATE TABLE sysproxies (
 	name VARCHAR(128) NOT NULL,
 	credential_id INT NOT NULL,
 	enabled TINYINT NOT NULL,
-	description NVARCHAR(512),
+	descripcio NVARCHAR(512),
 	user_sid VARBINARY(85) NOT NULL,
 	credential_date_created DATETIME NOT NULL
 )
@@ -291,7 +291,7 @@ GO
 CREATE TABLE sysmail_configuration (
 	paramname NVARCHAR(256) NOT NULL,
 	paramvalue NVARCHAR(256),
-	description NVARCHAR(256),
+	descripcio NVARCHAR(256),
 	last_mod_datetime DATETIME DEFAULT (getdate()) NOT NULL,
 	last_mod_user VARCHAR(128) DEFAULT (suser_sname()) NOT NULL,
 	CONSTRAINT SYSMAIL_CONFIGURATION_ParamnameMustBeUnique PRIMARY KEY (paramname) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -555,7 +555,7 @@ CREATE TABLE sysdtspackages (
 	name VARCHAR(128) NOT NULL,
 	id UNIQUEIDENTIFIER NOT NULL,
 	versionid UNIQUEIDENTIFIER NOT NULL,
-	description NVARCHAR(1024),
+	descripcio NVARCHAR(1024),
 	categoryid UNIQUEIDENTIFIER NOT NULL,
 	createdate DATETIME,
 	owner VARCHAR(128) NOT NULL,
@@ -650,7 +650,7 @@ CREATE TABLE sysdtssteplog (
 	endtime DATETIME,
 	elapsedtime FLOAT(53),
 	errorcode INT,
-	errordescription NVARCHAR(2000),
+	errordescripcio NVARCHAR(2000),
 	progresscount BIGINT,
 	CONSTRAINT PK__sysdtssteplog__1F63A897 PRIMARY KEY (stepexecutionid) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
@@ -715,7 +715,7 @@ CREATE TABLE sysjobs (
 	originating_server_id INT NOT NULL,
 	name VARCHAR(128) NOT NULL,
 	enabled TINYINT NOT NULL,
-	description NVARCHAR(512),
+	descripcio NVARCHAR(512),
 	start_step_id INT NOT NULL,
 	category_id INT NOT NULL,
 	owner_sid VARBINARY(85) NOT NULL,
@@ -944,7 +944,7 @@ GO
 
 CREATE TABLE scr_typedoc (
 	id INT NOT NULL,
-	description VARCHAR(50) NOT NULL,
+	descripcio VARCHAR(50) NOT NULL,
 	type_person INT NOT NULL,
 	code VARCHAR(1) NOT NULL,
 	CONSTRAINT PK_scr_typedoc PRIMARY KEY (id) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -989,7 +989,7 @@ CREATE TABLE sysdac_instances_internal (
 	instance_name VARCHAR(128) NOT NULL,
 	type_name VARCHAR(128) NOT NULL,
 	type_version NVARCHAR(64) NOT NULL,
-	description NVARCHAR(4000) DEFAULT (''),
+	descripcio NVARCHAR(4000) DEFAULT (''),
 	type_stream null NOT NULL,
 	date_created DATETIME DEFAULT (getdate()) NOT NULL,
 	created_by VARCHAR(128) DEFAULT ([dbo].[fn_sysdac_get_currentusername]()) NOT NULL,
@@ -1017,7 +1017,7 @@ GO
 CREATE TABLE sysmaintplan_subplans (
 	subplan_id UNIQUEIDENTIFIER NOT NULL,
 	subplan_name VARCHAR(128) NOT NULL,
-	subplan_description NVARCHAR(512),
+	subplan_descripcio NVARCHAR(512),
 	plan_id UNIQUEIDENTIFIER NOT NULL,
 	job_id UNIQUEIDENTIFIER NOT NULL,
 	schedule_id INT,
@@ -1222,7 +1222,7 @@ GO
 CREATE TABLE sysmail_account (
 	account_id INT NOT NULL,
 	name VARCHAR(128) NOT NULL,
-	description NVARCHAR(256),
+	descripcio NVARCHAR(256),
 	email_address NVARCHAR(128) NOT NULL,
 	display_name NVARCHAR(128),
 	replyto_address NVARCHAR(128),
@@ -1292,7 +1292,7 @@ GO
 CREATE TABLE sysdtspackages90 (
 	name VARCHAR(128) NOT NULL,
 	id UNIQUEIDENTIFIER NOT NULL,
-	description NVARCHAR(1024),
+	descripcio NVARCHAR(1024),
 	createdate DATETIME NOT NULL,
 	folderid UNIQUEIDENTIFIER NOT NULL,
 	ownersid VARBINARY(85) NOT NULL,
@@ -1409,9 +1409,9 @@ CREATE TABLE sysalerts (
 	last_response_date INT NOT NULL,
 	last_response_time INT NOT NULL,
 	notification_message NVARCHAR(512),
-	include_event_description TINYINT NOT NULL,
+	include_event_descripcio TINYINT NOT NULL,
 	database_name NVARCHAR(512),
-	event_description_keyword NVARCHAR(100),
+	event_descripcio_keyword NVARCHAR(100),
 	occurrence_count INT NOT NULL,
 	count_reset_date INT NOT NULL,
 	count_reset_time INT NOT NULL,
@@ -1759,7 +1759,7 @@ CREATE TABLE OBRESMEN_EXP (
 	PORPROP INT,
 	DESCOBR VARCHAR(100),
 	PRESPSOL FLOAT(53),
-	EMPLAÇAMENT VARCHAR(40),
+	EMPLAï¿½AMENT VARCHAR(40),
 	BON VARCHAR(150),
 	CODIPROVEMP INT,
 	NOMPROVEMP VARCHAR(30),
@@ -1845,7 +1845,7 @@ CREATE TABLE backupset (
 	expiration_date DATETIME,
 	software_vendor_id INT,
 	name NVARCHAR(128),
-	description NVARCHAR(255),
+	descripcio NVARCHAR(255),
 	user_name NVARCHAR(128),
 	software_major_version TINYINT,
 	software_minor_version TINYINT,
@@ -1957,7 +1957,7 @@ CREATE TABLE GESTACTI_BONIFMENORS (
 	TAXA FLOAT(53) NOT NULL,
 	ICIO FLOAT(53) NOT NULL,
 	CARTELL FLOAT(53) NOT NULL,
-	FIANÇA FLOAT(53) NOT NULL
+	FIANï¿½A FLOAT(53) NOT NULL
 )
 GO
 
@@ -2446,7 +2446,7 @@ CREATE TABLE sysmail_log (
 	log_id INT NOT NULL,
 	event_type INT NOT NULL,
 	log_date DATETIME DEFAULT (getdate()) NOT NULL,
-	description null,
+	descripcio null,
 	process_id INT,
 	mailitem_id INT,
 	account_id INT,
@@ -2477,7 +2477,7 @@ GO
 
 CREATE TABLE sysdtscategories (
 	name VARCHAR(128) NOT NULL,
-	description NVARCHAR(1024),
+	descripcio NVARCHAR(1024),
 	id UNIQUEIDENTIFIER NOT NULL,
 	parentid UNIQUEIDENTIFIER NOT NULL,
 	CONSTRAINT pk_dtscategories PRIMARY KEY (id) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -2488,7 +2488,7 @@ GO
 CREATE TABLE sysmail_profile (
 	profile_id INT NOT NULL,
 	name VARCHAR(128) NOT NULL,
-	description NVARCHAR(256),
+	descripcio NVARCHAR(256),
 	last_mod_datetime DATETIME DEFAULT (getdate()) NOT NULL,
 	last_mod_user VARCHAR(128) DEFAULT (suser_sname()) NOT NULL,
 	CONSTRAINT SYSMAIL_PROFILE_IDMustBeUnique PRIMARY KEY (profile_id) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -2529,7 +2529,7 @@ CREATE TABLE backupmediaset (
 	media_uuid UNIQUEIDENTIFIER,
 	media_family_count TINYINT,
 	name NVARCHAR(128),
-	description NVARCHAR(255),
+	descripcio NVARCHAR(255),
 	software_name NVARCHAR(128),
 	software_vendor_id INT,
 	MTF_major_version TINYINT,
@@ -2565,7 +2565,7 @@ GO
 
 CREATE TABLE sysdtspackagelog (
 	name VARCHAR(128) NOT NULL,
-	description NVARCHAR(1000),
+	descripcio NVARCHAR(1000),
 	id UNIQUEIDENTIFIER NOT NULL,
 	versionid UNIQUEIDENTIFIER NOT NULL,
 	lineagefull UNIQUEIDENTIFIER NOT NULL,
@@ -2577,7 +2577,7 @@ CREATE TABLE sysdtspackagelog (
 	operator VARCHAR(128) NOT NULL,
 	logdate DATETIME DEFAULT (getdate()) NOT NULL,
 	errorcode INT,
-	errordescription NVARCHAR(2000),
+	errordescripcio NVARCHAR(2000),
 	CONSTRAINT PK__sysdtspackagelog__1C873BEC PRIMARY KEY (lineagefull) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
 )
@@ -2647,7 +2647,7 @@ GO
 
 CREATE TABLE scr_typeaddress (
 	id INT NOT NULL,
-	description VARCHAR(50) NOT NULL,
+	descripcio VARCHAR(50) NOT NULL,
 	code VARCHAR(2) NOT NULL,
 	CONSTRAINT PK_SCR_TYPEADDRESS PRIMARY KEY (id) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
@@ -2686,7 +2686,7 @@ CREATE TABLE sysdtstasklog (
 	stepexecutionid BIGINT NOT NULL,
 	sequenceid INT NOT NULL,
 	errorcode INT NOT NULL,
-	description NVARCHAR(2000),
+	descripcio NVARCHAR(2000),
 	CONSTRAINT PK__sysdtstasklog__22401542 PRIMARY KEY (stepexecutionid, sequenceid) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
 )
@@ -2765,7 +2765,7 @@ GO
 CREATE TABLE logmarkhistory (
 	database_name NVARCHAR(128) NOT NULL,
 	mark_name NVARCHAR(128) NOT NULL,
-	description NVARCHAR(255),
+	descripcio NVARCHAR(255),
 	user_name NVARCHAR(128) NOT NULL,
 	lsn NUMERIC(25 , 0) NOT NULL,
 	mark_time DATETIME NOT NULL
@@ -2806,7 +2806,7 @@ CREATE TABLE GESTACTI_BONIFMAJORS (
 	TAXA FLOAT(53) NOT NULL,
 	ICIO FLOAT(53) NOT NULL,
 	CARTELL FLOAT(53) NOT NULL,
-	FIANÇA FLOAT(53) NOT NULL
+	FIANï¿½A FLOAT(53) NOT NULL
 )
 GO
 
@@ -2870,7 +2870,7 @@ GO
 CREATE TABLE syssubsystems (
 	subsystem_id INT NOT NULL,
 	subsystem NVARCHAR(40) NOT NULL,
-	description_id INT,
+	descripcio_id INT,
 	subsystem_dll NVARCHAR(255),
 	agent_exe NVARCHAR(255),
 	start_entry_point NVARCHAR(30),
