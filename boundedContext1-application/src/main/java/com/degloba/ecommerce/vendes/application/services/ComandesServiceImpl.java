@@ -38,7 +38,7 @@ import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationExc
  * @author degloba
  */
 @ApplicationService
-public class OrderingServiceImpl implements IOrderingService {
+public class ComandesServiceImpl implements IComandesService {
 
 /*	@Inject
 	private SystemUser systemUser;*/
@@ -72,16 +72,16 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * DOMAIN STORY<br>
 	 * try to read this as a full sentence, this way: subject.predicate(completion)<br>
 	 * <br>
-	 * Carga la {@link Reservation} per la orderId<br>
+	 * Carga la {@link Reservation} per la comandaId<br>
 	 * Carga el {@link Producte} pel productId<br>
 	 * Comprova si el {@link Producte} no és accessible<br>
 	 * si es així, llavors s suggereix un equivalent d'aquest {@link Producte} basat en el client<br>
 	 * Reservation add product by given quantity
 	 */
 	@Override
-	public void addProduct(AggregateId orderId, AggregateId productId,
+	public void addProduct(AggregateId comandaId, AggregateId productId,
 			int quantity) {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,orderId);
+		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
 		
 		Producte producte = productRepository.loadProduct(Producte.class,productId);
 		
@@ -99,8 +99,8 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * Can be invoked many times for the same order (with different params).<br>
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
-	public Oferta calculateOffer(AggregateId orderId) {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,orderId);
+	public Oferta calculateOffer(AggregateId comandaId) {
+		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
 
 		DescomptePolicy descomptePolicy = descompteFactory.create(loadClient());
 		
@@ -115,7 +115,7 @@ public class OrderingServiceImpl implements IOrderingService {
 	 * DOMAIN STORY<br>
 	 * try to read this as a full sentence, this way: subject.predicate(completion)<br>
 	 * <br>
-	 * Load reservation by orderId<br>
+	 * Load reservation by comandaId<br>
 	 * Check if reservation is closed - if so, than Error<br>
 	 * Generate new offer from reservation using discount created per client<br>
 	 * Check if new offer is not the same as seen offer using delta = 5<br>
@@ -126,9 +126,9 @@ public class OrderingServiceImpl implements IOrderingService {
 	 */
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
-	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
+	public void confirm(AggregateId comandaId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
 			throws OfferChangedException {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,orderId);
+		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
 		if (reservation.isClosed())
 			throw new DomainOperationException(reservation.getAggregateId(), "reservation is already closed");
 		

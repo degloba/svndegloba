@@ -1,32 +1,37 @@
 package com.degloba.ecommerce.vendes.application.commands;
 
 import com.degloba.cqrs.command.annotations.Command;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
 @Command
-public class AddProdctCommand {
+public class AfegirProducteCommand {
 
-	private AggregateId orderId;
-	private AggregateId productId;
-	private int quantity;
+	private AggregateId comandaId;
+	private AggregateId producteId;
+	private int quantitat;
 	
-	public AddProdctCommand(AggregateId orderId, AggregateId productId,
-			int quantity) {
-		this.orderId = orderId;
-		this.productId = productId;
-		this.quantity = quantity;
+	public AfegirProducteCommand(AggregateId comandaId, AggregateId producteId, int quantitat) {
+		this.comandaId = comandaId;
+		this.producteId = producteId;
+		this.quantitat = quantitat;
 	}
 	
-	public AggregateId getOrderId() {
-		return orderId;
+	public AggregateId getComandaId() {
+		return comandaId;
 	}
 	
-	public AggregateId getProductId() {
-		return productId;
+	public AggregateId getProducteId() {
+		return producteId;
 	}
 	
-	public int getQuantity() {
-		return quantity;
+	public int getQuantitat() {
+		return quantitat;
 	}
 }

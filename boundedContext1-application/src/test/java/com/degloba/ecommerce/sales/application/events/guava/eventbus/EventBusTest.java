@@ -1,8 +1,8 @@
 package com.degloba.ecommerce.sales.application.events.guava.eventbus;
 
 
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.vendes.application.events.NoSubscriberEvent;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.EventPublisher;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.*;
@@ -59,7 +59,7 @@ public class EventBusTest {
         generateCashPurchaseEvent();
         assertThat(cashPurchaseEventSubscriber.getHandledEvents().size(), is(1));
         assertThat(creditPurchaseEventSubscriber.getHandledEvents().size(), is(0));
-        assertSame(cashPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CashPurchaseEvent.class);
+        assertSame(cashPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
         assertThat(deadEventSubscriber.deadEvents.size(), is(0));
     }
 
@@ -77,7 +77,7 @@ public class EventBusTest {
         generateCreditPurchaseEvent();
         assertThat(cashPurchaseEventSubscriber.getHandledEvents().size(), is(0));
         assertThat(creditPurchaseEventSubscriber.getHandledEvents().size(), is(1));
-        assertSame(creditPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CreditPurchaseEvent.class);
+        assertSame(creditPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraAmbCreditEvent.class);
     }
 
 
@@ -85,8 +85,8 @@ public class EventBusTest {
     public void testGetAllPurchaseEvents() {
         generateAllPurchaseEvents();
         assertThat(purchaseEventSubscriber.getHandledEvents().size(), is(2));
-        assertSame(purchaseEventSubscriber.getHandledEvents().get(0).getClass(), CashPurchaseEvent.class);
-        assertSame(purchaseEventSubscriber.getHandledEvents().get(1).getClass(), CreditPurchaseEvent.class);
+        assertSame(purchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
+        assertSame(purchaseEventSubscriber.getHandledEvents().get(1).getClass(), CompraAmbCreditEvent.class);
     }
 
     @Test
@@ -116,7 +116,7 @@ public class EventBusTest {
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < numberLongEvents; i++) {
-            asyncEventBus.post(new CreditPurchaseEvent(1000l, "Stuff", "1234678"));
+            asyncEventBus.post(new CompraAmbCreditEvent(1000l, "Stuff", "1234678"));
         }
         doneSignal.await();
         long elapsed = start - System.currentTimeMillis();
@@ -136,7 +136,7 @@ public class EventBusTest {
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < numberLongEvents; i++) {
-            asyncEventBus.post(new CashPurchaseEvent(1000l, "Stuff"));
+            asyncEventBus.post(new CompraEnEfectiuEvent(1000l, "Stuff"));
         }
         doneSignal.await();
         long elapsed = start - System.currentTimeMillis();

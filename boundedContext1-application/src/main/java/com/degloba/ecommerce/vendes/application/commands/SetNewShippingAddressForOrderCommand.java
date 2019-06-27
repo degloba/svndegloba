@@ -5,7 +5,7 @@ import com.degloba.cqrs.command.annotations.Command;
 
 @Command
 public class SetNewShippingAddressForOrderCommand {
-	private Long orderId;
+	private Long comandaId;
 	private String fullName;
 	private String streetAddress;
 	private String city;
@@ -14,12 +14,12 @@ public class SetNewShippingAddressForOrderCommand {
 	private String country;
 	private String phoneNumber;
 
-	public Long getOrderId() {
-		return orderId;
+	public Long getComandaId() {
+		return comandaId;
 	}
 
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
+	public void setOrderId(Long comandaId) {
+		this.comandaId = comandaId;
 	}
 
 	public String getFullName() {

@@ -3,24 +3,24 @@ package com.degloba.ecommerce.vendes.application.commands;
 import com.degloba.cqrs.command.annotations.Command;
 
 @Command
-public class UseExistingShippingAddressForPurchaseCommand {
+public class UtilitzarAdrecaEnviamentPerCompraCommand {
 
-	private Long orderId;
-	private Long shippingAddressId;
+	private Long comandaId;
+	private Long adrecaEnviamentId;
 
-	public Long getOrderId() {
-		return orderId;
+	public Long getComandaId() {
+		return comandaId;
 	}
 
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
+	public void setComandaId(Long comandaId) {
+		this.comandaId = comandaId;
 	}
 
-	public Long getShippingAddressId() {
-		return shippingAddressId;
+	public Long getAdrecaEnviamentId() {
+		return adrecaEnviamentId;
 	}
 
-	public void setShippingAddressId(Long shippingAddressId) {
-		this.shippingAddressId = shippingAddressId;
+	public void setAdrecaEnviamentId(Long adrecaEnviamentId) {
+		this.adrecaEnviamentId = adrecaEnviamentId;
 	}
 }

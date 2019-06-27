@@ -2,18 +2,18 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 
 
 
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
 import com.degloba.event.guava.eventbus.subscriber.EventSubscriber;
 import com.google.common.eventbus.Subscribe;
 
-public class CashPurchaseEventSubscriber extends EventSubscriber<CashPurchaseEvent> {
+public class CashPurchaseEventSubscriber extends EventSubscriber<CompraEnEfectiuEvent> {
 
 
     public CashPurchaseEventSubscriber() {
     }
 
     @Subscribe
-    public void handleEvent(CashPurchaseEvent event) {
+    public void handleEvent(CompraEnEfectiuEvent event) {
         events.add(event);
     }
 

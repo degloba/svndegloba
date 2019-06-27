@@ -2,17 +2,17 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 
 
 
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.degloba.event.guava.eventbus.subscriber.EventSubscriber;
 import com.google.common.eventbus.Subscribe;
 
-public class CreditPurchaseEventSubscriber extends EventSubscriber<CreditPurchaseEvent> {
+public class CreditPurchaseEventSubscriber extends EventSubscriber<CompraAmbCreditEvent> {
 
     private CreditPurchaseEventSubscriber() {
     }
 
     @Subscribe
-    public void handleEvent(CreditPurchaseEvent event) {
+    public void handleEvent(CompraAmbCreditEvent event) {
         events.add(event);
     }
 }

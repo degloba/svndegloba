@@ -2,8 +2,8 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus;
 
 
 
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.vendes.application.events.NoSubscriberEvent;
 import com.degloba.event.guava.eventbus.events.SimpleEvent;
 
@@ -17,12 +17,12 @@ public class EventPublisher {
 	        this.eventBus = eventBus;
 	    }
 
-	    public void createCashPurchaseEvent(String description, long amount) {
-	        eventBus.post(new CashPurchaseEvent(amount, description));
+	    public void createCashPurchaseEvent(String descripcio, long amount) {
+	        eventBus.post(new CompraEnEfectiuEvent(amount, descripcio));
 	    }
 
 	    public void createCreditPurchaseEvent(String item, String ccNumber, long amount) {
-	        eventBus.post(new CreditPurchaseEvent(amount, ccNumber, item));
+	        eventBus.post(new CompraAmbCreditEvent(amount, ccNumber, item));
 	    }
 
 	    public void createSimpleEvent(String eventName) {

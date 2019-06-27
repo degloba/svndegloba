@@ -2,8 +2,8 @@ package com.degloba.ecommerce.crm.application.commands;
 
 import java.io.Serializable;
 
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Customer.CustomerStatus;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.cqrs.command.annotations.Command;
 
 
@@ -13,24 +13,24 @@ import com.degloba.cqrs.command.annotations.Command;
  */
 @SuppressWarnings("serial")
 @Command
-public class ChangeCustomerStatusCommand implements Serializable{
+public class CanviarEstatClientCommand implements Serializable{
 
-	private AggregateId customerId;
+	private AggregateId clientId;
 	
-	private CustomerStatus status;
+	private EstatClient estatClient;
 
-	public ChangeCustomerStatusCommand(AggregateId customerId, CustomerStatus status) {
+	public CanviarEstatClientCommand(AggregateId clientId, EstatClient estatClient) {
 		super();
-		this.customerId = customerId;
-		this.status = status;
+		this.clientId = clientId;
+		this.estatClient = estatClient;
 	}
 
-	public AggregateId getCustomerId() {
-		return customerId;
+	public AggregateId getClientId() {
+		return clientId;
 	}
 
-	public CustomerStatus getStatus() {
-		return status;
+	public EstatClient getEstatClient() {
+		return estatClient;
 	}
 	
 	

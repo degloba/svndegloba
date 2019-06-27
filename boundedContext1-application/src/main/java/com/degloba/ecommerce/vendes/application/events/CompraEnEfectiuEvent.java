@@ -1,14 +1,14 @@
 package com.degloba.ecommerce.vendes.application.events;
 
-public class CashPurchaseEvent extends PurchaseEvent {
+public class CompraEnEfectiuEvent extends CompraEvent {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private String item;
 
-    public CashPurchaseEvent(long amount, String item) {
-        super(amount);
+    public CompraEnEfectiuEvent(long quantitat, String item) {
+        super(quantitat);
         this.item = item;
     }
 

@@ -35,7 +35,7 @@ public class BookKeepingListener {
 	@EventListener
 	public void handle(OrdreEnviadaEvent event){
 		// recuperem la compra a partir de l'Id de l'ordre
-		Compra compra = vendaRepository.get(Compra.class, event.getOrderId());
+		Compra compra = vendaRepository.get(Compra.class, event.getComandaId());
 		
 		// recuperem el {@link Client} a partir de {@link Purchase}
 		Client client = vendaRepository.get(Client.class, compra.getClientData().getAggregateId());

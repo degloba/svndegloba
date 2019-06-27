@@ -3,28 +3,28 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.degloba.event.guava.eventbus.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
 public class MultiHandlerSubscriber {
 
-    private List<CashPurchaseEvent> cashEvents = new ArrayList<CashPurchaseEvent>();
-    private List<CreditPurchaseEvent> creditEvents = new ArrayList<CreditPurchaseEvent>();
+    private List<CompraEnEfectiuEvent> cashEvents = new ArrayList<CompraEnEfectiuEvent>();
+    private List<CompraAmbCreditEvent> creditEvents = new ArrayList<CompraAmbCreditEvent>();
     private List<SimpleEvent> simpleEvents = new ArrayList<SimpleEvent>();
 
     private MultiHandlerSubscriber() {
     }
 
     @Subscribe
-    public void handleCashEvents(CashPurchaseEvent event) {
+    public void handleCashEvents(CompraEnEfectiuEvent event) {
         cashEvents.add(event);
     }
 
     @Subscribe
-    public void handleCreditEvents(CreditPurchaseEvent event) {
+    public void handleCreditEvents(CompraAmbCreditEvent event) {
         creditEvents.add(event);
     }
 
@@ -33,11 +33,11 @@ public class MultiHandlerSubscriber {
         simpleEvents.add(event);
     }
 
-    public List<CashPurchaseEvent> getCashEvents() {
+    public List<CompraEnEfectiuEvent> getCashEvents() {
         return cashEvents;
     }
 
-    public List<CreditPurchaseEvent> getCreditEvents() {
+    public List<CompraAmbCreditEvent> getCreditEvents() {
         return creditEvents;
     }
 

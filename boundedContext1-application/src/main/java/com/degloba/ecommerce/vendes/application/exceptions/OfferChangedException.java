@@ -7,19 +7,19 @@ import com.degloba.persistence.domain.AggregateId;
 @SuppressWarnings("serial")
 public class OfferChangedException extends RuntimeException {
 	
-	private AggregateId orderId;
+	private AggregateId comandaId;
 	private Oferta seenOffer;
 	private Oferta newOffer;
 	
-	public OfferChangedException(AggregateId orderId, Oferta seenOffer,
+	public OfferChangedException(AggregateId comandaId, Oferta seenOffer,
 			Oferta newOffer) {
-		this.orderId = orderId;
+		this.comandaId = comandaId;
 		this.seenOffer = seenOffer;
 		this.newOffer = newOffer;
 	}
 	
-	public AggregateId getOrderId() {
-		return orderId;
+	public AggregateId getComandaId() {
+		return comandaId;
 	}
 	
 	public Oferta getSeenOffer() {

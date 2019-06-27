@@ -2,11 +2,11 @@ package com.degloba.lloguers.application.services;
 
 import javax.inject.Inject;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Category;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
+import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
 
 public class LloguerService implements ILloguerService {
@@ -21,8 +21,8 @@ public class LloguerService implements ILloguerService {
 
 
 	@Override
-	public void createCategory(Category category) {
-		rentRepositoryObjectify.create(category);
+	public void createCategory(Categoria categoria) {
+		rentRepositoryObjectify.create(categoria);
 	}
 	
 /*	Si l'Entitat es Nosql/datastoreGoogle (Api Objectify)
@@ -46,8 +46,8 @@ public class LloguerService implements ILloguerService {
 	}
 
 	@Override
-	public void createSubcategory(Subcategory subcategory) {
-		rentRepositoryObjectify.save(subcategory);
+	public void createSubcategory(SubCategoria subCategoria) {
+		rentRepositoryObjectify.save(subCategoria);
 
 	}
 

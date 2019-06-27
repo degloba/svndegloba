@@ -11,13 +11,13 @@ import com.degloba.persistence.domain.AggregateId;
 @Command
 public class SendShipmentCommand implements Serializable {
 
-    private final AggregateId shipmentId;
+    private final AggregateId enviamentId;
 
-    public SendShipmentCommand(AggregateId shipmentId) {
-        this.shipmentId = shipmentId;
+    public SendShipmentCommand(AggregateId enviamentId) {
+        this.enviamentId = enviamentId;
     }
 
-    public AggregateId getShipmentId() {
-        return shipmentId;
+    public AggregateId getEnviamentId() {
+        return enviamentId;
     }
 }

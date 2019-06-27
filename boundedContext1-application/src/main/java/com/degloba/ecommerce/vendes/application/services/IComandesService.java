@@ -13,17 +13,17 @@ import com.degloba.persistence.domain.AggregateId;
  *  
  *  RDBMS/JPA
  */
-public interface IOrderingService {
+public interface IComandesService {
 	// 1.
 	public AggregateId createOrder();
 
 	// 2.
-	public void addProduct(AggregateId orderId, AggregateId productId, int quantity);
+	public void addProduct(AggregateId comandaId, AggregateId productId, int quantity);
 	
 	// 3. 
-	public Oferta calculateOffer(AggregateId orderId);
+	public Oferta calculateOffer(AggregateId comandaId);
 
 	// 4.
-	public void confirm(AggregateId orderId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
+	public void confirm(AggregateId comandaId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
 			throws OfferChangedException;
 }

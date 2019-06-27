@@ -2,7 +2,7 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 
 
 
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
@@ -13,7 +13,7 @@ public class InvalidSubscriberMultipleParameter {
     }
 
     @Subscribe
-    public void handleCreditEvent(CreditPurchaseEvent event) {
+    public void handleCreditEvent(CompraAmbCreditEvent event) {
         //DO nothing this will not work
     }
 

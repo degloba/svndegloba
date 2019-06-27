@@ -13,7 +13,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 @InternalApplicationService
 public class DescompteService {
 
-	public void applyDiscount(AggregateId orderId, Money amount){
+	public void applyDiscount(AggregateId comandaId, Money amount){
 		//TODO implement
 	}
 }

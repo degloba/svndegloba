@@ -25,6 +25,7 @@
         	<artifactId>boundedContext1-integration</artifactId>
         	<version>${project.version}</version>
         </dependency>
+        
    
 
 		<!-- ******************************************* -->
@@ -34,8 +35,13 @@
 	<!-- 	<dependency>
 			<groupId>org.datanucleus</groupId>
         	<artifactId>datanucleus-api-jpa</artifactId>        
-		</dependency>	 -->	
-		
+		</dependency>	 -->
+
+	<dependency>
+		<groupId>org.axonframework</groupId>
+		<artifactId>axon-spring</artifactId>
+		<version>4.0-M2</version>
+	</dependency>
     </dependencies>
     
     <build>

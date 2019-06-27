@@ -2,8 +2,8 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 
 import java.util.concurrent.CountDownLatch;
 
-import com.degloba.ecommerce.vendes.application.events.CashPurchaseEvent;
-import com.degloba.ecommerce.vendes.application.events.CreditPurchaseEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.Subscribe;
@@ -18,13 +18,13 @@ public class LongProcessSubscriber {
 
     @Subscribe
     @AllowConcurrentEvents
-    public void handleEventConcurrent(CreditPurchaseEvent event) {
+    public void handleEventConcurrent(CompraAmbCreditEvent event) {
         pause(300l);
         doneSignal.countDown();
     }
 
     @Subscribe
-    public void handleEventNonConcurrent(CashPurchaseEvent event) {
+    public void handleEventNonConcurrent(CompraEnEfectiuEvent event) {
         pause(300l);
         doneSignal.countDown();
     }

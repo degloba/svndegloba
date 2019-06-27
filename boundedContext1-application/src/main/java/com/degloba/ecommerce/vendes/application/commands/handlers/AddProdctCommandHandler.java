@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.ecommerce.vendes.application.commands.AddProdctCommand;
+import com.degloba.ecommerce.vendes.application.commands.AfegirProducteCommand;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
@@ -15,7 +15,7 @@ import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserv
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
 @CommandHandlerAnnotation
-public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand, Void>{
+public class AddProdctCommandHandler implements ICommandHandler<AfegirProducteCommand, Void>{
 
 
 	@Inject
@@ -30,8 +30,8 @@ public class AddProdctCommandHandler implements ICommandHandler<AddProdctCommand
 	private SystemUser systemUser;*/
 	
 	@Override
-	public Void handle(AddProdctCommand command) {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,command.getOrderId());
+	public Void handle(AfegirProducteCommand command) {
+		Reservation reservation = vendaRepository.loadReservation(Reservation.class,command.getComandaId());
 		
 		Producte producte = vendaRepository.loadProduct(Producte.class,command.getProductId());
 		

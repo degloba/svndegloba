@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.vendes.application.events;
 
-public class CreditPurchaseEvent extends PurchaseEvent {
+public class CompraAmbCreditEvent extends CompraEvent {
 
     /**
 	 * 
@@ -9,7 +9,7 @@ public class CreditPurchaseEvent extends PurchaseEvent {
 	private String creditCardNumber;
     private String item;
 
-    public CreditPurchaseEvent(long amount, String item, String creditCardNumber) {
+    public CompraAmbCreditEvent(long amount, String item, String creditCardNumber) {
         super(amount);
         this.item = item;
         this.creditCardNumber = creditCardNumber;
