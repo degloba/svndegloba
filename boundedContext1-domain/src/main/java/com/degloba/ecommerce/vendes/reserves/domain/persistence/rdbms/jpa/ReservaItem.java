@@ -9,15 +9,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 
-/*
- * Un Item d'una Reserva
+/**
+ * @category Un Item d'una Reserva
  */
 @Entity
-class ReservationItem extends BaseEntity{
+class ReservaItem extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,28 +25,28 @@ class ReservationItem extends BaseEntity{
 	@ManyToOne
 	private Producte producte;
 	
-	private int quantity;
+	private int quantitat;
 
-	private ReservationItem(){}
+	private ReservaItem(){}
 	
-	ReservationItem(Producte producte, int quantity) {
+	ReservaItem(Producte producte, int quantitat) {
 		this.producte = producte;
-		this.quantity = quantity;
+		this.quantitat = quantitat;
 	}
 
 	void changeQuantityBy(int change) {
-		int changed = quantity + change;
+		int changed = quantitat + change;
 		if (changed <= 0)
 			throw new DomainOperationException(AggregateId.generate(), "change below 1");
-		this.quantity = changed;
+		this.quantitat = changed;
 	}
 	
-	public Producte getProduct() {
+	public Producte getProducte() {
 		return producte;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getQuantitat() {
+		return quantitat;
 	}
 
 	@Override

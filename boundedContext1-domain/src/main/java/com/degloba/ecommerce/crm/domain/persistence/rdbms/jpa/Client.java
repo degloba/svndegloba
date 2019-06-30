@@ -6,7 +6,7 @@ import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
 
-import com.degloba.ecommerce.crm.domain.events.CustomerStatusChangedEvent;
+import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 /**
@@ -21,9 +21,6 @@ public class Client extends BaseAggregateRoot{
 
 	private static final long serialVersionUID = 1L;
 
-/*
- * Tipus de client
- */
 	public enum EstatClient{
 		STANDARD, VIP, PLATINUM
 	}

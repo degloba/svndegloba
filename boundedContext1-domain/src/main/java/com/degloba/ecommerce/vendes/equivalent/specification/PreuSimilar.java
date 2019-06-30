@@ -9,29 +9,29 @@ import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jp
  * @author degloba
  *
  * @category Preu similar</br>
- * Donat el preu d'un {@link Producte} i una diferència de preu acceptable, ens diu si un {@link Producte} candidat satisfà
- * la condició
+ * Donat el preu d'un {@link Producte} i una diferència de preu acceptable, ens diu si un {@link Producte} 
+ * candidat satisfà la condició
  */
-public class SimilarPrice extends CompositeSpecification<Producte>{
+public class PreuSimilar extends CompositeSpecification<Producte>{
 
 	private Money min;
 	private Money max;
 	
 	/**
-	 * Donat el preu d'un {@link Producte} i una diferència de preu acceptable, ens diu si un {@link Producte} candidat satisfà
-	 * la condició
+	 * Donat el preu d'un {@link Producte} i una diferència de preu acceptable, ens diu si un {@link Producte} 
+	 * candidat satisfà la condició
 	 * 
 	 * @param price
 	 * @param acceptableDifference
 	 */
-	public SimilarPrice(Money price, Money acceptableDifference) {
+	public PreuSimilar(Money price, Money acceptableDifference) {
 		this.min = price.subtract(acceptableDifference);
 		this.max = price.add(acceptableDifference);
 	}
 
 	@Override
 	public boolean isSatisfiedBy(Producte candidate) {		
-		return candidate.getPrice().greaterThan(min) && candidate.getPrice().lessThan(max);
+		return candidate.getPreu().greaterThan(min) && candidate.getPreu().lessThan(max);
 	}
 
 }

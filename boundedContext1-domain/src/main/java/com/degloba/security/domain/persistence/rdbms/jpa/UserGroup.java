@@ -50,11 +50,11 @@ public class UserGroup extends Actor {
         save();
     }
 
-    public Set<User> getUsers() {
-        Set<User> results = new HashSet<User>();
+    public Set<Usuari> getUsers() {
+        Set<Usuari> results = new HashSet<Usuari>();
         for (Actor actor : getMembers()) {
-            if (actor instanceof User) {
-                results.add((User) actor);
+            if (actor instanceof Usuari) {
+                results.add((Usuari) actor);
             }
         }
         return results;
@@ -122,7 +122,7 @@ public class UserGroup extends Actor {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 23).append(getName()).toHashCode();
+        return new HashCodeBuilder(17, 23).append(getNom()).toHashCode();
     }
 
     @Override
@@ -134,12 +134,12 @@ public class UserGroup extends Actor {
             return false;
         }
         UserGroup that = (UserGroup) other;
-        return new EqualsBuilder().append(this.getName(), that.getName()).isEquals();
+        return new EqualsBuilder().append(this.getNom(), that.getNom()).isEquals();
     }
 
     @Override
     public String toString() {
-        return getName();
+        return getNom();
     }
 
 }

@@ -21,7 +21,7 @@ public class Producte implements Serializable {
 	@Id
 	Long id;
 	
-	String descripcio;
+	String description;
 	Double price;
 	SubCategoria subCategoria;
 	
@@ -41,11 +41,11 @@ public class Producte implements Serializable {
 	// getters - setters
 	
 	public String getDescripcio() {
-		return descripcio;
+		return description;
 	}
 
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
+	public void setDescripcio(String description) {
+		this.description = description;
 	}
 	
 	public Long getId() {

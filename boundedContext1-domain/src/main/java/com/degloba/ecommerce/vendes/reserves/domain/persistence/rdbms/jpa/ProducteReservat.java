@@ -1,11 +1,17 @@
 package com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.domain.AggregateId;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
 
-
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
 @ValueObject
 public class ProducteReservat {
 
@@ -13,14 +19,14 @@ public class ProducteReservat {
 	
 	private Money totalCost;
 	
-	private AggregateId productId;
+	private AggregateId producteId;
 
-	private int quantity;
+	private int quantitat;
 	
-	public ProducteReservat(AggregateId productId, String name, int quantity, Money totalCost) {
-		this.productId = productId;
+	public ProducteReservat(AggregateId producteId, String name, int quantitat, Money totalCost) {
+		this.producteId = producteId;
 		this.name = name;
-		this.quantity = quantity;
+		this.quantitat = quantitat;
 		this.totalCost = totalCost;
 	}
 
@@ -32,11 +38,11 @@ public class ProducteReservat {
 		return totalCost;
 	}
 	
-	public AggregateId getProductId() {
-		return productId;
+	public AggregateId getProducteId() {
+		return producteId;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getQuantitat() {
+		return quantitat;
 	}
 }

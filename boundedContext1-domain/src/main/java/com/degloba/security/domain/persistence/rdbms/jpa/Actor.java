@@ -7,7 +7,8 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import java.util.*;
 
 /**
- * Participants, is the common base class user roles User and Role, authorization is granted to a participant a permission
+ * Els participants, són els rols d’usuari de la classe base comuna Usuari i Rol, 
+ * es concedeix l’autorització a un participant un permís
  */
 @Entity
 @Table(name = "security_actors")
@@ -20,35 +21,36 @@ public abstract class Actor extends BaseAggregateRoot {
 	private static final long serialVersionUID = 1L;
 
 	//first name
-    private String name;
-
+    private String nom;
+    
     //Explanation
-    private String remark;
+    private String observacio;
 
     @ManyToMany(mappedBy = "members")
-    private Set<UserGroup> parentGroups = new HashSet<UserGroup>();
+    private Set<UserGroup> parentGroups =
+    new HashSet<UserGroup>();
 
     public Actor() {
     }
 
-    public Actor(String name) {
-        this.name = name;
+    public Actor(String nom) {
+        this.nom = nom;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getObservacio() {
+        return observacio;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setObservacio(String remark) {
+        this.observacio = remark;
     }
 
     public Set<UserGroup> getParentGroups() {

@@ -22,11 +22,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.ecommerce.vendes.domain.events.OrdreEnviadaEvent;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.ClientData;
+import com.degloba.ecommerce.vendes.domain.events.ComandaEnviadaEvent;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
 /**
@@ -61,7 +62,7 @@ public class Compra extends BaseAggregateRoot{
 	private ClientData clientData;
 
 	@Temporal(TemporalType.DATE)
-	private Date purchaseDate;
+	private Date dataCompra;
 
 	@Embedded
 	private Money totalCost;
@@ -69,20 +70,20 @@ public class Compra extends BaseAggregateRoot{
 	
 	private  Compra() {}
 
-	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date purchaseDate,
+	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date dataCompra,
 			boolean paid, Money totalCost){
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.items = items;
-		this.purchaseDate = purchaseDate;
+		this.dataCompra = dataCompra;
 		this.paid = paid;
 		this.totalCost = totalCost;
 	}
 	
 	public void confirm() {
 		paid = true;
-		
-		eventPublisher.publish(new OrdreEnviadaEvent(getAggregateId()));
+				
+		//eventPublisher.publish(new ComandaEnviadaEvent(getAggregateId()));
 	}
 	
 	public boolean isPaid() {
@@ -93,8 +94,8 @@ public class Compra extends BaseAggregateRoot{
 		return totalCost;
 	}
 	
-	public Date getPurchaseDate() {
-		return purchaseDate;
+	public Date getDataCompra() {
+		return dataCompra;
 	}
 
 	public ClientData getClientData() {

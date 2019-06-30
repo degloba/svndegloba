@@ -34,10 +34,11 @@ import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Descomp
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
 import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.ClientData;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
 
@@ -60,27 +61,27 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 @InvariantsList({
 	"closed: closed reservation cano not be modified",
-	"duplicates: can not add already added product, increase quantity instead",
+	"duplicates: can not add already added product, increase quantitat instead",
 })
 
 @Entity
 @AggregateRoot
-public class Reservation extends BaseAggregateRoot{
+public class Reserva extends BaseAggregateRoot{
 	
 	private static final long serialVersionUID = 1L;
 	
 
 	/**
-	 * @category Estat de la {@link Reservation}	 
+	 * @category Estat de la {@link Reserva}	 
 	 *
 	 */
-	public enum ReservationStatus{
+	public enum EstatReserva{
 		OPENED, CLOSED
 	}
 	
 		
 	@Enumerated(EnumType.STRING)
-	private ReservationStatus status;
+	private EstatReserva status;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
 	//@JoinColumn(name = "reservation")
@@ -89,7 +90,7 @@ public class Reservation extends BaseAggregateRoot{
     	    {@JoinColumn(name = "reservation", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
     	     })*/
-	private List<ReservationItem> items;
+	private List<ReservaItem> items;
 
 	@Embedded
 	private ClientData clientData;
@@ -97,28 +98,28 @@ public class Reservation extends BaseAggregateRoot{
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
 
-	private Reservation() {}
+	private Reserva() {}
 
-	public Reservation(AggregateId aggregateId, ReservationStatus status, ClientData clientData, Date createDate){
+	public Reserva(AggregateId aggregateId, EstatReserva status, ClientData clientData, Date createDate){
 		this.aggregateId = aggregateId;
 		this.status = status;
 		this.clientData = clientData;
 		this.createDate = createDate;
-		this.items = new ArrayList<ReservationItem>();
+		this.items = new ArrayList<ReservaItem>();
 	}
 
 	@Invariant({"closed", "duplicates"})
-	public void add(Producte producte, int quantity){
+	public void add(Producte producte, int quantitat){
 		if (isClosed())
 			domainError("Reservation already closed");
 		if (!producte.isAvailabe())
 			domainError("Product is no longer available");
 		
 		if (contains(producte)){
-			increase(producte, quantity);			
+			increase(producte, quantitat);			
 		}
 		else{
-			addNew(producte, quantity);
+			addNew(producte, quantitat);
 		}
 	}
 	
@@ -135,15 +136,15 @@ public class Reservation extends BaseAggregateRoot{
 		List<OfertaItem> availabeItems = new ArrayList<OfertaItem>();
 		List<OfertaItem> unavailableItems = new ArrayList<OfertaItem>();
 		
-		for (ReservationItem item : items) {						
-			if (item.getProduct().isAvailabe()){
-				Descompte descompte = descomptePolicy.applyDiscount(item.getProduct(), item.getQuantity(), item.getProduct().getPrice());
-				OfertaItem ofertaItem = new OfertaItem(item.getProduct().generateSnapshot(), item.getQuantity(), descompte);
+		for (ReservaItem item : items) {						
+			if (item.getProducte().isAvailabe()){
+				Descompte descompte = descomptePolicy.applyDiscount(item.getProducte(), item.getQuantitat(), item.getProducte().getPreu());
+				OfertaItem ofertaItem = new OfertaItem(item.getProducte().generateSnapshot(), item.getQuantitat(), descompte);
 				
 				availabeItems.add(ofertaItem);
 			}
 			else {
-				OfertaItem ofertaItem = new OfertaItem(item.getProduct().generateSnapshot(), item.getQuantity());
+				OfertaItem ofertaItem = new OfertaItem(item.getProducte().generateSnapshot(), item.getQuantitat());
 				
 				unavailableItems.add(ofertaItem);
 			}
@@ -156,10 +157,10 @@ public class Reservation extends BaseAggregateRoot{
 	 * @category Afegeix una nou {@link Producte} i una quantitat
 	 * 
 	 * @param producte
-	 * @param quantity
+	 * @param quantitat
 	 */
-	private void addNew(Producte producte, int quantity) {
-		ReservationItem item = new ReservationItem(producte, quantity);
+	private void addNew(Producte producte, int quantitat) {
+		ReservaItem item = new ReservaItem(producte, quantitat);
 		items.add(item);
 	}
 
@@ -167,12 +168,12 @@ public class Reservation extends BaseAggregateRoot{
 	 * @category Incrementa a un {@link Producte}, una quantitat
 	 * 
 	 * @param producte
-	 * @param quantity
+	 * @param quantitat
 	 */
-	private void increase(Producte producte, int quantity) {
-		for (ReservationItem item : items) {
-			if (item.getProduct().equals(producte)){
-				item.changeQuantityBy(quantity);
+	private void increase(Producte producte, int quantitat) {
+		for (ReservaItem item : items) {
+			if (item.getProducte().equals(producte)){
+				item.changeQuantityBy(quantitat);
 				break;
 			}
 		}
@@ -184,36 +185,36 @@ public class Reservation extends BaseAggregateRoot{
 	 * @return
 	 */
 	public boolean contains(Producte producte) {
-		for (ReservationItem item : items) {
-			if (item.getProduct().equals(producte))
+		for (ReservaItem item : items) {
+			if (item.getProducte().equals(producte))
 				return true;
 		}
 		return false;
 	}
 
 	public boolean isClosed() {
-		return status.equals(ReservationStatus.CLOSED);
+		return status.equals(EstatReserva.CLOSED);
 	}
 	
 	@Invariant({"closed"})
 	public void close(){
 		if (isClosed())
 			domainError("Reservation is already closed");
-		status = ReservationStatus.CLOSED;
+		status = EstatReserva.CLOSED;
 	}
 
 	public List<ProducteReservat> getReservedProducts() {
 		ArrayList<ProducteReservat> result = new ArrayList<ProducteReservat>(items.size());
 		
-		for (ReservationItem item : items) {
-			result.add(new ProducteReservat(item.getProduct().getAggregateId(), item.getProduct().getName(), item.getQuantity(), calculateItemCost(item)));
+		for (ReservaItem item : items) {
+			result.add(new ProducteReservat(item.getProducte().getAggregateId(), item.getProducte().getName(), item.getQuantitat(), calculateItemCost(item)));
 		}
 		
 		return result;
 	}
 	
-	private Money calculateItemCost(ReservationItem item){
-		return item.getProduct().getPrice().multiplyBy(item.getQuantity());
+	private Money calculateItemCost(ReservaItem item){
+		return item.getProducte().getPreu().multiplyBy(item.getQuantitat());
 	}
 
 	
@@ -226,7 +227,7 @@ public class Reservation extends BaseAggregateRoot{
 		return createDate;
 	}
 	
-	public ReservationStatus getStatus() {
+	public EstatReserva getStatus() {
 		return status;
 	}
 

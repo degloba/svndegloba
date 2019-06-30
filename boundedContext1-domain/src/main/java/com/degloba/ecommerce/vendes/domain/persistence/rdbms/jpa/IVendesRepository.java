@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
@@ -18,7 +18,7 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
  *
  */
 @DomainRepository
-public interface IVendaRepository extends IEntityRepository {
+public interface IVendesRepository extends IEntityRepository {
 
 	// Payment
 	
@@ -27,12 +27,12 @@ public interface IVendaRepository extends IEntityRepository {
 	
 	public List<Producte> findProductWhereBestBeforeExpiredIn(int days);
 
-	public Producte loadProduct(Class<Producte> clazz, AggregateId productId);
+	public Producte loadProduct(Class<Producte> clazz, AggregateId producteId);
 	
 	
 	// Reserves
 	
-	public Reservation loadReservation(Class<Reservation> clazz, AggregateId comandaId);
+	public Reserva loadReservation(Class<Reserva> clazz, AggregateId comandaId);
 	
 	
 	// Compres

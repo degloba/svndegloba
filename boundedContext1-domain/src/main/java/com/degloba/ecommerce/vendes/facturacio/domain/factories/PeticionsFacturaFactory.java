@@ -6,14 +6,15 @@ import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraItem;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.RequestItem;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 
-/*
- * Fàbrica de Peticions de Factura
+
+/**
+ * @category Fàbrica de Peticions de Factura
  * Per cada Compra
  */
 @DomainFactory
-public class PeticioFacturaFactory {
+public class PeticionsFacturaFactory {
 
 	public PeticioFactura create(Client client, Compra... purchases) {
 		PeticioFactura request = new PeticioFactura(client.generateSnapshot());
@@ -23,7 +24,7 @@ public class PeticioFacturaFactory {
 				throw new DomainOperationException(compra.getAggregateId(), "Purchase is not paid");
 			
 			for (CompraItem item : compra.getItems()) {
-				request.add(new RequestItem(item.getProductData(), item.getQuantity(), item.getTotalCost()));
+				request.add(new RequestItem(item.getProductData(), item.getQuantitat(), item.getTotalCost()));
 			}
 		}
 		

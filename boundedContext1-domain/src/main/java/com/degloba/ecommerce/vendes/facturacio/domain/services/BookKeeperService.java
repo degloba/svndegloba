@@ -3,7 +3,7 @@ package com.degloba.ecommerce.vendes.facturacio.domain.services;
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
-import com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturaFactory;
+import com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturesFactory;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.LiniaFacturacio;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
@@ -30,16 +30,16 @@ public class BookKeeperService {
 	
 
 	@Inject
-	private FacturaFactory facturaFactory;
+	private FacturesFactory facturesFactory;
 	
 	public Factura issuance(PeticioFactura peticioFactura, IImpostPolicy impostPolicy){
-		Factura factura = facturaFactory.create(peticioFactura.getClientData());
+		Factura factura = facturesFactory.create(peticioFactura.getClientData());
 		
 		for (RequestItem item : peticioFactura.getItems()){
 			Money net = item.getTotalCost();			
 			Tax tax = impostPolicy.calculateTax(item.getProductData().getType(), net);			
 						
-			LiniaFacturacio liniaFacturacio = new LiniaFacturacio(item.getProductData(), item.getQuantity(), net, tax);			
+			LiniaFacturacio liniaFacturacio = new LiniaFacturacio(item.getProductData(), item.getQuantitat(), net, tax);			
 			factura.addItem(liniaFacturacio);
 		}
 		

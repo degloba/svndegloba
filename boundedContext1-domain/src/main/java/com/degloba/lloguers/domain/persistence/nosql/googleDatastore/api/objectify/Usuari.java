@@ -11,17 +11,17 @@ import com.googlecode.objectify.annotation.Unindex;
  * Entitat (Objectify) : Usuari
  */
 @Entity
-public class User  {
+public class Usuari  {
  
 	@Id
 	private Long id;
 	
 	@Unindex
-	private String name;
+	private String nom;
 	
 	@Unindex
 	/////@Embedded
-	private Address address;
+	private Address adreca;
 	
 	@Index
 	private Key<Role> role;
@@ -34,20 +34,20 @@ public class User  {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
-	public Address getAddress() {
-		return address;
+	public Address getAdreca() {
+		return adreca;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAdreca(Address adreca) {
+		this.adreca = adreca;
 	}
 
 	public Key<Role> getRole() {

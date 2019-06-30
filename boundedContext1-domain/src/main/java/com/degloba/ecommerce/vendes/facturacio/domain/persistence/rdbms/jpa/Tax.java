@@ -24,27 +24,27 @@ public class Tax {
 	@AttributeOverrides({
 		@AttributeOverride(name = "denomination", column = @Column(name = "tax_denomination")),
 		@AttributeOverride(name = "currencyCode", column = @Column(name = "tax_currencyCode")) })
-	private Money amount;
+	private Money quantitat;
 
-	private String descripcio;
+	private String description;
 	
 	/**
 	 * For JPA only
 	 */
 	public Tax(){}
 	
-	public Tax(Money amount, String descripcio) {
+	public Tax(Money quantitat, String description) {
 		super();
-		this.amount = amount;
-		this.descripcio = descripcio;
+		this.quantitat = quantitat;
+		this.description = description;
 	}
 
-	public Money getAmount() {
-		return amount;
+	public Money getQuantitat() {
+		return quantitat;
 	}
 
 	public String getDescripcio() {
-		return descripcio;
+		return description;
 	}
 
 	

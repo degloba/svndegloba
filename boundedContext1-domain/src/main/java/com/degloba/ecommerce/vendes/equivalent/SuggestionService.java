@@ -9,7 +9,7 @@ import com.degloba.domain.annotations.DomainService;
 import com.degloba.domain.specification.Specification;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 
 /**
  * @category Servei de domini (funció) que dóna suport a la decisió de la selecció d'un producte.</br>
@@ -22,7 +22,7 @@ import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepositor
 public class SuggestionService {
 
 	@Inject
-	private IVendaRepository productRepository;
+	private IVendesRepository productRepository;
 	
 	//////////@Inject
 	//////////private Offer offer;

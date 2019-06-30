@@ -6,9 +6,15 @@ import java.util.Collections;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.persistence.domain.ClientData;
+import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
 @ValueObject
 public class PeticioFactura {
 

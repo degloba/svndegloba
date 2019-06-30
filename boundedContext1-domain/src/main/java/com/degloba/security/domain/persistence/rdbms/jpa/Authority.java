@@ -23,7 +23,7 @@ public class Authority extends BaseAggregateRoot {
 
 	private String name;
 
-    private String descripcio;
+    private String description;
 
     protected Authority() {
     }
@@ -41,11 +41,11 @@ public class Authority extends BaseAggregateRoot {
     }
 
     public String getDescripcio() {
-        return descripcio;
+        return description;
     }
 
-    public void setDescripcio(String descripcio) {
-        this.descripcio = descripcio;
+    public void setDescripcio(String description) {
+        this.description = description;
     }
 
     @Override

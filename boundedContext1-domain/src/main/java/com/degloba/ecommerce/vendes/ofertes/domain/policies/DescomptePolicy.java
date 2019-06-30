@@ -14,5 +14,5 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 @DomainPolicy
 public interface DescomptePolicy {
 
-	public Descompte applyDiscount(Producte producte, int quantity, Money reularCost);
+	public Descompte applyDiscount(Producte producte, int quantitat, Money reularCost);
 }

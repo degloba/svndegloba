@@ -11,11 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.ecommerce.vendes.pagaments.domain.factories.PaymentFactory;
-import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Payment;
-import com.degloba.persistence.domain.ClientData;
+import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
+import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
 @Entity
@@ -33,13 +34,13 @@ public class Client extends BaseAggregateRoot{
 	
 	@Inject
 	@Transient
-	private PaymentFactory paymentFactory;
+	private PagamentsFactory pagamentsFactory;
 	
 	public ClientData generateSnapshot(){		
 		return new ClientData(aggregateId, name);
 	}
 
-	public boolean canAfford(Money amount) {		
+	public boolean canAfford(Money quantitat) {		
 		return true;//TODO explore domain rules ex: credit limit
 	}
 
@@ -48,16 +49,16 @@ public class Client extends BaseAggregateRoot{
 	 * Client model does not compose Payment - therefore it does not manage Payment lifecycle.<br>
 	 * Application layer is responsible for managing Payment lifecycle;
 	 * 
-	 * @param amount
+	 * @param quantitat
 	 * @return
 	 */
-	public Payment charge(Money amount) {
-		if (! canAfford(amount)){			
-			domainError("Can not afford: " + amount);
+	public Pagament charge(Money quantitat) {
+		if (! canAfford(quantitat)){			
+			domainError("Can not afford: " + quantitat);
 		}
 		// TODO facade to the payment module
 		
-		return paymentFactory.createPayment(generateSnapshot(), amount);
+		return pagamentsFactory.creaPagament(generateSnapshot(), quantitat);
 	}
 
 

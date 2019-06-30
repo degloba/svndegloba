@@ -17,14 +17,14 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class PhotoJpa extends BaseAggregateRoot implements Serializable {
+public class Foto extends BaseAggregateRoot implements Serializable {
   	
 	private static final long serialVersionUID = 1L;
 	
 	private String idGcs; 
   
 	
-	public PhotoJpa() {
+	public Foto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -20,7 +20,7 @@ public class Categoria implements Serializable {
 	@Id
 	Long id;
 	
-	String descripcio;
+	String description;
 	
 
 	public Categoria() {
@@ -43,12 +43,12 @@ public class Categoria implements Serializable {
 
 
 	public String getDescripcio() {
-		return descripcio;
+		return description;
 	}
 
 
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
+	public void setDescripcio(String description) {
+		this.description = description;
 	}
 
 

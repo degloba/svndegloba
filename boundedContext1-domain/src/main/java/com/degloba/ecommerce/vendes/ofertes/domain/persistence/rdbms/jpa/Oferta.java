@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+
 
 
 /**
@@ -71,7 +72,7 @@ public class Oferta {
 			return false;
 		
 		for (OfertaItem item : availableItems) {
-			OfertaItem sameItem = seenOffer.findItem(item.getProductData().getProductId());
+			OfertaItem sameItem = seenOffer.findItem(item.getProductData().getProducteId());
 			if (sameItem == null)
 				return false;
 			if (!sameItem.sameAs(item, delta))
@@ -81,9 +82,9 @@ public class Oferta {
 		return true;
 	}
 
-	private OfertaItem findItem(AggregateId productId) {
+	private OfertaItem findItem(AggregateId producteId) {
 		for (OfertaItem item : availableItems){
-			if (item.getProductData().getProductId() == productId)
+			if (item.getProductData().getProducteId() == producteId)
 				return item;
 		}
 		return null;

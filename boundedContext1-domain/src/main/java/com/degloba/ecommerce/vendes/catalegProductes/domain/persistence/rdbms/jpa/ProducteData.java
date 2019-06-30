@@ -13,25 +13,26 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.ValueObject;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.domain.AggregateId;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 @Embeddable
 @ValueObject
-public class ProductData {
+public class ProducteData {
 
 	@Embedded
-	private AggregateId productId;
+	private AggregateId producteId;
 	
 	@Embedded
 	@AttributeOverrides({
 		@AttributeOverride(name = "denomination", column = @Column(name = "productPrice_denomination")),
 		@AttributeOverride(name = "currencyCode", column = @Column(name = "productPrice_currencyCode")) })
-	private Money price;
+	private Money preu;
 	
-	private String name;
+	private String nom;
 	
 	@Temporal(TemporalType.DATE)
 	private Date snapshotDate;
@@ -40,27 +41,27 @@ public class ProductData {
 	private TipusProducte type;
 
 	
-	private ProductData(){}
+	private ProducteData(){}
 	
-	ProductData(AggregateId productId, Money price, String name, TipusProducte type, 
+	ProducteData(AggregateId producteId, Money preu, String nom, TipusProducte type, 
 			Date snapshotDate) {
-		this.productId = productId;
-		this.price = price;
-		this.name = name;
+		this.producteId = producteId;
+		this.preu = preu;
+		this.nom = nom;
 		this.snapshotDate = snapshotDate;
 		this.type = type;
 	}
 
-	public AggregateId getProductId() {
-		return productId;
+	public AggregateId getProducteId() {
+		return producteId;
 	}
 
-	public Money getPrice() {
-		return price;
+	public Money getPreu() {
+		return preu;
 	}
 
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 
 	public Date getSnapshotDate() {
@@ -75,10 +76,10 @@ public class ProductData {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((preu == null) ? 0 : preu.hashCode());
 		////////////result = prime * result
-				///////////+ ((productId == null) ? 0 : productId.hashCode());
+				///////////+ ((producteId == null) ? 0 : producteId.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -91,21 +92,21 @@ public class ProductData {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProductData other = (ProductData) obj;
-		if (name == null) {
-			if (other.name != null)
+		ProducteData other = (ProducteData) obj;
+		if (nom == null) {
+			if (other.nom != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!nom.equals(other.nom))
 			return false;
-		if (price == null) {
-			if (other.price != null)
+		if (preu == null) {
+			if (other.preu != null)
 				return false;
-		} else if (!price.equals(other.price))
+		} else if (!preu.equals(other.preu))
 			return false;
-		/*if (productId == null) {
-			if (other.productId != null)
+		/*if (producteId == null) {
+			if (other.producteId != null)
 				return false;
-		} else if (!productId.equals(other.productId))
+		} else if (!producteId.equals(other.producteId))
 			return false;*/
 		if (type != other.type)
 			return false;

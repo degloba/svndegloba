@@ -16,7 +16,7 @@ import java.util.*;
  */
 @Entity
 @DiscriminatorValue("USER")
-public class User extends Actor implements Principal {
+public class Usuari extends Actor implements Principal {
 
     /**
 	 * 
@@ -32,10 +32,10 @@ public class User extends Actor implements Principal {
     // Si se ha bloqueado. usuarios bloqueados no se pueden volver a conectarse hasta desbloqueado
     private boolean locked = false;
 
-    public User() {
+    public Usuari() {
     }
 
-    public User(String name, String password) {
+    public Usuari(String name, String password) {
         super(name);
         this.password = password;
     }
@@ -129,16 +129,16 @@ public class User extends Actor implements Principal {
      * @param name username
      * @return If you find the name of the specified user is returned to the user, otherwise return null
      */
-    public static User getByName(String name) {
-        return getByName(User.class, name);
+    public static Usuari getByName(String name) {
+        return getByName(Usuari.class, name);
     }
 
     /**
      * Lists all system users
      * @return All users of the system users
      */
-    public static List<User> list() {
-        return findAll(User.class);
+    public static List<Usuari> list() {
+        return findAll(Usuari.class);
     }
 
     /**
@@ -148,24 +148,24 @@ public class User extends Actor implements Principal {
      * @return If the user exists, passwords match, and has not expired or locked, the validation is successful, returns true; otherwise the validation fails, returns false
      */
     public static boolean authenticate(String username, String password) {
-        User user = getByName(username);
-        if (user == null || user.isDisabled() || user.isLocked()) {
+        Usuari usuari = getByName(username);
+        if (usuari == null || usuari.isDisabled() || usuari.isLocked()) {
             return false;
         }
-        return user.matchPassword(password);
+        return usuari.matchPassword(password);
     }
 
-    public static User create(String username) {
+    public static Usuari create(String username) {
         return create(username, "");
     }
 
-    public static User create(String username, String password) {
+    public static Usuari create(String username, String password) {
         if (existsUsername(username)) {
             throw new DuplicateUsernameException();
         }
-        User user = new User(username, password);
-        user.save();
-        return user;
+        Usuari usuari = new Usuari(username, password);
+        usuari.save();
+        return usuari;
     }
 
     @Override
@@ -178,10 +178,10 @@ public class User extends Actor implements Principal {
         if (this == other) {
             return true;
         }
-        if (!(other instanceof User)) {
+        if (!(other instanceof Usuari)) {
             return false;
         }
-        User that = (User) other;
+        Usuari that = (Usuari) other;
         return new EqualsBuilder().append(this.getName(), that.getName()).isEquals();
     }
 
@@ -189,4 +189,10 @@ public class User extends Actor implements Principal {
     public String toString() {
         return getName();
     }
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -12,10 +12,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.domain.AggregateId;
+
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
@@ -31,7 +32,7 @@ public class Producte extends BaseAggregateRoot{
 	
 
 	@Embedded
-	private Money price;
+	private Money preu;
 	
 	private String name;
 	
@@ -40,9 +41,9 @@ public class Producte extends BaseAggregateRoot{
 	
 	private Producte(){}
 	
-	Producte(AggregateId aggregateId, Money price, String name, TipusProducte tipusProducte){
+	Producte(AggregateId aggregateId, Money preu, String name, TipusProducte tipusProducte){
 		this.aggregateId = aggregateId;
-		this.price = price;
+		this.preu = preu;
 		this.name = name;
 		this.tipusProducte = tipusProducte;
 	}
@@ -51,8 +52,8 @@ public class Producte extends BaseAggregateRoot{
 		return ! isRemoved();//TODO explore domain rules
 	}
 	
-	public Money getPrice() {
-		return price;
+	public Money getPreu() {
+		return preu;
 	}
 	
 	public String getName() {
@@ -63,8 +64,8 @@ public class Producte extends BaseAggregateRoot{
 		return tipusProducte;
 	}
 	
-	public ProductData generateSnapshot(){
-		return new ProductData(getAggregateId(), price, name, tipusProducte, new Date());
+	public ProducteData generateSnapshot(){
+		return new ProducteData(getAggregateId(), preu, name, tipusProducte, new Date());
 	}
 	
 }

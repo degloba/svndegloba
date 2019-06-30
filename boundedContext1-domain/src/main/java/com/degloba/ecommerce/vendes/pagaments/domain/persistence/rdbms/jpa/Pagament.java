@@ -11,15 +11,14 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-
-
+import com.degloba.persistence.rdbms.jpa.ClientData;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.ecommerce.vendes.domain.events.PaymentRolledBackEvent;
-import com.degloba.ecommerce.vendes.pagaments.domain.factories.PaymentFactory;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.ClientData;
+import com.degloba.ecommerce.vendes.domain.events.PagamentRolledBackEvent;
+import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 //@AggregateRoot
@@ -31,7 +30,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
  *
  */
 @Entity
-public class Payment extends BaseAggregateRoot implements Serializable {
+public class Pagament extends BaseAggregateRoot implements Serializable {
 
 	/**
 	 * 
@@ -43,28 +42,27 @@ public class Payment extends BaseAggregateRoot implements Serializable {
 	private ClientData clientData;
 	
 	@Embedded
-	private Money amount;
+	private Money quantitat;
 	
 	@Transient
 	@Inject
-	private PaymentFactory paymentFactory;
+	private PagamentsFactory pagamentsFactory;
 	
-	private Payment(){}
+	private Pagament(){}
 	
-	/*
-	 *  Pagament
-	 */
-	public Payment(AggregateId aggregateId, ClientData clientData, Money amount) {
+	public Pagament(AggregateId aggregateId, ClientData clientData, Money quantitat) {
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
-		this.amount = amount;
+		this.quantitat = quantitat;
 	}
 
-	public Payment rollBack(){
-		//TODO explore domain rules
-		eventPublisher.publish(new PaymentRolledBackEvent(getAggregateId()));
+	public Pagament rollBack()
+	{
 		
-		return paymentFactory.createPayment(clientData, amount.multiplyBy(-1));
+		//TODO explore domain rules
+		//eventPublisher.publish(new PagamentRolledBackEvent(getAggregateId()));
+		
+		return pagamentsFactory.creaPagament(clientData, quantitat.multiplyBy(-1));
 	}
 
 

@@ -17,39 +17,39 @@ import java.util.*;
  *
  */
 @Entity
-public class CategoryJpa extends BaseAggregateRoot implements Serializable
+public class Categoria extends BaseAggregateRoot implements Serializable
 {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String descripcio;
+	private String description;
 
-	public CategoryJpa() {
+	public Categoria() {
 		super();	
 	}
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<SubcategoryJpa> subcategories = new ArrayList<SubcategoryJpa>();
+    private List<SubCategoria> subcategories = new ArrayList<SubCategoria>();
 	
 	
 	 // getters and setters
 	
 	public String getDescripcio() {
-		return descripcio;
+		return description;
 	}
 
 
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
+	public void setDescripcio(String description) {
+		this.description = description;
 	}
 
 
-	public List<SubcategoryJpa> getSubcategories() {
+	public List<SubCategoria> getSubcategories() {
 		return subcategories;
 	}
 
 
-	public void setSubcategories(List<SubcategoryJpa> subcategories) {
+	public void setSubcategories(List<SubCategoria> subcategories) {
 		this.subcategories = subcategories;
 	}
 

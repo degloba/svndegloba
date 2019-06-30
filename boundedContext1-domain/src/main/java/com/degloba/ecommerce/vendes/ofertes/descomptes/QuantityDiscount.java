@@ -20,9 +20,9 @@ public class QuantityDiscount implements DescomptePolicy {
 	}
 
 	@Override
-	public Descompte applyDiscount(Producte producte, int quantity, Money regularCost) {
-		if (quantity >= mininalQuantity)
-			return new Descompte("over: " + quantity, regularCost.multiplyBy(rebateRatio));
+	public Descompte applyDiscount(Producte producte, int quantitat, Money regularCost) {
+		if (quantitat >= mininalQuantity)
+			return new Descompte("over: " + quantitat, regularCost.multiplyBy(rebateRatio));
 		return null;
 	}
 }

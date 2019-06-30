@@ -9,17 +9,17 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
  * @category Repositori : Lloguer
  */
 @DomainRepository
-public interface ILloguerRepository extends IEntityRepository {
+public interface ILloguersRepository extends IEntityRepository {
 
-	public CategoryJpa loadCategory(long id);
+	public Categoria loadCategory(long id);
 
-	public void saveCategory(CategoryJpa category);
+	public void saveCategory(Categoria category);
 	
-	public List<CategoryJpa> getAllCategories();
+	public List<Categoria> getAllCategories();
 	
-	public PhotoJpa loadPhoto(long id);
+	public Foto loadPhoto(long id);
 
-	public void savePhoto(PhotoJpa client);
+	public void savePhoto(Foto client);
 	
 	
 }

@@ -1,39 +1,45 @@
 package com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProducteData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
 @ValueObject
 public class OfertaItem {
 
-	private ProductData productData;
+	private ProducteData producteData;
 	
-	private int quantity;
+	private int quantitat;
 	
 	private Descompte descompte;
 	
 	private Money totalCost;
 	
 
-	public OfertaItem(ProductData productData, int quantity) {
-		this(productData, quantity, null);
+	public OfertaItem(ProducteData producteData, int quantitat) {
+		this(producteData, quantitat, null);
 	}
 	
-	public OfertaItem(ProductData productData, int quantity, Descompte descompte) {
-		this.productData = productData;
-		this.quantity = quantity;
+	public OfertaItem(ProducteData producteData, int quantitat, Descompte descompte) {
+		this.producteData = producteData;
+		this.quantitat = quantitat;
 		this.descompte = descompte;
 		
 		Money discountValue = Money.ZERO;
 		if (descompte != null)
 			 discountValue =  discountValue.subtract(descompte.getValue());
 		
-		this.totalCost = productData.getPrice().multiplyBy(quantity).subtract(discountValue);
+		this.totalCost = producteData.getPreu().multiplyBy(quantitat).subtract(discountValue);
 	}
 
-	public ProductData getProductData() {
-		return productData;
+	public ProducteData getProductData() {
+		return producteData;
 	}
 
 	public Money getTotalCost() {
@@ -44,8 +50,8 @@ public class OfertaItem {
 		return descompte;
 	}
 	
-	public int getQuantity() {
-		return quantity;
+	public int getQuantitat() {
+		return quantitat;
 	}
 
 	@Override
@@ -55,8 +61,8 @@ public class OfertaItem {
 		result = prime * result
 				+ ((descompte == null) ? 0 : descompte.hashCode());
 		result = prime * result
-				+ ((productData == null) ? 0 : productData.hashCode());
-		result = prime * result + quantity;
+				+ ((producteData == null) ? 0 : producteData.hashCode());
+		result = prime * result + quantitat;
 		result = prime * result
 				+ ((totalCost == null) ? 0 : totalCost.hashCode());
 		return result;
@@ -76,12 +82,12 @@ public class OfertaItem {
 				return false;
 		} else if (!descompte.equals(other.descompte))
 			return false;
-		if (productData == null) {
-			if (other.productData != null)
+		if (producteData == null) {
+			if (other.producteData != null)
 				return false;
-		} else if (!productData.equals(other.productData))
+		} else if (!producteData.equals(other.producteData))
 			return false;
-		if (quantity != other.quantity)
+		if (quantitat != other.quantitat)
 			return false;
 		if (totalCost == null) {
 			if (other.totalCost != null)
@@ -98,10 +104,10 @@ public class OfertaItem {
 	 * @return
 	 */
 	public boolean sameAs(OfertaItem item, double delta) {
-		if (! productData.equals(item.productData))
+		if (! producteData.equals(item.producteData))
 			return false;
 		
-		if (quantity != item.quantity)
+		if (quantitat != item.quantitat)
 			return false;
 		
 		

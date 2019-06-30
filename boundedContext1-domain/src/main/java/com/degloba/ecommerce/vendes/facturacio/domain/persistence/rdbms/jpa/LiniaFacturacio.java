@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProductData;
+import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProducteData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
@@ -32,9 +32,9 @@ public class LiniaFacturacio extends BaseEntity{
 	
 
 	@Embedded
-	private ProductData product;
+	private ProducteData product;
 	
-	private int quantity;
+	private int quantitat;
 	
 	@Embedded
 	@AttributeOverrides({
@@ -57,21 +57,21 @@ public class LiniaFacturacio extends BaseEntity{
 	public LiniaFacturacio(){}
 	
 
-	public LiniaFacturacio(ProductData product, int quantity, Money net, Tax tax) {
+	public LiniaFacturacio(ProducteData product, int quantitat, Money net, Tax tax) {
 		this.product = product;
-		this.quantity = quantity;
+		this.quantitat = quantitat;
 		this.net = net;
 		this.tax = tax;
 		
-		this.gros = net.add(tax.getAmount());	
+		this.gros = net.add(tax.getQuantitat());	
 	}
 
-	public ProductData getProduct() {
+	public ProducteData getProduct() {
 		return product;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getQuantitat() {
+		return quantitat;
 	}
 
 	public Money getNet() {

@@ -8,36 +8,37 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation.ReservationStatus;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva.EstatReserva;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+
 
 
 /**
  * @author degloba
  * 
- * @category Factoria {@link Reservation}
+ * @category Factoria {@link Reserva}
  */
 @DomainFactory
-public class ReservationFactory {
+public class ReservesFactory {
 
 	@Inject
 	private AutowireCapableBeanFactory spring;
 	
-	public Reservation create(Client client){
+	public Reserva create(Client client){
 		if (! canReserve(client))
 			throw new DomainOperationException(client.getAggregateId(), "Client can not create reservations");
 		
-		Reservation reservation = new Reservation(AggregateId.generate(), ReservationStatus.OPENED, client.generateSnapshot(), new Date());
-		spring.autowireBean(reservation);
+		Reserva reserva = new Reserva(AggregateId.generate(), EstatReserva.OPENED, client.generateSnapshot(), new Date());
+		spring.autowireBean(reserva);
 		
-		addGratis(reservation, client);
+		addGratis(reserva, client);
 		
-		return reservation;
+		return reserva;
 	}
 
-	private void addGratis(Reservation reservation, Client client) {				
+	private void addGratis(Reserva reserva, Client client) {				
 		//TODO explore domain rules
 	}
 

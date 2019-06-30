@@ -5,7 +5,6 @@ import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 
-
 /**
  * @author degloba
  * 

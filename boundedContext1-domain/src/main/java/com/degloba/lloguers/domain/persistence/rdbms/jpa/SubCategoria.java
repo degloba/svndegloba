@@ -11,14 +11,14 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 @Entity
-public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
+public class SubCategoria extends BaseAggregateRoot implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -30,33 +30,33 @@ public class SubcategoryJpa extends BaseAggregateRoot implements Serializable {
 	protected AggregateId aggregateId;
 	
 	
-	String descripcio;
+	String description;
   
-   	public SubcategoryJpa() {
+   	public SubCategoria() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
     
 
    	@ManyToOne
-    private CategoryJpa category;
+    private Categoria category;
 	
     
     // getters and setters
     
 	public String getDescripcio() {
-		return descripcio;
+		return description;
 	}
 
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
+	public void setDescripcio(String description) {
+		this.description = description;
 	}
 
-	public CategoryJpa getCategory() {
+	public Categoria getCategory() {
 		return category;
 	}
 
-	public void setCategory(CategoryJpa category) {
+	public void setCategory(Categoria category) {
 		this.category = category;
 	}
 

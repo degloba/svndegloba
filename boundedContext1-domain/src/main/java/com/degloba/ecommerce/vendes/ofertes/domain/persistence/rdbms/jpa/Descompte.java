@@ -3,6 +3,12 @@ package com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa;
 import com.degloba.domain.annotations.ValueObject;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
 @ValueObject
 public class Descompte {
 

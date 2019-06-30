@@ -14,13 +14,15 @@ import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraItem;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
-import com.degloba.persistence.domain.AggregateId;
+
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+
 
 
 @DomainFactory
-public class PurchaseFactory {
+public class CompresFactory {
 
 	@Inject
 	private AutowireCapableBeanFactory spring;
@@ -40,7 +42,7 @@ public class PurchaseFactory {
 		Money purchaseTotlCost = Money.ZERO;
 		
 		for (OfertaItem item : oferta.getAvailableItems()) {
-			CompraItem compraItem = new CompraItem(item.getProductData(), item.getQuantity(), item.getTotalCost());
+			CompraItem compraItem = new CompraItem(item.getProductData(), item.getQuantitat(), item.getTotalCost());
 			items.add(compraItem);
 			purchaseTotlCost = purchaseTotlCost.add(compraItem.getTotalCost());
 		}
