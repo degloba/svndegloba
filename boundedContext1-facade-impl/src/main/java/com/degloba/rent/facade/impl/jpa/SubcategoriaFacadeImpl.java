@@ -4,35 +4,40 @@ import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
-import com.degloba.lloguers.facade.jpa.SubcategoryFacade;
+import com.degloba.lloguers.facade.jpa.SubcategoriaFacade;
 
-
-public class SubcategoryFacadeImpl implements SubcategoryFacade {
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
+public class SubcategoriaFacadeImpl implements SubcategoriaFacade {
 
     @Inject
-    protected ILloguerService subcategoryApplication;
+    protected ILloguerService subcategoriaApplication;
 
-    public SubcategoryFacadeImpl(ILloguerService application) {
-        this.subcategoryApplication = application;
+    public SubcategoriaFacadeImpl(ILloguerService application) {
+        this.subcategoriaApplication = application;
     }
    
-	public SubcategoryFacadeImpl() {
+	public SubcategoriaFacadeImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void createSubcategory(SubCategoria SubCategoria) {
+	public void creaSubcategoria(SubCategoria Subcategoria) {
 		// TODO Auto-generated method stub
-		subcategoryApplication.createSubcategory(SubCategoria);
+		subcategoriaApplication.creaSubcategoria(Subcategoria);
 	}
 
-	public ILloguerService getSubcategoryApplication() {
-		return subcategoryApplication;
+	public ILloguerService getSubcategoriaApplication() {
+		return subcategoriaApplication;
 	}
 
-	public void setSubcategoryApplication(ILloguerService subcategoryApplication) {
-		this.subcategoryApplication = subcategoryApplication;
+	public void setSubcategoryApplication(ILloguerService subcategoriaApplication) {
+		this.subcategoriaApplication = subcategoriaApplication;
 	}
 	
 		

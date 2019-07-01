@@ -6,33 +6,33 @@ import org.springframework.stereotype.Component;
 
 import com.degloba.lloguers.application.services.ILloguerService;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.facade.objectify.CategoryFacade;
+import com.degloba.lloguers.facade.objectify.CategoriaFacade;
 
-public class CategoryFacadeImpl implements CategoryFacade {
+public class CategoriaFacadeImpl implements CategoriaFacade {
 
     @Inject
     protected ILloguerService lloguerService;
 
-    public CategoryFacadeImpl(ILloguerService application) {
+    public CategoriaFacadeImpl(ILloguerService application) {
         this.lloguerService = application;
     }
    
-	public CategoryFacadeImpl() {
+	public CategoriaFacadeImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void createCategory(Categoria categoria) {
+	public void creaCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
-		lloguerService.createCategory(categoria);
+		lloguerService.creaCategoria(categoria);
 	}
 
-	public ILloguerService getCategoryApplicationObjectify() {
+	public ILloguerService getCategoriaApplicationObjectify() {
 		return lloguerService;
 	}
 
-	public void setCategoryApplicationObjectify(ILloguerService lloguerService) {
+	public void setCategoriaApplicationObjectify(ILloguerService lloguerService) {
 		this.lloguerService = lloguerService;
 	}
 

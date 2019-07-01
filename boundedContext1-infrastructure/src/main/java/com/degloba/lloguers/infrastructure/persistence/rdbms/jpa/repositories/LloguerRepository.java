@@ -9,9 +9,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.CategoryJpa;
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguerRepository;
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.PhotoJpa;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.Categoria;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguersRepository;
+import com.degloba.lloguers.domain.persistence.rdbms.jpa.Foto;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 /**
@@ -19,7 +19,7 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
  * 
  */
 @DomainRepositoryImpl
-public class LloguerRepository extends EntityRepository implements ILloguerRepository{
+public class LloguerRepository extends EntityRepository implements ILloguersRepository{
 	
 private final static Logger logger = Logger.getLogger(LloguerRepository.class.getName());
 	
@@ -32,13 +32,13 @@ private final static Logger logger = Logger.getLogger(LloguerRepository.class.ge
 	}
 	
 	@Override
-	public CategoryJpa loadCategory(long id) {
+	public Categoria loadCategory(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void saveCategory(CategoryJpa category) {
+	public void saveCategory(Categoria category) {
 		// TODO Auto-generated method stub
 		try {
 			
@@ -52,19 +52,19 @@ private final static Logger logger = Logger.getLogger(LloguerRepository.class.ge
 	}
 
 	@Override
-	public List<CategoryJpa> getAllCategories() {
+	public List<Categoria> getAllCategories() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public PhotoJpa loadPhoto(long id) {
+	public Foto loadPhoto(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void savePhoto(PhotoJpa photo) {
+	public void savePhoto(Foto photo) {
 		// TODO Auto-generated method stub
 		try {
 			

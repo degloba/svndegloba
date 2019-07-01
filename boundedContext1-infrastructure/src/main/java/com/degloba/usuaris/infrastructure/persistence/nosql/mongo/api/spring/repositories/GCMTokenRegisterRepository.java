@@ -26,7 +26,7 @@ public class GCMTokenRegisterRepository implements IGCMTokenRegisterRepository{
 	
 	public void logAllGCMTokenRegister() { 
 		List<GCMTokenRegister> results = mongoTemplate.findAll(GCMTokenRegister.class); 
-		logger.info("Total amount of GCMTokenRegister: {}", results.size()); 
+		logger.info("Total quantitat of GCMTokenRegister: {}", results.size()); 
 		logger.info("Results: {}", results); 
 	} 
 	

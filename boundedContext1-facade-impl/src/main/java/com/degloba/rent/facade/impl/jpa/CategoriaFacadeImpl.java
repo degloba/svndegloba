@@ -4,35 +4,35 @@ import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.facade.jpa.CategoryFacade;
+import com.degloba.lloguers.facade.jpa.CategoriaFacade;
 
 
-public class CategoryFacadeImpl implements CategoryFacade {
+public class CategoriaFacadeImpl implements CategoriaFacade {
 
     @Inject
-    protected ILloguerService categoryApplicationJpa;
+    protected ILloguerService categoriaApplication;
 
-    public CategoryFacadeImpl(ILloguerService application) {
-        this.categoryApplicationJpa = application;
+    public CategoriaFacadeImpl(ILloguerService application) {
+        this.categoriaApplication = application;
     }
    
-	public CategoryFacadeImpl() {
+	public CategoriaFacadeImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void createCategory(Categoria categoria) {
+	public void creaCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
-		categoryApplicationJpa.createCategory(categoria);
+		categoriaApplication.creaCategoria(categoria);
 	}
 
-	public ILloguerService getCategoryApplicationJpa() {
-		return categoryApplicationJpa;
+	public ILloguerService getCategoriaApplication() {
+		return categoriaApplication;
 	}
 
-	public void setCategoryApplicationJpa(ILloguerService categoryApplicationJpa) {
-		this.categoryApplicationJpa = categoryApplicationJpa;
+	public void setCategoriaApplication(ILloguerService categoriaApplicationJpa) {
+		this.categoriaApplication = categoriaApplication;
 	}
 
 	

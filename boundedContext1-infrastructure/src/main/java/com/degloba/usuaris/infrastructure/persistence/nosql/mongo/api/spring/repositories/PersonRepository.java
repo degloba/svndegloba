@@ -53,7 +53,7 @@ public class PersonRepository implements IPersonRepository{
 	
 	public void logAllPersons() { 
 		List<Person> results = mongoTemplate.findAll(Person.class); 
-		logger.info("Total amount of persons: {}", results.size()); 
+		logger.info("Total quantitat of persons: {}", results.size()); 
 		logger.info("Results: {}", results); 
 	} 
 	public void insertPersonWithNameJohnAndRandomAge() 

@@ -15,7 +15,7 @@ import com.degloba.organisation.facade.OrganisationFacade;
 import com.degloba.organisation.facade.OrganizationDto;
 import com.degloba.organisation.facade.PostDto;
 import com.degloba.organisation.facade.assembler.PostAssembler;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 
 /**

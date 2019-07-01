@@ -6,40 +6,45 @@ import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.facade.objectify.CategoryFacade;
-import com.degloba.lloguers.facade.objectify.OwnerFacade;
+import com.degloba.lloguers.facade.objectify.CategoriaFacade;
+import com.degloba.lloguers.facade.objectify.PropietariFacade;
 
-
-public class OwnerFacadeImpl implements OwnerFacade, Serializable {
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
+public class PropietariFacadeImpl implements PropietariFacade, Serializable {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
-    protected ILloguerService ownerApplicationObjectify;
+    protected ILloguerService propietariApplicationObjectify;
 
-    public OwnerFacadeImpl(ILloguerService application) {
-        this.ownerApplicationObjectify = application;
+    public PropietariFacadeImpl(ILloguerService application) {
+        this.propietariApplicationObjectify = application;
     }
    
-	public OwnerFacadeImpl() {
+	public PropietariFacadeImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void createOwner(Propietari propietari) {
+	public void creaPropietari(Propietari propietari) {
 		// TODO Auto-generated method stub
-		ownerApplicationObjectify.createOwner(propietari);
+		propietariApplicationObjectify.creaPropietari(propietari);
 	}
 
-	public ILloguerService getOwnerApplicationObjectify() {
-		return ownerApplicationObjectify;
+	public ILloguerService getPropietariApplicationObjectify() {
+		return propietariApplicationObjectify;
 	}
 
-	public void setOwnerApplicationObjectify(ILloguerService ownerApplicationObjectify) {
-		this.ownerApplicationObjectify = ownerApplicationObjectify;
+	public void setOwnerApplicationObjectify(ILloguerService propietariApplicationObjectify) {
+		this.propietariApplicationObjectify = propietariApplicationObjectify;
 	}
 
 	
