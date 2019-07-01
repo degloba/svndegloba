@@ -11,6 +11,8 @@ package com.degloba.domain.specification;
  * A més, a l'instància, la lògica de negoci pot, mitjançant la invocació del mètode o IOC, alterar- el seu estat per convertir-se en un delegat d'altres classes, 
  * com ara un repositori de persistència.
  * 
+ * @author degloba
+ * 
  * 
  * @param <T> Type parameter que indica a quin tipus d'objecte s'aplica la especificació
  */
