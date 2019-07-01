@@ -18,7 +18,7 @@ import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 /**
  * @author degloba
  * 
- * @category Factoria {@link Reserva}
+ * @category fàbrica de {@link Reserva}s
  */
 @DomainFactory
 public class ReservesFactory {
@@ -26,8 +26,8 @@ public class ReservesFactory {
 	@Inject
 	private AutowireCapableBeanFactory spring;
 	
-	public Reserva create(Client client){
-		if (! canReserve(client))
+	public Reserva crea(Client client){
+		if (! potReservar(client))
 			throw new DomainOperationException(client.getAggregateId(), "Client can not create reservations");
 		
 		Reserva reserva = new Reserva(AggregateId.generate(), EstatReserva.OPENED, client.generateSnapshot(), new Date());
@@ -42,7 +42,7 @@ public class ReservesFactory {
 		//TODO explore domain rules
 	}
 
-	private boolean canReserve(Client client) {
+	private boolean potReservar(Client client) {
 		return true;//TODO explore domain rules (ex: cleint's debts, stataus etc) 
 	}
 

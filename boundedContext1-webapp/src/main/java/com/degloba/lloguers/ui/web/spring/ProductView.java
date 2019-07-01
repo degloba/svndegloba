@@ -23,7 +23,7 @@ import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.event.IDomainEventBus;
 import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.CashPurchaseEventSubscriber;
+import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.CompraEnEfectiuEventSubscriber;
 import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
@@ -55,12 +55,12 @@ public class ProductView implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Long productId; 
+	private Long producteId; 
 	
 	//@Size(min=2,max=5)  NO FUNCIONA.Mirar http://stackoverflow.com/questions/19216495/app-engine-jar-in-web-inf-lib-but-still-getting-java-lang-classnotfoundexceptio
 	String name;
 	
-	String descripcio;
+	String description;
 	
 		
 	@Digits(integer=3,fraction=2)
@@ -81,7 +81,7 @@ public class ProductView implements Serializable{
 		 // 1.- Envia l'event al "EventBus" (Google Guava) 
 		 // 2.- Guarda l'event "publish" en un repositori d'events
 		 EventBus eventbus = new EventBus();
-		 eventbus.register(new CashPurchaseEventSubscriber());
+		 eventbus.register(new CompraEnEfectiuEventSubscriber());
 		 
 //		 DomainEventBusImpl d = new DomainEventBusImpl(eventbus,new StoredDomainEventRepository());
 		 
@@ -119,13 +119,13 @@ public class ProductView implements Serializable{
 			    	 
 			    	 // Producte
 			    	 Producte producte = new Producte();
-			    	 producte.setDescripcio(this.descripcio);
+			    	 producte.setDescripcio(this.description);
 			    	 producte.setPrice(price);
 			    	 			    	
 			    	 producte.setOwner(com.googlecode.objectify.Key.create(Propietari.class, uid));
 			    	 
 			    	 // creem el producte i guardem el seu Id 
-			    	 productId = this.ownerRepositoryObjectify.createWithID(producte);
+			    	 producteId = this.ownerRepositoryObjectify.createWithID(producte);
 			    	  
 			      }
 			    }
@@ -149,11 +149,11 @@ public class ProductView implements Serializable{
 		    }
 
 		public String getDescripcio() {
-			return descripcio;
+			return description;
 		}
 
-		public void setDescripcio(String descripcio) {
-			this.descripcio = descripcio;
+		public void setDescripcio(String description) {
+			this.description = description;
 		}
 
 		public Double getPrice() {
@@ -164,12 +164,12 @@ public class ProductView implements Serializable{
 			this.price = price;
 		}
 
-		public Long getProductId() {
-			return productId;
+		public Long getProducteId() {
+			return producteId;
 		}
 
-		public void setProductId(Long productId) {
-			this.productId = productId;
+		public void setProductId(Long producteId) {
+			this.producteId = producteId;
 		}
 
 		
