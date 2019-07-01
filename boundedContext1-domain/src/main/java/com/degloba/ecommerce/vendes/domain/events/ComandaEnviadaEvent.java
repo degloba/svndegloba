@@ -11,7 +11,7 @@ import com.degloba.event.api.AbstractEvent;
 import com.degloba.event.domain.IDomainEvent;
 
 /**
- * @category Comanda enviada
+ * @category s'ha enviat una comanda
  * 
  * @author degloba
  *

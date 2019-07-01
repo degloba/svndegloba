@@ -10,7 +10,7 @@ import com.degloba.event.annotations.Event;
 import com.degloba.event.domain.IDomainEvent;
 
 /**
- * @category Rollback d'in {@link Pagament}
+ * @category s'ha produit un rollback d'un {@link Pagament}
  * 
  * @author degloba
  *

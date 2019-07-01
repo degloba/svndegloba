@@ -4,12 +4,18 @@ import java.io.Serializable;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.domain.event.DomainEvent;
 import com.degloba.event.annotations.Event;
 
-
+/**
+ * @category s'ha produit una entrega d'un enviament
+ * 
+ * @author degloba
+ *
+ */
 @SuppressWarnings("serial")
 @Event
-public class EnviamentLliuratEvent implements Serializable {
+public class EnviamentLliuratEvent extends DomainEvent {
 
     private final AggregateId enviamentId;
 

@@ -10,7 +10,8 @@ import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jp
  * @author degloba
  * 
  * @category Categoria similar</br>
- * Donat el {@link TipusProducte} d'un {@link Producte}, ens diu si es igual al {@link TipusProducte} del {@link Producte} candidat
+ * Donat el {@link TipusProducte} d'un {@link Producte}, ens diu si es igual al {@link TipusProducte} 
+ * del {@link Producte} candidat
  *
  */
 public class SameCategory extends CompositeSpecification<Producte>{
@@ -27,7 +28,7 @@ public class SameCategory extends CompositeSpecification<Producte>{
 
 	@Override
 	public boolean isSatisfiedBy(Producte candidate) {
-		return candidate.getProductType().equals(tipusProducte);
+		return candidate.getProducteType().equals(tipusProducte);
 	}
 
 }

@@ -27,7 +27,7 @@ import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
 /**
- * Factura
+ * @category entitat de persistenica que defineix una factura
  * 
  * @author degloba
  * 

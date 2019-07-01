@@ -7,7 +7,7 @@ import com.degloba.domain.specification.Specification;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.vendes.equivalent.specification.SameCategory;
-import com.degloba.ecommerce.vendes.equivalent.specification.SimilarName;
+import com.degloba.ecommerce.vendes.equivalent.specification.NomSimilarSpecification;
 import com.degloba.ecommerce.vendes.equivalent.specification.PreuSimilar;
 
 /**
@@ -30,8 +30,8 @@ public class ProductSpecificationFactory {
 		// TODO explore domain rules, maybe use genetic algorithm to breed spec;)
 		return new DisjunctionSpecification<Producte>(
 					new PreuSimilar(problematicProduct.getPreu(), generateAcceptableDifference(client)), 
-					new SimilarName(problematicProduct.getName()),
-					new SameCategory(problematicProduct.getProductType()));
+					new NomSimilarSpecification(problematicProduct.getNom()),
+					new SameCategory(problematicProduct.getProducteType()));
 	}
 
 	private Money generateAcceptableDifference(Client client) {

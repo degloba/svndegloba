@@ -11,8 +11,7 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 
 /**
- * 
- * @category Repositori de {@link Sales}
+ * @category Repositori de {@link Venda}
  * 
  * @author degloba
  *
@@ -20,22 +19,12 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 @DomainRepository
 public interface IVendesRepository extends IEntityRepository {
 
-	// Payment
-	
-	
-	// Producte
 	
 	public List<Producte> findProductWhereBestBeforeExpiredIn(int days);
+	public Producte carregaProducte(Class<Producte> clazz, AggregateId producteId);
 
-	public Producte loadProduct(Class<Producte> clazz, AggregateId producteId);
-	
-	
-	// Reserves
-	
-	public Reserva loadReservation(Class<Reserva> clazz, AggregateId comandaId);
-	
-	
-	// Compres
+	public Reserva carregaReserva(Class<Reserva> clazz, AggregateId comandaId);
+
 	
 	public <T extends BaseAggregateRoot> T save(T reservation);
 

@@ -24,7 +24,7 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 //@AggregateRoot
 /**
  * 
- * Pagament
+ * @category Entitat que defineix un pagament
  * 
  * @author degloba
  *

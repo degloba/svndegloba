@@ -14,13 +14,15 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 
 
 /**
+ * @category 
  * <ul>
  * <li> Does not have a natural place in any aggregate - we don't want to bloat Order with issuance of the Invoice
  * <li> Has broad dependencies - we don't want Order to become a 'God Class'
  * <li> Is used only (or not many) in one Use Case/user Story so is not essential for any Aggregate
  * <ul>
  * 
- * Tingueu en compte que aquest servei de domini és gestionat per Container per poder injectar dependències com Repo 
+ * Cal tenir en compte que aquest servei de domini és gestionat pel corresponet container (Spring) per 
+ * poder injectar dependències com Repo 
  * 
  * @author degloba
  *

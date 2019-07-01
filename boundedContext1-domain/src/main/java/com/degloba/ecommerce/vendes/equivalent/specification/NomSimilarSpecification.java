@@ -10,22 +10,22 @@ import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jp
  * @category Nom similar</br>
  * Donat el nom d'un {@link Producte}, ens diu si es similar al nom del {@link Producte} candidat
  */
-public class SimilarName extends CompositeSpecification<Producte>{
+public class NomSimilarSpecification extends CompositeSpecification<Producte>{
 
-	private String name;
+	private String nom;
 	
 	/**
 	 * Donat el nom d'un {@link Producte}, ens diu si es similar al nom del {@link Producte} candidat
 	 * 
-	 * @param name
+	 * @param nom
 	 */
-	public SimilarName(String name) {
-		this.name = name;
+	public NomSimilarSpecification(String nom) {
+		this.nom = nom;
 	}
 
 	@Override
 	public boolean isSatisfiedBy(Producte candidate) {		
-		return candidate.getName().contains(name) || candidate.getProductType().toString().contains(name);
+		return candidate.getNom().contains(nom) || candidate.getProducteType().toString().contains(nom);
 	}
 
 }

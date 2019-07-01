@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * user group. User group can contain users and other user groups
+ * @category grup d'usuari.Un {@link UserGroup} pot contenir usuari i altres {@link UserGroup}
  */
 @Entity
 @DiscriminatorValue("GROUP")

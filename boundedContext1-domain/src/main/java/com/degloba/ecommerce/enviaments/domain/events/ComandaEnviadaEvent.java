@@ -6,7 +6,7 @@ import com.degloba.domain.event.DomainEvent;
 import com.degloba.event.annotations.Event;
 
 /**
- * @category
+ * @category S'ha enviat una comanda
  * 
  * @author degloba
  *

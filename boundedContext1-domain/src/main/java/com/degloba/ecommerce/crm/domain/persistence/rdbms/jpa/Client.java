@@ -10,7 +10,7 @@ import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 /**
- * Client
+ * @category Entitat de persistencia que defineix un client
  * 
  * @author degloba
  *

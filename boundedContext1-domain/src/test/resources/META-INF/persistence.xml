@@ -75,14 +75,6 @@
 		<class>com.degloba.domain.sharedkernel.Money</class>
 		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> 
 		 
-		 
- 		<!-- 		<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa</class>
-		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa</class>  
-		 -->
-	 	<!-- 				<class>com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa2</class>
-		<class>com.degloba.rent.domain.persistence.rdbms.jpa.SubcategoryJpa2</class> 
-   -->
-	
 		
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

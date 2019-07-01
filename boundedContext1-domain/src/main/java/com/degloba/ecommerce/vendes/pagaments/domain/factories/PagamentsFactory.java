@@ -15,9 +15,9 @@ import com.degloba.event.domain.IDomainEventPublisher;
 
 
 /**
- * 
  * @author degloba
- *
+ * 
+ * @category Fàbrica de {@link Pagament}
  */
 @DomainFactory
 public class PagamentsFactory {
@@ -27,7 +27,7 @@ public class PagamentsFactory {
 
 	public Pagament creaPagament(ClientData clientData, Money quantitat){
 		
-		publisher.publish(new PagatClientEvent(AggregateId.generate(), clientData, quantitat));
+		publisher.publica(new PagatClientEvent(AggregateId.generate(), clientData, quantitat));
 		
 		return new Pagament(AggregateId.generate(), clientData, quantitat);
 	}

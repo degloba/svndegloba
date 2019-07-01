@@ -14,7 +14,9 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 
 /**
- * @category Un Item d'una Reserva
+ * @category Un item d'una Reserva
+ * 
+ * @author degloba
  */
 @Entity
 class ReservaItem extends BaseEntity{

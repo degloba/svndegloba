@@ -14,7 +14,8 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 /**
- * Els articles comprats contenen dades copiades en cas de procediment de catàleg i canvi de descompte
+ * @category Els articles comprats contenen dades copiades en cas de procediment de catàleg 
+ * i canvi de descompte
  * 
  * @author degloba
  *

@@ -10,8 +10,10 @@ import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 
 
 /**
- * @category Fàbrica de Peticions de Factura
+ * @category Fàbrica de peticions de factura
  * Per cada Compra
+ * 
+ * @author degloba
  */
 @DomainFactory
 public class PeticionsFacturaFactory {

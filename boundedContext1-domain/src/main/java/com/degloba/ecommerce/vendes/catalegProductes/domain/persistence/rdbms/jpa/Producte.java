@@ -20,7 +20,12 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
-
+/**
+ * @category Entitat de persistència que defineix un producte
+ * 
+ * @author degloba
+ *
+ */
 @Entity
 @AggregateRoot
 public class Producte extends BaseAggregateRoot{
@@ -34,17 +39,17 @@ public class Producte extends BaseAggregateRoot{
 	@Embedded
 	private Money preu;
 	
-	private String name;
+	private String nom;
 	
 	@Enumerated(EnumType.STRING)
 	private TipusProducte tipusProducte;
 	
 	private Producte(){}
 	
-	Producte(AggregateId aggregateId, Money preu, String name, TipusProducte tipusProducte){
+	Producte(AggregateId aggregateId, Money preu, String nom, TipusProducte tipusProducte){
 		this.aggregateId = aggregateId;
 		this.preu = preu;
-		this.name = name;
+		this.nom = nom;
 		this.tipusProducte = tipusProducte;
 	}
 	
@@ -56,16 +61,16 @@ public class Producte extends BaseAggregateRoot{
 		return preu;
 	}
 	
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 	
-	public TipusProducte getProductType() {
+	public TipusProducte getProducteType() {
 		return tipusProducte;
 	}
 	
 	public ProducteData generateSnapshot(){
-		return new ProducteData(getAggregateId(), preu, name, tipusProducte, new Date());
+		return new ProducteData(getAggregateId(), preu, nom, tipusProducte, new Date());
 	}
 	
 }
