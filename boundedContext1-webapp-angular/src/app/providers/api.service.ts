@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
 import { Http, Response } from '@angular/http';
-import { Todo } from '../model/todo';
+import { Hotel } from '../model/hotel';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -20,51 +20,51 @@ export class ApiService {
       return Observable.throw(error);
     }
   
-  // API: GET /todos
-  public getAllTodos(): Observable<Todo[]> {
+  // API: GET /hotels
+  public getAllHotels(): Observable<Hotel[]> {
       return this.http
         .get(API_URL)
         .map(response => {
-          const todos = response.json();
-          return todos.items.map((todo) => new Todo(todo));
+          const hotels = response.json();
+          return hotels.items.map((hotel) => new Hotel(hotel));
         })
         .catch(this.handleError);
     }
 
-  // API: POST /todos
-  public createTodo(todo: Todo): Observable<Todo> {
+  // API: POST /hotels
+  public createHotel(hotel: Hotel): Observable<Hotel> {
       return this.http
-        .post(API_URL + '/todos', todo)
+        .post(API_URL + '/hotels', hotel)
         .map(response => {
-          return new Todo(response.json());
+          return new Hotel(response.json());
         })
         .catch(this.handleError);
     }
 
-  // API: GET /todos/:id
-  public getTodoById(todoId: number): Observable<Todo> {
+  // API: GET /hotels/:id
+  public getHotelById(hotelId: number): Observable<Hotel> {
       return this.http
-        .get(API_URL + '/todos/' + todoId)
+        .get(API_URL + '/hotels/' + hotelId)
         .map(response => {
-          return new Todo(response.json());
+          return new Hotel(response.json());
         })
         .catch(this.handleError);
     }
 
-  // API: PUT /todos/:id
-  public updateTodo(todo: Todo): Observable<Todo> {
+  // API: PUT /hotels/:id
+  public updateHotel(hotel: Hotel): Observable<Hotel> {
       return this.http
-        .put(API_URL + '/todos/' + todo.id, todo)
+        .put(API_URL + '/hotels/' + hotel.id, hotel)
         .map(response => {
-          return new Todo(response.json());
+          return new Hotel(response.json());
         })
         .catch(this.handleError);
     }
 
-  // DELETE /todos/:id
-  public deleteTodoById(todoId: number): Observable<null> {
+  // DELETE /hotels/:id
+  public deleteHotelById(hotelId: number): Observable<null> {
       return this.http
-        .delete(API_URL + '/todos/' + todoId)
+        .delete(API_URL + '/hotels/' + hotelId)
         .map(response => null)
         .catch(this.handleError);
     }

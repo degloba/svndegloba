@@ -2,7 +2,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { Food, Meal, Persona, Units, Goals, DietDays } from './../model/data-model';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, Input } from '@angular/core';
-// import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AuthService } from '../shared/services/auth.service';
 import * as firebase from 'firebase/app';
@@ -34,7 +34,7 @@ export class FireService {
     const database = firebase.database();
     return this.database.ref('/profiles/' + this.fireUser.uid).once('value');
   }
-  setUserData(fireUser: firebase.User, user: User) {
+  setUserData(fireUser: firebase.User, user: Persona) {
     this.database.ref('profiles/' + fireUser.uid).set({
       birthday: user.birthday,
       email: user.email,

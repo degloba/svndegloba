@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  user: User;
+  user: Persona;
 
   units: Units;
   selectedOption: string;

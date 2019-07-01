@@ -1,0 +1,5 @@
+<div class="view">
+  <input class="toggle" type="checkbox" (click)="toggleHotelComplete(hotel)" [checked]="hotel.complete">
+  <label>{{hotel.title}}</label>
+  <button class="destroy" (click)="removeHotel(hotel)"></button>
+</div>

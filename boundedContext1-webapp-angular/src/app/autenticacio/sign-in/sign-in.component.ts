@@ -12,9 +12,7 @@ import { AuthService } from '../../shared/services/auth.service';
 
 export class SignInComponent implements OnInit {
 
-  constructor(
-    public authService: AuthService
-  ) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() { }
 

@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // App routing modules
 import { AppRoutingModule } from './shared/routing/app-routing.module';
 
-// App components
+// Components del modul App (modul root)
 import { AppComponent } from './app.component';
 
 // Autentificacio components
@@ -67,6 +67,11 @@ import { TodoListHeaderComponent } from './todo/todo-list-header/todo-list-heade
 //////////import { TodoDataService } from './providers/todo-data.service';
 import { TodoListItemComponent } from './todo/todo-list-item/todo-list-item.component';
 import { ApiService } from './providers/api.service';
+import { HotelsComponent } from './hotels/hotels.component';
+import { HotelsListHeaderComponent } from './hotels/hotels-list-header/hotels-list-header.component';
+import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component';
+import { HotelsListFooterComponent } from './hotels/hotels-list-footer/hotels-list-footer.component';
+import { HotelsListItemComponent } from './hotels/hotels-list-item/hotels-list-item.component';
 
 
 const MY_DATE_FORMATS = {
@@ -103,7 +108,12 @@ const MY_DATE_FORMATS = {
     TodoListComponent,
     TodoListFooterComponent,
     TodoListHeaderComponent,
-    TodoListItemComponent
+    TodoListItemComponent,
+    HotelsComponent,
+    HotelsListHeaderComponent,
+    HotelsListComponent,
+    HotelsListFooterComponent,
+    HotelsListItemComponent
   ],
   exports: [
     AppComponent,

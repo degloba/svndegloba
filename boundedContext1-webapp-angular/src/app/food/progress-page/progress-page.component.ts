@@ -1,4 +1,4 @@
-import { DietDays, User } from '../../model/data-model';
+import { DietDays, Persona } from '../../model/data-model';
 import { AuthService } from '../../shared/services/auth.service';
 import { AfterViewInit, Component, OnInit, OnChanges } from '@angular/core';
 
@@ -14,7 +14,7 @@ class Data {
 })
 export class ProgressPageComponent implements OnInit {
   fireService: AuthService;
-  user: User;
+  user: Persona;
   days: DietDays[];
   typeData = ['weight', 'exercise', 'totalCalories'];
   valueData = 0;

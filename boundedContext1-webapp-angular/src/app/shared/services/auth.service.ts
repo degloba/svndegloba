@@ -1,12 +1,18 @@
 import { Injectable, NgZone } from '@angular/core';
+
 import { User } from '../services/user';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+
+import { AngularFireDatabase } from '@angular/fire/database';
+
 import { Router } from '@angular/router';
 
 import { Food, Meal, Units, Goals, DietDays, Persona } from '../../model/data-model';
 import { Observable } from "rxjs";
+
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -15,23 +21,21 @@ import { Observable } from "rxjs";
 export class AuthService {
   userData: any; // Save logged in user data
 
-
-// food
-user: Observable<firebase.User>;
-foods: FirebaseListObservable<any[]>;
-afAuth: AngularFireAuth;
-fireUser: firebase.User;
-database: any;
-calendar: DietDays[];
-
+  database: any;
+  fireUser: firebase.User;
 
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afDatabase: AngularFireDatabase, // Inject Firebase Database
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
+      
+      this.database = firebase.database();
+      
+      
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
@@ -51,7 +55,7 @@ calendar: DietDays[];
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['dashboard']); // si no hi ha hagut error, "navego" al "path" dashboard
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -152,7 +156,7 @@ calendar: DietDays[];
   
   // A PARTIR D'AQUI FOOD!!!!!
   getUser() {
-      const database = firebase.database();
+      const database = firebase.database;
       return this.database.ref('/users/' + this.fireUser.uid).once('value');
     };
     getUserData() {

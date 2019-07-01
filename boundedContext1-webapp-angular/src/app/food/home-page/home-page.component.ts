@@ -17,6 +17,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { NavigationEnd, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { User } from "app/model/user";
 
 
 @Component({
@@ -86,13 +87,13 @@ export class HomePageComponent implements  OnInit {
     alert("arribo2");
     
      this.days.push(this.day);
-     this.calendar.push(this.day);
+     //this.calendar.push(this.day);
 
      this.fireService.getUser().then(usu => {
        const user = usu.val();
        if (user == null) {
          this.fireService.createUser(this.fireUser).then(res => {
-           const usuario = new User();
+           const usuario = new Persona();
            usuario.email = this.fireUser.email;
            this.updateUser(usuario);
          });
@@ -237,7 +238,7 @@ export class HomePageComponent implements  OnInit {
        localStorage.removeItem('comidaSelected');
      }
    }
-   caloriesBurnedAtDay(user: User): number {
+   caloriesBurnedAtDay(user: Persona): number {
 
      const fechaNac = new Date(user.birthday);
      const fechaNacMilisec = fechaNac.getMilliseconds();
@@ -325,7 +326,7 @@ export class HomePageComponent implements  OnInit {
      }
    }
 
-   updateUser(user: User) {
+   updateUser(user: Persona) {
      if (user.goals === undefined) {
        user.birthday = new Date('01-01-1950');
      }
@@ -356,7 +357,7 @@ export class HomePageComponent implements  OnInit {
      this.fireService.setUserData(this.fireUser, user);
    }
 
-   updateCalories(user: User) {
+   updateCalories(user: Persona) {
      if (this.days[this.indexDays]) {
        const myDay = this.days[this.indexDays];
        myDay.totalCalories = this.totalCalories;
