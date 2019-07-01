@@ -6,12 +6,6 @@ import java.util.List;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 
-import com.google.cloud.datastore.KeyFactory;
-import com.google.cloud.datastore.PathElement;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.impl.Keys;
-import com.googlecode.objectify.impl.TypeUtils;
-
 
 /**
  * Repositori implementat amb Google Cloud DataStore/Objectify
@@ -156,6 +150,7 @@ public class BaseRepository implements IBaseRepository{
 	@Override
 	public <T> T load(Key<T> id) {
 		// TODO Auto-generated method stub
+	
 		return null;
 	}
 	@Override

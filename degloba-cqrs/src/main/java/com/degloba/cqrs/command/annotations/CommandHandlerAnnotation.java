@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author degloba
+ * @category Anotació que defineix un CommandHandler de tipus {@link Component} Spring
  * 
- * @category Anotació que defineix un {@link Component} Spring
+ * @author degloba
  */
 @Component
 @Transactional

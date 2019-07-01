@@ -49,7 +49,7 @@ public interface IBaseRepository{
 		
 	public <T> T load(Key<T> id);
 		
-	public <T> void save(T subcategory);
+	public <T> void save(T entitat);
 	
 	public <T> List<T> getAll(); 
 	
