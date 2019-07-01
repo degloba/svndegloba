@@ -8,7 +8,7 @@ public class SimpleEventBusExample {
 
 	public static void main(String[] args) {
 		  EventBus eventBus = new EventBus();
-	        eventBus.register(new CashPurchaseEventSubscriber());
+	        eventBus.register(new CompraEnEfectiuEventSubscriber());
 	        System.out.println("Post Simple EventBus Example");
 	        eventBus.post(new CompraEnEfectiuEvent(1223,"chocolate"));
 	        

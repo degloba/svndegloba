@@ -7,21 +7,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.ecommerce.vendes.application.commands.OrderDetailsCommand;
-import com.degloba.ecommerce.vendes.application.exceptions.OfferChangedException;
+import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.vendes.compres.domain.factories.PurchaseFactory;
+import com.degloba.ecommerce.vendes.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.equivalent.SuggestionService;
 import com.degloba.ecommerce.vendes.ofertes.domain.factories.DescompteFactory;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
-import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Payment;
-import com.degloba.ecommerce.vendes.reserves.domain.factories.ReservationFactory;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
+import com.degloba.ecommerce.vendes.reserves.domain.factories.ReservesFactory;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+
 
 
 
@@ -30,7 +31,7 @@ import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationExc
  * Each step is a Domain Story<br>
  * <br>
  * Cal tenir en compte que el llenguatge de l’aplicació és diferent (més simple) que el llenguatge del domini,</br>
- *  per exemple: no volem exposar conceptes de domini com ara la {@link Compra} i la {@link Reservation} a les capes superiors, 
+ *  per exemple: no volem exposar conceptes de domini com ara la {@link Compra} i la {@link Reserva} a les capes superiors, 
  * que les amagem sota el terme {@link Order}.  
  * <br>
  * Tècnicament, el servei d’aplicacions és només un munt de procediments; per tant, els principis d’OO (ex: CqS, SOLID, GRASP) no s’apliquen aquí
@@ -44,16 +45,16 @@ public class ComandesServiceImpl implements IComandesService {
 	private SystemUser systemUser;*/
 	
 	@Inject
-	private IVendaRepository vendaRepository;
+	private IVendesRepository vendesRepository;
 
 	@Inject
-	private ReservationFactory reservationFactory;
+	private ReservesFactory reservesFactory;
 
 	@Inject
-	private PurchaseFactory purchaseFactory;
+	private CompresFactory compresFactory;
 	
 	@Inject
-	private IVendaRepository productRepository;
+	private IVendesRepository productRepository;
 	
 	@Inject
 	private DescompteFactory descompteFactory;
@@ -62,37 +63,37 @@ public class ComandesServiceImpl implements IComandesService {
 	private SuggestionService suggestionService;
 
 	// @Secured requires BUYER role
-	public AggregateId createOrder() {
-		Reservation reservation = reservationFactory.create(loadClient());
-		vendaRepository.save(reservation);
-		return reservation.getAggregateId();
+	public AggregateId creaComanda() {
+		Reserva reserva = reservesFactory.crea(loadClient());
+		vendesRepository.save(reserva);
+		return reserva.getAggregateId();
 	}
 
 	/**
 	 * DOMAIN STORY<br>
 	 * try to read this as a full sentence, this way: subject.predicate(completion)<br>
 	 * <br>
-	 * Carga la {@link Reservation} per la comandaId<br>
-	 * Carga el {@link Producte} pel productId<br>
+	 * Carga la {@link Reserva} per la comandaId<br>
+	 * Carga el {@link Producte} pel producteId<br>
 	 * Comprova si el {@link Producte} no és accessible<br>
 	 * si es així, llavors s suggereix un equivalent d'aquest {@link Producte} basat en el client<br>
-	 * Reservation add product by given quantity
+	 * Reservation add product by given quantitat
 	 */
 	@Override
-	public void addProduct(AggregateId comandaId, AggregateId productId,
-			int quantity) {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
+	public void afegirProducte(AggregateId comandaId, AggregateId producteId,
+			int quantitat) {
+		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
 		
-		Producte producte = productRepository.loadProduct(Producte.class,productId);
+		Producte producte = productRepository.carregaProducte(Producte.class,producteId);
 		
 		if (! producte.isAvailabe()){
 			Client client = loadClient();	
 			producte = suggestionService.suggestEquivalent(producte, client);
 		}
 			
-		reservation.add(producte, quantity);
+		reserva.add(producte, quantitat);
 		
-		vendaRepository.save(reservation);
+		vendesRepository.save(reserva);
 	}
 	
 	/**
@@ -100,15 +101,15 @@ public class ComandesServiceImpl implements IComandesService {
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
 	public Oferta calculateOffer(AggregateId comandaId) {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
+		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
 
-		DescomptePolicy descomptePolicy = descompteFactory.create(loadClient());
+		DescomptePolicy descomptePolicy = descompteFactory.crea(loadClient());
 		
 		/*
 		 * Sample pattern: Aggregate generates Value Object using function<br>
 		 * Higher order function is closured by policy
 		 */
-		return reservation.calculateOffer(descomptePolicy);
+		return reserva.calculateOffer(descomptePolicy);
 	}
 
 	/**
@@ -126,45 +127,45 @@ public class ComandesServiceImpl implements IComandesService {
 	 */
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
-	public void confirm(AggregateId comandaId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
-			throws OfferChangedException {
-		Reservation reservation = vendaRepository.loadReservation(Reservation.class,comandaId);
-		if (reservation.isClosed())
-			throw new DomainOperationException(reservation.getAggregateId(), "reservation is already closed");
+	public void confirma(AggregateId comandaId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
+			throws OfertaCanviadaException {
+		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
+		if (reserva.isClosed())
+			throw new DomainOperationException(reserva.getAggregateId(), "reservation is already closed");
 		
 		/*
 		 * Sample pattern: Aggregate generates Value Object using function<br>
 		 * Higher order function is closured by policy
 		 */
-		Oferta newOffer = reservation.calculateOffer(
-									descompteFactory.create(loadClient()));
+		Oferta newOffer = reserva.calculateOffer(
+									descompteFactory.crea(loadClient()));
 		
 		/*
 		 * Sample pattern: Client Tier sends back old VOs, Server generates new VOs based on Aggregate state<br>
 		 * Notice that this VO is not stored in Repo, it's stored on the Client Tier. 
 		 */
 		if (! newOffer.sameAs(seenOffer, 5))//TODO load delta from conf.
-			throw new OfferChangedException(reservation.getAggregateId(), seenOffer, newOffer);
+			throw new OfertaCanviadaException(reserva.getAggregateId(), seenOffer, newOffer);
 		
 		Client client = loadClient();//create per logged client, not reservation owner					
-		Compra compra = purchaseFactory.create(reservation.getAggregateId(), client, seenOffer);
+		Compra compra = compresFactory.create(reserva.getAggregateId(), client, seenOffer);
 				
 		if (! client.canAfford(compra.getTotalCost()))
 			throw new DomainOperationException(client.getAggregateId(), "client has insufficent money");
 		
-		vendaRepository.save(compra);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
+		vendesRepository.save(compra);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
 		
 		/*
 		 * Sample model where one aggregate creates another. Client does not manage payment lifecycle, therefore application must manage it. 
 		 */
-		Payment payment = client.charge(compra.getTotalCost());
-		vendaRepository.save(payment);
+		Pagament pagament = client.charge(compra.getTotalCost());
+		vendesRepository.save(pagament);
 		
 		compra.confirm();	
-		reservation.close();				
+		reserva.close();				
 		
-		vendaRepository.save(reservation);
-		vendaRepository.save(client);
+		vendesRepository.save(reserva);
+		vendesRepository.save(client);
 		
 	}
 	
@@ -172,4 +173,6 @@ public class ComandesServiceImpl implements IComandesService {
 		return null;
 		////////////////return entityRepository.load(systemUser.getDomainUserId());
 	}
-}
+
+
+	}

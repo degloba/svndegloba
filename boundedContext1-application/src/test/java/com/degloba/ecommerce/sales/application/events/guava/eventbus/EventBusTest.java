@@ -6,9 +6,9 @@ import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.vendes.application.events.NoSubscriberEvent;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.EventPublisher;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.*;
-import com.degloba.event.guava.eventbus.subscriber.AllEventSubscriber;
-import com.degloba.event.guava.eventbus.subscriber.EventSubscriber;
-import com.degloba.event.guava.eventbus.subscriber.InvalidSubscriberNoParameters;
+import com.degloba.event.bus.google.subscribers.AllEventSubscriber;
+import com.degloba.event.bus.google.subscribers.EventSubscriber;
+import com.degloba.event.bus.google.subscribers.InvalidSubscriberNoParameters;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.DeadEvent;
 import com.google.common.eventbus.EventBus;
@@ -29,9 +29,9 @@ import static org.junit.Assert.*;
 public class EventBusTest {
 
     private EventPublisher eventPublisher;
-    private CashPurchaseEventSubscriber cashPurchaseEventSubscriber;
-    private CreditPurchaseEventSubscriber creditPurchaseEventSubscriber;
-    private PurchaseEventSubscriber purchaseEventSubscriber;
+    private CompraEnEfectiuEventSubscriber compraEnEfectiuEventSubscriber;
+    private CompraAmbCreditEventSubscriber compraAmbCreditEventSubscriber;
+    private CompraEventSubscriber compraEventSubscriber;
     private EventBus eventBus;
     private AsyncEventBus asyncEventBus;
     private LongProcessSubscriber longProcessSubscriber;
@@ -48,18 +48,18 @@ public class EventBusTest {
         deadEventSubscriber = new DeadEventSubscriber();
         eventBus.register(deadEventSubscriber);
         eventPublisher = new EventPublisher(eventBus);
-        cashPurchaseEventSubscriber = EventSubscriber.factory(CashPurchaseEventSubscriber.class, eventBus);
-        creditPurchaseEventSubscriber = EventSubscriber.factory(CreditPurchaseEventSubscriber.class, eventBus);
-        purchaseEventSubscriber = EventSubscriber.factory(PurchaseEventSubscriber.class, eventBus);
+        compraEnEfectiuEventSubscriber = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
+        compraAmbCreditEventSubscriber = EventSubscriber.factory(CompraAmbCreditEventSubscriber.class, eventBus);
+        compraEventSubscriber = EventSubscriber.factory(CompraEventSubscriber.class, eventBus);
         multiHandlerSubscriber = MultiHandlerSubscriber.instance(eventBus);
     }
 
     @Test
     public void testCashPurchaseEventReceived() {
         generateCashPurchaseEvent();
-        assertThat(cashPurchaseEventSubscriber.getHandledEvents().size(), is(1));
-        assertThat(creditPurchaseEventSubscriber.getHandledEvents().size(), is(0));
-        assertSame(cashPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
+        assertThat(compraEnEfectiuEventSubscriber.getHandledEvents().size(), is(1));
+        assertThat(compraAmbCreditEventSubscriber.getHandledEvents().size(), is(0));
+        assertSame(compraEnEfectiuEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
         assertThat(deadEventSubscriber.deadEvents.size(), is(0));
     }
 
@@ -75,30 +75,30 @@ public class EventBusTest {
     @Test
     public void testCreditCardPurchaseEventReceived() {
         generateCreditPurchaseEvent();
-        assertThat(cashPurchaseEventSubscriber.getHandledEvents().size(), is(0));
-        assertThat(creditPurchaseEventSubscriber.getHandledEvents().size(), is(1));
-        assertSame(creditPurchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraAmbCreditEvent.class);
+        assertThat(compraEnEfectiuEventSubscriber.getHandledEvents().size(), is(0));
+        assertThat(compraAmbCreditEventSubscriber.getHandledEvents().size(), is(1));
+        assertSame(compraAmbCreditEventSubscriber.getHandledEvents().get(0).getClass(), CompraAmbCreditEvent.class);
     }
 
 
     @Test
     public void testGetAllPurchaseEvents() {
         generateAllPurchaseEvents();
-        assertThat(purchaseEventSubscriber.getHandledEvents().size(), is(2));
-        assertSame(purchaseEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
-        assertSame(purchaseEventSubscriber.getHandledEvents().get(1).getClass(), CompraAmbCreditEvent.class);
+        assertThat(compraEventSubscriber.getHandledEvents().size(), is(2));
+        assertSame(compraEventSubscriber.getHandledEvents().get(0).getClass(), CompraEnEfectiuEvent.class);
+        assertSame(compraEventSubscriber.getHandledEvents().get(1).getClass(), CompraAmbCreditEvent.class);
     }
 
     @Test
     public void testUnregisterForEvents() {
-        eventBus.unregister(cashPurchaseEventSubscriber);
-        CashPurchaseEventSubscriber cashPurchaseEventSubscriber1 = EventSubscriber.factory(CashPurchaseEventSubscriber.class, eventBus);
-        CashPurchaseEventSubscriber cashPurchaseEventSubscriber2 = EventSubscriber.factory(CashPurchaseEventSubscriber.class, eventBus);
+        eventBus.unregister(compraEnEfectiuEventSubscriber);
+        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber1 = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
+        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber2 = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
         eventBus.register(cashPurchaseEventSubscriber1);
         eventBus.register(cashPurchaseEventSubscriber2);
 
         generateCashPurchaseEvent();
-        assertThat(cashPurchaseEventSubscriber.getHandledEvents().size(), is(0));
+        assertThat(compraEnEfectiuEventSubscriber.getHandledEvents().size(), is(0));
         assertThat(cashPurchaseEventSubscriber1.getHandledEvents().size(), is(1));
         assertThat(cashPurchaseEventSubscriber2.getHandledEvents().size(), is(1));
     }

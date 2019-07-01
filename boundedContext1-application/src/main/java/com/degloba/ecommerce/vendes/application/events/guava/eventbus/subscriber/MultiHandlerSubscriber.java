@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.event.bus.google.events.SimpleEvent;
 import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
-import com.degloba.event.guava.eventbus.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 

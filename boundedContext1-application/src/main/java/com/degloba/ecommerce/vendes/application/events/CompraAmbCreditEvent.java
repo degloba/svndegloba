@@ -1,5 +1,11 @@
 package com.degloba.ecommerce.vendes.application.events;
 
+/**
+ * @category s'ha produit una compra amb targeta de crèdit
+ * 
+ * @author degloba
+ *
+ */
 public class CompraAmbCreditEvent extends CompraEvent {
 
     /**
@@ -9,8 +15,8 @@ public class CompraAmbCreditEvent extends CompraEvent {
 	private String creditCardNumber;
     private String item;
 
-    public CompraAmbCreditEvent(long amount, String item, String creditCardNumber) {
-        super(amount);
+    public CompraAmbCreditEvent(long quantitat, String item, String creditCardNumber) {
+        super(quantitat);
         this.item = item;
         this.creditCardNumber = creditCardNumber;
     }
