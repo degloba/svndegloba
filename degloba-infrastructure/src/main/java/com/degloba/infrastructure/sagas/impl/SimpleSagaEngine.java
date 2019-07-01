@@ -126,11 +126,11 @@ public class SimpleSagaEngine<S extends SagaInstance<D>, D> implements ISagaEngi
             this.sagaEngine = sagaEngine;
         }
 
-        public boolean canHandle(T event) {
+        public boolean potGestionar(T event) {
             return true;
         }
 
-        public void handle(T event) {
+        public void gestiona(T event) {
             sagaEngine.handleSagasEvent(event);
         }
     }
