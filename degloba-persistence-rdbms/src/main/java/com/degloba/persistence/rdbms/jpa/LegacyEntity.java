@@ -2,7 +2,7 @@ package com.degloba.persistence.rdbms.jpa;
 
 
 
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
 
 import java.io.Serializable;

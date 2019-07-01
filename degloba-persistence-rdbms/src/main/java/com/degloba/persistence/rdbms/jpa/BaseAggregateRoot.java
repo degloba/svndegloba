@@ -34,20 +34,17 @@ import com.degloba.event.api.IEvent;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.persistence.domain.AggregateId;
-import com.degloba.persistence.domain.sharedkernel.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
 
 
 /**
  * @author degloba
  * 
- * @category Defineix la Entitat Base del Domini 
- * Totes les entitats del Domini hereden d'ella
+ * @category Defineix l'entitat base del domini<br> 
+ * Totes les entitats del domini hereden d'ella
  * 
  */
-
-	/////////////@Component
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation
 	@MappedSuperclass
 	public abstract class BaseAggregateRoot {  // extends BaseEntity{   
@@ -178,7 +175,7 @@ import com.degloba.utils.BeanUtils;
 
 
 	/**
-     * Sample technique of injecting Event Publisher into the Aggregate.<br>
+     * Tècnica d’exemple d’injecció d’EventPublisher a l’agregat.<br>
      * <br>
      * Can be called only once by Factory/Repository<br>
      * Visible for package (Factory/Repository)
@@ -287,15 +284,15 @@ import com.degloba.utils.BeanUtils;
 	   
 		
 		public static  <E extends BaseAggregateRoot> E get(Class<E> clazz, String id) {
-		       return (E) getRepository().get(clazz, id);
+		       return getRepository().get(clazz, id);
 		   }
 
 		   public static <T extends BaseAggregateRoot> T getUnmodified(Class<T> clazz, T entity) {
-		       return (T) getRepository().getUnmodified(clazz, entity);
+		       return getRepository().getUnmodified(clazz, entity);
 		   }
 
 		   public static <T extends BaseAggregateRoot> T load(Class<T> clazz, Serializable id) {
-		       return (T) getRepository().load(clazz, id);
+		       return getRepository().load(clazz, id);
 		   }
 
 		   public static <E extends BaseAggregateRoot> List<E> findAll(Class<E> clazz) {
