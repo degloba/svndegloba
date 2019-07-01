@@ -44,7 +44,7 @@ public class LloguerFinder implements ILloguerFinder {
     @SuppressWarnings("unchecked")
 	@Override
     public List<Categoria> findCategories() {
-        String jpql = "select c from com.degloba.rent.domain.persistence.rdbms.jpa.CategoryJpa c";
+        String jpql = "select c from com.degloba.rent.domain.persistence.rdbms.jpa.Category c";
         Query query = entityManager.createQuery(jpql);
         List<Categoria> categorias =  query.getResultList();
         entityManager.clear();

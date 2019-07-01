@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
-import com.degloba.persistence.domain.AggregateId;
+
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos.ProducteOfertatDto;
@@ -22,7 +22,8 @@ import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.ComandesQuery;
 import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.EstatComanda;
 import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderedProductDto;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reservation;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.ProducteReservat;
 import com.google.common.base.Function;
 
@@ -56,25 +57,25 @@ public class VendaFinder implements IVendaFinder {
 	
 	@Override
 	public ComandaDto find(AggregateId comandaId) {
-		Reservation reservation = entityManager.find(Reservation.class, comandaId);
+		Reserva reserva = entityManager.find(Reserva.class, comandaId);
 		Compra compra = entityManager.find(Compra.class, comandaId);
 		
-		return toOrderDto(reservation, compra);
+		return toOrderDto(reserva, compra);
 	}
 
-	private ComandaDto toOrderDto(Reservation reservation, Compra compra) {
+	private ComandaDto toOrderDto(Reserva reserva, Compra compra) {
 		ComandaDto dto = new ComandaDto();
-		dto.setOrderId(reservation.getAggregateId());
-		List<ProducteReservat> producteReservats = reservation.getReservedProducts();
+		dto.setComandaId(reserva.getAggregateId());
+		List<ProducteReservat> producteReservats = reserva.getReservedProducts();
 		dto.setOrderedProducts(new ArrayList<OrderedProductDto>(transform(producteReservats,
 				reservedProductToOrderedProductDto())));
 		if (compra != null) {
-			dto.setStatus(EstatComanda.CONFIRMED);
+			dto.setEstatComanda(EstatComanda.CONFIRMED);
 
 			// TODO CHECK PAYMENT!
 			
 		} else {
-			dto.setStatus(EstatComanda.NEW);
+			dto.setEstatComanda(EstatComanda.NEW);
 		}
 		return dto;
 	}
@@ -83,7 +84,7 @@ public class VendaFinder implements IVendaFinder {
 		return new Function<ProducteReservat, OrderedProductDto>() {
 			public OrderedProductDto apply(ProducteReservat product) {
 				OrderedProductDto dto = new OrderedProductDto();
-				dto.setOfferId(product.getProductId());
+				dto.setOfferId(product.getProducteId());
 				return dto;
 			}
 		};
