@@ -36,6 +36,13 @@ public class BaseRepository implements IBaseRepository{
 	  
 	  private final Transaction transaction;
 
+	  /**
+	   * 
+	   * @param datastore
+	   * @param transaction
+	   * 
+	   * @category Constructor
+	   */
 	  public BaseRepository(Datastore datastore,Transaction transaction) {
 	    this.datastore = datastore;
 	    this.transaction = transaction;
@@ -45,7 +52,7 @@ public class BaseRepository implements IBaseRepository{
 	@Override
 	public <T> void create(String clazz, String keyName) {
 		
-		Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+		Datastore datastore = getDatastoreInstance();
 	    KeyFactory keyFactory = datastore.newKeyFactory().setKind(clazz);
 	    Key key = keyFactory.newKey(keyName);
 	    Entity entity = Entity.newBuilder(key).build();
@@ -56,7 +63,7 @@ public class BaseRepository implements IBaseRepository{
 	@Override
 	public <T> void update(String clazz, String keyName, String propertyName, String value) throws DatabaseException {
 		
-		Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+		Datastore datastore = getDatastoreInstance();
 		KeyFactory keyFactory = datastore.newKeyFactory().setKind(clazz);
 		Key key = keyFactory.newKey(keyName);
 		Entity entity = datastore.get(key);
@@ -341,7 +348,7 @@ public class BaseRepository implements IBaseRepository{
 
 	
 	/**
-	   * fetching a list of entities for several keys.
+	   * obté una llista d'entitats per a diverses claus.
 	   */
 	@Override
 	public List<Entity> getMultiple(String clazz, String keyName1, String keyName2) {
@@ -366,7 +373,7 @@ public class BaseRepository implements IBaseRepository{
 
 	
 	/**
-	   * running a query to find all entities with an ancestor.
+	   * executa una consulta per trobar totes les entitats amb un avantpassat.
 	   */
 	@Override
 	public List<Entity> run(String parentClazz, String clazz, String parentKeyName) {
@@ -440,7 +447,7 @@ public class BaseRepository implements IBaseRepository{
 	}
 
 	/**
-	   * verifying if a transaction is active.
+	   * verifica si una transaccio està activa.
 	   */
 	@Override
 	public Key active(String clazz, String propertyName, String value) {
@@ -470,9 +477,9 @@ public class BaseRepository implements IBaseRepository{
 
 	
 	/**
-	   * how to delete a entity. This action also queries the keys of all "ancestors"
-	   * associated with the "entity" and uses them to delete "ancestors".
-	   */
+	 * com esborrar una entitat. Aquesta acció també consulta les claus de tots els "avantpassats"
+	 * associat amb la "entitat" i els utilitza per eliminar "avantpassats".
+	 */
 	@Override
     public void deleteEntityAndAncestors(Transaction tx, Key key, String kindAncestor) {
       Entity user = tx.get(key);
@@ -495,6 +502,11 @@ public class BaseRepository implements IBaseRepository{
       System.out.printf("Deleting entity '%s' and %d ancestor[s].%n", key.getName(), count);
     }
 	
-	
+	  /**
+	   * @return un {@link Datastore}
+	   */
+	  protected Datastore getDatastoreInstance() {
+	    return DatastoreOptions.getDefaultInstance().getService();
+	  }
 	
  }
