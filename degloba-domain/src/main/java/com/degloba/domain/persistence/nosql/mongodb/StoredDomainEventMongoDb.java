@@ -180,7 +180,7 @@ import javax.inject.Inject;
     
     
 	@Override
-	public void store(IEvent event) {
+	public void guarda(IEvent event) {
 		// TODO Auto-generated method stub
 		String a = "1";
 	}

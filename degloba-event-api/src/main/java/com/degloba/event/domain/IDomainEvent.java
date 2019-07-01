@@ -4,16 +4,19 @@ import com.degloba.event.api.IEvent;
 
 
 /**
- * Un {@link DomainEvent} és únic, però no té cicle de vida.
+ * @category Un {@link DomainEvent} és únic, però no té cicle de vida.
  * La identitat pot ser explícita, per exemple, el número de seqüència d'un pagament,
- * o es podria derivar de diversos aspectes de l'esdeveniment, com ara on, quan i què
+ * o es podria derivar de diversos aspectes de l'event, com ara on, quan i què
  * ha passat.
+ * 
+ * @author degloba
  */
 public interface IDomainEvent<T> extends IEvent {
 	
 	  /**
-	   * @param other The other domain event.
-	   * @return <code>true</code> if the given domain event and this event are regarded as being the same event.
+	   * @param altraEvent un altra event de domini.
+	   * @return <code>true</code> si es considera que l’event de domini passat com a paràmetre 
+	   * i aquest event són el mateix event.
 	   */
-	  boolean sameEventAs(T other);
+	  boolean sameEventAs(T altraEvent);
 }

@@ -1,9 +1,9 @@
-package com.degloba.event.guava.eventbus.subscriber;
+package com.degloba.event.bus.google.subscribers;
 
 import com.google.common.eventbus.Subscribe;
 
 /**
- * Classe : 
+ * @category  
  */
 public class AllEventSubscriber extends EventSubscriber<Object> {
 

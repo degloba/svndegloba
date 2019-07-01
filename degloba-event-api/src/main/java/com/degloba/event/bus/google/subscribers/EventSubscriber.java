@@ -1,4 +1,4 @@
-package com.degloba.event.guava.eventbus.subscriber;
+package com.degloba.event.bus.google.subscribers;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +8,7 @@ import java.util.List;
 import com.google.common.eventbus.EventBus;
 
 /**
- * Classe Abstracta : EventSubscriber (Implementació Google)
+ * @category Subscripció d'events (Implementació Google)
  */
 public abstract class EventSubscriber<T> {
 
@@ -19,6 +19,12 @@ public abstract class EventSubscriber<T> {
     }
 
 
+    /**
+     * @category registra un {@link EventSubscriber} d'un tipus de classe
+     * @param clazz
+     * @param eventBus
+     * @return
+     */
     public static <E extends EventSubscriber<?>> E factory(Class<E> clazz, EventBus eventBus) {
         E subscriber = null;
         try {

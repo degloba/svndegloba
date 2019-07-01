@@ -1,4 +1,4 @@
-package com.degloba.infrastructure.events.impl;
+package com.degloba.event.impl;
 
 import java.lang.reflect.Method;
 
@@ -13,11 +13,10 @@ import org.springframework.stereotype.Component;
 import com.degloba.event.annotations.EventListener;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventHandler;
-import com.degloba.event.impl.DomainEventPublisher;
 import com.degloba.event.impl.handlers.AsynchronousEventHandler;
 import com.degloba.event.impl.handlers.SpringEventHandler;
 
-import com.degloba.infrastructure.sagas.impl.SagaInstance;
+//import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
  * @category Registra mètodes beans Spring com handlers d'events en Spring {@link DomainEventPublisher}
@@ -33,7 +32,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
     	// comprovem que no sigui una Saga
-        if (!(bean instanceof SagaInstance)) {
+        //if (!(bean instanceof SagaInstance)) {
         	// per reflection recuperem els mètodes del bean
             for (Method method : bean.getClass().getMethods()) {
             	// comprovem si el mètode està anotat amb {@link EventListener}
@@ -57,7 +56,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
                 	eventPublisher.registerEventHandler(handler);
                 }                                
             }
-        }
+        //}
         return bean;
     }
 

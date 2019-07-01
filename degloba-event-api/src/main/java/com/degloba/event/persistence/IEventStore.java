@@ -3,7 +3,9 @@ package com.degloba.event.persistence;
 import com.degloba.event.api.IEvent;
 
 /**
- * @category Interfície : Magatzem d'events
+ * @category Magatzem d'events de tipus {@link IEvent}
+ * 
+ * @author degloba
  */
 public interface IEventStore<T extends IEvent> {
 
@@ -12,5 +14,5 @@ public interface IEventStore<T extends IEvent> {
 	 *  
 	 * @param event
 	 */
-    void store(T event);
+    void guarda(T event);
 }

@@ -2,6 +2,8 @@ package com.degloba.event.api;
 
 /**
  * @category Handler d'events de tipus {@link IEvent}
+ * 
+ * @author degloba
  */
 public interface IEventHandler<T extends IEvent> {
 	
@@ -12,7 +14,7 @@ public interface IEventHandler<T extends IEvent> {
 	 * 
 	 * @category retorna True si el {@link IEventHandler} pot gestionar (tractar) un {@link IEvent}
 	 */
-    boolean canHandle(T event);
+    boolean potGestionar(T event);
 
     /**
      * 
@@ -20,5 +22,5 @@ public interface IEventHandler<T extends IEvent> {
      * 
      * @category Gestiona (tracta) un event
      */
-    void handle(T event);
+    void gestiona(T event);
 }

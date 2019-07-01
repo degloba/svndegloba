@@ -11,7 +11,10 @@ import com.degloba.event.bus.IEventBus;
 import java.util.Set;
 
 /**
- * Classe : Carrega per reflection {@link AbstractEventListener}S dins d'uns packages i els registra en un {@link IEventBus} 
+ * @category Carrega per reflection {@link AbstractEventListener}S dins d'uns packages 
+ * i els registra en un {@link IEventBus}
+ * 
+ *  @author degloba
  */
 public class EventListenerLoader<T extends IEvent> {
 

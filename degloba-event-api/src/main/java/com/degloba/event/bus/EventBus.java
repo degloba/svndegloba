@@ -15,24 +15,26 @@ import java.util.List;
 
 /**
  * @category Bus d'events de tipus {@link IEvent}.</br> 
- * Conté un {@link IEventStore} i una llista de {@link IEventListener}S
+ * Conté : un {@link IEventStore} i una llista de {@link IEventListener}S
+ * 
+ * @author degloba
  */
 public final class EventBus<T extends IEvent> implements IEventBus<T> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventBus.class);
 
-    private IEventStore eventStore;
+    private IEventStore<T> eventStore;
 
     /**
      * Llista de {@link IEventListener}
      */
     private List<IEventListener<T>> listeners = new ArrayList<IEventListener<T>>();
 
-    public EventBus(IEventStore eventStore) {
+    public EventBus(IEventStore<T> eventStore) {
         this.eventStore = eventStore;
     }
 
-    public EventBus(IEventStore eventStore, List<IEventListener<T>> listeners) {
+    public EventBus(IEventStore<T> eventStore, List<IEventListener<T>> listeners) {
         Assert.notNull(eventStore, "Event Store is null.");
         this.eventStore = eventStore;
         Assert.notEmpty(listeners, "listeners must not be null or empty.");
@@ -59,7 +61,7 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
     @Override
     public void post(T event) {
         LOGGER.info("Post a event " + event + " to event bus");
-        eventStore.store(event);
+        eventStore.guarda(event);
         for (IEventListener<T> listener : listeners) {
             listener.onEvent(event);
         }

@@ -1,9 +1,9 @@
 package com.degloba.event.api;
 
-/**
- * @author degloba
- * 
+/** 
  * @category Listener d'events de tipus {@link IEvent}
+ * 
+ * @author degloba
  */
 public interface IEventListener<T extends IEvent> {
 

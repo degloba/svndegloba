@@ -1,10 +1,17 @@
 package com.degloba.event.application;
 
 /**
- * @category Interfície : ApplicationEventPublisher
+ * @category Publicador d'events d'aplicació
+ * 
+ * 
  */
 public interface IApplicationEventPublisher<T> {
-    void publish(T event);
+	/**
+	 * @category publica un event
+	 * 
+	 * @param event
+	 */
+    void publica(T event);
 }   
     
 /*public interface IApplicationEventPublisher {

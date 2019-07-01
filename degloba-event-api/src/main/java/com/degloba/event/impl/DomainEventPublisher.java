@@ -8,23 +8,24 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// Spring
 import org.springframework.stereotype.Component;
 
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventHandler;
-// Events
+
 import com.degloba.event.application.IApplicationEventPublisher;
 import com.degloba.event.domain.IDomainEvent;
 import com.degloba.event.domain.IDomainEventPublisher;
 
 /**
- * @category Publicador d'events de domini de tipus {@link IEvent}
- * <p/>
+ * @category Publicador d'events de domini de tipus {@link IEvent}<p/>
+ * Es un {@link Component} Spring.<p/>
  * Els handlers estan en memoria ({@link HashSet})
+ * 
+ * @author degloba
  */
 @Component
-public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<Object> {
+public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<T> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DomainEventPublisher.class);
 
@@ -40,23 +41,20 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
         eventHandlers.add(handler);
         // new SpringEventHandler(eventType, beanName, method));
     }
-    
-    public void publish(T event) {
-        doPublish(event);
-    }
+
 
     /**
      * 
      * @param event
      * 
-     * @category Cerca dins la colecció {@link eventHandlers} un {@link IEventHandler} que pot gestionar (tractar) el 
+     * @category Cerca dins la colecció {@link eventHandlers} un {@link IEventHandler} que pot tractar el 
      * {@link IEvent} i executa el seu mètode Handle
      */
     protected void doPublish(T event) {
         for (IEventHandler<T> handler : new ArrayList<IEventHandler<T>>(eventHandlers)) {
-            if (handler.canHandle(event)) {
+            if (handler.potGestionar(event)) {
                 try {
-                    handler.handle(event);
+                    handler.gestiona(event);
                 } catch (Exception e) {
                     LOGGER.error("event handling error", e);
                 }
@@ -64,9 +62,23 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
         }
     }
 
+    /**
+     * Publica l'event
+     */
 	@Override
-	public void publish(Object event) {
+	public void publica(T event) {
+		// TODO Auto-generated method stub
+		doPublish(event);
+	}
+
+
+	@Override
+	public void publica(IDomainEvent<T> event) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
 }

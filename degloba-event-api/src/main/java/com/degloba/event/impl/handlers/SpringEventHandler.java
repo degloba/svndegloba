@@ -9,6 +9,8 @@ import com.degloba.event.api.IEventHandler;
 
 /**
  * @category Handler d'events de tipus d'events {@link IEvent} implementat amb Spring
+ * 
+ * @author degloba
  */
 public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
 
@@ -32,11 +34,11 @@ public class SpringEventHandler<T extends IEvent> implements IEventHandler<T> {
         this.beanFactory = beanFactory;
     }
 
-    public boolean canHandle(T event) {
+    public boolean potGestionar(T event) {
         return eventType.isAssignableFrom(event.getClass());
     }
 
-    public void handle(T event) {
+    public void gestiona(T event) {
         Object bean = beanFactory.getBean(beanName);
         try {
             method.invoke(bean, event);

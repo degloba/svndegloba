@@ -1,8 +1,14 @@
-package com.degloba.event.guava.eventbus.subscriber;
+package com.degloba.event.bus.google.subscribers;
+
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
+/**
+ * 
+ * @author degloba
+ *
+ */
 public class InvalidSubscriberNoParameters {
 
     private InvalidSubscriberNoParameters() {

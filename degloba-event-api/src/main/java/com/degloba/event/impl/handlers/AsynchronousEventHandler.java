@@ -7,7 +7,7 @@ import org.springframework.beans.factory.BeanFactory;
 import com.degloba.event.api.IEvent;
 
 /**
- * EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
+ * @category EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
  * 
  * @author degloba
  *

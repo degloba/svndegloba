@@ -6,7 +6,7 @@ import com.degloba.event.api.IEventListener;
 /**
  * @author degloba
  * 
- * @category Interficie : Bus d'events de tipus {@link IEvent}
+ * @category Bus d'events de tipus {@link IEvent}
  */
 public interface IEventBus<T extends IEvent> {
 

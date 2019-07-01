@@ -1,4 +1,4 @@
-package com.degloba.event.guava.eventbus.events;
+package com.degloba.event.bus.google.events;
 
 public class SimpleEvent {
 
