@@ -3,10 +3,12 @@ package com.degloba.lloguers.facade.objectify;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 
 /**
+ * @category
+ * 
  * @author degloba
  */
-public interface OwnerFacade {
+public interface PropietariFacade {
 
-    void createOwner(Propietari propietari);
+    void creaPropietari(Propietari propietari);
 
 }

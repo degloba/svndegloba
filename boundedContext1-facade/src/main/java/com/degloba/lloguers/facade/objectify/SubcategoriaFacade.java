@@ -3,10 +3,12 @@ package com.degloba.lloguers.facade.objectify;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
 /**
+ * @category
+ * 
  * @author degloba
  */
-public interface SubcategoryFacade {
+public interface SubcategoriaFacade {
 
-    void createSubcategory(SubCategoria subCategoria);
+    void creaSubcategoria(SubCategoria subCategoria);
 
 }
