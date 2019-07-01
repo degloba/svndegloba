@@ -52,7 +52,7 @@ public class FileUploadController {
 					Photo photo = new Photo();
 				   	    		    		    
 				    // 3.- Recuperem el "Product" (Objectify)
-					//Key<Product> product = this.rentRepositoryObjectify.getKey(Product.class, productView.getProductId());
+					//Key<Product> product = this.rentRepositoryObjectify.getKey(Product.class, productView.getProducteId());
 							    
 					//photo.setProduct(product);
 					photo.setIdGcs(file);
