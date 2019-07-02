@@ -21,38 +21,19 @@ public class LloguerService implements ILloguerService {
 
 
 	@Override
-	public void createCategory(Categoria categoria) {
+	public void creaCategoria(Categoria categoria) {
 		rentRepositoryObjectify.create(categoria);
 	}
 	
-/*	Si l'Entitat es Nosql/datastoreGoogle (Api Objectify)
- * @Override
-	public void createCategory(Category category) {
-		categoryRepositoryObjectify.create(category);
-	}*/
-
 	
-/*	public IRentRepository getCategoryRepositoryJpa() {
-		return rentRepositoryJpa;
-	}
-
-	public void setCategoryRepositoryJpa(IRentRepository rentRepositoryJpa) {
-		this.rentRepositoryJpa = rentRepositoryJpa;
-	}
-*/
 	@Override
-	public void createPhoto(Foto foto) {
+	public void creaFoto(Foto foto) {
 		rentRepositoryObjectify.create(foto);
 	}
 
+	
 	@Override
-	public void createSubcategory(SubCategoria subCategoria) {
-		rentRepositoryObjectify.save(subCategoria);
-
-	}
-
-	@Override
-	public void createOwner(Propietari propietari) {
+	public void creaPropietari(Propietari propietari) {
 		rentRepositoryObjectify.create(propietari);
 
 	}
@@ -63,6 +44,12 @@ public class LloguerService implements ILloguerService {
 
 	public void setRentRepositoryObjectify(ILloguerRepository rentRepositoryObjectify) {
 		this.rentRepositoryObjectify = rentRepositoryObjectify;
+	}
+
+	@Override
+	public void creaSubCategoria(SubCategoria subCategoria) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

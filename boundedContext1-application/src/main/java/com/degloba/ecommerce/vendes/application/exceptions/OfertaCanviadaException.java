@@ -2,16 +2,22 @@ package com.degloba.ecommerce.vendes.application.exceptions;
 
 
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
 @SuppressWarnings("serial")
-public class OfferChangedException extends RuntimeException {
+public class OfertaCanviadaException extends RuntimeException {
 	
 	private AggregateId comandaId;
 	private Oferta seenOffer;
 	private Oferta newOffer;
 	
-	public OfferChangedException(AggregateId comandaId, Oferta seenOffer,
+	public OfertaCanviadaException(AggregateId comandaId, Oferta seenOffer,
 			Oferta newOffer) {
 		this.comandaId = comandaId;
 		this.seenOffer = seenOffer;

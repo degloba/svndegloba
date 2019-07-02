@@ -5,14 +5,18 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
-
+/**
+ * 
+ * @author degloba
+ *
+ */
 public interface ILloguerService {
 
 	void creaCategoria(Categoria categoria);
 	
     void creaFoto(Foto foto);
     
-    void creaSubCategoria(SubCategoria subCategoria);
+    void creaSubcategoria(SubCategoria subCategoria);
     
     void creaPropietari(Propietari propietari);
 }

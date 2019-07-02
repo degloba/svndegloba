@@ -5,21 +5,26 @@ import javax.inject.Inject;
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
-import com.degloba.ecommerce.enviaments.application.commands.DeliverShipmentCommand;
+import com.degloba.ecommerce.enviaments.application.commands.EntregaEnviamentCommand;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 
 
-
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
 @CommandHandlerAnnotation
-public class DeliverShipmentCommandHandler implements ICommandHandler<DeliverShipmentCommand, Void> {
+public class EntregaEnviamentCommandHandler implements ICommandHandler<EntregaEnviamentCommand, Void> {
 
     @Inject
     private IEnviamentsRepository enviamentsRepository;
 
     @Override
-    public Void handle(DeliverShipmentCommand command) {
+    public Void handle(EntregaEnviamentCommand command) {
         Enviament enviament = enviamentsRepository.get(Enviament.class,command.getEnviamentId());
-        enviament.deliver();
+        enviament.entregar();
         return null;
     }
 }
