@@ -9,6 +9,8 @@ import com.google.common.eventbus.EventBus;
 
 /**
  * @category Subscripció d'events (Implementació Google)
+ * 
+ * @author degloba
  */
 public abstract class EventSubscriber<T> {
 

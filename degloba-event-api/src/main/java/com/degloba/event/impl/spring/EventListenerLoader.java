@@ -1,4 +1,4 @@
-package com.degloba.event.impl;
+package com.degloba.event.impl.spring;
 
 import org.reflections.Reflections;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.degloba.event.impl;
+package com.degloba.event.impl.spring;
 
 import java.lang.reflect.Method;
 
@@ -13,14 +13,18 @@ import org.springframework.stereotype.Component;
 import com.degloba.event.annotations.EventListener;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventHandler;
-import com.degloba.event.impl.handlers.AsynchronousEventHandler;
-import com.degloba.event.impl.handlers.SpringEventHandler;
+import com.degloba.event.impl.spring.handlers.AsynchronousEventHandler;
+import com.degloba.event.impl.spring.handlers.SpringEventHandler;
+
 
 //import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
  * @category Registra mètodes beans Spring com handlers d'events en Spring {@link DomainEventPublisher}
- * (if needed).
+ * (if needed).<br>
+ * Aquest mètodes són els que estàn annotats amb {@link EventListener}
+ * 
+ * @author degloba
  */
 @Component
 public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPostProcessor, BeanFactoryAware {

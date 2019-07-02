@@ -16,7 +16,6 @@ import com.degloba.cqrs.query.annotations.Finder;
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
 
 /**
- * 
  * @author degloba
  *
  * @category {@link Finder} de {@link Enviament}
@@ -30,8 +29,8 @@ public class EnviamentFinder implements IEnviamentFinder {
 
     @SuppressWarnings("unchecked")
 	@Override
-    public List<EnviamentDto> findShipment() {
-        String jpql = "select new com.degloba.ecommerce.enviaments.readmodel.EnviamentDto(s.id, s.comandaId, s.status) from com.degloba.ecommerce.shipping.domain.Shipment s";
+    public List<EnviamentDto> buscaEnviaments() {
+        String jpql = "select new com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto(s.id, s.comandaId, s.status) from com.degloba.ecommerce.shipping.domain.Shipment s";
         Query query = entityManager.createQuery(jpql);
         return query.getResultList();
     }

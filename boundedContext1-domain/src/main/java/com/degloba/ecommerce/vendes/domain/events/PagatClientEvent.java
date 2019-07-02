@@ -46,7 +46,7 @@ public class PagatClientEvent implements IDomainEvent<Object> {
 		return quantitat;
 	}
 
-	public boolean sameEventAs(Object altraEvent) {
+	public boolean esIgualque(Object altraEvent) {
 		// TODO Auto-generated method stub
 		return false;
 	}

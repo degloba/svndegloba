@@ -14,15 +14,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 // CQRS
 import com.degloba.cqrs.command.Gate;
-import com.degloba.ecommerce.enviaments.application.commands.DeliverShipmentCommand;
-import com.degloba.ecommerce.enviaments.application.commands.SendShipmentCommand;
+import com.degloba.ecommerce.enviaments.application.commands.EntregaEnviamentCommand;
+import com.degloba.ecommerce.enviaments.application.commands.EntregarEnviamentCommand;
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
 
-
+/**
+ * @category es un {@link Controller} que gestiona els {@link Enviament}s
+ * 
+ * @author degloba
+ *
+ */
 @Controller
 @RequestMapping("/shipping/shipment")
-public class ShipmentsListController {
+public class LlistaEnviamentsController {
 
     @Inject
     private IEnviamentFinder enviamentFinder;
@@ -32,7 +37,7 @@ public class ShipmentsListController {
 
     @RequestMapping("/list")
     public String shippingList(Model model) {
-        List<EnviamentDto> shipments = enviamentFinder.findShipment();
+        List<EnviamentDto> shipments = enviamentFinder.buscaEnviaments();
         model.addAttribute("shipments", shipments);
         return "/shipping/shipmentsList";
     }

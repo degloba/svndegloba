@@ -1,20 +1,4 @@
-package com.degloba.bigdata.pubSub;
-
-/*
- * Copyright 2016 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+package com.degloba.infrastructure.bigdata.pubSub;
 
 
 import com.google.cloud.pubsub.v1.AckReplyConsumer;
@@ -28,13 +12,14 @@ import com.google.pubsub.v1.PubsubMessage;
 import com.google.pubsub.v1.PushConfig;
 
 /**
-* Crea una {@link Subscription} i un {@link MessageReceiver}
+ * Crea una {@link Subscription} i un {@link MessageReceiver}
  * treure els missatges de manera asíncrona.
  */
 public class CreateSubscriptionAndConsumeMessages {
 	
 	/**
-	 * Crea una {@link Subscription} que està definida pel {@link Topic} , un {@link Subscriber}
+	 * @category Crea una {@link Subscription} que està definida pel {@link Topic} , un {@link Subscriber}
+	 * 
 	 * @param projecte
 	 * @param nousubscription
 	 * @param topicSubscription
@@ -43,8 +28,7 @@ public class CreateSubscriptionAndConsumeMessages {
 	 public static void createSubscription(String projecte, String nouSubscription, String topicSubscription) throws Exception {
 		 ProjectTopicName topic = CreateTopicAndPublishMessages.createTopic(projecte, topicSubscription);
 				 				 
-		 ProjectSubscriptionName subscription =
-			        ProjectSubscriptionName.of(projecte, nouSubscription);
+		 ProjectSubscriptionName subscription = ProjectSubscriptionName.of(projecte, nouSubscription);
 		 
 		 try (SubscriptionAdminClient subscriptionAdminClient = SubscriptionAdminClient.create()) {
 		      subscriptionAdminClient.createSubscription(

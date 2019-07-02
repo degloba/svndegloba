@@ -16,7 +16,7 @@ public abstract class AbstractEvent implements IEvent {
 
     private Date occurredOn = new Date();
 
-    private int version = 1;
+    private int versio = 1;
 
     public AbstractEvent() {
         this(new Date(), 1);
@@ -32,7 +32,7 @@ public abstract class AbstractEvent implements IEvent {
      public AbstractEvent(Date occurredOn, int version) {
         Assert.notNull(occurredOn);
         this.occurredOn = new Date(occurredOn.getTime());
-        this.version = version;
+        this.versio = version;
     }
 
      @Override
@@ -47,7 +47,7 @@ public abstract class AbstractEvent implements IEvent {
 
     @Override
     public int version() {
-        return version;
+        return versio;
     }
 
     @Override

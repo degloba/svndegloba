@@ -8,6 +8,11 @@ package com.degloba.event.domain;
  */
 public interface IDomainEventPublisher<T extends IDomainEvent<?>> {
 
+	/**
+	 * @category publica un event
+	 * 
+	 * @param event
+	 */
 	void publica(T event);
 	
 }

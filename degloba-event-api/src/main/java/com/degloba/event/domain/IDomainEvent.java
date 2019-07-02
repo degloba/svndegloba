@@ -18,5 +18,5 @@ public interface IDomainEvent<T> extends IEvent {
 	   * @return <code>true</code> si es considera que l’event de domini passat com a paràmetre 
 	   * i aquest event són el mateix event.
 	   */
-	  boolean sameEventAs(T altraEvent);
+	  boolean esIgualque(T altraEvent);
 }

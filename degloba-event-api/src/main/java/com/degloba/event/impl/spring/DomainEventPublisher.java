@@ -1,4 +1,4 @@
-package com.degloba.event.impl;
+package com.degloba.event.impl.spring;
 
 
 import java.util.ArrayList;
@@ -44,7 +44,6 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
 
 
     /**
-     * 
      * @param event
      * 
      * @category Cerca dins la colecció {@link eventHandlers} un {@link IEventHandler} que pot tractar el 

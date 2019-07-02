@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.degloba.lloguers.cqrs.readmodel.finders.ILloguerFinder;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.facade.objectify.CategoryFacade;
+import com.degloba.lloguers.facade.objectify.CategoriaFacade;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.DatabaseException;
 import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
 import com.googlecode.objectify.Key;
@@ -31,7 +31,7 @@ public class CarregaEntitatsController {
 	
 	 
     @Inject
-    protected CategoryFacade facadeCategoryObjectify;
+    protected CategoriaFacade facadeCategoryObjectify;
     	    
     @Inject
     protected ILloguerFinder finderCategory;

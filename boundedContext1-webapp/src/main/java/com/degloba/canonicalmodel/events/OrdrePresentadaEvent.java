@@ -2,7 +2,7 @@ package com.degloba.canonicalmodel.events;
 
 import java.io.Serializable;
 
-import com.degloba.persistence.domain.AggregateId;
+import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 
 	@SuppressWarnings("serial")
