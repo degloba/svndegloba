@@ -16,7 +16,7 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 /**
- * @category Entitat Enviament
+ * @category Entitat de persistencia d'un enviament
  * 
  * @author degloba
  */
@@ -45,7 +45,7 @@ public class Enviament extends BaseAggregateRoot {
     /**
      * L'entrega ha estat enviada al client.
      */
-    public void ship() {
+    public void envia() {
         if (estatEnviament != EstatEnviament.WAITING) {
             throw new IllegalStateException("cannot ship in status " + estatEnviament);
         }
@@ -61,7 +61,8 @@ public class Enviament extends BaseAggregateRoot {
             throw new IllegalStateException("cannot deliver in status " + estatEnviament);
         }
         estatEnviament = EstatEnviament.DELIVERED;
-        ////////eventPublisher.publish(new ShipmentDeliveredEvent(getAggregateId()));
+        
+       // eventPublisher.publish(new EnviamentLliuratEvent(getAggregateId()));
     }
 
     public AggregateId getComandaId() {    	
