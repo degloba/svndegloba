@@ -6,7 +6,7 @@ import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 
-public class QuantityDiscount implements DescomptePolicy {
+public class QuantitatDescompte implements DescomptePolicy {
  /*
   * Ratio de Descompte
   */
@@ -14,7 +14,7 @@ public class QuantityDiscount implements DescomptePolicy {
 	
 	private int mininalQuantity;
 	
-	public QuantityDiscount(double rebate, int mininalQuantity) {
+	public QuantitatDescompte(double rebate, int mininalQuantity) {
 		rebateRatio = rebate / 100;
 		this.mininalQuantity = mininalQuantity;
 	}

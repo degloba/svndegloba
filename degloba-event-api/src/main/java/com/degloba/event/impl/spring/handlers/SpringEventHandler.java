@@ -1,4 +1,4 @@
-package com.degloba.event.impl.handlers;
+package com.degloba.event.impl.spring.handlers;
 
 import java.lang.reflect.Method;
 
