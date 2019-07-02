@@ -32,10 +32,4 @@ public class PagamentRolledBackEvent extends DomainEvent {
 		return pagamentId;
 	}
 
-
-	public boolean sameEventAs(Object altraEvent) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

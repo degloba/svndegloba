@@ -11,7 +11,7 @@ import com.degloba.domain.event.DomainEvent;
 import com.degloba.event.annotations.Event;
 import com.degloba.event.api.AbstractEvent;
 import com.degloba.event.domain.IDomainEvent;
-
+import com.degloba.domain.event.DomainEvent;
 
 /**
  * @category Un client ha fet un pagament
@@ -19,9 +19,8 @@ import com.degloba.event.domain.IDomainEvent;
  * @author degloba
  * 
  */
-
 @Event
-public class PagatClientEvent implements IDomainEvent<Object> {
+public class PagatClientEvent extends DomainEvent {
 
     private final AggregateId pagamentId;
     private ClientData clientData;
@@ -44,29 +43,6 @@ public class PagatClientEvent implements IDomainEvent<Object> {
 	
 	public Money getQuantitat() {
 		return quantitat;
-	}
-
-	public boolean esIgualque(Object altraEvent) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String id() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Date occurredOn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int version() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

@@ -30,11 +30,4 @@ public class ComandaEnviadaEvent extends DomainEvent  {
 		return comandaId;
 	}
 
-	public boolean sameEventAs(Object altraEvent) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
 }

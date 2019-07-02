@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 
 import com.degloba.event.annotations.Event;
+import com.degloba.event.api.AbstractEvent;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 /**
@@ -15,7 +16,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  */
 @SuppressWarnings("serial")
 @Event
-public class EstatClientCanviatEvent implements Serializable {
+public class EstatClientCanviatEvent extends AbstractEvent {
 
     private final AggregateId clientId;
     private final EstatClient estatClient;

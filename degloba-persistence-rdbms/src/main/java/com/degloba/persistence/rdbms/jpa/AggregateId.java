@@ -34,18 +34,7 @@ public class AggregateId implements Serializable {
     		
     	}          
     
-        
-    /*
-     * NOTA : s'ha de comentar perque dóna la seguent excepcio :
-     * Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: BLOB/TEXT column 'JDODETACHEDSTATE' used in key specification without a key length
-Error Code: 1170
-
-     */
-    
-/*   public String getId() {
-		return aggregateId;
-	}*/
-    
+  
     public static AggregateId generate(){                
     		return new AggregateId(UUID.randomUUID().toString());        
     		}      
