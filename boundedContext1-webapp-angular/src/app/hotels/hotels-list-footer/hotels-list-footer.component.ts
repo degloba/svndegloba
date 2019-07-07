@@ -9,7 +9,7 @@ import { Hotel } from '../../model/hotel';
 export class HotelsListFooterComponent {
 
     @Input()
-    todos: Hotel[];
+    hotels: Hotel[];
 
     constructor() {
     }

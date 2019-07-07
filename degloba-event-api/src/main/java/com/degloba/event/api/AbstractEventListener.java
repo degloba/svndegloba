@@ -17,7 +17,13 @@ public abstract class AbstractEventListener<T extends IEvent> implements IEventL
         handle((T) event);
     }
 
-    //
+    /**
+     * @category retorna  @True si la propia instància (es un {@link EventListenr}) suporta l'event
+     * que ha rebut
+     * 
+     * @param event
+     * @return
+     */
     private boolean supports(T event) {
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         Class<?> eventClass = (Class<?>) parameterizedType.getActualTypeArguments()[0];

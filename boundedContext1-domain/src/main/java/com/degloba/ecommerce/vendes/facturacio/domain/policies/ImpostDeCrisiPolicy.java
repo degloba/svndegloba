@@ -23,7 +23,7 @@ public class ImpostDeCrisiPolicy implements IImpostPolicy{
 	}
 	
 	@Override
-	public Tax calculateTax(TipusProducte tipusProducte, Money net) {
+	public Tax calculaImpost(TipusProducte tipusProducte, Money net) {
 		String desc = "sorry";				
 		Money tax = net.multiplyBy(ratio);
 		return new Tax(tax, desc);

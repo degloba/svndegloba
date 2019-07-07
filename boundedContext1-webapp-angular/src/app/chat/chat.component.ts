@@ -20,6 +20,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { MatSnackBar } from '@angular/material';
 import * as firebase from 'firebase';
 
+
 const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 const PROFILE_PLACEHOLDER_IMAGE_URL = '/assets/images/profile_placeholder.png';
 
@@ -28,7 +29,7 @@ const PROFILE_PLACEHOLDER_IMAGE_URL = '/assets/images/profile_placeholder.png';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class AppComponent {
+export class ChatComponent {
   user: Observable<firebase.User>;
   currentUser: firebase.User;
   messages: Observable<any[]>;

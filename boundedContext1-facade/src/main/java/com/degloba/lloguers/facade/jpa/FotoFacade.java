@@ -5,7 +5,7 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 /**
  * @author degloba
  */
-public interface PhotoFacade {
+public interface FotoFacade {
 
     void createPhoto(Foto foto);
 

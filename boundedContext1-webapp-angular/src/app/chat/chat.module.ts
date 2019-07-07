@@ -26,6 +26,8 @@ import { MatSnackBarModule } from '@angular/material';
 // import { ChatComponent } from './chat.component';
 import { StylizePipe } from './stylize.pipe';
 import { environment } from '../../environments/environment';
+import { ChatComponent } from "app/chat/chat.component";
+
 
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
@@ -46,10 +48,11 @@ if (!environment.firebase) {
 
 @NgModule({
   declarations: [
-    //ChatComponent,
+    ChatComponent,
     StylizePipe
   ],
   imports: [
+
     BrowserModule,
     FormsModule,
     HttpModule,

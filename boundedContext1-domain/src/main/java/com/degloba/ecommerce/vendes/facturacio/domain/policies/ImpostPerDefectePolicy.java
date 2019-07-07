@@ -21,7 +21,7 @@ public class ImpostPerDefectePolicy implements IImpostPolicy{
 				
 	
 	@Override
-	public Tax calculateTax(TipusProducte tipusProducte, Money net) {
+	public Tax calculaImpost(TipusProducte tipusProducte, Money net) {
 		BigDecimal ratio = null;
 		String desc = null;
 		

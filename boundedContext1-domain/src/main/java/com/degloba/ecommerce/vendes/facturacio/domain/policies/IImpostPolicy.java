@@ -22,6 +22,6 @@ public interface IImpostPolicy {
 	 * @param net
 	 * @return
 	 */
-	public Tax calculateTax(TipusProducte tipusProducte, Money net);
+	public Tax calculaImpost(TipusProducte tipusProducte, Money net);
 
 }

@@ -20,18 +20,21 @@ public class EventListenerLoader<T extends IEvent> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventListenerLoader.class);
 
-    // {@link IEventBus}
-    private IEventBus<?> eventBus;
+    /**
+     *  {@link IEventBus}
+     */
+    private IEventBus<T> eventBus;
 
     private String[] packages;
 
-    public EventListenerLoader(IEventBus<?> eventBus, String[] packages) {
+    public EventListenerLoader(IEventBus<T> eventBus, String[] packages) {
         this.eventBus = eventBus;
         this.packages = packages;
     }
 
     /**
-     * Cerca tots els {@link AbstractEventListener}S dins dels packages i els registra en {@link IEventBus}
+     * @category Cerca tots els {@link AbstractEventListener}S dins dels packages 
+     * i els registra en {@link IEventBus}
      */
     public void execute() {
         for (String each : packages) {

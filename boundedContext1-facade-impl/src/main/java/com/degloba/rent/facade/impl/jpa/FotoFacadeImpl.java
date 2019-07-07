@@ -4,19 +4,19 @@ import javax.inject.Inject;
 
 import com.degloba.lloguers.application.services.ILloguerService;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguers.facade.jpa.PhotoFacade;
+import com.degloba.lloguers.facade.jpa.FotoFacade;
 
 
-public class PhotoFacadeImpl implements PhotoFacade {
+public class FotoFacadeImpl implements FotoFacade {
 
     @Inject
-    protected ILloguerService photoApplication;
+    protected ILloguerService fotoApplication;
 
-    public PhotoFacadeImpl(ILloguerService application) {
-        this.photoApplication = application;
+    public FotoFacadeImpl(ILloguerService application) {
+        this.fotoApplication = application;
     }
    
-	public PhotoFacadeImpl() {
+	public FotoFacadeImpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -24,15 +24,15 @@ public class PhotoFacadeImpl implements PhotoFacade {
 	@Override
 	public void createPhoto(Foto foto) {
 		// TODO Auto-generated method stub
-		photoApplication.createPhoto(foto);
+		fotoApplication.creaFoto(foto);
 	}
 
-	public ILloguerService getPhotoApplication() {
-		return photoApplication;
+	public ILloguerService getFotoApplication() {
+		return fotoApplication;
 	}
 
-	public void setPhotoApplication(ILloguerService photoApplication) {
-		this.photoApplication = photoApplication;
+	public void setFotoApplication(ILloguerService fotoApplication) {
+		this.fotoApplication = fotoApplication;
 	}
 	
 		

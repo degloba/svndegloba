@@ -64,7 +64,7 @@ private final static Logger logger = Logger.getLogger(LloguerRepository.class.ge
 	}
 
 	@Override
-	public void savePhoto(Foto photo) {
+	public void guardaFoto(Foto photo) {
 		// TODO Auto-generated method stub
 		try {
 			

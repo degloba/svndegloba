@@ -7,6 +7,8 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 
 /**
  * @category Repositori : Lloguer
+ * 
+ * @author degloba
  */
 @DomainRepository
 public interface ILloguersRepository extends IEntityRepository {
@@ -19,7 +21,7 @@ public interface ILloguersRepository extends IEntityRepository {
 	
 	public Foto loadPhoto(long id);
 
-	public void savePhoto(Foto client);
+	public void guardaFoto(Foto client);
 	
 	
 }

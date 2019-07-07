@@ -242,21 +242,21 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	    		
 	    		
 	    		
-	    		Details amountDetails = new Details();
-	    		amountDetails.setSubtotal("7.41");
-	    		amountDetails.setTax("0.03");
-	    		amountDetails.setShipping("0.03");
+	    		Details quantitatDetails = new Details();
+	    		quantitatDetails.setSubtotal("7.41");
+	    		quantitatDetails.setTax("0.03");
+	    		quantitatDetails.setShipping("0.03");
 
-	    		Amount amount = new Amount();
-	    		amount.setTotal("7.47");
-	    		amount.setCurrency("USD");
-	    		amount.setDetails(amountDetails);
+	    		Amount quantitat = new Amount();
+	    		quantitat.setTotal("7.47");
+	    		quantitat.setCurrency("USD");
+	    		quantitat.setDetails(quantitatDetails);
 
 	    		// The Payment creation API requires a list of			
 	    		// Transaction; add the created `Transaction`			
 	    		// to a List
 	    		Transaction transaction = new Transaction();
-	    		transaction.setAmount(amount);
+	    		transaction.setAmount(quantitat);
 	    		transaction.setDescription("This is the payment transaction description.");
 
 	    		List<Transaction> transactions = new ArrayList<Transaction>();
@@ -321,8 +321,8 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	     	  	System.out.println("\nTransaction ID: " + response.getTransactionID());
 	     	  	System.out.println("CVV2: " + response.getCVV2Code());
 	     	  	System.out.println("AVS: " + response.getAVSCode());
-	     	  	System.out.println("Quantitat Total: " + response.getAmount().getCurrencyID() 
-	    			+ " " + response.getAmount().get_value());*/
+	     	  	System.out.println("Quantitat Total: " + response.getQuantitat().getCurrencyID() 
+	    			+ " " + response.getQuantitat().get_value());*/
 	    			
 	    		
 	        }
@@ -479,7 +479,7 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	  	
 	}
 
-	public ChargeResult charge(CreditCard creditCard, Object amount) {
+	public ChargeResult charge(CreditCard creditCard, Object quantitat) {
 		// TODO Auto-generated method stub
 		return null;
 	}

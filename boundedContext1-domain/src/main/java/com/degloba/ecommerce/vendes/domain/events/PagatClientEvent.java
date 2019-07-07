@@ -22,7 +22,11 @@ import com.degloba.domain.event.DomainEvent;
 @Event
 public class PagatClientEvent extends DomainEvent {
 
-    private final AggregateId pagamentId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final AggregateId pagamentId;
     private ClientData clientData;
     private Money quantitat;
     

@@ -11,9 +11,9 @@ import com.degloba.ecommerce.vendes.facturacio.domain.policies.IImpostPolicy;
  * @category Servei Assessor fiscal
  */
 @DomainService
-public class TaxAdvisorService {
+public class AssesorFiscalService {
 
-	public IImpostPolicy suggestBestTax(Client client){
+	public IImpostPolicy suggereixMillorImpost(Client client){
 		//TODO explore domain rules
 		return new ImpostPerDefectePolicy();
 	}

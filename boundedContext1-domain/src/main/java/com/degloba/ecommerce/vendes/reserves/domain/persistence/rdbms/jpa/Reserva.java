@@ -207,7 +207,7 @@ public class Reserva extends BaseAggregateRoot{
 		ArrayList<ProducteReservat> result = new ArrayList<ProducteReservat>(items.size());
 		
 		for (ReservaItem item : items) {
-			result.add(new ProducteReservat(item.getProducte().getAggregateId(), item.getProducte().getName(), item.getQuantitat(), calculateItemCost(item)));
+			result.add(new ProducteReservat(item.getProducte().getAggregateId(), item.getProducte().getNom(), item.getQuantitat(), calculateItemCost(item)));
 		}
 		
 		return result;

@@ -126,14 +126,14 @@ public class Dictionary extends BaseAggregateRoot {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public String getDescripcio() {
         return description;
     }
 
     /**
      * @param description the description to set
      */
-    public void setDescription(String description) {
+    public void setDescripcio(String description) {
         this.description = description;
     }
 

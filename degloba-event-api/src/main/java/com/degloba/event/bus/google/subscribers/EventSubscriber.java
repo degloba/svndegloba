@@ -22,7 +22,7 @@ public abstract class EventSubscriber<T> {
 
 
     /**
-     * @category registra un {@link EventSubscriber} d'un tipus de classe
+     * @category registra un {@link EventSubscriber} d'un tipus de classe en el {@link EventBus}
      * @param clazz
      * @param eventBus
      * @return

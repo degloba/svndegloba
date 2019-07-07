@@ -21,9 +21,6 @@ import com.degloba.persistence.domain.sharedkernel.Money;
  * <li> Is used only (or not many) in one Use Case/user Story so is not essential for any Aggregate
  * <ul>
  * 
- * Cal tenir en compte que aquest servei de domini és gestionat pel corresponet container (Spring) per 
- * poder injectar dependències com Repo 
- * 
  * @author degloba
  *
  */
@@ -34,12 +31,19 @@ public class BookKeeperService {
 	@Inject
 	private FacturesFactory facturesFactory;
 	
-	public Factura issuance(PeticioFactura peticioFactura, IImpostPolicy impostPolicy){
+	/**
+	 * @category emet una factura
+	 * 
+	 * @param peticioFactura
+	 * @param impostPolicy
+	 * @return
+	 */
+	public Factura emet(PeticioFactura peticioFactura, IImpostPolicy impostPolicy){
 		Factura factura = facturesFactory.create(peticioFactura.getClientData());
 		
 		for (RequestItem item : peticioFactura.getItems()){
 			Money net = item.getTotalCost();			
-			Tax tax = impostPolicy.calculateTax(item.getProductData().getType(), net);			
+			Tax tax = impostPolicy.calculaImpost(item.getProductData().getType(), net);			
 						
 			LiniaFacturacio liniaFacturacio = new LiniaFacturacio(item.getProductData(), item.getQuantitat(), net, tax);			
 			factura.addItem(liniaFacturacio);
