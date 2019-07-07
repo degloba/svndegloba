@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber;
 
 
-import com.degloba.ecommerce.vendes.application.events.CompraEvent;
+import com.degloba.ecommerce.vendes.cqrs.events.CompraEvent;
 import com.degloba.event.bus.google.subscribers.EventSubscriber;
 import com.google.common.eventbus.Subscribe;
 

@@ -14,11 +14,13 @@ import com.degloba.event.annotations.EventListener;
 
 
 /**
-* Quan un client envia una comanda, crea automàticament un enviament en Estat d'espera.
+ * @category Quan un client envia una comanda, crea automàticament un enviament en Estat d'espera.
  * 
  * NOTA: Aquest és un exemple de comunicació a través de múltiples bounded Context
  * utilitzant events. En aquest context, no podem accedir a l'agregat {@link Order} directament, en lloc d'això 
  * utilitzem DTO del model de lectura.
+ *
+ * @author degloba
  * 
  */
 @EventListeners

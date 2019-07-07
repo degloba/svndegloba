@@ -6,12 +6,12 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
-import com.degloba.ecommerce.vendes.application.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
 import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.vendes.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.cqrs.commands.OrderDetailsCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.equivalent.SuggestionService;
 import com.degloba.ecommerce.vendes.ofertes.domain.factories.DescompteFactory;
@@ -27,11 +27,9 @@ import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 
 
 /**
- * Ordering Use Case steps<br>
- * Each step is a Domain Story<br>
- * <br>
+ * Casos d'ùs de les comandes<br>
  * Cal tenir en compte que el llenguatge de l’aplicació és diferent (més simple) que el llenguatge del domini,</br>
- *  per exemple: no volem exposar conceptes de domini com ara la {@link Compra} i la {@link Reserva} a les capes superiors, 
+ * per exemple: no volem exposar conceptes de domini com ara la {@link Compra} i la {@link Reserva} a les capes superiors, 
  * que les amagem sota el terme {@link Order}.  
  * <br>
  * Tècnicament, el servei d’aplicacions és només un munt de procediments; per tant, els principis d’OO (ex: CqS, SOLID, GRASP) no s’apliquen aquí
@@ -76,12 +74,11 @@ public class ComandesServiceImpl implements IComandesService {
 	 * Carga la {@link Reserva} per la comandaId<br>
 	 * Carga el {@link Producte} pel producteId<br>
 	 * Comprova si el {@link Producte} no és accessible<br>
-	 * si es així, llavors s suggereix un equivalent d'aquest {@link Producte} basat en el client<br>
+	 * si es així, llavors suggereix un equivalent d'aquest {@link Producte} basat en el client<br>
 	 * Reservation add product by given quantitat
 	 */
 	@Override
-	public void afegirProducte(AggregateId comandaId, AggregateId producteId,
-			int quantitat) {
+	public void afegirProducte(AggregateId comandaId, AggregateId producteId, int quantitat) {
 		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
 		
 		Producte producte = productRepository.carregaProducte(Producte.class,producteId);
@@ -137,8 +134,7 @@ public class ComandesServiceImpl implements IComandesService {
 		 * Sample pattern: Aggregate generates Value Object using function<br>
 		 * Higher order function is closured by policy
 		 */
-		Oferta newOffer = reserva.calculateOffer(
-									descompteFactory.crea(loadClient()));
+		Oferta newOffer = reserva.calculateOffer(descompteFactory.crea(loadClient()));
 		
 		/*
 		 * Sample pattern: Client Tier sends back old VOs, Server generates new VOs based on Aggregate state<br>

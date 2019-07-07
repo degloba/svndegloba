@@ -3,9 +3,9 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.cqrs.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.vendes.cqrs.events.CompraEnEfectiuEvent;
 import com.degloba.event.bus.google.events.SimpleEvent;
-import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 

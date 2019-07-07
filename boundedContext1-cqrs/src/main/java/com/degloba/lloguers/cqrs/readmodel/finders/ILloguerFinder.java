@@ -10,6 +10,12 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
+/**
+ * @category
+ * 
+ * @author degloba
+ *
+ */
 @Finder
 public interface ILloguerFinder {
 	

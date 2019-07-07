@@ -12,10 +12,15 @@ import com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticionsFactura
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
 import com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService;
-import com.degloba.ecommerce.vendes.facturacio.domain.services.TaxAdvisorService;
+import com.degloba.ecommerce.vendes.facturacio.domain.services.AssesorFiscalService;
 import com.degloba.event.annotations.EventListener;
 
-
+/**
+ * @category Listener d'events implementat amb la implementació d'events degloba/Spring
+ * 
+ * @author degloba
+ *
+ */
 @EventListeners
 public class BookKeepingListener {
 
@@ -26,7 +31,7 @@ public class BookKeepingListener {
 	private IVendesRepository vendesRepository;
 		
 	@Inject
-	private TaxAdvisorService taxAdvisor;
+	private AssesorFiscalService assesorFiscalService;
 	
 	
 	@Inject
@@ -37,13 +42,12 @@ public class BookKeepingListener {
 		// recuperem la compra a partir de l'Id de l'ordre
 		Compra compra = vendesRepository.get(Compra.class, event.getComandaId());
 		
-		// recuperem el {@link Client} a partir de {@link Purchase}
+		// recuperem el {@link Client} a partir de {@link ClientData}
 		Client client = vendesRepository.get(Client.class, compra.getClientData().getAggregateId());
 		
 		PeticioFactura request  = peticionsFacturaFactory.create(client, compra); 
 		
-		// Factura
-		Factura factura = bookKeeper.issuance(request, taxAdvisor.suggestBestTax(client));
+		Factura factura = bookKeeper.emet(request, assesorFiscalService.suggereixMillorImpost(client));
 		
 		vendesRepository.save(factura);
 	}

@@ -32,14 +32,13 @@ public class EstatClientCanviatListener {
 	private DescompteService descompteService;
 	
 	@Inject
-	private IVendaFinder salesFinder;
+	private IVendaFinder vendesFinder;
 	
 	@EventListener
 	public void handle(EstatClientCanviatEvent event){
-		// recuperem la consulta de l'ordre a partir de l'id del client
-		ComandesQuery comandesQuery = new ComandesQuery(null, event.getClientId());
-		
-		PaginatedResult<ComandaDto> orders = salesFinder.query(comandesQuery);
+
+		ComandesQuery comandesQuery = new ComandesQuery(null, event.getClientId());	
+		PaginatedResult<ComandaDto> orders = vendesFinder.query(comandesQuery);
 		
 		Money discount = calculaDescompte(event.getClientId());
 		

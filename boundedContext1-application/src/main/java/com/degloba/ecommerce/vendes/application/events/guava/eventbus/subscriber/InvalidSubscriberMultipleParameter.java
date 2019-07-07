@@ -2,7 +2,7 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 
 
 
-import com.degloba.ecommerce.vendes.application.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.vendes.cqrs.events.CompraAmbCreditEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 

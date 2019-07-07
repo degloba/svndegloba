@@ -8,7 +8,12 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
-
+/**
+ * @category servei de lloguer
+ * 
+ * @author degloba
+ *
+ */
 public class LloguerService implements ILloguerService {
 	
 /*	@Inject
@@ -16,42 +21,43 @@ public class LloguerService implements ILloguerService {
 	
 	
 	@Inject
-	private ILloguerRepository rentRepositoryObjectify;
+	private ILloguerRepository lloguerRepositoryObjectify;
 
 
 
 	@Override
 	public void creaCategoria(Categoria categoria) {
-		rentRepositoryObjectify.create(categoria);
+		lloguerRepositoryObjectify.create(categoria);
 	}
 	
 	
 	@Override
 	public void creaFoto(Foto foto) {
-		rentRepositoryObjectify.create(foto);
+		lloguerRepositoryObjectify.create(foto);
 	}
 
 	
 	@Override
 	public void creaPropietari(Propietari propietari) {
-		rentRepositoryObjectify.create(propietari);
+		lloguerRepositoryObjectify.create(propietari);
 
 	}
 
-	public ILloguerRepository getRentRepositoryObjectify() {
-		return rentRepositoryObjectify;
+	public ILloguerRepository getLloguerRepositoryObjectify() {
+		return lloguerRepositoryObjectify;
 	}
 
-	public void setRentRepositoryObjectify(ILloguerRepository rentRepositoryObjectify) {
-		this.rentRepositoryObjectify = rentRepositoryObjectify;
+	public void setLloguerRepositoryObjectify(ILloguerRepository lloguerRepositoryObjectify) {
+		this.lloguerRepositoryObjectify = lloguerRepositoryObjectify;
 	}
+
 
 	@Override
-	public void creaSubCategoria(SubCategoria subCategoria) {
+	public void creaSubcategoria(SubCategoria subCategoria) {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+
 
 }
