@@ -415,10 +415,6 @@
 
      <dependency>
      	<groupId>com.degloba</groupId>
-     	<artifactId>degloba-persistence-rdbms</artifactId>
-     	</dependency>
-     <dependency>
-     	<groupId>com.degloba</groupId>
      	<artifactId>degloba-infrastructure</artifactId>
      	<version>${degloba-infrastructure.version}</version>
      </dependency>

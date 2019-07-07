@@ -14,7 +14,11 @@
     <url>http://maven.apache.org</url>
    
 	<dependencies>
-       
+       <dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+		
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
