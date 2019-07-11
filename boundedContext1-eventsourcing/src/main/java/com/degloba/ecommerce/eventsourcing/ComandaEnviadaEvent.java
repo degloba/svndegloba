@@ -1,5 +1,11 @@
-package com.degloba.ecommerce.eventsourcing.events;
+package com.degloba.ecommerce.eventsourcing;
 
+/**
+ * @category s'ha produit quan s'ha enviat una comanda
+ * 
+ * @author degloba
+ *
+ */
 public  class ComandaEnviadaEvent {
 		 
 	    private final String orderId;

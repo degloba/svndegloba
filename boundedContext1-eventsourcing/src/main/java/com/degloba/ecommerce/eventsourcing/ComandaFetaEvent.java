@@ -1,7 +1,7 @@
-package com.degloba.ecommerce.eventsourcing.events;
+package com.degloba.ecommerce.eventsourcing;
 
 /**
- * @category 
+ * @category s'ha produit quan s'ha fet una comanda
  * 
  * @author degloba
  *
