@@ -3,7 +3,7 @@ package com.degloba.event.application;
 /**
  * @category Publicador d'events d'aplicació
  * 
- * 
+ * @author degloba
  */
 public interface IApplicationEventPublisher<T> {
 	/**

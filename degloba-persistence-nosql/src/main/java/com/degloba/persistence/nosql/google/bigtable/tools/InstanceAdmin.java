@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.bigtable;
+package com.degloba.persistence.nosql.google.bigtable.tools;
 
 
 import com.google.api.gax.rpc.AlreadyExistsException;
@@ -16,19 +16,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * An example of using Google Cloud Bigtable.
  *
- * <p>This example demonstrates the usage of BigtableInstanceAdminClient to create, configure, and
- * delete Cloud Bigtable Instances and Clusters.
+ * <p>Utilitza la classe BigtableInstanceAdminClient per crear, configurar i
+ * suprimir instàncies i clústers de grans dimensions.
  *
  * <ul>
- *   <li>creates production instance
- *   <li>lists instances
- *   <li>gets instance
- *   <li>lists clusters
- *   <li>adds cluster
- *   <li>deletes cluster
- *   <li>deletes instance
+ *   <li>crea instància de producció
+ *   <li>llista instancies
+ *   <li>recupera una instancia
+ *   <li>llista clusters
+ *   <li>afegeix cluster
+ *   <li>esborra cluster
+ *   <li>esborra instance
  * </ul>
  */
 public class InstanceAdmin {
@@ -51,13 +50,20 @@ public class InstanceAdmin {
     instanceAdmin.run();
   }
 
+  /**
+   * 
+   * @param projectId
+   * @param instanceId
+   * @param clusterId
+   * @throws IOException
+   */
   public InstanceAdmin(String projectId, String instanceId, String clusterId)
       throws IOException {
     this.instanceId = instanceId;
     this.clusterId = clusterId;
 
     // [START connecting_to_bigtable]
-    // Creates the settings to configure a bigtable instance admin client.
+    // Crea la configuració per configurar un client d'administrador d'instància BigTable.
     BigtableInstanceAdminSettings instanceAdminSettings =
         BigtableInstanceAdminSettings.newBuilder().setProjectId(projectId).build();
 

@@ -7,6 +7,6 @@ import com.degloba.event.api.IEvent;
  * 
  *  * @author degloba
  */
-public interface IStoredDomainEvent  extends IEventStore<IEvent> {
+public interface IDomainEventStore  extends IEventStore<IEvent> {
 
 }

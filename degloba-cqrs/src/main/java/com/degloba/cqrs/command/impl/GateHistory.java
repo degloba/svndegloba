@@ -5,16 +5,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.cqrs.command.annotations.ICommand;
 
 /**
- * Gestiona l’historial d’execució de {@link Command} basant-se en els atributs d’anotacions (java.lang.annotation)<br>
+ * Gestiona l’historial d’execució de {@link ICommand} basant-se en els atributs d’anotacions (java.lang.annotation)<br>
  * Les ordres "anotades" com unique = true s’emmagatzemen en aquest historial
  * <ul>
- * <li> La història comprova si la mateixa {@link Command} es cridada una altra vegada. <br>
+ * <li> La història comprova si la mateixa {@link ICommand} es cridada una altra vegada. <br>
  * </li>
  * <li>
- * Cada tipus (classe) de {@link Command} té les seves pròpies entrades en l’historial: la longitud del històric es pot parametritzar a través del paràmetre del constructor.
+ * Cada tipus (classe) de {@link ICommand} té les seves pròpies entrades en l’historial: la longitud del històric es pot parametritzar a través del paràmetre del constructor.
  * </li>
  * </ul>
  * 
@@ -36,7 +36,7 @@ class GateHistory {
 	private static final int DEFAULT_MAX_HISTORY_CAPACITY = 3;
 
 	/**
-	 * Model de l'històric. Cada tipus (classe) de {@link Command} té un {@link Map} d'execucions (instància de la {@link Command}
+	 * Model de l'històric. Cada tipus (classe) de {@link ICommand} té un {@link Map} d'execucions (instància de la {@link ICommand}
 	 * i data)
 	 */
 	@SuppressWarnings("rawtypes")
@@ -55,7 +55,7 @@ class GateHistory {
 	/**
 	 * 
 	 * @param command
-	 * @return true si la {@link Command} no és una repetició, false si {@link Command} és una
+	 * @return true si la {@link ICommand} no és una repetició, false si {@link ICommand} és una
 	 *         repetició i no s’hauria d’executar ara
 	 */
 	public boolean register(Object command) {
@@ -82,16 +82,16 @@ class GateHistory {
 	}
 
 	private boolean isUnique(Object command) {
-		if (!command.getClass().isAnnotationPresent(Command.class))
+		if (!command.getClass().isAnnotationPresent(ICommand.class))
 			return false;
 
-		Command commandAnnotation = command.getClass().getAnnotation(Command.class);
+		ICommand commandAnnotation = command.getClass().getAnnotation(ICommand.class);
 
 		return commandAnnotation.unique();
 	}
 
 	private Long getUniqueStorageTimeout(Object command) {
-		Command commandAnnotation = command.getClass().getAnnotation(Command.class);
+		ICommand commandAnnotation = command.getClass().getAnnotation(ICommand.class);
 		return commandAnnotation.uniqueStorageTimeout();
 	}
 

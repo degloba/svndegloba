@@ -6,7 +6,7 @@ package com.degloba.cqrs.command.handler;
  * 
  * @category Fàbrica de {@link ICommandHandler}
  *
- * @param <C> {@link Command}
+ * @param <C> {@link ICommand}
  * @param <R> Resultat
  */
 public interface ICommandHandlerFactory<C,R> {

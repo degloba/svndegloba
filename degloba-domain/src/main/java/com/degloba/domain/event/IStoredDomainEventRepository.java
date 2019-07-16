@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.persistence.IStoredDomainEvent;
+import com.degloba.event.persistence.IDomainEventStore;
 
 
 /**
@@ -24,7 +24,7 @@ public interface IStoredDomainEventRepository {
      * @param occurredTo   Data final de l'event
      * @return Una llista d’events que s’han produït en un interval de temps especificat, segons l’hora de l’aparició en ordre ascendent.
      */
-    public List<IStoredDomainEvent> findStoredEventsBetween(Date occurredFrom, Date occurredTo);
+    public List<IDomainEventStore> trobaEventsDominiGuardatsEntre(Date occurredFrom, Date occurredTo);
 
     /**
      * Recupera una llista d'events que han succeit després d'una data.
@@ -33,15 +33,15 @@ public interface IStoredDomainEventRepository {
      * @return Its collection of events that occur after the specified time, 
      * according to time of occurrence in ascending order.
      */
-    public List<IStoredDomainEvent> findStoredEventsSince(Date occurredFrom);
+    public List<IDomainEventStore> trobaEventDominiGuardatsDesde(Date occurredFrom);
 
     /**
      * Insert a new field events to the event store
      *
-     * @param storedDomainEvent A field event
+     * @param domainEventStore A field event
      * @return Field events stored on behalf of the event
      */
-    public IStoredDomainEvent append(IStoredDomainEvent storedDomainEvent);
+    public IDomainEventStore append(DomainEvent domainEventStore);
 
     /**
      * Tanca el magatzem d'events

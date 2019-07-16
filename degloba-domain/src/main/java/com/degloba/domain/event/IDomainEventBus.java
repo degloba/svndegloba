@@ -22,9 +22,9 @@ public interface IDomainEventBus<T extends IEvent> extends IEventBus<T>{
 
     /**
      * L'event s'envia a tots els Subscriber
-     * @param event Event a publicar
+     * @param event Event de dominia a publicar
      */
-    void publishEvent(DomainEvent event);
+    void publicaEvent(DomainEvent event);
 
     /**
      * Registre d'un mètode de subscripció d'events a tots els subscriptors registrats per rebre events al bus d'events.
@@ -32,7 +32,7 @@ public interface IDomainEventBus<T extends IEvent> extends IEventBus<T>{
      * of a field event com a únic paràmetre
      * And labeled asSubscribe approach.
      */
-    void registerSubscriber(Object subscriber);
+    void registreSubscriber(Object subscriber);
 
     /**
      * Deregistration a registered events to the event bus subscribers all subscription methods.

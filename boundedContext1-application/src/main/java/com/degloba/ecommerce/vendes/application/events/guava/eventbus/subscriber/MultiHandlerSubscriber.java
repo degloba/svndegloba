@@ -3,12 +3,19 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscribe
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.ecommerce.vendes.cqrs.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.cqrs.events.CompraEnEfectiuEvent;
-import com.degloba.event.bus.google.events.SimpleEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
+/**
+ * @category subscriptor que està subscrit a diferents tipus d'events a la vegada.<br>
+ * Implementació amb Google
+ * 
+ * @author degloba
+ *
+ */
 public class MultiHandlerSubscriber {
 
     private List<CompraEnEfectiuEvent> cashEvents = new ArrayList<CompraEnEfectiuEvent>();
