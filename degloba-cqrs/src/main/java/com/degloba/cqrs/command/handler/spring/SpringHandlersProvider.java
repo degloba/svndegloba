@@ -24,7 +24,7 @@ import com.degloba.cqrs.command.impl.RunEnvironment.IHandlersProvider;
  * 
  * @author degloba
  *
- * @category {@link Component} Spring que encapsula un {@link Map} de handlers i retorna un handler a partir del {@link Command} 
+ * @category {@link Component} Spring que encapsula un {@link Map} de handlers i retorna un handler a partir del {@link ICommand} 
  */
 @Component
 public class SpringHandlersProvider implements IHandlersProvider, ApplicationListener<ContextRefreshedEvent> {

@@ -125,6 +125,10 @@
   			<groupId>com.degloba</groupId>
   			<artifactId>degloba-persistence-nosql</artifactId>
   		</dependency>
+  		<dependency>
+  			<groupId>com.degloba</groupId>
+  			<artifactId>degloba-domain</artifactId>
+  		</dependency>
     </dependencies>
    
     

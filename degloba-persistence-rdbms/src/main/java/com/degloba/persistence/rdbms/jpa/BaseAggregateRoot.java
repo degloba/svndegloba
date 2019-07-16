@@ -41,8 +41,7 @@ import com.degloba.utils.BeanUtils;
 /**
  * @author degloba
  * 
- * @category Defineix l'entitat base del domini<br> 
- * Totes les entitats del domini hereden d'ella
+ * @category Defineix l'entitat de persistencia base<br> 
  * 
  */
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation

@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.degloba.domain.event.DomainEvent;
 import com.degloba.event.api.IEvent;
-import com.degloba.event.persistence.IStoredDomainEvent;
+import com.degloba.event.persistence.IDomainEventStore;
 import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.utils.Assert;
 import com.degloba.utils.IObjectSerializer;
@@ -25,7 +25,7 @@ import javax.inject.Inject;
 	 * Utilitzem Spring Data per declarar-lo com un {@link Document}
 	 **/ 
 	@Document 
-	public class StoredDomainEventMongoDb implements IStoredDomainEvent { 
+	public class StoredDomainEventMongoDb implements IDomainEventStore { 
 		
 		 @Id 
 		 private String entityId; 

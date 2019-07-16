@@ -3,7 +3,7 @@ package com.degloba.event.persistence;
 import com.degloba.event.api.IEvent;
 
 /**
- * @category Magatzem d'events de tipus {@link IEvent}
+ * @category Magatzem d'events {@link IEvent}
  * 
  * @author degloba
  */
