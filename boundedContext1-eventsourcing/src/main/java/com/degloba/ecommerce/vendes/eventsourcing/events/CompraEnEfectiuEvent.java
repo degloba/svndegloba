@@ -26,7 +26,7 @@ public class CompraEnEfectiuEvent extends CompraEvent {
 
     @Override
     public String toString() {
-        return "CashPurchaseEvent{" +
+        return "CompraEnEfectiuEvent{" +
                 "item='" + item + '\'' +
                 "} " + super.toString();
     }

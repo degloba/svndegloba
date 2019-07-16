@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.eventsourcing;
+package com.degloba.ecommerce.eventsourcing.events;
 
 /**
  * @category s'ha produit quan s'ha enviat una comanda

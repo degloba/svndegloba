@@ -25,7 +25,7 @@ public abstract class CompraEvent extends DomainEvent {
 
     @Override
     public String toString() {
-        return "PurchaseEvent{" +
+        return "CompraEvent{" +
                 "quantitat=" + quantitat +
                 '}';
     }

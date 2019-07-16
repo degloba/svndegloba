@@ -11,17 +11,17 @@ import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
 public class CompraAmbCreditEvent extends CompraEvent {
 
 	private static final long serialVersionUID = 1L;
-	private String numberoTargetaCredit;
+	private String numeroTargetaCredit;
     private String item;
 
-    public CompraAmbCreditEvent(long quantitat, String item, String creditCardNumber) {
+    public CompraAmbCreditEvent(long quantitat, String item, String numeroTargetaCredit) {
         super(quantitat);
         this.item = item;
-        this.numberoTargetaCredit = creditCardNumber;
+        this.numeroTargetaCredit = numeroTargetaCredit;
     }
 
     public String getNumberoTargetaCredit() {
-        return numberoTargetaCredit;
+        return numeroTargetaCredit;
     }
 
     public String getItem() {
@@ -30,8 +30,8 @@ public class CompraAmbCreditEvent extends CompraEvent {
 
     @Override
     public String toString() {
-        return "CreditPurchaseEvent{" +
-                "creditCardNumber='" + numberoTargetaCredit + '\'' +
+        return "CompraAmbCreditEvent{" +
+                "creditCardNumber='" + numeroTargetaCredit + '\'' +
                 ", item='" + item + '\'' +
                 "} " + super.toString();
     }
