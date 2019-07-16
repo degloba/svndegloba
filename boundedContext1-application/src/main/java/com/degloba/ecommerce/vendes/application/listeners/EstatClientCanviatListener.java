@@ -6,10 +6,9 @@ import com.degloba.cqrs.query.PaginatedResult;
 
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.ecommerce.vendes.application.services.DescompteService;
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.ComandesQuery;
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.cqrs.readmodel.finders.IVendaFinder;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.ComandesQuery;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.ComandaDto;
-
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 // Events

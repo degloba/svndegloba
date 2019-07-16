@@ -2,7 +2,7 @@ package com.degloba.ecommerce.enviaments.cqrs.commands;
 
 import java.io.Serializable;
 
-import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.cqrs.command.annotations.ICommand;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 
@@ -13,7 +13,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  *
  */
 @SuppressWarnings("serial")
-@Command
+@ICommand
 public class EntregaEnviamentCommand implements Serializable {
 
     private final AggregateId enviamentId;

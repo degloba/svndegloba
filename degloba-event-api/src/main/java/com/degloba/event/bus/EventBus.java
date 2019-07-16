@@ -45,25 +45,5 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
         return listeners;
     }
 
-    /**
-     * Registra afegint als ja registrats una llista de {@link IEventListener}
-     */
-    @Override
-    public void register(IEventListener<T> listeners) {
-        this.listeners.addAll(Arrays.asList(listeners));
-    }
 
-    @Override
-    public void unregister(IEventListener<T> listeners) {
-        this.listeners.removeAll(Arrays.asList(listeners));
-    }
-
-    @Override
-    public void post(T event) {
-        LOGGER.info("Post a event " + event + " to event bus");
-        eventStore.guarda(event);
-        for (IEventListener<T> listener : listeners) {
-            listener.onEvent(event);
-        }
-    }
 }

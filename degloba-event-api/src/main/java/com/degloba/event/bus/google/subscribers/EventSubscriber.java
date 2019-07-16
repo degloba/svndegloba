@@ -8,7 +8,7 @@ import java.util.List;
 import com.google.common.eventbus.EventBus;
 
 /**
- * @category Subscripció d'events (Implementació Google)
+ * @category Subscriptor d'events amb un bus d'events implementat amb Google
  * 
  * @author degloba
  */

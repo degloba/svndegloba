@@ -19,8 +19,13 @@ import com.degloba.event.domain.IDomainEventPublisher;
 
 /**
  * @category Publicador d'events de domini de tipus {@link IEvent}<p/>
- * Es un {@link Component} Spring.<p/>
+ * <ul>
+ * <li>
+ * Es un {@link Component} Spring.
+ * </li>
+ * <li>
  * Els handlers estan en memoria ({@link HashSet})
+ * </li>
  * 
  * @author degloba
  */

@@ -3,7 +3,8 @@ package com.degloba.ecommerce.crm.cqrs.commands;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 /**
- * @category 
+ * @category Command que indica que s'ha d'enviar la comanda<br>
+ * Implementat amb Axon
  * 
  * @author degloba
  *

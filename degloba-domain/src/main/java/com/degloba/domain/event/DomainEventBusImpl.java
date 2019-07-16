@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventListener;
 import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.persistence.IStoredDomainEvent;
+import com.degloba.event.persistence.IDomainEventStore;
 import com.degloba.utils.Assert;
 
 
@@ -55,26 +55,20 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 /**
  * (non-Javadoc)
- * @see com.degloba.domain.event.IDomainEventBus#publishEvent(com.degloba.domain.event.DomainEvent)
+ * @see com.degloba.domain.event.IDomainEventBus#publicaEvent(com.degloba.domain.event.DomainEvent)
  */
-	public void publishEvent(IStoredDomainEvent event) {
+	public void publicaEvent(DomainEvent event) {
         eventBus.post(event);
         
         storedDomainEventRepository.append(event);        
     }
-	
 
-	@Override
-	public void publishEvent(DomainEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
 /*
  * (non-Javadoc)
  * @see com.degloba.domain.event.IDomainEventBus#registerSubscriber(java.lang.Object)
  */
-    public void registerSubscriber(Object subscriber) {
+    public void registreSubscriber(Object subscriber) {
         eventBus.register(subscriber);
     }
 /*
@@ -84,33 +78,6 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
     public void unregisterSubscriber(Object subscriber) {
         eventBus.unregister(subscriber);
     }
-
-/*
- * (non-Javadoc)
- * @see com.degloba.event.api.IEventBus#register(com.degloba.event.api.IEventListener)
- */
-	@Override
-	public void register(IEventListener<T> handlers) {
-		eventBus.register(handlers);		
-	}
-
-/*
- * (non-Javadoc)
- * @see com.degloba.event.api.IEventBus#post(com.degloba.event.api.IEvent)
- */
-	@Override
-	public void post(IEvent event) {
-		eventBus.post(event);
-	}
-
-/*
- * (non-Javadoc)
- * @see com.degloba.event.api.IEventBus#unregister(com.degloba.event.api.IEventListener)
- */
-	@Override
-	public void unregister(IEventListener<T> handlers) {
-		eventBus.unregister(handlers);		
-	}
 
 
 	public IStoredDomainEventRepository getStoredDomainEventRepository() {
@@ -131,6 +98,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
 	}
+
 
 
 

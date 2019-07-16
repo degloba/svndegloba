@@ -20,9 +20,8 @@ import com.degloba.event.impl.spring.handlers.SpringEventHandler;
 //import com.degloba.infrastructure.sagas.impl.SagaInstance;
 
 /**
- * @category Registra mètodes beans Spring com handlers d'events en Spring {@link DomainEventPublisher}
- * (if needed).<br>
- * Aquest mètodes són els que estàn annotats amb {@link EventListener}
+ * @category Registra mètodes beans com handlers d'events en Spring {@link DomainEventPublisher}.<br>
+ * Aquests mètodes són els que estàn annotats amb {@link EventListener}
  * 
  * @author degloba
  */
