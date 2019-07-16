@@ -11,7 +11,8 @@ import org.axonframework.queryhandling.QueryHandler;
 
 import com.degloba.ecommerce.crm.cqrs.readmodel.ProducteDemanat;
 import com.degloba.ecommerce.crm.cqrs.readmodel.TrobarTotsProductesDemanats;
-import com.degloba.ecommerce.eventsourcing.events.ComandaFetaEvent;
+import com.degloba.ecommerce.eventsourcing.ComandaFetaEvent;
+
 
 
 public class ProductesDemanatsEventHandler {

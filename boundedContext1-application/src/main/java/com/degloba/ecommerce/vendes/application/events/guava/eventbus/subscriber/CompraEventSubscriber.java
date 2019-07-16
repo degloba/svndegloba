@@ -1,12 +1,12 @@
 package com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber;
 
 
-import com.degloba.ecommerce.vendes.cqrs.events.CompraEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
 import com.degloba.event.bus.google.subscribers.EventSubscriber;
 import com.google.common.eventbus.Subscribe;
 
 /**
- * @category un {@link EventSubscriber} que tracta l'events de tipus {@link CompraEvent}<br>.
+ * @category un {@link EventSubscriber} que tracta vents de tipus {@link CompraEvent}<br>.
  * Utilitza l'arquitectura de Google
  * 
  * @author degloba
