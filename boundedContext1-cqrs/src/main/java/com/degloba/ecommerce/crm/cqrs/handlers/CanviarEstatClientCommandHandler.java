@@ -12,7 +12,7 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 /**
  * @author degloba
  * 
- * @category Modifica l'estat d'un {@link Client} a partir del {@link Command} {@link CanviarEstatClientCommand}
+ * @category Modifica l'estat d'un {@link Client} a partir del {@link CanviarEstatClientCommand}
  *
  */
 @CommandHandlerAnnotation
@@ -26,7 +26,7 @@ public class CanviarEstatClientCommandHandler implements ICommandHandler<Canviar
 		Client client = crmRepository.get(Client.class, command.getClientId());
 		client.canviaEstatClient(command.getEstatClient());
 		crmRepository.save(client);		
-		return null;
+		return true;
 	}
 
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.cqrs.command.annotations.ICommand;
 
 
 /**
@@ -14,7 +14,7 @@ import com.degloba.cqrs.command.annotations.Command;
  *
  */
 @SuppressWarnings("serial")
-@Command
+@ICommand
 public class CanviarEstatClientCommand implements Serializable{
 
 	private AggregateId clientId;

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.cqrs.commands.handlers;
+package com.degloba.ecommerce.vendes.cqrs.handlers;
 
 import javax.inject.Inject;
 
