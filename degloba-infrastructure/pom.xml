@@ -19,6 +19,8 @@
   
   		<com.google.cloud.version>1.62.0</com.google.cloud.version>
   		
+  		<beam.version>2.8.0</beam.version>
+  		
   </properties>
   
     <dependencies>
@@ -52,10 +54,10 @@
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
 		</dependency>
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
-			</dependency>
+			</dependency> -->
 <!-- 		<dependency>
 			<groupId>com.google.api.grpc</groupId>
 			<artifactId>proto-google-cloud-pubsub-v1</artifactId>
@@ -70,6 +72,32 @@
     </dependency>
 		
 
+<!-- <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-extensions-google-cloud-platform-core</artifactId>
+        <version>${beam.version}</version>
+    </dependency> -->
+
+<!--     <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+      <version>${beam.version}</version>
+    </dependency> -->
+
+    <!-- Adds a dependency on the Beam SDK. -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-core</artifactId>
+      <version>${beam.version}</version>
+    </dependency> 
+
+    <!-- Adds a dependency on the Beam Google Cloud Platform IO module. -->
+<!--     <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+      <version>${beam.version}</version>
+    </dependency> -->
+    
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-storage</artifactId>
@@ -83,11 +111,12 @@
 		</dependency> -->
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
+			<artifactId>degloba-persistence-nosql</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-nosql</artifactId>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-bigquery</artifactId>
+			<version>1.65.0</version>
 		</dependency>
     </dependencies>
 

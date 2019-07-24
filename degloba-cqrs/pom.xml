@@ -9,6 +9,7 @@
 	<artifactId>degloba-cqrs</artifactId>
     <packaging>jar</packaging>
     <name>(degloba-cqrs) - API Command Query Responsibility Segregation</name>
+	<url>www.degloba.com</url>
           	
 	<dependencies>
 	  
@@ -38,5 +39,5 @@
       	
 	</build>
 		
-	<url>www.degloba.com</url>
+
 </project>
