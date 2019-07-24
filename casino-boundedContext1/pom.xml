@@ -56,11 +56,11 @@
                 <artifactId>hibernate-ehcache</artifactId>
                 <version>${hibernate.version}</version>
             </dependency>
-            <dependency>
+        <!--     <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate.validator.version}</version>
-            </dependency>
+                <version>${hibernate.version}</version>
+            </dependency> -->
             
             <dependency>
                 <groupId>org.javassist</groupId>
@@ -73,18 +73,18 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
+           <!--  <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-core</artifactId>
                 <version>1.3</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
+            </dependency> -->
+            <!-- <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
                 <scope>test</scope>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.dbunit</groupId>
                 <artifactId>dbunit</artifactId>
@@ -565,7 +565,7 @@
             
         <tapestry.version>5.3.7</tapestry.version>
         
-        <hibernate.version>4.3.7.Final</hibernate.version>
+        <hibernate.version>5.3.7.Final</hibernate.version>
         
         <mysql.username>root</mysql.username>
         <mysql.password />
@@ -580,7 +580,7 @@
         <hibernate.show_sql>true</hibernate.show_sql>
         <hibernate.format_sql>true</hibernate.format_sql>    
              
-        <spring.boot.version>1.3.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.3.RELEASE</spring.boot.version>
         
         <springwebflow.version>2.5.0.RELEASE</springwebflow.version>
                 
@@ -741,6 +741,8 @@
         </profile>
     </profiles>
     <modules>
+    	<module>../boundedContext1-eventsourcing</module>
+    	
      	<module>../boundedContext1-domain</module> 
      	<module>../boundedContext1-infrastructure</module> 
     	<module>../boundedContext1-cqrs</module>
@@ -748,6 +750,10 @@
     	<module>../boundedContext1-application</module>
     	<module>../boundedContext1-facade</module>
     	<module>../boundedContext1-facade-impl</module>
-    	<module>../boundedContext1-webapp</module>    	
+    	<module>../boundedContext1-webapp</module>
+		<module>../boundedContext1-core</module>
+    	<module>../boundedContext1-address</module>
+    	<module>../boundedContext1-saga</module>
+    	
     </modules>
     </project>
