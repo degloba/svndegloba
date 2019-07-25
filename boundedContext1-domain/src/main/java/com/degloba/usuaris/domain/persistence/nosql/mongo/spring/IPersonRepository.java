@@ -1,5 +1,6 @@
 package com.degloba.usuaris.domain.persistence.nosql.mongo.spring;
 
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.degloba.domain.annotations.DomainRepository;

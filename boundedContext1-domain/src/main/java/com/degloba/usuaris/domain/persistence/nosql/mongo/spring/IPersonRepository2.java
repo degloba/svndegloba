@@ -1,7 +1,8 @@
 package com.degloba.usuaris.domain.persistence.nosql.mongo.spring;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 
@@ -12,6 +13,8 @@ import com.degloba.usuaris.domain.persistence.nosql.mongo.spring.Person;
 public interface IPersonRepository2 extends MongoRepository<Person, String> {
 
 	Iterable<Person> findByLastname(String lastname);
+
+	List<Person> findAll();
 
     //Page<Person> findByFirstname(String firstname, Pageable pageable);
 

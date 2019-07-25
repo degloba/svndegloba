@@ -1,6 +1,6 @@
 package com.degloba.usuaris.domain.persistence.nosql.mongo.spring;
 
-import org.springframework.data.annotation.Id; 
+////import org.springframework.data.annotation.Id; 
 import org.springframework.data.mongodb.core.mapping.Document; 
 
 /** 
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * **/ 
 @Document public class Person { 
 	
-	 @Id 
+	 //////@Id 
 	 private String personId; 
 	 
 	 private String name; 
