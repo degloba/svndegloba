@@ -12,7 +12,7 @@ import com.degloba.event.domain.IDomainEvent;
 /**
  * @author degloba
  * 
- * @category Interfície : Exten la interficie {@link MongoRepository} amb entitats de tipus {@link StoredDomainEventMongoDb}
+ * @category  Exten la interficie {@link MongoRepository} amb entitats de tipus {@link StoredDomainEventMongoDb}
  *
  */
 @DomainRepository

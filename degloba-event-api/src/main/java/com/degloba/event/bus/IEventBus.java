@@ -1,5 +1,6 @@
 package com.degloba.event.bus;
 
+import com.degloba.event.api.AbstractEventListener;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventListener;
 
@@ -9,6 +10,8 @@ import com.degloba.event.api.IEventListener;
  * @author degloba
  */
 public interface IEventBus<T extends IEvent> {
+
+	void register(AbstractEventListener newInstance);
 
 
 }

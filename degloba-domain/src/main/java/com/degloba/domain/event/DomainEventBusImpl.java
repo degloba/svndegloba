@@ -4,6 +4,7 @@ import com.google.common.eventbus.EventBus;
 
 import javax.inject.Inject;
 
+import com.degloba.event.api.AbstractEventListener;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventListener;
 import com.degloba.event.domain.IDomainEvent;
@@ -97,6 +98,13 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
+	}
+
+
+	@Override
+	public void register(AbstractEventListener newInstance) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

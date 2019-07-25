@@ -1,5 +1,6 @@
 package com.degloba.event.bus;
 
+import com.degloba.event.api.AbstractEventListener;
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventListener;
 import com.degloba.event.persistence.IEventStore;
@@ -44,6 +45,12 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
     List<IEventListener<T>> getListeners() {
         return listeners;
     }
+
+	@Override
+	public void register(AbstractEventListener newInstance) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
