@@ -11,7 +11,6 @@
   		<artifactId>degloba-persistence-nosql</artifactId>
   		<packaging>jar</packaging>
   		<version>0.0.1-SNAPSHOT</version>
-		<description>Interfaz de almacenamiento de la aplicación NoSql.</description>
 	  	<name>(degloba-persistence-nosql) - persistencia NoSql (Google/BigTable/DataStore)</name>
 		<url>www.degloba.com</url>
       
@@ -19,7 +18,7 @@
   <properties>
   		
 		<!-- https://github.com/objectify/objectify -->
-  		<google.appengine.objectify.version>6.0.3</google.appengine.objectify.version> 
+  		<googleCloud.objectify.version>6.0.3</googleCloud.objectify.version> 
   		  		
   		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
 	    <bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
@@ -30,15 +29,11 @@
   </properties>
   
   <dependencies>
-  
-	
-  		
-  		<!-- [START Objectify_Dependencies] -->
   		
   		<dependency>
   			<groupId>com.googlecode.objectify</groupId>
   			<artifactId>objectify</artifactId>
-  			<version>6.0.3</version>
+  			<version>${googleCloud.objectify.version}</version>
   		</dependency>
   		
   		<!-- [END Objectify_Dependencies] -->
@@ -47,25 +42,7 @@
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>			
 		</dependency> 
-		
-		 
-	    <dependency>
-	    	<groupId>com.google.cloud.bigtable</groupId>
-	    	<artifactId>bigtable-hbase-1.x-mapreduce</artifactId>
-	    	<version>1.10.0</version>
-	    </dependency>
-    
-    	<dependency>
-      <groupId>com.google.cloud.bigtable</groupId>
-      <artifactId>bigtable-hbase-1.x</artifactId>
-      <version>1.10.0</version>
-    </dependency>
-    
-     <dependency>
-        <groupId>org.apache.hbase</groupId>
-        <artifactId>hbase-shell</artifactId>
-        <version>2.1.3</version>
-    </dependency>
+		    
 
      <dependency>
      	<groupId>com.degloba</groupId>
@@ -149,4 +126,5 @@
   </build>
   
   
+  <description>Google Cloud NoSQL + BigTable</description>
 </project>

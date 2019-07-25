@@ -25,7 +25,6 @@
 	<springframework.ws.version>3.0.4.RELEASE</springframework.ws.version>	
 	<springframework.data.version>2.1.5.RELEASE</springframework.data.version>
 	
-	<javax.persistence-api.version>2.2</javax.persistence-api.version>
 		
 	<hornetq.version>2.1.2.Final</hornetq.version> 	
 	
@@ -65,7 +64,7 @@
 	<commons.dbcp>1.4</commons.dbcp>
 	
 	<!-- Test Dependencies -->
-	<mockito.version>2.23.0</mockito.version>
+	<mockito.version>2.24.0</mockito.version>
 	<junit.version>4.12</junit.version>
 		
 	<validation.api.version>1.1.0.Final</validation.api.version>
@@ -89,9 +88,10 @@
 	<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>            
 	<maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>	
 	<maven-javadoc-plugin>3.0.1</maven-javadoc-plugin>
-	<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+	<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
             
 
+	<googleCloud.version>1.65.0</googleCloud.version>
 </properties>
   
 <repositories>   
@@ -113,7 +113,7 @@
     </pluginRepositories>    
 
      <modules>   
-     		<module>../degloba-common</module>
+     		
 			<module>../degloba-domain</module>
 			<module>../degloba-ioc-spring</module>
           	<module>../degloba-persistence</module>
@@ -559,11 +559,7 @@
                         </dependency>
                     </dependencies>
                 </plugin> -->
-                <!-- <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.9</version>
-                </plugin> -->
+
                  <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
@@ -576,7 +572,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.1.2</version>
                     <configuration>
                         <archive>
                        <!--  <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile> -->

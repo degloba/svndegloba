@@ -209,6 +209,12 @@
            <!--  <scope>provided</scope> -->
         </dependency>
         
+        	        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+        </dependency>
+        
         </dependencies>
             
     </dependencyManagement>
@@ -754,6 +760,8 @@
 		<module>../boundedContext1-core</module>
     	<module>../boundedContext1-address</module>
     	<module>../boundedContext1-saga</module>
-    	
+
+    	<module>../boundedContext1-common</module>
     </modules>
-    </project>
+    <url>www.degloba.com</url>
+</project>

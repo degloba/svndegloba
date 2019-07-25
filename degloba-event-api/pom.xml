@@ -11,7 +11,7 @@
     
     <artifactId>degloba-event-api</artifactId>
     <name>(degloba-event-api) - events</name>
-    <url>http://maven.apache.org</url>
+    <url>www.degloba.com</url>
    
 	<dependencies>
        <dependency>
