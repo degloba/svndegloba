@@ -1,9 +1,9 @@
 package com.degloba.ecommerce.vendes.cqrs.commands;
 
 
-import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.cqrs.command.annotations.ICommand;
 
-@Command
+@ICommand
 public class SetNewShippingAddressForOrderCommand {
 	private Long comandaId;
 	private String fullName;

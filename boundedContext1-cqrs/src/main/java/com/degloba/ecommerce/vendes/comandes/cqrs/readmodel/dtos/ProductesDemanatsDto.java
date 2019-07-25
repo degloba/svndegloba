@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos;
+package com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.dtos;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
@@ -7,7 +7,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  * 
  *  * @author degloba
  */
-public class OrderedProductDto {
+public class ProductesDemanatsDto {
 	private AggregateId offerId;
 	
 	// TODO more attrs

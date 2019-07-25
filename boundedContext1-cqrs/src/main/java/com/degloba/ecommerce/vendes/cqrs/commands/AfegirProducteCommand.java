@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.vendes.cqrs.commands;
 
-import com.degloba.cqrs.command.annotations.Command;
+import com.degloba.cqrs.command.annotations.ICommand;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 
@@ -10,7 +10,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  * @author degloba
  *
  */
-@Command
+@ICommand
 public class AfegirProducteCommand {
 
 	private AggregateId comandaId;

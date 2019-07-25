@@ -14,14 +14,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
-
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.ComandesQuery;
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.EstatComanda;
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.dtos.ComandaDto;
+import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.dtos.ProductesDemanatsDto;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos.ProducteOfertatDto;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.ComandesQuery;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.EstatComanda;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.ordres.cqrs.readmodel.dtos.OrderedProductDto;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.ProducteReservat;
@@ -67,7 +66,7 @@ public class VendaFinder implements IVendaFinder {
 		ComandaDto dto = new ComandaDto();
 		dto.setComandaId(reserva.getAggregateId());
 		List<ProducteReservat> producteReservats = reserva.getReservedProducts();
-		dto.setOrderedProducts(new ArrayList<OrderedProductDto>(transform(producteReservats,
+		dto.setOrderedProducts(new ArrayList<ProductesDemanatsDto>(transform(producteReservats,
 				reservedProductToOrderedProductDto())));
 		if (compra != null) {
 			dto.setEstatComanda(EstatComanda.CONFIRMED);
@@ -80,10 +79,10 @@ public class VendaFinder implements IVendaFinder {
 		return dto;
 	}
 
-	private static Function<ProducteReservat, OrderedProductDto> reservedProductToOrderedProductDto() {
-		return new Function<ProducteReservat, OrderedProductDto>() {
-			public OrderedProductDto apply(ProducteReservat product) {
-				OrderedProductDto dto = new OrderedProductDto();
+	private static Function<ProducteReservat, ProductesDemanatsDto> reservedProductToOrderedProductDto() {
+		return new Function<ProducteReservat, ProductesDemanatsDto>() {
+			public ProductesDemanatsDto apply(ProducteReservat product) {
+				ProductesDemanatsDto dto = new ProductesDemanatsDto();
 				dto.setOfferId(product.getProducteId());
 				return dto;
 			}
