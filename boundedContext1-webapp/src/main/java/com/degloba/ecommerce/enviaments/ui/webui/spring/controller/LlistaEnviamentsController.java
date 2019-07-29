@@ -5,17 +5,16 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
-// Spring
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-// CQRS
+
 import com.degloba.cqrs.command.Gate;
-import com.degloba.ecommerce.enviaments.application.commands.EntregaEnviamentCommand;
-import com.degloba.ecommerce.enviaments.application.commands.EntregarEnviamentCommand;
+
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
 

@@ -11,7 +11,7 @@
     
     <artifactId>boundedContext1-application</artifactId>
     <name>Casino - boundedContext1 - Application</name>
-    <url>http://maven.apache.org</url>
+    <url>www.degloba.com</url>
     
     <dependencies>
    
@@ -19,7 +19,12 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>boundedContext1-cqrs</artifactId>
 			<version>${project.version}</version>
-		</dependency>		
+		</dependency>	
+				<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>boundedContext1-eventsourcing</artifactId>
+			<version>${project.version}</version>
+		</dependency>	
 		 <dependency>
         	<groupId>${project.groupId}</groupId>
         	<artifactId>boundedContext1-integration</artifactId>
@@ -40,7 +45,11 @@
 	<dependency>
 		<groupId>org.axonframework</groupId>
 		<artifactId>axon-spring</artifactId>
-		<version>4.0-M2</version>
+			</dependency>
+	<dependency>
+		<groupId>org.axonframework</groupId>
+		<artifactId>axon-test</artifactId>
+		<version>4.1</version>
 	</dependency>
     </dependencies>
     

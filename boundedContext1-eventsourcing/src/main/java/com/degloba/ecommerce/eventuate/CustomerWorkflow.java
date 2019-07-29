@@ -1,18 +1,18 @@
 package com.degloba.ecommerce.eventuate;
 
-import java.util.concurrent.CompletableFuture;
+/*import java.util.concurrent.CompletableFuture;
 
 import com.google.type.Money;
 import com.networknt.eventuate.common.EntityWithIdAndVersion;
 import com.networknt.eventuate.common.EventHandlerContext;
 import com.networknt.eventuate.common.EventHandlerMethod;
-import com.networknt.eventuate.common.EventSubscriber;
+import com.networknt.eventuate.common.EventSubscriber;*/
 
 
-@EventSubscriber(id = "customerWorkflow")
+//@EventSubscriber(id = "customerWorkflow")
 public class CustomerWorkflow {
 
-  @EventHandlerMethod
+/*  @EventHandlerMethod
   public CompletableFuture<EntityWithIdAndVersion<Customer>> reserveCredit(
           EventHandlerContext<OrderCreatedEvent> ctx) {
     OrderCreatedEvent event = ctx.getEvent();
@@ -21,6 +21,6 @@ public class CustomerWorkflow {
     String orderId = ctx.getEntityId();
 
     return ctx.update(Customer.class, customerId, new ReserveCreditCommand(orderTotal, orderId));
-  }
+  }*/
 
 }

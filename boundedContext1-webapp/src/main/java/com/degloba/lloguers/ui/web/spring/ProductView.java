@@ -3,18 +3,12 @@ package com.degloba.lloguers.ui.web.spring;
 
 import java.io.Serializable;
 
-
 import javax.annotation.PostConstruct;
 
-// JSF
 import javax.faces.application.FacesMessage;
 
-
-// 
 import javax.inject.Inject;
 
-
-// Spring
 import org.springframework.stereotype.Component;
 
 // Spring-Webflow
@@ -22,8 +16,9 @@ import org.springframework.webflow.execution.RequestContext;
 import org.springframework.webflow.mvc.servlet.MvcExternalContext;
 
 import com.degloba.domain.event.IDomainEventBus;
-import com.degloba.ecommerce.vendes.application.events.CompraEnEfectiuEvent;
+
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.CompraEnEfectiuEventSubscriber;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
 import com.degloba.ioc.spring.InstanceFactory;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
@@ -88,7 +83,7 @@ public class ProductView implements Serializable{
 		 
 		 IDomainEventBus<?> d =  InstanceFactory.getInstance(IDomainEventBus.class);
 		 
-		 d.publishEvent(new CompraEnEfectiuEvent(1232,"chocolate"));
+		 d.publicaEvent(new CompraEnEfectiuEvent(1232,"chocolate"));
 		 
 		 
 		 MvcExternalContext externalContext =

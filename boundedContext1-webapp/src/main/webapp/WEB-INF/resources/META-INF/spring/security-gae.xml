@@ -24,7 +24,7 @@
 			access="hasRole('USER')" />
 		<custom-filter position="PRE_AUTH_FILTER"
 			ref="gaeFilter" />
-		<csrf disabled="true" />
+		<!-- <csrf disabled="true" /> -->
 	</http>
 
 	<b:bean id="gaeEntryPoint"

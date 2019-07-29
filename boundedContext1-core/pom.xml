@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>casino-boundedContext1</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
+    </parent>
+    
+  <artifactId>boundedContext1-core</artifactId>  
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Casino - boundedContext1 - Core</name>
+    
+  <dependencies>
+  
+  	        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+  	        <dependency>
+  	        	<groupId>org.axonframework</groupId>
+  	        	<artifactId>axon-spring</artifactId>
+  	        </dependency>
+  	        <!-- <dependency>
+  	        	<groupId>com.degloba</groupId>
+  	        	<artifactId>boundedContext1-cqrs</artifactId>
+  	        	<version>4.4.3-SNAPSHOT</version>
+  	        </dependency> -->
+  </dependencies>
+</project>

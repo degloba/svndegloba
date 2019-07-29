@@ -4,7 +4,6 @@ package com.degloba.ecommerce.vendes.application.events.guava.eventbus;
 import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
 import com.degloba.ecommerce.vendes.eventsourcing.events.NoSubscriberEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 
 /**

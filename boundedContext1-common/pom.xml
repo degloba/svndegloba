@@ -7,9 +7,9 @@
         <version>4.4.3-SNAPSHOT</version>
     </parent>
     
-    <artifactId>degloba-common</artifactId>
+    <artifactId>boundedContext1-common</artifactId>
     <packaging>jar</packaging>
-    <name>(degloba-common) - Common</name>
+    <name>Casino - boundedContext1 - Common</name>
     
     
     <dependencies>
@@ -55,10 +55,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -83,6 +79,11 @@
         	<groupId>org.axonframework</groupId>
         	<artifactId>axon-spring-boot-autoconfigure</artifactId>
         	<version>4.1.2</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>boundedContext1-core</artifactId>
+        	<version>4.4.3-SNAPSHOT</version>
         </dependency>
     </dependencies>
  

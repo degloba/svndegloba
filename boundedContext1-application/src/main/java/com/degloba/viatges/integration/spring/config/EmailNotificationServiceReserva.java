@@ -27,7 +27,7 @@ import com.degloba.viatges.integration.spring.EmailNotificationService;
 import com.degloba.viatges.application.services.IViatgesService;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
-import com.degloba.integration.spring.services.NotificationGateway;
+import com.degloba.integration.spring.services.NotificacioGateway;
 
 import javax.annotation.PostConstruct;
 import javax.mail.BodyPart;
@@ -60,7 +60,7 @@ public class EmailNotificationServiceReserva extends EmailNotificationService {
     private IViatgesService ReservaService;
 
     @Autowired
-    private NotificationGateway notificationGateway;
+    private NotificacioGateway notificacioGateway;
 
     @Autowired
     private VelocityEngine velocityEngine;
@@ -175,7 +175,7 @@ public class EmailNotificationServiceReserva extends EmailNotificationService {
             m.put("html", html);
             m.put("txt", txt);
 
-            notificationGateway.sendNotification(usuari.getEmail(), this.confirmationSubject, m);
+            notificacioGateway.enviaNotificacio(usuari.getEmail(), this.confirmationSubject, m);
 
 
         } catch (Exception e) {

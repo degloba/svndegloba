@@ -50,58 +50,44 @@
 	<!-- **************** -->
 	<!-- EVENT PUBLISHER -->
 	<!-- **************** -->
-	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.DomainEventPublisher" 
-		/> -->
-	<bean id="domainEventPublisher" class="com.degloba.event.impl.DomainEventPublisher" />
-	<bean class="com.degloba.infrastructure.events.impl.EventListenerBeanPostProcessor" />
+	<!-- <bean id="domainEvent" class="com.degloba.infrastructure.events.impl.DomainEventPublisher"	/> -->
+	<bean id="domainEventPublisher" class="com.degloba.event.impl.spring.DomainEventPublisher" />
+	<bean class="com.degloba.event.impl.spring.EventListenerBeanPostProcessor" />
 
 	<!-- ********************************************** -->
 	<!-- HANDLERS/LISTENERS D'EVENTS (EventListeners) -->
 	<!-- ********************************************** -->
-	<bean
-		class="com.degloba.ecommerce.shipping.application.listeners.OrderSubmittedForShippingListener" />
-	<bean
-		class="com.degloba.ecommerce.sales.application.listeners.BookKeepingListener" />
-	<bean
-		class="com.degloba.ecommerce.sales.application.listeners.ClientStatusChangedListener" />
+	<bean class="com.degloba.ecommerce.enviaments.application.listeners.ComandaEnviadaPerEnviamentListener" />
+	<bean class="com.degloba.ecommerce.vendes.application.listeners.BookKeepingListener" />
+	<bean class="com.degloba.ecommerce.vendes.application.listeners.EstatClientCanviatListener" />
 
 	<!-- ********* -->
 	<!-- SAGAS -->
 	<!-- ********* -->
-	<bean id="springSagaRegistry"
-		class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
-	<bean id="sagaRegistry"
-		class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
-	<bean
-		class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
+	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+	<bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
+	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
 
 
 	<!-- *************** -->
 	<!-- FINDERS/CQRS -->
 	<!-- *************** -->
 
-	<bean id="enviamentFinder"
-		class="com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.EnviamentFinder" />
-	<bean id="salesFinder"
-		class="com.degloba.ecommerce.vendes.cqrs.readmodel.finders.VendaFinder" />
-	<bean id="categoryFinder"
-		class="com.degloba.lloguers.cqrs.readmodel.finders.LloguerFinder" />
+	<bean id="enviamentsFinder" class="com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.EnviamentFinder" />
+	<bean id="vendesFinder" class="com.degloba.ecommerce.vendes.cqrs.readmodel.finders.VendaFinder" />
+	<bean id="categoryFinder" class="com.degloba.lloguers.cqrs.readmodel.finders.LloguerFinder" />
 
 
 	<!-- ************************* -->
 	<!-- APPLICATIONS/SERVICES -->
 	<!-- ************************* -->
-	<bean id="application"
-		class="com.degloba.organisation.application.services.OrganisationApplicationImpl">
-		<constructor-arg name="organisationRepository"
-			ref="organisationRepository" />
+	<bean id="application" class="com.degloba.organisation.application.services.OrganisationApplicationImpl">
+		<constructor-arg name="organisationRepository" ref="organisationRepository" />
 	</bean>
 
-	<bean id="ReservaService"
-		class="com.degloba.viatges.application.services.JpaReservaService" />
+	<bean id="ReservaService" class="com.degloba.viatges.application.services.JpaReservaService" />
 
-	<bean id="lloguerService"
-		class="com.degloba.lloguers.application.services.LloguerService" />
+	<bean id="lloguerService" class="com.degloba.lloguers.application.services.LloguerService" />
 
 
 	<!-- ******************* -->
@@ -112,21 +98,16 @@
 		<property name="application" ref="application"></property>
 	</bean>
 
-	<bean id="facadeCategoryObjectify"
-		class="com.degloba.lloguers.facade.impl.objectify.CategoryFacadeImpl">
-		<property name="lloguerService" ref="lloguerService"></property>
-	</bean>
-
 
 	<!-- ******************* -->
 	<!-- FACTORIES -->
 	<!-- ******************* -->
 	<bean id="shipmentFactory"
-		class="com.degloba.ecommerce.enviaments.domain.factories.ShipmentFactory" />
+		class="com.degloba.ecommerce.enviaments.domain.factories.EnviamentsFactory" />
 	<bean id="invoiceRequestFactory"
-		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.InvoiceRequestFactory" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticionsFacturaFactory" />
 	<bean id="invoiceFactory"
-		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.InvoiceFactory" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturesFactory" />
 
 
 	<!-- ******************* -->
@@ -153,10 +134,9 @@
 	<!-- **************************** -->
 	<bean
 		class="com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService" />
+	<bean class="com.degloba.ecommerce.vendes.facturacio.domain.services.AssesorFiscalService" />
 	<bean
-		class="com.degloba.ecommerce.vendes.facturacio.domain.services.TaxAdvisorService" />
-	<bean
-		class="com.degloba.ecommerce.vendes.application.services.DiscountingService" />
+		class="com.degloba.ecommerce.vendes.application.services.DescompteService" />
 
 
 <!-- 	<bean id="com.degloba.utils.IObjectSerializer"

@@ -2,5 +2,6 @@
     <wb-module deploy-name="boundedContext1-infrastructure">
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/src/main"/>
     </wb-module>
 </project-modules>

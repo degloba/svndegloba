@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
- <descripcio>Aplicació web configurada per executar-se sobre Google AppEngine for Java.</descripcio>
+ <description>Aplicació web configurada per executar-se sobre Google AppEngine for Java.</description>
  <display-name>wwwdegloba</display-name>
  <context-param>
   <param-name>BootsFaces_USETHEME</param-name>
@@ -9,14 +9,14 @@
  </context-param>
  <!-- DESHABILITAR.NO S'USA MOJARRA  -->
  <context-param>
-  <descripcio>When enabled, the runtime initialization and default ResourceHandler
+  <description>When enabled, the runtime initialization and default ResourceHandler
 implementation will use threads to perform their functions. Set this
 value to false if threads aren't desired (as in the case of running
 within the Google Application Engine).
 
 Note that when this option is disabled, the ResourceHandler will not
 pick up new versions of resources when ProjectStage is development.
-	</descripcio>
+	</description>
   <param-name>com.sun.faces.enableThreading</param-name>
   <param-value>false</param-value>
  </context-param>
@@ -30,7 +30,7 @@ pick up new versions of resources when ProjectStage is development.
   <param-value>/WEB-INF/resources/META-INF/spring/root-context.xml</param-value>
  </context-param>
  <context-param>
-  <descripcio>Use JSF view templates saved as *.xhtml, for use with Facelets</descripcio>
+  <description>Use JSF view templates saved as *.xhtml, for use with Facelets</description>
   <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
   <param-value>.xhtml</param-value>
  </context-param>
@@ -47,21 +47,21 @@ pick up new versions of resources when ProjectStage is development.
   <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
  </context-param>
  <context-param>
-  <descripcio>Setting this param to Development enables better error messages, 
+  <description>Setting this param to Development enables better error messages, 
 including in the client-side JavaScript,at the cost of some performance.
-While setting this param to Production will turn off some error messages, and emphasize performance.</descripcio>
+While setting this param to Production will turn off some error messages, and emphasize performance.</description>
   <param-name>javax.faces.PROJECT_STAGE</param-name>
   <param-value>Production</param-value>
  </context-param>
  <context-param>
-  <descripcio>JSF removes anything in the page that is contained in</descripcio>
+  <description>JSF removes anything in the page that is contained in</description>
   <param-name>javax.faces.SKIP_COMMENTS</param-name>
   <param-value>true</param-value>
  </context-param>
  <context-param>
-  <descripcio>Used to specify where the state should be saved.
+  <description>Used to specify where the state should be saved.
 If you want to save the state on the server (which is the default in the JavaServer Faces reference implementation), specify the param-value value as server.Otherwise to save the state on the client side we can specify client in the param-value. 
-	</descripcio>
+	</description>
   <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
   <param-value>server</param-value>
  </context-param>
@@ -183,7 +183,7 @@ If you want to save the state on the server (which is the default in the JavaSer
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
  </listener>
  <listener>
-  <descripcio>Aquest listener hereda de org.springframework.web.context.ContextLoaderListener</descripcio>
+  <description>Aquest listener hereda de org.springframework.web.context.ContextLoaderListener</description>
   <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
  </listener>
 <listener>
@@ -198,7 +198,7 @@ If you want to save the state on the server (which is the default in the JavaSer
  ******************* -->
     
  <servlet>
-  <descripcio>Spring MVC Servlet</descripcio>
+  <description>Spring MVC Servlet</description>
   <servlet-name>springmvcservlet</servlet-name>
   <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
   <init-param>

@@ -2,6 +2,7 @@ package com.degloba.common.config;
 
 import org.axonframework.common.jpa.EntityManagerProvider;
 import org.axonframework.config.EventProcessingConfigurer;
+
 import org.axonframework.springboot.util.jpa.ContainerManagedEntityManagerProvider;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,9 +3,9 @@ package com.degloba.ecommerce.sales.application.events.guava.eventbus;
 
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.EventPublisher;
 import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.*;
-import com.degloba.ecommerce.vendes.cqrs.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.cqrs.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.vendes.cqrs.events.NoSubscriberEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.vendes.eventsourcing.events.NoSubscriberEvent;
 import com.degloba.event.bus.google.subscribers.AllEventSubscriber;
 import com.degloba.event.bus.google.subscribers.EventSubscriber;
 import com.degloba.event.bus.google.subscribers.InvalidSubscriberNoParameters;
@@ -147,7 +147,7 @@ public class EventBusTest {
     public void testHandleAllEvents() {
         allEventSubscriber = EventSubscriber.factory(AllEventSubscriber.class, eventBus);
         generateAllPurchaseEvents();
-        generateSimpleEvent();
+       // generateSimpleEvent();
         assertThat(allEventSubscriber.getHandledEvents().size(), is(3));
     }
 
@@ -155,7 +155,7 @@ public class EventBusTest {
     public void testMultiHandlerSubscriber() {
         generateCashPurchaseEvent();
         generateCreditPurchaseEvent();
-        generateSimpleEvent();
+       ///////// generateSimpleEvent();
         assertThat(multiHandlerSubscriber.getCashEvents().size(), is(1));
         assertThat(multiHandlerSubscriber.getCreditEvents().size(), is(1));
         assertThat(multiHandlerSubscriber.getSimpleEvents().size(), is(1));
@@ -174,9 +174,9 @@ public class EventBusTest {
     }
 
 
-    private void generateSimpleEvent() {
+ /*   private void generateSimpleEvent() {
         eventPublisher.createSimpleEvent("simpleEvent");
-    }
+    }*/
 
     private void generateAllPurchaseEvents() {
         generateCashPurchaseEvent();
@@ -184,11 +184,11 @@ public class EventBusTest {
     }
 
     private void generateCreditPurchaseEvent() {
-        eventPublisher.createCreditPurchaseEvent("Plane Tickets", "123456789", 25900l);
+        eventPublisher.publicaCompraAmbCreditEvent("Plane Tickets", "123456789", 25900l);
     }
 
     private void generateCashPurchaseEvent() {
-        eventPublisher.createCashPurchaseEvent("Jeep Wrangler", 25000l);
+        eventPublisher.publicaCompraEnEfectiuEvent("Jeep Wrangler", 25000l);
     }
 
 
