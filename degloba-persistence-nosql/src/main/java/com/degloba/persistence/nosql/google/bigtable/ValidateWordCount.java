@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.bigtable;
+package com.degloba.persistence.nosql.google.bigtable;
 
 import java.io.IOException;
 

@@ -9,10 +9,6 @@ import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-//import org.springframework.amqp.support.converter.JsonMessageConverter;
-import org.springframework.amqp.support.converter.MessageConverter;
-
 // Spring
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,9 +40,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * @category defineix la configuració d'integració (amqp/rabbit, messaging, mail,...) com un bean d'Spring
+ * i a partir del fitxer de propietats application.properties
+ */
 @Configuration
 @PropertySource("classpath:/META-INF/application.properties")
-public class IntegrationConfiguration {
+public class IntegracioConfiguration {
 
 
     @Inject

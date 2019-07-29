@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-bigquery</artifactId>
-			<version>${googleCloud.version}</version>
+			<version>1.65.0</version>
 		</dependency>
     </dependencies>
 

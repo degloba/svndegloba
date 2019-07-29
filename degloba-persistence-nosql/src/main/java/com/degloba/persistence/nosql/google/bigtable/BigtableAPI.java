@@ -1,7 +1,12 @@
-package com.degloba.persistence.nosql.bigtable;
+package com.degloba.persistence.nosql.google.bigtable;
 
 
 import java.io.IOException;
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
@@ -14,7 +19,6 @@ import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
-
 
 import com.google.api.gax.rpc.NotFoundException;
 import com.google.api.gax.rpc.ServerStream;
@@ -29,12 +33,12 @@ import com.google.cloud.bigtable.data.v2.models.RowCell;
 import com.google.cloud.bigtable.data.v2.models.RowMutation;
 
 /**
- * A minimal application that connects to Cloud Bigtable using the native HBase API and performs
- * some basic operations.
+ * Aplicació que connecta a Cloud Bigtable utilitzant l'API nativa HBase.
+ * Realitza algunes operacions bàsiques.
  */
 public class BigtableAPI {
 	
-	private static final String COLUMN_FAMILY = "cf1";
+	  private static final String COLUMN_FAMILY = "cf1";
 	  private static final String COLUMN_QUALIFIER = "greeting";
 	  private static final String ROW_KEY_PREFIX = "rowKey";
 	  private final String tableId;
@@ -45,6 +49,8 @@ public class BigtableAPI {
   private static final byte[] TABLE_NAME = Bytes.toBytes("Hello-Bigtable");
   private static final byte[] COLUMN_FAMILY_NAME = Bytes.toBytes("cf1");
   private static final byte[] COLUMN_NAME = Bytes.toBytes("greeting");
+  
+  final static Log LOG = LogFactory.getLog(BigtableAPI.class);
 
   // Write some friendly greetings to Cloud Bigtable
   private static final String[] GREETINGS = {
@@ -56,12 +62,12 @@ public class BigtableAPI {
    * @param connection to Bigtable
    * @return the status
    */
-  public Boolean create(Connection connection) {
+  public Boolean createTable(Connection connection) {
     try {
-      // The admin API lets us create, manage and delete tables
+      // L’API d’administració ens permet crear, gestionar i eliminar taules
       Admin admin = connection.getAdmin();
 
-      // Create a table with a single column family
+      // Crea una taula amb una sola família de columnes
       HTableDescriptor descriptor = new HTableDescriptor(TableName.valueOf(TABLE_NAME));
       descriptor.addFamily(new HColumnDescriptor(COLUMN_FAMILY_NAME));
 
@@ -72,12 +78,61 @@ public class BigtableAPI {
     }
     return true;
   }
+  
+  /**
+   * 
+   * @param tableName
+   * @param conf
+   * @param columnFamilies
+   * @throws IOException
+   */
+  public static void createTable(TableName tableName, Configuration conf,
+      List<String> columnFamilies) throws IOException {
+	  
+    LOG.info("Creating Table " + tableName);
+    
+    Connection connection = BigtableConnect.connectWithConfiguration();  //ConnectionFactory.createConnection(conf);
+    Admin admin = null;
+    try {
+      admin = connection.getAdmin();
+      if (tableExists(tableName, admin)) {
+        LOG.info("Table " + tableName + " already exists");
+      } else {
+        HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
+        for (String columnFamily : columnFamilies) {
+          tableDescriptor.addFamily(new HColumnDescriptor(columnFamily));
+        }
+
+        // NOTE: Anviltop createTable is synchronous while HBASE creation is not.
+        admin.createTable(tableDescriptor);
+      }
+    } catch (Exception e) {
+      LOG.error("Could not create table " + tableName, e);
+    } finally {
+      try {
+        admin.close();
+      } catch (Exception e) {
+        LOG.error("Could not close the admin", e);
+      }
+      connection.close();
+    }
+  }
+
+  private static boolean tableExists(TableName tableName, Admin admin)  {
+    try {
+      return admin.tableExists(tableName);
+    } catch (Exception e) {
+      LOG.error("Could not figure out if table " + tableName + " exists.", e);
+      return false;
+    } finally {
+    }
+  }
 
   /** Connects to Cloud Bigtable, runs some basic operations and prints the results. */
   public void Add() {
     
     // Create the Bigtable connection, use try-with-resources to make sure it gets closed
-    Connection connection = BigtableHelper.getConnection();
+    Connection connection = BigtableConnect.connection;
         
     try (Table table = connection.getTable(TableName.valueOf(TABLE_NAME))) {
 
@@ -85,7 +140,7 @@ public class BigtableAPI {
       // Write some rows to the table
     
       for (int i = 0; i < GREETINGS.length; i++) {
-        // Each row has a unique row key.
+        // Cada fila té una clau de fila única.
         //
         // Note: This example uses sequential numeric IDs for simplicity, but
         // this can result in poor performance in a production application.

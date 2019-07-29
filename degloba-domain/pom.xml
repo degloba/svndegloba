@@ -22,37 +22,57 @@
 			<artifactId>spring-tx</artifactId>
 		</dependency>
        
-       <!-- pels Events -->
-         <dependency>
-		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>
-		 	</dependency>  
+       <!-- pels Events -->  
            
-		 <!-- <dependency>
+		 <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency> -->
+		</dependency> 
 		
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-event-api</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-ioc-spring</artifactId>
 			</dependency>
+					<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-utilitats</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+			</dependency>
+			
+					<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-event-api</artifactId>
+	
+			</dependency>
+			<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-datastore</artifactId>
+			<version>1.16.0</version>
+			</dependency>
+			
+			
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 		</dependency>
-	
+			<dependency>
+		 	<groupId>org.springframework.data</groupId>
+		 	<artifactId>spring-data-mongodb</artifactId>
+		 	
+		 </dependency>
 		
+
 		<dependency>
-    		<groupId>com.google.cloud</groupId>
-    		<artifactId>google-cloud-datastore</artifactId>
-    		<version>${googleCloud.version}</version>
-    	</dependency>
-    	
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>15.0</version>
+			<type>0.jar</type>
+			<classifier>cdi1</classifier>
+		</dependency>
     </dependencies>
 
     <build>

@@ -14,12 +14,12 @@ import java.util.Map;
  * 
  * @author degloba
  *
- * @category 
+ * @category defineix un mètode per enviar mails com missatges en el context Spring
  */
-public interface NotificationGateway {
+public interface NotificacioGateway {
 
     @Gateway(requestChannel = "enqueuedEmails")
-    void sendNotification(
+    void enviaNotificacio(
             @Header(MailHeaders.TO) String destinationAddresses,
             @Header(MailHeaders.SUBJECT) String subject,
             @Payload Map<String, String> body);

@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.bigtable;
+package com.degloba.persistence.nosql.google.bigtable.tools;
 
 
 import static com.google.cloud.bigtable.admin.v2.models.GCRules.GCRULES;
@@ -21,25 +21,33 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * An example of using Google Cloud Bigtable.
- *
- * <p>This example demonstrates the usage of BigtableTableAdminClient to create, configure and
- * delete a Cloud Bigtable table.
+ * <ul>
+ * 	<li>Cloud Bigtable emmagatzema les dades en taules escalables massivament, cadascuna de les quals és un mapa de clau/valor ordenat.
+ *  
+ * 	<li>La taula es compon de files, cadascuna de les quals normalment descriu una sola entitat i columnes, que contenen valors individuals per a cada fila.
+ *  
+ * 	<li>Cada fila està indexada per una clau de fila única i les columnes que estan relacionades entre si normalment s'agrupen en una família de columnes.
+ *  
+ * 	<li>Cada columna s’identifica mitjançant una combinació de la família de columnes i un qualificador de columna, 
+ * que és un nom únic dins de la família de columnes.
+ * </ul>
+ * 
+ * <p>Utilitza BigtableTableAdminClient per crear, configurar i suprimir una taula Bigtable Cloud
  *
  * <ul>
- *   <li>creates table
- *   <li>lists all tables
- *   <li>gets table metadata
- *   <li>creates DurationRule
- *   <li>creates VersionRule
- *   <li>creates UnionRule
- *   <li>creates IntersectionRule
- *   <li>creates nested rule
- *   <li>lists column families
- *   <li>modifies column family rule
- *   <li>prints modified column family
- *   <li>deletes column family
- *   <li>deletes table
+ *   <li>crea una table
+ *   <li>llista totes les taules
+ *   <li>recupera la metadata d'una taula
+ *   <li>crea DurationRule
+ *   <li>crea VersionRule
+ *   <li>crea UnionRule
+ *   <li>crea IntersectionRule
+ *   <li>crea nested rule
+ *   <li>llista column families
+ *   <li>modifica column family rule
+ *   <li>printa modified column family
+ *   <li>esborra una column family
+ *   <li>esborra una table
  * </ul>
  */
 public class TableAdmin {
@@ -69,14 +77,14 @@ public class TableAdmin {
     this.tableId = tableId;
 
     // [START connecting_to_bigtable]
-    // Creates the settings to configure a bigtable table admin client.
+    // Crea els paràmetres per configurar un client d'administrador de la taula BigTable.
     BigtableTableAdminSettings adminSettings =
         BigtableTableAdminSettings.newBuilder()
             .setProjectId(projectId)
             .setInstanceId(instanceId)
             .build();
 
-    // Creates a bigtable table admin client.
+    // Crea un gestor d'administració de la taula BigTable.
     adminClient = BigtableTableAdminClient.create(adminSettings);
     // [END connecting_to_bigtable]
   }
@@ -98,10 +106,10 @@ public class TableAdmin {
     adminClient.close();
   }
 
-  /** Demonstrates how to create a table with the specified configuration. */
+  /** crea una taula amb la configuració especificada. */
   public void createTable() {
     // [START bigtable_create_table]
-    // Checks if table exists, creates table if does not exist.
+    // Comprova si la taula existeix, crea taula si no existeix.
     if (!adminClient.exists(tableId)) {
       System.out.println("Table does not exist, creating table: " + tableId);
       CreateTableRequest createTableRequest = CreateTableRequest.of(tableId).addFamily("cf");
@@ -111,7 +119,7 @@ public class TableAdmin {
     // [END bigtable_create_table]
   }
 
-  /** Demonstrates how to list all tables within an instance. */
+  /** llista totes les taules d’una instància. */
   public void listAllTables() {
     System.out.println("\nListing tables in current instance");
     // [START bigtable_list_tables]
@@ -127,7 +135,7 @@ public class TableAdmin {
     // [END bigtable_list_tables]
   }
 
-  /** Demonstrates how to get a table's metadata. */
+  /** obté les metadades d'una taula. */
   public void getTableMeta() {
     System.out.println("\nPrinting table metadata");
     // [START bigtable_get_table_metadata]
@@ -148,7 +156,9 @@ public class TableAdmin {
     // [END bigtable_get_table_metadata]
   }
 
-  /** Demonstrates how to create a new instance of the DurationRule. */
+  /** crea una nova instància de la DurationRule. 
+   * GCRule es una regla per determinar quines celles ha de suprimir durant la Garbage Collector. 
+   */
   public void addFamilyWithMaxAgeRule() {
     System.out.printf("%nCreating column family %s with max age GC rule%n", COLUMN_FAMILY_1);
     // [START bigtable_create_family_gc_max_age]
@@ -158,7 +168,7 @@ public class TableAdmin {
     // Defines the GC rule to retain data with max age of 5 days.
     DurationRule maxAgeRule = GCRULES.maxAge(5, TimeUnit.DAYS);
 
-    // Creates column family with given GC rule.
+    // Crea una família de columnes amb una regla GC donada.
     try {
       // ModifyColumnFamiliesRequest can be used both for adding and modifying families, here it is
       // being used to add a family
@@ -173,14 +183,14 @@ public class TableAdmin {
     // [END bigtable_create_family_gc_max_age]
   }
 
-  /** Demonstrates how to create a new instance of the VersionRule. */
+  /** crea una nova instància de VersionRule. */
   public void addFamilyWithMaxVersionsRule() {
     System.out.printf("%nCreating column family %s with max versions GC rule%n", COLUMN_FAMILY_2);
     // [START bigtable_create_family_gc_max_versions]
-    // Creates a column family with GC policy : most recent N versions
+    // Crea una família de columnes amb política GC: versions més recents N
     // where 1 = most recent version
 
-    // Defines the GC policy to retain only the most recent 2 versions.
+    // Defineix la política de GC per conservar només les 2 versions més recents.
     VersionRule versionRule = GCRULES.maxVersions(2);
 
     // Creates column family with given GC rule.
@@ -198,14 +208,13 @@ public class TableAdmin {
     // [END bigtable_create_family_gc_max_versions]
   }
 
-  /** Demonstrates how to create a new instance of the UnionRule. */
+  /** crea una nova instància UnionRule. */
   public void addFamilyWithUnionRule() {
     System.out.printf("%nCreating column family %s with union GC rule%n", COLUMN_FAMILY_3);
     // [START bigtable_create_family_gc_union]
-    // Creates a column family with GC policy to drop data that matches at least one condition.
+    // Crea una família de columnes amb política GC per retirar les dades que coincideixin almenys amb una condició.
 
-    // Defines a list of GC rules to drop cells older than 5 days OR not the most recent
-    // version.
+    // Defineix una llista de regles GC per retirar cel·les amb més de 5 dies o de la versió més vella
     UnionRule unionRule =
         GCRULES.union().rule(GCRULES.maxAge(5, TimeUnit.DAYS)).rule(GCRULES.maxVersions(1));
 
@@ -224,13 +233,13 @@ public class TableAdmin {
     // [END bigtable_create_family_gc_union]
   }
 
-  /** Demonstrates how to create a new instance of the IntersectionRule. */
+  /** crea una nova instància IntersectionRule. */
   public void addFamilyWithIntersectionRule() {
     System.out.printf("%nCreating column family %s with intersection GC rule%n", COLUMN_FAMILY_4);
     // [START bigtable_create_family_gc_intersection]
-    // Creates a column family with GC policy to drop data that matches all conditions.
+    //Crea una família de columnes amb política GC per retirar dades que coincideixin amb totes les condicions.
 
-    // Defines a GC rule to drop cells older than 5 days AND older than the most recent 2 versions.
+    // Defineix una regla GC per retirar cel·les de més de 5 dies i més antiga que les 2 versions més recents.
     DurationRule maxAgeRule = GCRULES.maxAge(5, TimeUnit.DAYS);
     VersionRule versionRule = GCRULES.maxVersions(2);
     IntersectionRule intersectionRule = GCRULES.intersection().rule(maxAgeRule).rule(versionRule);
@@ -250,14 +259,14 @@ public class TableAdmin {
     // [END bigtable_create_family_gc_intersection]
   }
 
-  /** Demonstrates how to create a nested rule using the IntersectionRule and UnionRule. */
+  /** crea una regla imbricada utilitzant el IntersectionRule and UnionRule. */
   public void addFamilyWithNestedRule() {
     System.out.printf("%nCreating column family %s with a nested GC rule%n", COLUMN_FAMILY_5);
     // [START bigtable_create_family_gc_nested]
-    // Creates a nested GC rule:
-    // Drop cells that are either older than the 10 recent versions
-    // OR
-    // Drop cells that are older than a month AND older than the 2 recent versions
+    // Crea una regla GC anidada:
+    // Retira les cel·les més antigues que les 10 versions recents
+    // O
+    // Retira les cel·les amb més d’un mes I més antigues que les 2 versions recents
     VersionRule versionRule1 = GCRULES.maxVersions(10);
     VersionRule versionRule2 = GCRULES.maxVersions(2);
     DurationRule maxAgeRule = GCRULES.maxAge(30, TimeUnit.DAYS);
@@ -266,8 +275,8 @@ public class TableAdmin {
 
     // Creates column family with given GC rule.
     try {
-      // ModifyColumnFamiliesRequest can be used both for adding and modifying families, here it is
-      // being used to add a family
+      // ModifyColumnFamiliesRequest es pot utilitzar tant per afegir i modificar famílies, aquí
+      // s’utilitza per afegir una família
       ModifyColumnFamiliesRequest columnFamiliesRequest =
           ModifyColumnFamiliesRequest.of(tableId).addFamily(COLUMN_FAMILY_5, unionRule);
       adminClient.modifyFamilies(columnFamiliesRequest);
@@ -279,7 +288,7 @@ public class TableAdmin {
     // [END bigtable_create_family_gc_nested]
   }
 
-  /** Demonstrates how to list a table's column families. */
+  /** llista les famílies de columnes d'una taula. */
   public void listColumnFamilies() {
     System.out.println("\nPrinting ID and GC Rule for all column families");
     // [START bigtable_list_column_families]

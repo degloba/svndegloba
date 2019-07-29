@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.bigtable;
+package com.degloba.persistence.nosql.google.bigtable;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -27,7 +27,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
  * 
  * Logica MapReduce
  * 
- * Agrupa per una key (alfanumerica) i el Reducer reb per cada key una llista de "valors"
+ * El Mapper agrupa per una key (alfanumerica) i el Reducer reb per cada key una llista de "valors"
  */
 public class WordCountHBase {
 
@@ -74,7 +74,7 @@ public class WordCountHBase {
     public void reduce(ImmutableBytesWritable key, Iterable<IntWritable> values, Context context)
         throws IOException, InterruptedException {
     	
-      // l�gica d'exemple sobre els valors agrupats per la clau
+      // logica d'exemple sobre els valors agrupats per la clau
       int sum = sum(values);
       
                 
@@ -83,7 +83,7 @@ public class WordCountHBase {
       context.write(null, put);
     }
 
-    // l�gica d'exemple sobre els valors agrupats per la clau
+    // logica d'exemple sobre els valors agrupats per la clau
     public int sum(Iterable<IntWritable> values) {
       int i = 0;
       for (IntWritable val : values) {
@@ -110,7 +110,7 @@ public class WordCountHBase {
 
     TableName tableName = TableName.valueOf(otherArgs[otherArgs.length - 1]);
     try {
-      CreateTable.createTable(tableName, conf,
+      BigtableAPI.createTable(tableName, conf,
           Collections.singletonList(Bytes.toString(COLUMN_FAMILY)));
     } catch (Exception e) {
       LOG.error("Could not create the table.", e);

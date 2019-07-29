@@ -16,13 +16,12 @@ import javax.inject.Inject;
 // JPA
 //import javax.persistence.NoResultException;
 
-// Spring
+
 import org.springframework.stereotype.Component;
 
 import com.degloba.event.api.IEvent;
 import com.degloba.event.api.IEventHandler;
-// Events
-import com.degloba.event.impl.DomainEventPublisher;
+import com.degloba.event.impl.spring.DomainEventPublisher;
 import com.degloba.infrastructure.sagas.ISagaEngine;
 import com.degloba.infrastructure.sagas.ISagaManager;
 import com.degloba.infrastructure.sagas.LoadSaga;
