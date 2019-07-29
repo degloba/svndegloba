@@ -120,8 +120,9 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	    /**
 	     * @throws PayPalException
 	     * @throws PayPalRESTException 
+	     * @throws com.paypal.base.rest.PayPalRESTException 
 	     */
-	    public void DoDirectPayment() throws PayPalException, PayPalRESTException {
+	    public void DoDirectPayment() throws PayPalException, PayPalRESTException, com.paypal.base.rest.PayPalRESTException {
 	    	
 	    	System.out.println("ABONAMENT QUANTITAT A INSACO");    	
 	       	System.out.println("\n########## Do Direct Payment ##########\n");
@@ -284,21 +285,15 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	    		payment.setPayer(payer);
 	    		payment.setTransactions(transactions);
 
-	    		try
-	    		{
-	    			Payment createdPayment = payment.create(accessToken);
-		    		
-		    		Iterator<Links> links = createdPayment.getLinks().iterator();				
-		    		while (links.hasNext()) {					
-		    			Links link = links.next();					
-		    			if (link.getRel().equalsIgnoreCase("approval_url")) {						
-		    			//req.setAttribute("redirectURL", link.getHref());					
-		    			}	
-		    		}
-	    		}
-	    		catch (PayPalRESTException e) {				
-	    			//req.setAttribute("error", e.getMessage());
-	    		}
+	    		Payment createdPayment = payment.create(accessToken);
+				
+				Iterator<Links> links = createdPayment.getLinks().iterator();				
+				while (links.hasNext()) {					
+					Links link = links.next();					
+					if (link.getRel().equalsIgnoreCase("approval_url")) {						
+					//req.setAttribute("redirectURL", link.getHref());					
+					}	
+				}
 	    		
 	    					
 	    		

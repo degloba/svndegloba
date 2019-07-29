@@ -1,15 +1,11 @@
 package com.degloba.billing;
 
-//billing - degloba
 import com.degloba.billing.IBillingService;
 import com.degloba.billing.ICreditCardProcessor;
 
 
 // logs - degloba
 import com.degloba.logs.ITransactionLog;
-
-// Paypal
-
 
 
 public class RealBillingService implements IBillingService {  
@@ -24,10 +20,10 @@ public class RealBillingService implements IBillingService {
 	
 /*	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {    
 		//try {      
-			ChargeResult result = processor.charge(creditCard, order.getAmount());      
+			ChargeResult result = processor.charge(creditCard, order.getQuantitat());      
 			//transactionLog.logChargeResult(result);      
 			return  (result.wasSuccessful()          
-					? Receipt.forSuccessfulCharge(order.getAmount())          
+					? Receipt.forSuccessfulCharge(order.getQuantitat())          
 							: Receipt.forDeclinedCharge(result.getDeclineMessage()));     
 			} 
 		catch (UnreachableException e) {      

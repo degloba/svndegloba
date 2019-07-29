@@ -466,14 +466,14 @@ public class DateUtils {
      * The date for the specified period of time after the date. For example, three days after a date date.
      *
      * @param origDate Base Date
-     * @param amount Number
+     * @param quantitat Number
      * @param timeUnit Time units, such as year, month, date and so on. Calendar of constant use on behalf of
      * @return A date
      */
-    public static final Date dateAfter(Date origDate, int amount, int timeUnit) {
+    public static final Date dateAfter(Date origDate, int quantitat, int timeUnit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(origDate);
-        calendar.add(timeUnit, amount);
+        calendar.add(timeUnit, quantitat);
         return calendar.getTime();
     }
 
@@ -481,14 +481,14 @@ public class DateUtils {
      * Obtain a specified date prior to the date a period. For example, a date three days before the date.
      *
      * @param origDate Base Date
-     * @param amount Number
+     * @param quantitat Number
      * @param timeUnit Time units, such as year, month, date and so on. Calendar of constant use on behalf of
      * @return A date
      */
-    public static final Date dateBefore(Date origDate, int amount, int timeUnit) {
+    public static final Date dateBefore(Date origDate, int quantitat, int timeUnit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(origDate);
-        calendar.add(timeUnit, -amount);
+        calendar.add(timeUnit, -quantitat);
         return calendar.getTime();
     }
 }

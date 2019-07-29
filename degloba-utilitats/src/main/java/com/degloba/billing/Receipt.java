@@ -1,9 +1,14 @@
 package com.degloba.billing;
 
+/**
+ * Classe : Rebut
+ * 
+ * @author pere
+ *
+ */
 public class Receipt {
 	
-
-	public static Receipt forSuccessfulCharge(Object amount) {
+	public static Receipt forSuccessfulCharge(Object quantitat) {
 		// TODO Auto-generated method stub
 		return null;
 	}

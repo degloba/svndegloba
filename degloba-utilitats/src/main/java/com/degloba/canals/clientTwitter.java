@@ -40,7 +40,6 @@ public class clientTwitter {
 	public static void updateWhatAreYouDoing(String latestStatus)
 	{
 		
-		
 		// The factory instance is re-useable and thread safe.
 	    twitter = new TwitterFactory().getInstance();
 	    Status status;
@@ -184,7 +183,7 @@ public class clientTwitter {
 	                lists = twitter.getUserListMembers(cursor, "degloba", cursor);
 	                for (User list : lists) {
 	                    System.out.println("id:" + list.getId() + ", name:" + list.getName() + ", description:");
-	                           // + list.getDescription() + ", slug:" + list.getSlug() + "");
+	                           // + list.getDescripcio() + ", slug:" + list.getSlug() + "");
 	                }
 	            } while ((cursor = lists.getNextCursor()) != 0);
 	           // System.exit(0);
