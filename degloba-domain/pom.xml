@@ -1,66 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.degloba</groupId>
-        <artifactId>degloba-parent</artifactId>
-        <version>4.4.3-SNAPSHOT</version>
-        <relativePath>../degloba-parent/pom.xml</relativePath>
-    </parent>
-    
-    <artifactId>degloba-domain</artifactId>
-    <packaging>jar</packaging>
-    <name>(degloba-domain) - interfaces i classes de domini base</name>
-    <description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>degloba-domain</artifactId>
+	<packaging>jar</packaging>
+	<name>(degloba-domain) - interfaces i classes de domini base</name>
+	<description>
         Most important module that provides the core interfaces and base classes.
     </description>
 
-    <dependencies>
-    
-    <dependency>
+	<dependencies>
+
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 		</dependency>
-       
-       <!-- pels Events -->  
-           
-		 <dependency>
+
+		<!-- pels Events -->
+
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency> 
-		
+		</dependency>
+
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-ioc-spring</artifactId>
-			</dependency>
-					<dependency>
+		</dependency>
+		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
-			</dependency>
-			
-					<dependency>
+		</dependency>
+
+		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
-	
-			</dependency>
-			<dependency>
+
+		</dependency>
+		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-datastore</artifactId>
 			<version>1.16.0</version>
-			</dependency>
-			
-			
+		</dependency>
+
+
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 		</dependency>
-			<dependency>
-		 	<groupId>org.springframework.data</groupId>
-		 	<artifactId>spring-data-mongodb</artifactId>
-		 	
-		 </dependency>
-		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -73,130 +75,103 @@
 			<type>0.jar</type>
 			<classifier>cdi1</classifier>
 		</dependency>
-    </dependencies>
+	</dependencies>
 
-    <build>
-      <pluginManagement>
-        <plugins>
-        	<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
-             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-                <configuration>
-          			<skipTests>true</skipTests>
-       		 	</configuration>
-            </plugin>  
-             <plugin>
-                <groupId>org.eclipse.m2e</groupId>
-                <artifactId>lifecycle-mapping</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                        <lifecycleMappingMetadata>
-                                <pluginExecutions>
-                                        <pluginExecution>
-                                        <pluginExecutionFilter>
-                                                <groupId>org.datanucleus</groupId>
-                                                <artifactId>maven-datanucleus-plugin</artifactId>
-                                                <versionRange>${datanucleus.maven.plugin}</versionRange>
-                                                <goals>
-                                                        <goal>enhance</goal>
-                                                </goals>
-                                        </pluginExecutionFilter>
-                                        
-                                        <action>
-                                                <execute>
-                                                        <runOnIncremental>false</runOnIncremental>
-                                                </execute>
-                                        </action>
-                                        </pluginExecution>
-                                </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                </configuration>
-            </plugin>          
-        </plugins>
-    </pluginManagement>
-    
-     
-	<plugins>
-	
-        	<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>				
-	        </plugin> 
-	        
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Export-Package>
-                            com.degloba.domain,
-                            com.degloba.domain.specification
-                        </Export-Package>
-                    </instructions>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-manifest</id>
-                        <goals>
-                            <goal>manifest</goal>
-                            <goal>bundle</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            
-             <!-- DataNucleus Enhancer (versions 3.1.x)  --> 
-             <!-- <plugin>
-                <groupId>org.datanucleus</groupId>
-                <artifactId>maven-datanucleus-plugin</artifactId>
-                <version>${datanucleus.maven.plugin}</version>
-                <configuration>
-                    <fork>false</fork>
-                    <metadataIncludes>**/*.class</metadataIncludes>
-                    <verbose>true</verbose>
-                    <api>JPA</api>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-core</artifactId>
-                        <version>${datanucleus.jpa.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-enhancer</artifactId>
-                        <version>${datanucleus.maven.plugin}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-api-jpa</artifactId>
-                        <version>${datanucleus.jpa.version}</version>
-                    </dependency>
-                      
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>enhance-sources</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>enhance-test-sources</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>   -->
-           
-        </plugins>
-    </build>
-    <url>www.degloba.com</url>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+					to execute the unit tests of an application -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.plugin.version}</version>
+					<configuration>
+						<skipTests>true</skipTests>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.datanucleus</groupId>
+										<artifactId>maven-datanucleus-plugin</artifactId>
+										<versionRange>${datanucleus.maven.plugin}</versionRange>
+										<goals>
+											<goal>enhance</goal>
+										</goals>
+									</pluginExecutionFilter>
+
+									<action>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>
+							com.degloba.domain,
+							com.degloba.domain.specification
+						</Export-Package>
+					</instructions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-manifest</id>
+						<goals>
+							<goal>manifest</goal>
+							<goal>bundle</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- DataNucleus Enhancer (versions 3.1.x) -->
+			<!-- <plugin> <groupId>org.datanucleus</groupId> <artifactId>maven-datanucleus-plugin</artifactId> 
+				<version>${datanucleus.maven.plugin}</version> <configuration> <fork>false</fork> 
+				<metadataIncludes>**/*.class</metadataIncludes> <verbose>true</verbose> <api>JPA</api> 
+				</configuration> <dependencies> <dependency> <groupId>org.datanucleus</groupId> 
+				<artifactId>datanucleus-core</artifactId> <version>${datanucleus.jpa.version}</version> 
+				</dependency> <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-enhancer</artifactId> 
+				<version>${datanucleus.maven.plugin}</version> </dependency> <dependency> 
+				<groupId>org.datanucleus</groupId> <artifactId>datanucleus-api-jpa</artifactId> 
+				<version>${datanucleus.jpa.version}</version> </dependency> </dependencies> 
+				<executions> <execution> <id>enhance-sources</id> <phase>process-classes</phase> 
+				<goals> <goal>enhance</goal> </goals> </execution> <execution> <id>enhance-test-sources</id> 
+				<phase>process-test-classes</phase> <goals> <goal>enhance</goal> </goals> 
+				</execution> </executions> </plugin> -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<url>www.degloba.com</url>
 </project>

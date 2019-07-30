@@ -1,109 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    
-    <artifactId>degloba-security</artifactId>
-    	<name>(degloba-security) - seguretat</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>degloba-security</artifactId>
+	<name>(degloba-security) - seguretat</name>
 	<url>www.degloba.com</url>
 	<description>Security with Spring Security</description>
-  	
-    <parent>
-	    <artifactId>degloba-parent</artifactId>
-	    <groupId>com.degloba</groupId>
-	    <version>4.4.3-SNAPSHOT</version>
-	    <relativePath>../degloba-parent/pom.xml</relativePath>
-    </parent>
- 
- <properties>
- 
- 	<spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
- 	
- </properties>
-    
-   <dependencies>
 
-        
-    <!-- **************************** -->
-    <!--        Spring Security       -->
-	<!-- ***************************  -->
-        
-	<dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-core</artifactId>
-      <version>${springframework.security.version}</version>
-      <scope>compile</scope>
-    </dependency>
+	<parent>
+		<artifactId>degloba-parent</artifactId>
+		<groupId>com.degloba</groupId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
 
-   
-    <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>      
-      <scope>compile</scope>
-    </dependency>
-    
-  
-    <dependency>
-      <groupId>org.apache.taglibs</groupId>
-      <artifactId>taglibs-standard-jstlel</artifactId>
-      <version>1.2.1</version>
-      <scope>runtime</scope>
-    </dependency>
-    
-   
-     <dependency>
-    	<groupId>org.springframework.security.oauth</groupId>
-    	<artifactId>spring-security-oauth2</artifactId>
-    	<version>${spring-security-oauth2.version}</version>
-    </dependency> 
+	<properties>
+
+		<spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
+
+	</properties>
+
+	<dependencies>
 
 
-    <dependency>
-    	<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-api</artifactId>
-    </dependency>
-    
-    
-    <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servlet.version}</version>             
-        </dependency>
+		<!-- **************************** -->
+		<!-- Spring Security -->
+		<!-- *************************** -->
 
-    <dependency>
-    	<groupId>com.google.appengine</groupId>
-    	<artifactId>appengine-api-1.0-sdk</artifactId>    	
-    </dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${springframework.security.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 
-    <dependency>
-    	<groupId>com.google.appengine</groupId>
-    	<artifactId>appengine-testing</artifactId>
-    	<version>1.9.71</version>
-    </dependency>
-   </dependencies>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<scope>compile</scope>
+		</dependency>
 
-    <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        
-        <plugins>
-    		<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>	            
-	        </plugin>
-		</plugins> 
-    </build>
-    
+
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-jstlel</artifactId>
+			<version>1.2.1</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>${spring-security-oauth2.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-testing</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+				to execute the unit tests of an application -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 	<repositories>
-	    <repository>
-	      <id>spring-snapshot</id>
-	      <url>https://repo.spring.io/snapshot</url>
-	    </repository>
+		<repository>
+			<id>spring-snapshot</id>
+			<url>https://repo.spring.io/snapshot</url>
+		</repository>
 	</repositories>
-     
+
 
 </project>

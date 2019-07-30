@@ -1,44 +1,61 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.degloba</groupId>
-        <artifactId>degloba-parent</artifactId>
-        <version>4.4.3-SNAPSHOT</version>
-        <relativePath>../degloba-parent/pom.xml</relativePath>
-    </parent>
-    
-    <artifactId>degloba-ioc-test</artifactId>
-    <name>(degloba-ioc-test) - testos IoC</name>
-    <url>www.degloba.com</url>
-       
-    
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>compile</scope>
-        </dependency>
-       
-		
-  
-		  <dependency>
-		  	<groupId>com.degloba</groupId>
-		  	<artifactId>degloba-ioc-spring</artifactId>
-		  	</dependency>
-		  <dependency>
-		  	<groupId>org.kie.modules</groupId>
-		  	<artifactId>org-apache-commons-lang3</artifactId>
-		  	<version>6.5.0.Final</version>
-		  	<classifier>tests</classifier>
-		  </dependency>
-    </dependencies>
-    
-    <build>
-	    <plugins>
-	    	
-	    </plugins> 
-    
-    </build>
-    <description>IOC Spring</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>degloba-ioc-test</artifactId>
+	<name>(degloba-ioc-test) - testos IoC</name>
+	<url>www.degloba.com</url>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-ioc-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.kie.modules</groupId>
+			<artifactId>org-apache-commons-lang3</artifactId>
+			<version>6.5.0.Final</version>
+			<classifier>tests</classifier>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+				to execute the unit tests of an application -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+	</build>
+	<description>IOC Spring</description>
 </project>
