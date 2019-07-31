@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.degloba</groupId>
-        <artifactId>degloba-parent</artifactId>
-        <version>4.4.3-SNAPSHOT</version>
-         <relativePath>../degloba-parent/pom.xml</relativePath>
-    </parent> 
-    
-    <artifactId>degloba-persistence</artifactId>
-    <packaging>pom</packaging>
-    <name>(degloba-persistence) - pom</name>
-    <description>Interfìcie de magatzem</description>
-    <url>www.degloba.com</url>
-  
-<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
 
-  		<mysql.version>5.1.29</mysql.version>
-	
+	<artifactId>degloba-persistence</artifactId>
+	<packaging>pom</packaging>
+	<name>(degloba-persistence) - pom</name>
+	<description>Interfìcie de magatzem</description>
+	<url>www.degloba.com</url>
+
+	<properties>
+
+		<mysql.version>5.1.29</mysql.version>
+
 		<!-- Datanucleus -->
 		<datanucleus.core.version>3.1.3</datanucleus.core.version>
 		<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
 		<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
-		
-	
-</properties>
-  
-  
-    <modules>
-        
+
+
+	</properties>
+
+
+	<modules>
+
 		<module>../degloba-persistence-rdbms</module>
 		<module>../degloba-persistence-nosql</module>
-        <module>../degloba-persistence-test</module>
-         
-    </modules>
-    
-    
-    <dependencyManagement>
-    
-    <dependencies>
-    
-		<dependency>
-    		<groupId>javax.persistence</groupId>
-    		<artifactId>javax.persistence-api</artifactId>
-    		<version>2.2</version>
-    	</dependency>
+		<module>../degloba-persistence-test</module>
 
-    </dependencies>
-    
-    </dependencyManagement>
-    
-    
-	
+	</modules>
+
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>javax.persistence-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+
+
 </project>

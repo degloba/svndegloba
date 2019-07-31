@@ -1,121 +1,121 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>  
-  <artifactId>degloba-utilitats</artifactId>
-  <description>Degloba - classes d'utilitats</description>
-  <name>(degloba-utilitats) - utilitats</name>
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>degloba-utilitats</artifactId>
+	<description>Degloba - classes d'utilitats</description>
+	<name>(degloba-utilitats) - utilitats</name>
+
 	<parent>
 		<groupId>com.degloba</groupId>
 		<artifactId>degloba-parent</artifactId>
 		<version>4.4.3-SNAPSHOT</version>
 		<relativePath>../degloba-parent/pom.xml</relativePath>
 	</parent>
-  
-  <build>
-   
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Export-Package>com.degloba.utils</Export-Package>
-                    </instructions>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-manifest</id>
-                        <goals>
-                            <goal>manifest</goal>
-                            <goal>bundle</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
-                    
-			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>
-	        </plugin>
-		
-        </plugins>
-          	
-	</build>
-	
-  
-<dependencies>
-  
-  	<!-- Unified Expression Language (JSF) -->    
-        
-        
-                    
-	<!-- Paypal -->		  	 
-    <dependency>
-	<groupId>com.paypal.sdk</groupId>
-	<artifactId>rest-api-sdk</artifactId>
-	<version>LATEST</version>
-</dependency>
-        
 
-	<!-- NECESSARIES PERQUE UTILITZA GAE (tests, ...)-->
-	        
-	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-lang3</artifactId>
-	</dependency>
-		
- 
-	 	<!-- Canals (twitter, RSS,...)-->
+	<build>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>com.degloba.utils</Export-Package>
+					</instructions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-manifest</id>
+						<goals>
+							<goal>manifest</goal>
+							<goal>bundle</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>LATEST</version>
+		</dependency>
+
+
+		<!-- NECESSARIES PERQUE UTILITZA GAE (tests, ...) -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.twitter4j</groupId>
 			<artifactId>twitter4j-core</artifactId>
 			<version>4.0.7</version>
 			<type>jar</type>
 			<scope>compile</scope>
-			<!-- <exclusions>
-				<exclusion>
-					<artifactId>appengine-api-1.0-sdk</artifactId>
-					<groupId>com.google.appengine</groupId>
-				</exclusion>
-			</exclusions> -->
-		</dependency>  
+		</dependency>
 
-        <dependency>
-        	<groupId>rss4j</groupId>
-        	<artifactId>rss4j</artifactId>
-        	<version>0.92</version>
-        </dependency>	
-        
-        <!-- Java API for Microsoft Documents -->
-		 <dependency>
+		<dependency>
+			<groupId>rss4j</groupId>
+			<artifactId>rss4j</artifactId>
+			<version>0.92</version>
+		</dependency>
+
+		<!-- Java API for Microsoft Documents -->
+		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			
-		 </dependency>	 
-		
-		<!--  The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks 
-		(e.g. java.util.logging, logback, log4j) 
-		allowing the end user to plug in the desired logging framework at deployment time. -->
+
+		</dependency>
+
+		<!-- The Simple Logging Facade for Java (SLF4J) serves as a simple facade 
+			or abstraction for various logging frameworks (e.g. java.util.logging, logback, 
+			log4j) allowing the end user to plug in the desired logging framework at 
+			deployment time. -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-		</dependency>	
-		
-	   
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			</dependency>
-		 
+		</dependency>
+
 		<dependency>
 			<groupId>com.paypal.sdk</groupId>
 			<artifactId>paypal-core</artifactId>
@@ -124,13 +124,14 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			</dependency>
-</dependencies>
+		</dependency>
+	</dependencies>
 
-  
+
 	<organization>
 		<url>www.degloba.com</url>
 		<name>degloba</name>
 	</organization>
 
+	<url>www.degloba.com</url>
 </project>

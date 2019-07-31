@@ -1,161 +1,168 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  
-      <parent>
-        <groupId>com.degloba</groupId>
-        <artifactId>degloba-persistence</artifactId>
-        <version>4.4.3-SNAPSHOT</version>
-		 <relativePath>../degloba-persistence/pom.xml</relativePath>
-    </parent>
-    
-  		<artifactId>degloba-persistence-nosql</artifactId>
-  		<packaging>jar</packaging>
-  		<version>0.0.1-SNAPSHOT</version>
-	  	<name>(degloba-persistence-nosql) - persistencia NoSql (Google/BigTable/DataStore)</name>
-		<url>www.degloba.com</url>
-      
-  
-  <properties>
-  		
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-persistence</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-persistence/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>degloba-persistence-nosql</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>(degloba-persistence-nosql) - persistencia NoSql (Google/BigTable/DataStore)</name>
+	<url>www.degloba.com</url>
+
+
+	<properties>
+
 		<!-- https://github.com/objectify/objectify -->
-  		<googleCloud.objectify.version>6.0.3</googleCloud.objectify.version> 
-  		  		
-  		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
-	    <bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
-	    <failOnMissingWebXml>false</failOnMissingWebXml>
-    
-    	<bigtable.version>1.10.0</bigtable.version>
+		<googleCloud.objectify.version>6.0.3</googleCloud.objectify.version>
 
-  </properties>
-  
-  <dependencies>
-  		
-  		<dependency>
-  			<groupId>com.googlecode.objectify</groupId>
-  			<artifactId>objectify</artifactId>
-  			<version>${googleCloud.objectify.version}</version>
-  		</dependency>
-  		
-  		<!-- [END Objectify_Dependencies] -->
-  		
-  		<dependency>
+		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
+		<bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+
+		<bigtable.version>1.10.0</bigtable.version>
+
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>${googleCloud.objectify.version}</version>
+		</dependency>
+
+		<!-- [END Objectify_Dependencies] -->
+
+		<dependency>
 			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>			
-		</dependency> 
-		    
+			<artifactId>mongo-java-driver</artifactId>
+		</dependency>
 
-     <dependency>
-     	<groupId>com.degloba</groupId>
-     	<artifactId>degloba-domain</artifactId>
-     </dependency>
-     <dependency>
-     	<groupId>com.google.cloud</groupId>
-     	<artifactId>google-cloud-bigtable</artifactId>
-     	<version>0.97.0</version>
-     </dependency>
 
-     <dependency>
-     	<groupId>org.apache.hbase</groupId>
-     	<artifactId>hbase-client</artifactId>
-     	<version>2.2.0</version>
-     </dependency>
-     <dependency>
-     	<groupId>com.google.cloud.bigtable</groupId>
-     	<artifactId>bigtable-hbase</artifactId>
-     	<version>1.11.0</version>
-     </dependency>
-     <dependency>
-     	<groupId>org.apache.hbase</groupId>
-     	<artifactId>hbase-mapreduce</artifactId>
-     	<version>2.2.0</version>
-     </dependency>
-  </dependencies>
-  
-  
-  <profiles>
-        <profile>
-            <id>mongodb</id>
-            <properties>
-                <nosql.type>mongodb</nosql.type>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>${maven.resources.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>copy-persistence-xml</id>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <phase>test-compile</phase>
-                                <configuration>
-                                    <resources>
-                                        <resource>
-                                            <directory>${basedir}/src/test/resources/${nosql.type}</directory>
-                                            <includes>
-                                                <include>persistence.xml</include>
-                                            </includes>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                    <outputDirectory>target/test-classes/META-INF</outputDirectory>
-                                    <overwrite>true</overwrite>
-                                    <encoding>${project.build.sourceEncoding}</encoding>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-  
-  <build>
-  <plugins>
-  <plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            	<artifactId>maven-compiler-plugin</artifactId>
-		</plugin>
-		
-		<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
-        	<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>                
-            </plugin> 
-            
-            <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>                    
-                </plugin>
-		
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.4.0</version>
-        <configuration>
-          <mainClass>org.jruby.Main</mainClass>
-          <cleanupDaemonThreads>false</cleanupDaemonThreads>
-          <arguments>
-            <argument>-d</argument>
-            <argument>-X+O</argument>
-            <argument>thirdparty/hirb.rb</argument>
-          </arguments>
-          <systemProperties>
-            <systemProperty>
-              <key>hbase.ruby.sources</key>
-              <value>thirdparty/ruby</value>
-            </systemProperty>
-          </systemProperties>
-        </configuration>
-      </plugin>
-    </plugins>
-  
-  
-  </build>
-  
-  
-  <description>Google Cloud NoSQL + BigTable</description>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-bigtable</artifactId>
+			<version>0.97.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-client</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.bigtable</groupId>
+			<artifactId>bigtable-hbase</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-mapreduce</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+	</dependencies>
+
+
+	<profiles>
+		<profile>
+			<id>mongodb</id>
+			<properties>
+				<nosql.type>mongodb</nosql.type>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>${maven.resources.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>copy-persistence-xml</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<phase>test-compile</phase>
+								<configuration>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/test/resources/${nosql.type}</directory>
+											<includes>
+												<include>persistence.xml</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+									<outputDirectory>target/test-classes/META-INF</outputDirectory>
+									<overwrite>true</overwrite>
+									<encoding>${project.build.sourceEncoding}</encoding>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+				to execute the unit tests of an application -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<mainClass>org.jruby.Main</mainClass>
+					<cleanupDaemonThreads>false</cleanupDaemonThreads>
+					<arguments>
+						<argument>-d</argument>
+						<argument>-X+O</argument>
+						<argument>thirdparty/hirb.rb</argument>
+					</arguments>
+					<systemProperties>
+						<systemProperty>
+							<key>hbase.ruby.sources</key>
+							<value>thirdparty/ruby</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+			</plugin>
+		</plugins>
+
+
+	</build>
+
+
+	<description>Google Cloud NoSQL + BigTable</description>
 </project>
