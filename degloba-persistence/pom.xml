@@ -46,11 +46,6 @@
     		<version>2.2</version>
     	</dependency>
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-			<version>${degloba-domain.version}</version>
-		</dependency>
     </dependencies>
     
     </dependencyManagement>
