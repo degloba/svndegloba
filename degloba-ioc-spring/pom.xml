@@ -1,118 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.degloba</groupId>
-        <artifactId>degloba-parent</artifactId>
-        <version>4.4.3-SNAPSHOT</version>
-        <relativePath>../degloba-parent/pom.xml</relativePath>
-    </parent>
-    
-    <artifactId>degloba-ioc-spring</artifactId>
-    <packaging>jar</packaging>
-    <name>(degloba-ioc-spring) - IoC implementat amb Springframework</name>
-    <description>Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
 
-    <properties>
-       
-    </properties>
-    
-    <dependencies>
-       
-        
-        <!-- ****** -->
-        <!-- Spring -->
-        <!-- ****** -->
-       
-        <!-- To define a Web listener to expand and replace the Spring's ContextLoaderListener,  -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <optional>true</optional>           
-        </dependency> 
-              
-		<!-- ********************************** -->              
+	<artifactId>degloba-ioc-spring</artifactId>
+	<packaging>jar</packaging>
+	<name>(degloba-ioc-spring) - IoC implementat amb Springframework</name>
+	<description>Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.</description>
+
+	<properties>
+
+	</properties>
+
+	<dependencies>
+
+
+		<!-- ****** -->
+		<!-- Spring -->
+		<!-- ****** -->
+
+		<!-- To define a Web listener to expand and replace the Spring's ContextLoaderListener, -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- ********************************** -->
 		<!-- The Simple Logging Facade for Java -->
-		<!-- ********************************** -->                
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <!-- <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <scope>test</scope>
-        </dependency> -->
-        
-        
-        <!--  -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servlet.version}</version>
-            <scope>provided</scope>
-        </dependency>
-            	<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-context</artifactId>
-    	</dependency>
-    	<dependency>
-    		<groupId>javax.inject</groupId>
-    		<artifactId>javax.inject</artifactId>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-beans</artifactId>
-    	</dependency>
-    </dependencies>
-    
-    
-    <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        <plugins>
-        	<!--  The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application  -->
-        	 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>                
-           	 </plugin>  
-       		 <plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-compiler-plugin</artifactId>
-			</plugin> 
-			
-			          <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>                    
-                </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Export-Package>
-                            com.degloba.ioc.spring.*
-                        </Export-Package>
-                    </instructions>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-manifest</id>
-                        <goals>
-                            <goal>manifest</goal>
-                            <goal>bundle</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<!-- ********************************** -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+	
+		<!-- -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+	</dependencies>
 
-    <url>www.degloba.com</url>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<plugins>
+			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+				to execute the unit tests of an application -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>
+							com.degloba.ioc.spring.*
+						</Export-Package>
+					</instructions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-manifest</id>
+						<goals>
+							<goal>manifest</goal>
+							<goal>bundle</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<url>www.degloba.com</url>
 </project>
