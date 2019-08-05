@@ -44,6 +44,9 @@
         <dependent-module archiveName="degloba-integration-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-integration/degloba-integration">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="boundedContext1-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-eventsourcing/boundedContext1-eventsourcing">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
             <dependency-type>uses</dependency-type>
         </dependent-module>
