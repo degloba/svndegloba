@@ -76,10 +76,6 @@
 		<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-json</artifactId> 
 			</dependency> -->
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-		</dependency>
 
 
 		<!-- <dependency> <groupId>com.google.cloud</groupId> <artifactId>google-cloud-spanner</artifactId> 
@@ -109,6 +105,10 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
 		</dependency>
 	</dependencies>
 

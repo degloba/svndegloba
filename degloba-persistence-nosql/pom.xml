@@ -47,10 +47,6 @@
 
 
 		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-bigtable</artifactId>
 			<version>0.97.0</version>
@@ -71,6 +67,10 @@
 			<artifactId>hbase-mapreduce</artifactId>
 			<version>2.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+		</dependency>
 	</dependencies>
 
 
@@ -85,7 +85,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
-						<version>${maven.resources.plugin.version}</version>
 						<executions>
 							<execution>
 								<id>copy-persistence-xml</id>

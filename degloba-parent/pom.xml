@@ -65,7 +65,7 @@
 		<commons.dbcp>1.4</commons.dbcp>
 
 		<!-- Test Dependencies -->
-		<mockito.version>2.24.0</mockito.version>
+		<mockito.version>3.0.0</mockito.version>
 		<junit.version>4.12</junit.version>
 
 		<validation.api.version>1.1.0.Final</validation.api.version>
@@ -546,7 +546,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.1.2</version>
+					<version>3.1.1</version>
 					<configuration>
 						<archive>
 							<!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile> -->
