@@ -121,10 +121,6 @@
 			<artifactId>paypal-core</artifactId>
 			<version>1.7.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-		</dependency>
 	</dependencies>
 
 

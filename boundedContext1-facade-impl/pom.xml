@@ -14,13 +14,13 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-application</artifactId>
+            <artifactId>boundedContext1-facade</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-facade</artifactId>
-            <version>${project.version}</version>
+        	<groupId>com.degloba</groupId>
+        	<artifactId>boundedContext1-application</artifactId>
+        	<version>4.4.3-SNAPSHOT</version>
         </dependency>
     </dependencies>
     
