@@ -54,6 +54,10 @@
 			<artifactId>google-cloud-bigquery</artifactId>
 			<version>1.65.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

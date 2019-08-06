@@ -94,6 +94,8 @@
 
 
 		<googleCloud.version>1.65.0</googleCloud.version>
+		
+		<lombok.version>1.18.8</lombok.version>
 	</properties>
 
 	<repositories>
@@ -472,6 +474,11 @@
 				<scope>import</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
 
 		</dependencies>
 
