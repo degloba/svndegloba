@@ -47,11 +47,6 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>boundedContext1-common</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.degloba</groupId>
