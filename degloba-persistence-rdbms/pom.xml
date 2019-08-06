@@ -81,10 +81,6 @@
 		<!-- <dependency> <groupId>com.google.cloud</groupId> <artifactId>google-cloud-spanner</artifactId> 
 			<version>1.10.0</version> </dependency> -->
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
 		</dependency>
@@ -100,11 +96,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-event-api</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -161,6 +152,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
 			</plugin>
+										<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+
+				</plugin>
 
 		</plugins>
 	</build>
