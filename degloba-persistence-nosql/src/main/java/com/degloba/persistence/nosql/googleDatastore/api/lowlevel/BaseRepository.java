@@ -26,7 +26,7 @@ import com.google.common.collect.Lists;
 import com.google.cloud.datastore.Transaction;
 
 /**
- * Classe : Repositori implementat amb Google Cloud DataStore/Natiu<br><br>
+ * @category Repositori implementat amb Google Cloud DataStore/Natiu<br><br>
  * 
  * {@link https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples }
  */
@@ -48,7 +48,9 @@ public class BaseRepository implements IBaseRepository{
 	    this.transaction = transaction;
 	  }
 
-	  
+	/**
+	 * @category Inserta una entitat  
+	 */
 	@Override
 	public <T> void create(String clazz, String keyName) {
 		
@@ -59,7 +61,9 @@ public class BaseRepository implements IBaseRepository{
 	    datastore.put(entity);		
 	}
 
-
+	/**
+	 * @category Modifica una propietat d'una entitat donat el nom d'una classe i el nom d'una clau
+	 */
 	@Override
 	public <T> void update(String clazz, String keyName, String propertyName, String value) throws DatabaseException {
 		
