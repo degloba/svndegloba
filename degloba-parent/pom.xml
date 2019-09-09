@@ -540,7 +540,7 @@
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
+					<artifactId>maven-surefire-pluginn</artifactId>
 					<version>${maven.surefire.plugin.version}</version>
 					<configuration>
 						<includes>
