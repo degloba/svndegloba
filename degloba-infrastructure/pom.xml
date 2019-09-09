@@ -48,6 +48,28 @@
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-persistence-nosql</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.hbase</groupId>
+					<artifactId>hbase-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hbase</groupId>
+					<artifactId>hbase-mapreduce</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.googlecode.objectify</groupId>
+					<artifactId>objectify</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.cloud.bigtable</groupId>
+					<artifactId>bigtable-hbase</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.cloud</groupId>
+					<artifactId>google-cloud-bigtable</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.google.cloud</groupId>
