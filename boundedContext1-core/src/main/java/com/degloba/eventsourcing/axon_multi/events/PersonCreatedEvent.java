@@ -5,8 +5,8 @@ import lombok.Value;
 @Value
 public class PersonCreatedEvent {
 
-    private final String personId;
+    private String personId;
 
-    private final String fullName;
+    private String fullName;
 
 }
