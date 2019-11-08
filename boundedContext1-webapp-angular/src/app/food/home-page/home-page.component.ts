@@ -13,7 +13,7 @@ import {
 import { EventService } from '../../providers/event.service';
 import { AngularFireList } from 'angularfire2/database';
 import { AuthService } from '../../shared/services/auth.service';
-import { forEach } from '@angular/router/src/utils/collection';
+// import { forEach } from '@angular/router/src/utils/collection';
 import { NavigationEnd, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
