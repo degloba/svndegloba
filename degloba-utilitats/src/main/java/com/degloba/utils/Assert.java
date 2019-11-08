@@ -1,8 +1,4 @@
-/**
- * A common assertion class, mainly for the parameter checks. 
- * By using Assert class, eliminating the need to write a lot of try ... catch ... trouble statement
- * It makes the code more simple and clear, and can improve unit testing branch coverage.
- */
+
 package com.degloba.utils;
 
 import org.apache.commons.lang3.StringUtils;
@@ -11,7 +7,9 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- *
+ * Una classe d’assertació comuna, principalment per a les comprovacions de paràmetres. 
+ * Amb la classe Assert, elimineu la necessitat d'escriure quantitats de try ... catch ... trouble statement
+ * Fa que el codi sigui més senzill i clar i pot millorar les proves d’unitats.
  */
 @SuppressWarnings("rawtypes")
 public class Assert {

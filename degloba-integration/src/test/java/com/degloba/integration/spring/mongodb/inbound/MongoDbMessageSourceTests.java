@@ -254,7 +254,7 @@ public class MongoDbMessageSourceTests extends MongoDbAvailableTests {
 		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
 
 		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-
+		
 		String json = "[{\"name\" : \"Manny\", \"id\" : 1}]";
 		BsonArray parse = BsonArray.parse(json);
 		

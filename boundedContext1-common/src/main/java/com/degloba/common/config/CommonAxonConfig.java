@@ -12,8 +12,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 
+ * @author degloba
+ *
+ */
 @Configuration
-@ComponentScan(basePackages = {"com.github.axonmulti.core"})
+@ComponentScan(basePackages = {"com.degloba.core"})
 public class CommonAxonConfig {
 
     // Copied from excluded org.axonframework.springboot.autoconfig.JpaAutoConfiguration

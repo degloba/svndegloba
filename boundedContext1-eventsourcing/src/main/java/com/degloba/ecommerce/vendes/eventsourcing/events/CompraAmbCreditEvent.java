@@ -20,7 +20,7 @@ public class CompraAmbCreditEvent extends CompraEvent {
         this.numeroTargetaCredit = numeroTargetaCredit;
     }
 
-    public String getNumberoTargetaCredit() {
+    public String getNumeroTargetaCredit() {
         return numeroTargetaCredit;
     }
 

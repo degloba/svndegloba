@@ -58,6 +58,11 @@
 				<artifactId>maven-install-plugin</artifactId>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+
 		</plugins>
 
 	</build>
@@ -120,6 +125,11 @@
 			<groupId>com.paypal.sdk</groupId>
 			<artifactId>paypal-core</artifactId>
 			<version>1.7.2</version>
+		</dependency>
+		
+				<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 

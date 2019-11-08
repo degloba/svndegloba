@@ -41,6 +41,7 @@ import {
   MatProgressSpinnerModule, MatSliderModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, DateAdapter,
   MAT_DATE_FORMATS, MatProgressBarModule, MatSidenavModule
 } from '@angular/material';
+import {MaterialModule} from '../material-module';
 
 import { ChartsModule } from 'ng2-charts';
 import { LongPressDirective } from './directives/long-press.directive';
