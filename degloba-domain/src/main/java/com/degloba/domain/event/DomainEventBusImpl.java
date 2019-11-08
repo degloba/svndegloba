@@ -102,7 +102,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 
 	@Override
-	public void register(AbstractEventListener newInstance) {
+	public void register(AbstractEventListener<?> newInstance) {
 		// TODO Auto-generated method stub
 		
 	}
