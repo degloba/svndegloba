@@ -1,4 +1,4 @@
-package com.degloba.axon_multi.address;
+package com.degloba.adreces;
 
 import org.axonframework.springboot.autoconfig.JdbcAutoConfiguration;
 import org.axonframework.springboot.autoconfig.JpaAutoConfiguration;
@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConf
 
 import lombok.extern.slf4j.Slf4j;
 
-@SpringBootApplication(scanBasePackages = {"com.github.axonmulti.common", "com.github.axonmulti.address"},
+@SpringBootApplication(scanBasePackages = {"com.degloba.common", "com.degloba.address"},
         exclude = {ErrorMvcAutoConfiguration.class
                 , JpaEventStoreAutoConfiguration.class
                 , JpaAutoConfiguration.class

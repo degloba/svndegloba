@@ -1,4 +1,4 @@
-package com.degloba.eventsourcing.axon_multi.events;
+package com.degloba.person;
 
 import lombok.Value;
 

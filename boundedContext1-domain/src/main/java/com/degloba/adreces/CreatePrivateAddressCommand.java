@@ -1,10 +1,12 @@
-package com.degloba.person;
+package com.degloba.adreces;
 
 import lombok.Value;
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class PrivateAddressCreatedEvent {
+public class CreatePrivateAddressCommand {
 
+    @TargetAggregateIdentifier
     private final String addressId;
 
     private final String personId;

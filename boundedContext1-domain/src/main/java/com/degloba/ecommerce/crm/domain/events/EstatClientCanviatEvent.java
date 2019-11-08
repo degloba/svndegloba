@@ -14,7 +14,6 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  * @author degloba
  *
  */
-@SuppressWarnings("serial")
 @Event
 public class EstatClientCanviatEvent extends AbstractEvent {
 
