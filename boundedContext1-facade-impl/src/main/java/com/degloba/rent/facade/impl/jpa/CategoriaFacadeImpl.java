@@ -7,6 +7,7 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.facade.jpa.CategoriaFacade;
 
 
+
 public class CategoriaFacadeImpl implements CategoriaFacade {
 
     @Inject

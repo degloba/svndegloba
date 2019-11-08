@@ -35,6 +35,32 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.twitter4j</groupId>
+					<artifactId>twitter4j-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.paypal.sdk</groupId>
+					<artifactId>rest-api-sdk</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>rss4j</groupId>
+					<artifactId>rss4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.paypal.sdk</groupId>
+					<artifactId>paypal-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 

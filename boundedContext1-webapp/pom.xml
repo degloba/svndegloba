@@ -368,10 +368,15 @@
 		</dependency>
 
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-infrastructure</artifactId>
 			<version>${degloba-infrastructure.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>boundedContext1-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

@@ -3,7 +3,6 @@ package com.degloba.organisation.facade;
 import java.util.Date;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 
