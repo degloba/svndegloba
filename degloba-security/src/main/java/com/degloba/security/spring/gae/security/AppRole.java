@@ -3,7 +3,7 @@ package com.degloba.security.spring.gae.security;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * @author Luke Taylor
+ * @author degloba
  */
 public enum AppRole implements GrantedAuthority {
 	ADMIN(0), NEW_USER(1), USER(2);

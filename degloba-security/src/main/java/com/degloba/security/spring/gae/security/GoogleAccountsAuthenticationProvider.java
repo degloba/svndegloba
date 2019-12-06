@@ -43,7 +43,7 @@ public class GoogleAccountsAuthenticationProvider implements AuthenticationProvi
 			throws AuthenticationException {
 		User googleUser = (User) authentication.getPrincipal();
 
-		GaeUser user = userRegistry.findUser(googleUser.getUserId());
+		GaeUser user = userRegistry.buscarUsuari(googleUser.getUserId());
 				
 		if (user == null) {
 			// User not in registry. Needs to register

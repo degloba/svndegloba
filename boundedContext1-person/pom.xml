@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>casino-boundedContext1</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
+    </parent>
+
+
+    <artifactId>boundedContext1-person</artifactId>
+    
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.github.ferstl</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <graphFormat>dot</graphFormat>
+                    <imageFormat>svg</imageFormat>
+                    <createImage>true</createImage>
+                    <showGroupIds>true</showGroupIds>
+                    <showVersions>true</showVersions>
+                    <showConflicts>true</showConflicts>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>com.degloba.person.PersonSpringBootApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>boundedContext1-common</artifactId>
+    		<version>4.4.3-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>boundedContext1-cqrs</artifactId>
+    		<version>4.4.3-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.degloba</groupId>
+    		<artifactId>boundedContext1-eventsourcing</artifactId>
+    		<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>io.undertow</groupId>
+    		<artifactId>undertow-servlet</artifactId>
+    	</dependency>
+    </dependencies>
+    <name>Casino - boundedContext1 - person</name>
+</project>

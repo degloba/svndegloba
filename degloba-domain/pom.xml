@@ -12,7 +12,7 @@
 
 	<artifactId>degloba-domain</artifactId>
 	<packaging>jar</packaging>
-	<name>(degloba-domain) - interfaces i classes de domini base</name>
+	<name>degloba-domain - interfaces i classes de domini base</name>
 	<description>
        
     </description>
@@ -112,23 +112,7 @@
 
 		<plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-
-			</plugin>
-
-			<plugin>
+						<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
@@ -167,10 +151,7 @@
 				<phase>process-test-classes</phase> <goals> <goal>enhance</goal> </goals> 
 				</execution> </executions> </plugin> -->
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
+			
 		</plugins>
 	</build>
 	<url>www.degloba.com</url>

@@ -60,4 +60,5 @@
 	</repositories>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>MicroServei basat en events utilitzant Eventuate FrameWork</description>
+	<url>www.degloba.com</url>
 </project>

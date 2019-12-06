@@ -1,16 +1,15 @@
 package com.degloba.security.spring.gae.users;
 
-/**
- *
+/** 
  * Servei que s’utilitza per mantenir una llista d’usuaris registrats a l’aplicació.
  *
- * @author Luke Taylor
+ * @author degloba
  */
 public interface UserRegistry {
 
-	GaeUser findUser(String userId);
+	GaeUser buscarUsuari(String userId);
 
-	void registerUser(GaeUser newUser);
+	void registrarUsuari(GaeUser newUser);
 
-	void removeUser(String userId);
+	void eliminarUsuari(String userId);
 }

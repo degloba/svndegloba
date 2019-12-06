@@ -12,9 +12,9 @@ import com.degloba.security.spring.gae.security.AppRole;
 
 
 /**
- * Custom user object for the application.
+ * costumitzacio d'un Usuari
  *
- * @author Luke Taylor
+ * @author degloba
  */
 public class GaeUser implements Serializable {
 	/**

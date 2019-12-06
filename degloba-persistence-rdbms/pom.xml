@@ -13,20 +13,13 @@
 
 	<artifactId>degloba-persistence-rdbms</artifactId>
 	<packaging>jar</packaging>
-	<name>(degloba-persistence-rdbms) - persistencia amb RDBMS persistence</name>
+	<name>degloba-persistence-rdbms - persistencia amb RDBMS persistence</name>
 	<description>
         Interfície de magatzem RDBMS
     </description>
 	<url>www.degloba.com</url>
 
 	<properties>
-
-		<mysql.version>5.1.29</mysql.version>
-
-		<!-- Datanucleus -->
-		<datanucleus.core.version>3.1.3</datanucleus.core.version>
-		<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
-		<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
 
 	</properties>
 
@@ -44,8 +37,6 @@
 				<groupId>com.degloba</groupId>
 				<artifactId>degloba-ioc-spring</artifactId>
 			</dependency>
-
-
 
 		</dependencies>
 	</dependencyManagement>
@@ -149,11 +140,7 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
+		
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -173,16 +160,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-										<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-
-				</plugin>
 
 		</plugins>
 	</build>

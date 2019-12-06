@@ -52,7 +52,7 @@
 		<poi.version>3.9</poi.version>
 
 		<!-- Google Appengine -->
-		<google.appengine.version>1.9.74</google.appengine.version>
+		<google.appengine.version>1.9.76</google.appengine.version>
 		<google-cloud-pubsub.version>1.62.0</google-cloud-pubsub.version>
 
 

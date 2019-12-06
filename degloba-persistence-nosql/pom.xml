@@ -13,7 +13,7 @@
 	<artifactId>degloba-persistence-nosql</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>(degloba-persistence-nosql) - persistencia NoSql (Google/BigTable/DataStore)</name>
+	<name>degloba-persistence-nosql - persistencia NoSql (Google/BigTable/DataStore)</name>
 	<url>www.degloba.com</url>
 
 
@@ -38,7 +38,6 @@
 			<version>${googleCloud.objectify.version}</version>
 		</dependency>
 
-		<!-- [END Objectify_Dependencies] -->
 
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -46,22 +45,16 @@
 		</dependency>
 
 
-<!-- 		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-bigtable</artifactId>
-			<version>0.97.0</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.google.cloud</groupId> <artifactId>google-cloud-bigtable</artifactId> 
+			<version>0.97.0</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.hbase</groupId>
 			<artifactId>hbase-client</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.google.cloud.bigtable</groupId>
-			<artifactId>bigtable-hbase</artifactId>
-			<version>1.11.0</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.google.cloud.bigtable</groupId> <artifactId>bigtable-hbase</artifactId> 
+			<version>1.11.0</version> </dependency> -->
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
@@ -119,34 +112,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-				<excludes>
-					<exclude>com/degloba/persistence/nosql/google/bigtable/**/*.java</exclude>
-				</excludes>
+					<excludes>
+						<exclude>com/degloba/persistence/nosql/google/bigtable/**/*.java</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 
-			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
-				to execute the unit tests of an application -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
-			
-										<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-
-				</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-
+						
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>

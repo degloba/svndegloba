@@ -13,7 +13,7 @@
 	<artifactId>degloba-persistence</artifactId>
 	<packaging>pom</packaging>
 	<name>(degloba-persistence) - pom</name>
-	<description>Interfìcie de magatzem</description>
+	<description>Interfìcie de magatzem RDBMS i NoSql</description>
 	<url>www.degloba.com</url>
 
 	<properties>

@@ -17,11 +17,11 @@ public class InMemoryUserRegistry implements UserRegistry {
 	private final Map<String, GaeUser> users = Collections
 			.synchronizedMap(new HashMap<String, GaeUser>());
 
-	public GaeUser findUser(String userId) {
+	public GaeUser buscarUsuari(String userId) {
 		return users.get(userId);
 	}
 
-	public void registerUser(GaeUser newUser) {
+	public void registrarUsuari(GaeUser newUser) {
 		logger.debug("Attempting to create new user " + newUser);
 
 		Assert.state(!users.containsKey(newUser.getUserId()));
@@ -29,7 +29,7 @@ public class InMemoryUserRegistry implements UserRegistry {
 		users.put(newUser.getUserId(), newUser);
 	}
 
-	public void removeUser(String userId) {
+	public void eliminarUsuari(String userId) {
 		users.remove(userId);
 	}
 }

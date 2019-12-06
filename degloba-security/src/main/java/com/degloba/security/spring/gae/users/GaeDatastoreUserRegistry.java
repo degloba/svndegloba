@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 /**
- * UserRegistry implementation which uses GAE's low-level Datastore APIs.
+ * Implementació {@link UserRegistry} que utilitza l'API baix nivell de GAE.
  *
- * @author Luke Taylor
+ * @author degloba
  */
 public class GaeDatastoreUserRegistry implements UserRegistry {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -30,7 +30,7 @@ public class GaeDatastoreUserRegistry implements UserRegistry {
 	private static final String USER_ENABLED = "enabled";
 	private static final String USER_AUTHORITIES = "authorities";
 
-	public GaeUser findUser(String userId) {
+	public GaeUser buscarUsuari(String userId) {
 		Key key = KeyFactory.createKey(USER_TYPE, userId);
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
@@ -62,7 +62,7 @@ public class GaeDatastoreUserRegistry implements UserRegistry {
 		}
 	}
 
-	public void registerUser(GaeUser newUser) {
+	public void registrarUsuari(GaeUser newUser) {
 		logger.debug("Attempting to create new user " + newUser);
 
 		Key key = KeyFactory.createKey(USER_TYPE, newUser.getUserId());
@@ -87,7 +87,7 @@ public class GaeDatastoreUserRegistry implements UserRegistry {
 		datastore.put(user);
 	}
 
-	public void removeUser(String userId) {
+	public void eliminarUsuari(String userId) {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		Key key = KeyFactory.createKey(USER_TYPE, userId);
 

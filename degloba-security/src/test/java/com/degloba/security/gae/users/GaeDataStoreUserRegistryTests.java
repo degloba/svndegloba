@@ -42,9 +42,9 @@ public class GaeDataStoreUserRegistryTests {
 		GaeUser origUser = new GaeUser(userId, "nick", "nick@blah.com", "Forename",
 				"Surname", roles, true);
 
-		registry.registerUser(origUser);
+		registry.registrarUsuari(origUser);
 
-		GaeUser loadedUser = registry.findUser(userId);
+		GaeUser loadedUser = registry.buscarUsuari(userId);
 
 		assertEquals(loadedUser.getUserId(), origUser.getUserId());
 		assertEquals(true, loadedUser.isEnabled());
