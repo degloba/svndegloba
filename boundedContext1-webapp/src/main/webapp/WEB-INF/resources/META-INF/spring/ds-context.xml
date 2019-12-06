@@ -114,13 +114,13 @@
 		class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.jpa.repositories.CrmRepository" />
 
 	<bean id="clientRepository"
-		class="com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.jpa.repositories.SalesRepository" />
+		class="com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.jpa.repositories.VendaRepository" />
 
 	<bean id="shipmentRepository"
 		class="com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.jpa.repositories.EnviamentRepository" />
 
 	<bean id="rentRepositoryObjectify"
-		class="com.degloba.lloguers.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.RentRepository" />
+		class="com.degloba.lloguers.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.LloguerRepository" />
 
 
 </beans>

@@ -23,11 +23,7 @@
 				<artifactId>javax.persistence</artifactId>
 				<version>${javax.persistence}</version>
 			</dependency>
-			<dependency>
-				<groupId>javax.validation</groupId>
-				<artifactId>validation-api</artifactId>
-				<version>${validation.api.version}</version>
-			</dependency>
+
 			<dependency>
 				<groupId>javax.el</groupId>
 				<artifactId>el-api</artifactId>
@@ -179,15 +175,19 @@
 				<!-- <scope>provided</scope> -->
 			</dependency>
 
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-			</dependency>
+			
 
 		</dependencies>
 
 	</dependencyManagement>
+	
+	<dependencies>
+	<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+	</dependencies>
 
 	<build>
 
@@ -638,7 +638,11 @@
 	</profiles>
 	<modules>
 		<module>../boundedContext1-eventsourcing</module>
-
+		<module>../boundedContext1-db</module>
+		<module>../boundedContext1-address</module>
+		<module>../boundedContext1-person</module>
+		<module>../boundedContext1-saga</module>
+		<module>../boundedContext1-common</module>
 		<module>../boundedContext1-domain</module>
 		<module>../boundedContext1-infrastructure</module>
 		<module>../boundedContext1-cqrs</module>
@@ -646,12 +650,7 @@
 		<module>../boundedContext1-application</module>
 		<module>../boundedContext1-facade</module>
 		<module>../boundedContext1-facade-impl</module>
-		<module>../boundedContext1-webapp</module>
-		
-		
-		<module>../boundedContext1-saga</module>
-
-		<module>../boundedContext1-common</module>
+		<module>../boundedContext1-webapp</module>	
 	</modules>
 	<url>www.degloba.com</url>
 </project>

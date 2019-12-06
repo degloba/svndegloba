@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConf
 
 
 
-@SpringBootApplication(scanBasePackages = {"com.github.axonmulti.common", "com.github.axonmulti.saga"},
+@SpringBootApplication(scanBasePackages = {"com.degloba.common", "com.degloba.saga"},
         exclude = {ErrorMvcAutoConfiguration.class
                 , JpaEventStoreAutoConfiguration.class
                 , JpaAutoConfiguration.class

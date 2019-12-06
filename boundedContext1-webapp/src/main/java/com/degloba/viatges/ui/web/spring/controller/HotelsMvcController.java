@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.application.services.IViatgesService;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+
+
 
 /**
  * 

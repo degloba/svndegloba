@@ -38,10 +38,6 @@
 			<artifactId>javax.inject</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-pubsub</artifactId>
-		</dependency>
 
 
 

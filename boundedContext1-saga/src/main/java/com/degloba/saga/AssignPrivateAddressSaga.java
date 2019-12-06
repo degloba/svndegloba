@@ -10,11 +10,12 @@ import org.axonframework.modelling.saga.StartSaga;
 import org.axonframework.spring.stereotype.Saga;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.degloba.adreces.AssignPrivateAddressCommand;
-import com.degloba.adreces.CreatePrivateAddressCommand;
+import com.degloba.core.eventsourcing.events.PrivateAddressCreatedEvent;
+import com.degloba.cqrs.commands.AssignPrivateAddressCommand;
+import com.degloba.cqrs.commands.CreatePrivateAddressCommand;
 import com.degloba.person.PrivateAddressAssignedEvent;
 import com.degloba.person.PrivateAddressAssignmentRequestedEvent;
-import com.degloba.person.PrivateAddressCreatedEvent;
+
 
 
 

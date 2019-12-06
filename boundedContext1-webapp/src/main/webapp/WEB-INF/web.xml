@@ -186,9 +186,9 @@ If you want to save the state on the server (which is the default in the JavaSer
   <description>Aquest listener hereda de org.springframework.web.context.ContextLoaderListener</description>
   <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
  </listener>
-<listener>
+<!--<listener>
   <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
- </listener>
+ </listener> -->
  <!--    <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>  
