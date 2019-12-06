@@ -69,4 +69,5 @@
             </plugin>
         </plugins>
     </build>
+  <name>Casino - boundedContext1 - db</name>
 </project>
