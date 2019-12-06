@@ -1,9 +1,10 @@
-package com.degloba.cqrs.querys;
+package com.degloba.eventsourcing.persona;
 
 import lombok.Value;
 
 @Value
-public class AddressByIdQueryResult {
+public class PrivateAddressCreatedEvent {
+
     private final String addressId;
 
     private final String personId;

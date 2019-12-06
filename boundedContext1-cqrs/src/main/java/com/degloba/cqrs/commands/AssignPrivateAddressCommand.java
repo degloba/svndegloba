@@ -4,13 +4,11 @@ import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class RequestPrivateAddressAssignmentCommand {
+public class AssignPrivateAddressCommand {
 
     @TargetAggregateIdentifier
     private final String personId;
 
-    private final String streetAndNumber;
-
-    private final String zipCode;
+    private final String addressId;
 
 }

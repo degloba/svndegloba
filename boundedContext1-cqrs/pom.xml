@@ -11,12 +11,7 @@
     <name>Casino - boundedContext1 - CQRS</name>
     
     <dependencies>
-        	
-         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>boundedContext1-domain</artifactId>
-            <version>4.4.3-SNAPSHOT</version>
-        </dependency> 
+        	 
         
       		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -48,6 +43,11 @@
 			<artifactId>axon-spring</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>boundedContext1-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 
 	<build>

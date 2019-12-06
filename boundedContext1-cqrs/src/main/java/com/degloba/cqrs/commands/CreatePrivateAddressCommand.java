@@ -1,9 +1,12 @@
-package com.degloba.cqrs.querys;
+package com.degloba.cqrs.commands;
 
 import lombok.Value;
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class AddressByIdQueryResult {
+public class CreatePrivateAddressCommand {
+
+    @TargetAggregateIdentifier
     private final String addressId;
 
     private final String personId;

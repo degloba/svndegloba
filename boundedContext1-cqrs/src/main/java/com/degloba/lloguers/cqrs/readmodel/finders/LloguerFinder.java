@@ -15,26 +15,12 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
-// Entitats NoSql/GoogleDatastore (Api JPA)
-
-
-
-// Entitats NoSql/GoogleDatastore (Api Objectify)
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Category;
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Location;
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Owner;
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Photo;
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Product;
-//import com.degloba.rent.domain.persistence.nosql.googleDatastore.api.objectify.Subcategory;
-
-// Entitats Rdbms (Api JPA)
-// ..............
-
-
-// Entitats NoSql/MongoDB (Api xxx)
-// ...............
-
-
+/**
+ * @category es {@link Finder} de lloguers implementat en
+ * 
+ * @author degloba
+ *
+ */
 public class LloguerFinder implements ILloguerFinder {
 
 	@PersistenceContext(unitName="transactions-optional")

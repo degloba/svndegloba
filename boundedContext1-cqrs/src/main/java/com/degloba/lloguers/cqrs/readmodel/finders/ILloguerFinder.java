@@ -11,7 +11,7 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
 import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
 
 /**
- * @category
+ * @category {@link Finder} de lloguer
  * 
  * @author degloba
  *
