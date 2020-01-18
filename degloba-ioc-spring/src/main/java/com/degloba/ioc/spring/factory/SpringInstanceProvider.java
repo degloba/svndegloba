@@ -1,8 +1,8 @@
 package com.degloba.ioc.spring.factory;
 
 
+import com.degloba.ioc.interfaces.IInstanceProvider;
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotUniqueException;
-import com.degloba.ioc.spring.IInstanceProvider;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
@@ -20,6 +20,9 @@ import java.util.Map;
  */
 public class SpringInstanceProvider implements IInstanceProvider {
 
+	/**
+	 * @category Contexte Spring de l'aplicació
+	 */
     private ApplicationContext applicationContext;
 
     /**
@@ -55,16 +58,16 @@ public class SpringInstanceProvider implements IInstanceProvider {
      * Si no troba una instància del tipus retorna null.
      * If you have deployed multiple types of Bean T NoUniqueBeanDefinitionException exception is thrown.
      *
-     * @param <T>      Type Parameter
-     * @param beanType Type instance
+     * @param <T>      Tipus de paràmetre
+     * @param beanType Tipus d'instància
      * @return Examples of the specified type.
      */
     public <T> T getInstance(Class<T> beanType) {
         try {
             return applicationContext.getBean(beanType);
-        } catch (NoUniqueBeanDefinitionException e) {
-            throw new IocInstanceNotUniqueException(e);
-        } catch (NoSuchBeanDefinitionException e) {
+        } catch (NoUniqueBeanDefinitionException cause) {
+            throw new IocInstanceNotUniqueException(cause);
+        } catch (NoSuchBeanDefinitionException cause) {
             return null;
         }
     }

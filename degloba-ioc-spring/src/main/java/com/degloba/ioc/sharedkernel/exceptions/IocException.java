@@ -3,7 +3,7 @@ package com.degloba.ioc.sharedkernel.exceptions;
 /**
  * @author degloba
  * 
- * @category IoC. Aquesta excepció es produeix per algun dels proveidors/contenidors IoC (Spring, Guice, etc.).
+ * @category Excepció que es produeix per algun dels proveidors/contenidors IoC (Spring, Guice, etc.).
  */
 public class IocException extends RuntimeException {
 

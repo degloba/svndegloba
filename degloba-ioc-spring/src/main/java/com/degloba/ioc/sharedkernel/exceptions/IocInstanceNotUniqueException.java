@@ -17,6 +17,10 @@ public class IocInstanceNotUniqueException extends IocException {
 		super(message);
 	}
 
+	/**
+	 * 
+	 * @param cause error o excepció Java
+	 */
 	public IocInstanceNotUniqueException(Throwable cause) {
 		super(cause);
 	}
