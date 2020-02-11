@@ -4,10 +4,10 @@ package com.degloba.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguersRepository;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.ImType;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.lloguers.domain.persistence.rdbms.api.jpa.ILloguersRepository;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.ImType;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Person;
 
 import java.util.List;
 

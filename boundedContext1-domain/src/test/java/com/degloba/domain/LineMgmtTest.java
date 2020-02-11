@@ -6,13 +6,10 @@ import java.util.Date;
 
 import org.junit.Test;
 import com.degloba.utils.DateUtils;
-
-
-
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
 import com.degloba.organisation.utils.OrganisationUtils;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.OrgLineMgmt;
 
 public class LineMgmtTest extends AbstractIntegrationTest {
 

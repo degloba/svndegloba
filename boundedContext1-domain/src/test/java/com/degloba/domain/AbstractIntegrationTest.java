@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.degloba.ioc.spring.InstanceFactory;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.ioc.spring.factory.SpringInstanceProvider;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;

@@ -5,21 +5,15 @@ import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
-// Entitats de domini 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Accountability;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.CompanyDepartment;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Employee;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Employment;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 import com.degloba.organisation.utils.OrganisationUtils;
-
-
-
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Accountability;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.CompanyDepartment;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Employee;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Employment;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.OrgLineMgmt;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Person;
 
 import java.util.ArrayList;
 import java.util.Date;

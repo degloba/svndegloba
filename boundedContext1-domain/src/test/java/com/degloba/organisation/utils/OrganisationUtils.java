@@ -1,8 +1,8 @@
 package com.degloba.organisation.utils;
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.*;
-
 import java.util.Date;
+
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.*;
 
 public class OrganisationUtils {
 
@@ -21,7 +21,7 @@ public class OrganisationUtils {
         return result;
     }
 
-    public Company createCompany(String name, Organization parent, Date date) {
+    public Company createCompany(String name, Organitzacio parent, Date date) {
         Company result = createCompany(name, date);
         new OrgLineMgmt(parent, result, date).save();
         return result;
@@ -34,13 +34,13 @@ public class OrganisationUtils {
         return result;
     }
 
-    public Department createDepartment(String name, Organization parent, Date date) {
+    public Department createDepartment(String name, Organitzacio parent, Date date) {
         Department result = createDepartment(name, date);
         new OrgLineMgmt(parent, result, date).save();
         return result;
     }
 
-    public Post createPost(String name, Organization organization, Date date) {
+    public Post createPost(String name, Organitzacio organitzacio, Date date) {
         Post result = new Post(name);
         result.setCreateDate(date);
         //////////result.setOrganization(organization);

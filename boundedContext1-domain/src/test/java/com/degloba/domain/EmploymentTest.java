@@ -3,11 +3,11 @@ package com.degloba.domain;
 import com.degloba.utils.DateUtils;
 import org.junit.Test;
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Employee;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Employment;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Person;
 import com.degloba.organisation.utils.OrganisationUtils;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Employee;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Employment;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Person;
 
 import java.util.Date;
 

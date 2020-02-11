@@ -3,13 +3,10 @@ package com.degloba.domain;
 import com.degloba.utils.DateUtils;
 import org.junit.Test;
 
-import com.degloba.ioc.spring.InstanceFactory;
-
-// Entitats de domini 
-
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.organisation.utils.OrganisationUtils;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.IOrganisationRepository;
 
 import java.util.Date;
 import java.util.List;

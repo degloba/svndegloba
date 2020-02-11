@@ -6,12 +6,11 @@ import org.junit.Test;
 
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ioc.spring.InstanceFactory;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.Categoria;
-
-import com.degloba.lloguers.domain.persistence.rdbms.jpa.ILloguersRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.rdbms.api.jpa.Categoria;
+import com.degloba.lloguers.domain.persistence.rdbms.api.jpa.ILloguersRepository;
 
 import static org.junit.Assert.*;
 
