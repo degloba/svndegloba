@@ -1,4 +1,4 @@
-package com.degloba.viatges.integration.spring.config;
+package com.degloba.viatges.application.integration.spring.config;
 
 ///////import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -23,11 +23,11 @@ import org.springframework.integration.mail.MailHeaders;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-import com.degloba.viatges.integration.spring.EmailNotificationService;
-import com.degloba.viatges.application.services.IViatgesService;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.integration.spring.services.EmailNotificationService;
 import com.degloba.integration.spring.services.NotificacioGateway;
+import com.degloba.viatges.application.services.IViatgesService;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
 
 import javax.annotation.PostConstruct;
 import javax.mail.BodyPart;
@@ -158,13 +158,13 @@ public class EmailNotificationServiceReserva extends EmailNotificationService {
     }
 
     @Override
-    public void sendReminderNotification(String userId, long ReservaId) {
+    public void enviaNotificacioRecordatori(String userId, long ReservaId) {
         // todo
     }
 
 
     @Override
-    public void sendConfirmationNotification(String userId, long ReservaId) {
+    public void enviaNotificacioConfirmacio(String userId, long ReservaId) {
         Usuari usuari = ReservaService.findUser(userId);
         Reserva reserva = ReservaService.findReservaById(ReservaId);
 

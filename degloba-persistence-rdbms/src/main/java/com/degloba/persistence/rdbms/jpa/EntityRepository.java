@@ -16,7 +16,7 @@ import javax.persistence.Query;
 //import com.degloba.domain.ExampleSettings;
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
 import com.degloba.persistence.rdbms.jpa.PositionalParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,7 +82,7 @@ public class EntityRepository implements IEntityRepository {
                 originQuery.getFirstResult(), originQuery.getMaxResults());
     }
 
-    private void processQuery(Query query, QueryParameters parameters, 
+    private void processQuery(Query query, IQueryParameters parameters, 
             int firstResult, int maxResults) {
         fillParameters(query, parameters);
         query.setFirstResult(firstResult);
@@ -91,7 +91,7 @@ public class EntityRepository implements IEntityRepository {
         }
     }
 
-    private void fillParameters(Query query, QueryParameters params) {
+    private void fillParameters(Query query, IQueryParameters params) {
         if (params == null) {
             return;
         }
@@ -192,7 +192,7 @@ public class EntityRepository implements IEntityRepository {
 	}
 
 	 @Override
-	 public <T extends BaseAggregateRoot> List<T> find(Class<T> entityClass, QueryCriterion criterion) {
+	 public <T extends BaseAggregateRoot> List<T> find(Class<T> entityClass, IQueryCriterion criterion) {
 	        return find(createCriteriaQuery(entityClass).and(criterion));
 	    }
 	 
@@ -211,7 +211,7 @@ public class EntityRepository implements IEntityRepository {
 	}
 	
 	 @Override
-	    public <T extends BaseAggregateRoot> T getSingleResult(Class<T> entityClass, QueryCriterion criterion) {
+	    public <T extends BaseAggregateRoot> T getSingleResult(Class<T> entityClass, IQueryCriterion criterion) {
 	        return getSingleResult(createCriteriaQuery(entityClass).and(criterion));
 	    }
 

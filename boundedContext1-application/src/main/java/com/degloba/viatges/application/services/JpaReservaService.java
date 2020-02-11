@@ -7,20 +7,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-// Spring
+
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.application.SearchCriteria;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
 
 
 /**
- * @category Implementació d'un servei de reserves basat en JPA.</br>
+ * @category Implementació d'un servei de {@link Reserva} basat en JPA.</br>
  * Delega en un {@link EntityManager} l'execució de les crides d'accés a dades contra el repositori.</br> 
  * El contenidor de gestió proporciona la referència d’{@link EntityManager} (Spring)
  * automatically.

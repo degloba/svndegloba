@@ -1,7 +1,9 @@
-package com.degloba.domain.event;
+package com.degloba.domain.events;
 
-import com.degloba.event.api.AbstractEvent;
+import com.degloba.events.api.AbstractEvent;
 import com.degloba.utils.Assert;
+
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -57,7 +59,7 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable 
      * For test only
      * @param id Configura l'ID
      */
-    protected void setId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -77,20 +79,5 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable 
         return version;
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (!(other instanceof DomainEvent)) {
-            return false;
-        }
-        DomainEvent that = (DomainEvent) other;
-        return this.getId().equals(that.getId());
-    }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

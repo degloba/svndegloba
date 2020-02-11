@@ -1,11 +1,11 @@
-package com.degloba.domain.specification;
+package com.degloba.domain.specifications;
 
 /**
  * Regles abstractes a aconseguir, operacions "and," "or," "not"
  *
  * @param <T> Generic parameters
  */
-public abstract class AbstractSpecification<T> implements com.degloba.domain.specification.Specification<T> {
+public abstract class AbstractSpecification<T> implements com.degloba.domain.specifications.Specification<T> {
 
     /**
      * {@inheritDoc}

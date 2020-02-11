@@ -1,9 +1,9 @@
 package com.degloba.viatges.application.services;
 
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.application.SearchCriteria;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
 
 import java.util.List;
 

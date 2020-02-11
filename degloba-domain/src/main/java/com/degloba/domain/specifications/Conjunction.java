@@ -1,4 +1,4 @@
-package com.degloba.domain.specification;
+package com.degloba.domain.specifications;
 
 import java.util.List;
 

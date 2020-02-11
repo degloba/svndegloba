@@ -12,7 +12,7 @@ import com.degloba.utils.Assert;
  */
 public abstract class BaseQuery<E extends BaseQuery<?>> {
     private final IEntityRepository repository;
-    private QueryParameters parameters = PositionalParameters.create();
+    private IQueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();
     private int firstResult;
     private int maxResults;
@@ -26,7 +26,7 @@ public abstract class BaseQuery<E extends BaseQuery<?>> {
      * Get query parameters
      * @return Query parameters
      */
-    public QueryParameters getParameters() {
+    public IQueryParameters getParameters() {
         return parameters;
     }
 
@@ -82,7 +82,7 @@ public abstract class BaseQuery<E extends BaseQuery<?>> {
      * @return The object itself
      */
     @SuppressWarnings("unchecked")
-	public E setParameters(QueryParameters parameters) {
+	public E setParameters(IQueryParameters parameters) {
         this.parameters = parameters;
         return (E) this;
     }

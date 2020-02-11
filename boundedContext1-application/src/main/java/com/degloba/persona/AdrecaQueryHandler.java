@@ -6,24 +6,29 @@ import lombok.extern.slf4j.Slf4j;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Component;
 
-import com.degloba.address.Address;
-import com.degloba.cqrs.querys.AddressByIdQuery;
-import com.degloba.cqrs.querys.AddressByIdQueryResult;
+import com.degloba.address.Adreca;
+import com.degloba.cqrs.querys.AdrecaByIdQuery;
+import com.degloba.cqrs.querys.AdrecaByIdQueryResult;
 
 import javax.persistence.EntityManager;
 
+/**
+ * @author degloba
+ *
+ * @category {@link org.} de {@link Adreca} basat en Axon
+ */
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class AddressQueryHandler {
+public class AdrecaQueryHandler {
 
     private final EntityManager entityManager;
 
     @QueryHandler
-    public AddressByIdQueryResult handle(AddressByIdQuery query) {
-        Address address = entityManager.find(Address.class, query.getAddressId());
-        return new AddressByIdQueryResult(address.getAddressId(),
-                address.getPersonId(), address.getStreetAndNumber(), address.getZipCode());
+    public AdrecaByIdQueryResult handle(AdrecaByIdQuery query) {
+        Adreca adreca = entityManager.find(Adreca.class, query.getAddressId());
+        return new AdrecaByIdQueryResult(adreca.getAdrecaId(),
+                adreca.getPersonaId(), adreca.getCarrerINumero(), adreca.getZipCode());
     }
 
 }

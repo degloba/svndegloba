@@ -1,4 +1,4 @@
 /**
  * DDD achieve the "standard Specification" concept
  */
-package com.degloba.domain.specification;
+package com.degloba.domain.specifications;

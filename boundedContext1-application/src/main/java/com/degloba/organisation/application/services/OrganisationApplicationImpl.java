@@ -2,16 +2,12 @@ package com.degloba.organisation.application.services;
 
 
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
-
-// Application
-
-
-// Domain
-import com.degloba.organisation.domain.persistence.rdbms.jpa.OrgLineMgmt;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.OrgLineMgmt;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.facade.dtos.PostDto;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
@@ -19,8 +15,14 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-
-public class OrganisationApplicationImpl implements IOrganisationService {
+/**
+ * 
+ * @author degloba
+ * 
+ * @category implementat amb JPA
+ *
+ */
+public class OrganisationApplicationImpl implements IOrganitzacioService {
 	
 	
     @Inject
@@ -41,8 +43,8 @@ public class OrganisationApplicationImpl implements IOrganisationService {
     }
 
     @Override
-    public void createOrganization(Organization orgToCreate,
-                                   Organization parent, Date date) {
+    public void creaOrganitzacio(Organitzacio orgToCreate,
+                                   Organitzacio parent, Date date) {
         orgToCreate.setCreateDate(date);
         orgToCreate.save();
         new OrgLineMgmt(parent, orgToCreate, date).save();
@@ -55,15 +57,15 @@ public class OrganisationApplicationImpl implements IOrganisationService {
     }
 
     @Override
-    public void changeParentOfOrganization(Organization organization,
-                                           Organization newParent, Date date) {
-        OrgLineMgmt.getByResponsible(organization, date).terminate(date);
-        new OrgLineMgmt(newParent, organization, date).save();
+    public void changeParentOfOrganization(Organitzacio organitzacio,
+                                           Organitzacio newParent, Date date) {
+        OrgLineMgmt.getByResponsible(organitzacio, date).terminate(date);
+        new OrgLineMgmt(newParent, organitzacio, date).save();
     }
 
     @Override
     public void createPostUnderOrganization(Post post,
-                                            Organization organization, Date date) {
+                                            Organitzacio organitzacio, Date date) {
         /////post.setOrganization(organization);
         post.setCreateDate(date);
         post.save();
@@ -81,11 +83,11 @@ public class OrganisationApplicationImpl implements IOrganisationService {
 	}
 
 	@Override
-	public void cretePost(Post post) {
+	public void cretePost(PostDto post) {
 		// TODO Auto-generated method stub
-		organisationRepository.save(post);
+		
 	}
 
-	
+
 
 }

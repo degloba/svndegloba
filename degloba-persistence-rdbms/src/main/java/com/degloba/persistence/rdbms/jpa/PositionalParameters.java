@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * Parameter (such as "? ... Where e.name =") and named parameters (such as "... where name =: name") forms. <br>
  * As far as possible in the form of named parameters, positional parameters are behind the form.
  */
-public class PositionalParameters implements QueryParameters {
+public class PositionalParameters implements IQueryParameters {
     
     private Object[] params;
     

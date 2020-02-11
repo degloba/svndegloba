@@ -1,14 +1,14 @@
-package com.degloba.domain.event;
+package com.degloba.domain.events;
 
 import com.google.common.eventbus.EventBus;
 
 import javax.inject.Inject;
 
-import com.degloba.event.api.AbstractEventListener;
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventListener;
-import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.persistence.IDomainEventStore;
+import com.degloba.events.api.AbstractEventListener;
+import com.degloba.events.api.IDomainEvent;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventListener;
+import com.degloba.events.persistence.IDomainEventStore;
 import com.degloba.utils.Assert;
 
 
@@ -56,7 +56,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 /**
  * (non-Javadoc)
- * @see com.degloba.domain.event.IDomainEventBus#publicaEvent(com.degloba.domain.event.DomainEvent)
+ * @see com.degloba.domain.events.IDomainEventBus#publicaEvent(com.degloba.domain.events.DomainEvent)
  */
 	public void publicaEvent(DomainEvent event) {
         eventBus.post(event);
@@ -102,7 +102,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 
 
 	@Override
-	public void register(AbstractEventListener<?> newInstance) {
+	public void registra(AbstractEventListener<?> newInstance) {
 		// TODO Auto-generated method stub
 		
 	}

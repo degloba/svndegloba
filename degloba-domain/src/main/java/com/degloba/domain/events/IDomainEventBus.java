@@ -1,8 +1,8 @@
-package com.degloba.domain.event;
+package com.degloba.domain.events;
 
 
-import com.degloba.event.api.IEvent;
-import com.degloba.event.bus.IEventBus;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.bus.IEventBus;
 
 /**
  * @author degloba

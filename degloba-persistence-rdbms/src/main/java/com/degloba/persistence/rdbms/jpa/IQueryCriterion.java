@@ -5,7 +5,7 @@ import com.degloba.persistence.rdbms.jpa.NamedParameters;
 /**
  * The query interface
  */
-public interface QueryCriterion {
+public interface IQueryCriterion {
 
     static final String ROOT_ALIAS = "rootEntity";
 
@@ -15,7 +15,7 @@ public interface QueryCriterion {
      * @param criterion Another QueryCriterion
      * @return The results of the current object with the criterion of "and" action
      */
-    QueryCriterion and(QueryCriterion criterion);
+    IQueryCriterion and(IQueryCriterion criterion);
 
     /**
      * Perform OR operation, return on behalf of two QueryCriterion "or" operating results of a new QueryCriterion
@@ -23,13 +23,13 @@ public interface QueryCriterion {
      * @param criterion Another QueryCriterion
      * @return The results of the current object with the criterion of "or" action
      */
-    QueryCriterion or(QueryCriterion criterion);
+    IQueryCriterion or(IQueryCriterion criterion);
 
     /**
      * NOT perform the operation, the return on behalf of the current object "not" operate a new QueryCriterion
      * @return The results "not" current object operations
      */
-    QueryCriterion not();
+    IQueryCriterion not();
 
     /**
      * Are empty condition that instance EmptyCriterion of

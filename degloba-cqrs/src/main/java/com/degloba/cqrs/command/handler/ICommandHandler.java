@@ -1,20 +1,20 @@
 package com.degloba.cqrs.command.handler;
 
-import com.degloba.cqrs.command.impl.Command;
+import com.degloba.cqrs.command.ICommand;
 
 /**
  * 
  * @author degloba
  * 
- * @category Interficie : manipulador de {@link Command}
+ * @category manipulador de {@link ICommand}
  *
  * @param <C> Command
- * @param <R> tipus de resultat - per asynchronous {@link Command} commands (asynchronous=true) hauria de ser {@link Void}
+ * @param <R> tipus de resultat - per asynchronous {@link ICommand} commands (asynchronous=true) hauria de ser {@link Void}
  */
 public interface ICommandHandler<C, R> {
 
 	/**
-	 * Tracta el {@link Command}
+	 * Tracta el {@link ICommand}
 	 * 
 	 * @param command
 	 * @return

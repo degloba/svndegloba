@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 import com.degloba.utils.Assert;
 
 /**
@@ -16,7 +16,7 @@ import com.degloba.utils.Assert;
  */
 public class AndCriterion extends AbstractCriterion {
 
-    private final List<QueryCriterion> criterions;
+    private final List<IQueryCriterion> criterions;
 
     /**
      * Crea i consulta condicions basades en diversos criteris de cerca. 
@@ -24,7 +24,7 @@ public class AndCriterion extends AbstractCriterion {
      * el resultat tingui menys de dos llança una Exception.
      * @param criterions S'utilitza per realitzar una operació AND de les condicions de la consulta
      */
-    public AndCriterion(QueryCriterion... criterions) {
+    public AndCriterion(IQueryCriterion... criterions) {
         Assert.notNull(criterions, "Criterions to \"AND\" is null!");
         this.criterions = removeNullOrEmptyCriterion(criterions);
         Assert.isTrue(criterions.length > 1, "At least two query criterions required!");
@@ -35,14 +35,14 @@ public class AndCriterion extends AbstractCriterion {
      * @return Llista que s'utilitzarà per realitzar una operació AND de les condicions de la consulta, 
      * in addition to Null and EmptyCriterion types of elements.
      */
-    public List<QueryCriterion> getCriterons() {
+    public List<IQueryCriterion> getCriterons() {
         return criterions;
     }
 
     @Override
 	public String toQueryString() {
         List<String> subCriterionsStr = new ArrayList<String>();
-        for (QueryCriterion each : getCriterons()) {
+        for (IQueryCriterion each : getCriterons()) {
             subCriterionsStr.add(each.toQueryString());
         }
 		return StringUtils.join(subCriterionsStr, " and ");
@@ -50,7 +50,7 @@ public class AndCriterion extends AbstractCriterion {
 
 	public NamedParameters getParameters() {
 		NamedParameters result = NamedParameters.create();
-        for (QueryCriterion each : getCriterons()) {
+        for (IQueryCriterion each : getCriterons()) {
         	result.add(each.getParameters());
         }
 		return result;

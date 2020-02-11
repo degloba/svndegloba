@@ -1,9 +1,9 @@
 package com.degloba.lloguers.application.services;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
 
 /**
  * 

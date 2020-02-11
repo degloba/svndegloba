@@ -1,29 +1,27 @@
-package com.degloba.viatges.integration.spring;
+package com.degloba.integration.spring.services;
 
-//////import org.apache.commons.io.IOUtils;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-// Velocity
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-// Spring
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-// Spring Messaging
+
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
 
-//Spring Mail
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-//Spring - Integration
+
 import org.springframework.integration.mail.MailHeaders;
 
 import javax.annotation.PostConstruct;
@@ -38,7 +36,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * La majoria de la feina és manipulat a través de Spring Integration
  */
 @Component
-public class EmailNotificationService implements NotificationService {
+public class EmailNotificationService implements INotificationService {
 
 /*    @Value("classpath:/templates/confirmation-html.vm")
     private Resource htmlConfirmation;*/
@@ -87,7 +85,7 @@ public class EmailNotificationService implements NotificationService {
 
 
     @SuppressWarnings("unchecked")
-    public void sendEmail(final Message<Object> inboundEmailFromMq) throws Exception {
+    public void enviaCorreo(final Message<Object> inboundEmailFromMq) throws Exception {
 
         messageHandler.handleMessage(inboundEmailFromMq);
 
@@ -132,14 +130,14 @@ public class EmailNotificationService implements NotificationService {
 
 
 	@Override
-	public void sendConfirmationNotification(String userId, long id) {
+	public void enviaNotificacioConfirmacio(String userId, long id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void sendReminderNotification(String userId, long id) {
+	public void enviaNotificacioRecordatori(String userId, long id) {
 		// TODO Auto-generated method stub
 		
 	}

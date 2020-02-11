@@ -2,13 +2,12 @@ package com.degloba.organisation.impl;
 
 import java.util.Date;
 
-import com.degloba.organisation.application.services.IOrganisationService;
+import com.degloba.organisation.application.services.IOrganitzacioService;
 import com.degloba.organisation.application.services.OrganisationApplicationImpl;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
-//Domain (organisation)
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import org.junit.After;
@@ -25,7 +24,7 @@ import org.junit.Ignore;
 
 public class OrganisationApplicationImplIntegratedTest {
 
-    private IOrganisationService instance;
+    private IOrganitzacioService instance;
 
     protected IOrganisationRepository repository;
 
@@ -48,10 +47,10 @@ public class OrganisationApplicationImplIntegratedTest {
     @Test
     public void testCreateOrganization() {
         System.out.println("createOrganization");
-        Organization orgToCreate = null;
-        Organization parent = null;
+        Organitzacio orgToCreate = null;
+        Organitzacio parent = null;
         Date date = null;
-        instance.createOrganization(orgToCreate, parent, date);
+        instance.creaOrganitzacio(orgToCreate, parent, date);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -77,10 +76,10 @@ public class OrganisationApplicationImplIntegratedTest {
     @Test
     public void testChangeParentOfOrganization() {
         System.out.println("changeParentOfOrganization");
-        Organization organization = null;
-        Organization newParent = null;
+        Organitzacio organitzacio = null;
+        Organitzacio newParent = null;
         Date date = null;
-        instance.changeParentOfOrganization(organization, newParent, date);
+        instance.changeParentOfOrganization(organitzacio, newParent, date);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -93,9 +92,9 @@ public class OrganisationApplicationImplIntegratedTest {
     public void testCreatePostUnderOrganization() {
         System.out.println("createPostUnderOrganization");
         Post post = null;
-        Organization organization = null;
+        Organitzacio organitzacio = null;
         Date date = null;
-        instance.createPostUnderOrganization(post, organization, date);
+        instance.createPostUnderOrganization(post, organitzacio, date);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

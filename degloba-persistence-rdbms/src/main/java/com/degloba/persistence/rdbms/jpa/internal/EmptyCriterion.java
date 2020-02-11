@@ -3,7 +3,7 @@ package com.degloba.persistence.rdbms.jpa.internal;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 
 /**
  * "Empty" conditions, do nothing. To simplify operation between conditions
@@ -14,17 +14,17 @@ public class EmptyCriterion extends AbstractCriterion {
     }
 
     @Override
-    public QueryCriterion and(QueryCriterion criterion) {
+    public IQueryCriterion and(IQueryCriterion criterion) {
         return criterion;
     }
 
     @Override
-    public QueryCriterion or(QueryCriterion criterion) {
+    public IQueryCriterion or(IQueryCriterion criterion) {
         return criterion;
     }
 
     @Override
-    public QueryCriterion not() {
+    public IQueryCriterion not() {
         return this;
     }
 

@@ -1,14 +1,14 @@
 package com.degloba.ecommerce.sales.application.events.guava.eventbus;
 
 
-import com.degloba.ecommerce.vendes.application.events.guava.eventbus.EventPublisher;
-import com.degloba.ecommerce.vendes.application.events.guava.eventbus.subscriber.*;
+import com.degloba.ecommerce.application.events.eventbus.impl.guava.eventpublishers.vendes.EventPublisher;
+import com.degloba.ecommerce.application.events.eventbus.impl.guava.subscribers.vendes.*;
 import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
 import com.degloba.ecommerce.vendes.eventsourcing.events.NoSubscriberEvent;
-import com.degloba.event.bus.google.subscribers.AllEventSubscriber;
-import com.degloba.event.bus.google.subscribers.EventSubscriber;
-import com.degloba.event.bus.google.subscribers.InvalidSubscriberNoParameters;
+import com.degloba.events.bus.subscribers.google.AllEventSubscriber;
+import com.degloba.events.bus.subscribers.google.EventSubscriber;
+import com.degloba.events.bus.subscribers.google.InvalidSubscriberNoParameters;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.DeadEvent;
 import com.google.common.eventbus.EventBus;

@@ -3,7 +3,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import com.degloba.ioc.spring.IInstanceProvider;
+import com.degloba.ioc.interfaces.IInstanceProvider;
 
 import static org.junit.Assert.*;
 

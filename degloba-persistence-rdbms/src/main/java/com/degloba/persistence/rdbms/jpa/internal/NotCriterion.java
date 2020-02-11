@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 import com.degloba.utils.Assert;
 
 /**
@@ -14,13 +14,13 @@ import com.degloba.utils.Assert;
  */
 public class NotCriterion extends AbstractCriterion {
 
-    private final QueryCriterion criterion;
+    private final IQueryCriterion criterion;
 
     /**
      * Create it negated query conditions based on a query condition
      * @param criterion The original search criteria
      */
-    public NotCriterion(QueryCriterion criterion) {
+    public NotCriterion(IQueryCriterion criterion) {
         Assert.notNull(criterion, "Query criterion is null!");
         this.criterion = criterion;
     }
@@ -29,7 +29,7 @@ public class NotCriterion extends AbstractCriterion {
      * Return to the original query condition
      * @return The original search criteria
      */
-    public QueryCriterion getCriteron() {
+    public IQueryCriterion getCriteron() {
         return criterion;
     }
 

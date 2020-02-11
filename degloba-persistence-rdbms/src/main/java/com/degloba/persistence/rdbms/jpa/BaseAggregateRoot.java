@@ -29,11 +29,11 @@ import org.springframework.context.annotation.Scope;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.degloba.domain.event.IDomainEventBus;
-import com.degloba.event.api.IEvent;
-import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.domain.IDomainEventPublisher;
-import com.degloba.ioc.spring.InstanceFactory;
+import com.degloba.domain.events.IDomainEventBus;
+import com.degloba.events.api.IDomainEvent;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.publishers.IDomainEventPublisher;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
 

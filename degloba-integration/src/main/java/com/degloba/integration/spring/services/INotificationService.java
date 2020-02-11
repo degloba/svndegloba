@@ -1,13 +1,13 @@
-package com.degloba.viatges.integration.spring;
+package com.degloba.integration.spring.services;
 
 
 /**
- * Maneja l'enviament de notificacions
+ * @category Servei de notificacions
  */
-public interface NotificationService {
+public interface INotificationService {
 
-    void sendConfirmationNotification(String userId, long id);
+    void enviaNotificacioConfirmacio(String userId, long id);
 
-    void sendReminderNotification(String userId, long id);
+    void enviaNotificacioRecordatori(String userId, long id);
 
 }

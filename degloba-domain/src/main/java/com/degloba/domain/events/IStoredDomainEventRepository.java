@@ -1,11 +1,11 @@
-package com.degloba.domain.event;
+package com.degloba.domain.events;
 
 import java.util.Date;
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.persistence.IDomainEventStore;
+import com.degloba.events.api.IDomainEvent;
+import com.degloba.events.persistence.IDomainEventStore;
 
 
 /**

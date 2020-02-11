@@ -3,14 +3,14 @@ package com.degloba.persistence.rdbms.jpa.internal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 
 
 
 /**
  * Query conditions abstract base class that implements the AND, OR, NOT operation.
  */
-public abstract class AbstractCriterion implements QueryCriterion {
+public abstract class AbstractCriterion implements IQueryCriterion {
     
     protected String queryString;
 
@@ -20,7 +20,7 @@ public abstract class AbstractCriterion implements QueryCriterion {
      * @param criterion Another QueryCriterion
      * @return The results of the current object with the criterion "and" action
      */
-    public QueryCriterion and(QueryCriterion criterion) {
+    public IQueryCriterion and(IQueryCriterion criterion) {
         return new AndCriterion(this, criterion);
     }
 
@@ -30,7 +30,7 @@ public abstract class AbstractCriterion implements QueryCriterion {
      * @param criterion Another QueryCriterion
      * @return The results of the current object and criterion of "or" action
      */
-    public QueryCriterion or(QueryCriterion criterion) {
+    public IQueryCriterion or(IQueryCriterion criterion) {
         return new OrCriterion(this, criterion);
     }
 
@@ -38,7 +38,7 @@ public abstract class AbstractCriterion implements QueryCriterion {
      * Do NOT operation, return on behalf of the current object "not" operation a new QueryCriterion
      * @return Results "not" operation of the current object
      */
-    public QueryCriterion not() {
+    public IQueryCriterion not() {
         return new NotCriterion(this);
     }
 
@@ -56,9 +56,9 @@ public abstract class AbstractCriterion implements QueryCriterion {
      * @param criterions Original condition array
      * @return List to remove air condition object after the remaining members of the
      */
-    protected List<QueryCriterion> removeNullOrEmptyCriterion(QueryCriterion[] criterions) {
-        List<QueryCriterion> results = new ArrayList<QueryCriterion>();
-        for (QueryCriterion each : criterions) {
+    protected List<IQueryCriterion> removeNullOrEmptyCriterion(IQueryCriterion[] criterions) {
+        List<IQueryCriterion> results = new ArrayList<IQueryCriterion>();
+        for (IQueryCriterion each : criterions) {
             if (each == null || each.isEmpty()) {
                 continue;
             }

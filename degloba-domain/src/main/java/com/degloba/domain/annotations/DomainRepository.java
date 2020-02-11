@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * @author degloba
  * 
- * @category Repositori d'entitats de domini
+ * @category Anotació Repositori d'entitats de domini
  * 
  */
 @Target(ElementType.TYPE)

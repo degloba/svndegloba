@@ -3,10 +3,10 @@ package com.degloba.persistence.rdbms.jpa;
 
 import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.OrderSettings;
-import com.degloba.ioc.spring.InstanceFactory;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.utils.Assert;
 
 import java.util.*;
@@ -26,7 +26,7 @@ public class CriteriaQuery {
     private final Class<? extends BaseAggregateRoot> entityClass;
     private int firstResult;
     private int maxResults;
-    private QueryCriterion criterion = criterionBuilder.empty();
+    private IQueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
     public CriteriaQuery(IEntityRepository repository, Class<? extends BaseAggregateRoot> entityClass) {
@@ -90,7 +90,7 @@ public class CriteriaQuery {
      *
      * @return The query specifies the query conditions
      */
-    public QueryCriterion getQueryCriterion() {
+    public IQueryCriterion getQueryCriterion() {
         return criterion;
     }
 
@@ -111,7 +111,7 @@ public class CriteriaQuery {
     public String getQueryString() {
         //String result = String.format("select distinct(%s) from %s as %s ",
         String result = String.format("select distinct %s from %s %s ",   // suporta DataNucleus
-        		QueryCriterion.ROOT_ALIAS, entityClass.getName(), QueryCriterion.ROOT_ALIAS);
+        		IQueryCriterion.ROOT_ALIAS, entityClass.getName(), IQueryCriterion.ROOT_ALIAS);
         if (StringUtils.isNotEmpty(criterion.toQueryString())) {
             result += " where " + criterion.toQueryString();
         }
@@ -126,7 +126,7 @@ public class CriteriaQuery {
         }
         List<String> elements = new ArrayList<String>();
         for (KeyValue<String, Boolean> each : orderBy) {
-            elements.add(QueryCriterion.ROOT_ALIAS + "." + each.getKey() + (each.getValue().booleanValue() ? " asc" : " desc"));
+            elements.add(IQueryCriterion.ROOT_ALIAS + "." + each.getKey() + (each.getValue().booleanValue() ? " asc" : " desc"));
         }
         return " order by " + StringUtils.join(elements, ", ");
     }
@@ -538,7 +538,7 @@ public class CriteriaQuery {
      * @param otherCriterion The original query conditions
      * @return The current query object
      */
-    public CriteriaQuery not(QueryCriterion otherCriterion) {
+    public CriteriaQuery not(IQueryCriterion otherCriterion) {
         criterion = criterion.and(criterionBuilder.not(otherCriterion));
         return this;
     }
@@ -549,7 +549,7 @@ public class CriteriaQuery {
      * @param queryCriterions Multiple basic query conditions
      * @return The current query object
      */
-    public CriteriaQuery and(QueryCriterion... queryCriterions) {
+    public CriteriaQuery and(IQueryCriterion... queryCriterions) {
         criterion = criterion.and(criterionBuilder.and(queryCriterions));
         return this;
     }
@@ -560,7 +560,7 @@ public class CriteriaQuery {
      * @param queryCriterions Multiple basic query conditions
      * @return The current query object
      */
-    public CriteriaQuery or(QueryCriterion... queryCriterions) {
+    public CriteriaQuery or(IQueryCriterion... queryCriterions) {
         criterion = criterion.and(criterionBuilder.or(queryCriterions));
         return this;
     }

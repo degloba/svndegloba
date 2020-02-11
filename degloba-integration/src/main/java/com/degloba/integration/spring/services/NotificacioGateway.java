@@ -1,10 +1,9 @@
 package com.degloba.integration.spring.services;
 
-// Spring - Integration
+
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.mail.MailHeaders;
 
-// Spring Messaging
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 

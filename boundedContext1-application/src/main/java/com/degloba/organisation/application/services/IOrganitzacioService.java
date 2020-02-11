@@ -2,25 +2,32 @@ package com.degloba.organisation.application.services;
 
 
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.facade.dtos.PostDto;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 
 import java.util.Date;
 
-public interface IOrganisationService {
+/**
+ * 
+ * @author degloba
+ * 
+ * @category Servei Organitzacio
+ */
+public interface IOrganitzacioService {
 
 	<T extends BaseAggregateRoot> T getEntity(Class<T> entityClass, AggregateId entityId);
 	 
-    void createOrganization(Organization orgToCreate, Organization parent, Date date);
+    void creaOrganitzacio(Organitzacio orgToCreate, Organitzacio parent, Date date);
 
     void terminateParty(Party party, Date date);
 
-    void changeParentOfOrganization(Organization organization, Organization newParent, Date date);
+    void changeParentOfOrganization(Organitzacio organitzacio, Organitzacio newParent, Date date);
 
-    void createPostUnderOrganization(Post post, Organization organization, Date date);
+    void createPostUnderOrganization(Post post, Organitzacio organitzacio, Date date);
     
-    void cretePost(Post post);
+    void cretePost(PostDto post);
 }

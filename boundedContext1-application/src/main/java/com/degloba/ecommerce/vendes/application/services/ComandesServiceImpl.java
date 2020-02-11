@@ -7,17 +7,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.vendes.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.cqrs.commands.OrderDetailsCommand;
+import com.degloba.ecommerce.vendes.cqrs.commands.DetallsComandaCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
-import com.degloba.ecommerce.vendes.equivalent.SuggestionService;
-import com.degloba.ecommerce.vendes.ofertes.domain.factories.DescompteFactory;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
+import com.degloba.ecommerce.vendes.ofertes.descomptes.domain.policies.IDescomptePolicy;
+import com.degloba.ecommerce.vendes.ofertes.domain.factories.DescomptePolicyFactory;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
-import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
 import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.reserves.domain.factories.ReservesFactory;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
@@ -55,10 +55,10 @@ public class ComandesServiceImpl implements IComandesService {
 	private IVendesRepository productRepository;
 	
 	@Inject
-	private DescompteFactory descompteFactory;
+	private DescomptePolicyFactory descomptePolicyFactory;
 	
 	@Inject
-	private SuggestionService suggestionService;
+	private SuggerimentService suggerimentService;
 
 	// @Secured requires BUYER role
 	public AggregateId creaComanda() {
@@ -79,13 +79,13 @@ public class ComandesServiceImpl implements IComandesService {
 	 */
 	@Override
 	public void afegirProducte(AggregateId comandaId, AggregateId producteId, int quantitat) {
-		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
+		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
 		
-		Producte producte = productRepository.carregaProducte(Producte.class,producteId);
+		Producte producte = productRepository.obtenirProducteById(Producte.class,producteId);
 		
 		if (! producte.isAvailabe()){
 			Client client = loadClient();	
-			producte = suggestionService.suggestEquivalent(producte, client);
+			producte = suggerimentService.suggerirProducteEquivalent(producte, client);
 		}
 			
 		reserva.add(producte, quantitat);
@@ -97,16 +97,16 @@ public class ComandesServiceImpl implements IComandesService {
 	 * Can be invoked many times for the same order (with different params).<br>
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
-	public Oferta calculateOffer(AggregateId comandaId) {
-		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
+	public Oferta calculaOferta(AggregateId comandaId) {
+		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
 
-		DescomptePolicy descomptePolicy = descompteFactory.crea(loadClient());
+		IDescomptePolicy iDescomptePolicy = descomptePolicyFactory.crea(loadClient());
 		
 		/*
 		 * Sample pattern: Aggregate generates Value Object using function<br>
 		 * Higher order function is closured by policy
 		 */
-		return reserva.calculateOffer(descomptePolicy);
+		return reserva.calculateOffer(iDescomptePolicy);
 	}
 
 	/**
@@ -124,9 +124,9 @@ public class ComandesServiceImpl implements IComandesService {
 	 */
 	@Override
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
-	public void confirma(AggregateId comandaId, OrderDetailsCommand orderDetailsCommand, Oferta seenOffer)
+	public void confirma(AggregateId comandaId, DetallsComandaCommand detallsComandaCommand, Oferta seenOffer)
 			throws OfertaCanviadaException {
-		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,comandaId);
+		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
 		if (reserva.isClosed())
 			throw new DomainOperationException(reserva.getAggregateId(), "reservation is already closed");
 		
@@ -134,7 +134,7 @@ public class ComandesServiceImpl implements IComandesService {
 		 * Sample pattern: Aggregate generates Value Object using function<br>
 		 * Higher order function is closured by policy
 		 */
-		Oferta newOffer = reserva.calculateOffer(descompteFactory.crea(loadClient()));
+		Oferta newOffer = reserva.calculateOffer(descomptePolicyFactory.crea(loadClient()));
 		
 		/*
 		 * Sample pattern: Client Tier sends back old VOs, Server generates new VOs based on Aggregate state<br>

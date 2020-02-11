@@ -1,4 +1,4 @@
-package com.degloba.domain.specification;
+package com.degloba.domain.specifications;
 
 /**
  * @category Interfície de les regles de negoci lligat al concepte de "normes" en DDD.</br>

@@ -1,4 +1,4 @@
-package com.degloba.cqrs.command.impl;
+package com.degloba.cqrs.command;
 
 /**
  * @author degloba
@@ -6,7 +6,7 @@ package com.degloba.cqrs.command.impl;
  * @category
  *
  */
-public interface Command {
+public interface ICommand {
 	/**
 	 * @category Definim si la comanda es pot executar de manera asíncrona.
 	 * <br>

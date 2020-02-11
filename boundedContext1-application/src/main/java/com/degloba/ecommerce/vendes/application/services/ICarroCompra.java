@@ -7,5 +7,6 @@ package com.degloba.ecommerce.vendes.application.services;
  * 
  */
 public interface ICarroCompra {
-	public void add(long producteId);
+	
+	public void afegir(long producteId);
 }

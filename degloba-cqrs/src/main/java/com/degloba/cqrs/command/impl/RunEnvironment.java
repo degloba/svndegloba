@@ -5,21 +5,25 @@ import javax.inject.Inject;
 // Spring
 import org.springframework.stereotype.Component;
 
+import com.degloba.cqrs.command.ICommand;
 // CQRS
 import com.degloba.cqrs.command.handler.ICommandHandler;
+
+import lombok.Data;
 
 /**
  * @author degloba
  * 
- * @category {@link Component} Spring que va executant {@link Command}
+ * @category Component Spring que va executant {@link ICommand}
  * 
  * @param <K>
  */
 @Component
+@Data
 public class RunEnvironment {
 
 	/**
-	 * @category Interficie : Proveidor de {@link ICommandHandler} a partir d'un {@link Command}
+	 * @category Interficie : Proveidor de {@link ICommandHandler} a partir d'un {@link ICommand}
 	 * 
 	 */
 	public interface IHandlersProvider{
@@ -40,15 +44,5 @@ public class RunEnvironment {
 		
 		return result;
 	}
-
-	public IHandlersProvider getHandlersProvider() {
-		return handlersProvider;
-	}
-
-	public void setHandlersProvider(IHandlersProvider handlersProvider) {
-		this.handlersProvider = handlersProvider;
-	}
-
-	
 	
 }

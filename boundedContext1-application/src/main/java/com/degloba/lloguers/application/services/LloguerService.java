@@ -2,11 +2,13 @@ package com.degloba.lloguers.application.services;
 
 import javax.inject.Inject;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
+
+import lombok.Value;
 
 /**
  * @category servei de lloguer
@@ -14,6 +16,7 @@ import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objecti
  * @author degloba
  *
  */
+@Value
 public class LloguerService implements ILloguerService {
 	
 /*	@Inject
@@ -42,15 +45,6 @@ public class LloguerService implements ILloguerService {
 		lloguerRepositoryObjectify.create(propietari);
 
 	}
-
-	public ILloguerRepository getLloguerRepositoryObjectify() {
-		return lloguerRepositoryObjectify;
-	}
-
-	public void setLloguerRepositoryObjectify(ILloguerRepository lloguerRepositoryObjectify) {
-		this.lloguerRepositoryObjectify = lloguerRepositoryObjectify;
-	}
-
 
 	@Override
 	public void creaSubcategoria(SubCategoria subCategoria) {

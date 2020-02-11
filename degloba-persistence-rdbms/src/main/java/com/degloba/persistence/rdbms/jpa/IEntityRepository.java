@@ -3,9 +3,9 @@ package com.degloba.persistence.rdbms.jpa;
 import java.io.Serializable;
 import java.util.List;
 
-//import com.degloba.domain.ExampleSettings;
+
 import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.QueryCriterion;
+import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 
 
 /**
@@ -279,10 +279,10 @@ public interface IEntityRepository {
     void clear();
 
 
-    <T extends BaseAggregateRoot>List<T> find(Class<T> entityClass, QueryCriterion criterion);
+    <T extends BaseAggregateRoot>List<T> find(Class<T> entityClass, IQueryCriterion criterion);
 
 
-    <T extends BaseAggregateRoot>T getSingleResult(Class<T> entityClass, QueryCriterion criterion);
+    <T extends BaseAggregateRoot>T getSingleResult(Class<T> entityClass, IQueryCriterion criterion);
 
 
 

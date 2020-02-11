@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * Parameters (such as "? ... Where e.name =") and named parameters (such as "... where name =: name") forms. <br>
  * As far as possible in the form of named parameters, positional parameters are behind the form.
  */
-public class NamedParameters implements QueryParameters {
+public class NamedParameters implements IQueryParameters {
     private Map<String, Object> params = new HashMap<String, Object>();
     
     /**

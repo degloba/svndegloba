@@ -6,15 +6,13 @@ import java.util.Date;
 
 
 import com.degloba.utils.DateUtils;
-
-import com.degloba.organisation.application.services.IOrganisationService;
-// Domain (organisation)
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Company;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Department;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organisation.application.services.IOrganitzacioService;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Company;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Department;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
 
 import static org.hamcrest.CoreMatchers.*;
 
@@ -31,7 +29,7 @@ import static org.mockito.Mockito.*;
 
 public abstract class OrganisationServiceTest {
 
-    private IOrganisationService instance;
+    private IOrganitzacioService instance;
 
     protected IOrganisationRepository repository;
 
@@ -53,10 +51,10 @@ public abstract class OrganisationServiceTest {
     @Test
     public void testCreateOrganization() {
         System.out.println("createOrganization");
-        Organization orgToCreate = new Department("dept");
-        Organization parent = new Company("headquarter");
+        Organitzacio orgToCreate = new Department("dept");
+        Organitzacio parent = new Company("headquarter");
         Date date = DateUtils.date(2012, 1, 1);
-        instance.createOrganization(orgToCreate, parent, date);
+        instance.creaOrganitzacio(orgToCreate, parent, date);
         assertThat(orgToCreate.getCreateDate(), is(date));
 /*        verify(repository).save(orgToCreate);
         verify(repository).save(new OrgLineMgmt(parent, orgToCreate, date));*/
@@ -83,10 +81,10 @@ public abstract class OrganisationServiceTest {
     @Test
     public void testChangeParentOfOrganization() {
         System.out.println("changeParentOfOrganization");
-        Organization organization = null;
-        Organization newParent = null;
+        Organitzacio organitzacio = null;
+        Organitzacio newParent = null;
         Date date = null;
-        instance.changeParentOfOrganization(organization, newParent, date);
+        instance.changeParentOfOrganization(organitzacio, newParent, date);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -100,13 +98,13 @@ public abstract class OrganisationServiceTest {
     public void testCreatePostUnderOrganization() {
         System.out.println("createPostUnderOrganization");
         Post post = null;
-        Organization organization = null;
+        Organitzacio organitzacio = null;
         Date date = null;
-        instance.createPostUnderOrganization(post, organization, date);
+        instance.createPostUnderOrganization(post, organitzacio, date);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    protected abstract IOrganisationService createInstance();
+    protected abstract IOrganitzacioService createInstance();
 
 }
