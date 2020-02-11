@@ -29,12 +29,11 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.domain.annotations.Function;
 import com.degloba.domain.annotations.Invariant;
 import com.degloba.domain.annotations.InvariantsList;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.ofertes.descomptes.domain.policies.IDescomptePolicy;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Descompte;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
-import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
-
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
@@ -128,17 +127,17 @@ public class Reserva extends BaseAggregateRoot{
 	 * Higher order function closured by policy function</br>
 	 * </br>
 	 * La funció carrega els preus actuals i prepara l'oferta segons la disponibilitat actual i el descompte donat
-	 * @param descomptePolicy
+	 * @param iDescomptePolicy
 	 * @return
 	 */
 	@Function
-	public Oferta calculateOffer(DescomptePolicy descomptePolicy) {
+	public Oferta calculateOffer(IDescomptePolicy iDescomptePolicy) {
 		List<OfertaItem> availabeItems = new ArrayList<OfertaItem>();
 		List<OfertaItem> unavailableItems = new ArrayList<OfertaItem>();
 		
 		for (ReservaItem item : items) {						
 			if (item.getProducte().isAvailabe()){
-				Descompte descompte = descomptePolicy.applyDiscount(item.getProducte(), item.getQuantitat(), item.getProducte().getPreu());
+				Descompte descompte = iDescomptePolicy.aplicaDescompte(item.getProducte(), item.getQuantitat(), item.getProducte().getPreu());
 				OfertaItem ofertaItem = new OfertaItem(item.getProducte().generateSnapshot(), item.getQuantitat(), descompte);
 				
 				availabeItems.add(ofertaItem);

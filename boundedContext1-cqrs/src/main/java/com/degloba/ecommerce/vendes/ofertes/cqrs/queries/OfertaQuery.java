@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel;
+package com.degloba.ecommerce.vendes.ofertes.cqrs.queries;
 
 /**
  * 

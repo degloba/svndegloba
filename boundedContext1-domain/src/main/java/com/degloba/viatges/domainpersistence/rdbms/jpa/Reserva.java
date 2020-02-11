@@ -1,4 +1,4 @@
-package com.degloba.viatges.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domainpersistence.rdbms.jpa;
 
 /*import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -25,7 +25,7 @@ import java.util.Set;
 
 
 /**
- * Reserva d'hotel realitzada per un {@link Usuari}
+ * @category Reserva d'hotel realitzada per un {@link Usuari}
  */
 @XmlRootElement (name = "BookAuthors") // , namespace = DomainConstants.NAMESPACE)
 @Entity

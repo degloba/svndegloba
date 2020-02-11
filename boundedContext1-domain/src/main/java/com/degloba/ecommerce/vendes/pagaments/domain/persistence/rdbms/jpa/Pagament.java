@@ -18,7 +18,6 @@ import com.degloba.persistence.rdbms.jpa.ClientData;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.vendes.domain.events.PagamentRolledBackEvent;
 import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
-
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 //@AggregateRoot

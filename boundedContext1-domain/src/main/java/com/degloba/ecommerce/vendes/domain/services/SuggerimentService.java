@@ -1,25 +1,24 @@
-package com.degloba.ecommerce.vendes.equivalent;
+package com.degloba.ecommerce.vendes.domain.services;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainService;
-//////////import com.degloba.ecommerce.sales.readmodel.offer.Offer;
-import com.degloba.domain.specification.Specification;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.domain.specifications.Specification;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 
 /**
  * @category Servei de domini (funció) que dóna suport a la decisió de la selecció d'un producte.</br>
- * Suggereix un equivalent del producte basat en els hàbits del client.
+ * Suggereix un producte equivalent basat en els hàbits del client.
  * 
  * @author degloba
  *
  */
 @DomainService
-public class SuggestionService {
+public class SuggerimentService {
 
 	@Inject
 	private IVendesRepository productRepository;
@@ -37,7 +36,7 @@ public class SuggestionService {
 	 * @param client
 	 * @return
 	 */
-	public Producte suggestEquivalent(Producte problematicProduct, Client client) {
+	public Producte suggerirProducteEquivalent(Producte problematicProduct, Client client) {
 		List<Producte> expiringProducts = productRepository.findProductWhereBestBeforeExpiredIn(5);
 		
 		Specification<Producte> specification = productSpecificationFactory.create(client, problematicProduct);

@@ -1,12 +1,13 @@
-package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
+package com.degloba.domain.messaging.persistence.nosql;
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepository;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM.Topic;
 
 /** 
 *
-* Repositori (MongoDB) : Temes
+* @category Repositori (MongoDB) : Temes
 * 
 * @author pere
 *

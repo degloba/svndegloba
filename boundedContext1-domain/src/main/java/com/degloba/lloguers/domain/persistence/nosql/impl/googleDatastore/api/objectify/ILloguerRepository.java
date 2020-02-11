@@ -1,8 +1,8 @@
-package com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify;
 
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.persistence.nosql.googleDatastore.api.objectify.IBaseRepository;
+import com.degloba.persistence.nosql.impl.googleDatastore.api.objectify.IBaseRepository;
 
 
 /**

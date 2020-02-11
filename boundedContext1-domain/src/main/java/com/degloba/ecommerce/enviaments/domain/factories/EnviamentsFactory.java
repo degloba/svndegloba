@@ -12,7 +12,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 /**
- * @category Fàbrica d'Enviaments
+ * @category Fàbrica de {@link Enviament}
  */
 @DomainFactory
 public class EnviamentsFactory {

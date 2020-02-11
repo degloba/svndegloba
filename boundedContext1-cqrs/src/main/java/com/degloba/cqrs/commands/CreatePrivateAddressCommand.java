@@ -7,11 +7,11 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 public class CreatePrivateAddressCommand {
 
     @TargetAggregateIdentifier
-    private final String addressId;
+    private final String adrecaId;
 
-    private final String personId;
+    private final String personaId;
 
-    private final String streetAndNumber;
+    private final String carrerINumero;
 
     private final String zipCode;
 

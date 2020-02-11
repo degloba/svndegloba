@@ -8,15 +8,15 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Location;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Location;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
 
 /**
- * @category es {@link Finder} de lloguers implementat en
+ * @category es {@link Finder} de lloguers implementat en JPA
  * 
  * @author degloba
  *

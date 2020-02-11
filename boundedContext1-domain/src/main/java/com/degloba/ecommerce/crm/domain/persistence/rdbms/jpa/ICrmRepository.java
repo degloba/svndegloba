@@ -8,6 +8,8 @@ import com.degloba.persistence.rdbms.jpa.IEntityRepository;
 /**
  * @author degloba
  * 
+ * @category Repository JPA pel CRM
+ * 
  */
 @DomainRepository
 public interface ICrmRepository extends IEntityRepository {

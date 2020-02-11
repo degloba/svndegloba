@@ -1,9 +1,9 @@
-package com.degloba.security.domain.events;
+package com.degloba.organitzacio.domain.events.security;
 
 import java.util.Date;
 
-import com.degloba.event.annotations.Event;
-import com.degloba.security.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.events.annotations.Event;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.security.Usuari;
 
 /**
  */

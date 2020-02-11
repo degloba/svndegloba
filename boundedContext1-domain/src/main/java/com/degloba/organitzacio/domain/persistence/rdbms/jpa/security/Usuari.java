@@ -1,11 +1,10 @@
-package com.degloba.security.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa.security;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-
-import com.degloba.security.domain.exceptions.DuplicateUsernameException;
-import com.degloba.security.domain.exceptions.PasswordUnmatchException;
+import com.degloba.organitzacio.domain.exceptions.security.DuplicateUsernameException;
+import com.degloba.organitzacio.domain.exceptions.security.PasswordUnmatchException;
 
 import javax.persistence.*;
 import java.security.Principal;

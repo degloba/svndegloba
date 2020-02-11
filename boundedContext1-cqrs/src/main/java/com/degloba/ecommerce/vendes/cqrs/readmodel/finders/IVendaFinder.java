@@ -5,10 +5,10 @@ import java.util.List;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.cqrs.query.annotations.Finder;
-import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.ComandesQuery;
-import com.degloba.ecommerce.vendes.comandes.cqrs.readmodel.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.OfertaQuery;
-import com.degloba.ecommerce.vendes.ofertes.cqrs.readmodel.dtos.ProducteOfertatDto;
+import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
+import com.degloba.ecommerce.vendes.cqrs.comandes.queries.ComandesQuery;
+import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
+import com.degloba.ecommerce.vendes.ofertes.facade.dtos.ProducteOfertatDto;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 

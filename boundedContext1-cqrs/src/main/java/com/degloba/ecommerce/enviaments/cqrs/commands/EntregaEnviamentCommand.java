@@ -5,6 +5,8 @@ import java.io.Serializable;
 import com.degloba.cqrs.command.annotations.ICommand;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
+import lombok.Value;
+
 
 /**
  * @category fer l'entrega d'un enviament
@@ -14,6 +16,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  */
 @SuppressWarnings("serial")
 @ICommand
+@Value
 public class EntregaEnviamentCommand implements Serializable {
 
     private final AggregateId enviamentId;
@@ -22,7 +25,4 @@ public class EntregaEnviamentCommand implements Serializable {
         this.enviamentId = enviamentId;
     }
 
-    public AggregateId getEnviamentId() {
-        return enviamentId;
-    }
 }

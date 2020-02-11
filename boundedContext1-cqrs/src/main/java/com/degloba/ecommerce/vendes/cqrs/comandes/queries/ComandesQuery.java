@@ -1,6 +1,8 @@
-package com.degloba.ecommerce.vendes.comandes.cqrs.readmodel;
+package com.degloba.ecommerce.vendes.cqrs.comandes.queries;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
+
+import lombok.Value;
 
 /**
  * @author degloba
@@ -8,6 +10,7 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
  * @category Consulta : Order (patró CQRS)
  *
  */
+@Value
 public class ComandesQuery {
 
 	private String producteNom;
@@ -16,8 +19,6 @@ public class ComandesQuery {
 		this.producteNom = producteNom;
 		//TODO search by client
 	}
-	
-	public String getProducteNom() {
-		return producteNom;
-	}
+
+
 }

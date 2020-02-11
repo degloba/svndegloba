@@ -3,12 +3,12 @@ package com.degloba.lloguers.cqrs.readmodel.finders;
 import java.util.List;
 
 import com.degloba.cqrs.query.annotations.Finder;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Location;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Location;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
 
 /**
  * @category {@link Finder} de lloguer

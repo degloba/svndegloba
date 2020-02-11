@@ -1,6 +1,9 @@
-package com.degloba.ecommerce.crm.cqrs.commands;
+package com.degloba.ecommerce.crm.cqrs.impl.axon.commands;
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
+
+import lombok.Data;
+import lombok.Value;
 
 /**
  * @category Command que definix que s'ha fet una comanda<br>
@@ -9,28 +12,13 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
  * @author degloba
  *
  */
+@Value
+@Data
 public class FerComandaCommand {
 
 	@TargetAggregateIdentifier
     private final String comandaId;
     private final String producte;
     
-        // constructor, getters, equals/hashCode and toString
-    
-	public FerComandaCommand(String comandaId, String producte) {
-		super();
-		this.comandaId = comandaId;
-		this.producte = producte;
-	}
-     
-    public String getComandaId() {
-		return comandaId;
-	}
-	
-
-	public String getProducte() {
-		return producte;
-	}
-      
     
 }

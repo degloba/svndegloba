@@ -1,9 +1,9 @@
-package com.degloba.ecommerce.vendes.equivalent.specification;
+package com.degloba.ecommerce.vendes.domain.specifications;
 
 
-import com.degloba.domain.specification.CompositeSpecification;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
+import com.degloba.domain.specifications.CompositeSpecification;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.TipusProducte;
 
 /**
  * 
@@ -14,7 +14,7 @@ import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jp
  * del {@link Producte} candidat
  *
  */
-public class SameCategory extends CompositeSpecification<Producte>{
+public class MateixaCategoriaSpecification extends CompositeSpecification<Producte>{
 
 	private TipusProducte tipusProducte;
 	
@@ -22,7 +22,7 @@ public class SameCategory extends CompositeSpecification<Producte>{
 	 * @category Categoria similar</br>
  	 * Donat el {@link TipusProducte} d'un {@link Producte}, ens diu si es igual al {@link TipusProducte} del {@link Producte} candidat
 	 */
-	public SameCategory(TipusProducte tipusProducte) {
+	public MateixaCategoriaSpecification(TipusProducte tipusProducte) {
 		this.tipusProducte = tipusProducte;
 	}
 

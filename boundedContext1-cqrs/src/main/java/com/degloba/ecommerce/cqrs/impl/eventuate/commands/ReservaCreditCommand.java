@@ -1,11 +1,18 @@
-package com.degloba.ecommerce.eventuate;
+package com.degloba.ecommerce.cqrs.impl.eventuate.commands;
 
 import com.google.type.Money;
 import com.networknt.eventuate.common.Command;
 
-public class ReserveCreditCommand implements Command {
+/**
+ * 
+ * @author degloba
+ * 
+ * @category implementat en Eventuate
+ *
+ */
+public class ReservaCreditCommand implements Command {
 
-	public ReserveCreditCommand(Money orderTotal, String orderId) {
+	public ReservaCreditCommand(Money orderTotal, String orderId) {
 		// TODO Auto-generated constructor stub
 	}
 

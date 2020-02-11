@@ -1,19 +1,19 @@
 package com.degloba.ecommerce.vendes.ofertes.domain.factories;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.vendes.ofertes.descomptes.QuantitatDescompte;
-import com.degloba.ecommerce.vendes.ofertes.domain.policies.DescomptePolicy;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ecommerce.vendes.ofertes.descomptes.domain.policies.IDescomptePolicy;
+import com.degloba.ecommerce.vendes.ofertes.descomptes.domain.policies.QuantitatDescomptePolicy;
 
-/*
- * Fàbrica de Descompte
+/**
+ * @category Fàbrica de {@link IDescomptePolicy}
  */
 @DomainFactory
-public class DescompteFactory {
+public class DescomptePolicyFactory {
 
-	public DescomptePolicy crea(Client client) {
+	public IDescomptePolicy crea(Client client) {
 		// TODO explore domain rules
-		return new QuantitatDescompte(20, 3);//20% for over 3 items
+		return new QuantitatDescomptePolicy(20, 3);//20% for over 3 items
 	}
 
 }

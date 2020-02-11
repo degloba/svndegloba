@@ -1,4 +1,4 @@
-package com.degloba.security.domain.exceptions;
+package com.degloba.organitzacio.domain.exceptions.security;
 
 /**
  * Username repeated anomalies

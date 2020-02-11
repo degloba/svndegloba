@@ -7,6 +7,6 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 public class RejectPrivateAddressCommand {
 
     @TargetAggregateIdentifier
-    private final String addressId;
+    private final String adrecaId;
 
 }

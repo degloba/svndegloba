@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client;
 
 import java.io.Serializable;
 
@@ -13,12 +13,17 @@ import javax.persistence.Transient;
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
 import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
-
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.ClientData;
 
-
+/**
+ * 
+ * @author degloba
+ * 
+ * @category client
+ *
+ */
 @Entity
 @AggregateRoot
 public class Client extends BaseAggregateRoot{

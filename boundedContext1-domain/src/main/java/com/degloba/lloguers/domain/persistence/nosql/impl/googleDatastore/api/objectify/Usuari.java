@@ -1,4 +1,4 @@
-package com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify;
 
 
 import com.googlecode.objectify.Key;
@@ -8,7 +8,7 @@ import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Unindex;
 
 /**
- * Entitat (Objectify) : Usuari
+ * @category Entitat (Objectify) : Usuari
  */
 @Entity
 public class Usuari  {

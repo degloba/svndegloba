@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class Post extends Party {
     	    {@JoinColumn(name = "org_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
     	     })*/
-    private Organization organization;
+    private Organitzacio organitzacio;
 
     @ManyToOne
 //    @JoinColumn(name = "job_id")
@@ -47,12 +47,12 @@ public class Post extends Party {
         super(name);
     }
 
-    public Organization getOrganization() {
-        return organization;
+    public Organitzacio getOrganization() {
+        return organitzacio;
     }
 
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
+    public void setOrganization(Organitzacio organitzacio) {
+        this.organitzacio = organitzacio;
     }
 
     public Job getJob() {
@@ -63,10 +63,10 @@ public class Post extends Party {
         this.job = job;
     }
 
-    public static List<Post> findByOrganization(Organization organization,
+    public static List<Post> findByOrganization(Organitzacio organitzacio,
             Date date) {
         return getRepository().createNamedQuery("Party.findByOrganization")
-                .addParameter("organization", organization).addParameter("date", date).list();
+                .addParameter("organization", organitzacio).addParameter("date", date).list();
     }
 
     public Set<Employee> getEmployees(Date date) {

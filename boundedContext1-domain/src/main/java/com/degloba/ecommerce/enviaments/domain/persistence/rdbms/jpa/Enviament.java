@@ -7,7 +7,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.ecommerce.enviaments.domain.EstatEnviament;
+import com.degloba.ecommerce.enviaments.domain.enums.EstatEnviament;
 import com.degloba.ecommerce.enviaments.domain.events.EnviamentLliuratEvent;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
@@ -16,7 +16,7 @@ import com.degloba.persistence.rdbms.jpa.BaseEntity;
 
 
 /**
- * @category Entitat de persistencia d'un enviament
+ * @category Entitat de persistencia JPA d'un enviament
  * 
  * @author degloba
  */

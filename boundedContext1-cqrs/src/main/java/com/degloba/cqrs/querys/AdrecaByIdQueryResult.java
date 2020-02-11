@@ -3,12 +3,12 @@ package com.degloba.cqrs.querys;
 import lombok.Value;
 
 @Value
-public class AddressByIdQueryResult {
-    private final String addressId;
+public class AdrecaByIdQueryResult {
+    private final String adrecaId;
 
-    private final String personId;
+    private final String personaId;
 
-    private final String streetAndNumber;
+    private final String carrerINumero;
 
     private final String zipCode;
 

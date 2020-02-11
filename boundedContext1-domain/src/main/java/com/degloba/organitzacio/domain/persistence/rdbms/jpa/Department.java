@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Entity
 //@DiscriminatorValue("Department")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Department extends Organization {
+public class Department extends Organitzacio {
 
 	private static final long serialVersionUID = -7339118476080239701L;
 

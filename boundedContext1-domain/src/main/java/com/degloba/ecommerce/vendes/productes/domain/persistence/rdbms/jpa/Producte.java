@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 

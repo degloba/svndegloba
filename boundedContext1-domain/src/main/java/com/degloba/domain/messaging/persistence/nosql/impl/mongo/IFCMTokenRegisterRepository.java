@@ -1,20 +1,20 @@
-package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
+package com.degloba.domain.messaging.persistence.nosql.impl.mongo;
 
 import com.degloba.domain.annotations.DomainRepository;
 
 /** 
 *
-* Repositori (MongoDB) : Registre Tokens GCM
+* @category Repositori (MongoDB) : Registre Tokens Firebase Cloud Message
 * 
 * @author pere
 *
 **/ 
 @DomainRepository
-public interface IGCMTokenRegisterRepository {
+public interface IFCMTokenRegisterRepository {
 
-	public void logAllGCMTokenRegister();  		 	
-	public void createGCMTokenRegisterCollection(); 
-	public void dropGCMTokenRegisterCollection(); 
-	public void insertGCMTokenRegister(String token); 
+	public void logAllFCMTokenRegister();  		 	
+	public void createFCMTokenRegisterCollection(); 
+	public void dropFCMTokenRegisterCollection(); 
+	public void insertFCMTokenRegister(String token); 
 	
 }

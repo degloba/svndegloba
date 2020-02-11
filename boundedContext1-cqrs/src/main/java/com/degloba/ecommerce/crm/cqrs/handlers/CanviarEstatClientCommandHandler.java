@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.ecommerce.crm.cqrs.commands.CanviarEstatClientCommand;
+import com.degloba.ecommerce.crm.cqrs.impl.axon.commands.CanviarEstatClientCommand;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 

@@ -1,10 +1,13 @@
-package com.degloba.ecommerce.crm.cqrs.commands;
+package com.degloba.ecommerce.crm.cqrs.impl.axon.commands;
 
 import java.io.Serializable;
 
-import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
+
+import lombok.Value;
+
 import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 
 
 /**
@@ -15,7 +18,8 @@ import com.degloba.cqrs.command.annotations.ICommand;
  */
 @SuppressWarnings("serial")
 @ICommand
-public class CanviarEstatClientCommand implements Serializable{
+@Value
+public class CanviarEstatClientCommand implements Serializable {
 
 	private AggregateId clientId;
 	
@@ -26,14 +30,4 @@ public class CanviarEstatClientCommand implements Serializable{
 		this.clientId = clientId;
 		this.estatClient = estatClient;
 	}
-
-	public AggregateId getClientId() {
-		return clientId;
-	}
-
-	public EstatClient getEstatClient() {
-		return estatClient;
-	}
-	
-	
 }

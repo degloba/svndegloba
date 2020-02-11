@@ -1,11 +1,11 @@
-package com.degloba.security.domain.events;
+package com.degloba.organitzacio.domain.events.security;
 
 
 import java.util.Date;
 
-import com.degloba.event.annotations.Event;
-import com.degloba.event.api.AbstractEvent;
-import com.degloba.security.domain.persistence.rdbms.jpa.Actor;
+import com.degloba.events.annotations.Event;
+import com.degloba.events.api.AbstractEvent;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.security.Actor;
 
 /**
  */

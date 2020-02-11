@@ -4,18 +4,18 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
 import com.degloba.ecommerce.vendes.cqrs.commands.AfegirProducteCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
-import com.degloba.ecommerce.vendes.equivalent.SuggestionService;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 
 
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
 @CommandHandlerAnnotation
-public class AddProdctCommandHandler implements ICommandHandler<AfegirProducteCommand, Void>{
+public class AfegirProducteCommandHandler implements ICommandHandler<AfegirProducteCommand, Void>{
 
 
 	@Inject
@@ -23,7 +23,7 @@ public class AddProdctCommandHandler implements ICommandHandler<AfegirProducteCo
 
 	
 	@Inject
-	private SuggestionService suggestionService;
+	private SuggerimentService suggerimentService;
 	
 	
 /*	@Inject
@@ -31,13 +31,13 @@ public class AddProdctCommandHandler implements ICommandHandler<AfegirProducteCo
 	
 	@Override
 	public Void handle(AfegirProducteCommand command) {
-		Reserva reserva = vendesRepository.carregaReserva(Reserva.class,command.getComandaId());
+		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,command.getComandaId());
 		
-		Producte producte = vendesRepository.carregaProducte(Producte.class,command.getProducteId());
+		Producte producte = vendesRepository.obtenirProducteById(Producte.class,command.getProducteId());
 		
 		if (! producte.isAvailabe()){
 			Client client = loadClient();	
-			producte = suggestionService.suggestEquivalent(producte, client);
+			producte = suggerimentService.suggerirProducteEquivalent(producte, client);
 		}
 			
 		reserva.add(producte, command.getQuantitat());

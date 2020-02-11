@@ -7,11 +7,10 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.domain.event.DomainEvent;
-import com.degloba.event.annotations.Event;
-import com.degloba.event.api.AbstractEvent;
-import com.degloba.event.domain.IDomainEvent;
-import com.degloba.domain.event.DomainEvent;
+import com.degloba.domain.events.DomainEvent;
+import com.degloba.events.annotations.Event;
+import com.degloba.events.api.AbstractEvent;
+import com.degloba.events.api.IDomainEvent;
 
 /**
  * @category Un client ha fet un pagament

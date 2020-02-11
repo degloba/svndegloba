@@ -1,9 +1,9 @@
-package com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify;
 
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Address;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Email;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Address;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Email;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.PersonName;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Entitat (Objectify) : Propietari
+ * @category Entitat (Objectify) : Propietari
  */
 @Entity
 public class Propietari implements Serializable {

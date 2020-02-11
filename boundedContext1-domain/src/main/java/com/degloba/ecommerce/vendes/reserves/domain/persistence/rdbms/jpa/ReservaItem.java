@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;

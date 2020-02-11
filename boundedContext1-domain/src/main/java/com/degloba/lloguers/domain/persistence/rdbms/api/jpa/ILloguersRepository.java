@@ -1,4 +1,4 @@
-package com.degloba.lloguers.domain.persistence.rdbms.jpa;
+package com.degloba.lloguers.domain.persistence.rdbms.api.jpa;
 
 import java.util.List;
 

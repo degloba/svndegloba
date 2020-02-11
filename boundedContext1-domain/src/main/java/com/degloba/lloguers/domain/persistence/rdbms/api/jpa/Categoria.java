@@ -1,4 +1,4 @@
-package com.degloba.lloguers.domain.persistence.rdbms.jpa;
+package com.degloba.lloguers.domain.persistence.rdbms.api.jpa;
 
 
 import javax.persistence.*;
@@ -11,9 +11,9 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Entitat (JPA) : Categoria
+ * @category Entitat (JPA)
  * 
- * @author pere
+ * @author degloba
  *
  */
 @Entity

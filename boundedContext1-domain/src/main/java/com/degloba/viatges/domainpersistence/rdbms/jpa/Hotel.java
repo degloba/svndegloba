@@ -1,4 +1,4 @@
-package com.degloba.viatges.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domainpersistence.rdbms.jpa;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -25,11 +25,11 @@ public class Hotel implements Serializable {
 
 	private Long id;
 
-	private String name;
+	private String nom;
 
-	private String address;
+	private String adreca;
 
-	private String city;
+	private String ciutat;
 
 	private String state;
 
@@ -51,30 +51,30 @@ public class Hotel implements Serializable {
 	}
 
 	@XmlAttribute
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	@XmlAttribute
 	public String getAddress() {
-		return address;
+		return adreca;
 	}
 
 	public void setAddress(String address) {
-		this.address = address;
+		this.adreca = address;
 	}
 
 	@XmlAttribute
 	public String getCity() {
-		return city;
+		return ciutat;
 	}
 
 	public void setCity(String city) {
-		this.city = city;
+		this.ciutat = city;
 	}
 
 	@XmlAttribute
@@ -120,7 +120,7 @@ public class Hotel implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Hotel(" + name + "," + address + "," + city + "," + zip + ")";
+		return "Hotel(" + nom + "," + adreca + "," + ciutat + "," + zip + ")";
 	}
 
 

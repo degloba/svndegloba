@@ -5,7 +5,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 

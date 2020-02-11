@@ -3,8 +3,8 @@ package com.degloba.ecommerce.vendes.facturacio.domain.policies;
 import java.math.BigDecimal;
 
 import com.degloba.domain.annotations.DomainPolicyImpl;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.TipusProducte;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Tax;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.TipusProducte;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 

@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,22 +15,22 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @MappedSuperclass
-public abstract class Organization extends Party {
+public abstract class Organitzacio extends Party {
 
     private static final long serialVersionUID = -8953682430610195006L;
 
-    public Organization() {
+    public Organitzacio() {
     }
 
-    public Organization(String name) {
+    public Organitzacio(String name) {
         super(name);
     }
 
-    public Organization getParent(Date date) {
+    public Organitzacio getParent(Date date) {
         return OrgLineMgmt.getParentOfOrganization(this, date);
     }
 
-    public List<Organization> getChildren(Date date) {
+    public List<Organitzacio> getChildren(Date date) {
         return OrgLineMgmt.findChildrenOfOrganization(this, date);
     }
 
@@ -46,7 +46,7 @@ public abstract class Organization extends Party {
         for (Post post : getPosts(date)) {
             post.terminate(date);
         }
-        for (Organization child : getChildren(date)) {
+        for (Organitzacio child : getChildren(date)) {
             child.terminate(date);
         }
         super.terminate(date);
@@ -58,7 +58,7 @@ public abstract class Organization extends Party {
                 return true;
             }
         }
-        for (Organization child : getChildren(date)) {
+        for (Organitzacio child : getChildren(date)) {
             if (child.hasEmployees(date)) {
                 return true;
             }

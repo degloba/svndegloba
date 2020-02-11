@@ -1,6 +1,7 @@
-package com.degloba.security.domain.exceptions;
+package com.degloba.organitzacio.domain.exceptions.security;
 
 /**
+ * @category Excepcio 
  */
 public class DuplicateAuthorizationException extends SecurityException {
 

@@ -1,8 +1,8 @@
-package com.degloba.ecommerce.vendes.equivalent.specification;
+package com.degloba.ecommerce.vendes.domain.specifications;
 
 
-import com.degloba.domain.specification.CompositeSpecification;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.domain.specifications.CompositeSpecification;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 
 /**
  * @author degloba

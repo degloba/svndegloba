@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa;
 
 public class HrException extends RuntimeException {
 

@@ -1,7 +1,7 @@
-package com.degloba.lloguers.domain.persistence.rdbms.jpa;
+package com.degloba.lloguers.domain.persistence.rdbms.api.jpa;
 
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Producte;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;

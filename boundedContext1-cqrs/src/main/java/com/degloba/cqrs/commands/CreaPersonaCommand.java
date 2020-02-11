@@ -4,7 +4,7 @@ import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 /**
- * @category
+ * @category command contexte Axon
  * 
  * @author degloba
  *
@@ -13,8 +13,8 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 public class CreaPersonaCommand {
 
     @TargetAggregateIdentifier
-    private final String personId;
+    private final String personaId;
 
-    private final String fullName;
+    private final String nomComplet;
 
 }

@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.ProducteData;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.ProducteData;
 import com.degloba.persistence.domain.sharedkernel.Money;
 
 @ValueObject

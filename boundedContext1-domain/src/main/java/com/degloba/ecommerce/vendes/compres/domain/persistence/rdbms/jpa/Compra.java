@@ -22,7 +22,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.ecommerce.vendes.domain.events.ComandaEnviadaEvent;
 
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
@@ -54,7 +53,7 @@ public class Compra extends BaseAggregateRoot{
     	    {@JoinColumn(name = "purchase_id", referencedColumnName = "aggregateId",
     	                 insertable = false, updatable = false)
     	     })*/
-	private List<CompraItem> items;
+	private List<CompraArticle> items;
 	
 	private boolean paid;
 
@@ -70,7 +69,7 @@ public class Compra extends BaseAggregateRoot{
 	
 	private  Compra() {}
 
-	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraItem> items, Date dataCompra,
+	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraArticle> items, Date dataCompra,
 			boolean paid, Money totalCost){
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
@@ -86,7 +85,7 @@ public class Compra extends BaseAggregateRoot{
 		//eventPublisher.publish(new ComandaEnviadaEvent(getAggregateId()));
 	}
 	
-	public boolean isPaid() {
+	public boolean estaPagada() {
 		return paid;
 	}
 	
@@ -102,8 +101,8 @@ public class Compra extends BaseAggregateRoot{
 		return clientData;
 	}
 	
-	public Collection<CompraItem> getItems() {
-		return (Collection<CompraItem>) Collections.unmodifiableCollection(items);
+	public Collection<CompraArticle> getItems() {
+		return (Collection<CompraArticle>) Collections.unmodifiableCollection(items);
 	}
 
 

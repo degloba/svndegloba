@@ -7,12 +7,11 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva.EstatReserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
-
 
 
 /**

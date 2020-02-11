@@ -3,9 +3,8 @@ package com.degloba.ecommerce.crm.domain.events;
 import java.io.Serializable;
 
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
-
-import com.degloba.event.annotations.Event;
-import com.degloba.event.api.AbstractEvent;
+import com.degloba.events.annotations.Event;
+import com.degloba.events.api.AbstractEvent;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 /**

@@ -1,4 +1,4 @@
-package com.degloba.organisation.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa;
 
 import javax.persistence.Embeddable;
 
@@ -7,7 +7,10 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import com.degloba.domain.IValueObject;
 
+import lombok.Data;
+
 @Embeddable
+@Data
 public class PersonName implements IValueObject {
 
 	private static final long serialVersionUID = -5782631381467586227L;
@@ -17,26 +20,6 @@ public class PersonName implements IValueObject {
 	public PersonName() {
 	}
 
-	public PersonName(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 
 	@Override
 	public int hashCode() {

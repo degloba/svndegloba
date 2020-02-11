@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.system.application;
+package com.degloba.domain.system.application;
 
 import java.util.UUID;
 

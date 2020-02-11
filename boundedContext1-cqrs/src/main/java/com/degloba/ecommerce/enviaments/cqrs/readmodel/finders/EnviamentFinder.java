@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 // CQRS (ecommerce)
 
 import com.degloba.cqrs.query.annotations.Finder;
-import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
+
 
 /**
  * @author degloba

@@ -1,14 +1,14 @@
-package com.degloba.ecommerce.vendes.equivalent;
+package com.degloba.ecommerce.vendes.domain.services;
 
 import com.degloba.domain.annotations.DomainFactory;
+import com.degloba.domain.specifications.DisjunctionSpecification;
+import com.degloba.domain.specifications.Specification;
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.domain.specification.DisjunctionSpecification;
-import com.degloba.domain.specification.Specification;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.client.domain.persistence.rdbms.jpa.Client;
-import com.degloba.ecommerce.vendes.equivalent.specification.SameCategory;
-import com.degloba.ecommerce.vendes.equivalent.specification.NomSimilarSpecification;
-import com.degloba.ecommerce.vendes.equivalent.specification.PreuSimilar;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
+import com.degloba.ecommerce.vendes.domain.specifications.MateixaCategoriaSpecification;
+import com.degloba.ecommerce.vendes.domain.specifications.NomSimilarSpecification;
+import com.degloba.ecommerce.vendes.domain.specifications.PreuSimilarSpecification;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 
 /**
  * @author degloba
@@ -25,13 +25,13 @@ public class ProductSpecificationFactory {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public Specification<Producte> create(Client client,	Producte problematicProduct) {
+	public Specification<Producte> create(Client client,Producte problematicProduct) {
 		
 		// TODO explore domain rules, maybe use genetic algorithm to breed spec;)
 		return new DisjunctionSpecification<Producte>(
-					new PreuSimilar(problematicProduct.getPreu(), generateAcceptableDifference(client)), 
+					new PreuSimilarSpecification(problematicProduct.getPreu(), generateAcceptableDifference(client)), 
 					new NomSimilarSpecification(problematicProduct.getNom()),
-					new SameCategory(problematicProduct.getProducteType()));
+					new MateixaCategoriaSpecification(problematicProduct.getProducteType()));
 	}
 
 	private Money generateAcceptableDifference(Client client) {

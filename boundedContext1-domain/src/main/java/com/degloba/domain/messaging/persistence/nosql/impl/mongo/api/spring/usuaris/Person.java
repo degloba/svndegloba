@@ -1,4 +1,4 @@
-package com.degloba.usuaris.domain.persistence.nosql.mongo.spring;
+package com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris;
 
 ////import org.springframework.data.annotation.Id; 
 import org.springframework.data.mongodb.core.mapping.Document; 

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.facturacio.domain.services;
+package com.degloba.ecommerce.facturacio.vendes.domain.services;
 
 import javax.inject.Inject;
 

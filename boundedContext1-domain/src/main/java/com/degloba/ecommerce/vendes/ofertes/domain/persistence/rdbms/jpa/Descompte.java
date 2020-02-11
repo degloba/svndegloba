@@ -12,29 +12,29 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 @ValueObject
 public class Descompte {
 
-	private String cause;
+	private String causa;
 	
-	private Money value;
+	private Money valor;
 
-	public Descompte(String cause, Money value) {
-		this.cause = cause;
-		this.value = value;
+	public Descompte(String causa, Money valor) {
+		this.causa = causa;
+		this.valor = valor;
 	}
 	
 	public String getCause() {
-		return cause;
+		return causa;
 	}
 	
 	public Money getValue() {
-		return value;
+		return valor;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cause == null) ? 0 : cause.hashCode());
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		result = prime * result + ((causa == null) ? 0 : causa.hashCode());
+		result = prime * result + ((valor == null) ? 0 : valor.hashCode());
 		return result;
 	}
 
@@ -47,15 +47,15 @@ public class Descompte {
 		if (getClass() != obj.getClass())
 			return false;
 		Descompte other = (Descompte) obj;
-		if (cause == null) {
-			if (other.cause != null)
+		if (causa == null) {
+			if (other.causa != null)
 				return false;
-		} else if (!cause.equals(other.cause))
+		} else if (!causa.equals(other.causa))
 			return false;
-		if (value == null) {
-			if (other.value != null)
+		if (valor == null) {
+			if (other.valor != null)
 				return false;
-		} else if (!value.equals(other.value))
+		} else if (!valor.equals(other.valor))
 			return false;
 		return true;
 	}

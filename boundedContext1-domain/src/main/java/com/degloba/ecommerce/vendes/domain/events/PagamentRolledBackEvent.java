@@ -5,9 +5,9 @@ import java.util.Date;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.event.DomainEvent;
-import com.degloba.event.annotations.Event;
-import com.degloba.event.domain.IDomainEvent;
+import com.degloba.domain.events.DomainEvent;
+import com.degloba.events.annotations.Event;
+import com.degloba.events.api.IDomainEvent;
 
 /**
  * @category s'ha produit un rollback d'un {@link Pagament}

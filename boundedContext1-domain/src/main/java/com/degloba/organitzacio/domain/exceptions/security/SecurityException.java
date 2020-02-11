@@ -1,6 +1,7 @@
-package com.degloba.security.domain.exceptions;
+package com.degloba.organitzacio.domain.exceptions.security;
 
 /**
+ * @category {@link RuntimeException} associada al contexte de seguretat
  */
 public class SecurityException extends RuntimeException {
     /**

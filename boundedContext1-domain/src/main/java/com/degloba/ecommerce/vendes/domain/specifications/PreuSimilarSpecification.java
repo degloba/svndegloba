@@ -1,9 +1,9 @@
-package com.degloba.ecommerce.vendes.equivalent.specification;
+package com.degloba.ecommerce.vendes.domain.specifications;
 
 
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.domain.specification.CompositeSpecification;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.domain.specifications.CompositeSpecification;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 
 /**
  * @author degloba
@@ -12,7 +12,7 @@ import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jp
  * Donat el preu d'un {@link Producte} i una diferència de preu acceptable, ens diu si un {@link Producte} 
  * candidat satisfà la condició
  */
-public class PreuSimilar extends CompositeSpecification<Producte>{
+public class PreuSimilarSpecification extends CompositeSpecification<Producte>{
 
 	private Money min;
 	private Money max;
@@ -24,7 +24,7 @@ public class PreuSimilar extends CompositeSpecification<Producte>{
 	 * @param price
 	 * @param acceptableDifference
 	 */
-	public PreuSimilar(Money price, Money acceptableDifference) {
+	public PreuSimilarSpecification(Money price, Money acceptableDifference) {
 		this.min = price.subtract(acceptableDifference);
 		this.max = price.add(acceptableDifference);
 	}

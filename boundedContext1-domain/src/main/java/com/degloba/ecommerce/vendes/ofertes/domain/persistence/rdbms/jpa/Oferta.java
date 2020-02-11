@@ -17,22 +17,22 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
 @ValueObject
 public class Oferta {
 
-	private List<OfertaItem> availableItems = new ArrayList<OfertaItem>();
+	private List<OfertaItem> ofertesDisponibles = new ArrayList<OfertaItem>();
 	
-	private List<OfertaItem> unavailableItems = new ArrayList<OfertaItem>();
+	private List<OfertaItem> ofertesNoDisponibles = new ArrayList<OfertaItem>();
 	
 	
 	public Oferta(List<OfertaItem> availabeItems, List<OfertaItem> unavailableItems) {
-		this.availableItems = availabeItems;
-		this.unavailableItems = unavailableItems;
+		this.ofertesDisponibles = availabeItems;
+		this.ofertesNoDisponibles = unavailableItems;
 	}
 
-	public List<OfertaItem> getAvailableItems() {
-		return availableItems;
+	public List<OfertaItem> obtenirArticlesDisponibles() {
+		return ofertesDisponibles;
 	}
 	
 	public List<OfertaItem> getUnavailableItems() {
-		return unavailableItems;
+		return ofertesNoDisponibles;
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class Oferta {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((availableItems == null) ? 0 : availableItems.hashCode());
+				+ ((ofertesDisponibles == null) ? 0 : ofertesDisponibles.hashCode());
 		return result;
 	}
 
@@ -53,10 +53,10 @@ public class Oferta {
 		if (getClass() != obj.getClass())
 			return false;
 		Oferta other = (Oferta) obj;
-		if (availableItems == null) {
-			if (other.availableItems != null)
+		if (ofertesDisponibles == null) {
+			if (other.ofertesDisponibles != null)
 				return false;
-		} else if (!availableItems.equals(other.availableItems))
+		} else if (!ofertesDisponibles.equals(other.ofertesDisponibles))
 			return false;
 		return true;
 	}
@@ -68,10 +68,10 @@ public class Oferta {
 	 * @return
 	 */
 	public boolean sameAs(Oferta seenOffer, double delta) {
-		if (! (availableItems.size() == seenOffer.availableItems.size()))
+		if (! (ofertesDisponibles.size() == seenOffer.ofertesDisponibles.size()))
 			return false;
 		
-		for (OfertaItem item : availableItems) {
+		for (OfertaItem item : ofertesDisponibles) {
 			OfertaItem sameItem = seenOffer.findItem(item.getProductData().getProducteId());
 			if (sameItem == null)
 				return false;
@@ -83,7 +83,7 @@ public class Oferta {
 	}
 
 	private OfertaItem findItem(AggregateId producteId) {
-		for (OfertaItem item : availableItems){
+		for (OfertaItem item : ofertesDisponibles){
 			if (item.getProductData().getProducteId() == producteId)
 				return item;
 		}

@@ -11,9 +11,8 @@ import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Fact
 import com.degloba.persistence.rdbms.jpa.ClientData;
 
 
-
 /**
- * @category Fabrica de {@link Factura}
+ * @category Fabrica de {@link Factura} d'un {@link ClientData}
  * 
  * @author degloba
  *

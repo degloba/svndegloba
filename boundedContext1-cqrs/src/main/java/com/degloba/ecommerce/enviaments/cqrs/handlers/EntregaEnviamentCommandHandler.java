@@ -4,9 +4,9 @@ import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
 import com.degloba.cqrs.command.handler.ICommandHandler;
+import com.degloba.ecommerce.enviaments.cqrs.commands.EntregaEnviamentCommand;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
-import com.degloba.ecommerce.enviaments.cqrs.commands.EntregaEnviamentCommand;
 
 
 /**

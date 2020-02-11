@@ -1,4 +1,4 @@
-package com.degloba.viatges.domain.persistence.rdbms.jpa;
+package com.degloba.viatges.domainpersistence.rdbms.jpa;
 
 
 import javax.persistence.Column;

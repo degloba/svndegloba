@@ -1,11 +1,11 @@
-package com.degloba.security.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa.security;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.degloba.organitzacio.domain.exceptions.security.DuplicateAuthorizationException;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.security.domain.exceptions.DuplicateAuthorizationException;
 
 import java.util.*;
 

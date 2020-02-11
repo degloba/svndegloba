@@ -1,4 +1,4 @@
-package com.degloba.security.domain.persistence.rdbms.jpa;
+package com.degloba.organitzacio.domain.persistence.rdbms.jpa.security;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

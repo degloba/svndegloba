@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.domain;
+package com.degloba.ecommerce.enviaments.domain.enums;
 
 /**
  * @category Estat d'Enviament

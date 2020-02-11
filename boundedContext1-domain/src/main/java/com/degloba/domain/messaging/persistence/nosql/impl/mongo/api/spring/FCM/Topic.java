@@ -1,12 +1,12 @@
-package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
+package com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Entitat/Document (MongoDB) : Tema
+ * @category Entitat/Document (MongoDB) : Tema
  * 
- * @author pere
+ * @author degloba
  *
  */
 @Document 

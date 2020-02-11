@@ -1,4 +1,4 @@
-package com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;

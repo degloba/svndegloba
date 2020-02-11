@@ -1,31 +1,33 @@
-package com.degloba.gcm.domain.persistence.nosql.mongo.spring;
+package com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM;
 
 import org.springframework.data.annotation.Id; 
 import org.springframework.data.mongodb.core.mapping.Document; 
 
 /** 
  *
- * Entitat/Document (MongoDB) : GCM Token (Android devices) 
+ * @category Entitat/Document (MongoDB) : GCM Token (Android devices) 
  * 
- * @author pere
+ * Firebase Cloud Message
+ * 
+ * @author degloba
  *
  **/ 
-@Document public class GCMTokenRegister { 
-	 @Id private String GCMTokenRegisterId; 
+@Document public class FCMTokenRegister { 
+	 @Id private String FCMTokenRegisterId; 
 	 
 	 private String token; 
 
 	 
-	 public GCMTokenRegister(String token) { 
+	 public FCMTokenRegister(String token) { 
 		 this.token = token; 
 		 } 
 	 
-	 public String getGCMTokenRegisterId() { 
-		 return GCMTokenRegisterId; 
+	 public String getFCMTokenRegisterId() { 
+		 return FCMTokenRegisterId; 
 		 } 
 		 
-		 public void setGCMTokenRegisterId(final String GCMTokenRegisterId) { 
-			 this.GCMTokenRegisterId = GCMTokenRegisterId; 
+		 public void setFCMTokenRegisterId(final String FCMTokenRegisterId) { 
+			 this.FCMTokenRegisterId = FCMTokenRegisterId; 
 		 } 
 		 
 		 public String getToken() { 
