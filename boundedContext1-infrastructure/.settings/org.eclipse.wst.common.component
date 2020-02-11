@@ -3,5 +3,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/src/main"/>
+        <wb-resource deploy-path="/" source-path="/src/main/java/ecommerceModule"/>
+        <wb-resource deploy-path="/" source-path="/src/main/java/com/degloba/infrastructure/ecommerce"/>
     </wb-module>
 </project-modules>
