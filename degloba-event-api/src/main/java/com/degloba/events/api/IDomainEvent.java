@@ -1,7 +1,4 @@
-package com.degloba.event.domain;
-
-import com.degloba.event.api.IEvent;
-
+package com.degloba.events.api;
 
 /**
  * @category Un {@link DomainEvent} és únic, però no té cicle de vida.

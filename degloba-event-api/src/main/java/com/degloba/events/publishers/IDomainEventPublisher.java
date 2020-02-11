@@ -1,5 +1,6 @@
-package com.degloba.event.domain;
+package com.degloba.events.publishers;
 
+import com.degloba.events.api.IDomainEvent;
 
 /**
  * @category Publicador d'events de domini ({@link IDomainEvent})

@@ -15,7 +15,7 @@
  */
 
 
-package com.degloba.endpoints;
+package com.degloba.webapp.endpoints;
 
 /**
  * The email bean that will be used in the getUserEmail response.

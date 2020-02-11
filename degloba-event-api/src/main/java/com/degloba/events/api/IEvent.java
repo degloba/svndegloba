@@ -1,4 +1,4 @@
-package com.degloba.event.api;
+package com.degloba.events.api;
 
 import java.util.Date;
 

@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/*
- * Envia un Http Post Request a un servei/servlet)
+/**
+ * @category Envia un Http Post Request a un servei/servlet)
  */
 public class SendHttpPost {
 	
@@ -40,8 +40,7 @@ public class SendHttpPost {
 		System.out.println("Post parameters : " + urlParameters);
 		//System.out.println("Response Code : " + responseCode);
 
-		BufferedReader in = new BufferedReader(
-		        new InputStreamReader(con.getInputStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
 

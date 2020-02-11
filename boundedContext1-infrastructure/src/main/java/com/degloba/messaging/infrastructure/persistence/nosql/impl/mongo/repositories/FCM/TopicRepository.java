@@ -1,26 +1,22 @@
-package com.degloba.gcm.infrastructure.persistence.nosql.mongo.repositories;
+package com.degloba.messaging.infrastructure.persistence.nosql.impl.mongo.repositories.FCM;
 
 import java.util.List; 
 
 import org.slf4j.Logger; 
 import org.slf4j.LoggerFactory;
 
-//Spring
+
 import org.springframework.beans.factory.annotation.Autowired; 
 
-// Spring Data (mongodb)
 import org.springframework.data.mongodb.core.MongoTemplate; 
 
-// Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.gcm.domain.persistence.nosql.mongo.spring.ITopicRepository;
-import com.degloba.gcm.domain.persistence.nosql.mongo.spring.Topic;
-
-//Domain
+import com.degloba.domain.messaging.persistence.nosql.ITopicRepository;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM.Topic;
 
 
 /** 
- *  Repository for {@link Topic}s 
+ *  @category Repository per {@link Topic}s implementat en MongoDB 
  */ 
 @DomainRepositoryImpl
 public class TopicRepository implements ITopicRepository{ 
@@ -57,7 +53,5 @@ public class TopicRepository implements ITopicRepository{
 	public List<Topic> allTopics() {
 		return mongoTemplate.findAll(Topic.class); 
 	} 
-	
-	
 
 }

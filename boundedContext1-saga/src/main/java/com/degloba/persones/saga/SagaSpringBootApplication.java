@@ -1,4 +1,4 @@
-package com.degloba.saga;
+package com.degloba.persones.saga;
 
 import org.axonframework.springboot.autoconfig.JdbcAutoConfiguration;
 import org.axonframework.springboot.autoconfig.JpaAutoConfiguration;

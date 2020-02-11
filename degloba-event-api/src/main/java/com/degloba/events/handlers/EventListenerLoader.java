@@ -1,12 +1,12 @@
-package com.degloba.event.impl.spring;
+package com.degloba.events.handlers;
 
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.degloba.event.api.AbstractEventListener;
-import com.degloba.event.api.IEvent;
-import com.degloba.event.bus.IEventBus;
+import com.degloba.events.api.AbstractEventListener;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.bus.IEventBus;
 
 import java.util.Set;
 
@@ -42,7 +42,7 @@ public class EventListenerLoader<T extends IEvent> {
             Set<Class<? extends AbstractEventListener>> handlers = reflections.getSubTypesOf(AbstractEventListener.class);
             for (Class<? extends AbstractEventListener> handler : handlers) {
                 try {
-                    eventBus.register(handler.newInstance());
+                    eventBus.registra(handler.newInstance());
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                     LOGGER.error("Handler " + handler + " create failed!", e);

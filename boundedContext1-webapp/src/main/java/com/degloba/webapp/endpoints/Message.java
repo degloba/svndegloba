@@ -1,4 +1,4 @@
-package com.degloba.endpoints;
+package com.degloba.webapp.endpoints;
 
 /**
  * The message bean that will be used in the echo request and response.

@@ -2,6 +2,8 @@ package com.degloba.event.api;
 
 import java.util.Date;
 
+import com.degloba.events.api.AbstractEvent;
+
 public class EmployeeRetiredEvent extends AbstractEvent {
     public EmployeeRetiredEvent() {
     }

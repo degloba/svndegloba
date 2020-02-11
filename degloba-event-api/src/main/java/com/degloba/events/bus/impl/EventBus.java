@@ -1,9 +1,10 @@
-package com.degloba.event.bus;
+package com.degloba.events.bus.impl;
 
-import com.degloba.event.api.AbstractEventListener;
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventListener;
-import com.degloba.event.persistence.IEventStore;
+import com.degloba.events.api.AbstractEventListener;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventListener;
+import com.degloba.events.bus.IEventBus;
+import com.degloba.events.persistence.IEventStore;
 import com.degloba.utils.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +43,7 @@ public final class EventBus<T extends IEvent> implements IEventBus<T> {
     }
 
 	@Override
-	public void register(AbstractEventListener<?> newInstance) {
+	public void registra(AbstractEventListener<?> newInstance) {
 		// TODO Auto-generated method stub
 		
 	}

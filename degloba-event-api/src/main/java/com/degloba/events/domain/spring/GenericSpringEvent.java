@@ -1,14 +1,11 @@
-/**
- * 
- */
-package com.degloba.ecommerce.vendes.application.events.spring;
+package com.degloba.events.domain.spring;
 
 import org.springframework.context.ApplicationEvent;
 
 /**
  * @author degloba
  *
- * @category tipus d'event genèric
+ * @category tipus d'event genèric implementat amb Spring
  */
 public class GenericSpringEvent<T> extends ApplicationEvent{
     /**

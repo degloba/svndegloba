@@ -1,7 +1,7 @@
-package com.degloba.event.bus;
+package com.degloba.events.bus;
 
-import com.degloba.event.api.AbstractEventListener;
-import com.degloba.event.api.IEvent;
+import com.degloba.events.api.AbstractEventListener;
+import com.degloba.events.api.IEvent;
 
 
 /**
@@ -11,7 +11,7 @@ import com.degloba.event.api.IEvent;
  */
 public interface IEventBus<T extends IEvent> {
 
-	void register(AbstractEventListener<?> newInstance);
+	void registra(AbstractEventListener<?> newInstance);
 
 
 }

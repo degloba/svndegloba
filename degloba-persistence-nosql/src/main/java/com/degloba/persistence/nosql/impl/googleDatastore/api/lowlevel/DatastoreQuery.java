@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.googleDatastore.api.lowlevel;
+package com.degloba.persistence.nosql.impl.googleDatastore.api.lowlevel;
 
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Entity;

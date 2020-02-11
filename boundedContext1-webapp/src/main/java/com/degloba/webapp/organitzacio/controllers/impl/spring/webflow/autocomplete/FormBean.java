@@ -1,4 +1,4 @@
-package com.degloba.organisation.ui.webui.spring.webflow.autocomplete;
+package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.autocomplete;
 
 import java.io.Serializable;
 

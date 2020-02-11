@@ -1,13 +1,13 @@
-package com.degloba.event.impl.spring.handlers;
+package com.degloba.events.handlers;
 
 import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.BeanFactory;
 
-import com.degloba.event.api.IEvent;
+import com.degloba.events.api.IEvent;
 
 /**
- * @category EventHandler assíncron de tipus d'events {@link IEvent} que hereda de {@link SpringEventHandler} 
+ * @category EventHandler assíncron de tipus {@link IEvent} que hereda de {@link SpringEventHandler} 
  * 
  * @author degloba
  *

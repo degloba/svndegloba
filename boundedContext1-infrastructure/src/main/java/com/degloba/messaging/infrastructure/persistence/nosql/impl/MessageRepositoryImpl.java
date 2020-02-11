@@ -1,10 +1,8 @@
-package com.degloba.infrastructure.messaging.google;
+package com.degloba.messaging.infrastructure.persistence.nosql.impl;
 
 import com.degloba.domain.Message;
 import com.degloba.domain.messaging.IMessageRepository;
-
-import com.degloba.persistence.nosql.googleDatastore.api.lowlevel.BaseRepository;
-
+import com.degloba.persistence.nosql.impl.googleDatastore.api.lowlevel.BaseRepository;
 import com.google.cloud.datastore.Datastore;
 
 import com.google.cloud.datastore.Entity;

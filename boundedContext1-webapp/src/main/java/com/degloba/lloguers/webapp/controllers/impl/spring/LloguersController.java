@@ -1,4 +1,4 @@
-package com.degloba.lloguers.ui.web.spring.controller;
+package com.degloba.lloguers.webapp.controllers.impl.spring;
 
 
 import java.io.FileInputStream;
@@ -26,9 +26,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository;
 import com.google.appengine.api.utils.SystemProperty;
 
-
+/**
+ * 
+ * @author degloba
+ *
+ * @category Control.lador Spring per Lloguers
+ */
 @Controller
-public class RentYourStuffController {  
+public class LloguersController {  
 	
 /*	@Inject
 	private IGCMTokenRegisterRepository GCMTokenRegisterRepository; */

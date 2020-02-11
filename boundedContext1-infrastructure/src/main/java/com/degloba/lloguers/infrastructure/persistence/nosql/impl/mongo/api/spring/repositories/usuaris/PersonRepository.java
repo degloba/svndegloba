@@ -1,4 +1,4 @@
-package com.degloba.usuaris.infrastructure.persistence.nosql.mongo.api.spring.repositories;
+package com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,11 +25,8 @@ import org.springframework.data.mongodb.core.query.Query;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.usuaris.domain.persistence.nosql.mongo.spring.IPersonRepository;
-
-//Domain (usuaris)
-
-import com.degloba.usuaris.domain.persistence.nosql.mongo.spring.Person;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.IPersonRepository;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
 
 
 /** 
@@ -261,48 +258,8 @@ public class PersonRepository implements IPersonRepository{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public void deleteById(String id) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void deleteAll(Iterable<? extends Person> entities) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public <S extends Person> List<S> findAll(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public <S extends Person> List<S> findAll(Example<S> example, Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public <S extends Person> long count(Example<S> example) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public <S extends Person> boolean exists(Example<S> example) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public <S extends Person> Optional<S> findOne(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public <S extends Person> Page<S> findAll(Example<S> example, Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 

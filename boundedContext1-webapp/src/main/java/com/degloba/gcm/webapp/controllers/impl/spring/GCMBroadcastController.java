@@ -1,4 +1,4 @@
-package com.degloba.gcm.ui.webui.spring.controller;
+package com.degloba.gcm.webapp.controllers.impl.spring;
 
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.degloba.gcm.domain.persistence.nosql.mongo.spring.IGCMTokenRegisterRepository;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
 // GCM
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;
@@ -30,7 +30,7 @@ import com.google.android.gcm.server.Sender;
 public class GCMBroadcastController {  
 	
 	@Inject
-	private IGCMTokenRegisterRepository GCMTokenRegisterRepository; 
+	private IFCMTokenRegisterRepository FCMTokenRegisterRepository; 
 	
 	
 	// The SENDER_ID here is the "Browser Key" that was generated when I
@@ -105,7 +105,7 @@ public class GCMBroadcastController {
     			request.setAttribute("Message", userMessage);*/
     	
     			
-    			GCMTokenRegisterRepository.insertGCMTokenRegister(regID);
+    			FCMTokenRegisterRepository.insertGCMTokenRegister(regID);
     	
     			return "Ok";
     	}

@@ -1,15 +1,15 @@
-package com.degloba.viatges.ui.web.rest;
+package com.degloba.viatges.webapp.controllers.rest.impl.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserves;
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.application.services.IViatgesService;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotels;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotels;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserves;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
 
 // Spring
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Proporciona un endpoint REST per accedir al servei de reserves d'hotels
+ * @category Proporciona un endpoint REST/Spring per accedir al servei de reserves d'hotels
  * <p/>
  * Es pot utilitzar des de zimbra, des d’Android, etc.
  * <p/>

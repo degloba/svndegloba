@@ -1,6 +1,6 @@
-package com.degloba.event.persistence;
+package com.degloba.events.persistence;
 
-import com.degloba.event.api.IEvent;
+import com.degloba.events.api.IEvent;
 
 /**
  * @category Magatzem d'events {@link IEvent}

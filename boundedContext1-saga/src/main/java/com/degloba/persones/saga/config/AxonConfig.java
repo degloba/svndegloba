@@ -1,4 +1,4 @@
-package com.degloba.saga.config;
+package com.degloba.persones.saga.config;
 
 
 import com.rabbitmq.client.Channel;

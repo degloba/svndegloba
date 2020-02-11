@@ -1,4 +1,4 @@
-package com.degloba.canonicalmodel.ui.webui.jsf;
+package com.degloba.webapp.jsf.views.canonicalmodel;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct; 

@@ -1,4 +1,4 @@
-package com.degloba;
+package com.degloba.webapp.filters;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -20,12 +20,12 @@ import javax.servlet.http.HttpServletRequest;
  * Solució VisualStudio letsencrypt-win
  * 
  */
-public class FilterWorkAroundDotInDirectory implements Filter {
+public class FilterWorkAroundDotInDirectoryFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FilterWorkAroundDotInDirectory() {
+    public FilterWorkAroundDotInDirectoryFilter() {
         // TODO Auto-generated constructor stub
     }
 

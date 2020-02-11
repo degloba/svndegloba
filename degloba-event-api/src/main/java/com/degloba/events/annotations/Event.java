@@ -1,7 +1,7 @@
-package com.degloba.event.annotations;
+package com.degloba.events.annotations;
 
 /**
- * @category Anotació : Event
+ * @category Anotació personalitzada per degloba
  * 
  * @author degloba
  * 

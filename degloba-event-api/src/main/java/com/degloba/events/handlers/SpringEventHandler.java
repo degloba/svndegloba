@@ -1,11 +1,11 @@
-package com.degloba.event.impl.spring.handlers;
+package com.degloba.events.handlers;
 
 import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.BeanFactory;
 
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventHandler;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventHandler;
 
 /**
  * @category Handler d'events de tipus d'events {@link IEvent} implementat amb Spring

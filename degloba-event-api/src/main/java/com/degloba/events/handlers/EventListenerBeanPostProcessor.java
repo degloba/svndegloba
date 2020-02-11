@@ -1,4 +1,4 @@
-package com.degloba.event.impl.spring;
+package com.degloba.events.handlers;
 
 import java.lang.reflect.Method;
 
@@ -10,11 +10,10 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import com.degloba.event.annotations.EventListener;
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventHandler;
-import com.degloba.event.impl.spring.handlers.AsynchronousEventHandler;
-import com.degloba.event.impl.spring.handlers.SpringEventHandler;
+import com.degloba.events.annotations.EventListener;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventHandler;
+import com.degloba.events.publishers.DomainEventPublisher;
 
 
 //import com.degloba.infrastructure.sagas.impl.SagaInstance;

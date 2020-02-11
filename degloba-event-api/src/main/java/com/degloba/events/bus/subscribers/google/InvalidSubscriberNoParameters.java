@@ -1,4 +1,4 @@
-package com.degloba.event.bus.google.subscribers;
+package com.degloba.events.bus.subscribers.google;
 
 
 import com.google.common.eventbus.EventBus;
@@ -7,6 +7,8 @@ import com.google.common.eventbus.Subscribe;
 /**
  * 
  * @author degloba
+ * 
+ * @category implementat amb Google
  *
  */
 public class InvalidSubscriberNoParameters {

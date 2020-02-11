@@ -1,4 +1,4 @@
-package com.degloba.event.api;
+package com.degloba.events.api;
 
 /** 
  * @category Listener d'events de tipus {@link IEvent}

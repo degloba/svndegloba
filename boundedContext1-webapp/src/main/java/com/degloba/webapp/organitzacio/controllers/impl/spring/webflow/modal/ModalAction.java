@@ -1,4 +1,4 @@
-package com.degloba.organisation.ui.webui.spring.webflow.modal;
+package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.modal;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

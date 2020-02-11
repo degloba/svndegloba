@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.googleDatastore.api.objectify;
+package com.degloba.persistence.nosql.impl.googleDatastore.api.objectify;
 
 
 import java.util.List;

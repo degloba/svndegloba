@@ -1,6 +1,6 @@
 package com.degloba.infrastructure.sagas;
 
-import com.degloba.event.api.IEvent;
+import com.degloba.events.api.IEvent;
 
 public interface ISagaEngine<T extends IEvent> {
 

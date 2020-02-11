@@ -1,4 +1,4 @@
-package com.degloba.lloguers.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories;
+package com.degloba.lloguers.infrastructure.persistence.nosql.impl.googleDatastore.api.objectify.repositories;
 
 
 import java.io.Serializable;
@@ -6,9 +6,9 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.ILloguerRepository;
-import com.degloba.persistence.nosql.googleDatastore.api.objectify.BaseRepository;
-import com.degloba.usuaris.domain.persistence.nosql.mongo.spring.Person;
+import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.persistence.nosql.impl.googleDatastore.api.objectify.BaseRepository;
 
 
 /**

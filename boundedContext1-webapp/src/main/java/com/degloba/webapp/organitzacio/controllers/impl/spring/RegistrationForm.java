@@ -1,4 +1,4 @@
-package com.degloba.organisation.ui.webui.spring.controller;
+package com.degloba.webapp.organitzacio.controllers.impl.spring;
 
 import com.degloba.security.spring.gae.validation.Forename;
 import com.degloba.security.spring.gae.validation.Surname;

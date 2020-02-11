@@ -1,13 +1,13 @@
-package com.degloba.canonicalmodel;
+package com.degloba.webapp.listeners;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Location;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Producte;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Location;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Producte;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
 import com.googlecode.objectify.ObjectifyService;
 
 /**
@@ -21,7 +21,7 @@ import com.googlecode.objectify.ObjectifyService;
  * construïm un ObjectifyFactory i passeu-lo a init(). 
  * Consulteu el constructor javadoc for ObjectifyFactory per obtenir més informació.
  */
-public class OfyHelper implements ServletContextListener {
+public class OfyHelperListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {

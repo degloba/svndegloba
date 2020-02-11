@@ -1,4 +1,4 @@
-package com.degloba.viatges.ui.web.spring.webflow;
+package com.degloba.viatges.webapp.controllers.impl.spring.webflow;
 
 import org.springframework.webflow.core.FlowException;
 import org.springframework.webflow.execution.FlowExecutionOutcome;

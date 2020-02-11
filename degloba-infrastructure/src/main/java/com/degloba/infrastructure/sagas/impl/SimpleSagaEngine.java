@@ -19,9 +19,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventHandler;
-import com.degloba.event.impl.spring.DomainEventPublisher;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventHandler;
+import com.degloba.events.publishers.DomainEventPublisher;
 import com.degloba.infrastructure.sagas.ISagaEngine;
 import com.degloba.infrastructure.sagas.ISagaManager;
 import com.degloba.infrastructure.sagas.LoadSaga;

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.ui.webui.spring.controller;
+package com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.degloba.cqrs.command.Gate;
-
-import com.degloba.ecommerce.enviaments.cqrs.readmodel.dtos.EnviamentDto;
 import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
+
 
 /**
  * @category es un {@link Controller} que gestiona els {@link Enviament}s
@@ -26,7 +26,7 @@ import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
  */
 @Controller
 @RequestMapping("/shipping/shipment")
-public class LlistaEnviamentsController {
+public class EnviamentsController {
 
     @Inject
     private IEnviamentFinder enviamentFinder;

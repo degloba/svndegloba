@@ -1,4 +1,4 @@
-package com.degloba.event.bus.google.subscribers;
+package com.degloba.events.bus.subscribers.google;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

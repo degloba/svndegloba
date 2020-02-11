@@ -16,14 +16,11 @@ import java.util.*;
  * @category
  * <p>
  * Classe Factory que actua com a contenidor IoC, mitjançant els quals podem obtenir instàncies desplegades de Beans del contenidor d’IoC. 
- * Codi de client d'instànciaFactory per ocultar l'IoC
- * 
- * Implementació de la planta. Al fons, a través de la interfície de la política InstanceProvider,
  * 
  * Ens permet seleccionar diferents Factory IoC, com ara Spring, Google Guice, TapestryIoC, etc.
  * <p>
- * Quan la planta ha de començar en l’aplicació s’assembla, és inicialitzar la classe disponible per aconseguir una instància de bon instància. 
- * Per a aplicacions web, la millor manera és crear un filtre d’inicialització de Servlet i definir-lo din web.xml ; 
+ * Quan Spring ha de començar en l’aplicació s’assembla, és inicialitzar la classe disponible per aconseguir una instància de bon instància. 
+ * Per a aplicacions web, la millor manera és crear un filtre d’inicialització de Servlet i definir-lo dins web.xml 
  * Per aplicacions java ordinàries, millor inicialització
  * La ubicació és la funció principal () dins; per a proves unitàries, la millor posició és inicialitzar el mètode d'etiquetatge internBeforeClass oBefore <br>
  * <p>

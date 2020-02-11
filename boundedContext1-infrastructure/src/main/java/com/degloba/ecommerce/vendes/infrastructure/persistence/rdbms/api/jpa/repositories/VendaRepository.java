@@ -1,19 +1,18 @@
-package com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.jpa.repositories;
+package com.degloba.infrastructure.ecommerce.persistence.rdbms.jpa.repositories.vendes;
 
 import java.util.List;
 
-// Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.ecommerce.vendes.catalegProductes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
-import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.IVendesRepository;
+import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.productes.Producte;
+import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.reserves.Reserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
 /**
- * Repositori + JPA : Vendes
+ * @category Repositori (JPA) : Vendes
  * 
  * @author degloba
  *

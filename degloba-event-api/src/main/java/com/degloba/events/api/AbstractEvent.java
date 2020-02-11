@@ -1,4 +1,4 @@
-package com.degloba.event.api;
+package com.degloba.events.api;
 
 import com.degloba.utils.Assert;
 
@@ -35,35 +35,30 @@ public abstract class AbstractEvent implements IEvent {
         this.versio = version;
     }
 
-     @Override
-    public String id() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    @Override
-    public Date occurredOn() {
-        return occurredOn;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    @Override
-    public int version() {
-        return versio;
-    }
+	public Date getOccurredOn() {
+		return occurredOn;
+	}
 
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (!(other instanceof AbstractEvent)) {
-            return false;
-        }
-        AbstractEvent that = (AbstractEvent) other;
-        return this.id().equals(that.id());
-    }
+	public void setOccurredOn(Date occurredOn) {
+		this.occurredOn = occurredOn;
+	}
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
+	public int getVersio() {
+		return versio;
+	}
+
+	public void setVersio(int versio) {
+		this.versio = versio;
+	}
+
+
+
 }

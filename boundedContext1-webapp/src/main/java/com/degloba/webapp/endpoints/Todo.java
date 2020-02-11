@@ -1,4 +1,4 @@
-package com.degloba.endpoints;
+package com.degloba.webapp.endpoints;
 
 
 public class Todo {

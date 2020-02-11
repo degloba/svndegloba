@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext; 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.degloba.usuaris.infrastructure.persistence.nosql.mongo.api.spring.repositories.PersonRepository;
+import com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris.PersonRepository;
 
 // 
 

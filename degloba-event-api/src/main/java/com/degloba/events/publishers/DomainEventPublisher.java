@@ -1,4 +1,4 @@
-package com.degloba.event.impl.spring;
+package com.degloba.events.publishers;
 
 
 import java.util.ArrayList;
@@ -10,12 +10,9 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Component;
 
-import com.degloba.event.api.IEvent;
-import com.degloba.event.api.IEventHandler;
-
-import com.degloba.event.application.IApplicationEventPublisher;
-import com.degloba.event.domain.IDomainEvent;
-import com.degloba.event.domain.IDomainEventPublisher;
+import com.degloba.events.api.IDomainEvent;
+import com.degloba.events.api.IEvent;
+import com.degloba.events.api.IEventHandler;
 
 /**
  * @category Publicador d'events de domini de tipus {@link IEvent}<p/>
@@ -54,7 +51,7 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
      * @category Cerca dins la colecció {@link eventHandlers} un {@link IEventHandler} que pot tractar el 
      * {@link IEvent} i executa el seu mètode Handle
      */
-    protected void doPublish(T event) {
+    protected void doPublica(T event) {
         for (IEventHandler<T> handler : new ArrayList<IEventHandler<T>>(eventHandlers)) {
             if (handler.potGestionar(event)) {
                 try {
@@ -72,7 +69,7 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
 	@Override
 	public void publica(T event) {
 		// TODO Auto-generated method stub
-		doPublish(event);
+		doPublica(event);
 	}
 
 

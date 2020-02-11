@@ -1,4 +1,4 @@
-package com.degloba.canonicalmodel;
+package com.degloba.webapp.filters;
 
 import java.io.IOException;
 
@@ -20,6 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.primefaces.webapp.MultipartRequest;
 
+/**
+ * 
+ * @author degloba
+ *
+ */
 public class FileUploadFilter implements Filter {
 
     private final static Logger logger = Logger.getLogger(FileUploadFilter.class.getName());

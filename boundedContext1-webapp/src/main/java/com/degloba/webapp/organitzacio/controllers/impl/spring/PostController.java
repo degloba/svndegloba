@@ -1,12 +1,12 @@
-package com.degloba.organisation.ui.webui.spring.controller;
+package com.degloba.webapp.organitzacio.controllers.impl.spring;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organisation.facade.PostDto;
+import com.degloba.infrastructure.facade.impl.organisation.PostDto;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
 
 
 

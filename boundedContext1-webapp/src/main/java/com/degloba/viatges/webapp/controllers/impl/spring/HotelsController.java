@@ -1,4 +1,4 @@
-package com.degloba.viatges.ui.web.spring.controller;
+package com.degloba.viatges.webapp.controllers.impl.spring;
 
 
 import java.security.Principal;
@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.application.services.IViatgesService;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
-
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
 
 
 /**
@@ -29,7 +28,7 @@ import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
  *
  */
 @Controller
-public class HotelsMvcController {
+public class HotelsController {
 
  	@Inject 
  	private IViatgesService reservaService;

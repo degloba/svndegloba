@@ -1,9 +1,9 @@
-package com.degloba.event.spring;
+package com.degloba.events.listeners;
 
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
-import com.degloba.event.annotations.EventListener;
+import com.degloba.events.annotations.EventListener;
 
 /**
  * @category A partir de Spring 4.2, un listener d’events no està obligat a ser un bean que implementi 

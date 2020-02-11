@@ -1,4 +1,4 @@
-package com.degloba.event.application;
+package com.degloba.events.publishers;
 
 /**
  * @category Publicador d'events d'aplicació

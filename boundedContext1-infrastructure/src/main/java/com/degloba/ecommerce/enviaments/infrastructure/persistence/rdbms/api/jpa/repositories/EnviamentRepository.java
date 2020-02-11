@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.jpa.repositories;
+package com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.api.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
@@ -6,7 +6,7 @@ import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
 /**
- * Repositori + JPA : Enviament
+ * @category Repositori (JPA) : {@link Enviament}
  * 
  * @author degloba
  *

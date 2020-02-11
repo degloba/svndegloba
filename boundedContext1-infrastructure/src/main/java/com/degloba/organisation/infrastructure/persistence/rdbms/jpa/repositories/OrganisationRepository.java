@@ -1,9 +1,7 @@
 package com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-
-
-import com.degloba.organisation.domain.persistence.rdbms.jpa.IOrganisationRepository;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.IOrganisationRepository;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 
