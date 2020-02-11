@@ -39,12 +39,7 @@
 			<version>${project.version}</version>
 		</dependency> 
 		
-		<!--  -->
-		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>1.7</version>
-		</dependency>
+
 
 	 <dependency>
 			<groupId>org.apache.commons</groupId>

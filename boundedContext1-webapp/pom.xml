@@ -25,7 +25,7 @@
                     <!-- uncomment if you wish to set your project here project- gcloud is used 
 			otherwise -->
 		<!-- <app.deploy.project>your-app-id</app.deploy.project> -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -79,11 +79,11 @@
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>boundedContext1-application</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -124,15 +124,15 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
 
 
 		<!-- Spring WebFlow -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
 			<exclusions>
@@ -141,7 +141,7 @@
 					<groupId>commons-logging</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 		<!-- <dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-js</artifactId> 
 			</dependency> -->
@@ -253,18 +253,18 @@
 		<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-endpoints</artifactId> 
 			<version>${google.appengine.version}</version> </dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.gcm</groupId>
 			<artifactId>gcm-server</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-
+ -->
 
 		<!-- <dependency> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty</artifactId> 
 			<version>6.1.26</version> </dependency> -->
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.googlecode.jsontoken</groupId>
 			<artifactId>jsontoken</artifactId>
 			<version>1.1</version>
@@ -275,7 +275,7 @@
 					<groupId>commons-codec</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 
 
@@ -286,22 +286,22 @@
 		<!-- ******************** -->
 		<!-- Implementacions JPA -->
 		<!-- ******************** -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jpa</artifactId>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>2.6.4</version>
-		</dependency>
+		</dependency> -->
 
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>juel</groupId>
@@ -345,17 +345,17 @@
 
 
 		<!-- Compile/runtime dependencies -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.endpoints</groupId>
 			<artifactId>endpoints-framework</artifactId>
 			<version>${endpoints.framework.version}</version>
-		</dependency>
+		</dependency> -->
 		<!-- [START api_management] -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.endpoints</groupId>
 			<artifactId>endpoints-management-control-appengine-all</artifactId>
 			<version>1.0.11</version>
-		</dependency>
+		</dependency> -->
 		<!-- [END api_management] -->
 		<dependency>
 			<groupId>com.google.appengine</groupId>
@@ -367,21 +367,21 @@
 		</dependency>
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>boundedContext1-cqrs</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-infrastructure</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-persistence-rdbms</artifactId>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 
