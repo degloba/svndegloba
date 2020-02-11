@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.eventuate;
+package com.degloba.ecommerce.eventsourcing.impl.eventuate;
 
 /*import java.util.concurrent.CompletableFuture;
 

@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * 
+ * @author degloba
+ * 
+ * @category gestior d'excepcions i estats de resposta http dels controladors d'Spring MVC
+ *
+ */
 @ControllerAdvice
 @Slf4j
 public class RestExceptionHandler {

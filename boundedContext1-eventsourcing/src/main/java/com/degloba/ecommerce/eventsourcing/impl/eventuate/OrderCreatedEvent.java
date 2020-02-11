@@ -1,8 +1,14 @@
-package com.degloba.ecommerce.eventuate;
+package com.degloba.ecommerce.eventsourcing.impl.eventuate;
 
 import com.google.type.Money;
 import com.networknt.eventuate.common.Event;
 
+/**
+ * 
+ * @author degloba
+ *
+ * @category implementat en Eventuate
+ */
 public class OrderCreatedEvent implements Event{
 
 	public OrderCreatedEvent(Object customerId, Object orderTotal) {

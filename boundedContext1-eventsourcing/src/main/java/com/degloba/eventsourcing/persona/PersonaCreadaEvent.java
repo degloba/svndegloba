@@ -2,11 +2,17 @@ package com.degloba.eventsourcing.persona;
 
 import lombok.Value;
 
+/**
+ * 
+ * @author degloba
+ *
+ * @category Event
+ */
 @Value
-public class PersonCreatedEvent {
+public class PersonaCreadaEvent {
 
-    private final String personId;
+    private final String personaId;
 
-    private final String fullName;
+    private final String nomComplet;
 
 }

@@ -5,8 +5,8 @@ import lombok.Value;
 @Value
 public class PrivateAddressAssignedEvent {
 
-    private final String personId;
+    private final String personaId;
 
-    private final String addressId;
+    private final String adrecaId;
 
 }

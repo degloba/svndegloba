@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.eventuate;
+package com.degloba.ecommerce.eventsourcing.impl.eventuate;
 
 import java.util.List;
 
@@ -7,6 +7,13 @@ import com.networknt.eventuate.common.Command;
 import com.networknt.eventuate.common.CommandProcessingAggregate;
 import com.networknt.eventuate.common.Event;
 
+/**
+ * 
+ * @author degloba
+ * 
+ * @category implementat amb Eventuate
+ *
+ */
 public class Customer implements CommandProcessingAggregate {
 
 	@Override

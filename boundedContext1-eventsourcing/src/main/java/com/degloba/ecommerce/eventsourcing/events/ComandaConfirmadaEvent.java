@@ -1,14 +1,17 @@
 package com.degloba.ecommerce.eventsourcing.events;
 
+import lombok.Value;
+
 /**
  * @category s'ha produit al confirmar una comanda
  * 
  * @author degloba
  *
  */
+@Value
 public class ComandaConfirmadaEvent {
 
-	public ComandaConfirmadaEvent(String orderId) {
+	public ComandaConfirmadaEvent(String comandaId) {
 		// TODO Auto-generated constructor stub
 	}
 

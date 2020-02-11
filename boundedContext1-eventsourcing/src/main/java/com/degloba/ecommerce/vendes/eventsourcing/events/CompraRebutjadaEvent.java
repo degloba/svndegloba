@@ -2,6 +2,8 @@ package com.degloba.ecommerce.vendes.eventsourcing.events;
 
 import org.springframework.context.ApplicationEvent;
 
+import lombok.Value;
+
 /**
  * @category  s'ha produit un rebuig d'una compra<br> 
  * Implementada a partir de {@link ApplicationEvent} d'Spring
@@ -9,6 +11,7 @@ import org.springframework.context.ApplicationEvent;
  * @author degloba
  *
  */
+@Value
 public class CompraRebutjadaEvent extends ApplicationEvent {
     /**
 	 * 
@@ -20,7 +23,5 @@ public class CompraRebutjadaEvent extends ApplicationEvent {
         super(source);
         this.message = message;
     }
-    public String getMessage() {
-        return message;
-    }
+
 }

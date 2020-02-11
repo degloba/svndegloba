@@ -5,8 +5,8 @@ import lombok.Value;
 @Value
 public class PrivateAddressValidationRequestedEvent {
 
-    private final String addressId;
+    private final String adrecaId;
 
-    private final String personId;
+    private final String personaId;
 
 }

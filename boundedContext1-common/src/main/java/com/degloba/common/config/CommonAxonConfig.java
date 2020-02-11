@@ -15,10 +15,13 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 
  * @author degloba
+ * 
+ * CQRS --> Commands
+ * EventSourcing --> Events
  *
  */
 @Configuration
-@ComponentScan(basePackages = {"com.degloba.core"})
+@ComponentScan(basePackages = {"com.degloba.cqrs" , "com.degloba.eventsourcing"})
 public class CommonAxonConfig {
 
     // Copied from excluded org.axonframework.springboot.autoconfig.JpaAutoConfiguration

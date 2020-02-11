@@ -1,5 +1,7 @@
 package com.degloba.ecommerce.vendes.eventsourcing.events;
 
+import java.util.Date;
+
 import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
 
 /**
@@ -35,5 +37,23 @@ public class CompraAmbCreditEvent extends CompraEvent {
                 ", item='" + item + '\'' +
                 "} " + super.toString();
     }
+
+	@Override
+	public String id() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Date occurredOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int version() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
 }

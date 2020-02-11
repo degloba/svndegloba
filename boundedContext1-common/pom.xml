@@ -95,4 +95,5 @@
 	</build>
 	<url>www.degloba.com</url>
 	<version>0.0.1-SNAPSHOT</version>
+	<description>Defineix tots els Commands i Events</description>
 </project>

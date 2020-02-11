@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.vendes.eventsourcing.events;
 
-import com.degloba.domain.event.DomainEvent;
+import com.degloba.domain.events.DomainEvent;
 
 /**
  * @category s'ha produit una compra

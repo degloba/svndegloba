@@ -140,9 +140,9 @@ If you want to save the state on the server (which is the default in the JavaSer
   </init-param>
  </filter>
  <filter>
-  <display-name>FilterWorkAroundDotInDirectory</display-name>
-  <filter-name>FilterWorkAroundDotInDirectory</filter-name>
-  <filter-class>com.degloba.FilterWorkAroundDotInDirectory</filter-class>
+  <display-name>FilterWorkAroundDotInDirectoryFilter</display-name>
+  <filter-name>FilterWorkAroundDotInDirectoryFilter</filter-name>
+  <filter-class>com.degloba.webapp.filters.FilterWorkAroundDotInDirectoryFilter</filter-class>
  </filter>
  <!-- ############################################# 
  # Google API Endpoints                      # 
@@ -187,7 +187,7 @@ If you want to save the state on the server (which is the default in the JavaSer
   <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
  </listener>
 <!--<listener>
-  <listener-class>com.degloba.canonicalmodel.OfyHelper</listener-class>
+  <listener-class>com.degloba.webapp.listeners.OfyHelperListener</listener-class>
  </listener> -->
  <!--    <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>

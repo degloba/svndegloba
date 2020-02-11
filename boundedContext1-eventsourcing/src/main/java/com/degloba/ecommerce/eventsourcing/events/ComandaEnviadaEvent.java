@@ -1,24 +1,21 @@
 package com.degloba.ecommerce.eventsourcing.events;
 
+import lombok.Value;
+
 /**
  * @category s'ha produit quan s'ha enviat una comanda
  * 
  * @author degloba
  *
  */
-public  class ComandaEnviadaEvent {
+@Value
+public class ComandaEnviadaEvent {
 		 
-	    private final String orderId;
+	    private final String comandaId;
 
-		public ComandaEnviadaEvent(String orderId2) {
+		public ComandaEnviadaEvent(String comandaId) {
 			// TODO Auto-generated constructor stub
-			this.orderId = orderId2;
+			this.comandaId = comandaId;
 		}
-
-		public String getOrderId() {
-			return orderId;
-		} 
-	 
-	    // default constructor, getters, equals/hashCode and toString 
 	    
 }
