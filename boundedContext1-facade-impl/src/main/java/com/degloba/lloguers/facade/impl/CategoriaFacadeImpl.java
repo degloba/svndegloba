@@ -1,14 +1,17 @@
-package com.degloba.rent.facade.impl.objectify;
+package com.degloba.lloguers.facade.impl;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
 import com.degloba.lloguers.application.services.ILloguerService;
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
-import com.degloba.lloguers.facade.objectify.CategoriaFacade;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.facade.ui.ICategoriaFacade;
 
-public class CategoriaFacadeImpl implements CategoriaFacade {
+import lombok.Value;
+
+@Value
+public class CategoriaFacadeImpl implements ICategoriaFacade {
 
     @Inject
     protected ILloguerService lloguerService;
@@ -17,31 +20,10 @@ public class CategoriaFacadeImpl implements CategoriaFacade {
         this.lloguerService = application;
     }
    
-	public CategoriaFacadeImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public void creaCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
 		lloguerService.creaCategoria(categoria);
-	}
-
-	public ILloguerService getCategoriaApplicationObjectify() {
-		return lloguerService;
-	}
-
-	public void setCategoriaApplicationObjectify(ILloguerService lloguerService) {
-		this.lloguerService = lloguerService;
-	}
-
-	public ILloguerService getRentService() {
-		return lloguerService;
-	}
-
-	public void setRentService(ILloguerService lloguerService) {
-		this.lloguerService = lloguerService;
 	}
 
 		

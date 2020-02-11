@@ -1,12 +1,22 @@
-package com.degloba.ecommerce.crm.cqrs.readmodel;
+package com.degloba.ecommerce.crm.facade.dtos;
 
-public class ProducteDemanat {
+import lombok.Data;
+
+/**
+ * 
+ * @author degloba
+ * 
+ * @category Producte demanat
+ *
+ */
+@Data
+public class ProducteDemanatDto {
 	
 	private final String orderId;
     private final String producte;
     private EstatComanda estatComanda;
  
-    public ProducteDemanat(String orderId, String producte) {
+    public ProducteDemanatDto(String orderId, String producte) {
         this.orderId = orderId;
         this.producte = producte;
         setEstatComanda(EstatComanda.PLACED);
@@ -20,24 +30,7 @@ public class ProducteDemanat {
         this.setEstatComanda(EstatComanda.SHIPPED);
     }
  
-    // getters, equals/hashCode and toString functions
     
-    public EstatComanda getEstatComanda() {
-		return estatComanda;
-	}
-
-	public void setEstatComanda(EstatComanda estatComanda) {
-		this.estatComanda = estatComanda;
-	}
-
-	public String getOrderId() {
-		return orderId;
-	}
-
-	public String getProducte() {
-		return producte;
-	}
-
 	public enum EstatComanda {
         PLACED, CONFIRMED, SHIPPED
     }

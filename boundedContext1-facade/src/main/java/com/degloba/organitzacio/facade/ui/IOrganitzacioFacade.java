@@ -1,19 +1,19 @@
-package com.degloba.organisation.facade;
+package com.degloba.organitzacio.facade.ui;
 
 import java.util.Date;
 
+import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
+import com.degloba.organitzacio.facade.dtos.PostDto;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
 
 
 /**
  * @author degloba
  * 
- * RDBMS/JPA
  */
-public interface OrganisationFacade {
+public interface IOrganitzacioFacade {
 
-    void createOrganization(OrganizationDto orgToCreate, AggregateId parentOrgId, Date date);
+    void creaOrganitzacio(OrganitzacioDto orgToCreate, AggregateId parentOrgId, Date date);
 
     void terminateParty(AggregateId partyId, Date date);
 
@@ -23,6 +23,6 @@ public interface OrganisationFacade {
 
     PostDto getPost(AggregateId postId);
     
-    void setPost(Post post);
+    void setPost(PostDto post);
 
 }

@@ -1,4 +1,4 @@
-package com.degloba.organisation.facade;
+package com.degloba.organitzacio.facade.dtos;
 
 
 public class PostDto {

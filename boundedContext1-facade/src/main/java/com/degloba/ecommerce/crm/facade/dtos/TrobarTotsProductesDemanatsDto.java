@@ -1,7 +1,7 @@
-package com.degloba.ecommerce.crm.cqrs.readmodel;
+package com.degloba.ecommerce.crm.facade.dtos;
 
 
-public class TrobarTotsProductesDemanats {
+public class TrobarTotsProductesDemanatsDto {
 	
 
 }

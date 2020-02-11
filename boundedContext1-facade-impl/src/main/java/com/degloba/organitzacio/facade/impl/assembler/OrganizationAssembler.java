@@ -1,15 +1,20 @@
-package com.degloba.organisation.facade.assembler;
+package com.degloba.organitzacio.facade.impl.assembler;
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.facade.OrganizationDto;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
 
-
+/**
+ * 
+ * @author degloba
+ * 
+ * @category converteix un DTO a una {@link Organitzacio}
+ */
 public class OrganizationAssembler {
 
     public OrganizationAssembler() {
     }
 
-    public Organization toEntity(OrganizationDto orgToCreate) {
+    public Organitzacio toEntity(OrganitzacioDto orgToCreate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

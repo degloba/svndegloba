@@ -1,11 +1,11 @@
-package com.degloba.lloguers.facade.objectify;
+package com.degloba.lloguers.facade.ui;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Foto;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Foto;
 
 /**
  * @author degloba
  */
-public interface FotoFacade {
+public interface IFotoFacade {
 
     void creaFoto(Foto foto);
 

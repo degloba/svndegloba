@@ -1,42 +1,42 @@
-package com.degloba.organisation.facade.impl;
-
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organisation.facade.assembler.OrganizationAssembler;
+package com.degloba.organitzacio.facade.impl;
 
 import java.util.Date;
 
 import javax.inject.Inject;
 
-
-import com.degloba.organisation.application.services.IOrganisationService;
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Organization;
-import com.degloba.organisation.facade.OrganisationFacade;
-import com.degloba.organisation.facade.OrganizationDto;
-import com.degloba.organisation.facade.PostDto;
-import com.degloba.organisation.facade.assembler.PostAssembler;
+import com.degloba.organisation.application.services.IOrganitzacioService;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
+import com.degloba.organitzacio.facade.dtos.PostDto;
+import com.degloba.organitzacio.facade.impl.assembler.OrganizationAssembler;
+import com.degloba.organitzacio.facade.impl.assembler.PostAssembler;
+import com.degloba.organitzacio.facade.ui.IOrganitzacioFacade;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
+
+import lombok.Value;
 
 
 /**
  * @author degloba
  * 
- * RDBMS/JPA
  */
-public class OrganisationFacadeImpl implements OrganisationFacade {
+@Value
+public class OrganitzacioFacadeImpl implements IOrganitzacioFacade {
 
     @Inject
-    protected IOrganisationService application;
+    protected IOrganitzacioService application;
 
-    public OrganisationFacadeImpl(IOrganisationService application) {
+    public OrganitzacioFacadeImpl(IOrganitzacioService application) {
         this.application = application;
     }
 
     @Override
-    public void createOrganization(OrganizationDto orgToCreate, AggregateId parentOrgId, Date date) {
-        Organization organization = new OrganizationAssembler().toEntity(orgToCreate);
-        Organization parent = application.getEntity(Organization.class, parentOrgId);
-        application.createOrganization(organization, parent, date);
+    public void creaOrganitzacio(OrganitzacioDto orgToCreate, AggregateId parentOrgId, Date date) {
+        Organitzacio organitzacio = new OrganizationAssembler().toEntity(orgToCreate);
+        Organitzacio parent = application.getEntity(Organitzacio.class, parentOrgId);
+        application.creaOrganitzacio(organitzacio, parent, date);
     }
 
     @Override
@@ -47,16 +47,16 @@ public class OrganisationFacadeImpl implements OrganisationFacade {
 
     @Override
     public void changeParentOfOrganization(AggregateId organizationId, AggregateId newParentId, Date date) {
-        Organization organization = application.getEntity(Organization.class, organizationId);
-        Organization parent = application.getEntity(Organization.class, newParentId);
-        application.changeParentOfOrganization(organization, parent, date);
+        Organitzacio organitzacio = application.getEntity(Organitzacio.class, organizationId);
+        Organitzacio parent = application.getEntity(Organitzacio.class, newParentId);
+        application.changeParentOfOrganization(organitzacio, parent, date);
     }
 
     @Override
     public void createPostUnderOrganization(PostDto postDto, AggregateId organizationId, Date date) {
         Post post = new PostAssembler().toEntity(postDto);
-        Organization organization = application.getEntity(Organization.class, organizationId);
-        application.createPostUnderOrganization(post, organization, date);
+        Organitzacio organitzacio = application.getEntity(Organitzacio.class, organizationId);
+        application.createPostUnderOrganization(post, organitzacio, date);
     }
 
     @Override
@@ -65,21 +65,9 @@ public class OrganisationFacadeImpl implements OrganisationFacade {
         return new PostAssembler().toDto(post);
     }
 
-	public OrganisationFacadeImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public IOrganisationService getApplication() {
-		return application;
-	}
-
-	public void setApplication(IOrganisationService application) {
-		this.application = application;
-	}
 
 	@Override
-	public void setPost(Post post) {
+	public void setPost(PostDto post) {
 		// TODO Auto-generated method stub
 		application.cretePost(post);
 		

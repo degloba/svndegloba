@@ -1,13 +1,13 @@
-package com.degloba.lloguers.facade.objectify;
+package com.degloba.lloguers.facade.ui;
 
-import com.degloba.lloguers.domain.persistence.nosql.googleDatastore.api.objectify.Categoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
 
 /**
  * @category
  * 
  * @author degloba
  */
-public interface CategoriaFacade {
+public interface ICategoriaFacade {
 
     void creaCategoria(Categoria categoria);
 

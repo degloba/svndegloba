@@ -1,7 +1,7 @@
-package com.degloba.organisation.facade.assembler;
+package com.degloba.organitzacio.facade.impl.assembler;
 
-import com.degloba.organisation.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organisation.facade.PostDto;
+import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.facade.dtos.PostDto;
 
 
 public class PostAssembler {
