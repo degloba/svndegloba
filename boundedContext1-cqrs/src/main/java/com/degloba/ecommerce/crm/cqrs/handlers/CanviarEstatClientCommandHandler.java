@@ -2,7 +2,7 @@ package com.degloba.ecommerce.crm.cqrs.handlers;
 
 import javax.inject.Inject;
 
-import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
+import com.degloba.cqrs.command.annotations.CommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.ecommerce.crm.cqrs.impl.axon.commands.CanviarEstatClientCommand;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client;
@@ -15,7 +15,7 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
  * @category Modifica l'estat d'un {@link Client} a partir del {@link CanviarEstatClientCommand}
  *
  */
-@CommandHandlerAnnotation
+@CommandHandler
 public class CanviarEstatClientCommandHandler implements ICommandHandler<CanviarEstatClientCommand,Boolean>{
 
 	@Inject

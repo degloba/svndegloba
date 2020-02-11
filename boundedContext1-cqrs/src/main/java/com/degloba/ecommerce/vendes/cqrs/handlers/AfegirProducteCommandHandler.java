@@ -2,7 +2,7 @@ package com.degloba.ecommerce.vendes.cqrs.handlers;
 
 import javax.inject.Inject;
 
-import com.degloba.cqrs.command.annotations.CommandHandlerAnnotation;
+import com.degloba.cqrs.command.annotations.CommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.ecommerce.vendes.cqrs.commands.AfegirProducteCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
@@ -14,7 +14,7 @@ import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserv
 
 ///////////////import com.degloba.ecommerce.system.SystemUser;
 
-@CommandHandlerAnnotation
+@CommandHandler
 public class AfegirProducteCommandHandler implements ICommandHandler<AfegirProducteCommand, Void>{
 
 
