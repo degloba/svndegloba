@@ -73,7 +73,7 @@ public class RegistrationController {
 
 		log.debug("**************  Registre Usuari : " + user);
 		
-		registry.registerUser(user);
+		registry.registrarUsuari(user);
 
 		// Update the context with the full authentication
 		SecurityContextHolder.getContext().setAuthentication(

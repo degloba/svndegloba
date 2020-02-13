@@ -1,4 +1,4 @@
-package com.degloba.cqrs.querys;
+package com.degloba.persones.cqrs.querys;
 
 import lombok.Value;
 

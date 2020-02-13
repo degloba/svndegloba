@@ -1,4 +1,4 @@
-package com.degloba.organitzacio.facade.impl;
+package com.degloba.organitzacio.facadeImpl;
 
 import java.util.Date;
 
@@ -10,9 +10,9 @@ import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
 import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
 import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
 import com.degloba.organitzacio.facade.dtos.PostDto;
-import com.degloba.organitzacio.facade.impl.assembler.OrganizationAssembler;
-import com.degloba.organitzacio.facade.impl.assembler.PostAssembler;
 import com.degloba.organitzacio.facade.ui.IOrganitzacioFacade;
+import com.degloba.organitzacio.facadeImpl.assembler.OrganizationAssembler;
+import com.degloba.organitzacio.facadeImpl.assembler.PostAssembler;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 import lombok.Value;

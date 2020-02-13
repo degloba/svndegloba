@@ -1,4 +1,4 @@
-package com.degloba.organitzacio.facade.impl.assembler;
+package com.degloba.organitzacio.facadeImpl.assembler;
 
 import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
 import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;

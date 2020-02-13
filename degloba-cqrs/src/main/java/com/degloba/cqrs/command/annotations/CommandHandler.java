@@ -17,5 +17,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface CommandHandlerAnnotation {
+public @interface CommandHandler {
 }

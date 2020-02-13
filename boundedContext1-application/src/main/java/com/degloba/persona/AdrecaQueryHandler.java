@@ -7,8 +7,8 @@ import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Component;
 
 import com.degloba.address.Adreca;
-import com.degloba.cqrs.querys.AdrecaByIdQuery;
-import com.degloba.cqrs.querys.AdrecaByIdQueryResult;
+import com.degloba.persones.cqrs.querys.AdrecaByIdQuery;
+import com.degloba.persones.cqrs.querys.AdrecaByIdQueryResult;
 
 import javax.persistence.EntityManager;
 

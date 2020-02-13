@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.degloba.infrastructure.facade.impl.organisation.PostDto;
 import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
+import com.degloba.organitzacio.facade.dtos.PostDto;
 
 
 
@@ -24,8 +24,8 @@ public class PostController extends BaseOrganisationController {
     
     @RequestMapping(value = "setpost/{postId}")
     public void setPost(@PathVariable long postId) {
-    	Post post = new Post();
+    	PostDto postDto = new PostDto();
     	
-    	facade.setPost(post);
+    	facade.setPost(postDto);
     }
 }

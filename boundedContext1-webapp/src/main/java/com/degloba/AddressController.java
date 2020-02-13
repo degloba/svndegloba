@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.web.bind.annotation.*;
 
-import com.degloba.cqrs.commands.RequestPrivateAddressValidationCommand;
+import com.degloba.persones.cqrs.commands.RequestPrivateAddressValidationCommand;
 
 import java.util.concurrent.Future;
 

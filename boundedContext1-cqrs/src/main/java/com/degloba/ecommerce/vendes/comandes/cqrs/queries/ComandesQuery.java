@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.cqrs.comandes.queries;
+package com.degloba.ecommerce.vendes.comandes.cqrs.queries;
 
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 

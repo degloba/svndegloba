@@ -1,12 +1,12 @@
-package com.degloba.ecommerce.vendes.cqrs.readmodel.finders;
+package com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders;
 
 
 import java.util.List;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.cqrs.query.annotations.Finder;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.cqrs.comandes.queries.ComandesQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.facade.dtos.ProducteOfertatDto;
 import com.degloba.persistence.rdbms.jpa.AggregateId;

@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequestWrapper;
  * @author Derek Berube, Wildstar Technologies
  *
  */
-public class HttpIfModifiedSinceFix implements Filter {
-	private static final String _CLASS = HttpIfModifiedSinceFix.class.getName();
+public class HttpIfModifiedSinceFixFilter implements Filter {
+	private static final String _CLASS = HttpIfModifiedSinceFixFilter.class.getName();
 	private static final Logger logger = Logger.getLogger(_CLASS);
 
 	/**

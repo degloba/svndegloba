@@ -1,4 +1,4 @@
-package com.degloba.lloguers.facade.impl;
+package com.degloba.lloguers.facadeImpl;
 
 import javax.inject.Inject;
 

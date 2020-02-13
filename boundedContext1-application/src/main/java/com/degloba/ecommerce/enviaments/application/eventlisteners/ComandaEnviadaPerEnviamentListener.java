@@ -6,8 +6,8 @@ import com.degloba.ecommerce.enviaments.domain.events.ComandaEnviadaEvent;
 import com.degloba.ecommerce.enviaments.domain.factories.EnviamentsFactory;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.IVendaFinder;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.cqrs.readmodel.finders.IVendaFinder;
 import com.degloba.events.annotations.EventListener;
 import com.degloba.events.annotations.EventListeners;
 

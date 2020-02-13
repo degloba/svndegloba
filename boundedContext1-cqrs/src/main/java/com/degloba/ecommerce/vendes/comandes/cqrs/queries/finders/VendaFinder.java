@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.cqrs.readmodel.finders;
+package com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders;
 
 import static com.google.common.collect.Lists.transform;
 
@@ -14,11 +14,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.EstatComanda;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ProductesDemanatsDto;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.cqrs.comandes.queries.ComandesQuery;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.facade.dtos.ProducteOfertatDto;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.ProducteReservat;

@@ -1,10 +1,10 @@
-package com.degloba.ecommerce.vendes.cqrs.handlers;
+package com.degloba.ecommerce.vendes.comandes.cqrs.commands.handlers;
 
 import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.ecommerce.vendes.cqrs.commands.AfegirProducteCommand;
+import com.degloba.ecommerce.vendes.comandes.cqrs.commands.AfegirProducteCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;

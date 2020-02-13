@@ -1,4 +1,4 @@
-package com.degloba.gcm.webapp.controllers.impl.spring;
+package com.degloba.FCM.webapp.controllers.impl.spring;
 
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import com.google.android.gcm.server.Sender;
 //@WebServlet("/GCMBroadcast")
 @Controller
 @RequestMapping("/gcm/GCMBroadcast")
-public class GCMBroadcastController {  
+public class FCMBroadcastController {  
 	
 	@Inject
 	private IFCMTokenRegisterRepository FCMTokenRegisterRepository; 
@@ -45,7 +45,7 @@ public class GCMBroadcastController {
        
     
     @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public String registerTokenGCMAndroid(@RequestParam("regID") String regID) {
+    public String registerTokenFCMAndroid(@RequestParam("regID") String regID) {
     		   
     	androidTargets.add(regID);
     	

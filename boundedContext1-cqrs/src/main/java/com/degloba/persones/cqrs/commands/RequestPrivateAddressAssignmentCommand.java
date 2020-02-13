@@ -1,4 +1,4 @@
-package com.degloba.cqrs.commands;
+package com.degloba.persones.cqrs.commands;
 
 import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;

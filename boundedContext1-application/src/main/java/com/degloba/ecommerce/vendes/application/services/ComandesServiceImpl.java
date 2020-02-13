@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
+import com.degloba.ecommerce.vendes.comandes.cqrs.commands.DetallsComandaCommand;
 import com.degloba.ecommerce.vendes.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.cqrs.commands.DetallsComandaCommand;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;

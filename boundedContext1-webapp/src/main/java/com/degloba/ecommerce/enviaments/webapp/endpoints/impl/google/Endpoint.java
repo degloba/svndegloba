@@ -1,11 +1,11 @@
-package com.degloba.webapp.endpoints.cloud.google;
+package com.degloba.ecommerce.enviaments.webapp.endpoints.impl.google;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.webapp.endpoints.Email;
-import com.degloba.webapp.endpoints.Message;
-import com.degloba.webapp.endpoints.Todo;
+import com.degloba.ecommerce.enviaments.webapp.endpoints.Email;
+import com.degloba.ecommerce.enviaments.webapp.endpoints.Message;
+import com.degloba.ecommerce.enviaments.webapp.endpoints.Todo;
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.AnnotationBoolean;

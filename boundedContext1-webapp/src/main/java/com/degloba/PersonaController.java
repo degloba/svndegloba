@@ -1,8 +1,8 @@
 package com.degloba;
 
 
-import com.degloba.cqrs.commands.CreaPersonaCommand;
-import com.degloba.cqrs.commands.RequestPrivateAddressAssignmentCommand;
+import com.degloba.persones.cqrs.commands.CreaPersonaCommand;
+import com.degloba.persones.cqrs.commands.RequestPrivateAddressAssignmentCommand;
 import com.degloba.persones.facade.dtos.AdrecaDto;
 import com.degloba.persones.facade.dtos.PersonaDto;
 

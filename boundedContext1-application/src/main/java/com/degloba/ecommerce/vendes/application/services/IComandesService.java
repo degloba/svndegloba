@@ -3,7 +3,7 @@ package com.degloba.ecommerce.vendes.application.services;
 
 
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
-import com.degloba.ecommerce.vendes.cqrs.commands.DetallsComandaCommand;
+import com.degloba.ecommerce.vendes.comandes.cqrs.commands.DetallsComandaCommand;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 

@@ -21,8 +21,7 @@ import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient
 @Value
 public class CanviarEstatClientCommand implements Serializable {
 
-	private AggregateId clientId;
-	
+	private AggregateId clientId;	
 	private EstatClient estatClient;
 
 	public CanviarEstatClientCommand(AggregateId clientId, EstatClient estatClient) {

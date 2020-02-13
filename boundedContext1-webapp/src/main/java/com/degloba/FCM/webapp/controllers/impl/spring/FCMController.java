@@ -1,4 +1,4 @@
-package com.degloba.gcm.webapp.controllers.impl.spring;
+package com.degloba.FCM.webapp.controllers.impl.spring;
 
 
 import java.util.List;
@@ -15,21 +15,27 @@ import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM.
 /**
  *
  * @author degloba
+ * 
+ * @category Controlador Firebase Cloud Message
  *
  */
 @Controller
-public class GcmController {
+public class FCMController {
 	
 	private final Logger logger = Logger.getLogger(getClass().getName());
 
-	@RequestMapping(value = "/gcm")
-	public String landing(Model model) {	
+	@RequestMapping(value = "/fcm")
+	public String getTopics(Model model) {	
 		
 		// TODO Recuperar tots els topics
 		List<Topic> topics;
-        /////model.addAttribute("topics", topics);
+		
+		
+		
+		
+        model.addAttribute("topics", topics);
        
-		return "gcm/topics";
+		return "fcm/topics";
 	}
 
 }
