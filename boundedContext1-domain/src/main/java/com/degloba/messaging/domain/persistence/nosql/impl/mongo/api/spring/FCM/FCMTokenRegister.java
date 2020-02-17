@@ -1,4 +1,4 @@
-package com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM;
+package com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.FCM;
 
 import org.springframework.data.annotation.Id; 
 import org.springframework.data.mongodb.core.mapping.Document; 

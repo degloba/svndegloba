@@ -1,10 +1,10 @@
-package com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris;
+package com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.degloba.domain.annotations.DomainRepository;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
 
 @DomainRepository
 public interface IPersonRepository extends MongoRepository<Person, String> {

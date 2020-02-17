@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.subscribers.vendes;
+package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes;
 
 import java.util.concurrent.CountDownLatch;
 

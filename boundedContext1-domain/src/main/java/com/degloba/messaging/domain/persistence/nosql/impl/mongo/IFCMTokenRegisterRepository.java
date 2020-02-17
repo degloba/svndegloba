@@ -1,4 +1,4 @@
-package com.degloba.domain.messaging.persistence.nosql.impl.mongo;
+package com.degloba.messaging.domain.persistence.nosql.impl.mongo;
 
 import com.degloba.domain.annotations.DomainRepository;
 
