@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate; 
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM.FCMTokenRegister;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.FCM.FCMTokenRegister;
 
 
 @DomainRepositoryImpl

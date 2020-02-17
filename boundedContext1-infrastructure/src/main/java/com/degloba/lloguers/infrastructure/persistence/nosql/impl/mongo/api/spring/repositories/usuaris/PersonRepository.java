@@ -25,8 +25,8 @@ import org.springframework.data.mongodb.core.query.Query;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.IPersonRepository;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.IPersonRepository;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
 
 
 /** 

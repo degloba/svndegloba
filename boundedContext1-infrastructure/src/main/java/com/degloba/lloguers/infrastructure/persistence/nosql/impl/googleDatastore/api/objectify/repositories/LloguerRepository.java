@@ -6,8 +6,8 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
 import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.ILloguerRepository;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
 import com.degloba.persistence.nosql.impl.googleDatastore.api.objectify.BaseRepository;
 
 
