@@ -9,9 +9,9 @@ import java.util.Date;
  */
 public interface IEvent {
 	 
-	String id();
+/*	String id;
 
-    Date occurredOn();
+     Date occurredOn;
 
-    int version();
+    int version;*/
 }
