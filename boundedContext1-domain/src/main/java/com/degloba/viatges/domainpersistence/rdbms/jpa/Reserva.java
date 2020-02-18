@@ -157,7 +157,7 @@ public class Reserva implements Serializable {
 	@Transient
 	public String getDescripcio() {
 
-		return hotel == null ? null : hotel.getName() + ", "
+		return hotel == null ? null : hotel.getNom() + ", "
 				+ dateFormat.format(getCheckinDate()) + " to "
 				+ dateFormat.format(getCheckoutDate());
 	}

@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.cqrs.writemodel.commands;
+package com.degloba.ecommerce.enviaments.cqrs.comandes.commands;
 
 import java.io.Serializable;
 

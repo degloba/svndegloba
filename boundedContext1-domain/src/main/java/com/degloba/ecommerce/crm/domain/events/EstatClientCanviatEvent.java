@@ -7,6 +7,10 @@ import com.degloba.events.annotations.Event;
 import com.degloba.events.api.AbstractEvent;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Value;
+
 /**
  * @category L'estat d'un client ha canviat
  * 
@@ -16,19 +20,12 @@ import com.degloba.persistence.rdbms.jpa.AggregateId;
 @Event
 public class EstatClientCanviatEvent extends AbstractEvent {
 
-    private final AggregateId clientId;
-    private final EstatClient estatClient;
+    @Getter private final AggregateId clientId;
+    @Getter private final EstatClient estatClient;
 
     public EstatClientCanviatEvent(AggregateId clientId, EstatClient estatClient) {
         this.clientId = clientId;
         this.estatClient = estatClient;
     }
 
-    public AggregateId getClientId() {
-        return clientId;
-    }
-
-    public EstatClient getEstatClisent() {
-        return estatClient;
-    }
 }

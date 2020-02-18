@@ -34,7 +34,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring.boot.version}</version>
 				<configuration>
-					<mainClass>com.degloba.saga.SagaSpringBootApplication</mainClass>
+					<mainClass>com.degloba.persones.saga.SagaSpringBootApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>

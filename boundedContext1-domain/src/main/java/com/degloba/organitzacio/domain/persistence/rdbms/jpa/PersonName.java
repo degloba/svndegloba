@@ -44,4 +44,11 @@ public class PersonName implements IValueObject {
 	public String toString() {
 		return lastName + firstName;
 	}
+
+
+	public PersonName(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 }

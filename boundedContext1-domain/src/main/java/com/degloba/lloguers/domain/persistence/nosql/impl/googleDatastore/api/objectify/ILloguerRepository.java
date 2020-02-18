@@ -5,6 +5,7 @@ import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.persistence.nosql.impl.googleDatastore.api.objectify.IBaseRepository;
 
 
+
 /**
  * @category Repositori + Objectify : Lloguer 
  */

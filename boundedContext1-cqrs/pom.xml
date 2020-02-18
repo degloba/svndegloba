@@ -56,19 +56,6 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>boundedContext1-domain</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>
-						spring-boot-starter-data-jpa
-					</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
 			<artifactId>boundedContext1-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>

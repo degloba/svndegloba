@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.cqrs.readmodel.finders;
+package com.degloba.ecommerce.enviaments.cqrs.queries.finders;
 
 import java.util.List;
 
