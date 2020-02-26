@@ -1,9 +1,8 @@
 package com.degloba.person.query;
 
-import com.degloba.cqrs.querys.PersonByIdQuery;
-import com.degloba.cqrs.querys.PersonByIdQueryResult;
 import com.degloba.person.aggregate.Person;
-
+import com.degloba.persones.cqrs.querys.PersonByIdQueryResult;
+import com.degloba.persones.cqrs.querys.PersonaByIdQuery;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +19,10 @@ public class PersonQueryHandler {
     private final EntityManager entityManager;
 
     @QueryHandler
-    public PersonByIdQueryResult handle(PersonByIdQuery query){
+    public PersonByIdQueryResult handle(PersonaByIdQuery query){
         Person person = entityManager.find(Person.class, query.getPersonId());
-        return new PersonByIdQueryResult(person.getId(), person.getAddressId(),
-                person.getFullName());
+        return new PersonByIdQueryResult(person.getId(), person.getAdrecaId(),
+                person.getNomComplet());
     }
 
 }

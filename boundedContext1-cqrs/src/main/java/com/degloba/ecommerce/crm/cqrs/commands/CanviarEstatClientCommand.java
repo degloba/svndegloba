@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.crm.cqrs.impl.axon.commands;
+package com.degloba.ecommerce.crm.cqrs.commands;
 
 import java.io.Serializable;
 

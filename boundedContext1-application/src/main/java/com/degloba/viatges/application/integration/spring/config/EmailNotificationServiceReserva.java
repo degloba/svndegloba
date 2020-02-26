@@ -92,7 +92,7 @@ public class EmailNotificationServiceReserva extends EmailNotificationService {
         model.put("email", usuari.getEmail());
         model.put("ReservaId", reserva.getId());
         model.put("ReservaCheckin", reserva.getCheckinDate());
-        model.put("hotelName", reserva.getHotel().getName());
+        model.put("hotelName", reserva.getHotel().getNom());
         model.put("ReservaCheckout", reserva.getCheckoutDate());
         return mergeTemplate(model, tplBody);
     }

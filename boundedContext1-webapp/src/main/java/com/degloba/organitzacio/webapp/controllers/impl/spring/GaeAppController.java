@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring;
+package com.degloba.organitzacio.webapp.controllers.impl.spring;
 
 import java.io.IOException;
 import java.util.logging.Logger;

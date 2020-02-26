@@ -1,11 +1,11 @@
-package com.degloba.infrastructure.ecommerce.persistence.rdbms.jpa.repositories.vendes;
+package com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.api.jpa.repositories;
 
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.IVendesRepository;
-import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.productes.Producte;
-import com.degloba.domain.persistence.ecommerce.rdbms.jpa.vendes.reserves.Reserva;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
+import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
@@ -26,12 +26,6 @@ public class VendaRepository extends EntityRepository implements IVendesReposito
 		return null;
 	}
 
-	@Override
-	public Producte carregaProducte(Class<Producte> class1, AggregateId producteId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 	@Override
 	public <T extends BaseAggregateRoot> T save(T entitat) {
@@ -40,12 +34,18 @@ public class VendaRepository extends EntityRepository implements IVendesReposito
 		
 	}
 
+
 	@Override
-	public Reserva carregaReserva(Class<Reserva> clazz, AggregateId comandaId) {
+	public Producte obtenirProducteById(Class<Producte> clazz, AggregateId producteId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
+	@Override
+	public Reserva obtenirReservaById(Class<Reserva> clazz, AggregateId comandaId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -1,4 +1,4 @@
-package com.degloba.lloguers.cqrs.readmodel.finders;
+package com.degloba.lloguers.cqrs.queries.finders;
 
 import java.util.List;
 

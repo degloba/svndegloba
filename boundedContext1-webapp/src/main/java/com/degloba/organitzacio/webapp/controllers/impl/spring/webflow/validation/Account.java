@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.validation;
+package com.degloba.organitzacio.webapp.controllers.impl.spring.webflow.validation;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -10,12 +10,12 @@ import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import com.degloba.cqrs.commands.AssignPrivateAddressCommand;
-import com.degloba.cqrs.commands.CreatePersonCommand;
-import com.degloba.cqrs.commands.RequestPrivateAddressAssignmentCommand;
-import com.degloba.eventsourcing.persona.PersonCreatedEvent;
+import com.degloba.eventsourcing.persona.PersonaCreadaEvent;
 import com.degloba.eventsourcing.persona.PrivateAddressAssignedEvent;
 import com.degloba.eventsourcing.persona.PrivateAddressAssignmentRequestedEvent;
+import com.degloba.persones.cqrs.commands.AssignPrivateAddressCommand;
+import com.degloba.persones.cqrs.commands.CreaPersonaCommand;
+import com.degloba.persones.cqrs.commands.RequestPrivateAddressAssignmentCommand;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,6 +23,17 @@ import java.util.UUID;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
+/**
+ * 
+ * @author degloba
+ * 
+ * Aggregate --> contexte Axon
+ * Entity --> contexte JPA
+ * Vincula un command a un event en el contexte Axon
+ * 
+ * @category 
+ *
+ */
 @Aggregate
 @Entity
 @Data
@@ -34,9 +45,9 @@ public class Person {
     @AggregateIdentifier
     private String id;
 
-    private String fullName;
+    private String nomComplet;
 
-    private String addressId;
+    private String adrecaId;
 
 
     public Person() {
@@ -44,9 +55,9 @@ public class Person {
 
     // from API
     @CommandHandler
-    public Person(CreatePersonCommand command) {
+    public Person(CreaPersonaCommand command) {
         log.debug("[Person][Aggregate][Command] Creating new person: {}", command);
-        apply(new PersonCreatedEvent(command.getPersonId(), command.getFullName()));
+        apply(new PersonaCreadaEvent(command.getPersonaId(), command.getNomComplet()));
     }
 
     // from API
@@ -71,17 +82,17 @@ public class Person {
 
     // domain event
     @EventHandler
-    public void on(PersonCreatedEvent event) {
+    public void on(PersonaCreadaEvent event) {
         log.debug("[Person][Aggregate][Event] Person created: {}", event);
-        this.id = event.getPersonId();
-        this.fullName = event.getFullName();
+        this.id = event.getPersonaId();
+        this.nomComplet = event.getNomComplet();
     }
 
     // domain event
     @EventHandler
     public void on(PrivateAddressAssignedEvent event) {
         log.debug("[Person][Aggregate][Event] Private address assigned: {}", event);
-        this.addressId = event.getAddressId();
+        this.adrecaId = event.getAdrecaId();
     }
 
 }

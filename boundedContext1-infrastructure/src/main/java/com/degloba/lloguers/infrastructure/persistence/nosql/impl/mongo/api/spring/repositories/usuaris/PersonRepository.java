@@ -258,6 +258,46 @@ public class PersonRepository implements IPersonRepository{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public <S extends Person> List<S> findAll(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <S extends Person> List<S> findAll(Example<S> example, Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void deleteById(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteAll(Iterable<? extends Person> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public <S extends Person> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <S extends Person> Page<S> findAll(Example<S> example, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public <S extends Person> long count(Example<S> example) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public <S extends Person> boolean exists(Example<S> example) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 

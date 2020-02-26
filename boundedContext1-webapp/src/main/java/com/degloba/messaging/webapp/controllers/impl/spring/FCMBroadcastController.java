@@ -1,4 +1,4 @@
-package com.degloba.FCM.webapp.controllers.impl.spring;
+package com.degloba.messaging.webapp.controllers.impl.spring;
 
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
 // GCM
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;

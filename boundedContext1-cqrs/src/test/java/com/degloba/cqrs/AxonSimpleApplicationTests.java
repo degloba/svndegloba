@@ -27,9 +27,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AxonSimpleApplicationTests {
 
 
-	//@Autowired(required = false)
-	//@Qualifier("chatRoomRepository")
-	//private Repository repository;
+	@Autowired(required = false)
+	@Qualifier("chatRoomRepository")
+	private Repository repository;
 
 	@Autowired(required = false)
 	private CommandGateway commandGateway;
@@ -46,14 +46,14 @@ public class AxonSimpleApplicationTests {
 	@Autowired(required = false)
 	private EventStorageEngine eventStorageEngine;
 
-/*	@Autowired(required = false)
-	private SagaStore sagaStore;*/
+	@Autowired(required = false)
+	private SagaStore sagaStore;
 
 	@Test
 	public void contextLoads() {
-		//assertThat(repository)
-		//		.isNotNull()
-		//		.isInstanceOf(GenericJpaRepository.class);
+		/*assertThat(repository)
+				.isNotNull()
+				.isInstanceOf(GenericJpaRepository.class);*/
 		assertThat(commandGateway)
 				.isNotNull()
 				.isInstanceOf(DefaultCommandGateway.class);
@@ -66,9 +66,9 @@ public class AxonSimpleApplicationTests {
 		assertThat(queryGateway)
 				.isNotNull()
 				.isInstanceOf(DefaultQueryGateway.class);
-	/*	assertThat(sagaStore)
+		assertThat(sagaStore)
 				.isNotNull()
-				.isInstanceOf(JpaSagaStore.class);*/
+				.isInstanceOf(JpaSagaStore.class);
 		// assert that we do not have any EventStorageEngine
 		assertThat(eventStorageEngine).isNull();
 	}

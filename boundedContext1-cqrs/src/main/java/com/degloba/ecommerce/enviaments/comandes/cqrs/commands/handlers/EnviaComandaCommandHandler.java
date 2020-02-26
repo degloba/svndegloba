@@ -1,10 +1,10 @@
-package com.degloba.ecommerce.enviaments.cqrs.comandes.handlers;
+package com.degloba.ecommerce.enviaments.comandes.cqrs.commands.handlers;
 
 import javax.inject.Inject;
 
 import com.degloba.cqrs.command.annotations.CommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.ecommerce.enviaments.cqrs.comandes.commands.EntregarEnviamentCommand;
+import com.degloba.ecommerce.enviaments.comandes.cqrs.commands.EntregarEnviamentCommand;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
 

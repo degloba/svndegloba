@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.degloba.cqrs.command.Gate;
-import com.degloba.ecommerce.enviaments.cqrs.readmodel.finders.IEnviamentFinder;
+import com.degloba.ecommerce.enviaments.cqrs.queries.finders.IEnviamentFinder;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 

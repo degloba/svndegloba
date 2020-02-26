@@ -13,6 +13,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * 
+ * @author degloba
+ * 
+ * @category configuració Spring per Axon utilitzant Rabbit
+ * 
+ * AMQP = Advanced Message Queuing Protocol
+ * Rabbit
+ *
+ */
 @Configuration
 @Slf4j
 public class AxonConfig {

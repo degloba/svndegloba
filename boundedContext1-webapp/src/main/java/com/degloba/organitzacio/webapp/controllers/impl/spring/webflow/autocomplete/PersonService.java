@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.autocomplete;
+package com.degloba.organitzacio.webapp.controllers.impl.spring.webflow.autocomplete;
 
 import java.util.ArrayList;
 import java.util.List;

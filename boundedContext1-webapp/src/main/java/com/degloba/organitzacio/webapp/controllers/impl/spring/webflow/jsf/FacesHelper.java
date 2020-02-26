@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.jsf;
+package com.degloba.organitzacio.webapp.controllers.impl.spring.webflow.jsf;
 
 import javax.faces.context.FacesContext;
 

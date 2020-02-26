@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.poller;
+package com.degloba.organitzacio.webapp.controllers.impl.spring.webflow.poller;
 
 import java.util.Date;
 

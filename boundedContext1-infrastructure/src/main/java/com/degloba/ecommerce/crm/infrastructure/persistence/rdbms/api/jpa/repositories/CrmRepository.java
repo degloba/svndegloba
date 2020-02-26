@@ -1,7 +1,7 @@
-package com.degloba.infrastructure.ecommerce.persistence.rdbms.jpa.repositories.crm;
+package com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.api.jpa.repositories;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.domain.persistence.ecommerce.rdbms.jpa.crm.ICrmRepository;
+import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.ICrmRepository;
 import com.degloba.persistence.rdbms.jpa.EntityRepository;
 
 

@@ -1,4 +1,4 @@
-package com.degloba.webapp.organitzacio.controllers.impl.spring.webflow.ajax;
+package com.degloba.organitzacio.webapp.controllers.impl.spring.webflow.ajax;
 
 import java.io.Serializable;
 

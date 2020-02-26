@@ -1,4 +1,4 @@
-package com.degloba.FCM.webapp.controllers.impl.spring;
+package com.degloba.messaging.webapp.controllers.impl.spring;
 
 
 import java.util.List;
@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.degloba.domain.messaging.persistence.nosql.impl.mongo.api.spring.FCM.Topic;
+import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.FCM.Topic;
 
 /**
  *
