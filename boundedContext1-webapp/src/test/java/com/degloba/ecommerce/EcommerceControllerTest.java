@@ -54,7 +54,7 @@ public class EcommerceControllerTest {
     }	
     @Test
     public void getRequestTest() throws Exception {
-        URI uri = UriComponentsBuilder.fromUriString("http://localhost:8080/greet/shipment").build().encode().toUri();
+        URI uri = UriComponentsBuilder.fromUriString("http://localhost:8080/enviaments/enviament").build().encode().toUri();
         mockMvc.perform(get(uri)).andExpect(status().isOk());
     }	
     
@@ -62,16 +62,11 @@ public class EcommerceControllerTest {
     @EnableWebMvc
     @Configuration
     static class WebConfig extends WebMvcConfigurationSupport {
- 
-  /*      @Bean
-        public GreetController greetController() {
-            return new GreetController();
-        }*/
-        
+       
         @Controller
-        private static class GreetController {
+        private static class EnviamentsController {
      
-            @RequestMapping(value = "/greet/{id}", method = RequestMethod.GET)
+            @RequestMapping(value = "/enviaments/{id}", method = RequestMethod.GET)
             @ResponseBody
             public String getCircuit(@PathVariable String id) {
                 return id + " world";
