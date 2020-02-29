@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 /**
+ * @category Test Web Layer + Mock Backend (Service Layer)
  * 
  * @see https://www.baeldung.com/spring-mocking-webclient
  * 
@@ -48,9 +49,7 @@ public class EnviamentServiceMockWebServerTest {
         enviamentService = new EnviamentService(baseUrl);
     }
     
-    //Usemos el práctico método en cola de MockWebServer para poner en cola una respuesta de prueba en el servidor web:
-    //Cuando la llamada API real se realiza desde el método getEnviamentById (Integer employeeId) en nuestra clase EmployeeService, 
-    // MockWebServer responderá con el código auxiliar en cola.
+
     @Test
     void getEnviamentById() throws Exception {
     	ObjectMapper objectMapper = new ObjectMapper();
@@ -60,6 +59,10 @@ public class EnviamentServiceMockWebServerTest {
     	AggregateId comandaKOId = new AggregateId("300");
     	
     	Enviament mockEnviament = new Enviament(enviamentId, comandaId);
+    	
+        // Utilitzem el métode en cola de MockWebServer per posar en cola una resposta de prova en el servidor web
+        // Cuando la llamada API real se realiza desde el método getEnviamentById(AggregateId enviamentId) en la classe EnviamentService, 
+        // MockWebServer respondra amb el codi auxiliar en cola.
         mockBackEnd.enqueue(new MockResponse()
           .setBody(objectMapper.writeValueAsString(mockEnviament))
           .addHeader("Content-Type", "application/json"));
@@ -71,6 +74,9 @@ public class EnviamentServiceMockWebServerTest {
             .equals(comandaId))
           .verifyComplete();
         
+        
+        // Tambié es possible que vulguem assegurar-nos de que MockWebServer ha rebut la HttpRequest correcta.
+        // MockWebServer té un métode (takeRequest) que retorna una instancia de RecordedRequest.
         RecordedRequest recordedRequest = mockBackEnd.takeRequest();
   	  
     	assertEquals("GET", recordedRequest.getMethod());

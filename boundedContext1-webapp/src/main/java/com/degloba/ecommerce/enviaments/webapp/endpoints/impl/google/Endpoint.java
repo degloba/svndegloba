@@ -29,9 +29,9 @@ import com.google.api.server.spi.response.UnauthorizedException;
         ownerDomain = "endpoints.degloba.com",
         ownerName = "endpoints.degloba.com",
         packagePath = ""
-    ),
+    )
     // [START_EXCLUDE]
-    issuers = {
+/*    issuers = {
         @ApiIssuer(
             name = "firebase",
             issuer = "https://securetoken.google.com/wwwdegloba-1350",
@@ -39,7 +39,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
                 "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system"
                     + ".gserviceaccount.com"
         )
-    }
+    }*/
 )
 
 public class Endpoint {
@@ -89,7 +89,7 @@ public class Endpoint {
    * depending on the API method name. In this case, the HTTP method will default to POST.
    */
   // [START echo_api_key]
-  @ApiMethod(name = "echo_api_key", path = "endpoint_api_key", apiKeyRequired = AnnotationBoolean.TRUE)
+  @ApiMethod(name = "echo_api_key", path = "endpoint_api_key")   //, apiKeyRequired = AnnotationBoolean.TRUE)
   public Message echoApiKey(Message message, @Named("n") @Nullable Integer n) {
     return doEcho(message, n);
   }
@@ -151,13 +151,13 @@ public class Endpoint {
   @ApiMethod(
       path = "firebase_user",
       httpMethod = ApiMethod.HttpMethod.GET,
-      authenticators = {EspAuthenticator.class},
-      issuerAudiences = {
+      authenticators = {EspAuthenticator.class}
+      /*issuerAudiences = {
           @ApiIssuerAudience(
               name = "firebase",
               audiences = {"YOUR-PROJECT-ID"}
           )
-      }
+      }*/
   )
   public Email getUserEmailFirebase(User user) throws UnauthorizedException {
     if (user == null) {

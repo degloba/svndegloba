@@ -25,7 +25,7 @@ import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
  *
  */
 @Controller
-@RequestMapping("/shipping/shipment")
+@RequestMapping("/enviaments/enviament")
 public class EnviamentsController {
 
     @Inject
@@ -34,26 +34,26 @@ public class EnviamentsController {
     @Inject
     private Gate gate;
 
-    @RequestMapping("/list")
-    public String shippingList(Model model) {
-        List<EnviamentDto> shipments = enviamentFinder.buscaEnviaments();
-        model.addAttribute("shipments", shipments);
-        return "/shipping/shipmentsList";
+    @RequestMapping("/llista")
+    public String llistaEnviaments(Model model) {
+        List<EnviamentDto> enviaments = enviamentFinder.buscaEnviaments();
+        model.addAttribute("enviaments", enviaments);
+        return "/enviament/llistaEnviaments";
     }
 
-    @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public String shipOrder(@RequestParam("enviamentId") String enviamentId) {
+    @RequestMapping(value = "/envia", method = RequestMethod.POST)
+    public String enviaComanda(@RequestParam("enviamentId") String enviamentId) {
     	/////Key aggregateId = KeyFactory.stringToKey( enviamentId);
     	//AggregateId aggregateId = AggregateId.generate();   //Long.parseLong(enviamentId);
         //gate.dispatch(new SendShipmentCommand(aggregateId));
-        return "redirect:/shipping/shipment/list";
+        return "redirect://enviaments/enviament/llista";
     }
 
-    @RequestMapping(value = "/deliver", method = RequestMethod.POST)
-    public String receiveShipment(@RequestParam("enviamentId") String enviamentId) {
+    @RequestMapping(value = "/entrega", method = RequestMethod.POST)
+    public String rebEnviament(@RequestParam("enviamentId") String enviamentId) {
     	////////Key aggregateId = KeyFactory.stringToKey( enviamentId);
     	//AggregateId aggregateId = AggregateId.generate();  //Long.parseLong(enviamentId);
         //gate.dispatch(new DeliverShipmentCommand(aggregateId));
-        return "redirect:/shipping/shipment/list";
+        return "redirect:/enviaments/enviament/llista";
     }
 }

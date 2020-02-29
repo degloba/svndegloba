@@ -36,27 +36,27 @@ public class HotelsController {
 	@RequestMapping(value = "/hotels/search", method = RequestMethod.GET)
 	public void search(SearchCriteria searchCriteria, Principal currentUser, Model model) {
 		if (currentUser != null) {
-			List<Reserva> reserva = reservaService.findReserves(currentUser.getName());
+			List<Reserva> reserva = reservaService.buscarReserves(currentUser.getName());
 			model.addAttribute(reserva);
 		}
 	}
 
 	@RequestMapping(value = "/hotels", method = RequestMethod.GET)
 	public String list(SearchCriteria criteria, Model model) {
-		List<Hotel> hotels = reservaService.findHotels(criteria);
+		List<Hotel> hotels = reservaService.buscarHotels(criteria);
 		model.addAttribute(hotels);
 		return "hotels/list";
 	}
 
 	@RequestMapping(value = "/hotels/{id}", method = RequestMethod.GET)
 	public String show(@PathVariable Long id, Model model) {
-		model.addAttribute(reservaService.findHotelById(id));
+		model.addAttribute(reservaService.buscarHotelById(id));
 		return "hotels/show";
 	}
 
 	@RequestMapping(value = "/reserves/{id}", method = RequestMethod.DELETE)
 	public String deleteReserva(@PathVariable Long id) {
-		reservaService.cancelReserva(id);
+		reservaService.cancelaReserva(id);
 		return "redirect:../hotels/search";
 	}
 

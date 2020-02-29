@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.degloba.messaging.domain.persistence.nosql.impl.mongo.IFCMTokenRegisterRepository;
-// GCM
-import com.google.android.gcm.server.Message;
-import com.google.android.gcm.server.MulticastResult;
-import com.google.android.gcm.server.Sender;
+
 
 
 /**
@@ -63,29 +60,29 @@ public class FCMBroadcastController {
     			
     	// Instance of com.android.gcm.server.Sender, that does the
     			// transmission of a Message to the Google Cloud Messaging service.
-    			Sender sender = new Sender(SENDER_ID);
+    			//Sender sender = new Sender(SENDER_ID);
     			
     			// This Message object will hold the data that is being transmitted
     			// to the Android client devices.  For this demo, it is a simple text
     			// string, but could certainly be a JSON object.
-    			Message message = new Message.Builder()
+    			//Message message = new Message.Builder()
     			
     			// If multiple messages are sent using the same .collapseKey()
     			// the android target device, if it was offline during earlier message
     			// transmissions, will only receive the latest message for that key when
     			// it goes back on-line.
     			/////.collapseKey(collapseKey)
-    			.timeToLive(30)
-    			.delayWhileIdle(true)
-    			.addData("message", userMessage)
-    			.build();
+    			//.timeToLive(30)
+    			//.delayWhileIdle(true)
+    			//.addData("message", userMessage)
+    			//.build();
     			
     			try {
     				// use this for multicast messages.  The second parameter
     				// of sender.send() will need to be an array of register ids.
-    				MulticastResult result = sender.send(message, androidTargets, 1);
+    				//MulticastResult result = sender.send(message, androidTargets, 1);
     				
-    				if (result.getResults() != null) {
+    				/*if (result.getResults() != null) {
     					int canonicalRegId = result.getCanonicalIds();
     					if (canonicalRegId != 0) {
     						
@@ -93,7 +90,7 @@ public class FCMBroadcastController {
     				} else {
     					int error = result.getFailure();
     					System.out.println("Broadcast failure: " + error);
-    				}
+    				}*/
     				
     			} catch (Exception e) {
     				e.printStackTrace();
@@ -105,7 +102,7 @@ public class FCMBroadcastController {
     			request.setAttribute("Message", userMessage);*/
     	
     			
-    			FCMTokenRegisterRepository.insertGCMTokenRegister(regID);
+    			FCMTokenRegisterRepository.insertFCMTokenRegister(regID);
     	
     			return "Ok";
     	}

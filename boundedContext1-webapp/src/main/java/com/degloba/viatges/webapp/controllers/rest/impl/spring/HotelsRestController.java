@@ -42,60 +42,60 @@ public class HotelsRestController {
 	static final String acceptHeader = "Accept=application/json, application/xml";
 
 	@Autowired
-	private IViatgesService ReservaService;
+	private IViatgesService viatgesService;
 
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces="application/json")	
-	public Usuari usuari( @PathVariable("id") String userId) {
-		return this.ReservaService.findUser(userId);
+	public Usuari usuari( @PathVariable("id") String usuariId) {
+		return this.viatgesService.buscarUsuari(usuariId);
 	}
 
 	@RequestMapping(value = "/Reservas/{user}", method = RequestMethod.GET, produces="application/json")	
-	public Reserves ReservasForUser( @PathVariable("user") String user) {
-		return new Reserves(this.ReservaService.findReserves(user));
+	public Reserves ReservesUsuari( @PathVariable("user") String usuari) {
+		return new Reserves(this.viatgesService.buscarReserves(usuari));
 	}
 
 	//http://localhost:8080/ws/hotel/1
 	@RequestMapping(value = "/hotel/{id}", method = RequestMethod.GET, produces="application/json")	
 	public Hotel hotel(@PathVariable("id") long id) {
-		return this.ReservaService.findHotelById(id);
+		return this.viatgesService.buscarHotelById(id);
 	}
 
 	// todo whats the right way to handle this? currently its being handled using SPring Webflow on the web tier, the passwords are in the config. we need to make the config share the database jst like th rest of the service code, then make it so that REST clients can login as well.
 	@RequestMapping(value = "/users/login", method = RequestMethod.POST)	
-	public Usuari login(@RequestBody Usuari u ) {
+	public Usuari login(@RequestBody Usuari usuari ) {
 
-		String usrname = u.getUsername();
-		String pw = u.getPassword();
-		return ReservaService.login(usrname, pw);
+		String usrname = usuari.getNomUsuari();
+		String pw = usuari.getPassword();
+		return viatgesService.login(usrname, pw);
 	}
 
 	//	http://localhost:8080/ws/Reservas/josh/327680
 	@RequestMapping(value = "/Reservas/{user}/{ReservaId}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void cancelWithDelete(@PathVariable("user") String user,
-															 @PathVariable("ReservaId") Long ReservaId) {
+															 @PathVariable("ReservaId") Long reservaId) {
 
-		ReservaService.cancelReserva(ReservaId);
+		viatgesService.cancelaReserva(reservaId);
 	}
 
 	// todo need to figure out how to setup the HttpHiddenMethod filter to work for regular AJAX clients
 	// so that we can simply send the HTTP POST url to a DELETE method with an additional param in the JSON body or something
 	@RequestMapping(value = "/Reservas/delete/{user}/{ReservaId}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public void cancelWithPost(@PathVariable("user") String user,
-														 @PathVariable("ReservaId") Long ReservaId) {
+	public void cancelWithPost(@PathVariable("usuari") String usuari,
+														 @PathVariable("ReservaId") Long reservaId) {
 
-		ReservaService.cancelReserva(ReservaId);
+		viatgesService.cancelaReserva(reservaId);
 	}
 
 	//http://localhost:8080/ws/hotels/search/?q=hilton&price=2000
 	@RequestMapping(value = "/hotels/search/", method = RequestMethod.GET, produces="application/json")	
-	public Hotels search(@RequestParam("q") String query, @RequestParam("price") double maxPrice) {
+	public Hotels search(@RequestParam("q") String query, @RequestParam("preu") double maxPrice) {
 		SearchCriteria searchCriteria = new SearchCriteria();
 		///////////////searchCriteria.setMaximumPrice(maxPrice);
 		searchCriteria.setSearchString(query);
-		return new Hotels(ReservaService.findHotels(searchCriteria));
+		return new Hotels(viatgesService.buscarHotels(searchCriteria));
 	}
 
 	/*
@@ -123,22 +123,22 @@ public class HotelsRestController {
 	}
 		* */
 	@RequestMapping(value = "/Reservas/{user}", method = RequestMethod.POST)	
-	public Reserva create(@RequestBody Reserva reserva) {
-		String usr = reserva.getUser().getUsername();
+	public Reserva creaReserva(@RequestBody Reserva reserva) {
+		String usr = reserva.getUsuari().getNomUsuari();
 		long hotelId = reserva.getHotel().getId();
 
-		Reserva b = ReservaService.createReserva(hotelId, usr);
+		Reserva b = viatgesService.creaReserva(hotelId, usr);
 		b.setCheckoutDate(reserva.getCheckoutDate());
 		b.setCheckinDate(reserva.getCheckinDate());
 		b.setAmenities(reserva.getAmenities());
-		b.setBeds(reserva.getBeds());
+		b.setLlits(reserva.getLlits());
 		b.setSmoking(reserva.isSmoking());
 		b.setCreditCard(reserva.getCreditCard());
 		b.setCreditCardExpiryMonth(reserva.getCreditCardExpiryMonth());
 		b.setCreditCardName(reserva.getCreditCardName());
 		b.setCreditCardExpiryYear(reserva.getCreditCardExpiryYear());
 
-		ReservaService.persistReserva(b);
+		viatgesService.persistReserva(b);
 
 		return b;
 	}
