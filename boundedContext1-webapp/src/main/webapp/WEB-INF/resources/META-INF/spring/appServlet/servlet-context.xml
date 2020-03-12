@@ -39,18 +39,6 @@
 	<mvc:resources order="0" mapping="/**/glyphicons-halflings-regular.*" location="/app/fonts/" />
 	
 
-
-	<!-- Enable processing of JSF 2 resource requests. For example: /webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces -->
-	<faces:resources />
-
-	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/Reserva 
-		looks for a flow with id "hotels/Reserva" -->
-	<bean
-		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-		<property name="order" value="2" />
-		<property name="flowRegistry" ref="flowRegistry" />
-	</bean>
-
 	<!-- Resolves views selected for rendering by @Controllers to .xhtml resources 
 		in the /WEB-INF/views directory -->
 	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
@@ -81,13 +69,6 @@
 	<!-- (Travel)´ -->
 	<!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver"> 
 		<constructor-arg value="es" /> </bean> -->
-
-
-	<!-- Dispatches requests mapped to flows to FlowHandler implementations -->
-<!-- 	<bean
-		class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
-		<property name="flowExecutor" ref="flowExecutor" />
-	</bean> -->
 
 
 	<!-- (webflow-showcase) Dispatches requests mapped to flows to FlowHandler 

@@ -118,8 +118,7 @@
 		<property name="userRegistry" ref="userRegistry" />
 	</bean>
 
-	<bean id="userRegistry"
-		class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" /> 
+	<bean id="userRegistry"	class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" /> 
 
 
 	<!-- ****************** -->
@@ -132,11 +131,9 @@
 	<!-- **************************** -->
 	<!-- DOMAIN/APPLICATION SERVICES -->
 	<!-- **************************** -->
-	<bean
-		class="com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService" />
+	<bean class="com.degloba.ecommerce.vendes.facturacio.domain.services.BookKeeperService" />
 	<bean class="com.degloba.ecommerce.vendes.facturacio.domain.services.AssesorFiscalService" />
-	<bean
-		class="com.degloba.ecommerce.vendes.application.services.DescompteService" />
+	<bean class="com.degloba.ecommerce.vendes.application.services.DescompteService" />
 
 
 <!-- 	<bean id="com.degloba.utils.IObjectSerializer"

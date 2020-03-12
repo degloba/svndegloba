@@ -49,19 +49,21 @@
 	<!-- ********************* -->
 	<!-- http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/ -->
 
-	<!--<mongo:mongo host="ds039960.mongolab.com" port="39960" /> -->
+	<!-- <mongo:mongo host="ds039960.mongolab.com" port="39960" /> -->
 
 
 	<!-- Factory bean that creates the Mongo instance -->
-	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
-		<property name="host" value="localhost"/> </bean> -->
+<!-- 	 <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
+		<property name="host" value="localhost"/> 
+		</bean>  -->
 
 	<!-- Use this post processor to translate any MongoExceptions thrown in 
 		@Repository annotated classes -->
-	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> -->
+	 <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+	 
 	<!-- Convert the given runtime exception to an appropriate exception from 
 		the org.springframework.dao hierarchy -->
-	<!-- <bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/> -->
+	<bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>
 
 	<!-- Mongo cross-store aspect config <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking" 
 		factory-method="aspectOf"> <property name="changeSetPersister" ref="mongoChangeSetPersister"/> 
@@ -74,16 +76,19 @@
 
 	<!-- <mongo: host="localhost" port="27017" /> -->
 
-	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
+	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
 		<constructor-arg name="mongo" ref="mongo"/> <constructor-arg name="databaseName" 
-		value="casino"/> </bean> -->
+		value="casino"/> 
+	</bean>
 
-	<!-- <bean id="topicRepository" class="com.degloba.gcm.infrastructure.jpa.repositories.TopicRepository"> 
-		<property name="mongoTemplate" ref="mongoTemplate"/> </bean> -->
+	 <bean id="topicRepository" class="com.degloba.messaging.infrastructure.persistence.nosql.impl.mongo.repositories.FCMTopicRepository"> 
+		<property name="mongoTemplate" ref="mongoTemplate"/> 
+		</bean>
 
 
-	<!-- <bean id="GCMTokenRegisterRepository" class="com.degloba.usuaris.infrastructure.jpa.repositories.GCMTokenRegisterRepository"> 
-		<property name="mongoTemplate" ref="mongoTemplate"/> </bean> -->
+	 <bean id="FCMTokenRegisterRepository" class="com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris.FCMTokenRegisterRepository"> 
+		<property name="mongoTemplate" ref="mongoTemplate"/> 
+	</bean> 
 
 
 	<!-- <bean id="eventBus" class="com.google.common.eventbus.EventBus"/> -->

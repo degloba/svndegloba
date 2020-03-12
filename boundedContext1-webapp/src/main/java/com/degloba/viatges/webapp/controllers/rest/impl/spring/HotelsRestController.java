@@ -1,5 +1,7 @@
 package com.degloba.viatges.webapp.controllers.rest.impl.spring;
 
+import java.time.Duration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -10,6 +12,8 @@ import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotels;
 import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserves;
 import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
+
+import reactor.core.publisher.Flux;
 
 // Spring
 import org.springframework.stereotype.Controller;
@@ -33,8 +37,6 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author degloba
  */
-
-
 @RestController
 @RequestMapping(value = "/ws/", headers = HotelsRestController.acceptHeader)
 public class HotelsRestController {
@@ -45,14 +47,21 @@ public class HotelsRestController {
 	private IViatgesService viatgesService;
 
 
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces="application/json")	
+	@RequestMapping(value = "/usuari/{id}", method = RequestMethod.GET, produces="application/json")	
 	public Usuari usuari( @PathVariable("id") String usuariId) {
 		return this.viatgesService.buscarUsuari(usuariId);
 	}
 
-	@RequestMapping(value = "/Reservas/{user}", method = RequestMethod.GET, produces="application/json")	
-	public Reserves ReservesUsuari( @PathVariable("user") String usuari) {
-		return new Reserves(this.viatgesService.buscarReserves(usuari));
+	@RequestMapping(value = "/reserves/{usuari}", method = RequestMethod.GET, produces="application/json")	
+	public Flux<Reserves> ReservesUsuari( @PathVariable("user") String usuari) {
+		
+		
+		Flux<Reserves> reserves = Flux.just(new Reserves()
+				,new Reserves()).delaySequence(Duration.ofSeconds(3));
+		
+		return reserves;
+		
+		//return new Reserves(this.viatgesService.buscarReserves(usuari));
 	}
 
 	//http://localhost:8080/ws/hotel/1
@@ -62,7 +71,7 @@ public class HotelsRestController {
 	}
 
 	// todo whats the right way to handle this? currently its being handled using SPring Webflow on the web tier, the passwords are in the config. we need to make the config share the database jst like th rest of the service code, then make it so that REST clients can login as well.
-	@RequestMapping(value = "/users/login", method = RequestMethod.POST)	
+	@RequestMapping(value = "/usuaris/login", method = RequestMethod.POST)	
 	public Usuari login(@RequestBody Usuari usuari ) {
 
 		String usrname = usuari.getNomUsuari();
@@ -71,7 +80,7 @@ public class HotelsRestController {
 	}
 
 	//	http://localhost:8080/ws/Reservas/josh/327680
-	@RequestMapping(value = "/Reservas/{user}/{ReservaId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/reserves/{usuari}/{ReservaId}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void cancelWithDelete(@PathVariable("user") String user,
 															 @PathVariable("ReservaId") Long reservaId) {

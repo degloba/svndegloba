@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan({ "com.degloba.*" })
-public class WebappSpringBootApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(WebappSpringBootApplication.class, args);
-    }
+@ComponentScan({ "com.degloba.*" })
+public class WebClientApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WebClientApplication.class, args);
+	}
 }

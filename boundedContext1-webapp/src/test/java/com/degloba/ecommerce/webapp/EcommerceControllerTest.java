@@ -1,4 +1,4 @@
-package com.degloba.ecommerce;
+package com.degloba.ecommerce.webapp;
 
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.net.URI;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,9 +22,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -31,8 +34,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.degloba.CustomXmlWebApplicationContext;
-import com.degloba.ecommerce.EcommerceControllerTest.WebConfig;
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
+import com.degloba.ecommerce.webapp.EcommerceControllerTest.WebConfig;
 
+/**
+ * @category Per comprovar que totes les rutes son correctes
+ * 
+ * @author degloba
+ *
+ */
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = WebConfig.class)
@@ -52,9 +62,17 @@ public class EcommerceControllerTest {
     public void webAppContextTest() throws Exception {
     	assertTrue(webAppContext.getServletContext() instanceof MockServletContext);
     }	
+    
+    
     @Test
-    public void getRequestTest() throws Exception {
-        URI uri = UriComponentsBuilder.fromUriString("http://localhost:8080/enviaments/enviament").build().encode().toUri();
+    public void getRequestEnviamentIdTest() throws Exception {
+        URI uri = UriComponentsBuilder.fromUriString("http://localhost:8080/enviaments/100").build().encode().toUri();
+        mockMvc.perform(get(uri)).andExpect(status().isOk());
+    }	
+    
+    @Test
+    public void getRequestEnviamentsLlistaTest() throws Exception {
+        URI uri = UriComponentsBuilder.fromUriString("http://localhost:8080/llista").build().encode().toUri();
         mockMvc.perform(get(uri)).andExpect(status().isOk());
     }	
     
@@ -71,6 +89,15 @@ public class EcommerceControllerTest {
             public String getCircuit(@PathVariable String id) {
                 return id + " world";
             }
+            
+            
+            @RequestMapping("/llista")
+            public String llistaEnviaments() {
+            	 return "Hola world";
+            }
+            
+            //TODO (MOLTS MES)
+            
         }
     }
 }

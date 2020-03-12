@@ -27,13 +27,4 @@
 	<faces:flow-builder-services
 		id="flowBuilderServices" development="true" />
 
-
-	<!-- A listener to create and release a FacesContext -->
-	<beans:bean id="facesContextListener"
-		class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
-
-	<!-- A listener to apply Spring Security authorities -->
-	<beans:bean id="securityListener"
-		class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
-
 </beans:beans>
