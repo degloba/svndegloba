@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.degloba.viatges.application.SearchCriteria;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 
 /**
@@ -76,14 +76,14 @@ public class JpaReservaService implements IViatgesService, Serializable {
 	}
 
 	@Transactional(readOnly = true)
-	public Hotel findHotelById(Long id) {
+	public Hotel buscarHotelById(Long id) {
 		return em.find(Hotel.class, id);
 	}
 
 	@Transactional(readOnly = true)
-	public Reserva createReserva(Long hotelId, String username) {
+	public Reserva creaReserva(Long hotelId, String username) {
 		Hotel hotel = em.find(Hotel.class, hotelId);
-		Usuari usuari = findUser(username);
+		Usuari usuari = buscarUsuari(username);
 		Reserva reserva = new Reserva(hotel, usuari);
 		return reserva;
 	}
@@ -112,7 +112,7 @@ public class JpaReservaService implements IViatgesService, Serializable {
 	}
 
 	@Override
-	public Usuari findUser(String username) {
+	public Usuari buscarUsuari(String username) {
 		return (Usuari) em.createQuery("select u from com.degloba.viatges.domain.User u where u.username = :username")
 				.setParameter("username", username).getSingleResult();
 	}
@@ -124,7 +124,7 @@ public class JpaReservaService implements IViatgesService, Serializable {
 	}*/
 
 	@Override
-	public void cancelReserva(Long Reserva) {
+	public void cancelaReserva(Long Reserva) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -136,19 +136,19 @@ public class JpaReservaService implements IViatgesService, Serializable {
 	}
 
 	@Override
-	public Reserva findReservaById(Long id) {
+	public Reserva buscarReservaById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Hotel> findHotels(SearchCriteria criteria) {
+	public List<Hotel> buscarHotels(SearchCriteria criteria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Reserva> findReserves(String username) {
+	public List<Reserva> buscarReserves(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}

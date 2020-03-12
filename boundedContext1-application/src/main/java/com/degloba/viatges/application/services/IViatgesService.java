@@ -1,9 +1,9 @@
 package com.degloba.viatges.application.services;
 
 import com.degloba.viatges.application.SearchCriteria;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface IViatgesService {
      * @param username el nom d'usuari
      * @return {@link Usuari}
      */
-    Usuari findUser(String username);
+    Usuari buscarUsuari(String username);
 
     Usuari login(String u, String pw);
 
@@ -28,9 +28,9 @@ public interface IViatgesService {
      * @param username el nom de l'{@link Usuari}
      * @return els seus {@link Reserves}
      */
-    List<Reserva> findReserves(String username);
+    List<Reserva> buscarReserves(String username);
 
-    Reserva findReservaById(Long id);
+    Reserva buscarReservaById(Long id);
 
     /**
      * Busca una llista d'hotels accessibles per reservar a partir d'un criteri.
@@ -38,7 +38,7 @@ public interface IViatgesService {
      * @param criteria el criteri de cerca
      * @return una llista de {@link Hotel}s que cumpleix el criteri
      */
-    List<Hotel> findHotels(SearchCriteria criteria);
+    List<Hotel> buscarHotels(SearchCriteria criteria);
 
     /**
      * Busca l'hotel pel seu identificador.
@@ -46,7 +46,7 @@ public interface IViatgesService {
      * @param id the hotel id
      * @return {@link Hotel}
      */
-    Hotel findHotelById(Long id);
+    Hotel buscarHotelById(Long id);
 
     /**
      * Crea un nou, transient hotel Reserva instance for the given user.
@@ -55,14 +55,14 @@ public interface IViatgesService {
      * @param userName the user name
      * @return the new transient Reserva instance
      */
-    Reserva createReserva(Long hotelId, String userName);
+    Reserva creaReserva(Long hotelId, String userName);
 
     /**
      * Cancel.la un {@link Reserva} existent.
      *
      * @param id l'id de {@link Reserva}
      */
-    void cancelReserva(Long id);
+    void cancelaReserva(Long id);
 
     /**
      * persists the detached Reserva object
