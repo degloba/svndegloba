@@ -35,7 +35,7 @@ public class Enviament extends BaseAggregateRoot {
 
     
     private Enviament() {}
-
+    
     public Enviament(AggregateId enviamentId, AggregateId comandaId) {
         this.aggregateId = enviamentId;
     	this.comandaId = comandaId;

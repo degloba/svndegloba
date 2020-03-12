@@ -107,6 +107,10 @@ public class Reserva extends BaseAggregateRoot{
 		this.items = new ArrayList<ReservaItem>();
 	}
 
+	public Reserva(AggregateId aggregateId) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Invariant({"closed", "duplicates"})
 	public void add(Producte producte, int quantitat){
 		if (isClosed())
