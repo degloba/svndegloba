@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /*import org.thymeleaf.spring5.context.webflux.IReactiveDataDriverContextVariable;
 import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;*/
 
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserves;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.viatges.webapp.services.ClientReservesService;
 
 /**
@@ -24,13 +24,13 @@ public class ReservaClientController {
   @Autowired
   ClientReservesService clientReservesService;
   
-  @RequestMapping("/lista")
+  @RequestMapping("/reserves")
   public String lista(final Model modelo) {
     
-    List<Reserves> lista = clientReservesService.buscarTotesReserves().collectList().block();
+    List<Reserva> reserves = clientReservesService.buscarTotesReserves().collectList().block();
     
-    modelo.addAttribute("lista", lista);
+    modelo.addAttribute("reserves", reserves);
     
-    return "lista";
+    return "reserves";
   }
 }

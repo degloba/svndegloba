@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.application.services.IViatgesService;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 
 
 /**

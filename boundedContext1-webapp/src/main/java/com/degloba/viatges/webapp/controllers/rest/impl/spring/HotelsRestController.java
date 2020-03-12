@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.application.services.IViatgesService;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotel;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Hotels;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserva;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserves;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Usuari;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotels;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserves;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Usuari;
 
 import reactor.core.publisher.Flux;
 

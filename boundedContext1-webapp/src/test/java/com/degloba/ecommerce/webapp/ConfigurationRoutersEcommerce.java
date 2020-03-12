@@ -7,7 +7,8 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
-import com.degloba.viatges.domainpersistence.rdbms.jpa.Reserves;
+import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserves;
 import com.degloba.viatges.webapp.services.ClientReservesService;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
@@ -15,7 +16,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
-
+import static org.springframework.web.reactive.function.BodyExtractors.toMono;
 
 import javax.inject.Inject;
 
@@ -44,7 +45,7 @@ public class ConfigurationRoutersEcommerce {
 	         
 	    .and(route(POST("/reserves/update"), 
 	      req -> req.body(toMono(Reserves.class))
-	        .doOnNext(clientReservesServices::updateEmployee)
+	        ///////.doOnNext(clientReservesServices.updateReserva)
 	        .then(ok().build())));
 	}
 	

@@ -44,18 +44,18 @@ public class ClientReservesService {
 		return webclient.get().retrieve().bodyToMono(Reserva.class);	
 	}
 	
-	/*public Mono<Reserva> updateEmployee(Reserva reserva)
+	public Mono<Reserva> updateReserva(Reserva reserva)
     {
 		WebClient webclient = WebClient.create("http://localhost:8080/reserves/1");
 		
 		Mono<Reserva> reservaData = webclient.get().retrieve().bodyToMono(Reserva.class);
 		
 		
-		Reserva existingReserva= reservaData.geget(reserva.getAggregateId());
+		/*Reserva existingReserva= reservaData.geget(reserva.getAggregateId());
         if(existingReserva!=null)
         {
         	existingReserva.setActiu(true);
-        }
-        return Mono.just(existingReserva);
-    }*/
+        }*/
+        return null ;   ////Mono.just(existingReserva);
+    }
 }

@@ -7,8 +7,14 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>src/main/webapp/WEB-INF/resources/META-INF/spring/appServlet/PP.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>target/m2e-wtp/web-resources/WEB-INF/resources/META-INF/spring/appServlet/ws-context.xml</config>
+		<config>target/m2e-wtp/web-resources/WEB-INF/resources/META-INF/spring/appServlet/servlet-context.xml</config>
+		<config>java:com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring.WebServerApplication</config>
+		<config>java:com.degloba.ecommerce.enviaments.webapp.WebClientApplication</config>
+		<config>java:com.degloba.ecommerce.enviaments.webapp.WebappSpringBootApplication</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
