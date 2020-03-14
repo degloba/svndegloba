@@ -646,7 +646,11 @@
 		<module>../boundedContext1-application</module>
 		<module>../boundedContext1-facade</module>
 		<module>../boundedContext1-facade-impl</module>
-		<module>../boundedContext1-webapp</module>	
+		<module>../ecommerce-webapp</module>
+		<module>../lloguers-webapp</module>
+		<module>../missatgeria-webapp</module>
+		<module>../organitzacio-webapp</module>	
+		<module>../viatges-webapp</module>	
 	</modules>
 	<url>www.degloba.com</url>
 </project>

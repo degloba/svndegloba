@@ -28,12 +28,6 @@
 		<!-- ****************** -->
 		<!-- Llibreries degloba -->
 		<!-- ****************** -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>degloba-ioc-spring</artifactId>
-			<version>${project.version}</version>
-			<scope>test</scope>
-		</dependency>
 
 
 		<!-- ******* -->
@@ -118,6 +112,11 @@
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-ioc-spring</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

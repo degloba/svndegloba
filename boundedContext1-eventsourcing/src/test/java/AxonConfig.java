@@ -1,4 +1,4 @@
-package com.degloba.address.config;
+
 
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;

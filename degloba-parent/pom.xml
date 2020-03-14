@@ -100,7 +100,7 @@
 
 		<repository>
 			<id>org.springframework.maven.milestone</id>
-			<url>http://maven.springframework.org/milestone </url>
+			<url>https://maven.springframework.org/milestone</url>			
 		</repository>
 		<repository>
 			<id>DataNucleus</id>
@@ -687,6 +687,7 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>2.1.6.RELEASE</version>
 				</plugin>
 
 				<plugin>
