@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-	<wb-module deploy-name="boundedContext1-webapp-4.4.3-SNAPSHOT">
-		<wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources/META-INF"/>
-		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources"/>
+    <wb-module deploy-name="viatges-webapp-4.4.3-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <dependent-module archiveName="boundedContext1-facade-impl-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-facade-impl/boundedContext1-facade-impl">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -14,13 +12,10 @@
         <dependent-module archiveName="boundedContext1-integration-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-integration/boundedContext1-integration">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="boundedContext1-address-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-address/boundedContext1-address">
+        <dependent-module archiveName="boundedContext1-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-eventsourcing/boundedContext1-eventsourcing">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="boundedContext1-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-cqrs/boundedContext1-cqrs">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="boundedContext1-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-eventsourcing/boundedContext1-eventsourcing">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="boundedContext1-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-facade/boundedContext1-facade">
@@ -44,7 +39,7 @@
         <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-		<property name="java-output-path" value="/boundedContext1-webapp/target/classes"/>
-		<property name="context-root" value="boundedContext1-webapp"/>
-	</wb-module>
+        <property name="context-root" value="viatges-webapp"/>
+        <property name="java-output-path" value="/viatges-webapp/target/viatges-webapp-4.4.3-SNAPSHOT/WEB-INF/classes"/>
+    </wb-module>
 </project-modules>

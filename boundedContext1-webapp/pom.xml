@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>war</packaging>
-	<artifactId>boundedContext1-webapp</artifactId>
-	<name>Casino - boundedContext1 - Webapp</name>
+	<artifactId>viatges-webapp</artifactId>
+	<name>BoundedContext1 viatges - Webapp</name>
 	<parent>
 		<artifactId>casino-boundedContext1</artifactId>
 		<groupId>com.degloba</groupId>
