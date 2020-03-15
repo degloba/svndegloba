@@ -7,10 +7,10 @@
 	<artifactId>organitzacio-webapp</artifactId>
 	<name>BoundedContext organitzacio - Webapp</name>
 	<parent>
-		<artifactId>casino-boundedContext1</artifactId>
+		<artifactId>organitzacio-boundedContext</artifactId>
 		<groupId>com.degloba</groupId>
 		<version>4.4.3-SNAPSHOT</version>
-		<relativePath>../casino-boundedContext1/pom.xml</relativePath>
+		<relativePath>../organitzacio-boundedContext/pom.xml</relativePath>
 	</parent>
 
 
@@ -100,19 +100,16 @@
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade-impl</artifactId>
+			<artifactId>organitzacio-facade-impl</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade</artifactId>
+			<artifactId>organitzacio-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
-
-		<!-- <dependency> <groupId>${project.groupId}</groupId> <artifactId>boundedContext1-application</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -381,13 +378,6 @@
 			<artifactId>javax.inject</artifactId>
 		</dependency>
 
-
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>boundedContext1-cqrs</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-infrastructure</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> <scope>runtime</scope> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-persistence-rdbms</artifactId> 
-			</dependency> -->
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>org.springframework.binding</artifactId>

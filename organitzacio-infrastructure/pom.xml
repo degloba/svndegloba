@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>organitzacio-boundedContext</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+		<relativePath>../organitzacio-boundedContext/pom.xml</relativePath>
+    </parent>
+    
+    <artifactId>organitzacio-infrastructure</artifactId>
+    <name>Organitzacio - Infrastructure</name>
+    <description>Organitzacio - Infrastructure</description>
+    <url>http://maven.apache.org</url>
+    
+    
+    <dependencies>
+   
+				
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>degloba-persistence-rdbms</artifactId>
+            <version>4.4.3-SNAPSHOT</version>        
+		</dependency>
+			
+
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+    </dependencies>
+    
+    <build>
+    
+    <pluginManagement>
+   	 
+        <plugins>
+        <plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	            	<artifactId>maven-compiler-plugin</artifactId>
+		</plugin>
+        
+        	  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+          			<skipTests>true</skipTests>
+       		 	</configuration>
+            </plugin> 
+            
+		</plugins>
+		
+	</pluginManagement>
+		
+    </build>
+    
+</project>

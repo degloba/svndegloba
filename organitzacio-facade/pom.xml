@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.degloba</groupId>
+        <artifactId>organitzacio-boundedContext</artifactId>
+        <version>4.4.3-SNAPSHOT</version>
+        <relativePath>../organitzacio-boundedContext/pom.xml</relativePath>
+    </parent>
+    <artifactId>organitzacio-facade</artifactId>
+    <packaging>jar</packaging>
+    <name>Organitzacio - Facade</name>
+    
+    <dependencies>
+       
+	    <dependency>
+	    	<groupId>com.degloba</groupId>
+	    	<artifactId>boundedContext1-domain</artifactId>
+	    	<version>${project.version}</version>
+	    	<exclusions>
+	    		<exclusion>
+	    			<groupId>org.slf4j</groupId>
+	    			<artifactId>slf4j-log4j12</artifactId>
+	    		</exclusion>
+
+	    		<exclusion>
+	    			<groupId>org.mongodb</groupId>
+	    			<artifactId>mongo-java-driver</artifactId>
+	    		</exclusion>
+	    	</exclusions>
+	    </dependency>
+
+	    <dependency>
+	    	<groupId>javax.validation</groupId>
+	    	<artifactId>validation-api</artifactId>
+	    </dependency>
+    </dependencies>
+    
+    
+    <build>
+    
+    	<plugins>
+        	<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+	        	<artifactId>maven-compiler-plugin</artifactId>
+		</plugin>
+
+	</plugins>
+	
+    </build>
+    <url>www.degloba.com</url>
+</project>
