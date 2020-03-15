@@ -23,7 +23,6 @@ import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.webapp.reactive.service.CompresService;
 
 import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
@@ -80,13 +79,13 @@ public class CompresServiceMockWebServerTest {
     	//AggregateId comandaId = new AggregateId("200");
     	AggregateId comandaKOId = new AggregateId("300");
     	
-    	Compra mockEnviament = new Compra(compraId);
+    	Compra mockCompra = new Compra(compraId);
     	
         // Utilitzem el métode en cola de MockWebServer per posar en cola una resposta de prova en el servidor web
         // Cuando la llamada API real se realiza desde el método getCompraById(AggregateId compraId) en la classe CompraService, 
         // MockWebServer respondra amb el codi auxiliar en cola.
         mockBackEnd.enqueue(new MockResponse()
-          .setBody(objectMapper.writeValueAsString(mockEnviament))
+          .setBody(objectMapper.writeValueAsString(mockCompra))
           .addHeader("Content-Type", "application/json"));
      
         Mono<Compra> enviamentMono = compresService.getCompraById(compraId);
@@ -102,7 +101,7 @@ public class CompresServiceMockWebServerTest {
         RecordedRequest recordedRequest = mockBackEnd.takeRequest();
   	  
     	assertEquals("GET", recordedRequest.getMethod());
-    	assertEquals("/enviament/100", recordedRequest.getPath());
+    	assertEquals("/compra/100", recordedRequest.getPath());
     }
     
     

@@ -19,6 +19,7 @@ import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 public class ConfigurationRouterFunctionCompres {
 	
     @Bean
+    public
     ClientCompresService clientCompresService() {
         return new ClientCompresService();
     }
@@ -28,7 +29,7 @@ public class ConfigurationRouterFunctionCompres {
     RouterFunction<ServerResponse> getTotesCompresRoute() {
       return route(GET("/compres"), 
         req -> ok().body(
-        		ClientCompresService.buscarTotesCompres(), Compra.class));
+        		clientCompresService().buscarTotesCompres(), Compra.class));
     }
 
     @Bean
@@ -36,14 +37,14 @@ public class ConfigurationRouterFunctionCompres {
     RouterFunction<ServerResponse> getCompraByIdRoute() {
       return route(GET("/compres/{id}"), 
         req -> ok().body(
-        		ClientCompresService.buscarCompraById(req.pathVariable("id")), Compra.class));
+        		clientCompresService().buscarCompraById(req.pathVariable("id")), Compra.class));
     }
 
     @Bean
     RouterFunction<ServerResponse> updateCompraRoute() {
       return route(POST("/compres/update"), 
         req -> req.body(toMono(Compra.class))
-                  .doOnNext(ClientCompresService::updateCompra)
+                  .doOnNext(clientCompresService()::updateCompra)
                   .then(ok().build()));
     }
 
@@ -52,11 +53,11 @@ public class ConfigurationRouterFunctionCompres {
       return 
           route(GET("/compres"), 
             req -> ok().body(
-            		ClientCompresService.buscarTotesCompres(), Compra.class))
+            		clientCompresService().buscarTotesCompres(), Compra.class))
             
           .and(route(GET("/employees/{id}"), 
             req -> ok().body(
-            		ClientCompresService.buscarCompraById(req.pathVariable("id")), ClientCompresService.class)))
+            		clientCompresService().buscarCompraById(req.pathVariable("id")), ClientCompresService.class)))
             
           .and(route(POST("/compres/update"), 
             req -> req.body(toMono(ClientCompresService.class))

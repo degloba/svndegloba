@@ -32,7 +32,7 @@ public class EcommerceRoutersTest {
 	
 	ConfigurationRouterFunctionCompres config = new ConfigurationRouterFunctionCompres();
 	
-	ClientCompresService clientCompresService;
+	//ClientCompresService clientCompresService;
 	
 	@Test
 	public void donadaCompraId_quanGetCompraById_llavorsCompraCorrecte() {
@@ -42,7 +42,7 @@ public class EcommerceRoutersTest {
 	 
 	    Compra compra = new Compra(new AggregateId("1"));
 	 
-	    given(clientCompresService.buscarCompraById("1")).willReturn(Mono.just(compra));
+	    given(config.clientCompresService().buscarCompraById("1")).willReturn(Mono.just(compra));
 	 
 	    client.get()
 	      .uri("/compres/1")
@@ -62,11 +62,12 @@ public class EcommerceRoutersTest {
 	 
 	    List<Compra> compres = Arrays.asList(
 	      new Compra(new AggregateId("1")),
-	      new Compra(new AggregateId("2")));
+	      new Compra(new AggregateId("2")),
+	      new Compra(new AggregateId("3")));
 	 
 	    Flux<Compra> compraFlux = Flux.fromIterable(compres);
 	    
-	    given(clientCompresService.buscarTotesCompres()).willReturn(compraFlux);
+	    given(config.clientCompresService().buscarTotesCompres()).willReturn(compraFlux);
 	 
 	    client.get()
 	      .uri("/compres")

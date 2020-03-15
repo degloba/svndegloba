@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>war</packaging>
 	<artifactId>ecommerce-webapp</artifactId>
-	<name>BoundedContext ecommerce - Webapp</name>
+	<name>Ecommerce - Webapp</name>
 	<parent>
-		<artifactId>casino-boundedContext1</artifactId>
+		<artifactId>ecommerce-boundedContext</artifactId>
 		<groupId>com.degloba</groupId>
 		<version>4.4.3-SNAPSHOT</version>
-		<relativePath>../casino-boundedContext1/pom.xml</relativePath>
+		<relativePath>../ecommerce-boundedContext/pom.xml</relativePath>
 	</parent>
 
 
@@ -92,18 +92,8 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade-impl</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
 
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
 
 		<!-- <dependency> <groupId>${project.groupId}</groupId> <artifactId>boundedContext1-application</artifactId> 
 			<version>4.4.3-SNAPSHOT</version> </dependency> -->
@@ -444,6 +434,21 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-facade</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

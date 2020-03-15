@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class ClientCompresService {
 
-	public static Flux<Compra> buscarTotesCompres() {
+	public Flux<Compra> buscarTotesCompres() {
 		  
 	    WebClient webclient = WebClient.create("http://localhost:8080/compres");
 	    
@@ -39,13 +39,13 @@ public class ClientCompresService {
 	    return compres;
 	   }
 
-	public static Mono<Compra> buscarCompraById(String id) {
+	public Mono<Compra> buscarCompraById(String id) {
 		WebClient webclient = WebClient.create("http://localhost:8080/compres/" + id);
 		
 		return webclient.get().retrieve().bodyToMono(Compra.class);	
 	}
 	
-	public static Mono<Reserva> updateCompra(Compra compra)
+	public Mono<Reserva> updateCompra(Compra compra)
     {
 		WebClient webclient = WebClient.create("http://localhost:8080/compres/1");
 		
