@@ -111,9 +111,6 @@
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>${project.groupId}</groupId> <artifactId>boundedContext1-application</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>degloba-ioc-spring</artifactId>

@@ -8,7 +8,7 @@
         <relativePath>../lloguers-boundedContext/pom.xml</relativePath>
     </parent>
     <artifactId>lloguers-cqrs</artifactId>
-    <name>Casino - boundedContext1 - CQRS</name>
+    <name>Lloguers - CQRS</name>
     
     <dependencies>
         	 
@@ -56,7 +56,7 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>boundedContext1-facade</artifactId>
+			<artifactId>lloguers-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 		
