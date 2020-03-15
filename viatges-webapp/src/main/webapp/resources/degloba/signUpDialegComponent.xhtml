@@ -1,0 +1,79 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+	<composite:attribute name="dialegSignup" />
+</composite:interface>
+
+
+<composite:implementation>
+
+	<b:modal id="dlgSignup" title="Sign Up" styleClass="#{cc.attrs.dialegSignup}" 
+        	   closable="false"  close-on-escape="true" backdrop="true">	
+               	
+		<b:form id="formSignup">
+	
+			<p:growl widgetVar="growlSignup" id="growlSignup" sticky="true"
+				showDetail="true" life="3000" /> 
+				
+			<b:panelGrid columns="1">
+
+				<h:outputLabel  for="usernameSignup" value="Name" />
+				<b:inputText id="usernameSignup" value="#{userSignupView.name}"
+					required="true"  />
+
+				<h:outputLabel  for="emailSignup" value="Email Address" />
+				<b:inputText id="emailSignup" value="#{userSignupView.email}"
+					required="true"  />
+
+				<h:outputLabel for="passwordSignup" value="Password" />
+				<b:inputSecret id="passwordSignup" value="#{userSignupView.password}"
+					required="true" />
+
+				<b:commandButton value="Sign Up" update="@form" look="info" ajax="true" type="button" dismiss="modal"
+					oncomplete="if(!validationFailed) { $('.formSignup').modal('hide') } " onclick="handleSignUp()" />
+					
+				
+
+				<h:outputLabel 	value="By signing up you agree to our Terms and Privacy" />
+
+			</b:panelGrid>
+	
+		<h:outputLabel value="or" />
+		
+			<p:growl id="growlSignupSocials" sticky="false" showDetail="true"
+				life="3000" />
+
+			<b:panelGrid columns="1">
+
+				<b:commandButton  type="button"  value="Sign Up with Google" iconAwesome="fa-google"
+					update="growlSignupSocials" onclick="toggleLogInGoogle()"
+						large-screen="full-width" />
+
+				<b:commandButton type="button" value="Sign Up with Twitter" iconAwesome="fa-twitter"
+					update="growlSignupSocials" onclick="toggleLogInTwitter()"
+					large-screen="full-width"/>
+
+				<b:commandButton type="button" value="Sign Up with Facebook" iconAwesome="fa-facebook"
+					update="growlSignupSocials" onclick="toggleLogInFacebook()"
+					large-screen="full-width"/>
+
+				<!-- <h:outputLabel for="permissionSignup" value="We'll never post anything without your permission." />  -->
+
+			</b:panelGrid>
+		    
+		     <b:fetchBeanInfos />
+        <b:messages />	
+	</b:form>
+
+  </b:modal>
+ 
+
+</composite:implementation>
+
+</ui:fragment>

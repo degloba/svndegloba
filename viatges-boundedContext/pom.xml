@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>degloba-parent</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../degloba-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>viatges-boundedContext</artifactId>
+	<packaging>pom</packaging>
+	<name>Viatges - boundedContext</name>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>javax.persistence</artifactId>
+				<version>${javax.persistence}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>${uel.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-pool</groupId>
+				<artifactId>commons-pool</artifactId>
+				<version>1.6</version>
+			</dependency>
+
+			<!-- ********* -->
+			<!-- Hibernate -->
+			<!-- ********* -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-ehcache</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>3.18.1-GA</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>2.4.9</version>
+				<scope>test</scope>
+			</dependency>			
+			<dependency>
+				<groupId>com.mchange</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.2.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>${aspectj.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.btm</groupId>
+				<artifactId>btm</artifactId>
+				<version>2.1.4</version>
+			</dependency>
+
+
+			<!-- ****** -->
+			<!-- Spring -->
+			<!-- ****** -->
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-faces</artifactId>
+				<version>${springwebflow.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-binding</artifactId>
+				<version>${springwebflow.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-webflow</artifactId>
+				<version>${springwebflow.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-js</artifactId>
+				<version>${springwebflow.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>aopalliance</groupId>
+				<artifactId>aopalliance</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+			<!-- ********************************** -->
+			<!-- The Simple Logging Facade for Java -->
+			<!-- ********************************** -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-api-labs</artifactId>
+				<version>${google.appengine.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-api-stubs</artifactId>
+				<version>${google.appengine.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-tools-sdk</artifactId>
+				<version>${google.appengine.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-testing</artifactId>
+				<version>${google.appengine.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<!-- <scope>provided</scope> -->
+			</dependency>
+
+			
+
+		</dependencies>
+
+	</dependencyManagement>
+	
+	<dependencies>
+	<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				</dependency>
+	</dependencies>
+
+	<build>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+					<dependencies>
+						<dependency>
+							<groupId>commons-logging</groupId>
+							<artifactId>commons-logging</artifactId>
+							<version>1.1.2</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-webdav-jackrabbit</artifactId>
+							<version>2.6</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.1</version>
+					<configuration>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+							<index>false</index>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+							<descriptorRef>bin</descriptorRef>
+							<descriptorRef>src</descriptorRef>
+							<descriptorRef>project</descriptorRef>
+						</descriptorRefs>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.4.0</version>
+					<extensions>true</extensions>
+					<executions>
+						<execution>
+							<id>generate-manifest</id>
+							<goals>
+								<goal>manifest</goal>
+								<goal>bundle</goal>
+							</goals>
+							<phase>package</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.5.1</version>
+					<configuration>
+						<locales>zh_CN</locales>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>commons-logging</groupId>
+							<artifactId>commons-logging</artifactId>
+							<version>1.1.2</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-webdav-jackrabbit</artifactId>
+							<version>2.6</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+				</plugin>
+				<plugin>
+					<groupId>com.github.github</groupId>
+					<artifactId>site-maven-plugin</artifactId>
+					<version>0.9</version>
+					<configuration>
+						<message>Creating site for ${project.version}</message>
+						<server>github</server>
+						<userName>${github.scm.username}</userName>
+						<password>${github.scm.password}</password>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>site</goal>
+							</goals>
+							<phase>site</phase>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-gitexe</artifactId>
+				<version>1.8.1</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-manager-plexus</artifactId>
+				<version>1.8.1</version>
+			</extension>
+			<extension>
+				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
+				<artifactId>wagon-gitsite</artifactId>
+				<version>0.3.1</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.6</version>
+			</extension>
+		</extensions>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<minmemory>128m</minmemory>
+					<maxmemory>1024m</maxmemory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.16</version>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clover-plugin</artifactId> 
+				<version>2.4</version> </plugin> -->
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-clover2-plugin</artifactId>
+				<version>3.2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<targetJdk>1.8</targetJdk>
+					<format>xml</format>
+					<linkXRef>true</linkXRef>
+					<minimumTokens>100</minimumTokens>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<configLocation>config/sun_checks.xml</configLocation>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-changes-plugin</artifactId> 
+				<version>2.9</version> <reportSets> <reportSet> <reports> <report>github-report</report> 
+				</reports> </reportSet> </reportSets> <configuration> <username>${github.scm.username}</username> 
+				<password>${github.scm.password}</password> <issueManagementSystems> <issueManagementSystem>GitHub</issueManagementSystem> 
+				</issueManagementSystems> <tracUser>${trac.username}</tracUser> <tracPassword>${trac.password}</tracPassword> 
+				<query>status!=closed&amp;order=type</query> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<passphrase>${passphase}</passphrase>
+					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tags>
+						<tag>TODO</tag>
+						<tag>@todo</tag>
+						<tag>FIXME</tag>
+						<tag>XXX</tag>
+					</tags>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<check />
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>clirr-maven-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<minSeverity>info</minSeverity>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<github.global.server>github</github.global.server>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<jdk.version>1.8</jdk.version>
+		<slf4j.version>1.7.13</slf4j.version>
+		<junit.version>4.12</junit.version>
+
+		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+
+		<tapestry.version>5.3.7</tapestry.version>
+
+		<hibernate.version>5.3.7.Final</hibernate.version>
+
+		<mysql.username>root</mysql.username>
+		<mysql.password />
+		
+		<mysql.version>5.1.35</mysql.version>
+
+
+		<hibernate.query.substitutions>true 'Y', false 'N'</hibernate.query.substitutions>
+		<hibernate.cache.provider_class>org.hibernate.cache.EhCacheProvider</hibernate.cache.provider_class>
+		<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
+		<hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
+		<hibernate.show_sql>true</hibernate.show_sql>
+		<hibernate.format_sql>true</hibernate.format_sql>
+	
+		<springwebflow.version>2.5.0.RELEASE</springwebflow.version>
+
+		<javax.persistence>2.1.0</javax.persistence>
+
+		<servlet.version>2.5</servlet.version>
+
+		<datanucleus.jpa.version>3.1.3</datanucleus.jpa.version>
+		<datanucleus.core.version>3.1.3</datanucleus.core.version>
+		<datanucleus.maven.plugin>3.1.1</datanucleus.maven.plugin>
+
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>h2</id>
+			<properties>
+				<db.type>h2</db.type>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.h2.H2DataTypeFactory</dbunit.dataTypeFactoryName>
+				<hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
+				<jdbc.groupId>com.h2database</jdbc.groupId>
+				<jdbc.artifactId>h2</jdbc.artifactId>
+				<jdbc.version>${h2.version}</jdbc.version>
+				<jdbc.driverClassName>org.h2.Driver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:h2:${basedir}/target/${db.name}]]></jdbc.url>
+				<jdbc.username>sa</jdbc.username>
+				<jdbc.password />
+			</properties>
+		</profile>
+		<profile>
+			<id>derby</id>
+			<properties>
+				<db.type>derby</db.type>
+				<hibernate.dialect>org.hibernate.dialect.DerbyTenSevenDialect</hibernate.dialect>
+				<jdbc.groupId>org.apache.derby</jdbc.groupId>
+				<jdbc.artifactId>derbyclient</jdbc.artifactId>
+				<jdbc.version>10.10.2.0</jdbc.version>
+				<jdbc.driverClassName>org.apache.derby.jdbc.EmbeddedDriver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:derby:${basedir}/target/${db.name};create=true]]></jdbc.url>
+				<jdbc.username>any</jdbc.username>
+				<jdbc.password>value</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>hsqldb</id>
+			<properties>
+				<db.type>hsqldb</db.type>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>
+				<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
+				<jdbc.groupId>org.hsqldb</jdbc.groupId>
+				<jdbc.artifactId>hsqldb</jdbc.artifactId>
+				<jdbc.version>2.3.2</jdbc.version>
+				<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:hsqldb:${basedir}/target/${db.name};shutdown=true]]></jdbc.url>
+				<jdbc.username>sa</jdbc.username>
+				<jdbc.password />
+			</properties>
+		</profile>
+		<profile>
+			<id>oracle</id>
+			<properties>
+				<db.type>oracle</db.type>
+				<db.port>1521</db.port>
+				<db.instance>XE</db.instance>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.oracle.Oracle10DataTypeFactory</dbunit.dataTypeFactoryName>
+				<dbunit.schema>SYSTEM</dbunit.schema>
+				<!-- Make sure to capitalize the schema name -->
+				<hibernate.dialect>org.hibernate.dialect.Oracle9iDialect</hibernate.dialect>
+				<jdbc.groupId>com.oracle.jdbc</jdbc.groupId>
+				<jdbc.artifactId>ojdbc5</jdbc.artifactId>
+				<jdbc.version>${oracle.version}</jdbc.version>
+				<jdbc.driverClassName>oracle.jdbc.OracleDriver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:oracle:thin:@${db.host}:${db.port}:${db.instance}]]></jdbc.url>
+				<jdbc.username>system</jdbc.username>
+				<jdbc.password>system</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>db2</id>
+			<properties>
+				<db.type>db2</db.type>
+				<db.port>50000</db.port>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.db2.Db2DataTypeFactory</dbunit.dataTypeFactoryName>
+				<dbunit.schema />
+				<hibernate.dialect>org.hibernate.dialect.DB2Dialect</hibernate.dialect>
+				<jdbc.groupId>com.ibm</jdbc.groupId>
+				<jdbc.artifactId>db2jcc4</jdbc.artifactId>
+				<jdbc.version>4.7.112</jdbc.version>
+				<jdbc.serverName>localhost</jdbc.serverName>
+				<jdbc.serverPort>50000</jdbc.serverPort>
+				<jdbc.dbName>sample</jdbc.dbName>
+				<jdbc.driverClassName>com.ibm.db2.jcc.DB2Driver</jdbc.driverClassName>
+				<jdbc.url>jdbc:db2://${db.host}:${db.port}/${db.name}</jdbc.url>
+				<jdbc.username>db2admin</jdbc.username>
+				<jdbc.password>db2admin</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>postgresql</id>
+			<properties>
+				<db.type>postgresql</db.type>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory
+				</dbunit.dataTypeFactoryName>
+				<hibernate.dialect>org.hibernate.dialect.PostgresPlusDialect</hibernate.dialect>
+				<jdbc.groupId>org.postgresql</jdbc.groupId>
+				<jdbc.artifactId>postgresql</jdbc.artifactId>
+				<jdbc.version>9.2-1003-jdbc4</jdbc.version>
+				<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:postgresql://${db.host}/${db.name}]]></jdbc.url>
+				<jdbc.username>postgres</jdbc.username>
+				<jdbc.password>postgres</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<!-- You need to enable TCP/IP Connections for SQL Server 2005 after installing. -->
+			<!-- http://www.mattwoodward.com/blog/index.cfm?commentID=211 -->
+			<id>sqlserver</id>
+			<properties>
+				<db.type>sqlserver</db.type>
+				<db.port>3683</db.port>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.mssql.MsSqlDataTypeFactory</dbunit.dataTypeFactoryName>
+				<dbunit.operation.type>MSSQL_CLEAN_INSERT</dbunit.operation.type>
+				<hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
+				<jdbc.groupId>net.sourceforge.jtds</jdbc.groupId>
+				<jdbc.artifactId>jtds</jdbc.artifactId>
+				<jdbc.version>1.3.0</jdbc.version>
+				<jdbc.driverClassName>net.sourceforge.jtds.jdbc.Driver</jdbc.driverClassName>
+				<jdbc.url><![CDATA[jdbc:jtds:sqlserver://${db.host}:${db.port}/${db.name}]]></jdbc.url>
+				<jdbc.username>sa</jdbc.username>
+				<jdbc.password>appfuse</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>mysql</id>
+			<properties>
+				<db.type>mysql</db.type>
+				<db.port>3306</db.port>
+				<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
+				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+				<jdbc.groupId>mysql</jdbc.groupId>
+				<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+				<jdbc.version>${mysql.version}</jdbc.version>
+				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+				<jdbc.url>
+                    <![CDATA[jdbc:mysql://${db.host}:${db.port}/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+				<jdbc.username>${mysql.username}</jdbc.username>
+				<jdbc.password>${mysql.password}</jdbc.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk7</id>
+			<properties>
+				<jdk.version>1.7</jdk.version>
+			</properties>
+		</profile>
+	</profiles>
+	<modules>
+		<module>../viatges-eventsourcing</module>
+		<module>../viatges-domain</module>
+		<module>../viatges-infrastructure</module>
+		<module>../viatges-cqrs</module>
+		<!-- <module>../viatges-integration</module> -->
+		<module>../viatges-application</module>
+		<module>../viatges-facade</module>
+		<module>../viatges-facade-impl</module>
+		<module>../viatges-webapp</module>
+	</modules>
+	<url>www.degloba.com</url>
+</project>

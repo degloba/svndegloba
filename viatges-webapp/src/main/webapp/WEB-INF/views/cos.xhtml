@@ -1,0 +1,111 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+<!-- 
+		Stack the columns on mobile by making one full-width and the other half-width
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="10"  col-lg="8" style="background-color:#C0C0C0"><h:outputText value="col-xs=10  col-lg=8" /></b:column>
+		  <b:column col-xs="2"  col-lg="4" style="background-color:#C0C000"><h:outputText value="col-xs=2   col-lg=4" /></b:column>
+		</b:row>
+		Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="6" col-md="4" style="background-color:#C0A000"><h:outputText value="col-xs=6 col-md=4"/></b:column>
+		  <b:column col-xs="6" col-md="4" col-lg="12" style="background-color:#C0B000"><h:outputText value="col-xs=6 col-md=4 col-lg=12"/></b:column>
+		  <b:column col-xs="6" col-md="4" style="background-color:#C03000"><h:outputText value="col-xs=6 col-md=4"/></b:column>
+		</b:row>
+		Columns are always 50% wide, on mobile and desktop
+		<b:row styleClass="show-grid">
+		  <b:column col-xs="6" style="background-color:#C0C0C0"><h:outputText value="col-xs=6"/></b:column>
+		  <b:column col-xs="6" style="background-color:#C0C030"><h:outputText value="col-xs=6"/></b:column>
+		</b:row> -->
+
+
+
+		<b:jumbotron>
+            <b:container>               
+                <p>Aposta i guanya des de qualsevol lloc i a qualsevol hora
+                </p>               
+            </b:container>
+        </b:jumbotron>
+
+				
+			<b:container fluid="true">
+			
+	            <b:row>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	
+						<!-- AngularJS proves -->                    
+						 <div ng-app="gemStore">
+							 <div class="container" ng-controller="mainController as store">
+							    <div class="product row" ng-repeat="product in store.products">
+							      <h3>
+							        {{product.name}}
+							        <em class="pull-right">{{product.price}}</em>
+							      </h3>
+							    </div>
+							  </div>
+  
+					  
+					  			<!-- Proves Routing Angular -->
+								<a href="#!red">Red</a>
+								<a href="#!green">Green</a>
+								<a href="#!blue">Blue</a>
+								<a href="#!XHTML">Blue</a>
+					
+								<!-- la part que anirà cambiant segons Angular -->
+								<div ng-view="vista"></div>
+								
+								
+								<phone-list></phone-list>
+								
+								
+								<!-- Proves Injeccio de dependencies : Controller + Service + Factory -->
+								<div ng-app = "gemStore" ng-controller = "CalcController">
+							         <p>Enter a number: <input type = "number" ng-model = "number" /></p>
+							         <button ng-click = "square()">X<sup>2</sup></button>
+							         <p>Result: {{result}}</p>
+							         		
+				         
+							      </div>
+
+ 
+ <div ng-app = "gemStore" ng-controller = "HomeCtrl">
+ <input ng-model="user.email" type="email" class="form-control" placeholder="Email address" required="" autofocus=""/>
+            <input ng-model="user.password" type="password" class="form-control" placeholder="Password" required=""/>
+            <label class="checkbox">
+                <a href="#"> Sign Up</a>
+        </label>
+        <button type="button" class="btn btn-lg btn-primary btn-block">SignIn</button>
+        
+        <button type="button" ng-click="SignIn($event)" class="btn btn-lg btn-primary btn-block">SignIn</button>
+ </div>
+						</div>                    
+	                    
+	                    
+	                    <!-- Aquesta part no cambiarà  Angular -->
+	                    
+	                    <p>DonecCC id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	                <b:column col-md="4">
+	                    <h2>Heading</h2>
+	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+	                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	                    <p><b:button outcome="" value="View details »"/></p>
+	                </b:column>
+	            </b:row>
+	            
+			</b:container>
+
+</ui:fragment>
