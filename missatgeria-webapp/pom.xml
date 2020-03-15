@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>war</packaging>
 	<artifactId>missatgeria-webapp</artifactId>
-	<name>BoundedContext missatgeria - Webapp</name>
+	<name>Missatgeria - Webapp</name>
 	<parent>
-		<artifactId>casino-boundedContext1</artifactId>
+		<artifactId>missatgeria-boundedContext</artifactId>
 		<groupId>com.degloba</groupId>
 		<version>4.4.3-SNAPSHOT</version>
-		<relativePath>../casino-boundedContext1/pom.xml</relativePath>
+		<relativePath>../missatgeria-boundedContext/pom.xml</relativePath>
 	</parent>
 
 
@@ -100,19 +100,16 @@
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade-impl</artifactId>
+			<artifactId>bmissatgeria-facade-impl</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-facade</artifactId>
+			<artifactId>missatgeria-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
-
-		<!-- <dependency> <groupId>${project.groupId}</groupId> <artifactId>boundedContext1-application</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -382,12 +379,6 @@
 		</dependency>
 
 
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>boundedContext1-cqrs</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-infrastructure</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> <scope>runtime</scope> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-persistence-rdbms</artifactId> 
-			</dependency> -->
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>org.springframework.binding</artifactId>
@@ -450,6 +441,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-bus</artifactId>
+			<version>2.0.8.RELEASE</version>
 		</dependency>
 	</dependencies>
 
