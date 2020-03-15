@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.degloba</groupId>
+		<artifactId>viatges-boundedContext</artifactId>
+		<version>4.4.3-SNAPSHOT</version>
+		<relativePath>../viatges-boundedContext/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>viatges-eventsourcing</artifactId>
+	<name>Viatges - EventSourcing</name>
+
+	<dependencies>
+			<dependency>
+			<groupId>org.axonframework.extensions.amqp</groupId>
+			<artifactId>axon-amqp-spring-boot-starter</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-domain</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>viatges-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>viatges-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<eventuateClientVersion>LATEST_VERSION</eventuateClientVersion>
+		<eventuateLocalVersion>LATEST_VERSION</eventuateLocalVersion>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/com/degloba/eventsourcing/viatges/eventuate/*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<url>https://jcenter.bintray.com</url>
+		</repository>
+	</repositories>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>MicroServei basat en events utilitzant Eventuate FrameWork</description>
+	<url>www.degloba.com</url>
+</project>
