@@ -3,11 +3,11 @@ package com.degloba.webapp.listeners;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
+/*import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Categoria;
 import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Location;
 import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Producte;
 import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.Propietari;
-import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;
+import com.degloba.lloguers.domain.persistence.nosql.impl.googleDatastore.api.objectify.SubCategoria;*/
 import com.googlecode.objectify.ObjectifyService;
 
 /**

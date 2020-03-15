@@ -11,7 +11,7 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import com.degloba.ecommerce.eventsourcing.events.PrivateAddressCreatedEvent;
+//import com.degloba.ecommerce.eventsourcing.events.PrivateAddressCreatedEvent;
 import com.degloba.persones.cqrs.commands.CreatePrivateAddressCommand;
 import com.degloba.persones.cqrs.commands.RejectPrivateAddressCommand;
 import com.degloba.persones.cqrs.commands.RequestPrivateAddressValidationCommand;
@@ -82,11 +82,11 @@ public class Adreca {
     @EventHandler
     public void on(PrivateAddressCreatedEvent event) {
         log.debug("[Address][Aggregate][Event] Processing new private address created event: {}", event);
-        this.adrecaId = event.getAdrecaId();
+    /*    this.adrecaId = event.getAdrecaId();
         this.personaId = event.getPersonaId();
         this.carrerINumero = event.getCarrerINumero();
         this.zipCode = event.getZipCode();
-        this.validationStatus = ValidationStatus.Initial;
+        this.validationStatus = ValidationStatus.Initial;*/
     }
 
     @EventHandler
