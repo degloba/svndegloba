@@ -17,9 +17,6 @@
         <dependent-module archiveName="organitzacio-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/organitzacio-eventsourcing/organitzacio-eventsourcing">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="organitzacio-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/organitzacio-domain/organitzacio-domain">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="organitzacio-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/organitzacio-cqrs/organitzacio-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -27,6 +24,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="organitzacio-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/organitzacio-facade/organitzacio-facade">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="organitzacio-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/organitzacio-domain/organitzacio-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">
