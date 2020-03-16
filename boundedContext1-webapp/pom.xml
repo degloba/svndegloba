@@ -413,7 +413,6 @@
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>mockwebserver</artifactId>
-			<version>4.0.1</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -554,5 +553,6 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
+	<url>www.degloba.com</url>
 </project>
     

@@ -85,10 +85,6 @@
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-rdbms</artifactId>
-		</dependency>
 
 
 		<dependency>
@@ -117,6 +113,10 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-ioc-spring</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
 		</dependency>
 	</dependencies>
 

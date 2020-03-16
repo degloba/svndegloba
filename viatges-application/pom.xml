@@ -17,11 +17,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-integration</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 
 
 
@@ -44,12 +39,12 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>viatges-eventsourcing</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>viatges-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>viatges-cqrs</artifactId>
+			<artifactId>degloba-integration</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

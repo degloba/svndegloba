@@ -29,10 +29,6 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>degloba-domain</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
 			<artifactId>viatges-domain</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>

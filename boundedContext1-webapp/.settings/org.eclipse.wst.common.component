@@ -9,12 +9,6 @@
         <dependent-module archiveName="viatges-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-application/viatges-application">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="boundedContext1-integration-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-integration/boundedContext1-integration">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="viatges-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-eventsourcing/viatges-eventsourcing">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="viatges-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-cqrs/viatges-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -27,9 +21,6 @@
         <dependent-module archiveName="viatges-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-domain/viatges-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="degloba-persistence-nosql-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-nosql/degloba-persistence-nosql">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -37,6 +28,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-event-api-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-event-api/degloba-event-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
