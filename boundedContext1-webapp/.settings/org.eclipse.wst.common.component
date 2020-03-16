@@ -3,19 +3,28 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="boundedContext1-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-cqrs/viatges-cqrs">
+        <dependent-module archiveName="viatges-facade-impl-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-facade-impl/viatges-facade-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="viatges-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-application/viatges-application">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="boundedContext1-integration-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/boundedContext1-integration/boundedContext1-integration">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="lloguers-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lloguers-cqrs/lloguers-cqrs">
+        <dependent-module archiveName="viatges-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-eventsourcing/viatges-eventsourcing">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="viatges-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-cqrs/viatges-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="lloguers-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lloguers-domain/lloguers-domain">
+        <dependent-module archiveName="viatges-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-facade/viatges-facade">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="viatges-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/viatges-domain/viatges-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">

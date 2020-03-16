@@ -9,6 +9,8 @@ import javax.persistence.Embeddable;
 
 import org.apache.commons.lang3.Validate;
 
+import lombok.Data;
+
 
 /**
  * @category Un agregat és un grup d'objectes de negoci que sempre han de ser consistents.
@@ -20,6 +22,7 @@ import org.apache.commons.lang3.Validate;
  */
 @SuppressWarnings("serial")
 @Embeddable
+@Data
 public class AggregateId implements Serializable {
 	
 	@Column(name = "aggregateId", length = 255, unique=true, nullable=false)
