@@ -1,4 +1,4 @@
-package com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris;
+package com.degloba.viatges.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,21 +25,20 @@ import org.springframework.data.mongodb.core.query.Query;
 
 // Domain
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.IPersonRepository;
-import com.degloba.messaging.domain.persistence.nosql.impl.mongo.api.spring.usuaris.Person;
+import com.degloba.viatges.domain.persistence.nosql.impl.mongo.api.spring.usuaris.IViatgesRepository;
 
 
 /** 
  *  @category Repositori + NoSQL : {@link Person}s 
  */ 
 @DomainRepositoryImpl
-public class PersonRepository implements IPersonRepository{ 
-	static final Logger logger = LoggerFactory.getLogger(PersonRepository.class); 
+public class ViatgesRepository implements IViatgesRepository{ 
+	static final Logger logger = LoggerFactory.getLogger(ViatgesRepository.class); 
 
 	@Autowired 
 	MongoTemplate mongoTemplate; 
 	
-	private Class<Person> clazz = null;
+	/*private Class<Reserva> clazz = null;
 	
 	public MongoTemplate getMongoTemplate() {
 		return mongoTemplate;
@@ -61,17 +60,17 @@ public class PersonRepository implements IPersonRepository{
 		mongoTemplate.insert(p); 
 		} 
 
-	/** 
+	*//** 
 	 *  Create a {@link Person} collection if the collection does not already exists 
-	 *  */ 
+	 *  *//* 
 	
 	public void createPersonCollection() { 
 		if (!mongoTemplate.collectionExists(Person.class)) { 
 			mongoTemplate.createCollection(Person.class); } } 
 	
-	/** 
+	*//** 
 	 * * Drops the {@link Person} collection if the collection does already exists 
-	 * */ 
+	 * *//* 
 	public void dropPersonCollection() { 
 		if (mongoTemplate.collectionExists(Person.class)) { 
 			mongoTemplate.dropCollection(Person.class); 
@@ -83,7 +82,7 @@ public class PersonRepository implements IPersonRepository{
 		return this.insert(entities);
 	}
 		
-	/*@Override
+	@Override
 	public <S extends Person> List<S> save(Iterable<S> entities) {
 		return this.save(entities);
 		
@@ -106,13 +105,13 @@ public class PersonRepository implements IPersonRepository{
         }
 
         return result;
-	}*/
+	}
 	
 	@Override
 	public List<Person> findAll() {		
 		return this.findAll();
 		
-		/*logger.info("PersonRepository:findAll",clazz);
+		logger.info("PersonRepository:findAll",clazz);
         if(clazz != null){
             logger.info(Person.class.getName());
             List<Person> list = mongoTemplate.findAll(clazz);
@@ -121,15 +120,15 @@ public class PersonRepository implements IPersonRepository{
         } else {
             logger.info("You miss the class!");
             return null;
-        }		*/
+        }		
 	}
 	
 	@Override
 	public List<Person> findAll(Sort sort) {
 		return this.findAll(sort);
 		
-		/*Query query = new Query().with(sort);
-		return mongoTemplate.find(query,Person.class);	*/		
+		Query query = new Query().with(sort);
+		return mongoTemplate.find(query,Person.class);			
 	}
 	
 	@Override
@@ -147,7 +146,7 @@ public class PersonRepository implements IPersonRepository{
 		return this.save(entity);		
 	}
 	
-	/*@Override
+	@Override
 	public Person findOne(String id) {
 		return mongoTemplate.findOne(new Query(Criteria.where("id").is(id)), clazz) ;
 	}
@@ -163,7 +162,7 @@ public class PersonRepository implements IPersonRepository{
 	@Override
 	public Iterable<Person> findAll(Iterable<String> ids) {
 		return this.findAll(ids);
-	}*/
+	}
 	
 	@Override
 	public long count() {
@@ -176,20 +175,20 @@ public class PersonRepository implements IPersonRepository{
         }
 	}
 	
-	/*@Override
+	@Override
 	public void delete(String id) {
 		this.delete(id);		
-	}*/
+	}
 	
 	@Override
 	public void delete(Person entity) {
 		this.delete(entity);		
 	}
 	
-	/*@Override
+	@Override
 	public void delete(Iterable<? extends Person> entities) {
 		this.delete(entities);		
-	}*/
+	}
 	
 	@Override
 	public void deleteAll() {
@@ -297,7 +296,7 @@ public class PersonRepository implements IPersonRepository{
 	public <S extends Person> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
-	}
+	}*/
 
 
 

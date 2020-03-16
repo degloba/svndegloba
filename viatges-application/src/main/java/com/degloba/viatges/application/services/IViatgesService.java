@@ -1,5 +1,7 @@
 package com.degloba.viatges.application.services;
 
+import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
 import com.degloba.viatges.application.SearchCriteria;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel;
 import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
@@ -13,6 +15,7 @@ import java.util.List;
  */
 public interface IViatgesService {
 
+	<T extends BaseAggregateRoot> T getEntity(Class<T> entityClass, AggregateId entityId);
 
     /**
      * @param username el nom d'usuari
@@ -70,5 +73,7 @@ public interface IViatgesService {
      * @param bo Reserva to persist
      */
     void persistReserva(Reserva reserva);
+
+	void creaReserva(Reserva reserva);
 }
 

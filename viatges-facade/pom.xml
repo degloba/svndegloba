@@ -15,7 +15,7 @@
        
 	    <dependency>
 	    	<groupId>com.degloba</groupId>
-	    	<artifactId>boundedContext1-domain</artifactId>
+	    	<artifactId>viatges-domain</artifactId>
 	    	<version>${project.version}</version>
 	    	<exclusions>
 	    		<exclusion>

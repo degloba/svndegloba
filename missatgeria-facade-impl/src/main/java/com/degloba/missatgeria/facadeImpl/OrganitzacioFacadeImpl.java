@@ -6,13 +6,6 @@ import javax.inject.Inject;
 
 import com.degloba.missatgeria.facadeImpl.assembler.OrganizationAssembler;
 import com.degloba.missatgeria.facadeImpl.assembler.PostAssembler;
-import com.degloba.organisation.application.services.IOrganitzacioService;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
-import com.degloba.organitzacio.facade.dtos.PostDto;
-import com.degloba.organitzacio.facade.ui.IOrganitzacioFacade;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
 
 import lombok.Value;

@@ -1,19 +1,15 @@
-package com.degloba.organitzacio.facadeImpl;
+package com.degloba.viatges.facadeImpl;
 
 import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.degloba.organisation.application.services.IOrganitzacioService;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Organitzacio;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Party;
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
-import com.degloba.organitzacio.facade.dtos.PostDto;
-import com.degloba.organitzacio.facade.ui.IOrganitzacioFacade;
-import com.degloba.organitzacio.facadeImpl.assembler.OrganizationAssembler;
-import com.degloba.organitzacio.facadeImpl.assembler.PostAssembler;
+import com.degloba.viatges.application.services.IViatgesService;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.viatges.facade.dtos.ReservaDto;
+import com.degloba.viatges.facade.ui.IViatgesFacade;
+import com.degloba.viatges.facadeImpl.assembler.ReservaAssembler;
 
 import lombok.Value;
 
@@ -23,23 +19,22 @@ import lombok.Value;
  * 
  */
 @Value
-public class OrganitzacioFacadeImpl implements IOrganitzacioFacade {
+public class ViatgesFacadeImpl implements IViatgesFacade {
 
     @Inject
-    protected IOrganitzacioService application;
+    protected IViatgesService application;
 
-    public OrganitzacioFacadeImpl(IOrganitzacioService application) {
+    public ViatgesFacadeImpl(IViatgesService application) {
         this.application = application;
     }
 
     @Override
-    public void creaOrganitzacio(OrganitzacioDto orgToCreate, AggregateId parentOrgId, Date date) {
-        Organitzacio organitzacio = new OrganizationAssembler().toEntity(orgToCreate);
-        Organitzacio parent = application.getEntity(Organitzacio.class, parentOrgId);
-        application.creaOrganitzacio(organitzacio, parent, date);
+    public void creaReserva(ReservaDto reservaDto) {
+        Reserva reserva = new ReservaAssembler().toEntity(reservaDto);
+        application.creaReserva(reserva);
     }
 
-    @Override
+/*    @Override
     public void terminateParty(AggregateId partyId, Date date) {
         Party party = application.getEntity(Party.class, partyId);
         application.terminateParty(party, date);
@@ -71,6 +66,6 @@ public class OrganitzacioFacadeImpl implements IOrganitzacioFacade {
 		// TODO Auto-generated method stub
 		application.cretePost(post);
 		
-	}
+	}*/
 	
 }

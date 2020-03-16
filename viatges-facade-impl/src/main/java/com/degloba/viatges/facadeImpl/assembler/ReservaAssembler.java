@@ -1,15 +1,20 @@
-package com.degloba.organitzacio.facadeImpl.assembler;
+package com.degloba.viatges.facadeImpl.assembler;
 
-import com.degloba.organitzacio.domain.persistence.rdbms.jpa.Post;
-import com.degloba.organitzacio.facade.dtos.PostDto;
+import com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva;
+import com.degloba.viatges.facade.dtos.ReservaDto;
 
-
-public class PostAssembler {
-    public Post toEntity(PostDto postDto) {
+/**
+ * @category 
+ * 
+ * @author degloba
+ *
+ */
+public class ReservaAssembler {
+    public Reserva toEntity(ReservaDto reservaDto) {
     	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public PostDto toDto(Post post) {
+    public ReservaDto toDto(Reserva reserva) {
         return null;
     }
 }

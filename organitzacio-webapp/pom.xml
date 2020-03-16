@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>war</packaging>
 	<artifactId>organitzacio-webapp</artifactId>
-	<name>BOrganitzacio - Webapp</name>
+	<name>Organitzacio - Webapp</name>
 	<parent>
 		<artifactId>organitzacio-boundedContext</artifactId>
 		<groupId>com.degloba</groupId>

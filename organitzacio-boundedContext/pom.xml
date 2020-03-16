@@ -13,7 +13,7 @@
 
 	<artifactId>organitzacio-boundedContext</artifactId>
 	<packaging>pom</packaging>
-	<name>MiOrganitzacio - boundedContext</name>
+	<name>Organitzacio - BoundedContext</name>
 
 
 	<dependencyManagement>

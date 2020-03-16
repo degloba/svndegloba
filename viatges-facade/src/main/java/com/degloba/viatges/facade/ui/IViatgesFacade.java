@@ -1,28 +1,15 @@
-package com.degloba.organitzacio.facade.ui;
+package com.degloba.viatges.facade.ui;
 
-import java.util.Date;
 
-import com.degloba.organitzacio.facade.dtos.OrganitzacioDto;
-import com.degloba.organitzacio.facade.dtos.PostDto;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.viatges.facade.dtos.ReservaDto;
 
 
 /**
  * @author degloba
  * 
  */
-public interface IOrganitzacioFacade {
+public interface IViatgesFacade {
 
-    void creaOrganitzacio(OrganitzacioDto orgToCreate, AggregateId parentOrgId, Date date);
-
-    void terminateParty(AggregateId partyId, Date date);
-
-    void changeParentOfOrganization(AggregateId organizationId, AggregateId newParentId, Date date);
-
-    void createPostUnderOrganization(PostDto postDto, AggregateId organizationId, Date date);
-
-    PostDto getPost(AggregateId postId);
-    
-    void setPost(PostDto post);
+    void creaReserva(ReservaDto orgToCreate);
 
 }
