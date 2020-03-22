@@ -4,13 +4,13 @@
     
     <parent>
         <groupId>com.degloba</groupId>
-        <artifactId>casino-boundedContext1</artifactId>
+        <artifactId>viatges-boundedContext</artifactId>
         <version>4.4.3-SNAPSHOT</version>
-        <relativePath>../casino-boundedContext1/pom.xml</relativePath>
+        <relativePath>../viatges-boundedContext/pom.xml</relativePath>
     </parent>
     
-    <artifactId>boundedContext1-integration</artifactId>
-    <name>Casino - boundedContext1 - Integration</name>
+    <artifactId>viatges-integration</artifactId>
+    <name>Viatges - Integration</name>
     <url>http://maven.apache.org</url>
     
     
