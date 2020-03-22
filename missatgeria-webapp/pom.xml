@@ -242,14 +242,6 @@
 			<version>${google.appengine.version}</version>
 		</dependency>
 
-
-		<dependency>
-			<groupId>juel</groupId>
-			<artifactId>juel-impl</artifactId>
-			<version>2.2.1</version>
-		</dependency>
-
-
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-security</artifactId>
@@ -263,11 +255,11 @@
 		</dependency>
 
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 		</dependency>
-
+ -->
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -417,7 +409,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
+				<version>3.2.3</version>
 				<configuration>
 					<webResources>
 						<resources>

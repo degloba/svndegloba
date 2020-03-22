@@ -5,10 +5,28 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources/META-INF"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources"/>
+        <dependent-module archiveName="missatgeria-facade-impl-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-facade-impl/missatgeria-facade-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="missatgeria-application-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-application/missatgeria-application">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="missatgeria-eventsourcing-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-eventsourcing/missatgeria-eventsourcing">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="missatgeria-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-cqrs/missatgeria-cqrs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="missatgeria-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-facade/missatgeria-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="missatgeria-domain-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/missatgeria-domain/missatgeria-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-persistence-rdbms-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-rdbms/degloba-persistence-rdbms">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">

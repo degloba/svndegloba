@@ -13,7 +13,7 @@
 
 	<artifactId>missatgeria-boundedContext</artifactId>
 	<packaging>pom</packaging>
-	<name>Missatgeria - boundedContext</name>
+	<name>Missatgeria - BoundedContext</name>
 
 
 	<dependencyManagement>
@@ -70,7 +70,7 @@
 			<dependency>
 				<groupId>com.mchange</groupId>
 				<artifactId>c3p0</artifactId>
-				<version>0.9.2.1</version>
+				<version>0.9.5.4</version>
 			</dependency>
 
 			<dependency>

@@ -101,14 +101,6 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>lloguers-facade-impl</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>lloguers-facade</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -145,10 +137,6 @@
 
 		<!-- used to convert the response data into JSON string. Necessari per 
 			la classe/bean jsonMessageConverter -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
 
 
 		<!-- Spring WebFlow -->
@@ -281,18 +269,6 @@
 			<groupId>commons-codec</groupId> </exclusion> </exclusions> </dependency> -->
 
 
-
-		<!-- <dependency> <groupId>gmultipart</groupId> <artifactId>gmultipart</artifactId> 
-			<version>0.4</version> </dependency> -->
-
-
-		<dependency>
-			<groupId>juel</groupId>
-			<artifactId>juel-impl</artifactId>
-			<version>2.2.1</version>
-		</dependency>
-
-
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-security</artifactId>
@@ -303,12 +279,6 @@
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
 		</dependency>
 
 
@@ -454,7 +424,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
+				<version>3.2.3</version>
 				<configuration>
 					<webResources>
 						<resources>

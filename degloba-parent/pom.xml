@@ -49,10 +49,10 @@
 		<myfaces.version>2.2.10</myfaces.version>
 
 		<uel.version>2.2</uel.version>
-		<poi.version>3.9</poi.version>
+		<poi.version>4.1.2</poi.version>
 
 		<!-- Google Appengine -->
-		<google.appengine.version>1.9.76</google.appengine.version>
+		<google.appengine.version>1.9.78</google.appengine.version>
 		<google-cloud-pubsub.version>1.62.0</google-cloud-pubsub.version>
 
 
@@ -78,34 +78,43 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<axon.version>4.1.1</axon.version>
 		<axon.amqp.version>4.1</axon.amqp.version>
-		<spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+		<spring.boot.version>2.3.0.M2</spring.boot.version>
 		<springfox.swagger2.version>2.9.2</springfox.swagger2.version>
 
 		<!-- PLUGINS -->
 
 		<appengine.maven.plugin.version>1.3.2</appengine.maven.plugin.version>
+
 		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
 		<maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
 		<maven-javadoc-plugin>3.0.1</maven-javadoc-plugin>
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
+		<maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
+		<maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+		<maven.assembly.plugin.version>3.2.0</maven.assembly.plugin.version>
+		<maven.bundle.plugin.version>4.2.1</maven.bundle.plugin.version>
+		<maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
+		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+		<maven.release.plugin.version>3.0.0-M1</maven.release.plugin.version>
+		<maven.site.plugin.version>3.9.0</maven.site.plugin.version>
+		<maven.bundle.plugin.version>4.2.1</maven.bundle.plugin.version>
+
+		<spring.boot.maven.plugin>2.2.5.RELEASE</spring.boot.maven.plugin>
 
 
 		<googleCloud.version>1.65.0</googleCloud.version>
 
-		<lombok.version>1.18.8</lombok.version>
+		<lombok.version>1.18.12</lombok.version>
 	</properties>
 
 	<repositories>
 
 		<repository>
 			<id>org.springframework.maven.milestone</id>
-			<url>https://maven.springframework.org/milestone</url>			
+			<url>https://maven.springframework.org/milestone</url>
 		</repository>
-		<repository>
-			<id>DataNucleus</id>
-			<url>http://www.datanucleus.org/downloads/maven2/</url>
-		</repository>
+		<!-- <repository> <id>DataNucleus</id> <url>http://www.datanucleus.org/downloads/maven2/</url> 
+			</repository> -->
 
 
 	</repositories>
@@ -157,11 +166,10 @@
 				<version>${hornetq.version}</version>
 			</dependency>
 
-			<!-- -->
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
-				<version>3.3</version>
+				<version>3.9</version>
 			</dependency>
 
 			<!-- -->
@@ -213,8 +221,6 @@
 				<artifactId>datanucleus-api-jpa</artifactId>
 				<version>${datanucleus.jpa.version}</version>
 			</dependency>
-			<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-json</artifactId> 
-				<version>${datanucleus.maven.plugin}</version> </dependency> -->
 
 			<dependency>
 				<groupId>org.apache.geronimo.specs</groupId>
@@ -390,8 +396,6 @@
 			</dependency>
 
 
-
-
 			<dependency>
 				<groupId>com.degloba</groupId>
 				<artifactId>degloba-persistence-rdbms</artifactId>
@@ -480,20 +484,20 @@
 	<dependencies>
 
 		<!-- Test Dependencies -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 		</dependency>
-		
-					<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-			</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 
 	</dependencies>
@@ -501,6 +505,7 @@
 
 	<build>
 		<pluginManagement>
+
 			<plugins>
 				<!-- This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
@@ -517,11 +522,8 @@
 						<useIncrementalCompilation>false</useIncrementalCompilation>
 					</configuration>
 				</plugin>
-				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-deploy-plugin</artifactId> 
-					<version>2.8.2</version> <dependencies> <dependency> <groupId>commons-logging</groupId> 
-					<artifactId>commons-logging</artifactId> <version>1.1.3</version> </dependency> 
-					<dependency> <groupId>org.apache.maven.wagon</groupId> <artifactId>wagon-webdav-jackrabbit</artifactId> 
-					<version>2.8</version> </dependency> </dependencies> </plugin> -->
+				<!-- <plugin> <groupId>org.apache.maven.plugins </groupId> <artifactId>maven-deploy-plugin</artifactId> 
+					<version>2.8.2</version> </plugin> -->
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -548,7 +550,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.1.1</version>
+					<version>${maven.jar.plugin.version}</version>
 					<configuration>
 						<archive>
 							<!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile> -->
@@ -561,7 +563,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.5.3</version>
+					<version>${maven.assembly.plugin.version}</version>
 					<configuration>
 						<descriptorRefs>
 							<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -574,7 +576,7 @@
 				<plugin>
 					<groupId>org.apache.felix</groupId>
 					<artifactId>maven-bundle-plugin</artifactId>
-					<version>2.5.3</version>
+					<version>${maven.bundle.plugin.version}</version>
 					<extensions>true</extensions>
 					<executions>
 						<execution>
@@ -590,7 +592,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.4</version>
+					<version>${maven.site.plugin.version}</version>
 					<configuration>
 						<locales>zh_CN</locales>
 					</configuration>
@@ -615,7 +617,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.5.1</version>
+					<version>${maven.release.plugin.version}</version>
 					<configuration>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 					</configuration>
@@ -623,7 +625,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>2.4</version>
+					<version>${maven.source.plugin.version}</version>
 					<executions>
 						<execution>
 							<id>attach-sources</id>
@@ -636,7 +638,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.10.1</version>
+					<version>${maven.javadoc.plugin.version}</version>
 					<configuration>
 						<minmemory>128m</minmemory>
 						<maxmemory>1024m</maxmemory>
@@ -687,13 +689,20 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>2.1.6.RELEASE</version>
+					<version>${spring.boot.maven.plugin}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>${maven-install-plugin.version}</version>
+					<version>${maven.install.plugin.version}</version>
 				</plugin>
 
 			</plugins>

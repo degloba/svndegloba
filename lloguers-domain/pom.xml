@@ -16,69 +16,13 @@
 	<dependencies>
 
 
-
-
-
-		<dependency>
-			<groupId>org.axonframework</groupId>
-			<artifactId>axon-spring</artifactId>
-		</dependency>
-		
-
-		<!-- ****************** -->
-		<!-- Llibreries degloba -->
-		<!-- ****************** -->
-
-
-		<!-- ******* -->
-		<!-- Spring -->
-		<!-- ******* -->
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
-		<!-- *********************************************************************** -->
-		<!-- Database Connection Pools (https://cloud.google.com/sql/faq#connections) -->
-		<!-- *********************************************************************** -->
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- ************************************ -->
 		<!-- Per testejar contra Appengine Google -->
 		<!-- ************************************ -->
 		<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-api-labs</artifactId> 
 			<scope>test</scope> </dependency> <dependency> <groupId>com.google.appengine</groupId> 
 			<artifactId>appengine-api-stubs</artifactId> <scope>test</scope> </dependency> -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-tools-sdk</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -105,19 +49,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-amqp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-ioc-spring</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 
@@ -139,13 +70,6 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-
-			<!-- <plugin> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-maven-plugin</artifactId> 
-				<version>5.0.0-release</version> <configuration> <api>JPA</api> <persistenceUnitName>transactions-optional</persistenceUnitName> 
-				<log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration> <verbose>true</verbose> 
-				</configuration> <executions> <execution> <phase>process-classes</phase> 
-				<goals> <goal>enhance</goal> </goals> </execution> </executions> </plugin> -->
-
 
 		</plugins>
 

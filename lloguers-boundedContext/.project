@@ -3,11 +3,6 @@
 	<name>lloguers-boundedContext</name>
 	<comment></comment>
 	<projects>
-		<project>boundedContext1-application</project>
-		<project>boundedContext1-domain</project>
-		<project>boundedContext1-facade</project>
-		<project>boundedContext1-facade-impl</project>
-		<project>boundedContext1-webapp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

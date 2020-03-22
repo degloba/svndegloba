@@ -56,7 +56,7 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>boundedContext1-facade</artifactId>
+			<artifactId>ecommerce-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
 		

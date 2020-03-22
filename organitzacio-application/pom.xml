@@ -17,13 +17,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>boundedContext1-integration</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-
 
 		<!-- ******************************************* -->
 		<!-- per proves (classe : ServicesConfiguration) -->

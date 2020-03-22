@@ -18,14 +18,10 @@
 	<dependencies>
 
 
-
-
 		<!-- ******************************************* -->
 		<!-- per proves (classe : ServicesConfiguration) -->
 		<!-- ******************************************* -->
 
-		<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-api-jpa</artifactId> 
-			</dependency> -->
 
 		<dependency>
 			<groupId>org.axonframework</groupId>
@@ -46,6 +42,10 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-integration</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-persistence-rdbms</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -31,39 +31,31 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-ioc-spring</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-event-api</artifactId>
-
-		</dependency>
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-datastore</artifactId>
 			<version>1.16.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-		</dependency>
 
 
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>15.0</version>
-			<type>0.jar</type>
-			<classifier>cdi1</classifier>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-utilitats</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-event-api</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -80,7 +72,7 @@
 						<skipTests>true</skipTests>
 					</configuration>
 				</plugin>
-				<plugin>
+				<!-- <plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
 					<version>1.0.0</version>
@@ -106,7 +98,7 @@
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
-				</plugin>
+				</plugin> -->
 			</plugins>
 		</pluginManagement>
 

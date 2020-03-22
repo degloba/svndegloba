@@ -140,12 +140,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-maven-plugin</artifactId> 
-				<version>5.0.0-release</version> <configuration> <api>JPA</api> <persistenceUnitName>transactions-optional</persistenceUnitName> 
-				<log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration> <verbose>true</verbose> 
-				</configuration> <executions> <execution> <phase>process-classes</phase> 
-				<goals> <goal>enhance</goal> </goals> </execution> </executions> </plugin> -->
-
 
 		</plugins>
 

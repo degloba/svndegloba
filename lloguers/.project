@@ -3,7 +3,6 @@
 	<name>lloguers</name>
 	<comment></comment>
 	<projects>
-		<project>casino-boundedContext1</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
