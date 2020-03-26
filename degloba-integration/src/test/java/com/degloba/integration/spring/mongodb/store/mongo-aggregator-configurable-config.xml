@@ -16,8 +16,9 @@
 		<int:queue/>
 	</int:channel>
 
-	<bean id="mongoStore" class="org.springframework.integration.mongodb.store.MongoDbMessageStore">
-		<constructor-arg value="#{T (org.springframework.integration.mongodb.store.MongoDbMessageGroupStoreTests).MONGO_DATABASE_FACTORY}"/>
+	<bean id="mongoStore" class="org.springframework.integration.mongodb.store.ConfigurableMongoDbMessageStore">
+		<constructor-arg
+				value="#{T (org.springframework.integration.mongodb.store.ConfigurableMongoDbMessageGroupStoreTests).MONGO_DATABASE_FACTORY}"/>
 	</bean>
 
 </beans>

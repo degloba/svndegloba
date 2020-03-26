@@ -1,19 +1,28 @@
+/*
+ * Copyright 2015-2020 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.degloba.integration.spring.mongodb.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
 
-// Spring Data
-import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
-// Spring Integration
 import org.springframework.integration.mongodb.metadata.MongoDbMetadataStore;
 
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
@@ -21,12 +30,14 @@ import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
 
 /**
  * @author Senthil Arumugam, Samiraj Panneer Selvam
+ * @author Artem Bilan
+ *
  * @since 4.2
  *
  */
 public class MongoDbMetadataStoreTests extends MongoDbAvailableTests {
 
-	private final static String DEFAULT_COLLECTION_NAME = "metadataStore";
+	private static final String DEFAULT_COLLECTION_NAME = "metadataStore";
 
 	private final String file1 = "/remotepath/filesTodownload/file-1.txt";
 
@@ -35,16 +46,16 @@ public class MongoDbMetadataStoreTests extends MongoDbAvailableTests {
 	private MongoDbMetadataStore store = null;
 
 	@Before
-	public void configure() throws Exception {
-		final MongoDbFactory mongoDbFactory = this.prepareMongoFactory(DEFAULT_COLLECTION_NAME);
+	public void configure() {
+		final MongoDatabaseFactory mongoDbFactory = this.prepareMongoFactory(DEFAULT_COLLECTION_NAME);
 		this.store = new MongoDbMetadataStore(mongoDbFactory);
 	}
 
 	@MongoDbAvailable
 	@Test
-	public void testConfigureCustomCollection() throws Exception {
+	public void testConfigureCustomCollection() {
 		final String collectionName = "testMetadataStore";
-		final MongoDbFactory mongoDbFactory = this.prepareMongoFactory(collectionName);
+		final MongoDatabaseFactory mongoDbFactory = this.prepareMongoFactory(collectionName);
 		final MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		store = new MongoDbMetadataStore(template, collectionName);
 		testBasics();
@@ -52,30 +63,30 @@ public class MongoDbMetadataStoreTests extends MongoDbAvailableTests {
 
 	@MongoDbAvailable
 	@Test
-	public void testConfigureFactory() throws Exception {
-		final MongoDbFactory mongoDbFactory = this.prepareMongoFactory(DEFAULT_COLLECTION_NAME);
+	public void testConfigureFactory() {
+		final MongoDatabaseFactory mongoDbFactory = this.prepareMongoFactory(DEFAULT_COLLECTION_NAME);
 		store = new MongoDbMetadataStore(mongoDbFactory);
 		testBasics();
 	}
 
 	@MongoDbAvailable
 	@Test
-	public void testConfigureFactorCustomCollection() throws Exception {
+	public void testConfigureFactorCustomCollection() {
 		final String collectionName = "testMetadataStore";
-		final MongoDbFactory mongoDbFactory = this.prepareMongoFactory(collectionName);
+		final MongoDatabaseFactory mongoDbFactory = this.prepareMongoFactory(collectionName);
 		store = new MongoDbMetadataStore(mongoDbFactory, collectionName);
 		testBasics();
 	}
 
 	private void testBasics() {
 		String fileID = store.get(file1);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 
 		store.put(file1, file1Id);
 
 		fileID = store.get(file1);
-		assertNotNull(fileID);
-		assertEquals(file1Id, fileID);
+		assertThat(fileID).isNotNull();
+		assertThat(fileID).isEqualTo(file1Id);
 	}
 
 	@Test
@@ -86,56 +97,55 @@ public class MongoDbMetadataStoreTests extends MongoDbAvailableTests {
 
 	@Test
 	@MongoDbAvailable
-	public void testPutIfAbsent() throws Exception {
+	public void testPutIfAbsent() {
 		String fileID = store.get(file1);
-		assertNull("Get First time, Key doesnt exists", fileID);
+		assertThat(fileID).as("Get First time, Value must not exist").isNull();
 
 		fileID = store.putIfAbsent(file1, file1Id);
-		assertNull("Insert First time, Key insertion successful", fileID);
+		assertThat(fileID).as("Insert First time, Value must return null").isNull();
 
 		fileID = store.putIfAbsent(file1, "56789");
-		assertNotNull("Key Already Exists - Insertion Failed, for different value", fileID);
-		assertEquals("Retrieving the Old Value", file1Id, fileID);
+		assertThat(fileID).as("Key Already Exists - Insertion Failed, ol value must be returned").isNotNull();
+		assertThat(fileID).as("The Old Value must be equal to returned").isEqualTo(file1Id);
 
-		assertEquals("Retrieving the Old Value", file1Id, store.get(file1));
+		assertThat(store.get(file1)).as("The Old Value must return").isEqualTo(file1Id);
 
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testRemove() throws Exception {
+	public void testRemove() {
 		String fileID = store.remove(file1);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 
 		fileID = store.putIfAbsent(file1, file1Id);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 
 		fileID = store.remove(file1);
-		assertNotNull(fileID);
-		assertEquals(file1Id, fileID);
+		assertThat(fileID).isNotNull();
+		assertThat(fileID).isEqualTo(file1Id);
 
 		fileID = store.get(file1);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testReplace() throws Exception {
+	public void testReplace() {
 		boolean removedValue = store.replace(file1, file1Id, "4567");
-		assertFalse(removedValue);
+		assertThat(removedValue).isFalse();
 		String fileID = store.get(file1);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 
 		fileID = store.putIfAbsent(file1, file1Id);
-		assertNull(fileID);
+		assertThat(fileID).isNull();
 
 		removedValue = store.replace(file1, file1Id, "4567");
-		assertTrue(removedValue);
+		assertThat(removedValue).isTrue();
 
 		fileID = store.get(file1);
-		assertNotNull(fileID);
-		assertEquals("4567", fileID);
-
+		assertThat(fileID).isNotNull();
+		assertThat(fileID).isEqualTo("4567");
 	}
 
 }

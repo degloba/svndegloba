@@ -1,40 +1,48 @@
+/*
+ * Copyright 2007-2020 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.degloba.integration.spring.mongodb.outbound;
 
-import static org.junit.Assert.assertEquals;
-
-// Mockito
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.bson.conversions.Bson;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 
-import org.junit.Test;
-
-// Spring
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.expression.common.LiteralExpression;
-import org.springframework.messaging.Message;
-
-// Spring Data
-import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.expression.common.LiteralExpression;
+import org.springframework.integration.mongodb.outbound.MongoDbStoringMessageHandler;
+import org.springframework.integration.support.MessageBuilder;
+import org.springframework.messaging.Message;
 
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
-
-// Spring Integration
-import org.springframework.integration.mongodb.outbound.MongoDbStoringMessageHandler;
-import org.springframework.integration.support.MessageBuilder;
-
-import com.mongodb.DBObject;
 
 /**
  * @author Amol Nayak
@@ -45,62 +53,71 @@ import com.mongodb.DBObject;
  */
 public class MongoDbStoringMessageHandlerTests extends MongoDbAvailableTests {
 
-	@Test(expected=IllegalArgumentException.class)
-	public void withNullMongoDBFactory() {
-		new MongoDbStoringMessageHandler((MongoDbFactory)null);
-	}
+	private MongoTemplate template;
 
-	@Test(expected=IllegalArgumentException.class)
-	public void withNullMongoTemplate() {
-		new MongoDbStoringMessageHandler((MongoOperations)null);
+	private MongoDatabaseFactory mongoDbFactory;
+
+	@Before
+	public void setUp() {
+		mongoDbFactory = prepareMongoFactory("foo");
+		template = new MongoTemplate(mongoDbFactory);
 	}
 
 
 	@Test
 	@MongoDbAvailable
-	public void validateMessageHandlingWithDefaultCollection() throws Exception {
+	public void withNullMongoDBFactory() {
+		assertThatIllegalArgumentException()
+				.isThrownBy(() -> new MongoDbStoringMessageHandler((MongoDatabaseFactory) null));
+	}
 
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(mongoDbFactory);
+	@Test
+	@MongoDbAvailable
+	public void withNullMongoTemplate() {
+		assertThatIllegalArgumentException()
+				.isThrownBy(() -> new MongoDbStoringMessageHandler((MongoOperations) null));
+	}
+
+	@Test
+	@MongoDbAvailable
+	public void validateMessageHandlingWithDefaultCollection() {
+
+		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(this.mongoDbFactory);
 		handler.setBeanFactory(mock(BeanFactory.class));
 		handler.afterPropertiesSet();
 		Message<Person> message = MessageBuilder.withPayload(this.createPerson("Bob")).build();
 		handler.handleMessage(message);
 
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		Query query = new BasicQuery("{'name' : 'Bob'}");
 		Person person = template.findOne(query, Person.class, "data");
 
-		assertEquals("Bob", person.getName());
-		assertEquals("PA", person.getAddress().getState());
+		assertThat(person.getName()).isEqualTo("Bob");
+		assertThat(person.getAddress().getState()).isEqualTo("PA");
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void validateMessageHandlingWithNamedCollection() throws Exception {
+	public void validateMessageHandlingWithNamedCollection() {
 
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(mongoDbFactory);
+		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(this.mongoDbFactory);
 		handler.setCollectionNameExpression(new LiteralExpression("foo"));
 		handler.setBeanFactory(mock(BeanFactory.class));
 		handler.afterPropertiesSet();
 		Message<Person> message = MessageBuilder.withPayload(this.createPerson("Bob")).build();
 		handler.handleMessage(message);
 
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		Query query = new BasicQuery("{'name' : 'Bob'}");
 		Person person = template.findOne(query, Person.class, "foo");
 
-		assertEquals("Bob", person.getName());
-		assertEquals("PA", person.getAddress().getState());
+		assertThat(person.getName()).isEqualTo("Bob");
+		assertThat(person.getAddress().getState()).isEqualTo("PA");
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void validateMessageHandlingWithMongoConverter() throws Exception {
+	public void validateMessageHandlingWithMongoConverter() {
 
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(mongoDbFactory);
+		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(this.mongoDbFactory);
 		handler.setCollectionNameExpression(new LiteralExpression("foo"));
 		MappingMongoConverter converter = new TestMongoConverter(mongoDbFactory, new MongoMappingContext());
 		converter.afterPropertiesSet();
@@ -111,38 +128,36 @@ public class MongoDbStoringMessageHandlerTests extends MongoDbAvailableTests {
 		Message<Person> message = MessageBuilder.withPayload(this.createPerson("Bob")).build();
 		handler.handleMessage(message);
 
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
 		Query query = new BasicQuery("{'name' : 'Bob'}");
 		Person person = template.findOne(query, Person.class, "foo");
 
-		assertEquals("Bob", person.getName());
-		assertEquals("PA", person.getAddress().getState());
-		verify(converter, times(1)).write(Mockito.any(), (Bson) Mockito.any(DBObject.class));
+		assertThat(person.getName()).isEqualTo("Bob");
+		assertThat(person.getAddress().getState()).isEqualTo("PA");
+		verify(converter, times(1)).write(Mockito.any(), Mockito.any(Bson.class));
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void validateMessageHandlingWithMongoTemplate() throws Exception {
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		MappingMongoConverter converter = new TestMongoConverter(mongoDbFactory, new MongoMappingContext());
+	public void validateMessageHandlingWithMongoTemplate() {
+		MappingMongoConverter converter = new TestMongoConverter(this.mongoDbFactory, new MongoMappingContext());
 		converter.afterPropertiesSet();
 		converter = spy(converter);
-		MongoTemplate template = new MongoTemplate(mongoDbFactory, converter);
+		MongoTemplate writingTemplate = new MongoTemplate(this.mongoDbFactory, converter);
 
 
-		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(template);
+		MongoDbStoringMessageHandler handler = new MongoDbStoringMessageHandler(writingTemplate);
 		handler.setCollectionNameExpression(new LiteralExpression("foo"));
 		handler.setBeanFactory(mock(BeanFactory.class));
 		handler.afterPropertiesSet();
 		Message<Person> message = MessageBuilder.withPayload(this.createPerson("Bob")).build();
 		handler.handleMessage(message);
 
-		MongoTemplate readingTemplate = new MongoTemplate(mongoDbFactory);
 		Query query = new BasicQuery("{'name' : 'Bob'}");
-		Person person = readingTemplate.findOne(query, Person.class, "foo");
+		Person person = template.findOne(query, Person.class, "foo");
 
-		assertEquals("Bob", person.getName());
-		assertEquals("PA", person.getAddress().getState());
-		verify(converter, times(1)).write(Mockito.any(), (Bson) Mockito.any(DBObject.class));
+		assertThat(person.getName()).isEqualTo("Bob");
+		assertThat(person.getAddress().getState()).isEqualTo("PA");
+		verify(converter, times(1)).write(Mockito.any(), Mockito.any(Bson.class));
 	}
+
 }

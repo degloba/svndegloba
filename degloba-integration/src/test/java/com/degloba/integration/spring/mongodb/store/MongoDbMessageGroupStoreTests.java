@@ -1,16 +1,26 @@
+/*
+ * Copyright 2007-2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.degloba.integration.spring.mongodb.store;
 
-import com.mongodb.MongoClient;
 import org.junit.Test;
-
-// Spring Data
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
-
-import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
-
-// Spring Integration
 import org.springframework.integration.mongodb.store.MongoDbMessageStore;
 import org.springframework.integration.store.MessageStore;
+
+import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
 
 /**
  * @author Oleg Zhurakousky
@@ -21,20 +31,21 @@ import org.springframework.integration.store.MessageStore;
 public class MongoDbMessageGroupStoreTests extends AbstractMongoDbMessageGroupStoreTests {
 
 	@Override
-	protected MongoDbMessageStore getMessageGroupStore() throws Exception {
-		MongoDbMessageStore mongoDbMessageStore = new MongoDbMessageStore( new SimpleMongoDbFactory(new MongoClient(), "test"));
+	protected MongoDbMessageStore getMessageGroupStore() {
+		MongoDbMessageStore mongoDbMessageStore =
+				new MongoDbMessageStore(MONGO_DATABASE_FACTORY);
 		mongoDbMessageStore.afterPropertiesSet();
 		return mongoDbMessageStore;
 	}
 
 	@Override
-	protected MessageStore getMessageStore() throws Exception {
-		return this.getMessageGroupStore();
+	protected MessageStore getMessageStore() {
+		return getMessageGroupStore();
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithAggregatorWithShutdown() throws Exception {
+	public void testWithAggregatorWithShutdown() {
 		super.testWithAggregatorWithShutdown("mongo-aggregator-config.xml");
 	}
 

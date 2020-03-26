@@ -1,31 +1,40 @@
+/*
+ * Copyright 2002-2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.degloba.integration.spring.mongodb.store;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.Serializable;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import org.springframework.context.support.GenericApplicationContext;
-
-// Spring Data
-import org.springframework.data.mongodb.MongoDbFactory;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
-
-import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
-import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
-
-//Spring Integration
 import org.springframework.integration.mongodb.store.ConfigurableMongoDbMessageStore;
 import org.springframework.integration.mongodb.store.MongoDbMessageStore;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.integration.test.util.TestUtils;
 import org.springframework.integration.transformer.ClaimCheckInTransformer;
 import org.springframework.integration.transformer.ClaimCheckOutTransformer;
-
 import org.springframework.messaging.Message;
 
-import com.mongodb.MongoClient;
+import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
+import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
 
 /**
  * @author Mark Fisher
@@ -33,28 +42,38 @@ import com.mongodb.MongoClient;
  */
 public class MongoDbMessageStoreClaimCheckIntegrationTests extends MongoDbAvailableTests {
 
+	private final GenericApplicationContext testApplicationContext = TestUtils.createTestApplicationContext();
+
+	@Before
+	public void setup() {
+		this.testApplicationContext.refresh();
+	}
+
+	@After
+	public void tearDown() {
+		this.testApplicationContext.close();
+	}
+
 	@Test
 	@MongoDbAvailable
-	public void stringPayload() throws Exception {
-		MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(new MongoClient(), "test");
-		MongoDbMessageStore messageStore = new MongoDbMessageStore(mongoDbFactory);
+	public void stringPayload() {
+		MongoDbMessageStore messageStore = new MongoDbMessageStore(MONGO_DATABASE_FACTORY);
 		messageStore.afterPropertiesSet();
 		ClaimCheckInTransformer checkin = new ClaimCheckInTransformer(messageStore);
 		ClaimCheckOutTransformer checkout = new ClaimCheckOutTransformer(messageStore);
 		Message<?> originalMessage = MessageBuilder.withPayload("test1").build();
 		Message<?> claimCheckMessage = checkin.transform(originalMessage);
-		assertEquals(originalMessage.getHeaders().getId(), claimCheckMessage.getPayload());
+		assertThat(claimCheckMessage.getPayload()).isEqualTo(originalMessage.getHeaders().getId());
 		Message<?> checkedOutMessage = checkout.transform(claimCheckMessage);
-		assertEquals(claimCheckMessage.getPayload(), checkedOutMessage.getHeaders().getId());
-		assertEquals(originalMessage.getPayload(), checkedOutMessage.getPayload());
-		assertEquals(originalMessage, checkedOutMessage);
+		assertThat(checkedOutMessage.getHeaders().getId()).isEqualTo(claimCheckMessage.getPayload());
+		assertThat(checkedOutMessage.getPayload()).isEqualTo(originalMessage.getPayload());
+		assertThat(checkedOutMessage).isEqualTo(originalMessage);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void objectPayload() throws Exception {
-		MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(new MongoClient(), "test");
-		MongoDbMessageStore messageStore = new MongoDbMessageStore(mongoDbFactory);
+	public void objectPayload() {
+		MongoDbMessageStore messageStore = new MongoDbMessageStore(MONGO_DATABASE_FACTORY);
 		messageStore.afterPropertiesSet();
 		ClaimCheckInTransformer checkin = new ClaimCheckInTransformer(messageStore);
 		ClaimCheckOutTransformer checkout = new ClaimCheckOutTransformer(messageStore);
@@ -64,41 +83,35 @@ public class MongoDbMessageStoreClaimCheckIntegrationTests extends MongoDbAvaila
 		payload.setIced(false);
 		Message<?> originalMessage = MessageBuilder.withPayload(payload).build();
 		Message<?> claimCheckMessage = checkin.transform(originalMessage);
-		assertEquals(originalMessage.getHeaders().getId(), claimCheckMessage.getPayload());
+		assertThat(claimCheckMessage.getPayload()).isEqualTo(originalMessage.getHeaders().getId());
 		Message<?> checkedOutMessage = checkout.transform(claimCheckMessage);
-		assertEquals(originalMessage.getPayload(), checkedOutMessage.getPayload());
-		assertEquals(claimCheckMessage.getPayload(), checkedOutMessage.getHeaders().getId());
-		assertEquals(originalMessage, checkedOutMessage);
+		assertThat(checkedOutMessage.getPayload()).isEqualTo(originalMessage.getPayload());
+		assertThat(checkedOutMessage.getHeaders().getId()).isEqualTo(claimCheckMessage.getPayload());
+		assertThat(checkedOutMessage).isEqualTo(originalMessage);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void stringPayloadConfigurable() throws Exception {
-		MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(new MongoClient(), "test");
-		ConfigurableMongoDbMessageStore messageStore = new ConfigurableMongoDbMessageStore(mongoDbFactory);
-		GenericApplicationContext testApplicationContext = TestUtils.createTestApplicationContext();
-		testApplicationContext.refresh();
-		messageStore.setApplicationContext(testApplicationContext);
+	public void stringPayloadConfigurable() {
+		ConfigurableMongoDbMessageStore messageStore = new ConfigurableMongoDbMessageStore(MONGO_DATABASE_FACTORY);
+		messageStore.setApplicationContext(this.testApplicationContext);
 		messageStore.afterPropertiesSet();
 		ClaimCheckInTransformer checkin = new ClaimCheckInTransformer(messageStore);
 		ClaimCheckOutTransformer checkout = new ClaimCheckOutTransformer(messageStore);
 		Message<?> originalMessage = MessageBuilder.withPayload("test1").build();
 		Message<?> claimCheckMessage = checkin.transform(originalMessage);
-		assertEquals(originalMessage.getHeaders().getId(), claimCheckMessage.getPayload());
+		assertThat(claimCheckMessage.getPayload()).isEqualTo(originalMessage.getHeaders().getId());
 		Message<?> checkedOutMessage = checkout.transform(claimCheckMessage);
-		assertEquals(claimCheckMessage.getPayload(), checkedOutMessage.getHeaders().getId());
-		assertEquals(originalMessage.getPayload(), checkedOutMessage.getPayload());
-		assertEquals(originalMessage, checkedOutMessage);
+		assertThat(checkedOutMessage.getHeaders().getId()).isEqualTo(claimCheckMessage.getPayload());
+		assertThat(checkedOutMessage.getPayload()).isEqualTo(originalMessage.getPayload());
+		assertThat(checkedOutMessage).isEqualTo(originalMessage);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void objectPayloadConfigurable() throws Exception {
-		MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(new MongoClient(), "test");
-		ConfigurableMongoDbMessageStore messageStore = new ConfigurableMongoDbMessageStore(mongoDbFactory);
-		GenericApplicationContext testApplicationContext = TestUtils.createTestApplicationContext();
-		testApplicationContext.refresh();
-		messageStore.setApplicationContext(testApplicationContext);
+	public void objectPayloadConfigurable() {
+		ConfigurableMongoDbMessageStore messageStore = new ConfigurableMongoDbMessageStore(MONGO_DATABASE_FACTORY);
+		messageStore.setApplicationContext(this.testApplicationContext);
 		messageStore.afterPropertiesSet();
 		ClaimCheckInTransformer checkin = new ClaimCheckInTransformer(messageStore);
 		ClaimCheckOutTransformer checkout = new ClaimCheckOutTransformer(messageStore);
@@ -108,18 +121,20 @@ public class MongoDbMessageStoreClaimCheckIntegrationTests extends MongoDbAvaila
 		payload.setIced(false);
 		Message<?> originalMessage = MessageBuilder.withPayload(payload).build();
 		Message<?> claimCheckMessage = checkin.transform(originalMessage);
-		assertEquals(originalMessage.getHeaders().getId(), claimCheckMessage.getPayload());
+		assertThat(claimCheckMessage.getPayload()).isEqualTo(originalMessage.getHeaders().getId());
 		Message<?> checkedOutMessage = checkout.transform(claimCheckMessage);
-		assertEquals(originalMessage.getPayload(), checkedOutMessage.getPayload());
-		assertEquals(claimCheckMessage.getPayload(), checkedOutMessage.getHeaders().getId());
-		assertEquals(originalMessage, checkedOutMessage);
+		assertThat(checkedOutMessage.getPayload()).isEqualTo(originalMessage.getPayload());
+		assertThat(checkedOutMessage.getHeaders().getId()).isEqualTo(claimCheckMessage.getPayload());
+		assertThat(checkedOutMessage).isEqualTo(originalMessage);
 	}
 
 	@SuppressWarnings("serial")
-	private static class Beverage implements Serializable {
+	static class Beverage implements Serializable {
 
 		private String name;
+
 		private int shots;
+
 		private boolean iced;
 
 		@SuppressWarnings("unused")
@@ -182,10 +197,7 @@ public class MongoDbMessageStoreClaimCheckIntegrationTests extends MongoDbAvaila
 			else if (!name.equals(other.name)) {
 				return false;
 			}
-			if (shots != other.shots) {
-				return false;
-			}
-			return true;
+			return shots == other.shots;
 		}
 
 	}

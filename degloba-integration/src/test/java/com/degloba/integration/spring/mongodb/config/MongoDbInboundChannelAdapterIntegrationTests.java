@@ -1,229 +1,267 @@
+/*
+ * Copyright 2002-2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.degloba.integration.spring.mongodb.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-// Spring 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.parsing.BeanDefinitionParsingException;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.messaging.Message;
-
-// Spring Data
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.BasicQuery;
-
-// Spring Integration
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.integration.aop.AbstractMessageSourceAdvice;
 import org.springframework.integration.channel.QueueChannel;
+import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.endpoint.SourcePollingChannelAdapter;
+import org.springframework.messaging.Message;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailable;
 import com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests;
-
+import com.mongodb.BasicDBObject;
 
 /**
  * @author Oleg Zhurakousky
+ * @author Artem Bilan
+ * @author Yaron Yamin
+ *
  * @since 2.2
- * 
- * @category Testos unitaris de Spring/Integration sobre MongoDB<br/>.
- * S'accedeix a MongoDB de maneres diferents utilitzant el fitexer de configuracio Spring/integration (xml) corresponent
  */
+@RunWith(SpringRunner.class)
+@DirtiesContext
 public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailableTests {
+
+	@Autowired
+	private MongoTemplate mongoTemplate;
+
+	@Autowired
+	private QueueChannel replyChannel;
+
+	@Autowired
+	private QueueChannel afterCommitChannel;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapter")
+	private SourcePollingChannelAdapter mongoInboundAdapter;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterNamedFactory")
+	private SourcePollingChannelAdapter mongoInboundAdapterNamedFactory;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithTemplate")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithTemplate;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithNamedCollection")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithNamedCollection;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithQueryExpression")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithQueryExpression;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithStringQueryExpression")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithStringQueryExpression;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithNamedCollectionExpression")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithNamedCollectionExpression;
+
+	@Autowired
+	@Qualifier("inboundAdapterWithOnSuccessDisposition")
+	private SourcePollingChannelAdapter inboundAdapterWithOnSuccessDisposition;
+
+	@Autowired
+	@Qualifier("mongoInboundAdapterWithConverter")
+	private SourcePollingChannelAdapter mongoInboundAdapterWithConverter;
 
 	@Test
 	@MongoDbAvailable
-	public void testWithDefaultMongoFactory() throws Exception {
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "data");
+	public void testWithDefaultMongoFactory() {
+		this.mongoTemplate.save(createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapter", SourcePollingChannelAdapter.class);
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.mongoInboundAdapter.start();
 
 		@SuppressWarnings("unchecked")
 		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().get(0).getName());
-		assertNotNull(replyChannel.receive(10000));
-		context.close();
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+		assertThat(this.replyChannel.receive(10000)).isNotNull();
+
+		this.mongoInboundAdapter.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithNamedMongoFactory() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "data");
+	public void testWithNamedMongoFactory() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "data");
 
-
-		// llegim del fitxer de configuració (Spring-Integration)
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		
-		// obtenim una instancia (Bean) de l'adaptador d'un {@link QueueChannel}
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterNamedFactory", SourcePollingChannelAdapter.class);
-		
-		// obtenim una instancia (Bean) de la cua "replayChannel"
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.mongoInboundAdapterNamedFactory.start();
 
 		@SuppressWarnings("unchecked")
-		Message<List<DBObject>> message = (Message<List<DBObject>>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().get(0).get("name"));
-		context.close();
+		Message<List<BasicDBObject>> message = (Message<List<BasicDBObject>>) replyChannel.receive(10000);
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).get("name")).isEqualTo("Bob");
+
+		this.mongoInboundAdapterNamedFactory.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithMongoTemplate() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		// creem un objecte a la bd MongoDb
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "data");
+	public void testWithMongoTemplate() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithTemplate", SourcePollingChannelAdapter.class);
-		
-		// obtenim una instancia (Bean) de la cua "replayChannel"
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.mongoInboundAdapterWithTemplate.start();
 
 		@SuppressWarnings("unchecked")
 		Message<Person> message = (Message<Person>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().getName());
-		context.close();
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().getName()).isEqualTo("Bob");
+
+		this.mongoInboundAdapterWithTemplate.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithNamedCollection() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		// creem un objecte a la bd MongoDb
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "foo");
+	public void testWithNamedCollection() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "foo");
 
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithNamedCollection", SourcePollingChannelAdapter.class);
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.mongoInboundAdapterWithNamedCollection.start();
 
 		@SuppressWarnings("unchecked")
 		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().get(0).getName());
-		context.close();
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+
+		this.mongoInboundAdapterWithNamedCollection.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithNamedCollectionExpression() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		// creem un objecte a la bd MongoDb
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "foo");
+	public void testWithQueryExpression() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "foo");
+		this.mongoTemplate.save(this.createPerson("Bob"), "foo");
+		this.mongoInboundAdapterWithQueryExpression.start();
+		@SuppressWarnings("unchecked")
+		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().size()).isEqualTo(1);
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+		this.mongoInboundAdapterWithQueryExpression.stop();
+	}
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithNamedCollectionExpression",
-				SourcePollingChannelAdapter.class);
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+	@Test
+	@MongoDbAvailable
+	public void testWithStringQueryExpression() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "foo");
+		this.mongoInboundAdapterWithStringQueryExpression.start();
+		@SuppressWarnings("unchecked")
+		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+		this.mongoInboundAdapterWithStringQueryExpression.stop();
+	}
+
+	@Test
+	@MongoDbAvailable
+	public void testWithNamedCollectionExpression() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "foo");
+
+		this.mongoInboundAdapterWithNamedCollectionExpression.start();
 
 		@SuppressWarnings("unchecked")
 		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().get(0).getName());
-		context.close();
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+
+		this.mongoInboundAdapterWithNamedCollectionExpression.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithOnSuccessDisposition() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		// creem un objecte a la bd MongoDb
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "data");
+	public void testWithOnSuccessDisposition() {
+		this.mongoTemplate.save(createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context =
-				new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("inboundAdapterWithOnSuccessDisposition",
-				SourcePollingChannelAdapter.class);
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.inboundAdapterWithOnSuccessDisposition.start();
 
-		assertNotNull(replyChannel.receive(10000));
-		Thread.sleep(300);
-		assertNull(replyChannel.receive(100));
-		context.close();
+		assertThat(replyChannel.receive(10000)).isNotNull();
+		assertThat(replyChannel.receive(100)).isNull();
+
+		assertThat(this.afterCommitChannel.receive(10000)).isNotNull();
+
+		assertThat(this.mongoTemplate.findOne(new Query(Criteria.where("name").is("Bob")), Person.class, "data"))
+				.isNull();
+		this.inboundAdapterWithOnSuccessDisposition.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test
 	@MongoDbAvailable
-	public void testWithMongoConverter() throws Exception {
-		// creem un {@link MongoDbFactory}
-		MongoDbFactory mongoDbFactory = this.prepareMongoFactory();
-		
-		// creem un objecte a la bd MongoDb
-		MongoTemplate template = new MongoTemplate(mongoDbFactory);
-		template.save(this.createPerson("Bob"), "data");
+	public void testWithMongoConverter() {
+		this.mongoTemplate.save(this.createPerson("Bob"), "data");
 
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("inbound-adapter-config.xml", this.getClass());
-		SourcePollingChannelAdapter spca = context.getBean("mongoInboundAdapterWithConverter", SourcePollingChannelAdapter.class);
-		QueueChannel replyChannel = context.getBean("replyChannel", QueueChannel.class);
-		spca.start();
+		this.mongoInboundAdapterWithConverter.start();
 
 		@SuppressWarnings("unchecked")
 		Message<List<Person>> message = (Message<List<Person>>) replyChannel.receive(10000);
-		assertNotNull(message);
-		assertEquals("Bob", message.getPayload().get(0).getName());
-		assertNotNull(replyChannel.receive(10000));
-		context.close();
+		assertThat(message).isNotNull();
+		assertThat(message.getPayload().get(0).getName()).isEqualTo("Bob");
+		assertThat(replyChannel.receive(10000)).isNotNull();
+
+		this.mongoInboundAdapterWithConverter.stop();
+		this.replyChannel.purge(null);
 	}
 
 	@Test(expected = BeanDefinitionParsingException.class)
 	@MongoDbAvailable
-	public void testFailureWithQueryAndQueryExpression() throws Exception {
+	public void testFailureWithQueryAndQueryExpression() {
 		new ClassPathXmlApplicationContext("inbound-fail-q-qex.xml", this.getClass()).close();
 	}
 
 	@Test(expected = BeanDefinitionParsingException.class)
 	@MongoDbAvailable
-	public void testFailureWithFactoryAndTemplate() throws Exception {
+	public void testFailureWithFactoryAndTemplate() {
 		new ClassPathXmlApplicationContext("inbound-fail-factory-template.xml", this.getClass()).close();
 	}
 
 	@Test(expected = BeanDefinitionParsingException.class)
 	@MongoDbAvailable
-	public void testFailureWithCollectionAndCollectioinExpression() throws Exception {
+	public void testFailureWithCollectionAndCollectionExpression() {
 		new ClassPathXmlApplicationContext("inbound-fail-c-cex.xml", this.getClass()).close();
 	}
 
 	@Test(expected = BeanDefinitionParsingException.class)
 	@MongoDbAvailable
-	public void testFailureWithTemplateAndConverter() throws Exception {
+	public void testFailureWithTemplateAndConverter() {
 		new ClassPathXmlApplicationContext("inbound-fail-converter-template.xml", this.getClass()).close();
 	}
 
@@ -233,9 +271,23 @@ public class MongoDbInboundChannelAdapterIntegrationTests extends MongoDbAvailab
 			if (target instanceof List<?>) {
 				List<?> documents = (List<?>) target;
 				for (Object document : documents) {
-					mongoOperations.remove(new BasicQuery(JSON.serialize(document)), collectionName);
+					mongoOperations.remove(document, collectionName);
 				}
 			}
+		}
+
+	}
+
+	public static final class TestMessageSourceAdvice extends AbstractMessageSourceAdvice {
+
+		@Override
+		public boolean beforeReceive(MessageSource<?> source) {
+			return true;
+		}
+
+		@Override
+		public Message<?> afterReceive(Message<?> result, MessageSource<?> source) {
+			return result;
 		}
 
 	}
