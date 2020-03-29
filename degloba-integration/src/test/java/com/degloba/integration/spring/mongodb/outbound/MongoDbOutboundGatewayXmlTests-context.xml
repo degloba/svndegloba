@@ -23,7 +23,7 @@
 		expect-single-result="true"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 	<int-mongodb:outbound-gateway id="gatewayWithTemplate"
 		mongo-template="mongoDbTemplate"
@@ -32,7 +32,7 @@
 		expect-single-result="true"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 	<int-mongodb:outbound-gateway id="gatewaySingleQueryExpression"
 		mongodb-factory="mongoDbFactory"
@@ -42,7 +42,7 @@
 		expect-single-result="true"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 	<int-mongodb:outbound-gateway id="gatewayQueryExpression"
 		mongodb-factory="mongoDbFactory"
@@ -52,7 +52,7 @@
 		expect-single-result="false"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 	<int-mongodb:outbound-gateway id="gatewayQueryExpressionLimit"
 		mongodb-factory="mongoDbFactory"
@@ -62,7 +62,7 @@
 		expect-single-result="false"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 	<int-mongodb:outbound-gateway id="gatewayCollectionCallback"
 		mongodb-factory="mongoDbFactory"
@@ -71,7 +71,7 @@
 		collection-name-expression="headers.collectionName"
 		request-channel="in"
 		reply-channel="out"
-		entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$Person"/>
+		entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$Person"/>
 
 
 	<mongo:db-factory id="mongoDbFactory" dbname="test" />
@@ -81,7 +81,7 @@
 	</bean>
 
 	<bean id="mongoConverter"
-		  class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
+		  class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
 		<constructor-arg ref="mongoDbFactory" />
 		<constructor-arg>
 			<bean class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />
@@ -89,6 +89,6 @@
 	</bean>
 
 	<bean id="countCollectionCallback"
-		  class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests$TestCollectionCallback" />
+		  class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests$TestCollectionCallback" />
 
 </beans>

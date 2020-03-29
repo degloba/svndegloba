@@ -34,7 +34,7 @@
 										 mongo-template="mongoDbTemplate"
 										 query="{'name' : 'Bob'}"
 										 expect-single-result="true"
-										 entity-class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.Person"
+										 entity-class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests.Person"
 										 auto-startup="false">
 		<int:poller fixed-delay="5000" />
 	</int-mongodb:inbound-channel-adapter>
@@ -86,7 +86,7 @@
 		<int:poller fixed-delay="200" max-messages-per-poll="1">
 			<int:advice-chain  synchronization-factory="syncFactory">
 				<bean
-						class="org.springframework.integration.mongodb.config.MongoDbInboundChannelAdapterIntegrationTests.TestMessageSourceAdvice" />
+						class="com.degloba.integration.spring.mongodb.config.MongoDbInboundChannelAdapterIntegrationTests.TestMessageSourceAdvice" />
 				<tx:advice>
 					<tx:attributes>
 						<tx:method name="*" />
@@ -115,14 +115,14 @@
 	</int-mongodb:inbound-channel-adapter>
 
 	<bean id="documentCleaner"
-		  class="org.springframework.integration.mongodb.config.MongoDbInboundChannelAdapterIntegrationTests.DocumentCleaner" />
+		  class="com.degloba.integration.mongodb.spring.config.MongoDbInboundChannelAdapterIntegrationTests.DocumentCleaner" />
 
 	<bean id="mongoDbTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongoDbFactory" />
 	</bean>
 
 	<bean id="mongoConverter"
-		  class="org.springframework.integration.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
+		  class="com.degloba.integration.spring.mongodb.rules.MongoDbAvailableTests.TestMongoConverter">
 		<constructor-arg ref="mongoDbFactory" />
 		<constructor-arg>
 			<bean class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />

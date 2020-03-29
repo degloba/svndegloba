@@ -4,27 +4,26 @@ package com.degloba.integration.spring.config.services;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-// Spring AMQP
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
-// Spring
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-//Spring Messaging 
 import org.springframework.messaging.*;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
 
-// Spring Integration
+
 import org.springframework.integration.mail.MailHeaders;
 import org.springframework.integration.transformer.Transformer;
 
-// Spring Mail
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
@@ -33,8 +32,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 //is used on a method that needs to be executed after dependency injection is done to perform any initialization
 import javax.annotation.PostConstruct;
-
-import javax.inject.Inject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +46,7 @@ import java.util.Properties;
 public class IntegracioConfiguration {
 
 
-    @Inject
+    @Autowired
     private Environment environment;
 
     private String notificationQueueName;

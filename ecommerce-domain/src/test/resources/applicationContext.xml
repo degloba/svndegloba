@@ -80,11 +80,13 @@
           <property name="persistenceUnitName" value="mongodb" />
     </bean>   -->
     
-    <mongo:mongo host="127.0.0.1" port="27017" />
+    <!-- Default bean name is 'mongo' -->
+    <mongo:mongo-client host="localhost" port="27017"/>
+    
 	<mongo:db-factory dbname="yourdb" />
  
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+		<constructor-arg name="mongoDatabaseFactory" ref="mongoDatabaseFactory" />
 	</bean>
 	
 	
@@ -100,5 +102,7 @@
 		<constructor-arg name="eventBus" ref="eventBus"/> 
 		<constructor-arg name="storedDomainEventRepository" ref="storedDomainEventRepository"/> 
 	</bean>  
+	
+
 	
 </beans>
