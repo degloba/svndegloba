@@ -2,11 +2,10 @@ package com.degloba.events.handlers;
 
 import java.lang.reflect.Method;
 
-import javax.inject.Inject;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +28,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
 
     private BeanFactory beanFactory;
     
-    @Inject
+    @Autowired
     private DomainEventPublisher<T> eventPublisher;
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {

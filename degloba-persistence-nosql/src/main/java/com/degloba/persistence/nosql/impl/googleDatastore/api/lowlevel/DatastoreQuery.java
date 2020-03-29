@@ -7,7 +7,12 @@ import com.google.cloud.datastore.ProjectionEntity;
 import com.google.cloud.datastore.Query;
 import com.google.cloud.datastore.QueryResults;
 
-/** Consulta */
+/**
+ * @category Consulta al {@link com.google.cloud.datastore.DataStore}
+ * 
+ * @author degloba
+ *
+ */
 public class DatastoreQuery {
 
 	private final Datastore datastore;

@@ -16,10 +16,6 @@
 	<url>www.degloba.com</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.reflections</groupId>

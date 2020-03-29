@@ -8,6 +8,7 @@ import com.degloba.domain.BaseAggregateRoot;
 
 import com.degloba.domain.InstanceFactory;
 import com.degloba.ioc.spring.factory.SpringInstanceProvider;
+
 // Per testejar appengine
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
@@ -25,7 +26,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.transaction.SystemException;
@@ -50,7 +51,7 @@ public class AbstractIntegrationTest {
     protected JpaEntityRepository repository;
     
 	//	Injectem l'ApplicationContext d'Spring gràcies a ContextConfiguration
-	@Inject
+    @Autowired
     private ApplicationContext applicationContext;
     
 	private final LocalServiceTestHelper helper =

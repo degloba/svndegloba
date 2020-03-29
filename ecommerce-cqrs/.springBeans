@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:com.degloba.ecommerce.webapp.CqrsSpringBootApplication</config>
+		<config>java:com.degloba.ecommerce.cqrs.CqrsSpringBootApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

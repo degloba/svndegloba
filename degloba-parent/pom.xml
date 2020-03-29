@@ -23,9 +23,8 @@
 		<!-- Spring -->
 		<spring.version>5.2.4.RELEASE</spring.version>
 		<springframework.security.version>5.1.0.RELEASE</springframework.security.version>
-
 		<springframework.ws.version>3.0.4.RELEASE</springframework.ws.version>
-		<springframework.data.version>2.1.5.RELEASE</springframework.data.version>
+		<!-- <springframework.data.version>2.1.5.RELEASE</springframework.data.version> -->
 
 
 		<hornetq.version>2.1.2.Final</hornetq.version>
@@ -78,7 +77,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<axon.version>4.1.1</axon.version>
 		<axon.amqp.version>4.1</axon.amqp.version>
-		<spring.boot.version>2.3.0.M2</spring.boot.version>
+		<spring.boot.version>2.3.0.M3</spring.boot.version>
 		<springfox.swagger2.version>2.9.2</springfox.swagger2.version>
 
 		<!-- PLUGINS -->
@@ -116,7 +115,12 @@
 		<!-- <repository> <id>DataNucleus</id> <url>http://www.datanucleus.org/downloads/maven2/</url> 
 			</repository> -->
 
-
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven MILESTONE Repository</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+		</repository>
+		
 	</repositories>
 
 	<pluginRepositories>
@@ -263,12 +267,6 @@
 				<groupId>org.apache.myfaces.core</groupId>
 				<artifactId>myfaces-impl</artifactId>
 				<version>${myfaces.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-mongodb</artifactId>
-				<version>${springframework.data.version}</version>
 			</dependency>
 
 
@@ -484,10 +482,8 @@
 	<dependencies>
 
 		<!-- Test Dependencies -->
-<!-- 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
@@ -711,4 +707,5 @@
 
 
 
+	<name>(degloba-parent)</name>
 </project>

@@ -13,7 +13,7 @@
 	<artifactId>degloba-persistence-nosql</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>degloba-persistence-nosql - persistencia NoSql (Google/BigTable/DataStore)</name>
+	<name>(degloba-persistence-nosql)- persistencia NoSql (Google/BigTable/DataStore)</name>
 	<url>www.degloba.com</url>
 
 
@@ -39,11 +39,9 @@
 		</dependency>
 
 
-<!-- 		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>
-		</dependency>
- -->
+		<!-- <dependency> <groupId>org.mongodb</groupId> <artifactId>mongo-java-driver</artifactId> 
+			</dependency> -->
+			
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
@@ -51,6 +49,15 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -107,7 +114,7 @@
 				</configuration>
 			</plugin>
 
-						
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
