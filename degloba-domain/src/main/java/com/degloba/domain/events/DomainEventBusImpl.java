@@ -2,7 +2,11 @@ package com.degloba.domain.events;
 
 import com.google.common.eventbus.EventBus;
 
+import lombok.Data;
+
 import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.degloba.events.api.AbstractEventListener;
 import com.degloba.events.api.IDomainEvent;
@@ -19,7 +23,7 @@ import com.degloba.utils.Assert;
  * 
  * <ul>
  * <li>
- * 		Implementa un Bus d'events d'entitats de domini amb Google Guava<br>
+ * 		Implementa un bus d'events d'entitats de domini amb Google Guava<br>
  * </li>
  * <li>
  * 		Guarda l'event en un repositori d'events implementat amb MongoDB
@@ -27,12 +31,13 @@ import com.degloba.utils.Assert;
  * </ul>
  * 
  */
+@Data
 public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> {
 
-	@Inject
+	@Autowired
     private EventBus eventBus;
 
-    @Inject
+	@Autowired
     private IStoredDomainEventRepository storedDomainEventRepository;
 
     public DomainEventBusImpl() {
@@ -79,26 +84,6 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
     public void unregisterSubscriber(Object subscriber) {
         eventBus.unregister(subscriber);
     }
-
-
-	public IStoredDomainEventRepository getStoredDomainEventRepository() {
-		return storedDomainEventRepository;
-	}
-
-
-	public void setStoredDomainEventRepository(IStoredDomainEventRepository storedDomainEventRepository) {
-		this.storedDomainEventRepository = storedDomainEventRepository;
-	}
-
-
-	public EventBus getEventBus() {
-		return eventBus;
-	}
-
-
-	public void setEventBus(EventBus eventBus) {
-		this.eventBus = eventBus;
-	}
 
 
 	@Override

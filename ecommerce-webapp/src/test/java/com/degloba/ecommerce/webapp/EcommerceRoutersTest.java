@@ -6,12 +6,9 @@ import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.webapp.reactive.functional.ConfigurationRouterFunctionCompres;
 import com.degloba.ecommerce.enviaments.webapp.reactive.service.ClientCompresService;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.ecommerce.vendes.compres.facade.dtos.CompraDto;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -40,7 +37,7 @@ public class EcommerceRoutersTest {
 	      .bindToRouterFunction(config.getCompraByIdRoute())
 	      .build();
 	 
-	    Compra compra = new Compra(new AggregateId("1"));
+	    CompraDto compra = new CompraDto("1");
 	 
 	    given(config.clientCompresService().buscarCompraById("1")).willReturn(Mono.just(compra));
 	 
@@ -49,7 +46,7 @@ public class EcommerceRoutersTest {
 	      .exchange()
 	      .expectStatus()
 	      .isOk()
-	      .expectBody(Compra.class)
+	      .expectBody(CompraDto.class)
 	      .isEqualTo(compra);
 	}
 	
@@ -60,12 +57,12 @@ public class EcommerceRoutersTest {
 	      .bindToRouterFunction(config.getTotesCompresRoute())
 	      .build();
 	 
-	    List<Compra> compres = Arrays.asList(
-	      new Compra(new AggregateId("1")),
-	      new Compra(new AggregateId("2")),
-	      new Compra(new AggregateId("3")));
+	    List<CompraDto> compres = Arrays.asList(
+	      new CompraDto("1"),
+	      new CompraDto("2"),
+	      new CompraDto("3"));
 	 
-	    Flux<Compra> compraFlux = Flux.fromIterable(compres);
+	    Flux<CompraDto> compraFlux = Flux.fromIterable(compres);
 	    
 	    given(config.clientCompresService().buscarTotesCompres()).willReturn(compraFlux);
 	 
@@ -74,7 +71,7 @@ public class EcommerceRoutersTest {
 	      .exchange()
 	      .expectStatus()
 	      .isOk()
-	      .expectBodyList(Compra.class)
+	      .expectBodyList(CompraDto.class)
 	      .isEqualTo(compres);
 	}
 }

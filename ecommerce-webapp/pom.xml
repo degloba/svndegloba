@@ -273,12 +273,6 @@
 			<version>0.4</version> </dependency> -->
 
 
-		<dependency>
-			<groupId>juel</groupId>
-			<artifactId>juel-impl</artifactId>
-			<version>2.2.1</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>com.degloba</groupId>
@@ -290,12 +284,6 @@
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
 		</dependency>
 
 
@@ -439,6 +427,12 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>ecommerce-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.degloba</groupId>
+					<artifactId>ecommerce-domain</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>

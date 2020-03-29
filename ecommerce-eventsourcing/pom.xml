@@ -38,6 +38,10 @@
 			<artifactId>ecommerce-domain</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit-test</artifactId>
+		</dependency>
 	</dependencies>
 
 	<properties>

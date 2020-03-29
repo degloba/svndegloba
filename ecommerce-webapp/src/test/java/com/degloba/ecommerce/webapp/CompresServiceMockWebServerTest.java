@@ -24,9 +24,7 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.degloba.ecommerce.enviaments.webapp.reactive.service.CompresService;
-
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.ecommerce.vendes.compres.facade.dtos.CompraDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.mockwebserver.MockResponse;
@@ -75,11 +73,15 @@ public class CompresServiceMockWebServerTest {
     void getCompraById() throws Exception {
     	ObjectMapper objectMapper = new ObjectMapper();
     			
-    	AggregateId compraId = new AggregateId("100");
+    	//AggregateId compraId = new AggregateId("100");
     	//AggregateId comandaId = new AggregateId("200");
-    	AggregateId comandaKOId = new AggregateId("300");
+    	//AggregateId comandaKOId = new AggregateId("300");
     	
-    	Compra mockCompra = new Compra(compraId);
+    	String compraId = "100";
+    	String comandaId = "200";
+    	String comandaKOId = "300";
+    	
+    	CompraDto mockCompra = new CompraDto(compraId);
     	
         // Utilitzem el métode en cola de MockWebServer per posar en cola una resposta de prova en el servidor web
         // Cuando la llamada API real se realiza desde el método getCompraById(AggregateId compraId) en la classe CompraService, 
@@ -88,7 +90,7 @@ public class CompresServiceMockWebServerTest {
           .setBody(objectMapper.writeValueAsString(mockCompra))
           .addHeader("Content-Type", "application/json"));
      
-        Mono<Compra> enviamentMono = compresService.getCompraById(compraId);
+        Mono<CompraDto> enviamentMono = compresService.getCompraById(compraId);
      
         /*StepVerifier.create(enviamentMono)
           .expectNextMatches(enviament -> enviament.getComandaId()

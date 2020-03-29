@@ -14,8 +14,13 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.degloba.ecommerce.enviaments.webapp.reactive.service.ClientCompresService;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.compres.facade.dtos.CompraDto;
 
+/**
+ * @category 
+ * @author degloba
+ *
+ */
 public class ConfigurationRouterFunctionCompres {
 	
     @Bean
@@ -29,7 +34,7 @@ public class ConfigurationRouterFunctionCompres {
     RouterFunction<ServerResponse> getTotesCompresRoute() {
       return route(GET("/compres"), 
         req -> ok().body(
-        		clientCompresService().buscarTotesCompres(), Compra.class));
+        		clientCompresService().buscarTotesCompres(), CompraDto.class));
     }
 
     @Bean
@@ -37,13 +42,13 @@ public class ConfigurationRouterFunctionCompres {
     RouterFunction<ServerResponse> getCompraByIdRoute() {
       return route(GET("/compres/{id}"), 
         req -> ok().body(
-        		clientCompresService().buscarCompraById(req.pathVariable("id")), Compra.class));
+        		clientCompresService().buscarCompraById(req.pathVariable("id")), CompraDto.class));
     }
 
     @Bean
     RouterFunction<ServerResponse> updateCompraRoute() {
       return route(POST("/compres/update"), 
-        req -> req.body(toMono(Compra.class))
+        req -> req.body(toMono(CompraDto.class))
                   .doOnNext(clientCompresService()::updateCompra)
                   .then(ok().build()));
     }
@@ -53,7 +58,7 @@ public class ConfigurationRouterFunctionCompres {
       return 
           route(GET("/compres"), 
             req -> ok().body(
-            		clientCompresService().buscarTotesCompres(), Compra.class))
+            		clientCompresService().buscarTotesCompres(), CompraDto.class))
             
           .and(route(GET("/employees/{id}"), 
             req -> ok().body(

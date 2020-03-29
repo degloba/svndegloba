@@ -7,16 +7,13 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
-
-// Spring
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-// CQRS (degloba)
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.cqrs.command.impl.RunEnvironment.IHandlersProvider;
 
@@ -29,7 +26,7 @@ import com.degloba.cqrs.command.impl.RunEnvironment.IHandlersProvider;
 @Component
 public class SpringHandlersProvider implements IHandlersProvider, ApplicationListener<ContextRefreshedEvent> {
 
-    @Inject
+    @Autowired
     private ConfigurableListableBeanFactory beanFactory;
 
     private Map<Class<?>, String> handlers = new HashMap<Class<?>, String>();

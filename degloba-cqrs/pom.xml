@@ -16,10 +16,10 @@
 
 	<dependencies>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>

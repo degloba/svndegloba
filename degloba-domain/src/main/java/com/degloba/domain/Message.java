@@ -1,8 +1,11 @@
 package com.degloba.domain;
 
+import lombok.Data;
+
 /** 
  * @category Un missatge (POJO) on podem guardar qualsevol tipus d'informació 
  */
+@Data
 public class Message {
 	
   private String messageId;
@@ -13,27 +16,4 @@ public class Message {
     this.messageId = messageId;
   }
 
-  public String getMessageId() {
-    return messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getPublishTime() {
-    return publishTime;
-  }
-
-  public void setPublishTime(String publishTime) {
-    this.publishTime = publishTime;
-  }
-
-  public String getData() {
-    return data;
-  }
-
-  public void setData(String data) {
-    this.data = data;
-  }
 }

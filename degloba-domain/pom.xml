@@ -12,7 +12,7 @@
 
 	<artifactId>degloba-domain</artifactId>
 	<packaging>jar</packaging>
-	<name>degloba-domain - interfaces i classes de domini base</name>
+	<name>(degloba-domain) - interfaces i classes de domini base</name>
 	<description>
        
     </description>

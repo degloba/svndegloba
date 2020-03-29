@@ -32,12 +32,12 @@
      <dependencies>
      	<dependency>
      		<groupId>com.degloba</groupId>
-     		<artifactId>ecommerce-facade</artifactId>
+     		<artifactId>ecommerce-application</artifactId>
      		<version>4.4.3-SNAPSHOT</version>
      	</dependency>
      	<dependency>
      		<groupId>com.degloba</groupId>
-     		<artifactId>ecommerce-application</artifactId>
+     		<artifactId>ecommerce-facade</artifactId>
      		<version>4.4.3-SNAPSHOT</version>
      	</dependency>
      </dependencies>

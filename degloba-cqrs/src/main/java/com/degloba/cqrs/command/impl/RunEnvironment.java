@@ -1,12 +1,9 @@
 package com.degloba.cqrs.command.impl;
 
-import javax.inject.Inject;
-
-// Spring
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.degloba.cqrs.command.ICommand;
-// CQRS
 import com.degloba.cqrs.command.handler.ICommandHandler;
 
 import lombok.Data;
@@ -30,7 +27,7 @@ public class RunEnvironment {
 		ICommandHandler<Object,Object> getHandler(Object command);
 	}
 	
-	@Inject
+	@Autowired
 	private IHandlersProvider handlersProvider;
 	
 	public Object run(Object command) {		
