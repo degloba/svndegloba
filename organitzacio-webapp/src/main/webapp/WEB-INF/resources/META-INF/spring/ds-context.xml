@@ -49,7 +49,7 @@
 	<!-- ********************* -->
 	<!-- http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/ -->
 
-	<!-- <mongo:mongo host="ds039960.mongolab.com" port="39960" /> -->
+	<!-- <mongo:mongo-client host="ds039960.mongolab.com" port="39960" /> -->
 
 
 	<!-- Factory bean that creates the Mongo instance -->

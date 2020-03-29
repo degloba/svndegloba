@@ -45,8 +45,8 @@
 	<!-- ********************* -->
 	<!--  http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/   -->
 
-	<!--<mongo:mongo host="ds039960.mongolab.com" port="39960" />  -->
-	 <mongo:mongo host="localhost" port="27017" />
+	<!--<mongo:mongo-client host="ds039960.mongolab.com" port="39960" />  -->
+	 <mongo:mongo-client host="localhost" port="27017" />
 	
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	    <constructor-arg name="mongo" ref="mongo"/>
