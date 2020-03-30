@@ -45,10 +45,6 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-utilitats</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
@@ -56,6 +52,14 @@
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-event-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
 		</dependency>
 	</dependencies>
 

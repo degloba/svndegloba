@@ -17,12 +17,7 @@
 	<url>www.degloba.com</url>
 
 
-	<properties>
-
-	</properties>
-
 	<dependencies>
-
 
 		<!-- per proves (classe : ServicesConfiguration) -->
 		<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-core</artifactId> 
@@ -37,9 +32,6 @@
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 		</dependency>
-
-
-
 
 		<dependency>
 			<groupId>com.degloba</groupId>
@@ -79,6 +71,10 @@
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 

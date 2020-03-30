@@ -353,31 +353,6 @@
 			<artifactId>javax.inject</artifactId>
 		</dependency>
 
-
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>boundedContext1-cqrs</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-infrastructure</artifactId> 
-			<version>4.4.3-SNAPSHOT</version> <scope>runtime</scope> </dependency> -->
-		<!-- <dependency> <groupId>com.degloba</groupId> <artifactId>degloba-persistence-rdbms</artifactId> 
-			</dependency> -->
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>org.springframework.binding</artifactId>
-			<version>2.0.5.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-binding</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-webflow</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>org.springframework.faces</artifactId>
-			<version>2.0.5.RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -567,9 +542,6 @@
 			<include>**/*.jks</include> </includes> </resource> </resources> -->
 	</build>
 
-	<prerequisites>
-		<maven>3.0</maven>
-	</prerequisites>
 
 </project>
     

@@ -17,6 +17,8 @@
 
 
 	<dependencyManagement>
+
+
 		<dependencies>
 			<dependency>
 				<groupId>org.eclipse.persistence</groupId>
@@ -55,18 +57,14 @@
 				<artifactId>javassist</artifactId>
 				<version>3.18.1-GA</version>
 			</dependency>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
+			<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+				<version>${junit.version}</version> <scope>test</scope> </dependency> -->
 			<dependency>
 				<groupId>org.dbunit</groupId>
 				<artifactId>dbunit</artifactId>
 				<version>2.4.9</version>
 				<scope>test</scope>
-			</dependency>			
+			</dependency>
 			<dependency>
 				<groupId>com.mchange</groupId>
 				<artifactId>c3p0</artifactId>
@@ -101,26 +99,22 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework.webflow</groupId>
-				<artifactId>spring-faces</artifactId>
-				<version>${springwebflow.version}</version>
-			</dependency>
-			<dependency>
+			<!-- <dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-faces</artifactId> 
+				<version>${springwebflow.version}</version> </dependency> -->
+<!-- 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-binding</artifactId>
-				<version>${springwebflow.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-webflow</artifactId>
-				<version>${springwebflow.version}</version>
+				<version>${springframework.webflow.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-js</artifactId>
-				<version>${springwebflow.version}</version>
-			</dependency>
+				<version>${springframework.webflow.version}</version>
+			</dependency> -->
 
 			<dependency>
 				<groupId>aopalliance</groupId>
@@ -175,17 +169,26 @@
 				<!-- <scope>provided</scope> -->
 			</dependency>
 
-			
+
+
 
 		</dependencies>
 
 	</dependencyManagement>
-	
+
 	<dependencies>
-	<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -416,36 +419,7 @@
 					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>taglist-maven-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<tags>
-						<tag>TODO</tag>
-						<tag>@todo</tag>
-						<tag>FIXME</tag>
-						<tag>XXX</tag>
-					</tags>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<check />
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>clirr-maven-plugin</artifactId>
-				<version>2.6.1</version>
-				<configuration>
-					<minSeverity>info</minSeverity>
-				</configuration>
-			</plugin>
+
 		</plugins>
 	</reporting>
 
@@ -456,7 +430,7 @@
 
 		<jdk.version>1.8</jdk.version>
 		<slf4j.version>1.7.13</slf4j.version>
-		<junit.version>4.12</junit.version>
+		<!-- <junit.version>4.12</junit.version> -->
 
 		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
 
@@ -466,7 +440,7 @@
 
 		<mysql.username>root</mysql.username>
 		<mysql.password />
-		
+
 		<mysql.version>5.1.35</mysql.version>
 
 
@@ -476,8 +450,8 @@
 		<hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
 		<hibernate.show_sql>true</hibernate.show_sql>
 		<hibernate.format_sql>true</hibernate.format_sql>
-	
-		<springwebflow.version>2.5.0.RELEASE</springwebflow.version>
+
+		<!-- <springwebflow.version>2.5.0.RELEASE</springwebflow.version> -->
 
 		<javax.persistence>2.1.0</javax.persistence>
 
