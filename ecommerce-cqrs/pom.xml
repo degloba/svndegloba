@@ -10,7 +10,7 @@
 		<relativePath>../ecommerce-boundedContext/pom.xml</relativePath>
 	</parent>
 	<artifactId>ecommerce-cqrs</artifactId>
-	<name>Ecommerce- Cqrs</name>
+	<name>Ecommerce - Cqrs</name>
 
 	<dependencies>
 

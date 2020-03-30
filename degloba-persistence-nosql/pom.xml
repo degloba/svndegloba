@@ -19,9 +19,6 @@
 
 	<properties>
 
-		<!-- https://github.com/objectify/objectify -->
-		<googleCloud.objectify.version>6.0.3</googleCloud.objectify.version>
-
 		<bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
 		<bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
@@ -58,6 +55,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -118,7 +119,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.4.0</version>
+				<version>1.6.0</version>
 				<configuration>
 					<mainClass>org.jruby.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
