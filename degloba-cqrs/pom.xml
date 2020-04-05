@@ -28,10 +28,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -43,7 +39,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 			
-						<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+						<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+			
+			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
 				to execute the unit tests of an application -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

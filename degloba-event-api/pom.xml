@@ -16,16 +16,17 @@
 	<url>www.degloba.com</url>
 
 	<dependencies>
+	
+	<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>21.0</version>
+</dependency>
 
 		<dependency>
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
-			<version>0.9.10</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<version>0.9.12</version>
 		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
