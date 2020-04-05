@@ -1,4 +1,4 @@
-activeProfiles=mongodb, jboss-public-repository
+activeProfiles=mongodb
 eclipse.preferences.version=1
 resolveWorkspaceProjects=true
 version=1

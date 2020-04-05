@@ -102,8 +102,6 @@
 			<id>org.springframework.maven.milestone</id>
 			<url>https://maven.springframework.org/milestone</url>
 		</repository>
-		<!-- <repository> <id>DataNucleus</id> <url>http://www.datanucleus.org/downloads/maven2/</url> 
-			</repository> -->
 
 		<repository>
 			<id>spring-milestone</id>
@@ -156,18 +154,10 @@
 				<version>3.10</version>
 			</dependency>
 
-			<!-- -->
-			<dependency>
-				<groupId>commons-validator</groupId>
-				<artifactId>commons-validator</artifactId>
-				<version>1.6</version>
-			</dependency>
-
-
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-api-1.0-sdk</artifactId>
-				<version>1.9.79</version>
+				<version>${google.appengine.version}</version>
 			</dependency>
 
 
@@ -354,26 +344,26 @@
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-api-labs</artifactId>
-				<version>1.9.79</version>
+				<version>${google.appengine.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-api-stubs</artifactId>
-				<version>1.9.79</version>
+				<version>${google.appengine.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-tools-sdk</artifactId>
-				<version>1.9.79</version>
+				<version>${google.appengine.version}</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-testing</artifactId>
-				<version>1.9.79</version>
+				<version>${google.appengine.version}</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -417,18 +407,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>2.9.2</version>
-			</dependency>
-
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>2.9.2</version>
-			</dependency>
-
-			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>2.3.0.M3</version>
@@ -439,7 +417,7 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.18.12</version>
+				<version>${lombok.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -452,20 +430,19 @@
 	<!-- **************************************************** -->
 
 	<dependencies>
-	
-				<!-- Unit Testing -->
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter</artifactId>
-				<version>${junit.jupiter.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-core</artifactId>
-				<version>${mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
+
+		<!-- Unit Testing -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
