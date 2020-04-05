@@ -1,11 +1,12 @@
 
+import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.degloba.ioc.interfaces.IInstanceProvider;
 
-import static org.junit.Assert.*;
 
 /**
  * Public InstanceProvider test
@@ -15,7 +16,7 @@ public abstract class AbstractInstanceProviderTest {
 	private IInstanceProvider provider;
 	abstract protected IInstanceProvider createInstanceProvider();
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		provider = createInstanceProvider();
 	}
