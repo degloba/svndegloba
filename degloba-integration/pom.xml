@@ -23,10 +23,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-mongodb</artifactId>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
 		<dependency>
@@ -69,11 +65,12 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 
-		<dependency>
+ 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver-sync</artifactId>
 			<optional>true</optional>
-		</dependency>
+			<version>4.0.1</version>
+		</dependency> 
 
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -116,6 +113,13 @@
 			<groupId>io.reactivex</groupId>
 			<artifactId>rxjava-reactive-streams</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-mongodb</artifactId>
+			<version>5.3.0.M4</version>
+			<type>module</type>
+		</dependency>
+
 	</dependencies>
 
 	<build>
