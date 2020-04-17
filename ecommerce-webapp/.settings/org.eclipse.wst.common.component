@@ -5,16 +5,10 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources/META-INF"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources"/>
-        <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ecommerce-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-facade/ecommerce-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ecommerce-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-cqrs/ecommerce-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
 		<property name="java-output-path" value="/boundedContext1-webapp/target/classes"/>
