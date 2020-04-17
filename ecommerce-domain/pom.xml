@@ -22,11 +22,6 @@
 		</dependency>
 
 
-		<!-- *********************************************************************** -->
-		<!-- Database Connection Pools (https://cloud.google.com/sql/faq#connections) -->
-		<!-- *********************************************************************** -->
-
-
 		<!-- ************************************ -->
 		<!-- Per testejar contra Appengine Google -->
 		<!-- ************************************ -->
@@ -53,14 +48,14 @@
 		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-nosql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
 		</dependency>
 
-
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>6.0.6</version>
+		</dependency>
 	</dependencies>
 
 
