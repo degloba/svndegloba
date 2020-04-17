@@ -61,10 +61,10 @@
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-utilitats</artifactId>

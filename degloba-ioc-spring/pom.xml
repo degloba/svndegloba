@@ -15,9 +15,6 @@
 	<name>(degloba-ioc-spring) - IoC implementat amb Springframework</name>
 	<description>Implementació de InstanceProvider (Ioc) utilitzant SpringInstanceProvider.</description>
 
-	<properties>
-
-	</properties>
 
 	<dependencies>
 
