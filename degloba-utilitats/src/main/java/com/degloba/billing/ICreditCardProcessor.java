@@ -5,7 +5,7 @@ import com.paypal.api.payments.CreditCard;
 /**
  * Interfície : Processa un càrrec a la targeta de crèdit
  * 
- * @author pere
+ * @author degloba
  *
  */
 public interface ICreditCardProcessor {

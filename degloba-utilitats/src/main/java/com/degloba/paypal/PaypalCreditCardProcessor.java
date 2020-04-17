@@ -25,7 +25,7 @@ import com.degloba.billing.ChargeResult;
 import com.degloba.billing.ICreditCardProcessor;
 
 
-public class PaypalCreditCardProcessor implements ICreditCardProcessor{
+public class PaypalCreditCardProcessor implements ICreditCardProcessor {
 
 	/**
 	 * Bean de formulario para que el usuario se valide.
@@ -73,9 +73,6 @@ public class PaypalCreditCardProcessor implements ICreditCardProcessor{
 	    	return "Success";
 
 	  	}
-	  	
-	  	
-	  	
 	  	
 	    
 	  	public void crearPerfilVenedor() throws PayPalException {

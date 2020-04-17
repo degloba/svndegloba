@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>degloba-utilitats</artifactId>
 	<description>Degloba - classes d'utilitats</description>
-	<name>degloba-utilitats - utilitats</name>
+	<name>(degloba-utilitats) - utilitats</name>
 
 	<parent>
 		<groupId>com.degloba</groupId>
@@ -79,10 +79,10 @@
 
 		<!-- NECESSARIES PERQUE UTILITZA GAE (tests, ...) -->
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency>
+		</dependency> -->
 
 
 		<dependency>
@@ -100,11 +100,6 @@
 		</dependency>
 
 		<!-- Java API for Microsoft Documents -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-
-		</dependency>
 
 		<!-- The Simple Logging Facade for Java (SLF4J) serves as a simple facade 
 			or abstraction for various logging frameworks (e.g. java.util.logging, logback, 
@@ -116,10 +111,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.paypal.sdk</groupId>
@@ -128,9 +119,13 @@
 		</dependency>
 		
 				<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</dependency>
 	</dependencies>
 
 
