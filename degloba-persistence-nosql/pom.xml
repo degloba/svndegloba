@@ -32,17 +32,14 @@
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>6.0.6</version>
+			<version>${objectify.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

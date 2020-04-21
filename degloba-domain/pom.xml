@@ -27,21 +27,14 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency> 
+		</dependency>
 
 
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-datastore</artifactId>
-
 		</dependency>
 
-
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-utilitats</artifactId>
@@ -66,9 +59,7 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven.surefire.plugin.version}</version>
-					<!-- <configuration>
-						<skipTests>true</skipTests>
-					</configuration> -->
+					<!-- <configuration> <skipTests>true</skipTests> </configuration> -->
 				</plugin>
 				<!-- <plugin> <groupId>org.eclipse.m2e</groupId> <artifactId>lifecycle-mapping</artifactId> 
 					<version>1.0.0</version> <configuration> <lifecycleMappingMetadata> <pluginExecutions> 
@@ -82,17 +73,12 @@
 
 
 		<plugins>
-		
-						<plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-			
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>

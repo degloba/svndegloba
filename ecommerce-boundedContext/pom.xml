@@ -18,13 +18,7 @@
 
 	<dependencyManagement>
 
-
 		<dependencies>
-			<dependency>
-				<groupId>org.eclipse.persistence</groupId>
-				<artifactId>javax.persistence</artifactId>
-				<version>2.2.1</version>
-			</dependency>
 
 			<dependency>
 				<groupId>javax.el</groupId>
@@ -44,17 +38,14 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
-				<version>6.0.0.Alpha4</version>
+				<version>${hibernate.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-ehcache</artifactId>
-				<version>6.0.0.Alpha4</version>
+				<version>${hibernate.version}</version>
 			</dependency>
 
-
-			<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
-				<version>${junit.version}</version> <scope>test</scope> </dependency> -->
 			<dependency>
 				<groupId>org.dbunit</groupId>
 				<artifactId>dbunit</artifactId>
@@ -75,26 +66,11 @@
 
 
 			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.19</version>
-			</dependency>
-			<dependency>
 				<groupId>org.codehaus.btm</groupId>
 				<artifactId>btm</artifactId>
 				<version>2.1.4</version>
 			</dependency>
 
-
-			<!-- ****** -->
-			<!-- Spring -->
-			<!-- ****** -->
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context-support</artifactId>
-				<version>5.2.5.RELEASE</version>
-			</dependency>
 			<!-- <dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-faces</artifactId> 
 				<version>${springwebflow.version}</version> </dependency> -->
 			<!-- <dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-binding</artifactId> 
@@ -149,7 +125,6 @@
 				<scope>test</scope>
 			</dependency>
 
-
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
@@ -162,6 +137,7 @@
 	</dependencyManagement>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -171,8 +147,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
-
-
 
 	</dependencies>
 
@@ -450,11 +424,6 @@
 
 		<hibernate.version>5.3.7.Final</hibernate.version>
 
-		<mysql.username>root</mysql.username>
-		<mysql.password />
-
-		<mysql.version>5.1.35</mysql.version>
-
 		<hibernate.query.substitutions>true 'Y', false 'N'</hibernate.query.substitutions>
 		<hibernate.cache.provider_class>org.hibernate.cache.EhCacheProvider</hibernate.cache.provider_class>
 		<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
@@ -462,7 +431,6 @@
 		<hibernate.show_sql>true</hibernate.show_sql>
 		<hibernate.format_sql>true</hibernate.format_sql>
 
-		<javax.persistence>2.1.0</javax.persistence>
 	</properties>
 
 	<profiles>
@@ -482,20 +450,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>derby</id>
-			<properties>
-				<db.type>derby</db.type>
-				<hibernate.dialect>org.hibernate.dialect.DerbyTenSevenDialect</hibernate.dialect>
-				<jdbc.groupId>org.apache.derby</jdbc.groupId>
-				<jdbc.artifactId>derbyclient</jdbc.artifactId>
-				<jdbc.version>10.10.2.0</jdbc.version>
-				<jdbc.driverClassName>org.apache.derby.jdbc.EmbeddedDriver</jdbc.driverClassName>
-				<jdbc.url><![CDATA[jdbc:derby:${basedir}/target/${db.name};create=true]]></jdbc.url>
-				<jdbc.username>any</jdbc.username>
-				<jdbc.password>value</jdbc.password>
-			</properties>
-		</profile>
-		<profile>
 			<id>hsqldb</id>
 			<properties>
 				<db.type>hsqldb</db.type>
@@ -508,25 +462,6 @@
 				<jdbc.url><![CDATA[jdbc:hsqldb:${basedir}/target/${db.name};shutdown=true]]></jdbc.url>
 				<jdbc.username>sa</jdbc.username>
 				<jdbc.password />
-			</properties>
-		</profile>
-		<profile>
-			<id>oracle</id>
-			<properties>
-				<db.type>oracle</db.type>
-				<db.port>1521</db.port>
-				<db.instance>XE</db.instance>
-				<dbunit.dataTypeFactoryName>org.dbunit.ext.oracle.Oracle10DataTypeFactory</dbunit.dataTypeFactoryName>
-				<dbunit.schema>SYSTEM</dbunit.schema>
-				<!-- Make sure to capitalize the schema name -->
-				<hibernate.dialect>org.hibernate.dialect.Oracle9iDialect</hibernate.dialect>
-				<jdbc.groupId>com.oracle.jdbc</jdbc.groupId>
-				<jdbc.artifactId>ojdbc5</jdbc.artifactId>
-				<jdbc.version>${oracle.version}</jdbc.version>
-				<jdbc.driverClassName>oracle.jdbc.OracleDriver</jdbc.driverClassName>
-				<jdbc.url><![CDATA[jdbc:oracle:thin:@${db.host}:${db.port}:${db.instance}]]></jdbc.url>
-				<jdbc.username>system</jdbc.username>
-				<jdbc.password>system</jdbc.password>
 			</properties>
 		</profile>
 		<profile>
@@ -550,22 +485,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>postgresql</id>
-			<properties>
-				<db.type>postgresql</db.type>
-				<dbunit.dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory
-				</dbunit.dataTypeFactoryName>
-				<hibernate.dialect>org.hibernate.dialect.PostgresPlusDialect</hibernate.dialect>
-				<jdbc.groupId>org.postgresql</jdbc.groupId>
-				<jdbc.artifactId>postgresql</jdbc.artifactId>
-				<jdbc.version>9.2-1003-jdbc4</jdbc.version>
-				<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-				<jdbc.url><![CDATA[jdbc:postgresql://${db.host}/${db.name}]]></jdbc.url>
-				<jdbc.username>postgres</jdbc.username>
-				<jdbc.password>postgres</jdbc.password>
-			</properties>
-		</profile>
-		<profile>
 			<!-- You need to enable TCP/IP Connections for SQL Server 2005 after installing. -->
 			<!-- http://www.mattwoodward.com/blog/index.cfm?commentID=211 -->
 			<id>sqlserver</id>
@@ -584,23 +503,7 @@
 				<jdbc.password>appfuse</jdbc.password>
 			</properties>
 		</profile>
-		<profile>
-			<id>mysql</id>
-			<properties>
-				<db.type>mysql</db.type>
-				<db.port>3306</db.port>
-				<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
-				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-				<jdbc.groupId>mysql</jdbc.groupId>
-				<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-				<jdbc.version>${mysql.version}</jdbc.version>
-				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-				<jdbc.url>
-                    <![CDATA[jdbc:mysql://${db.host}:${db.port}/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-				<jdbc.username>${mysql.username}</jdbc.username>
-				<jdbc.password>${mysql.password}</jdbc.password>
-			</properties>
-		</profile>
+
 		<profile>
 			<id>jdk7</id>
 			<properties>

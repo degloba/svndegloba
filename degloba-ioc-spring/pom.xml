@@ -19,12 +19,6 @@
 	<dependencies>
 
 		<!-- To define a Web listener to expand and replace the Spring's ContextLoaderListener, -->
-
-		<!-- ********************************** -->
-		<!-- The Simple Logging Facade for Java -->
-		<!-- ********************************** -->
-	
-		<!-- -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -35,10 +29,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -79,7 +70,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
+			</plugin> 
 			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

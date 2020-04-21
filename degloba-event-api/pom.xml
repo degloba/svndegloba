@@ -52,17 +52,15 @@
 					<groupId>org.apache.poi</groupId>
 					<artifactId>poi-ooxml</artifactId>
 				</exclusion>
-				<exclusion>
-					<groupId>org.projectlombok</groupId>
-					<artifactId>lombok</artifactId>
-				</exclusion>
+				
 			</exclusions>
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+		
+				<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-event</artifactId>
 		</dependency>
 
 	</dependencies>
@@ -81,12 +79,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-			
+					
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
