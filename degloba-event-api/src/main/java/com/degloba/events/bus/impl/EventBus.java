@@ -6,8 +6,8 @@ import com.degloba.events.api.IEventListener;
 import com.degloba.events.bus.IEventBus;
 import com.degloba.events.persistence.IEventStore;
 import com.degloba.utils.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,9 +20,8 @@ import java.util.List;
  * 
  * @author degloba
  */
+@Slf4j
 public final class EventBus<T extends IEvent> implements IEventBus<T> {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventBus.class);
 
     /**
      * Llista de {@link IEventListener}

@@ -1,12 +1,13 @@
 package com.degloba.events.handlers;
 
 import org.reflections.Reflections;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.degloba.events.api.AbstractEventListener;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.bus.IEventBus;
+import com.degloba.events.bus.impl.EventBus;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Set;
 
@@ -16,9 +17,8 @@ import java.util.Set;
  * 
  *  @author degloba
  */
+@Slf4j
 public class EventListenerLoader<T extends IEvent> {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventListenerLoader.class);
 
     /**
      *  {@link IEventBus}
@@ -29,7 +29,7 @@ public class EventListenerLoader<T extends IEvent> {
 
     public EventListenerLoader(IEventBus<T> eventBus, String[] packages) {
         this.eventBus = eventBus;
-        this.packages = packages;
+        this.packages = packages;        
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.degloba.security.spring.gae.users;
 
 
+import com.degloba.events.handlers.EventListenerLoader;
 import com.degloba.security.spring.gae.security.AppRole;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -8,9 +9,8 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
@@ -19,8 +19,9 @@ import java.util.*;
  *
  * @author degloba
  */
+@Slf4j
 public class GaeDatastoreUserRegistry implements UserRegistry {
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	
 
 	private static final String USER_TYPE = "GaeUser";
 	private static final String USER_FORENAME = "forename";

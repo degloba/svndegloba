@@ -1,13 +1,12 @@
 package com.degloba.ioc;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.degloba.ioc.interfaces.IInstanceLocator;
 import com.degloba.ioc.interfaces.IInstanceLocatorFactory;
 import com.degloba.ioc.interfaces.IInstanceProvider;
 import com.degloba.ioc.interfaces.InstanceProviderInstanceLocator;
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -32,9 +31,8 @@ import java.util.*;
 * Els exemples proporcionats); (3) Si encara no trobeu una instància Bean, es tornarà la instància de Bean a aquells () mètodes establerts per la vinculació de. (4) 
 * Si encara no podeu trobar la final, llença IocInstanceNotFoundException exception.
  */
+@Slf4j
 public class InstanceFactory {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(InstanceFactory.class);
 
     /**
      * La secció següent només s'utilitza per proporcionar funcions de codi de test, no utilitzeu el codi del producte

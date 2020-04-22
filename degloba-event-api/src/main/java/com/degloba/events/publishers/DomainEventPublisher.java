@@ -1,18 +1,17 @@
 package com.degloba.events.publishers;
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Component;
 
 import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.api.IEventHandler;
+import com.degloba.events.handlers.EventListenerLoader;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @category Publicador d'events de domini de tipus {@link IEvent}<p/>
@@ -26,11 +25,10 @@ import com.degloba.events.api.IEventHandler;
  * 
  * @author degloba
  */
+@Slf4j
 @Component
 public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<T> {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(DomainEventPublisher.class);
-
+    
     private Set<IEventHandler<T>> eventHandlers = new HashSet<IEventHandler<T>>();
 
     /**

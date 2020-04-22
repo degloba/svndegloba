@@ -12,9 +12,8 @@
 		<config>java:com.degloba.ecommerce.enviaments.webapp.configuration.WebappSpringBootApplication</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/resources/META-INF/spring/appServlet/ws-context.xml</config>
-		<config>src/main/webapp/WEB-INF/resources/META-INF/spring/appServlet/servlet-context.xml</config>
 		<config>java:com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring.WebServerApplication</config>
+		<config>java:com.degloba.ecommerce.enviaments.webapp.configuration.Application</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

@@ -1,10 +1,9 @@
 package com.degloba.ioc.interfaces;
 
+import com.degloba.events.bus.impl.EventBus;
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.annotation.Annotation;
 
@@ -13,9 +12,8 @@ import java.lang.annotation.Annotation;
  * 
  * @category Proveidor d'instàncies (Spring o qualsevol framework que sigui capaç de subministrar instàncies)
  */
+@Slf4j
 public class InstanceProviderInstanceLocator implements IInstanceLocator {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(InstanceProviderInstanceLocator.class);
 
     private IInstanceProvider instanceProvider;
 
@@ -27,7 +25,7 @@ public class InstanceProviderInstanceLocator implements IInstanceLocator {
         try {
             return instanceProvider.getInstance(beanType);
         } catch (IocInstanceNotFoundException e) {
-            LOGGER.warn("InstanceProvider cannot found bean of type {}", beanType);
+            log.warn("InstanceProvider cannot found bean of type {}", beanType);
             return null;
         }
     }
@@ -36,7 +34,7 @@ public class InstanceProviderInstanceLocator implements IInstanceLocator {
         try {
             return instanceProvider.getInstance(beanType, beanName);
         } catch (IocInstanceNotFoundException e) {
-            LOGGER.warn("InstanceProvider cannot found bean '{}' of type {}", beanName, beanType);
+            log.warn("InstanceProvider cannot found bean '{}' of type {}", beanName, beanType);
             return null;
         }
     }
@@ -45,7 +43,7 @@ public class InstanceProviderInstanceLocator implements IInstanceLocator {
         try {
             return instanceProvider.getInstance(beanType, annotationType);
         } catch (IocInstanceNotFoundException e) {
-            LOGGER.warn("InstanceProvider cannot found bean of type {} with annotation {}", beanType, annotationType);
+            log.warn("InstanceProvider cannot found bean of type {} with annotation {}", beanType, annotationType);
             return null;
         }
     }

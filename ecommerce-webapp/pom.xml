@@ -40,25 +40,13 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-webflux</artifactId>			
 		</dependency>
 
 		<dependency>
 			<groupId>org.projectreactor</groupId>
 			<artifactId>reactor-spring</artifactId>
-			<version>1.1.0.M1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>1.1.0.M1</version>			
 		</dependency>
 
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring) -->
@@ -220,13 +208,7 @@
 		<dependency>
 			<groupId>com.google.endpoints</groupId>
 			<artifactId>endpoints-framework</artifactId>
-			<version>${endpoints.framework.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>${endpoints.framework.version}</version>			
 		</dependency>
 		<!-- [START api_management] -->
 		<dependency>

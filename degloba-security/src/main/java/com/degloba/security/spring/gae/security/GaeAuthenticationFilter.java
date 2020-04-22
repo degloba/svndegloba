@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.security.authentication.AuthenticationDetailsSource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -30,10 +31,9 @@ import org.springframework.web.filter.GenericFilterBean;
 /**
  * @author Luke Taylor
  */
+@Slf4j
 public class GaeAuthenticationFilter extends GenericFilterBean {
 	private static final String REGISTRATION_URL = "/register.htm";
-
-	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private final AuthenticationDetailsSource<HttpServletRequest, WebAuthenticationDetails> ads = new WebAuthenticationDetailsSource();
 	private AuthenticationManager authenticationManager;

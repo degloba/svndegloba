@@ -3,9 +3,7 @@ package com.degloba.ioc;
 import com.degloba.ioc.interfaces.IInstanceLocator;
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotUniqueException;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Named;
 import java.lang.annotation.Annotation;
@@ -18,9 +16,8 @@ import java.util.Set;
  * 
  * @category Cercador que utilitza un proveidor IOC (Spring, Guice,..) per cercar beans
  */
+@Slf4j
 public class ServiceLoaderInstanceLocator implements IInstanceLocator {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceLoaderInstanceLocator.class);
 
     public <T> T getInstance(Class<T> beanType) {
         Set<T> results = new HashSet<T>();
@@ -33,7 +30,7 @@ public class ServiceLoaderInstanceLocator implements IInstanceLocator {
         if (results.size() == 1) {
             return results.iterator().next();
         }
-        LOGGER.warn("ServiceLoader cannot found bean of type {}", beanType);
+        log.warn("ServiceLoader cannot found bean of type {}", beanType);
         return null;
     }
 
@@ -52,7 +49,7 @@ public class ServiceLoaderInstanceLocator implements IInstanceLocator {
         if (results.size() == 1) {
             return results.iterator().next();
         }
-        LOGGER.warn("ServiceLoader cannot found bean '{}' of type {}", beanName, beanType);
+        log.warn("ServiceLoader cannot found bean '{}' of type {}", beanName, beanType);
         return null;
     }
 
@@ -71,7 +68,7 @@ public class ServiceLoaderInstanceLocator implements IInstanceLocator {
         if (results.size() == 1) {
             return results.iterator().next();
         }
-        LOGGER.warn("ServiceLoader cannot found bean of type {} with annotation {}", beanType, annotationType);
+        log.warn("ServiceLoader cannot found bean of type {} with annotation {}", beanType, annotationType);
         return null;
     }
 }
