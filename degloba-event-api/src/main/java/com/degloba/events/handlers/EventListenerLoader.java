@@ -45,10 +45,10 @@ public class EventListenerLoader<T extends IEvent> {
                     eventBus.registra(handler.newInstance());
                 } catch (InstantiationException e) {
                     e.printStackTrace();
-                    LOGGER.error("Handler " + handler + " create failed!", e);
+                    log.error("Handler " + handler + " create failed!", e);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
-                    LOGGER.error("Handler " + handler + " create failed!", e);
+                    log.error("Handler " + handler + " create failed!", e);
                 }
             }
         }

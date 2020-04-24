@@ -1,6 +1,6 @@
 package com.degloba.ioc.interfaces;
 
-import com.degloba.events.bus.impl.EventBus;
+
 import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;

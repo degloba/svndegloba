@@ -13,7 +13,7 @@
 	<name>Ecommerce - EventSourcing</name>
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-domain</artifactId>
@@ -25,21 +25,21 @@
 		</dependency>
 
 
-<dependency>
-    <groupId>org.springframework.amqp</groupId>
-    <artifactId>spring-rabbit</artifactId>
-</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+		</dependency>
 
 
 
-<!-- https://mvnrepository.com/artifact/org.axonframework/axon-spring-boot-autoconfigure -->
-<dependency>
-    <groupId>org.axonframework</groupId>
-    <artifactId>axon-spring-boot-autoconfigure</artifactId>
-    <version>4.3.1</version>
-</dependency>
-		
-<dependency>
+		<!-- https://mvnrepository.com/artifact/org.axonframework/axon-spring-boot-autoconfigure -->
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-spring-boot-autoconfigure</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
 			<scope>test</scope>
@@ -68,7 +68,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
 				to execute the unit tests of an application -->
 			<plugin>
@@ -78,7 +78,12 @@
 					<!-- <skipTests>true</skipTests> -->
 				</configuration>
 			</plugin>
-			
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+
 		</plugins>
 	</build>
 

@@ -55,7 +55,7 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
                 try {
                     handler.gestiona(event);
                 } catch (Exception e) {
-                    LOGGER.error("event handling error", e);
+                    log.error("event handling error", e);
                 }
             }
         }

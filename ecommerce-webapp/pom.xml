@@ -21,9 +21,6 @@
 
 		<archiveClasses>true</archiveClasses>
 
-		<maven.war.plugin>2.6</maven.war.plugin>
-
-		<appengine.maven.plugin>1.0.0</appengine.maven.plugin>
 		<jetty.maven.plugin>9.4.15.v20190215</jetty.maven.plugin>
 
 		<failOnMissingWebXml>false</failOnMissingWebXml> <!-- REQUIRED -->
@@ -220,10 +217,6 @@
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
 		</dependency>
 
 		<dependency>

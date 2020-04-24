@@ -1,7 +1,6 @@
 package com.degloba.security.spring.gae.users;
 
 
-import com.degloba.events.handlers.EventListenerLoader;
 import com.degloba.security.spring.gae.security.AppRole;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -58,13 +57,13 @@ public class GaeDatastoreUserRegistry implements UserRegistry {
 
 		}
 		catch (EntityNotFoundException e) {
-			logger.debug(userId + " not found in datastore");
+			log.debug(userId + " not found in datastore");
 			return null;
 		}
 	}
 
 	public void registrarUsuari(GaeUser newUser) {
-		logger.debug("Attempting to create new user " + newUser);
+		log.debug("Attempting to create new user " + newUser);
 
 		Key key = KeyFactory.createKey(USER_TYPE, newUser.getUserId());
 		Entity user = new Entity(key);
