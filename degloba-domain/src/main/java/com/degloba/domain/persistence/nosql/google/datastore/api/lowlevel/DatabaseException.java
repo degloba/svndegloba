@@ -1,5 +1,10 @@
-package com.degloba.domain.persistence.nosql.googledatastore.lowlevel;
+package com.degloba.domain.persistence.nosql.google.datastore.api.lowlevel;
 
+/**
+ * @category Excepció relacionada amb base de dades
+ * @author degloba
+ *
+ */
 public class DatabaseException extends Exception {
 
 	private static final long serialVersionUID = 1L;
