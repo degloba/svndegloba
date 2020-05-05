@@ -6,7 +6,7 @@ import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 
 /**
  * @category Entitat de persistencia que defineix un client

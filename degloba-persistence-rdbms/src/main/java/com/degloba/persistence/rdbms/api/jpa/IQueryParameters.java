@@ -1,4 +1,4 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 /**
  * @category Query parameter set interface. 

@@ -1,12 +1,12 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 
-import com.degloba.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.OrderSettings;
 import com.degloba.ioc.InstanceFactory;
+import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.IQueryCriterion;
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
 import com.degloba.utils.Assert;
 
 import java.util.*;

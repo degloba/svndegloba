@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.degloba.domain.events.DomainEvent;
 import com.degloba.events.annotations.Event;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Data;
 

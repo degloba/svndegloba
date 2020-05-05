@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import com.degloba.domain.annotations.ValueObject;
 import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.ProducteData;
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 /**
  * @category Els articles comprats contenen dades copiades en cas de procediment de catàleg 

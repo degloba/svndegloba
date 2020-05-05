@@ -6,7 +6,7 @@ import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraA
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.RequestItem;
-import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 
 
 /**

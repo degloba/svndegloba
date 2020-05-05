@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.persistence.rdbms.jpa.ClientData;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 
 /**

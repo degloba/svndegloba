@@ -8,10 +8,10 @@ import com.degloba.ecommerce.vendes.domain.events.PagatClientEvent;
 import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
 import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.publishers.IDomainEventPublisher;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 
 /**

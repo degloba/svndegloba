@@ -1,11 +1,10 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 import java.io.Serializable;
 import java.util.List;
 
-
-import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
+import com.degloba.persistence.rdbms.api.jpa.IQueryCriterion;
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
 
 
 /**

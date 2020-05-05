@@ -11,14 +11,13 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.ClientData;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
 import com.degloba.ecommerce.vendes.domain.events.PagamentRolledBackEvent;
 import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 //@AggregateRoot
 /**

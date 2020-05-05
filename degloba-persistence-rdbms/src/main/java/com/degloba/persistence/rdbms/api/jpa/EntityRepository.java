@@ -1,4 +1,4 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 
 import java.io.Serializable;
@@ -11,13 +11,12 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.degloba.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.persistence.rdbms.jpa.PositionalParameters;
-
 import lombok.extern.slf4j.Slf4j;
 
+
+
 import com.degloba.events.bus.impl.EventBus;
-import com.degloba.persistence.rdbms.jpa.IQueryCriterion;
+import com.degloba.persistence.rdbms.api.jpa.PositionalParameters;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

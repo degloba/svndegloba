@@ -9,10 +9,9 @@ import javax.persistence.Entity;
 import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.ecommerce.enviaments.domain.enums.EstatEnviament;
 import com.degloba.ecommerce.enviaments.domain.events.EnviamentLliuratEvent;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 
 /**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 
 

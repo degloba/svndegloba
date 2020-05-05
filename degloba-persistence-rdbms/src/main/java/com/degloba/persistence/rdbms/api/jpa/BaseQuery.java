@@ -1,9 +1,9 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 import java.util.List;
 import java.util.Map;
 
-import com.degloba.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**

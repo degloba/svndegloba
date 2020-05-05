@@ -1,8 +1,8 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 // DDD
 import com.degloba.domain.annotations.DomainService;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 
 
 

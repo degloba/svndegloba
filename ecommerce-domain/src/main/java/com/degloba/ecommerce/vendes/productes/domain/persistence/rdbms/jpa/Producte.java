@@ -12,13 +12,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.degloba.domain.annotations.AggregateRoot;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-
 //import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.AggregateId;
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 /**
  * @category Entitat de persistència que defineix un producte

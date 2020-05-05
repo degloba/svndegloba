@@ -13,10 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.degloba.domain.annotations.ValueObject;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 
 @Embeddable

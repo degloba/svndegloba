@@ -1,6 +1,6 @@
-package com.degloba.persistence.rdbms.jpa.exceptions;
+package com.degloba.persistence.rdbms.api.jpa.exceptions;
 
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 /**
  * @category excepció quan s'ha fet una operació de domini 

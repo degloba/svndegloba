@@ -2,7 +2,7 @@ package com.degloba.ecommerce.vendes.application.exceptions;
 
 
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 /**
  * @category 

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
-import com.degloba.persistence.rdbms.jpa.ClientData;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 
 /**

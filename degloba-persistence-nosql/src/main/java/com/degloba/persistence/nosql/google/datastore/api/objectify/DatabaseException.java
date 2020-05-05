@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.impl.googleDatastore.api.objectify;
+package com.degloba.persistence.nosql.google.datastore.api.objectify;
 
 public class DatabaseException extends Exception {
 

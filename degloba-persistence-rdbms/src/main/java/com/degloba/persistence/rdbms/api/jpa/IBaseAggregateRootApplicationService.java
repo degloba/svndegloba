@@ -1,8 +1,6 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
-// Domain
-import com.degloba.domain.annotations.DomainService;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 
 
 /**
@@ -13,7 +11,7 @@ import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
  * @param <K>
  * @param <T>
  */
-@DomainService
+//@DomainService
 public interface IBaseAggregateRootApplicationService<K,T extends BaseAggregateRoot> {
 	
 

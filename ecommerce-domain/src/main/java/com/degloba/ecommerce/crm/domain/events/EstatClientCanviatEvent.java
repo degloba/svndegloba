@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 import com.degloba.events.annotations.Event;
 import com.degloba.events.api.AbstractEvent;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Data;
 import lombok.Getter;

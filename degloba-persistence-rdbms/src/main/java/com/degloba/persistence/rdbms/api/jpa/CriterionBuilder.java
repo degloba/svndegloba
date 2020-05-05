@@ -1,4 +1,4 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 import java.util.Collection;
 

@@ -20,8 +20,8 @@ import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagam
 import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.reserves.domain.factories.ReservesFactory;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 
 
 

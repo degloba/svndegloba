@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.impl.googleDatastore.api.lowlevel;
+package com.degloba.persistence.nosql.google.datastore.api.lowlevel;
 
 
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.degloba.domain.persistence.nosql.googledatastore.lowlevel.DatabaseException;
-import com.degloba.domain.persistence.nosql.googledatastore.lowlevel.IBaseRepository;
+import com.degloba.domain.persistence.nosql.google.datastore.api.lowlevel.DatabaseException;
+import com.degloba.domain.persistence.nosql.google.datastore.api.lowlevel.IBaseRepository;
 import com.google.cloud.datastore.Batch;
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Datastore.TransactionCallable;

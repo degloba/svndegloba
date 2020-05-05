@@ -9,9 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 
 /**
  * @category Un item d'una Reserva

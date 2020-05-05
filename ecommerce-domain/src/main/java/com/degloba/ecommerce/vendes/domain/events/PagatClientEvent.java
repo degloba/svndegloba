@@ -3,10 +3,10 @@ package com.degloba.ecommerce.vendes.domain.events;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.ClientData;
 import com.degloba.persistence.domain.sharedkernel.Money;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 import com.degloba.domain.events.DomainEvent;
 import com.degloba.events.annotations.Event;
 import com.degloba.events.api.AbstractEvent;

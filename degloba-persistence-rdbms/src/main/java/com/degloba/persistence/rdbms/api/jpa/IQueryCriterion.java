@@ -1,9 +1,12 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
-import com.degloba.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
 
 /**
- * The query interface
+ * @category defineix una llista d'operadors booleans
+ * 
+ * Implementat per @degloba
+ *  
  */
 public interface IQueryCriterion {
 

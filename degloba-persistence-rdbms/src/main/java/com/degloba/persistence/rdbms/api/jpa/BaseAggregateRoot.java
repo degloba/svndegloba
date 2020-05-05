@@ -1,4 +1,4 @@
-package com.degloba.persistence.rdbms.jpa;
+package com.degloba.persistence.rdbms.api.jpa;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -34,7 +34,7 @@ import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.publishers.IDomainEventPublisher;
 import com.degloba.ioc.InstanceFactory;
-import com.degloba.persistence.rdbms.jpa.exceptions.DomainOperationException;
+import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
 
 

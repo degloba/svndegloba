@@ -24,9 +24,9 @@ import javax.persistence.TemporalType;
 import com.degloba.domain.annotations.AggregateRoot;
 
 import com.degloba.persistence.domain.sharedkernel.Money;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.jpa.ClientData;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 
 /**
