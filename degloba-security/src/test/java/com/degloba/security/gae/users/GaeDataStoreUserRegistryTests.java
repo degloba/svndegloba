@@ -1,6 +1,6 @@
 package com.degloba.security.gae.users;
 
-import static org.junit.Assert.assertEquals;
+
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -10,9 +10,10 @@ import com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -22,12 +23,12 @@ public class GaeDataStoreUserRegistryTests {
 	private final LocalServiceTestHelper helper = new LocalServiceTestHelper(
 			new LocalDatastoreServiceTestConfig());
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		helper.setUp();
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		helper.tearDown();
 	}
