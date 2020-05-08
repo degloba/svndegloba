@@ -1,9 +1,15 @@
 package com.degloba.domain.specification;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
+import com.degloba.domain.specifications.Specification;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+/** @category valida el funcionament de qualsevol Specification 
+* 
+* NO UTILITZA L'SPECIFICATION D'SPRING
+*/ 
 public class AbstractSpecificationTest {
 
     String data = "Ha! Ha! Ha!";

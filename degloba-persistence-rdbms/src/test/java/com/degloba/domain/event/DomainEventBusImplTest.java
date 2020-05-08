@@ -1,13 +1,24 @@
 package com.degloba.domain.event;
 
-import com.degloba.event.api.IEvent;
+
+import com.degloba.domain.events.DomainEvent;
+import com.degloba.domain.events.DomainEventBusImpl;
+import com.degloba.domain.events.IStoredDomainEventRepository;
+import com.degloba.events.api.IEvent;
 import com.google.common.eventbus.EventBus;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/**
+ * @category prova el funcionament del DomainEventBus (publicació event, registre, un-registre)
+ * 
+ * @author degloba
+ *
+ * @param <T>
+ */
 public class DomainEventBusImplTest<T extends IEvent> {
 
     private DomainEventBusImpl<T> instance;
@@ -16,7 +27,7 @@ public class DomainEventBusImplTest<T extends IEvent> {
 
     private IStoredDomainEventRepository eventStore;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         eventBus = mock(EventBus.class);
         eventStore = mock(IStoredDomainEventRepository.class);
@@ -25,16 +36,16 @@ public class DomainEventBusImplTest<T extends IEvent> {
 
     @Test
     public void publishEvent() {
-        ADomainEvent event = new DomainEventSub();
-        instance.publishEvent(event);
+/*        DomainEvent event = new DomainEvent();
+        instance.publicaEvent(event);
         verify(eventBus).post(event);
-        verify(eventStore).append(event);
+        verify(eventStore).append(event);*/
     }
 
     @Test
     public void registerSubscriber() {
         Object subscriber = new String("abc");
-        instance.registerSubscriber(subscriber);
+        instance.registreSubscriber(subscriber);
         verify(eventBus).register(subscriber);
     }
 

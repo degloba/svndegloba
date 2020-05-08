@@ -1,10 +1,9 @@
 package com.degloba.security.gae.security;
 
-import static org.junit.Assert.*;
-
-
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.springframework.security.core.GrantedAuthority;
 
 import com.degloba.security.spring.gae.security.AppRole;

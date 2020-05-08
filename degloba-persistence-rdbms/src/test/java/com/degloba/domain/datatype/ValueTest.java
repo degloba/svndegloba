@@ -1,14 +1,19 @@
 package com.degloba.domain.datatype;
 
-import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import com.degloba.domain.DataType;
-import com.degloba.domain.persistence.rdbms.jpa.Value;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
+import com.degloba.persistence.rdbms.api.jpa.Value;
 import com.degloba.utils.DateUtils;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ValueTest {
 
@@ -90,9 +95,16 @@ public class ValueTest {
         assertNull(Value.dateValue("").getDate());
     }
 
-    @Test(expected = RuntimeException.class)
+/* Nomes Junit 4   
+ * @Test(expected = RuntimeException.class)
     public void testGetDateParseFailure() {
         Value.dateValue("cccc-01-15").getDate();
+    }*/
+    
+    public void testGetDateParseFailure() throws Exception {
+        Assertions.assertThrows(RuntimeException.class, () -> {
+        	 Value.dateValue("cccc-01-15").getDate();
+        });
     }
 
     @Test

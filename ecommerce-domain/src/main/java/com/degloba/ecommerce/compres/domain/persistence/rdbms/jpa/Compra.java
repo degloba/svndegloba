@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa;
+package com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa;
 
 import java.util.Collection;
 import java.util.Collections;

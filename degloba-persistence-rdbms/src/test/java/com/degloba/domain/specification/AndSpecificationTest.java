@@ -1,11 +1,20 @@
 package com.degloba.domain.specification;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import com.degloba.domain.specifications.AndSpecification;
+import com.degloba.domain.specifications.Specification;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.Mockito.*;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/** @category valida el funcionament de l'Specification AND
+* 
+* NO UTILITZA L'SPECIFICATION D'SPRING
+*/ 
 public class AndSpecificationTest {
     
     private Specification<String> specification1;
@@ -16,7 +25,7 @@ public class AndSpecificationTest {
     
     private Specification<String> instance;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         specification1 = mock(Specification.class);
         specification2 = mock(Specification.class);

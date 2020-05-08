@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.domain.services;
+package com.degloba.ecommerce.vendes.domain.specifications.factories;
 
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.domain.specifications.DisjunctionSpecification;
@@ -13,7 +13,7 @@ import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Produ
 /**
  * @author degloba
  *
- * @category 
+ * @category Factoria d'Specifications de Producte
  */
 @DomainFactory
 public class ProductSpecificationFactory {

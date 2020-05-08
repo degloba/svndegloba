@@ -10,8 +10,20 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+/**
+ * @category Specification sobre la entitat User
+ * 
+ * Utilitza {@link Specification} d'Spring
+ * 
+ * @author degloba
+ *
+ */
 public class UserSpecification implements Specification<User> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private SpecSearchCriteria criteria;
 
 	public UserSpecification(final SpecSearchCriteria criteria) {

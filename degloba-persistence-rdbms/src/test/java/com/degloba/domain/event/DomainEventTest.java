@@ -1,13 +1,13 @@
 package com.degloba.domain.event;
 
-import org.junit.Test;
-
 import java.util.Date;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertTrue;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DomainEventTest {
 
@@ -15,9 +15,9 @@ public class DomainEventTest {
 
     @Test
     public void constructor() {
-        instance = new SubDomainEvent();
+        instance = new SubDomainEvent(null);
         assertThat(instance.getVersion(), is(1));
-        long timeDiff = (new Date()).getTime() - instance.getOccurredOn().getTime();
+        long timeDiff = (new Date()).getTime() - ((Date) instance.getOccurredOn()).getTime();
         assertTrue(timeDiff < 1000);
     }
 
@@ -43,8 +43,6 @@ public class DomainEventTest {
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public SubDomainEvent() {
-        }
 
         public SubDomainEvent(Date occurredOn) {
             super(occurredOn);

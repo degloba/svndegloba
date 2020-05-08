@@ -1,6 +1,11 @@
 package com.degloba.domain.specification;
 
+import com.degloba.domain.specifications.AbstractSpecification;
 
+/** @category valida el funcionament de l'Specification NOR
+* 
+* NO UTILITZA L'SPECIFICATION D'SPRING
+*/ 
 public class LengthSpecification extends AbstractSpecification<String> {
 
     private final int min;

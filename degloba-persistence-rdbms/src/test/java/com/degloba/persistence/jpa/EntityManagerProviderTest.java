@@ -2,10 +2,15 @@ package com.degloba.persistence.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import com.degloba.domain.InstanceFactory;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.persistence.rdbms.api.jpa.EntityManagerProvider;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.Mockito.*;
 
 
@@ -15,7 +20,7 @@ public class EntityManagerProviderTest {
     
     private EntityManager entityManager;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         entityManagerFactory = mock(EntityManagerFactory.class);
         entityManager = mock(EntityManager.class);

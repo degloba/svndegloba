@@ -2,20 +2,23 @@ package com.degloba.domain.event;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
-import static org.junit.Assert.assertNull;
+
 import static org.mockito.Mockito.*;
 
-import com.degloba.domain.ioc.InstanceFactory;
+import com.degloba.ioc.InstanceFactory;
 import com.degloba.utils.DateUtils;
 import com.degloba.utils.IObjectSerializer;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 import java.util.Date;
 
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StoredEventTest {
 
@@ -28,7 +31,7 @@ public class StoredEventTest {
     @Mock
     private IObjectSerializer serializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(serializer.deserialize("theEventBody", DomainEventSub.class)).thenReturn(event);

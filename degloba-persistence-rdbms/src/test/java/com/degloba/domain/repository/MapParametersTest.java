@@ -2,10 +2,13 @@ package com.degloba.domain.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MapParametersTest {
@@ -13,7 +16,7 @@ public class MapParametersTest {
     private NamedParameters instance;
     private Map<String, Object> params;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         params = createParams();
     }

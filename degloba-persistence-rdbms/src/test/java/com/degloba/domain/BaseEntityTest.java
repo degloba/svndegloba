@@ -3,15 +3,17 @@ package com.degloba.domain;
 import com.degloba.domain.entity.Company;
 import com.degloba.domain.entity.Dept;
 import com.degloba.domain.entity.Organization;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.persistence.rdbms.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class BaseEntityTest {
@@ -24,13 +26,13 @@ public class BaseEntityTest {
 
     private final Organization financial = new Dept("Guangdong", 1);
 
-    @Before
+    @BeforeEach
     public void setUp() {
         repository = mock(IEntityRepository.class);
         BaseAggregateRoot.setRepository(repository);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         reset(repository);
         BaseAggregateRoot.setRepository(null);

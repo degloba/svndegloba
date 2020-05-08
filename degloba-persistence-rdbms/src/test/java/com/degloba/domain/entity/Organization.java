@@ -2,7 +2,8 @@ package com.degloba.domain.entity;
 
 import java.util.Random;
 
-import com.degloba.domain.persistence.rdbms.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+
 
 
 public abstract class Organization extends BaseEntity {

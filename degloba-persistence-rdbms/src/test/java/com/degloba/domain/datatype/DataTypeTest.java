@@ -1,15 +1,16 @@
 package com.degloba.domain.datatype;
 
 import org.apache.commons.lang3.time.DateUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
 import com.degloba.domain.DataType;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DataTypeTest {
 
@@ -19,11 +20,11 @@ public class DataTypeTest {
         "yyyy-MM-dd hh:mm:ss"
     };
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
     }
 
@@ -54,18 +55,38 @@ public class DataTypeTest {
         assertNull(DataType.DATE_TIME.getValue(" "));
     }
     
-    @Test(expected = IllegalArgumentException.class)
+/* Només Junit 4   
+ * @Test(expected = IllegalArgumentException.class)
     public void testDateException() {
         DataType.DATE.getValue("xxx-02-32");
+    }*/
+    
+    public void testDateException() throws Exception {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        	DataType.DATE.getValue("xxx-02-32");
+        });
     }
     
-    @Test(expected = IllegalArgumentException.class)
+/* Només Junit 4   
+ * @Test(expected = IllegalArgumentException.class)
     public void testTimeException() {
         DataType.DATE.getValue("28:70:88");
+    }*/
+    
+    public void testTimeException() throws Exception {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        	DataType.DATE.getValue("28:70:88");
+        });
     }
     
-    @Test(expected = IllegalArgumentException.class)
+/* Només Junit 4   
+ * @Test(expected = IllegalArgumentException.class)
     public void testDateTimeException() {
         DataType.DATE.getValue("xxy-02-30 00:34:11");
+    }*/
+    public void testDateTimeException() throws Exception {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        	DataType.DATE.getValue("xxy-02-30 00:34:11");
+        });
     }
 }

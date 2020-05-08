@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 import com.degloba.domain.entity.MyEntity;
-import com.degloba.domain.ioc.InstanceFactory;
-import com.degloba.persistence.rdbms.jpa.BaseEntity;
-import com.degloba.domain.persistence.rdbms.jpa.CriteriaQuery;
-import com.degloba.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
+import com.degloba.persistence.rdbms.api.jpa.CriteriaQuery;
+import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -30,14 +30,14 @@ public class AbstractEntityTest {
     @Mock
     private IEntityRepository repository;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         instance = new MyEntity();
         MockitoAnnotations.initMocks(this);
         BaseAggregateRoot.setRepository(repository);
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
     	BaseAggregateRoot.setRepository(null);
     }

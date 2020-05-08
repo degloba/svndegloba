@@ -15,8 +15,7 @@ public class DomainEventSub extends ADomainEvent implements Serializable{
 
     private String prop2;
 
-    public DomainEventSub() {
-    }
+
 
     public DomainEventSub(Date occurredOn) {
         super(occurredOn);
@@ -26,7 +25,8 @@ public class DomainEventSub extends ADomainEvent implements Serializable{
         super(occurredOn, version);
     }
 
-    @Override
+
+	@Override
     public void setId(String id) {
         super.setId(id);
     }
@@ -46,4 +46,19 @@ public class DomainEventSub extends ADomainEvent implements Serializable{
     public void setProp2(String prop2) {
         this.prop2 = prop2;
     }
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getVersion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getOccurredOn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

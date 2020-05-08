@@ -6,16 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
-import com.degloba.persistence.rdbms.jpa.IEntityRepository;
-import com.degloba.domain.persistence.rdbms.jpa.NamedParameters;
-import com.degloba.domain.persistence.rdbms.jpa.NamedQuery;
+import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
+import com.degloba.persistence.rdbms.api.jpa.NamedQuery;
+import com.degloba.persistence.rdbms.api.jpa.PositionalParameters;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,7 +26,7 @@ public class NamedQueryTest {
     private IEntityRepository repository;
     private String queryName = "Employee.findByName";
     
-    @Before
+    @BeforeEach
     public void setUp() {
         repository = mock(IEntityRepository.class);
         instance = new NamedQuery(repository, queryName);

@@ -3,20 +3,19 @@ package com.degloba.domain.repository;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import com.degloba.domain.persistence.rdbms.jpa.PositionalParameters;
+import com.degloba.persistence.rdbms.api.jpa.PositionalParameters;
 
-import static org.junit.Assert.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayParametersTest {
     
     private PositionalParameters instance;
     private Object[] params;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         params = new Object[] {"abc", 12, new Date()};
     }

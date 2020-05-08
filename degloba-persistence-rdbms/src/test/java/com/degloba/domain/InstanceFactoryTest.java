@@ -2,14 +2,18 @@ package com.degloba.domain;
 
 
 import com.degloba.domain.ioc.*;
-import com.degloba.domain.sharedkernel.exceptions.IocInstanceNotFoundException;
+import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.interfaces.IInstanceProvider;
+import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class InstanceFactoryTest {
 
@@ -18,13 +22,13 @@ public class InstanceFactoryTest {
     private MyService2 service2 = new MyService2();
     private MyService3 service3 = new MyService3();
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		instanceProvider = mock(IInstanceProvider.class);
 		InstanceFactory.setInstanceProvider(instanceProvider);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
         InstanceFactory.setInstanceProvider(null);
         InstanceFactory.clear();
@@ -87,9 +91,15 @@ public class InstanceFactoryTest {
         assertEquals(service23, InstanceFactory.getInstance(Service2.class, TheAnnotation.class));
     }
 
-    @Test(expected = IocInstanceNotFoundException.class)
+/* Només en Junit 4   
+ * @Test(expected = IocInstanceNotFoundException.class)
     public void testNotFound() {
         InstanceFactory.getInstance(Long.class);
-    }
+    }*/
 
+    public void testNotFound() throws Exception {
+        Assertions.assertThrows(IocInstanceNotFoundException.class, () -> {
+        	InstanceFactory.getInstance(Long.class);
+        });
+    }
 }
