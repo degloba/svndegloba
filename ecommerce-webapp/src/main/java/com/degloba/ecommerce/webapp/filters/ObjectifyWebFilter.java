@@ -1,4 +1,4 @@
-package com.degloba.webapp.filters;
+package com.degloba.ecommerce.webapp.filters;
 
 import javax.servlet.annotation.WebFilter;
 

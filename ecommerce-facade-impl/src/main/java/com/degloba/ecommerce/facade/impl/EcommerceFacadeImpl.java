@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import com.degloba.ecommerce.application.services.IEcommerceService;
 import com.degloba.ecommerce.facade.ui.IEcommerceFacade;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Value;
 

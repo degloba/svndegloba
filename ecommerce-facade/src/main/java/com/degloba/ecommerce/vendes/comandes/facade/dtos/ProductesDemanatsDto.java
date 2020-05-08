@@ -1,6 +1,6 @@
 package com.degloba.ecommerce.vendes.comandes.facade.dtos;
 
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Getter;
 import lombok.Setter;

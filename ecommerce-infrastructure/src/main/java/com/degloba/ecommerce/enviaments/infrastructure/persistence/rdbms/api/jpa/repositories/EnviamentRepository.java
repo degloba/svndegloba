@@ -2,7 +2,7 @@ package com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.api.jp
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
-import com.degloba.persistence.rdbms.jpa.EntityRepository;
+import com.degloba.persistence.rdbms.api.jpa.EntityRepository;
 
 
 /**

@@ -11,7 +11,7 @@ import org.springframework.data.domain.Sort;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
