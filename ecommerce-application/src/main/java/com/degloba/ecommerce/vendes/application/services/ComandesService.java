@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.degloba.domain.annotations.ApplicationService;
+import com.degloba.ecommerce.compres.domain.factories.CompresFactory;
+import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
 import com.degloba.ecommerce.vendes.comandes.cqrs.commands.DetallsComandaCommand;
-import com.degloba.ecommerce.vendes.compres.domain.factories.CompresFactory;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
@@ -37,7 +37,7 @@ import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException
  * @author degloba
  */
 @ApplicationService
-public class ComandesServiceImpl implements IComandesService {
+public class ComandesService implements IComandesService {
 
 /*	@Inject
 	private SystemUser systemUser;*/
@@ -51,8 +51,8 @@ public class ComandesServiceImpl implements IComandesService {
 	@Inject
 	private CompresFactory compresFactory;
 	
-	@Inject
-	private IVendesRepository productRepository;
+/*	@Inject
+	private IRepository productRepository;*/
 	
 	@Inject
 	private DescomptePolicyFactory descomptePolicyFactory;
@@ -81,14 +81,14 @@ public class ComandesServiceImpl implements IComandesService {
 	public void afegirProducte(AggregateId comandaId, AggregateId producteId, int quantitat) {
 		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
 		
-		Producte producte = productRepository.obtenirProducteById(Producte.class,producteId);
+		/*Producte producte = productRepository.obtenirProducteById(Producte.class,producteId);
 		
 		if (! producte.isAvailabe()){
 			Client client = loadClient();	
 			producte = suggerimentService.suggerirProducteEquivalent(producte, client);
 		}
 			
-		reserva.add(producte, quantitat);
+		reserva.add(producte, quantitat);  */
 		
 		vendesRepository.save(reserva);
 	}

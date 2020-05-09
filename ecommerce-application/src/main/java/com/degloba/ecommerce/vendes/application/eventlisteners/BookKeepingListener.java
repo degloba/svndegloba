@@ -2,11 +2,10 @@ package com.degloba.ecommerce.vendes.application.eventlisteners;
 
 import javax.inject.Inject;
 
+import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.enviaments.domain.events.ComandaEnviadaEvent;
 import com.degloba.ecommerce.facturacio.vendes.domain.services.AssesorFiscalService;
 import com.degloba.ecommerce.facturacio.vendes.domain.services.BookKeeperService;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticionsFacturaFactory;

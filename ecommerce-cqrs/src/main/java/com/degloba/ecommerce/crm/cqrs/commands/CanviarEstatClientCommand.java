@@ -2,12 +2,11 @@ package com.degloba.ecommerce.crm.cqrs.commands;
 
 import java.io.Serializable;
 
-import com.degloba.persistence.rdbms.jpa.AggregateId;
-
 import lombok.Value;
 
 import com.degloba.cqrs.command.annotations.ICommand;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 
 /**

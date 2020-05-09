@@ -9,7 +9,7 @@ import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.facade.dtos.ProducteOfertatDto;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.vendes.comandes.cqrs.commands;
 
 import com.degloba.cqrs.command.annotations.ICommand;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Value;
 

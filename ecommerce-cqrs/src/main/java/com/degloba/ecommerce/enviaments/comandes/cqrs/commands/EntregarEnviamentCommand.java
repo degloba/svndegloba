@@ -3,7 +3,7 @@ package com.degloba.ecommerce.enviaments.comandes.cqrs.commands;
 import java.io.Serializable;
 
 import com.degloba.cqrs.command.annotations.ICommand;
-import com.degloba.persistence.rdbms.jpa.AggregateId;
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.Value;
 

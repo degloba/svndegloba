@@ -1,7 +1,9 @@
 package com.degloba.domain.specifications;
 
 /**
- * https://github.com/eugenp/tutorials/blob/master/spring-rest-query-language/pom.xml
+ * see <a href="https://github.com/eugenp/tutorials/blob/master/spring-rest-query-language/pom.xml">exemple</a> 
+ * 
+ * 
  *
  * @author degloba
  *
