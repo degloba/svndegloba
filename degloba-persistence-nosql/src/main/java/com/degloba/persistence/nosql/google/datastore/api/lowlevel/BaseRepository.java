@@ -28,7 +28,8 @@ import com.google.cloud.datastore.Transaction;
 /**
  * @category Repositori implementat amb Google Cloud DataStore/Natiu<br><br>
  * 
- * {@link https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples }
+ * See <a href="https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples">exemple</a>
+ * 
  */
 public class BaseRepository implements IBaseRepository{
 		
