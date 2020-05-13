@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.cqrs.query.annotations.Finder;
-import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
 import com.degloba.ecommerce.vendes.ofertes.facade.dtos.ProducteOfertatDto;
@@ -33,10 +33,10 @@ public interface IVendaFinder {
 	/**
 	 * @category Retorna un resultat paginat {@link PaginatedResult} de {@link ComandaDto}
 	 * 
-	 * @param comandesQuery
+	 * @param comandaQuery
 	 * @return
 	 */
-	PaginatedResult<ComandaDto> query(ComandesQuery comandesQuery);
+	PaginatedResult<ComandaDto> query(ComandaQuery comandaQuery);
 	
 	/**
 	 * @category Cerca una llista de {@link ProducteOfertatDto} a partir d'una {@link OfertaQuery}
