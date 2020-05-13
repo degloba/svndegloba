@@ -74,7 +74,7 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
 	@Override
 	public void publica(IDomainEvent<T> event) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
