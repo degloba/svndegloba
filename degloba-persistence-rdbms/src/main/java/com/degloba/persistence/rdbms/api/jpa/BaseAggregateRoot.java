@@ -12,8 +12,6 @@ import javax.inject.Inject;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.EmbeddedId;
-// JPA
-
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Version;

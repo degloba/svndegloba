@@ -2,7 +2,7 @@ package com.degloba.domain.event;
 
 
 import com.degloba.domain.events.DomainEvent;
-import com.degloba.domain.events.DomainEventBusImpl;
+import com.degloba.domain.events.DomainEventBus;
 import com.degloba.domain.events.IStoredDomainEventRepository;
 import com.degloba.events.api.IEvent;
 import com.google.common.eventbus.EventBus;
@@ -13,15 +13,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @category prova el funcionament del DomainEventBus (publicació event, registre, un-registre)
+ * @category prova el funcionament del DomainEventBus<br> 
+ * Publicació event, registre, un-registre<br>
+ * Utilitza Mock
  * 
  * @author degloba
  *
  * @param <T>
  */
-public class DomainEventBusImplTest<T extends IEvent> {
+public class DomainEventBusTest<T extends IEvent> {
 
-    private DomainEventBusImpl<T> instance;
+    private DomainEventBus<T> instance;
 
     private EventBus eventBus;
 
@@ -31,7 +33,7 @@ public class DomainEventBusImplTest<T extends IEvent> {
     public void setUp() {
         eventBus = mock(EventBus.class);
         eventStore = mock(IStoredDomainEventRepository.class);
-        instance = new DomainEventBusImpl<T>(eventBus, eventStore);
+        instance = new DomainEventBus<T>(eventBus, eventStore);
     }
 
     @Test

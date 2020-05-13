@@ -8,6 +8,11 @@ import com.degloba.domain.annotations.AggregateRoot;
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * @category Entitat de persistencia que defineix un client
  * 
@@ -15,6 +20,10 @@ import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
  *
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Client extends BaseAggregateRoot{
 

@@ -28,6 +28,11 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 /**
  * @category Compra
@@ -36,6 +41,10 @@ import com.degloba.persistence.rdbms.api.jpa.ClientData;
  *
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Compra extends BaseAggregateRoot{
 
@@ -55,7 +64,7 @@ public class Compra extends BaseAggregateRoot{
     	     })*/
 	private List<CompraArticle> items;
 	
-	private boolean paid;
+	private boolean pagada;
 
 	@Embedded
 	private ClientData clientData;
@@ -67,15 +76,13 @@ public class Compra extends BaseAggregateRoot{
 	private Money totalCost;
 
 	
-	private  Compra() {}
-
 	public Compra(AggregateId aggregateId, ClientData clientData, List<CompraArticle> items, Date dataCompra,
 			boolean paid, Money totalCost){
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.items = items;
 		this.dataCompra = dataCompra;
-		this.paid = paid;
+		this.pagada = pagada;
 		this.totalCost = totalCost;
 	}
 	
@@ -85,26 +92,11 @@ public class Compra extends BaseAggregateRoot{
 	}
 
 	public void confirm() {
-		paid = true;
+		pagada = true;
 				
 		//eventPublisher.publish(new ComandaEnviadaEvent(getAggregateId()));
 	}
-	
-	public boolean estaPagada() {
-		return paid;
-	}
-	
-	public Money getTotalCost() {
-		return totalCost;
-	}
-	
-	public Date getDataCompra() {
-		return dataCompra;
-	}
 
-	public ClientData getClientData() {
-		return clientData;
-	}
 	
 	public Collection<CompraArticle> getItems() {
 		return (Collection<CompraArticle>) Collections.unmodifiableCollection(items);

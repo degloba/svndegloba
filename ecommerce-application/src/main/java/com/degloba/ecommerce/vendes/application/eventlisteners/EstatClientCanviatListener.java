@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.ecommerce.vendes.application.services.DescompteService;
-import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.IVendaFinder;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.events.annotations.EventListener;
@@ -34,8 +34,8 @@ public class EstatClientCanviatListener {
 	@EventListener
 	public void handle(EstatClientCanviatEvent event){
 
-		ComandesQuery comandesQuery = new ComandesQuery(null, event.getClientId());	
-		PaginatedResult<ComandaDto> orders = vendesFinder.query(comandesQuery);
+		ComandaQuery comandaQuery = new ComandaQuery(null, event.getClientId());	
+		PaginatedResult<ComandaDto> orders = vendesFinder.query(comandaQuery);
 		
 		Money discount = calculaDescompte(event.getClientId());
 		
