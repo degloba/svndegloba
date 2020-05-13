@@ -5,6 +5,7 @@ import com.sivalabs.myservice.exception.UserRegistrationException;
 import com.sivalabs.myservice.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import java.util.Optional;
 
@@ -23,39 +24,11 @@ import static org.mockito.Mockito.*;
 
 public class ComandesServiceTest {
 
-	 private UserService userService;
-	    private ComandesRepository userRepository;
+	@Mock
+    private ComandaRepository userRepository;
 
-	    @BeforeEach
-	    void setUp() {
-	        userRepository = mock(UserRepository.class);
-	        userService = new UserService(userRepository);
-	    }
-
-	    @Test
-	    void shouldSavedUserSuccessfully() {
-	        User user = new User(null, "siva@gmail.com","siva","Siva");
-	        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.empty());
-	        given(userRepository.save(user)).willAnswer(invocation -> invocation.getArgument(0));
-
-	        User savedUser = userService.createUser(user);
-
-	        assertThat(savedUser).isNotNull();
-
-	        verify(userRepository).save(any(User.class));
-	    }
-
-	    @Test
-	    void shouldThrowErrorWhenSaveUserWithExistingEmail() {
-	        User user = new User(1L, "siva@gmail.com","siva","Siva");
-	        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.of(user));
-
-	        assertThrows(UserRegistrationException.class, () -> {
-	            userService.createUser(user);
-	        });
-
-	        verify(userRepository, never()).save(any(User.class));
-	    }
+    @InjectMocks
+    private UserService userService;
 
 
 	}

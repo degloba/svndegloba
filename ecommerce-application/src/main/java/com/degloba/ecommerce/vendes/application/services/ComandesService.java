@@ -10,7 +10,7 @@ import com.degloba.ecommerce.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
 import com.degloba.ecommerce.vendes.comandes.cqrs.commands.DetallsComandaCommand;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
 import com.degloba.ecommerce.vendes.ofertes.descomptes.domain.policies.IDescomptePolicy;
@@ -43,7 +43,7 @@ public class ComandesService implements IComandesService {
 	private SystemUser systemUser;*/
 	
 	@Inject
-	private IVendesRepository vendesRepository;
+	private IVendaRepository vendaRepository;
 
 	@Inject
 	private ReservesFactory reservesFactory;
@@ -63,7 +63,7 @@ public class ComandesService implements IComandesService {
 	// @Secured requires BUYER role
 	public AggregateId creaComanda() {
 		Reserva reserva = reservesFactory.crea(loadClient());
-		vendesRepository.save(reserva);
+		vendaRepository.save(reserva);
 		return reserva.getAggregateId();
 	}
 
@@ -79,7 +79,7 @@ public class ComandesService implements IComandesService {
 	 */
 	@Override
 	public void afegirProducte(AggregateId comandaId, AggregateId producteId, int quantitat) {
-		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
+		Reserva reserva = vendaRepository.obtenirReservaById(Reserva.class,comandaId);
 		
 		/*Producte producte = productRepository.obtenirProducteById(Producte.class,producteId);
 		
@@ -90,7 +90,7 @@ public class ComandesService implements IComandesService {
 			
 		reserva.add(producte, quantitat);  */
 		
-		vendesRepository.save(reserva);
+		vendaRepository.save(reserva);
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class ComandesService implements IComandesService {
 	 * Offer VO is not stored in the Repo, it is stored on the Client Tier instead.
 	 */
 	public Oferta calculaOferta(AggregateId comandaId) {
-		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
+		Reserva reserva = vendaRepository.obtenirReservaById(Reserva.class,comandaId);
 
 		IDescomptePolicy iDescomptePolicy = descomptePolicyFactory.crea(loadClient());
 		
@@ -126,7 +126,7 @@ public class ComandesService implements IComandesService {
 	@Transactional(isolation = Isolation.SERIALIZABLE)//highest isolation needed because of manipulating many Aggregates
 	public void confirma(AggregateId comandaId, DetallsComandaCommand detallsComandaCommand, Oferta seenOffer)
 			throws OfertaCanviadaException {
-		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,comandaId);
+		Reserva reserva = vendaRepository.obtenirReservaById(Reserva.class,comandaId);
 		if (reserva.isClosed())
 			throw new DomainOperationException(reserva.getAggregateId(), "reservation is already closed");
 		
@@ -149,19 +149,19 @@ public class ComandesService implements IComandesService {
 		if (! client.canAfford(compra.getTotalCost()))
 			throw new DomainOperationException(client.getAggregateId(), "client has insufficent money");
 		
-		vendesRepository.save(compra);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
+		vendaRepository.save(compra);//Aggregate must be managed by persistence context before firing events (synchronous listeners may need to load it) 
 		
 		/*
 		 * Sample model where one aggregate creates another. Client does not manage payment lifecycle, therefore application must manage it. 
 		 */
 		Pagament pagament = client.charge(compra.getTotalCost());
-		vendesRepository.save(pagament);
+		vendaRepository.save(pagament);
 		
 		compra.confirm();	
 		reserva.close();				
 		
-		vendesRepository.save(reserva);
-		vendesRepository.save(client);
+		vendaRepository.save(reserva);
+		vendaRepository.save(client);
 		
 	}
 	

@@ -19,6 +19,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target(METHOD)
 @Retention(RUNTIME)
 @Documented
-public @interface DomainEventHandler {
+public @interface IDomainEventHandler {
 
 }

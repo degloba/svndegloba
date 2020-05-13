@@ -12,9 +12,13 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.degloba.domain.annotations.InternalApplicationService;
-
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IDescompteRepository;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
@@ -24,40 +28,12 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
  * @category Servei de descompte
  *
  */
+@ExtendWith(MockitoExtension.class)
 public class DescompteServiceTest {
 
-	private UserService userService;
-    private DescompteRepository userRepository;
+	@Mock
+    private IDescompteRepository descompteRepository;
 
-    @BeforeEach
-    void setUp() {
-        userRepository = mock(UserRepository.class);
-        userService = new UserService(userRepository);
-    }
-
-    @Test
-    void shouldSavedUserSuccessfully() {
-        User user = new User(null, "siva@gmail.com","siva","Siva");
-        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.empty());
-        given(userRepository.save(user)).willAnswer(invocation -> invocation.getArgument(0));
-
-        User savedUser = userService.createUser(user);
-
-        assertThat(savedUser).isNotNull();
-
-        verify(userRepository).save(any(User.class));
-    }
-
-    @Test
-    void shouldThrowErrorWhenSaveUserWithExistingEmail() {
-        User user = new User(1L, "siva@gmail.com","siva","Siva");
-        given(userRepository.findByEmail(user.getEmail())).willReturn(Optional.of(user));
-
-        assertThrows(UserRegistrationException.class, () -> {
-            userService.createUser(user);
-        });
-
-        verify(userRepository, never()).save(any(User.class));
-    }
-
+    @InjectMocks
+    private DescompteService DescompteService;
 }
