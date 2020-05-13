@@ -2,7 +2,12 @@ package com.degloba.domain.events;
 
 import com.google.common.eventbus.EventBus;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -13,6 +18,7 @@ import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.api.IEventListener;
 import com.degloba.events.persistence.IDomainEventStore;
+
 import com.degloba.utils.Assert;
 
 
@@ -32,7 +38,9 @@ import com.degloba.utils.Assert;
  * 
  */
 @Data
-public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> {
+@NoArgsConstructor
+//@AllArgsConstructor
+public class DomainEventBus<T extends IEvent> implements IDomainEventBus<T> {
 
 	@Autowired
     private EventBus eventBus;
@@ -40,13 +48,8 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 	@Autowired
     private IStoredDomainEventRepository storedDomainEventRepository;
 
-    public DomainEventBusImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-
-	public DomainEventBusImpl(EventBus eventBus, IStoredDomainEventRepository storedDomainEventRepository) {
+	public DomainEventBus(EventBus eventBus, IStoredDomainEventRepository storedDomainEventRepository) {
         Assert.notNull(eventBus, "EventBus is null!");
         Assert.notNull(storedDomainEventRepository, "EventStore is null!");
         this.eventBus = eventBus;
@@ -54,7 +57,7 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
     }
     	
 
-    public DomainEventBusImpl(IStoredDomainEventRepository storedDomainEventRepository) {
+    public DomainEventBus(IStoredDomainEventRepository storedDomainEventRepository) {
 		super();
 		this.storedDomainEventRepository = storedDomainEventRepository;
 	}
@@ -91,8 +94,5 @@ public class DomainEventBusImpl<T extends IEvent> implements IDomainEventBus<T> 
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 
 }
