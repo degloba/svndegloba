@@ -1,1 +1,1 @@
-com.degloba.domain.event.DomainEventBusImpl
+com.degloba.domain.event.DomainEventBus
