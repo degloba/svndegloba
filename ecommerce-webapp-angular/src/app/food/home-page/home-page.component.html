@@ -1,0 +1,79 @@
+<mat-card class="mat-card-home">
+hhhhhhhh
+  <mat-card *ngIf="days !== undefined && days.length > 0  && indexDays >= 0">
+    <mat-grid-list class="space">
+      <mat-grid-tile class="big-font arrow">
+        <mat-icon *ngIf="backArrowValid" (click)="rewindDay()">keyboard_arrow_left</mat-icon>
+        <mat-icon *ngIf="!backArrowValid" class="grey">keyboard_arrow_left</mat-icon>
+      </mat-grid-tile>
+      <mat-grid-tile class="big-font text-center  day"> {{days[indexDays].date | date:'EEEE, d MMMM, y' }}</mat-grid-tile>
+      <mat-grid-tile class="big-font right arrow">
+        <mat-icon *ngIf="forwardArrowValid" (click)="forwardDay()">keyboard_arrow_right</mat-icon>
+        <mat-icon *ngIf="!forwardArrowValid" class="grey">keyboard_arrow_right</mat-icon>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-grid-list class="text-center space">
+      <mat-grid-tile class="big-font">{{days[indexDays].goalDay}}</mat-grid-tile>
+      <mat-grid-tile>-</mat-grid-tile>
+      <mat-grid-tile class="big-font">{{days[indexDays].totalCalories}}</mat-grid-tile>
+      <mat-grid-tile>+</mat-grid-tile>
+      <mat-grid-tile class="big-font">{{days[indexDays].exercise}}</mat-grid-tile>
+      <mat-grid-tile>=</mat-grid-tile>
+      <mat-grid-tile class="big-font"> {{rest}} </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list class="mat-font grey text-center">
+      <mat-grid-tile>Objetivo</mat-grid-tile>
+      <mat-grid-tile> </mat-grid-tile>
+      <mat-grid-tile>Alimento</mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile>Ejercicio</mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile>Restantes</mat-grid-tile>
+    </mat-grid-list>
+    <mat-container class="container">
+      <span class="steps mat-font grey"> Steps</span>
+      <mat-progress-bar class="progress-bar " mode="determinate" [value]="stepsToday"></mat-progress-bar>
+      <span class="stepsValue mat-font grey"> {{days[indexDays].steps}}</span>
+    </mat-container>
+  </mat-card>
+
+
+
+  <mat-list *ngIf="days !== undefined  && days.length && indexDays >= 0">
+    <mat-card *ngFor="let meal of days[indexDays].meals; let i = index">
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <span class="big-font" mat-line> {{meal.name}}  </span>
+            <section layout-align="end" layout-wrap>
+              <span class="mat-font">{{totalMealCalories[i]}}</span>
+            </section>
+          </mat-list-item>
+        </mat-list>
+
+        <mat-divider></mat-divider>
+
+        <mat-list>
+          <mat-list-item *ngFor="let food of meal.foods" (click)="goToDetail(food)" long-press (onLongPress)="onLongPress(food)">
+            <span class="mat-font" md-line> {{food.name}}  </span>
+            <section layout-align="end" layout-wrap>
+              <span class="mat-font">  {{food.calories}}</span>
+            </section>
+            <p md-line>
+              <span class="sm-font left grey">{{food.description}}, {{food.amount}}{{food.unit}}</span>
+            </p>
+          </mat-list-item>
+        </mat-list>
+        <mat-card-footer>
+          <mat-card-actions class="footer">
+            <button md-button (click)="goToFoodList(i)">+ Añadir alimento</button>
+          </mat-card-actions>
+        </mat-card-footer>
+      </mat-card-content>
+    </mat-card>
+  </mat-list>
+</mat-card>

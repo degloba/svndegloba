@@ -1,0 +1,10 @@
+<section class="main" *ngIf="hotels.length > 0">
+  <ul class="todo-list">
+    <li *ngFor="let hotel of hotels" [class.completed]="hotel.complete">
+      <app-hotel-list-item
+        [hotel]="hotel"
+        (toggleComplete)="onToggleHotelComplete($event)"
+        (remove)="onRemoveHotel($event)"></app-hotel-list-item>
+    </li>
+  </ul>
+</section>

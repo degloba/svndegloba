@@ -1,0 +1,15 @@
+# [START runtime]
+runtime: python27
+threadsafe: yes
+# [END runtime]
+handlers:
+- url: /(.+)
+  static_files: dist/\1
+  upload: dist/(.*)
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+  http_headers:
+    Access-Control-Allow-Origin: http://www.degloba.com
+skip_files:
+- ^(?!dist)  # Skip any files not in the dist folder
