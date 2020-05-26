@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Hotel } from '../model/hotel';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -13,9 +13,9 @@ const API_URL = environment.apiUrl;
 @Injectable()
 export class ApiService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
   
-  private handleError (error: Response | any) {
+  private handleError (error: HttpErrorResponse) {
       console.error('ApiService::handleError', error);
       return Observable.throw(error);
     }
@@ -23,10 +23,10 @@ export class ApiService {
   // API: GET /hotels
   public getAllHotels(): Observable<Hotel[]> {
       return this.http
-        .get(API_URL)
+        .get<Hotel[]>(API_URL, {responseType: 'json'})
         .map(response => {
-          const hotels = response.json();
-          return hotels.items.map((hotel) => new Hotel(hotel));
+          const hotels = response;
+          return hotels.map((hotel) => new Hotel(hotel));
         })
         .catch(this.handleError);
     }
@@ -36,7 +36,7 @@ export class ApiService {
       return this.http
         .post(API_URL + '/hotels', hotel)
         .map(response => {
-          return new Hotel(response.json());
+          return new Hotel(response);
         })
         .catch(this.handleError);
     }
@@ -46,7 +46,7 @@ export class ApiService {
       return this.http
         .get(API_URL + '/hotels/' + hotelId)
         .map(response => {
-          return new Hotel(response.json());
+          return new Hotel(response);
         })
         .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class ApiService {
       return this.http
         .put(API_URL + '/hotels/' + hotel.id, hotel)
         .map(response => {
-          return new Hotel(response.json());
+          return new Hotel(response);
         })
         .catch(this.handleError);
     }

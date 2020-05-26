@@ -1,5 +1,5 @@
 import { DialogComponent } from './../food/dialog/dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/Dialog';
 import {
   Directive,
   Input,

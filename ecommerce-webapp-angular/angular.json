@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "boundedContext1-webapp-angular": {
+    "ecommerce-webapp-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",

@@ -4,8 +4,8 @@ import { EventService } from '../../providers/event.service';
 import * as events from 'events';
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { COUNTRIES, Food, Macros, UNITS, Persona, UserData } from '../../model/data-model';
-import { MatDialog, MatDialogRef} from '@angular/material';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef} from '@angular/material/Dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/Dialog';
 import { MatRadioModule } from '@angular/material/radio';
 
 

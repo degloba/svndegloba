@@ -2,7 +2,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Units } from '../../model/data-model';
 import { DialogComponent } from './../dialog/dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/Dialog';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Food, Macros, UNITS } from '../../model/data-model';
 

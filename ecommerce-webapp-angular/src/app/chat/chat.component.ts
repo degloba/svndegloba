@@ -15,9 +15,9 @@
  */
 import { Component, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { MatSnackBar } from '@angular/material';
+import { AngularFireDatabase , AngularFireList } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import * as firebase from 'firebase';
 
 
@@ -94,11 +94,11 @@ export class ChatComponent {
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+      firebase.auth().signOut();
   }
 
   // TODO: Refactor into text message form component

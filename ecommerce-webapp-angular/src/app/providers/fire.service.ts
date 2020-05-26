@@ -2,7 +2,7 @@
 import { Food, Meal, Persona, Units, Goals, DietDays } from './../model/data-model';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, Input } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AuthService } from '../shared/services/auth.service';
 import * as firebase from 'firebase/app';
