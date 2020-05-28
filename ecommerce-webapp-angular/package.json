@@ -11,7 +11,6 @@
     "json-server": "json-server --watch db.json",
     "compodoc": "npx compodoc -p src/tsconfig.app.json",
     "serve": "firebase serve --only functions",
-    "shell": "firebase functions:shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
@@ -45,6 +44,7 @@
     "rxjs": "^6.5.5",
     "rxjs-compat": "^6.5.5",
     "tslib": "^2.0.0",
+    "typescript": "^3.8.3",
     "yargs": "^15.3.1",
     "zone": "^0.3.4",
     "zone.js": "^0.10.3"
@@ -71,7 +71,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.10.1",
     "tslint": "~6.1.2",
-    "typescript": "^3.9",
     "uuid": "^8.1.0"
   }
 }

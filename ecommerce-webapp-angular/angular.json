@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "boundedContext1-webapp-angular:build"
+            "browserTarget": "ecommerce-webapp-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "boundedContext1-webapp-angular:build:production"
+              "browserTarget": "ecommerce-webapp-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "boundedContext1-webapp-angular:build"
+            "browserTarget": "ecommerce-webapp-angular:build"
           }
         },
         "test": {
@@ -108,7 +108,7 @@
         }
       }
     },
-    "boundedContext1-webapp-angular-e2e": {
+    "ecommerce-webapp-angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -117,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "boundedContext1-webapp-angular:serve"
+            "devServerTarget": "ecommerce-webapp-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "boundedContext1-webapp-angular:serve:production"
+              "devServerTarget": "ecommerce-webapp-angular:serve:production"
             }
           }
         },
@@ -137,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "boundedContext1-webapp-angular"
+  "defaultProject": "ecommerce-webapp-angular"
 }
