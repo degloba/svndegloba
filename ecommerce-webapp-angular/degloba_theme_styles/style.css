@@ -1,0 +1,19 @@
+
+/**
+	Fitxer de estils definit per degloba
+	https://compodoc.app/guides/tips-and-tricks.html
+*/
+
+
+@charset "ISO-8859-1";
+@import "./reset.css";
+@import "./bootstrap.min.css";
+@import "./bootstrap-card.css";
+@import "./prism.css";
+@import "./ionicons.min.css";
+@import "./compodoc.css";
+@import "./tablesort.css";
+
+.descripcio {
+  color: green;
+}
