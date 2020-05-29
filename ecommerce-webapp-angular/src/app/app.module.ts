@@ -159,7 +159,7 @@ const MY_DATE_FORMATS = {
   ],
   imports: [
     BrowserModule,    
-    AppRoutingModule,
+    AppRoutingModule,    // defineix la part de routing
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -181,6 +181,7 @@ const MY_DATE_FORMATS = {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
+// Mòdul root de l'aplicacio
 export class AppModule { }
 
 

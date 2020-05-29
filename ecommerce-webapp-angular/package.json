@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "json-server": "json-server --watch db.json",
-    "compodoc": "npx compodoc -p src/tsconfig.app.json",
+    "compodoc": "npx compodoc -p src/tsconfig.json", // Workaround Angular Cli 9 + Compodoc
     "serve": "firebase serve --only functions",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"

@@ -10,6 +10,9 @@ import 'rxjs/add/observable/throw';
 
 const API_URL = environment.apiUrl;
 
+/**
+ * Servei on defineix totes les operacions que podem fer (GET/POST) contra el Backend i utilitzant @see HttpClient
+ */
 @Injectable()
 export class ApiService {
 
@@ -20,7 +23,11 @@ export class ApiService {
       return Observable.throw(error);
     }
   
-  // API: GET /hotels
+
+  
+  /**
+   * Recupera tots els hotels
+   */
   public getAllHotels(): Observable<Hotel[]> {
       return this.http
         .get<Hotel[]>(API_URL, {responseType: 'json'})
