@@ -39,6 +39,7 @@
     "jquery": "^3.5.1",
     "js-yaml": "^3.14.0",
     "json-server": "^0.16.1",
+    "lint-staged": "^10.2.7",
     "ng2-charts": "^2.3.2",
     "popper.js": "^1.16.1",
     "rxjs": "^6.5.5",
@@ -72,5 +73,10 @@
     "ts-node": "~8.10.1",
     "tslint": "~6.1.2",
     "uuid": "^8.1.0"
-  }
+  },
+  "lint-staged": {
+	    "linters": {
+	        "*.ts": ["compodoc --coverageMinimumPerFile 25"]
+	    }
+	}
 }

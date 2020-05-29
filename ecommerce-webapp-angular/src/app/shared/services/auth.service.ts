@@ -18,13 +18,21 @@ import * as firebase from 'firebase/app';
   providedIn: 'root'
 })
 
-
+/** 
+ * Servei autentificació utilitzant Firebase 
+ */
 export class AuthService {
+  /** 
+   * <div class="descripcio">dades de l'usuari logged</div> 
+  */
   userData: any; // Save logged in user data
 
   database: any;
-  fireUser: firebase.User;
 
+    /** 
+     * <div class="descripcio">usuari en l'entorn Firebase/Google</div> 
+     */
+  fireUser: firebase.User;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -37,7 +45,10 @@ export class AuthService {
       this.database = firebase.database();
       
       
-    /* Saving user data in localstorage when logged in and setting up null when logged out */
+    /**
+     *  <div class="descripcio">Guarda les dades d'usuari en localstorage quan entra en 
+     *  una sessió i posa null quan es desconnecta</div> 
+     */
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -50,7 +61,10 @@ export class AuthService {
     });
   }
 
-  // Sign in with email/password
+  /** 
+   * <div class="descripcio">Inicia sessió amb email/passw</div>
+   * 
+   */
   SignIn(email, password) {
      return firebase.auth().signInWithEmailAndPassword(email, password)    
       .then((result) => {
@@ -63,7 +77,9 @@ export class AuthService {
       });
   }
 
-  // Sign up with email/password
+  /**
+   * <div class="descripcio">Registra amb email/password</div>   
+   */
   SignUp(email, password) {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -76,7 +92,10 @@ export class AuthService {
       });
   }
 
-  // Send email verfificaiton when new user sign up
+  /** 
+   * <div class="descripcio">Envia un email de verificació quan un nou usuari entra a una sessió</div>
+   * 
+   */
   SendVerificationMail() {
     return firebase.auth().currentUser.sendEmailVerification()
     .then(() => {
@@ -84,7 +103,9 @@ export class AuthService {
     });
   }
 
-  // Reset Forggot password
+  /** 
+   * <div class="descripcio">Reset Forggot passw</div>
+   */
   ForgotPassword(passwordResetEmail) {
     return firebase.auth().sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
@@ -94,28 +115,38 @@ export class AuthService {
     });
   }
 
-  // Returns true when user is looged in and email is verified
+  /** 
+   * <div class="descripcio">Retorna true quan l'usuari ha entrat a la sessió  i el email és verificat</div> 
+   */
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // Sign in with Google
+  /** 
+   * <div class="descripcio">Inicia sessió amb Google</div>    
+   */
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-    // Sign in with Facebook
+    /** 
+     * <div class="descripcio">Incia sessió amb Facebook</div> 
+     */
   FacebookAuth() {
     return this.AuthLogin(new auth.FacebookAuthProvider());
   }
 
-      // Sign in with Google
+      /** 
+       * <div class="descripcio">Inicia sessió amb email</div>
+       */
   EmailAuth() {
     return this.AuthLogin(new auth.EmailAuthProvider());
   }
 
-  // Auth logic to run auth providers
+  /** 
+   * <div class="descripcio">Lògica de autentificació per executar proveidors d'autentificació</div>
+  */
   AuthLogin(provider) {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
@@ -129,9 +160,11 @@ export class AuthService {
   }
 
 
-  /* Setting up user data when sign in with username/password,
+  /** 
+   * <div class="descripcio">Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service</div> 
+  */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
@@ -146,7 +179,9 @@ export class AuthService {
     });
   }
 
-  // Sign out
+  /** 
+   * <div class="descripcio">Tanca sessió</div>
+   */
   SignOut() {
     return firebase.auth().signOut().then(() => {
       localStorage.removeItem('user');
@@ -155,6 +190,9 @@ export class AuthService {
   }
   
   // A PARTIR D'AQUI FOOD!!!!!
+  /** 
+   * <div class="descripcio">Retorn l'usuari</div>
+   */
   getUser() {
       const database = firebase.database;
       return this.database.ref('/users/' + this.fireUser.uid).once('value');

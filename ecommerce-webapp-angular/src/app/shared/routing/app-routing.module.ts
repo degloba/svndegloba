@@ -18,7 +18,7 @@ import { AuthGuard } from '../../shared/guard/auth.guard';
 import { SecureInnerPagesGuard } from '../../shared/guard/secure-inner-pages.guard';
 
 // Include route guard in routes array
-const routes: Routes = [
+const APP_ROUTES: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
     { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
@@ -30,7 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(APP_ROUTES)],
   exports: [RouterModule]
 })
 
