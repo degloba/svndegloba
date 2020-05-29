@@ -10,13 +10,17 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
-import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.vendes.domain.persistence.nosql.mongo.Venda;
 
-
-public class VendesRepository implements MongoRepository<Compra, Long> {
+/**
+ * 
+ * @author degloba
+ *
+ */
+public class VendaRepository implements MongoRepository<Venda, Long> {
 
 	@Override
-	public Page<Compra> findAll(Pageable arg0) {
+	public Page<Venda> findAll(Pageable arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -27,11 +31,6 @@ public class VendesRepository implements MongoRepository<Compra, Long> {
 		return 0;
 	}
 
-	@Override
-	public void delete(Compra arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void deleteAll() {
@@ -53,93 +52,99 @@ public class VendesRepository implements MongoRepository<Compra, Long> {
 	}
 
 	@Override
-	public Iterable<Compra> findAllById(Iterable<Long> arg0) {
+	public <S extends Venda> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Compra> findById(Long arg0) {
+	public Optional<Venda> findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Compra save(Compra arg0) {
+	public Iterable<Venda> findAllById(Iterable<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Compra> arg0) {
+	public void delete(Venda entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public <S extends Compra> long count(Example<S> arg0) {
+	public void deleteAll(Iterable<? extends Venda> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <S extends Venda> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Venda> Page<S> findAll(Example<S> example, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Venda> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Compra> boolean exists(Example<S> arg0) {
+	public <S extends Venda> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <S extends Compra> Page<S> findAll(Example<S> arg0, Pageable arg1) {
+	public <S extends Venda> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Compra> Optional<S> findOne(Example<S> arg0) {
+	public List<Venda> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Compra> List<S> saveAll(Iterable<S> entities) {
+	public List<Venda> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Compra> findAll() {
+	public <S extends Venda> S insert(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Compra> findAll(Sort sort) {
+	public <S extends Venda> List<S> insert(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Compra> S insert(S entity) {
+	public <S extends Venda> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Compra> List<S> insert(Iterable<S> entities) {
+	public <S extends Venda> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public <S extends Compra> List<S> findAll(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Compra> List<S> findAll(Example<S> example, Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
-	

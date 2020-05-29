@@ -3,7 +3,7 @@ package com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.api.jpa.re
 import java.util.List;
 
 import com.degloba.domain.annotations.DomainRepositoryImpl;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
 import com.degloba.ecommerce.vendes.reserves.domain.persistence.rdbms.jpa.Reserva;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
@@ -18,7 +18,7 @@ import com.degloba.persistence.rdbms.api.jpa.EntityRepository;
  *
  */
 @DomainRepositoryImpl
-public class VendaRepository extends EntityRepository implements IVendesRepository{
+public class VendaRepository extends EntityRepository implements IVendaRepository{
 
 	@Override
 	public List<Producte> findProductWhereBestBeforeExpiredIn(int days) {
