@@ -19,6 +19,7 @@ import { AngularFireDatabase , AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as firebase from 'firebase';
+import {AuthService} from '../shared/services/auth.service';
 
 
 const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
@@ -30,6 +31,7 @@ const PROFILE_PLACEHOLDER_IMAGE_URL = '/assets/images/profile_placeholder.png';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
+  authService :   AuthService;
   user: Observable<firebase.User>;
   currentUser: firebase.User;
   messages: Observable<any[]>;
@@ -37,7 +39,8 @@ export class ChatComponent {
   topics = '';
   value = '';
 
-  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth, public snackBar: MatSnackBar) {
+  constructor(public aService: AuthService, public db: AngularFireDatabase, public afAuth: AngularFireAuth, public snackBar: MatSnackBar) {
+    this.authService = aService;
     this.user = afAuth.authState;
     this.user.subscribe((user: firebase.User) => {
       console.log(user);
@@ -94,7 +97,8 @@ export class ChatComponent {
   }
 
   login() {
-      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.authService.AuthLogin(new firebase.auth.GoogleAuthProvider());
+      ///////////firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {

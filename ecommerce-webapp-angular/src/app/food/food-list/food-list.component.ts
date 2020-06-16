@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/cor
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
 import { Food } from '../../model/data-model';
-import { MatDialog } from '@angular/material/Dialog';
+import { MatDialog } from '@angular/material/dialog';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 

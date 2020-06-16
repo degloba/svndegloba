@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 
 /**
-	Pàgina principal d'autentificació
+	<div class="descripcio">Pàgina principal d'autentificació</div>
 */
 @Component({
   selector: 'app-sign-in',

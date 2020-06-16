@@ -1,4 +1,4 @@
-import { MatDialog } from '@angular/material/Dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { EventService } from '../../providers/event.service';
 import { Goals, UNITS, COUNTRIES, Units, Persona } from '../../model/data-model';

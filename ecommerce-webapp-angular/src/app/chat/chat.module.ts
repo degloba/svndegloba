@@ -24,12 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { MatSnackBarModule } from '@angular/material/Snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // import { ChatComponent } from './chat.component';
 import { StylizePipe } from './stylize.pipe';
 import { environment } from '../../environments/environment';
-import { ChatComponent } from "app/chat/chat.component";
+import { ChatComponent } from "./chat.component";
 
 
 const configErrMsg = `You have not configured and imported the Firebase SDK.

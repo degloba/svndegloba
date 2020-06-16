@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 
+/**
+<div class="descripcio">Pàgina registre</div>
+*/
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',

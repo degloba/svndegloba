@@ -19,7 +19,7 @@ import * as firebase from 'firebase/app';
 })
 
 /** 
- * Servei autentificació utilitzant Firebase 
+ * <div class="descripcio">Servei autentificació utilitzant Firebase</div> 
  */
 export class AuthService {
   /** 
