@@ -28,6 +28,8 @@
     "@angular/platform-browser-dynamic": "^9.1.9",
     "@angular/router": "^9.1.9",
     "@google-cloud/pubsub": "^2.0.0",
+    "@material/dialog": "^6.0.0",
+    "@material/snackbar": "^6.0.0",
     "ajv": "^6.12.2",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
@@ -75,8 +77,10 @@
     "uuid": "^8.1.0"
   },
   "lint-staged": {
-	    "linters": {
-	        "*.ts": ["compodoc --coverageMinimumPerFile 25"]
-	    }
-	}
+    "linters": {
+      "*.ts": [
+        "compodoc --coverageMinimumPerFile 25"
+      ]
+    }
+  }
 }
