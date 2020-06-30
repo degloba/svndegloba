@@ -5,7 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -20,49 +29,6 @@ public class User {
 
     private int age;
 
-    public User() {
-        super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(final String username) {
-        email = username;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(final int age) {
-        this.age = age;
-    }
 
     @Override
     public int hashCode() {

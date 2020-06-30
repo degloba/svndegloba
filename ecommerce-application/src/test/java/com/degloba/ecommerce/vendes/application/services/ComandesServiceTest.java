@@ -1,8 +1,8 @@
 package com.degloba.ecommerce.vendes.application.services;
 
-import com.sivalabs.myservice.entities.User;
+/*import com.sivalabs.myservice.entities.User;
 import com.sivalabs.myservice.exception.UserRegistrationException;
-import com.sivalabs.myservice.repositories.UserRepository;
+import com.sivalabs.myservice.repositories.UserRepository;*/
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -24,11 +24,11 @@ import static org.mockito.Mockito.*;
 
 public class ComandesServiceTest {
 
-	@Mock
+/*	@Mock
     private ComandaRepository userRepository;
 
     @InjectMocks
     private UserService userService;
 
-
+*/
 	}

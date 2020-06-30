@@ -25,7 +25,7 @@ public class NomSimilarSpecification extends CompositeSpecification<Producte>{
 
 	@Override
 	public boolean isSatisfiedBy(Producte candidate) {		
-		return candidate.getNom().contains(nom) || candidate.getProducteType().toString().contains(nom);
+		return candidate.getNom().contains(nom) || candidate.getTipusProducte().toString().contains(nom);
 	}
 
 }

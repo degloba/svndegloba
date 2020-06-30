@@ -13,12 +13,21 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * @category Un item d'una Reserva
  * 
  * @author degloba
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 class ReservaItem extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
@@ -29,13 +38,6 @@ class ReservaItem extends BaseEntity{
 	
 	private int quantitat;
 
-	private ReservaItem(){}
-	
-	ReservaItem(Producte producte, int quantitat) {
-		this.producte = producte;
-		this.quantitat = quantitat;
-	}
-
 	void changeQuantityBy(int change) {
 		int changed = quantitat + change;
 		if (changed <= 0)
@@ -43,14 +45,6 @@ class ReservaItem extends BaseEntity{
 		this.quantitat = changed;
 	}
 	
-	public Producte getProducte() {
-		return producte;
-	}
-
-	public int getQuantitat() {
-		return quantitat;
-	}
-
 	@Override
 	public boolean existed() {
 		// TODO Auto-generated method stub

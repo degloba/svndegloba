@@ -19,7 +19,7 @@
 
 		<jdk.version>1.8</jdk.version>
 
-		<servlet.version>2.5</servlet.version>
+		<servlet.version>4.0.0</servlet.version>
 
 		<!-- Spring -->
 		<spring.version>5.2.5.RELEASE</spring.version>
@@ -71,6 +71,8 @@
 		<lombok.version>1.18.12</lombok.version>
 		<junit.version>4.13</junit.version>
 
+		<problem-spring-web.version>0.25.0</problem-spring-web.version>
+
 		<hibernate.version>6.0.0.Alpha4</hibernate.version>
 		<dbunit.version>2.7.0</dbunit.version>
 
@@ -84,6 +86,8 @@
 		<datanucleus.api.jpa.version>5.2.1</datanucleus.api.jpa.version>
 		<jsf.version>2.2.20</jsf.version>
 		<javassist.version>3.12.1.GA</javassist.version>
+
+		<modelmapper.version>2.3.7</modelmapper.version>
 
 		<!-- PLUGINS -->
 
@@ -381,6 +385,13 @@
 				<scope>import</scope>
 			</dependency>
 
+			<!-- per poder convertir entity-DTO -->
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${modelmapper.version}</version>
+			</dependency>
+
 		</dependencies>
 
 	</dependencyManagement>
@@ -415,14 +426,9 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 
-		<!-- Unit Testing -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-
+		<!-- By default spring-boot-starter-test comes with JUnit 4 as the testing 
+			framework. We can exclude JUnit4 and add JUnit 5 dependencies as follows: -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -432,14 +438,39 @@
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
+		<!-- Unit Testing -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>problem-spring-web-starter</artifactId>
+			<version>${problem-spring-web.version}</version>
+			<type>pom</type>
+		</dependency>
+
+
 	</dependencies>
 
 
@@ -462,7 +493,7 @@
 		<!-- Plugins que poden o no ser utilitzats pels projectes que hereden d'aquest 
 			S'han de definir TAMBÉ en el projecte fill -->
 		<pluginManagement>
-		
+
 
 
 			<plugins>
@@ -480,7 +511,7 @@
 						<maxmem>768m</maxmem>
 						<useIncrementalCompilation>false</useIncrementalCompilation>
 						<!-- <sourceDirectory>${project.build.directory}/generated-sources/java8</sourceDirectory> -->
-        				<outputDirectory>${basedir}/target/classes</outputDirectory>
+						<outputDirectory>${basedir}/target/classes</outputDirectory>
 					</configuration>
 				</plugin>
 
@@ -671,6 +702,12 @@
 							</goals>
 						</execution>
 					</executions>
+				</plugin>
+
+				<!-- The Failsafe Plugin is designed to run integration tests while the 
+					Surefire Plugin is designed to run unit tests -->
+				<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
 				</plugin>
 
 

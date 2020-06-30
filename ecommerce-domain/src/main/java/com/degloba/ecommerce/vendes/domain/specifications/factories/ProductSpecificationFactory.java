@@ -31,7 +31,7 @@ public class ProductSpecificationFactory {
 		return new DisjunctionSpecification<Producte>(
 					new PreuSimilarSpecification(problematicProduct.getPreu(), generateAcceptableDifference(client)), 
 					new NomSimilarSpecification(problematicProduct.getNom()),
-					new MateixaCategoriaSpecification(problematicProduct.getProducteType()));
+					new MateixaCategoriaSpecification(problematicProduct.getTipusProducte()));
 	}
 
 	private Money generateAcceptableDifference(Client client) {

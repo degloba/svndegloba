@@ -7,14 +7,13 @@ import org.axonframework.commandhandling.gateway.DefaultCommandGateway;
 import org.axonframework.eventhandling.EventBus;
 import org.axonframework.eventhandling.SimpleEventBus;
 import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
-import org.axonframework.modelling.command.GenericJpaRepository;
 import org.axonframework.modelling.command.Repository;
 import org.axonframework.modelling.saga.repository.SagaStore;
 import org.axonframework.modelling.saga.repository.jpa.JpaSagaStore;
 import org.axonframework.queryhandling.DefaultQueryGateway;
 import org.axonframework.queryhandling.QueryGateway;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +21,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class AxonSimpleApplicationTests {
 

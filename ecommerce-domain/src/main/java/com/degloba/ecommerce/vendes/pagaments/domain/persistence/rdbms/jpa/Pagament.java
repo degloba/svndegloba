@@ -19,6 +19,11 @@ import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 //@AggregateRoot
 /**
  * 
@@ -28,6 +33,10 @@ import com.degloba.persistence.rdbms.api.jpa.ClientData;
  *
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pagament extends BaseAggregateRoot implements Serializable {
 
 	/**
@@ -46,7 +55,6 @@ public class Pagament extends BaseAggregateRoot implements Serializable {
 	@Inject
 	private PagamentsFactory pagamentsFactory;
 	
-	private Pagament(){}
 	
 	public Pagament(AggregateId aggregateId, ClientData clientData, Money quantitat) {
 		this.aggregateId = aggregateId;

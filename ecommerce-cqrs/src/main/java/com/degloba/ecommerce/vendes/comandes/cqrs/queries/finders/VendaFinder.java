@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandesQuery;
+import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.EstatComanda;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ProductesDemanatsDto;
@@ -90,7 +90,7 @@ public class VendaFinder implements IVendaFinder {
 	}
 
 	@Override
-	public PaginatedResult<ComandaDto> query(ComandesQuery comandesQuery) {
+	public PaginatedResult<ComandaDto> query(ComandaQuery comandaQuery) {
 		return null;
 	}
 

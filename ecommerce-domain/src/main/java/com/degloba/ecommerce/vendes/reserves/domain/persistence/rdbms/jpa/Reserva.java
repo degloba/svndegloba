@@ -39,6 +39,11 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 
 /**
@@ -64,6 +69,10 @@ import com.degloba.persistence.rdbms.api.jpa.ClientData;
 })
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Reserva extends BaseAggregateRoot{
 	
@@ -97,7 +106,6 @@ public class Reserva extends BaseAggregateRoot{
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
 
-	private Reserva() {}
 
 	public Reserva(AggregateId aggregateId, EstatReserva status, ClientData clientData, Date createDate){
 		this.aggregateId = aggregateId;
@@ -220,20 +228,5 @@ public class Reserva extends BaseAggregateRoot{
 		return item.getProducte().getPreu().multiplyBy(item.getQuantitat());
 	}
 
-	
-
-	public ClientData getClientData() {
-		return clientData;
-	}
-	
-	public Date getCreateDate() {
-		return createDate;
-	}
-	
-	public EstatReserva getStatus() {
-		return status;
-	}
-
-	
 	
 }

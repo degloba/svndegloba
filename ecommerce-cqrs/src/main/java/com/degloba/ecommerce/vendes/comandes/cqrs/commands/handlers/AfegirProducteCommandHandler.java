@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import com.degloba.cqrs.command.annotations.CommandHandler;
 import com.degloba.cqrs.command.handler.ICommandHandler;
 import com.degloba.ecommerce.vendes.comandes.cqrs.commands.AfegirProducteCommand;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendesRepository;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
 import com.degloba.ecommerce.vendes.productes.domain.persistence.rdbms.jpa.Producte;
@@ -19,7 +19,7 @@ public class AfegirProducteCommandHandler implements ICommandHandler<AfegirProdu
 
 
 	@Inject
-	private IVendesRepository vendesRepository; 
+	private IVendaRepository vendaRepository; 
 
 	
 	@Inject
@@ -31,9 +31,9 @@ public class AfegirProducteCommandHandler implements ICommandHandler<AfegirProdu
 	
 	@Override
 	public Void handle(AfegirProducteCommand command) {
-		Reserva reserva = vendesRepository.obtenirReservaById(Reserva.class,command.getComandaId());
+		Reserva reserva = vendaRepository.obtenirReservaById(Reserva.class,command.getComandaId());
 		
-		Producte producte = vendesRepository.obtenirProducteById(Producte.class,command.getProducteId());
+		Producte producte = vendaRepository.obtenirProducteById(Producte.class,command.getProducteId());
 		
 		if (! producte.isAvailabe()){
 			Client client = loadClient();	
@@ -42,7 +42,7 @@ public class AfegirProducteCommandHandler implements ICommandHandler<AfegirProdu
 			
 		reserva.add(producte, command.getQuantitat());
 		
-		vendesRepository.save(reserva);
+		vendaRepository.save(reserva);
 		
 		return null;
 	}

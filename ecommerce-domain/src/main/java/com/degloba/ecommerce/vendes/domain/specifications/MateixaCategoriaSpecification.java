@@ -28,7 +28,7 @@ public class MateixaCategoriaSpecification extends CompositeSpecification<Produc
 
 	@Override
 	public boolean isSatisfiedBy(Producte candidate) {
-		return candidate.getProducteType().equals(tipusProducte);
+		return candidate.getTipusProducte().equals(tipusProducte);
 	}
 
 }

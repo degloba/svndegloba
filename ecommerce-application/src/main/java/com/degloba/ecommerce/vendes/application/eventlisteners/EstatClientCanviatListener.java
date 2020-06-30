@@ -34,7 +34,7 @@ public class EstatClientCanviatListener {
 	@EventListener
 	public void handle(EstatClientCanviatEvent event){
 
-		ComandaQuery comandaQuery = new ComandaQuery(null, event.getClientId());	
+		ComandaQuery comandaQuery = new ComandaQuery(null,null, null);	
 		PaginatedResult<ComandaDto> orders = vendesFinder.query(comandaQuery);
 		
 		Money discount = calculaDescompte(event.getClientId());

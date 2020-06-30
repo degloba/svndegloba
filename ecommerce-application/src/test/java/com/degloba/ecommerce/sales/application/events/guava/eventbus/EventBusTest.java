@@ -19,7 +19,16 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.is;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class EventBusTest {
@@ -38,7 +47,7 @@ public class EventBusTest {
     private int numberLongEvents = 10;
 
 
-    @Before
+    @Before(value = "")
     public void setUp() {
         eventBus = new EventBus();
         deadEventSubscriber = new DeadEventSubscriber();
@@ -157,13 +166,13 @@ public class EventBusTest {
         assertThat(multiHandlerSubscriber.getSimpleEvents().size(), is(1));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test      //(expected = IllegalArgumentException.class)
     public void testMultipleParametersInHandler() {
         InvalidSubscriberMultipleParameter invalidSubscriber = InvalidSubscriberMultipleParameter.instance(eventBus);
         generateCreditPurchaseEvent();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test   ///(expected = IllegalArgumentException.class)
     public void testNoParametersInHandler() {
         InvalidSubscriberNoParameters invalidSubscriber = InvalidSubscriberNoParameters.instance(eventBus);
         generateCreditPurchaseEvent();

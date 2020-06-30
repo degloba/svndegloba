@@ -18,6 +18,11 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * @category Entitat de persistència que defineix un producte
  * 
@@ -25,6 +30,10 @@ import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
  *
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Producte extends BaseAggregateRoot{
 
@@ -42,8 +51,6 @@ public class Producte extends BaseAggregateRoot{
 	@Enumerated(EnumType.STRING)
 	private TipusProducte tipusProducte;
 	
-	private Producte(){}
-	
 	Producte(AggregateId aggregateId, Money preu, String nom, TipusProducte tipusProducte){
 		this.aggregateId = aggregateId;
 		this.preu = preu;
@@ -55,18 +62,7 @@ public class Producte extends BaseAggregateRoot{
 		return ! isRemoved();//TODO explore domain rules
 	}
 	
-	public Money getPreu() {
-		return preu;
-	}
-	
-	public String getNom() {
-		return nom;
-	}
-	
-	public TipusProducte getProducteType() {
-		return tipusProducte;
-	}
-	
+		
 	public ProducteData generateSnapshot(){
 		return new ProducteData(getAggregateId(), preu, nom, tipusProducte, new Date());
 	}

@@ -13,6 +13,11 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 /**
  * @category Entitat de persistencia JPA d'un enviament
@@ -20,6 +25,10 @@ import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
  * @author degloba
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Enviament extends BaseAggregateRoot {
 
@@ -32,9 +41,7 @@ public class Enviament extends BaseAggregateRoot {
 	
     private EstatEnviament estatEnviament;
 
-    
-    private Enviament() {}
-    
+   
     public Enviament(AggregateId enviamentId, AggregateId comandaId) {
         this.aggregateId = enviamentId;
     	this.comandaId = comandaId;
@@ -63,10 +70,5 @@ public class Enviament extends BaseAggregateRoot {
         
        // eventPublisher.publish(new EnviamentLliuratEvent(getAggregateId()));
     }
-
-    public AggregateId getComandaId() {    	
-    	return comandaId;
-    }
-
 
 }

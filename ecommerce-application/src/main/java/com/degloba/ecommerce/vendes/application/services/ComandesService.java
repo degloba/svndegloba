@@ -10,6 +10,7 @@ import com.degloba.ecommerce.compres.domain.factories.CompresFactory;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.application.exceptions.OfertaCanviadaException;
 import com.degloba.ecommerce.vendes.comandes.cqrs.commands.DetallsComandaCommand;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.Comanda;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
@@ -168,6 +169,36 @@ public class ComandesService implements IComandesService {
 	private Client loadClient() {
 		return null;
 		////////////////return entityRepository.load(systemUser.getDomainUserId());
+	}
+
+	@Override
+	public Object ObtenirTotesComandes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object creaComanda(Comanda any) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object modificarComanda(Comanda any) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void esborrarComandaPerId(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object obtenirComandaPerId(Long userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

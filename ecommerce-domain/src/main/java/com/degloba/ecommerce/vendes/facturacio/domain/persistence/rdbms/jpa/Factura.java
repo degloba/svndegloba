@@ -24,6 +24,11 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 
 /**
@@ -33,6 +38,10 @@ import com.degloba.persistence.rdbms.api.jpa.ClientData;
  * 
  */
 @AggregateRoot
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Factura extends BaseAggregateRoot {
 
@@ -75,10 +84,6 @@ public class Factura extends BaseAggregateRoot {
 		this.gros = Money.ZERO;
 	}
 	
-	/**
-	 * For JPA Only
-	 */
-	private Factura(){}
 
 	public void addItem(LiniaFacturacio item) {
 		items.add(item);
@@ -94,18 +99,5 @@ public class Factura extends BaseAggregateRoot {
 	public List<LiniaFacturacio> getItems() {
 		return Collections.unmodifiableList(items);
 	}
-
-	public ClientData getClient() {
-		return client;
-	}
-
-	public Money getNet() {
-		return net;
-	}
-
-	public Money getGros() {
-		return gros;
-	}
-
 
 }

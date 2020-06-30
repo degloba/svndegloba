@@ -5,9 +5,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 // used for Querydsl test
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class MyUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +30,6 @@ public class MyUser {
 
     private int age;
 
-    public MyUser() {
-        super();
-    }
-
     public MyUser(final String firstName, final String lastName, final String email, final int age) {
         super();
         this.firstName = firstName;
@@ -33,47 +38,6 @@ public class MyUser {
         this.age = age;
     }
 
-    //
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(final String username) {
-        email = username;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(final int age) {
-        this.age = age;
-    }
 
     @Override
     public int hashCode() {

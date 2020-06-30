@@ -17,7 +17,7 @@ import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
  *
  */
 @DomainRepository
-public interface IVendesRepository extends IEntityRepository {
+public interface IVendaRepository extends IEntityRepository {
 
 	public List<Producte> findProductWhereBestBeforeExpiredIn(int days);
 	public Producte obtenirProducteById(Class<Producte> clazz, AggregateId producteId);

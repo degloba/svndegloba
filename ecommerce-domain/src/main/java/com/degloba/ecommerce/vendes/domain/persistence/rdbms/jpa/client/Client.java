@@ -17,6 +17,11 @@ import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * 
  * @author degloba
@@ -25,6 +30,10 @@ import com.degloba.persistence.rdbms.api.jpa.ClientData;
  *
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @AggregateRoot
 public class Client extends BaseAggregateRoot{
 
@@ -65,15 +74,5 @@ public class Client extends BaseAggregateRoot{
 		
 		return pagamentsFactory.creaPagament(generateSnapshot(), quantitat);
 	}
-
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 
 }

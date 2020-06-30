@@ -1,8 +1,8 @@
 package com.degloba.ecommerce.vendes.facturacio.domain.factories;
 
 import com.degloba.domain.annotations.DomainFactory;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.vendes.compres.domain.persistence.rdbms.jpa.CompraArticle;
+import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
+import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.CompraArticle;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.RequestItem;
@@ -21,7 +21,7 @@ public class PeticionsFacturaFactory {
 		PeticioFactura request = new PeticioFactura(client.generateSnapshot());
 		
 		for (Compra compra : compres) {
-			if (! compra.estaPagada())
+			if (! compra.isPagada())
 				throw new DomainOperationException(compra.getAggregateId(), "Purchase is not paid");
 			
 			for (CompraArticle item : compra.getItems()) {
