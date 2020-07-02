@@ -467,7 +467,7 @@
 		<mysql.username>root</mysql.username>
 		<mysql.password />
 		
-		<mysql.version>5.1.35</mysql.version>
+		<mysql.version>8.0.16</mysql.version>
 
 
 		<hibernate.query.substitutions>true 'Y', false 'N'</hibernate.query.substitutions>
