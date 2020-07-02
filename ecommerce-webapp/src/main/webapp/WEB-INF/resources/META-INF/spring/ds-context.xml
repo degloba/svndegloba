@@ -53,17 +53,18 @@
 
 
 	<!-- Factory bean that creates the Mongo instance -->
-<!-- 	 <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
-		<property name="host" value="localhost"/> 
-		</bean>  -->
+	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> 
+		<property name="host" value="localhost"/> </bean> -->
 
 	<!-- Use this post processor to translate any MongoExceptions thrown in 
 		@Repository annotated classes -->
-	 <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-	 
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
 	<!-- Convert the given runtime exception to an appropriate exception from 
 		the org.springframework.dao hierarchy -->
-	<bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator"/>
+	<bean
+		class="org.springframework.data.mongodb.core.MongoExceptionTranslator" />
 
 	<!-- Mongo cross-store aspect config <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking" 
 		factory-method="aspectOf"> <property name="changeSetPersister" ref="mongoChangeSetPersister"/> 
@@ -76,35 +77,40 @@
 
 	<!-- <mongo: host="localhost" port="27017" /> -->
 
-	 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
-		<constructor-arg name="mongo" ref="mongo"/> <constructor-arg name="databaseName" 
-		value="casino"/> 
+	<bean id="mongoTemplate"
+		class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo" />
+		<constructor-arg name="databaseName" value="casino" />
 	</bean>
 
-	 <bean id="topicRepository" class="com.degloba.messaging.infrastructure.persistence.nosql.impl.mongo.repositories.FCMTopicRepository"> 
-		<property name="mongoTemplate" ref="mongoTemplate"/> 
-		</bean>
+<!-- 	<bean id="topicRepository"
+		class="com.degloba.messaging.infrastructure.persistence.nosql.impl.mongo.repositories.FCMTopicRepository">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean> -->
 
 
-	 <bean id="FCMTokenRegisterRepository" class="com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris.FCMTokenRegisterRepository"> 
-		<property name="mongoTemplate" ref="mongoTemplate"/> 
-	</bean> 
+<!-- 	<bean id="FCMTokenRegisterRepository"
+		class="com.degloba.lloguers.infrastructure.persistence.nosql.impl.mongo.api.spring.repositories.usuaris.FCMTokenRegisterRepository">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean> -->
 
 
 	<!-- <bean id="eventBus" class="com.google.common.eventbus.EventBus"/> -->
 
 
-
-	<!-- <bean id="storedDomainEventRepository" class="com.degloba.domain.event.StoredDomainEventRepository"> 
-		<property name="mongoTemplate" ref="mongoTemplate"/> <constructor-arg name="mongoTemplate" 
-		ref="mongoTemplate"/> </bean> -->
-
-
-	<!-- <bean id="domainEventBus" class="com.degloba.domain.event.DomainEventBusImpl"> 
-		<constructor-arg name="eventBus" ref="eventBus"/> <constructor-arg name="storedDomainEventRepository" 
-		ref="storedDomainEventRepository"/> </bean> -->
+<!--  	<bean id="storedDomainEventRepository" class="com.degloba.domain.event.StoredDomainEventRepository">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+		<constructor-arg name="mongoTemplate" ref="mongoTemplate"/> 
+	</bean>   --> 
 
 
+<!-- 	<bean id="domainEventBus"
+		class="com.degloba.domain.events.DomainEventBus">
+		<constructor-arg name="eventBus" ref="eventBus" />
+		<constructor-arg name="storedDomainEventRepository"
+			ref="storedDomainEventRepository" />
+	</bean>
+ -->
 
 	<!-- ************ -->
 	<!-- REPOSITORIS -->
@@ -112,20 +118,20 @@
 
 	<bean id="repository" class="com.degloba.persistence.rdbms.jpa.EntityRepository" />
 
-	<bean id="organisationRepository"
+	<!-- <bean id="organisationRepository"
 		class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />
-
+ -->
 	<bean id="crmRepository"
-		class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.jpa.repositories.CrmRepository" />
+		class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.api.jpa.repositories.CrmRepository" />
 
 	<bean id="clientRepository"
-		class="com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.jpa.repositories.VendaRepository" />
+		class="com.degloba.ecommerce.vendes.infrastructure.persistence.rdbms.api.jpa.repositories.VendaRepository" />
 
 	<bean id="shipmentRepository"
-		class="com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.jpa.repositories.EnviamentRepository" />
+		class="com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.api.jpa.repositories.EnviamentRepository" />
 
-	<bean id="rentRepositoryObjectify"
+	<!-- <bean id="rentRepositoryObjectify"
 		class="com.degloba.lloguers.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.LloguerRepository" />
-
+ -->
 
 </beans>

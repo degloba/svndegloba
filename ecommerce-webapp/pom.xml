@@ -21,7 +21,7 @@
 
 		<archiveClasses>true</archiveClasses>
 
-		<jetty.maven.plugin>9.4.15.v20190215</jetty.maven.plugin>
+		<jetty.maven.plugin>9.4.27.v20200227</jetty.maven.plugin>
 
 		<failOnMissingWebXml>false</failOnMissingWebXml> <!-- REQUIRED -->
 
@@ -30,6 +30,9 @@
 		<endpoints.framework.version>2.2.1</endpoints.framework.version>
 		<endpoints.management.version>1.0.4</endpoints.management.version>
 		<endpoints.project.id>wwwdegloba-1350</endpoints.project.id>
+		
+		<maven.war.plugin.version>3.2.3</maven.war.plugin.version>
+		
 	</properties>
 
 
@@ -37,13 +40,13 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>			
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.projectreactor</groupId>
 			<artifactId>reactor-spring</artifactId>
-			<version>1.1.0.M1</version>			
+			<version>1.1.0.M1</version>
 		</dependency>
 
 		<!-- Necessària únicament per la classe WebConfiguration (com.degloba.canonicalmodel.ui.webui.spring) -->
@@ -149,11 +152,11 @@
 		</dependency>
 
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
@@ -173,7 +176,7 @@
 			<version>${google.appengine.version}</version>
 		</dependency>
 
-			<dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 		</dependency>
@@ -187,26 +190,47 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			 <exclusions>
+			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
-			</exclusions> 
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>			 
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
+<dependency>
+			<!-- Spring Cloud starter -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Eureka service registration -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<version>2.0.0.M2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>
+						spring-boot-starter-actuator
+					</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<!-- Compile/runtime dependencies -->
-		<dependency>
-			<groupId>com.google.endpoints</groupId>
-			<artifactId>endpoints-framework</artifactId>
-			<version>${endpoints.framework.version}</version>			
-		</dependency>
 		<!-- [START api_management] -->
 		<dependency>
 			<groupId>com.google.endpoints</groupId>
@@ -242,6 +266,11 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- per fer servir anotacions que permeten crear mocks d'0bjectes
+			i poder injectar en un altra objecte.
+			Exemple : crear un Mock de UserRepository i	injectar aquest Mock
+			a un objecte UserService, -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
@@ -255,11 +284,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>6.0.6</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -276,15 +300,94 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+		 <dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-cqrs</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
 		</dependency>
+		 <dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.axonframework</groupId>
+					<artifactId>
+						axon-spring-boot-autoconfigure
+					</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.axonframework</groupId>
+					<artifactId>axon-modelling</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>
+						spring-boot-starter-actuator
+					</artifactId>
+				</exclusion>
+			</exclusions>
+		 </dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard</artifactId>
+			<version>1.2.5</version>
+			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-ioc-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-event-api</artifactId>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-application</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency> -->
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-infrastructure</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-commons</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.degloba</groupId>
+					<artifactId>degloba-persistence-nosql</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-domain</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-commons</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-jpa</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.degloba</groupId>
+					<artifactId>degloba-persistence-rdbms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>degloba-security</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
+		
+	
 	</dependencies>
 
 
@@ -295,10 +398,22 @@
 		<!-- for hot reload of the web application -->
 
 		<plugins>
+		
+					<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+		
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
+				<version>${maven.war.plugin.version}</version>
 				<configuration>
 					<webResources>
 						<resources>

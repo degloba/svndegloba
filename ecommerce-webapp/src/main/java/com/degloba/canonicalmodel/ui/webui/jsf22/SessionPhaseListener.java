@@ -10,7 +10,7 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-import com.degloba.webapp.jsf.listeners.PostbackPhaseListener;
+import com.degloba.ecommerce.webapp.jsf.listeners.PostbackPhaseListener;
  
 /**
  * PhaseListener to ensure the HttpSession data is written to the datastore.

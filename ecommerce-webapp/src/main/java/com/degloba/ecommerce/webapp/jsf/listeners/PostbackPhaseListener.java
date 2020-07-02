@@ -1,4 +1,4 @@
-package com.degloba.webapp.jsf.listeners;
+package com.degloba.ecommerce.webapp.jsf.listeners;
 
 import java.util.Map;
 

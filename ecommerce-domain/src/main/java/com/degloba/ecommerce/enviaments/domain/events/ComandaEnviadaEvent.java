@@ -28,4 +28,9 @@ public class ComandaEnviadaEvent extends DomainEvent {
         this.enviamentId = enviamentId;
     }
 
+	public AggregateId getComandaId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

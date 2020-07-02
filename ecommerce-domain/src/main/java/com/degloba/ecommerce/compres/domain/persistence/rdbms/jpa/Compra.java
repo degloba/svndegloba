@@ -102,5 +102,10 @@ public class Compra extends BaseAggregateRoot{
 		return (Collection<CompraArticle>) Collections.unmodifiableCollection(items);
 	}
 
+	public Money getTotalCost() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

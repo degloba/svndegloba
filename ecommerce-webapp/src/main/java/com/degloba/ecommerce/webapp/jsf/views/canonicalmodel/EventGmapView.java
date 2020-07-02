@@ -1,4 +1,4 @@
-package com.degloba.webapp.jsf.views.canonicalmodel;
+package com.degloba.ecommerce.webapp.jsf.views.canonicalmodel;
 
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;

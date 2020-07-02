@@ -25,5 +25,15 @@ public class AfegirProducteCommand {
 		this.producteId = producteId;
 		this.quantitat = quantitat;
 	}
+
+	public AggregateId getComandaId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AggregateId getProducteId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

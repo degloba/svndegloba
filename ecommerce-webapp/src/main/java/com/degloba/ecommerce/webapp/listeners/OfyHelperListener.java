@@ -1,4 +1,4 @@
-package com.degloba.webapp.listeners;
+package com.degloba.ecommerce.webapp.listeners;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

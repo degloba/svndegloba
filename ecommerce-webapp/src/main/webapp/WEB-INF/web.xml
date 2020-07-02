@@ -139,11 +139,11 @@ If you want to save the state on the server (which is the default in the JavaSer
    <param-value>2147483647</param-value>
   </init-param>
  </filter>
- <filter>
+ <!--  <filter>
   <display-name>FilterWorkAroundDotInDirectoryFilter</display-name>
   <filter-name>FilterWorkAroundDotInDirectoryFilter</filter-name>
   <filter-class>com.degloba.webapp.filters.FilterWorkAroundDotInDirectoryFilter</filter-class>
- </filter>
+ </filter> -->
  <!-- ############################################# 
  # Google API Endpoints                      # 
  ############################################# 
@@ -171,20 +171,21 @@ If you want to save the state on the server (which is the default in the JavaSer
     <dispatcher>FORWARD</dispatcher>
 	 -->
  </filter-mapping>
- <filter-mapping>
+ <!--  <filter-mapping>
   <filter-name>FilterWorkAroundDotInDirectory</filter-name>
   <url-pattern>/*</url-pattern>
- </filter-mapping>
+ </filter-mapping>  -->
  <filter-mapping>
   <filter-name>ObjectifyFilter</filter-name>
   <url-pattern>/*</url-pattern>
  </filter-mapping>
- <listener>
+ <!--  <listener>
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
- </listener>
+ </listener> -->
  <listener>
   <description>Aquest listener hereda de org.springframework.web.context.ContextLoaderListener</description>
-  <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>
+  <!-- <listener-class>com.degloba.ecommerce.webapp.listeners.DeglobaContextLoaderListener</listener-class>   --> 
+  <listener-class>com.degloba.ioc.spring.webapp.DeglobaContextLoaderListener</listener-class>  
  </listener>
 <!--<listener>
   <listener-class>com.degloba.webapp.listeners.OfyHelperListener</listener-class>
@@ -281,19 +282,19 @@ If you want to save the state on the server (which is the default in the JavaSer
   
    <!-- Google Cloud Endpoints -->
    <!-- Wrap the backend with Endpoints Frameworks v2. -->
-    <servlet>
+   <!--  <servlet>
         <servlet-name>EndpointsServlet</servlet-name>
         <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
             <param-value>com.degloba.endpoints.Endpoint</param-value>
         </init-param>
-    </servlet>
+    </servlet>   -->
     <!-- Route API method requests to the backend. -->
-    <servlet-mapping>
+    <!--  <servlet-mapping>
         <servlet-name>EndpointsServlet</servlet-name>
         <url-pattern>/_ah/api/*</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>  -->
   
  <session-config>
   <session-timeout>30</session-timeout>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.degloba.cqrs.command.Gate;
-import com.degloba.ecommerce.enviaments.cqrs.queries.finders.IEnviamentFinder;
+//import com.degloba.ecommerce.enviaments.cqrs.queries.finders.IEnviamentFinder;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 
@@ -28,18 +28,18 @@ import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 @RequestMapping("/enviaments/enviament")
 public class EnviamentsController {
 
-    @Inject
-    private IEnviamentFinder enviamentFinder;
+/*    @Inject
+    private IEnviamentFinder enviamentFinder;*/
 
     @Inject
     private Gate gate;
 
-    @RequestMapping("/llista")
+/*    @RequestMapping("/llista")
     public String llistaEnviaments(Model model) {
         List<EnviamentDto> enviaments = enviamentFinder.buscaEnviaments();
         model.addAttribute("enviaments", enviaments);
         return "/enviament/llistaEnviaments";
-    }
+    }*/
 
     @RequestMapping(value = "/envia", method = RequestMethod.POST)
     public String enviaComanda(@RequestParam("enviamentId") String enviamentId) {

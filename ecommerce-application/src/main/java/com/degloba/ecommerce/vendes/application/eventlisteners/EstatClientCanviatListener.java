@@ -2,6 +2,8 @@ package com.degloba.ecommerce.vendes.application.eventlisteners;
 
 import javax.inject.Inject;
 
+
+
 import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.ecommerce.vendes.application.services.DescompteService;

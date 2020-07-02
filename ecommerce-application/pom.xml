@@ -34,15 +34,15 @@
 
 		<dependency>
 			<groupId>com.degloba</groupId>
-			<artifactId>ecommerce-cqrs</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.degloba</groupId>
 			<artifactId>ecommerce-eventsourcing</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.degloba</groupId>
+			<artifactId>ecommerce-cqrs</artifactId>
+			<version>4.4.3-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

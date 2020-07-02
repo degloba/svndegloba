@@ -28,4 +28,9 @@ public class EstatClientCanviatEvent extends AbstractEvent {
         this.estatClient = estatClient;
     }
 
+	public AggregateId getClientId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

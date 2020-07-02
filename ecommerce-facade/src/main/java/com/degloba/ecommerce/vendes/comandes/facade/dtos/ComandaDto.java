@@ -22,5 +22,9 @@ public class ComandaDto {
 	@Getter @Setter  private List<ProductesDemanatsDto> productesDemanats = new ArrayList<ProductesDemanatsDto>();
 	@Getter @Setter private EstatComanda estatComanda;
 	private Boolean confirmable;
+	public AggregateId getComandaId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
