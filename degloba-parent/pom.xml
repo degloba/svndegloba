@@ -506,6 +506,7 @@
 					<configuration>
 						<source>${jdk.version}</source>
 						<target>${jdk.version}</target>
+						<compilerVersion>${jdk.version}</compilerVersion>
 						<fork>true</fork>
 						<meminitial>128m</meminitial>
 						<maxmem>768m</maxmem>
