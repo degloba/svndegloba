@@ -186,11 +186,22 @@
 				<artifactId>maven-install-plugin</artifactId>
 			</plugin>
 			
-		<!-- 	<plugin>
+			<!-- comentar si no te classe SpringBoot -->
+			<!-- <plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-			 -->
+					<configuration>
+					<mainClass>com.degloba.ecommerce.cqrs.CqrsSpringBootApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				</plugin> -->
+			 
 			            <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
             </plugin>

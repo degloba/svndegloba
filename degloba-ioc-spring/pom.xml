@@ -67,6 +67,22 @@
 				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
 			
+			<!-- Comentar si no té una classe SpringBoot -->
+				<!-- 	<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+					<mainClass>com.degloba.ecommerce.cqrs.CqrsSpringBootApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				</plugin> -->
+			
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
