@@ -56,7 +56,23 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 			</plugin>
-
+			
+			<!-- comentar si no te classe SpringBoot -->
+					<!-- <plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+					<mainClass>XXXXXXXXXXXX</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				</plugin>
+ -->
 
 		</plugins>
 

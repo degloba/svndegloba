@@ -75,7 +75,23 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
+			</plugin>		
+			
+			<!-- comentar si no te classe SpringBoot -->
+			<!-- <plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+					<mainClass>com.degloba.ecommerce.cqrs.CqrsSpringBootApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				</plugin> -->
 
 			<!-- <plugin> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-maven-plugin</artifactId> 
 				<version>5.0.0-release</version> <configuration> <api>JPA</api> <persistenceUnitName>transactions-optional</persistenceUnitName> 
