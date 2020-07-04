@@ -8,10 +8,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+//we can now access environment.apiUrl
 const API_URL = environment.apiUrl;
 
 /**
- * Servei on defineix totes les operacions que podem fer (GET/POST) contra el Backend i utilitzant @see {@link HttpClient}.
+ * Servei on defineix totes les operacions que podem fer (GET/POST) contra el Backend i utilitzant 
+ * @see {@link HttpClient}.
  * 
  */
 @Injectable()
