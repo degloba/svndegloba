@@ -148,13 +148,13 @@
 		
 			<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
 				to execute the unit tests of an application -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-	<!-- 			<configuration>
+				<configuration>
 					<skipTests>true</skipTests>
-				</configuration> -->
-			</plugin>
+				</configuration>
+			</plugin> -->
 
 
 			<plugin>

@@ -21,6 +21,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.google.common.base.Preconditions;
 
+/**
+ * 
+ * @author pere
+ * 
+ * https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 @PropertySource({ "classpath:persistence-${envTarget:h2}.properties" })
