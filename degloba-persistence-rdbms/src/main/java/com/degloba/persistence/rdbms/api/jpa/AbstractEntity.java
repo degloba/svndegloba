@@ -1,9 +1,6 @@
 package com.degloba.persistence.rdbms.api.jpa;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Una classe d'entitat abstracta que proporciona atributs d'identificació i versió, 

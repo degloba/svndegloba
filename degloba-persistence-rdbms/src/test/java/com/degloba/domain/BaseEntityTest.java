@@ -4,7 +4,6 @@ import com.degloba.domain.entity.Company;
 import com.degloba.domain.entity.Dept;
 import com.degloba.domain.entity.Organization;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 
 

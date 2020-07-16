@@ -1,6 +1,10 @@
 package com.degloba.ecommerce.crm.facade.dtos;
 
+import com.degloba.persistence.rdbms.api.jpa.AggregateId;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 
@@ -10,6 +14,8 @@ import lombok.Data;
  *
  */
 @Data
+@AllArgsConstructor
+//@NoArgsConstructor
 public class ProducteDemanatDto {
 	
 	private final String orderId;

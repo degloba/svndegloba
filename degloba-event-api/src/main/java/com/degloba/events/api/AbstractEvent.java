@@ -2,7 +2,9 @@ package com.degloba.events.api;
 
 import com.degloba.utils.Assert;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 import java.util.Date;
@@ -14,6 +16,8 @@ import java.util.UUID;
  * @category Event abstracte que implementa {@link IEvent}
  */
 @Data
+@AllArgsConstructor
+//@NoArgsConstructor
 public abstract class AbstractEvent implements IEvent {
     
     private String id = UUID.randomUUID().toString();

@@ -1,6 +1,9 @@
 package com.degloba.ecommerce.eventsourcing.events;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 /**
@@ -11,6 +14,8 @@ import lombok.Value;
  */
 @Value
 @Data
+@AllArgsConstructor
+//@NoArgsConstructor
 public class ComandaFetaEvent {
 
 	private final String comandaId;

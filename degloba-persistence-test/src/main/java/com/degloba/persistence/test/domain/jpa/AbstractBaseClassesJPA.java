@@ -1,6 +1,6 @@
 package com.degloba.persistence.test.domain.jpa;
 
-import com.degloba.persistence.rdbms.jpa.BaseAggregateRoot;
+import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
 
 
 import java.util.List;

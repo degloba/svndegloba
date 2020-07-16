@@ -2,7 +2,9 @@ package com.degloba.ecommerce.crm.cqrs.commands;
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 /**
@@ -14,6 +16,8 @@ import lombok.Value;
  */
 @Value
 @Data
+@AllArgsConstructor
+//@NoArgsConstructor
 public class FerComandaCommand {
 
 	@TargetAggregateIdentifier

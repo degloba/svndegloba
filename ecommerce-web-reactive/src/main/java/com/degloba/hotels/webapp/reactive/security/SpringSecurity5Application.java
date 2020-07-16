@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
 import org.springframework.web.reactive.config.EnableWebFlux;
@@ -14,6 +15,7 @@ import reactor.netty.http.server.HttpServer;
 
 @ComponentScan(basePackages = {"com.degloba.hotels.webapp.reactive.security"})
 @EnableWebFlux
+@Order(100)
 public class SpringSecurity5Application {
 
     public static void main(String[] args) {

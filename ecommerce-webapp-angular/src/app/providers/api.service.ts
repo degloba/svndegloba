@@ -35,9 +35,6 @@ export class ApiService {
   
   /**
    * @example
-   * This is a good example
-   * 
-   * Hola
    * 
    * {@link getAllHotels}</param>
    * [Todo]{@link Todo}

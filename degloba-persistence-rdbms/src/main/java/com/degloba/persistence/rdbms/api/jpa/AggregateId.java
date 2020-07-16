@@ -8,7 +8,9 @@ import javax.persistence.Embeddable;
 
 import org.apache.commons.lang3.Validate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @category Un agregat és un grup d'objectes de negoci que sempre han de ser
@@ -23,6 +25,8 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Embeddable
 @Data
+//@AllArgsConstructor
+@NoArgsConstructor
 public class AggregateId implements Serializable {
 
 	@Column(name = "aggregateId", length = 255, unique = true, nullable = false)
@@ -33,9 +37,6 @@ public class AggregateId implements Serializable {
 		this.aggregateId = aggregateId;
 	}
 
-	public AggregateId() {
-
-	}
 
 	public static AggregateId generate() {
 		return new AggregateId(UUID.randomUUID().toString());

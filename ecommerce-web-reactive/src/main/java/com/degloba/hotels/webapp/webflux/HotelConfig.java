@@ -28,4 +28,10 @@ public class HotelConfig {
     public WebSocketHandlerAdapter handlerAdapter() {
         return new WebSocketHandlerAdapter();
     }
+    
+    
+    @Bean
+    public HotelRepository hotelRepository() {
+        return new HotelRepository();
+    }
 }

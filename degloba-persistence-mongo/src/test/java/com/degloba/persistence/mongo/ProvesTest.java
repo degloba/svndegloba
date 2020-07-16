@@ -8,8 +8,7 @@ import com.degloba.persistence.mongo.config.SpringMongoConfig;
 import com.degloba.persistence.test.domain.User;
 
 import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;

@@ -14,6 +14,23 @@
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-webflux</artifactId>
   	</dependency>
+  	
+  	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+  	
+  	<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
   	<dependency>
   		<groupId>io.projectreactor</groupId>
   		<artifactId>reactor-test</artifactId>
@@ -28,6 +45,10 @@
   				<groupId>com.degloba</groupId>
   				<artifactId>ecommerce-domain</artifactId>
   			</exclusion>
+  			<exclusion>
+  				<groupId>org.zalando</groupId>
+  				<artifactId>problem-spring-web-starter</artifactId>
+  			</exclusion>
   		</exclusions>
   	</dependency>
   	
@@ -39,8 +60,16 @@
   				<groupId>org.springframework.security</groupId>
   				<artifactId>spring-security-config</artifactId>
   			</dependency>
-
-
   			
   </dependencies>
+  
+  
+    <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>

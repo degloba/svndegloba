@@ -34,12 +34,36 @@ import reactor.core.publisher.Mono;
  * https://www.baeldung.com/spring-boot-angular-web
  */
 @RestController()
-///////////@RequestMapping("/hotels")
+@RequestMapping("/hotels")
 @Slf4j
-@CrossOrigin(origins = "http://localhost:4200")
+///////@CrossOrigin(origins = "http://localhost:4200")
 public class HotelController {
 	
-	final String urlServer="http://localhost:8081";
+	
+	private HotelRepository employeeRepository;
+
+    public HotelController(HotelRepository hotelRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
+    @GetMapping("/{id}")
+    private Mono<Hotel> getEmployeeById(@PathVariable String id) {
+        return employeeRepository.findHotelById(id);
+    }
+
+    @GetMapping
+    private Flux<Hotel> getAllEmployees() {
+        return employeeRepository.findAllHotels();
+    }
+
+    @PostMapping("/update")
+    private Mono<Hotel> updateEmployee(@RequestBody Hotel employee) {
+        return employeeRepository.updateEmployee(employee);
+    }
+	
+	
+	
+/*	final String urlServer="http://localhost:8081";
 	
 	
 	@GetMapping("/{param}")
@@ -105,5 +129,5 @@ public class HotelController {
 				return x.bodyToMono(String.class);
 			});		    	
 		return respuesta1;		
-	}	
+	}	 */
 }
