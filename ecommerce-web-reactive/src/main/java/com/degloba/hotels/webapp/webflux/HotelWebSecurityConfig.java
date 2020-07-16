@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.webflux;
+package com.degloba.hotels.webapp.webflux;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,15 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-/**
- * 
- * @author pere
- * 
- * https://github.com/eugenp/tutorials/blob/master/spring-5-reactive-security/src/main/java/com/baeldung/webflux/EmployeeWebSecurityConfig.java
- *
- */
-@EnableWebFluxSecurity
 public class HotelWebSecurityConfig {
+
 	
     @Bean
     public MapReactiveUserDetailsService userDetailsService() {
@@ -37,7 +30,7 @@ public class HotelWebSecurityConfig {
         http.csrf()
             .disable()
             .authorizeExchange()
-            .pathMatchers(HttpMethod.POST, "/hotels/update")
+            .pathMatchers(HttpMethod.POST, "/employees/update")
             .hasRole("ADMIN")
             .pathMatchers("/**")
             .permitAll()

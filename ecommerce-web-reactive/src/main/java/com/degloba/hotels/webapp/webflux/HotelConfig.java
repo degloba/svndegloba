@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.webflux;
+package com.degloba.hotels.webapp.webflux;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,14 +11,12 @@ import org.springframework.web.reactive.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.server.support.WebSocketHandlerAdapter;
 
-@Configuration
-@EnableWebFlux
 public class HotelConfig {
 
     @Bean
     public HandlerMapping handlerMapping() {
         Map<String, WebSocketHandler> map = new HashMap<>();
-        map.put("/hotel-feed", new HotelWebSocketHandler());
+        map.put("/employee-feed", new HotelWebSocketHandler());
 
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         mapping.setUrlMap(map);

@@ -65,33 +65,4 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
     	return new BCryptPasswordEncoder();
     }
-    
-    
-    @Bean
-    public AuthenticationConfiguration authenticationConfiguration() {
-    	return new AuthenticationConfiguration();
-    }
-    
-    /**
-     * https://www.programcreek.com/java-api-examples/?api=org.springframework.security.config.annotation.ObjectPostProcessor
-     * 
-     * @return
-     */
-    @Bean
-    public ObjectPostProcessor<AffirmativeBased> createRoleProcessor() {
-        return new ObjectPostProcessor<AffirmativeBased>() {
-            @Override
-            public AffirmativeBased postProcess(AffirmativeBased affirmativeBased) {
-                WebExpressionVoter webExpressionVoter = new WebExpressionVoter();
-                DefaultWebSecurityExpressionHandler expressionHandler = new DefaultWebSecurityExpressionHandler();
-                expressionHandler.setRoleHierarchy(authorities -> {
-                    String[] allAlertRoles =  {"ADMIN"}; ////retrieveAllowedRoles(allAlertRoles);
-                    return (Collection<? extends GrantedAuthority>) AuthorityUtils.createAuthorityList(allAlertRoles);
-                });
-                webExpressionVoter.setExpressionHandler(expressionHandler);
-                affirmativeBased.getDecisionVoters().add(webExpressionVoter);
-                return affirmativeBased;
-            }
-        };
-    }
 }

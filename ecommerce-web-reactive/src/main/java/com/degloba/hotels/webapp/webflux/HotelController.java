@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.webflux;
+package com.degloba.hotels.webapp.webflux;
 
 import java.awt.List;
 import java.util.Arrays;
@@ -40,8 +40,6 @@ import reactor.core.publisher.Mono;
 public class HotelController {
 	
 	final String urlServer="http://localhost:8081";
-	
-	
 	
 	
 	@GetMapping("/{param}")

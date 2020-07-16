@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.webflux;
+package com.degloba.hotels.webapp.webflux;
 
 import static java.time.LocalDateTime.now;
 import static java.util.UUID.randomUUID;

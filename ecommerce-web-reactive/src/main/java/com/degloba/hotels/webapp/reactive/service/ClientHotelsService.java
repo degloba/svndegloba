@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
  * @author degloba
  *
  */
-//@Service
+@Service
 public class ClientHotelsService {
 
 	public Flux<HotelDto> buscarTotsHotels() {

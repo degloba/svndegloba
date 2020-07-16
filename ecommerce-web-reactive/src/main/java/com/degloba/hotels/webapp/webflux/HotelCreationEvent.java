@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.webflux;
+package com.degloba.hotels.webapp.webflux;
 
 /**
  * https://github.com/eugenp/tutorials/blob/master/spring-5-reactive-security/src/main/java/com/baeldung/webflux/EmployeeCreationEvent.java 
