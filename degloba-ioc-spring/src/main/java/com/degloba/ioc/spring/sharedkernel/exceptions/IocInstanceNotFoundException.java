@@ -1,4 +1,4 @@
-package com.degloba.ioc.sharedkernel.exceptions;
+package com.degloba.ioc.spring.sharedkernel.exceptions;
 
 /**
  * @author degloba

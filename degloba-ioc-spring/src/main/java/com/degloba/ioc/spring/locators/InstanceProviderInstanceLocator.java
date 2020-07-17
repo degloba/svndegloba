@@ -1,7 +1,8 @@
-package com.degloba.ioc.interfaces;
+package com.degloba.ioc.spring.locators;
 
 
-import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
+import com.degloba.ioc.spring.providers.IInstanceProvider;
+import com.degloba.ioc.spring.sharedkernel.exceptions.IocInstanceNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 

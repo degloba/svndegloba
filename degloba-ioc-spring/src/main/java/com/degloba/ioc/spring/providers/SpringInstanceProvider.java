@@ -1,14 +1,13 @@
-package com.degloba.ioc.spring.factory;
+package com.degloba.ioc.spring.providers;
 
-
-import com.degloba.ioc.interfaces.IInstanceProvider;
-import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotUniqueException;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.degloba.ioc.spring.sharedkernel.exceptions.IocInstanceNotUniqueException;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;

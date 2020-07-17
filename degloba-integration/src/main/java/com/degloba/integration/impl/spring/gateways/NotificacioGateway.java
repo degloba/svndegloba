@@ -1,4 +1,4 @@
-package com.degloba.integration.spring.services;
+package com.degloba.integration.impl.spring.gateways;
 
 
 import org.springframework.integration.annotation.Gateway;

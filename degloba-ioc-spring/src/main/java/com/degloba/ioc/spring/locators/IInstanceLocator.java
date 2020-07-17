@@ -1,4 +1,4 @@
-package com.degloba.ioc.interfaces;
+package com.degloba.ioc.spring.locators;
 
 import java.lang.annotation.Annotation;
 
@@ -12,7 +12,7 @@ import java.lang.annotation.Annotation;
  */
 public interface IInstanceLocator {
 
-    public abstract  <T> T getInstance(Class<T> beanType);
+    public abstract <T> T getInstance(Class<T> beanType);
 
     public abstract <T> T getInstance(Class<T> beanType, String beanName);
 

@@ -1,4 +1,4 @@
-package com.degloba.integration.spring.services;
+package com.degloba.integration.impl.spring.services;
 
 
 /**

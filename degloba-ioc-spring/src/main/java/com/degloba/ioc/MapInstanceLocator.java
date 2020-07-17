@@ -4,7 +4,9 @@ import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.degloba.ioc.interfaces.IInstanceLocator;
+import com.degloba.ioc.spring.locators.IInstanceLocator;
+
+
 
 /**
  * @author degloba

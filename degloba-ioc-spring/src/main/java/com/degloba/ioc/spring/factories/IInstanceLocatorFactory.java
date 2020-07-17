@@ -1,6 +1,9 @@
-package com.degloba.ioc.interfaces;
+package com.degloba.ioc.spring.factories;
 
 import java.util.Map;
+
+import com.degloba.ioc.spring.locators.IInstanceLocator;
+import com.degloba.ioc.spring.providers.IInstanceProvider;
 
 
 /**
@@ -9,6 +12,7 @@ import java.util.Map;
  * @category Cercador d'instancies java
  */
 public interface IInstanceLocatorFactory {
+	
     IInstanceLocator create(IInstanceProvider instanceProvider);
     IInstanceLocator createByServiceLoader();
     IInstanceLocator create(Map<Object, Object> instances);

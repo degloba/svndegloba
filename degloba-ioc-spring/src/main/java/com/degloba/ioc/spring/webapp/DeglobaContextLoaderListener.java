@@ -1,12 +1,15 @@
 package com.degloba.ioc.spring.webapp;
 
-import com.degloba.ioc.InstanceFactory;
-import com.degloba.ioc.spring.factory.SpringInstanceProvider;
+
+import javax.servlet.ServletContextEvent;
+
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import javax.servlet.ServletContextEvent;
+import com.degloba.ioc.spring.factories.InstanceFactory;
+import com.degloba.ioc.spring.providers.SpringInstanceProvider;
+
 
 /**
  * @author degloba

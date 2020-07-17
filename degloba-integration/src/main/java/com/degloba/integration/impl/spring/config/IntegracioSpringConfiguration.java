@@ -1,4 +1,4 @@
-package com.degloba.integration.spring.config.services;
+package com.degloba.integration.impl.spring.config;
 
 
 import org.apache.commons.logging.Log;
@@ -38,12 +38,20 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @category defineix la configuració d'integració (amqp/rabbit, messaging, mail,...) com un bean d'Spring
- * i a partir del fitxer de propietats application.properties
+ * @category Defineix la configuració d'integració amb altres sistemes
+ * <ul>
+ * 	<li>amqp/rabbit {@link AmqpAdmin}, {@link ConnectionFactory}, </li> 
+ * 	<li>messaging {@link MessageHandler}</li>
+ * 	<li>mail {@link JavaMailSender}</li>
+ * </ul>
+ * 
+ * com beans d'Spring
+ * 
+ * @implSpec Utilitza el fitxer application.properties
  */
 @Configuration
 @PropertySource("classpath:/META-INF/application.properties")
-public class IntegracioConfiguration {
+public class IntegracioSpringConfiguration {
 
 
     @Autowired

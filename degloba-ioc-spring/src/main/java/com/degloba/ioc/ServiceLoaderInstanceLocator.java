@@ -1,7 +1,8 @@
 package com.degloba.ioc;
 
-import com.degloba.ioc.interfaces.IInstanceLocator;
-import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotUniqueException;
+
+import com.degloba.ioc.spring.locators.IInstanceLocator;
+import com.degloba.ioc.spring.sharedkernel.exceptions.IocInstanceNotUniqueException;
 
 import lombok.extern.slf4j.Slf4j;
 

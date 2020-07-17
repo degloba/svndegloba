@@ -1,7 +1,9 @@
 package com.degloba.ioc.spring.factory;
 
-import com.degloba.ioc.InstanceFactory;
-import com.degloba.ioc.interfaces.IInstanceProvider;
+
+import com.degloba.ioc.spring.factories.InstanceFactory;
+import com.degloba.ioc.spring.providers.IInstanceProvider;
+import com.degloba.ioc.spring.providers.SpringInstanceProvider;
 
 public class SpringIocUtils {
 

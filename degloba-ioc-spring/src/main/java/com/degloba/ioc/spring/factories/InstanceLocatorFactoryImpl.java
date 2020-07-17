@@ -1,11 +1,12 @@
-package com.degloba.ioc;
+package com.degloba.ioc.spring.factories;
 
 import java.util.Map;
 
-import com.degloba.ioc.interfaces.IInstanceLocator;
-import com.degloba.ioc.interfaces.IInstanceLocatorFactory;
-import com.degloba.ioc.interfaces.IInstanceProvider;
-import com.degloba.ioc.interfaces.InstanceProviderInstanceLocator;
+import com.degloba.ioc.MapInstanceLocator;
+import com.degloba.ioc.ServiceLoaderInstanceLocator;
+import com.degloba.ioc.spring.locators.IInstanceLocator;
+import com.degloba.ioc.spring.locators.InstanceProviderInstanceLocator;
+import com.degloba.ioc.spring.providers.IInstanceProvider;
 
 
 /**

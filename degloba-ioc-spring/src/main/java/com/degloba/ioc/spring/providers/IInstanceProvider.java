@@ -1,4 +1,4 @@
-package com.degloba.ioc.interfaces;
+package com.degloba.ioc.spring.providers;
 
 
 import java.lang.annotation.Annotation;
