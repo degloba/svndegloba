@@ -6,13 +6,12 @@ import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
 
-
-import com.degloba.security.spring.gae.security.AppRole;
+import com.degloba.security.impl.spring.authorities.AppRole;
 
 
 
 /**
- * costumitzacio d'un Usuari
+ * @category Usuari de l'aplicació
  *
  * @author degloba
  */

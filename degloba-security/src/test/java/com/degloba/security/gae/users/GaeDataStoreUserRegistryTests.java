@@ -1,12 +1,11 @@
 package com.degloba.security.gae.users;
 
 
-
 import java.util.EnumSet;
 import java.util.Set;
 
-import com.degloba.security.spring.gae.security.AppRole;
-import com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry;
+import com.degloba.security.impl.spring.authorities.AppRole;
+import com.degloba.security.impl.spring.users.GaeDatastoreUserRegistry;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;

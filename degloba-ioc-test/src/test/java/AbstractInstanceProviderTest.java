@@ -3,7 +3,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.degloba.ioc.interfaces.IInstanceProvider;
+import com.degloba.ioc.spring.providers.IInstanceProvider;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

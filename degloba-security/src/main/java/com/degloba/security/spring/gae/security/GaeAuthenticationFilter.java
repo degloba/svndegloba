@@ -8,6 +8,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.degloba.security.impl.spring.authorities.AppRole;
 import com.degloba.security.spring.gae.users.GaeUser;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -29,6 +30,9 @@ import org.springframework.web.filter.GenericFilterBean;
 
 
 /**
+ * 
+ * @category Seguretat
+ * 
  * @author Luke Taylor
  */
 @Slf4j

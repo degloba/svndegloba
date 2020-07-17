@@ -1,4 +1,4 @@
-package com.degloba.security.spring.gae.security;
+package com.degloba.security.impl.spring.authentications;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -13,6 +13,13 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+/**
+ * 
+ * @category Seguretat
+ * 
+ * @author pere
+ *
+ */
 public class GoogleAccountsAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
 	private static final Logger log = Logger.getLogger(GoogleAccountsAuthenticationEntryPoint.class.getName());

@@ -1,7 +1,9 @@
-package com.degloba.security.spring.gae.users;
+package com.degloba.security.impl.spring.users;
 
 
-import com.degloba.security.spring.gae.security.AppRole;
+import com.degloba.security.impl.spring.authorities.AppRole;
+import com.degloba.security.spring.gae.users.GaeUser;
+import com.degloba.security.spring.gae.users.UserRegistry;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -14,8 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.*;
 
 /**
- * Implementació {@link UserRegistry} que utilitza l'API baix nivell de GAE.
- *
+ * @category Implementació {@link UserRegistry} que utilitza l'API baix nivell de GAE.
+ * 
+ * @apiNote {@link DatastoreServiceFactory}
+ * 
  * @author degloba
  */
 @Slf4j

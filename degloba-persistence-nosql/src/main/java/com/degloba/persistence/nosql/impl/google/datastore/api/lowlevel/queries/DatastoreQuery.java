@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.google.datastore.api.lowlevel;
+package com.degloba.persistence.nosql.impl.google.datastore.api.lowlevel.queries;
 
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Entity;
@@ -9,6 +9,8 @@ import com.google.cloud.datastore.QueryResults;
 
 /**
  * @category Consulta al {@link com.google.cloud.datastore.DataStore}
+ * 
+ * @apiNote Natiu
  * 
  * @author degloba
  *

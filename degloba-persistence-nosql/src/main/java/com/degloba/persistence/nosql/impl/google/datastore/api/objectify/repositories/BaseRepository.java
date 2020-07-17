@@ -1,19 +1,23 @@
-package com.degloba.persistence.nosql.google.datastore.api.objectify;
+package com.degloba.persistence.nosql.impl.google.datastore.api.objectify.repositories;
 
 
 import java.util.List;
 
+import com.degloba.persistence.nosql.impl.google.datastore.api.objectify.exceptions.DatabaseException;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 
 
 /**
- * Repositori implementat amb Google Cloud DataStore/Objectify
+ * 
+ * @category Repositori implementat amb Google Cloud DataStore
+ * 
+ * @apiNote Objectify
  * 
  * @author pere
  *
  */
-public class BaseRepository implements IBaseRepository{
+public class BaseRepository implements IBaseRepository {
 
 	
 /*	static {

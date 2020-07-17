@@ -1,11 +1,13 @@
-package com.degloba.security.spring.gae.validation;
+package com.degloba.security.validators;
 
 import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.degloba.security.impl.spring.validation.annotations.Forename;
+
 /**
- * @author Luke Taylor
+ * @author degloba
  */
 public class ForenameValidator implements ConstraintValidator<Forename, String> {
 	private static final Pattern VALID = Pattern.compile("[\\p{L}'\\-,.]+");

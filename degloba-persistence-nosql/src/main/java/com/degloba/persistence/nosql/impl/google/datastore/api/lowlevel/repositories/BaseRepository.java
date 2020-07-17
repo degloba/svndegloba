@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.google.datastore.api.lowlevel;
+package com.degloba.persistence.nosql.impl.google.datastore.api.lowlevel.repositories;
 
 
 import java.util.ArrayList;
@@ -26,9 +26,11 @@ import com.google.common.collect.Lists;
 import com.google.cloud.datastore.Transaction;
 
 /**
- * @category Repositori implementat amb Google Cloud DataStore/Natiu<br><br>
+ * @category Repositori implementat amb Google Cloud DataStore
  * 
- * See <a href="https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples">exemple</a>
+ * @apiNote Natiu
+ * 
+ * @see <a href="https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-examples">Google Cloud examples</a>
  * 
  */
 public class BaseRepository implements IBaseRepository{

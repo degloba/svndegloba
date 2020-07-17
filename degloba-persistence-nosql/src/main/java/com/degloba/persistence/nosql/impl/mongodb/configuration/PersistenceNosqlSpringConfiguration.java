@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.mongodb.configuration;
+package com.degloba.persistence.nosql.impl.mongodb.configuration;
 
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.event.LoggingEventListener;
  * @author Thomas Darimont
  */
 @SpringBootApplication
-class ApplicationConfiguration {
+class PersistenceNosqlSpringConfiguration {
 
 	public @Bean LoggingEventListener mongoEventListener() {
 		return new LoggingEventListener();

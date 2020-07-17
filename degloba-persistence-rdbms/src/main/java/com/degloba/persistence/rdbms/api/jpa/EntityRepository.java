@@ -13,9 +13,7 @@ import javax.persistence.Query;
 
 import lombok.extern.slf4j.Slf4j;
 
-
-
-import com.degloba.events.bus.impl.EventBus;
+import com.degloba.events.bus.EventBus;
 import com.degloba.persistence.rdbms.api.jpa.PositionalParameters;
 
 import org.springframework.stereotype.Repository;

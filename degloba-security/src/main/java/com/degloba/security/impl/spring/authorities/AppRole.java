@@ -1,13 +1,18 @@
-package com.degloba.security.spring.gae.security;
+package com.degloba.security.impl.spring.authorities;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import lombok.Getter;
+
 /**
+ * @category Seguretat
+ * 
  * @author degloba
  */
 public enum AppRole implements GrantedAuthority {
 	ADMIN(0), NEW_USER(1), USER(2);
 
+	@Getter
 	private final int bit;
 
 	/**
@@ -22,9 +27,6 @@ public enum AppRole implements GrantedAuthority {
 		this.bit = bit;
 	}
 
-	public int getBit() {
-		return bit;
-	}
 
 	public String getAuthority() {
 		return "ROLE_"+toString();

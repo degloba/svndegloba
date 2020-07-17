@@ -19,8 +19,6 @@ import lombok.NoArgsConstructor;
  *           DDD, que ajuda a mantenir la consistència dels nostres objectes
  *           empresarials. Tanmateix, la idea d’agregat també és útil fora del
  *           context del DDD.
- * 
- *           https://github.com/BottegaIT/ddd-leaven-v2
  */
 @SuppressWarnings("serial")
 @Embeddable
@@ -68,17 +66,5 @@ public class AggregateId implements Serializable {
 	public String toString() {
 		return aggregateId;
 	}
-
-	/*
-	 * @Column(name = "aggregateId", length = 255, unique=true, nullable=false)
-	 * public String getAggregateId() { return aggregateId; }
-	 */
-
-	/*
-	 * Comentat perque dona error
-	 * 
-	 * public void setAggregateId(String aggregateId) { this.aggregateId =
-	 * aggregateId; }
-	 */
 
 }

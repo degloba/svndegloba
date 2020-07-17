@@ -1,4 +1,4 @@
-package com.degloba.security.spring.gae.validation;
+package com.degloba.security.impl.spring.validation.annotations;
 
 import static java.lang.annotation.ElementType.*;
 
@@ -8,15 +8,18 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+import com.degloba.security.validators.ForenameValidator;
+
 
 
 /**
- * @author Luke Taylor
+ * @author degloba
  */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = ForenameValidator.class)
 public @interface Forename {
+	
 	String message() default "{samples.gae.forename}";
 
 	Class<?>[] groups() default {};

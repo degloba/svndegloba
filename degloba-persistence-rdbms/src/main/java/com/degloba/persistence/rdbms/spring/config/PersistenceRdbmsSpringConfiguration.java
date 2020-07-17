@@ -34,12 +34,12 @@ import com.google.common.base.Preconditions;
 @ComponentScan({ "com.degloba.persistence.rdbms" })
 // @ImportResource("classpath*:springDataPersistenceConfig.xml")
 @EnableJpaRepositories(basePackages = "com.degloba.persistence.rdbms.dao")
-public class PersistenceConfig {
+public class PersistenceRdbmsSpringConfiguration {
 
     @Autowired
     private Environment env;
 
-    public PersistenceConfig() {
+    public PersistenceRdbmsSpringConfiguration() {
         super();
     }
 

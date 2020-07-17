@@ -6,10 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.degloba.security.spring.gae.security.AppRole;
+import com.degloba.security.impl.spring.authorities.AppRole;
+
 
 /**
- * @author Luke Taylor
+ * @author degloba
  */
 public class AppRoleTests {
 

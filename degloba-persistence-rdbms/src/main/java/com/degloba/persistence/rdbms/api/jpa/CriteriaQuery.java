@@ -3,7 +3,7 @@ package com.degloba.persistence.rdbms.api.jpa;
 
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.OrderSettings;
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.factories.InstanceFactory;
 import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 import com.degloba.persistence.rdbms.api.jpa.IQueryCriterion;
 import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
@@ -15,7 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 
 
 /**
- * Consulta de condicions 
+ * 
+ * @category Consulta de condicions 
  * Especifica un criteri de la consulta, propietats d'ordenació i per recuperar un subconjunt del resultat per una determinada entitat
  *
  */

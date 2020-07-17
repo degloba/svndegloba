@@ -4,6 +4,8 @@ import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.degloba.security.impl.spring.validation.annotations.Surname;
+
 /**
  * @author Luke Taylor
  */

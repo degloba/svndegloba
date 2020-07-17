@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 
-// CDI Java EE 6
 import javax.inject.Inject;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -31,7 +30,7 @@ import com.degloba.domain.events.IDomainEventBus;
 import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.publishers.IDomainEventPublisher;
-import com.degloba.ioc.InstanceFactory;
+import com.degloba.ioc.spring.factories.InstanceFactory;
 import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
 
@@ -39,7 +38,7 @@ import com.degloba.utils.BeanUtils;
 /**
  * @author degloba
  * 
- * @category Defineix l'entitat de persistencia base<br> 
+ * @category Defineix l'entitat de persistencia base
  * 
  */
 	@Scope("prototype")//created in domain factories, not in spring container, therefore we don't want eager creation

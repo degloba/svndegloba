@@ -3,10 +3,10 @@ package com.degloba.persistence.rdbms.api.jpa;
 import javax.persistence.*;
 
 /**
- * Una classe d'entitat abstracta que proporciona atributs d'identificació i versió, 
+ * @category Una classe d'entitat abstracta que proporciona atributs d'identificació i versió, 
  * així com mètodes bàsics de persistència
  *
- * @author yang
+ * @author degloba
  *
  */
 @MappedSuperclass

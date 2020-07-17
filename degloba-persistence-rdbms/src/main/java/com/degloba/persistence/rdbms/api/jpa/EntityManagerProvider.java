@@ -1,14 +1,15 @@
 package com.degloba.persistence.rdbms.api.jpa;
 
 
-import com.degloba.ioc.InstanceFactory;
-import com.degloba.ioc.sharedkernel.exceptions.IocInstanceNotFoundException;
+import com.degloba.ioc.spring.factories.InstanceFactory;
+import com.degloba.ioc.spring.sharedkernel.exceptions.IocInstanceNotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 
 /**
+ * @category
  * JPA EntityManagerProvider. Si el thread actual de entityManager encara no existeix,
  * obté un thread des del contenidor i botiga IoC,
  * Si el thread actual ja existeix les variables de subjunt entityManager, el retorna.
