@@ -4,6 +4,8 @@ import com.degloba.events.api.AbstractEvent;
 import com.degloba.utils.Assert;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,10 +20,13 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable 
 
 	private static final long serialVersionUID = 1L;
 
+	@Getter @Setter
 	private String id = UUID.randomUUID().toString();
 
+	@Getter
     private Date occurredOn = new Date();
 
+	@Getter
     private int version = 1;
 
     public DomainEvent() {
@@ -46,38 +51,5 @@ public abstract class DomainEvent extends AbstractEvent implements Serializable 
         this.occurredOn = new Date(occurredOn.getTime());
         this.version = version;
     }
-
-    /**
-     * Obté l'identificador de l'event
-     * @return ID de l'event
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * For test only
-     * @param id Configura l'ID
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * Obté el temps d'ocurrència
-     * @return Event time
-     */
-    public Date getOccurredOn() {
-        return occurredOn;
-    }
-
-    /**
-     * Obté la versió
-     * @return Version of events
-     */
-    public int getVersion() {
-        return version;
-    }
-
 
 }

@@ -1,8 +1,4 @@
-package com.degloba.cqrs.command.decorator;
-
-// CQRS
-import com.degloba.cqrs.command.handler.ICommandHandler;
-import com.degloba.cqrs.command.handler.ICommandHandlerFactory;
+package com.degloba.cqrs.commands.handlers;
 
 import lombok.Value;
 
@@ -16,11 +12,11 @@ import lombok.Value;
  * @param <R>
  */
 @Value
-public class ContainerCommandHandlerDecorator<TCommand,R> implements ICommandHandler<TCommand,R>
+public class ContainerCommandHandler<TCommand,R> implements ICommandHandler<TCommand,R>
 {
     private ICommandHandlerFactory<TCommand,R> _factory;
     
-    public ContainerCommandHandlerDecorator(ICommandHandlerFactory<TCommand,R> factory)
+    public ContainerCommandHandler(ICommandHandlerFactory<TCommand,R> factory)
     {
         _factory = factory;
     }

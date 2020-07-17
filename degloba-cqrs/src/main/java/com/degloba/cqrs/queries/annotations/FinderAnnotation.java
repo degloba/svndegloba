@@ -1,4 +1,4 @@
-package com.degloba.cqrs.query.annotations;
+package com.degloba.cqrs.queries.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -19,6 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly=true)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface Finder {
+public @interface FinderAnnotation {
 
 }

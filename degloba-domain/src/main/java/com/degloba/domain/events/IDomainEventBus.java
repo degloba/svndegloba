@@ -7,7 +7,9 @@ import com.degloba.events.bus.IEventBus;
 /**
  * @author degloba
  * 
- * @category Bus d’events de domini.<br>
+ * @category EventBus
+ * 
+ * 
  * Hi ha varies parts :<br>
  * <ul>
  * <li>
@@ -21,8 +23,10 @@ import com.degloba.events.bus.IEventBus;
 public interface IDomainEventBus<T extends IEvent> extends IEventBus<T>{
 
     /**
+     * @apiNote
+     * 
      * L'event s'envia a tots els Subscriber
-     * @param event Event de dominia a publicar
+     * @param event Event de domini a publicar
      */
     void publicaEvent(DomainEvent event);
 
@@ -38,5 +42,5 @@ public interface IDomainEventBus<T extends IEvent> extends IEventBus<T>{
      * Deregistration a registered events to the event bus subscribers all subscription methods.
      * @param subscriber Event subscribers.
      */
-    void unregisterSubscriber(Object subscriber);
+    void unRegisterSubscriber(Object subscriber);
 }

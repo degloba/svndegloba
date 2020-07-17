@@ -1,4 +1,4 @@
-package com.degloba.cqrs.command;
+package com.degloba.cqrs.commands;
 
 /**
  * @author degloba
@@ -10,7 +10,7 @@ public interface ICommand {
 	/**
 	 * @category Definim si la comanda es pot executar de manera asíncrona.
 	 * <br>
-	 * Si true llavors {@link CommandHandler} ha de retornar void - en qualsevol altra cas el sistema llençarà una excepció 
+	 * Si true llavors {@link CommandHandlerAnnotation} ha de retornar void - en qualsevol altra cas el sistema llençarà una excepció 
 	 * 
 	 * @return
 	 */

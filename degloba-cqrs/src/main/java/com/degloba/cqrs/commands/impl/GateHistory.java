@@ -1,20 +1,20 @@
-package com.degloba.cqrs.command.impl;
+package com.degloba.cqrs.commands.impl;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 
 /**
- * Gestiona l’historial d’execució de {@link ICommand} basant-se en els atributs d’anotacions (java.lang.annotation)<br>
+ * Gestiona l’historial d’execució de {@link ICommandAnnotation} basant-se en els atributs d’anotacions (java.lang.annotation)<br>
  * Les ordres "anotades" com unique = true s’emmagatzemen en aquest historial
  * <ul>
- * <li> La història comprova si la mateixa {@link ICommand} es cridada una altra vegada. <br>
+ * <li> La història comprova si la mateixa {@link ICommandAnnotation} es cridada una altra vegada. <br>
  * </li>
  * <li>
- * Cada tipus (classe) de {@link ICommand} té les seves pròpies entrades en l’historial: la longitud del històric es pot parametritzar a través del paràmetre del constructor.
+ * Cada tipus (classe) de {@link ICommandAnnotation} té les seves pròpies entrades en l’historial: la longitud del històric es pot parametritzar a través del paràmetre del constructor.
  * </li>
  * </ul>
  * 
@@ -36,7 +36,7 @@ class GateHistory {
 	private static final int DEFAULT_MAX_HISTORY_CAPACITY = 3;
 
 	/**
-	 * Model de l'històric. Cada tipus (classe) de {@link ICommand} té un {@link Map} d'execucions (instància de la {@link ICommand}
+	 * Model de l'històric. Cada tipus (classe) de {@link ICommandAnnotation} té un {@link Map} d'execucions (instància de la {@link ICommandAnnotation}
 	 * i data)
 	 */
 	@SuppressWarnings("rawtypes")
@@ -55,7 +55,7 @@ class GateHistory {
 	/**
 	 * 
 	 * @param command
-	 * @return true si la {@link ICommand} no és una repetició, false si {@link ICommand} és una
+	 * @return true si la {@link ICommandAnnotation} no és una repetició, false si {@link ICommandAnnotation} és una
 	 *         repetició i no s’hauria d’executar ara
 	 */
 	public boolean register(Object command) {
@@ -82,16 +82,16 @@ class GateHistory {
 	}
 
 	private boolean isUnique(Object command) {
-		if (!command.getClass().isAnnotationPresent(ICommand.class))
+		if (!command.getClass().isAnnotationPresent(ICommandAnnotation.class))
 			return false;
 
-		ICommand commandAnnotation = command.getClass().getAnnotation(ICommand.class);
+		ICommandAnnotation commandAnnotation = command.getClass().getAnnotation(ICommandAnnotation.class);
 
 		return commandAnnotation.unique();
 	}
 
 	private Long getUniqueStorageTimeout(Object command) {
-		ICommand commandAnnotation = command.getClass().getAnnotation(ICommand.class);
+		ICommandAnnotation commandAnnotation = command.getClass().getAnnotation(ICommandAnnotation.class);
 		return commandAnnotation.uniqueStorageTimeout();
 	}
 

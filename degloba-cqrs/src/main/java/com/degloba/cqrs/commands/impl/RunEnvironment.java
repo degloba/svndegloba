@@ -1,10 +1,10 @@
-package com.degloba.cqrs.command.impl;
+package com.degloba.cqrs.commands.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.degloba.cqrs.command.ICommand;
-import com.degloba.cqrs.command.handler.ICommandHandler;
+import com.degloba.cqrs.commands.ICommand;
+import com.degloba.cqrs.commands.handlers.ICommandHandler;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.degloba.cqrs.command.handler;
+package com.degloba.cqrs.commands.handlers;
 
-import com.degloba.cqrs.command.ICommand;
+import com.degloba.cqrs.commands.ICommand;
 
 /**
  * 

@@ -1,11 +1,11 @@
-package com.degloba.cqrs.command.impl;
+package com.degloba.cqrs.commands.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.degloba.cqrs.command.Gate;
-import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.cqrs.commands.Gate;
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 
 
 /**
@@ -15,7 +15,7 @@ import com.degloba.cqrs.command.annotations.ICommand;
  * @category Runtime del CQRS. Té definit :
  * <ul>
  * <li>
- * un històric de {@link ICommand} executades
+ * un històric de {@link ICommandAnnotation} executades
  * </li>
  * <li>
  * el Runtime CQRS propiament dit
@@ -50,18 +50,18 @@ public class StandardGate implements Gate {
 	}
 
 	/**
-	 * @category Retorna si el {@link ICommand} es assícron o no
-	 * En el cas assíncron hauríem de posar el {@link ICommand} en una cua 
+	 * @category Retorna si el {@link ICommandAnnotation} es assícron o no
+	 * En el cas assíncron hauríem de posar el {@link ICommandAnnotation} en una cua 
 	 * 
 	 * @param command
 	 * @return
 	 */
 	private boolean isAsynchronous(Object command) {
 		// comprovem que el {@link Object} es un {@link Commnad}
-		if (! command.getClass().isAnnotationPresent(ICommand.class))
+		if (! command.getClass().isAnnotationPresent(ICommandAnnotation.class))
 			return false;
 		
-		ICommand commandAnnotation = command.getClass().getAnnotation(ICommand.class);		
+		ICommandAnnotation commandAnnotation = command.getClass().getAnnotation(ICommandAnnotation.class);		
 		return commandAnnotation.asynchronous();		
 	}
 

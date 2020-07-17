@@ -1,4 +1,4 @@
-package com.degloba.cqrs.command.annotations;
+package com.degloba.cqrs.commands.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,5 +17,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface CommandHandler {
+public @interface CommandHandlerAnnotation {
 }

@@ -5,6 +5,7 @@ import com.google.common.eventbus.EventBus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.Date;
 import java.util.List;
@@ -25,16 +26,12 @@ import com.degloba.utils.Assert;
 /**
  * @author degloba
  * 
- * @category 
+ * @category  EventBus
  * 
- * <ul>
- * <li>
- * 		Implementa un bus d'events d'entitats de domini amb Google Guava<br>
- * </li>
- * <li>
- * 		Guarda l'event en un repositori d'events implementat amb MongoDB
- * </li>
- * </ul>
+ * @implNote Implementa un bus d'events d'entitats de domini amb Google Guava
+ * 
+ * @implSpec Guarda l'event en un repositori d'events implementat amb MongoDB
+ * 
  * 
  */
 @Data
@@ -49,9 +46,7 @@ public class DomainEventBus<T extends IEvent> implements IDomainEventBus<T> {
     private IStoredDomainEventRepository storedDomainEventRepository;
 
 
-	public DomainEventBus(EventBus eventBus, IStoredDomainEventRepository storedDomainEventRepository) {
-        Assert.notNull(eventBus, "EventBus is null!");
-        Assert.notNull(storedDomainEventRepository, "EventStore is null!");
+	public DomainEventBus(@NonNull EventBus eventBus, @NonNull IStoredDomainEventRepository storedDomainEventRepository) {
         this.eventBus = eventBus;
         this.storedDomainEventRepository = storedDomainEventRepository;
     }
@@ -84,7 +79,7 @@ public class DomainEventBus<T extends IEvent> implements IDomainEventBus<T> {
  * (non-Javadoc)
  * @see com.degloba.domain.event.IDomainEventBus#unregisterSubscriber(java.lang.Object)
  */
-    public void unregisterSubscriber(Object subscriber) {
+    public void unRegisterSubscriber(Object subscriber) {
         eventBus.unregister(subscriber);
     }
 
