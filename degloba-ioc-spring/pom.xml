@@ -82,30 +82,7 @@
 					</execution>
 				</executions>
 				</plugin> -->
-			
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Export-Package>
-							com.degloba.ioc.spring.*
-						</Export-Package>
-					</instructions>
-				</configuration>
-				<executions>
-					<execution>
-						<id>generate-manifest</id>
-						<goals>
-							<goal>manifest</goal>
-							<goal>bundle</goal>
-						</goals>
-						<phase>package</phase>
-					</execution>
-				</executions>
-			</plugin>
-			
+									
 		</plugins>
 	</build>
 
