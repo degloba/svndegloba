@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import com.degloba.events.annotations.EventListener;
+import com.degloba.events.annotations.EventListenerAnnotation;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.api.IEventHandler;
 import com.degloba.events.publishers.DomainEventPublisher;
@@ -19,7 +19,7 @@ import com.degloba.events.publishers.DomainEventPublisher;
 
 /**
  * @category Registra mètodes beans com handlers d'events en Spring {@link DomainEventPublisher}.<br>
- * Aquests mètodes són els que estàn annotats amb {@link EventListener}
+ * Aquests mètodes són els que estàn annotats amb {@link EventListenerAnnotation}
  * 
  * @author degloba
  */
@@ -37,7 +37,7 @@ public class EventListenerBeanPostProcessor<T extends IEvent> implements BeanPos
         	// per reflection recuperem els mètodes del bean
             for (Method method : bean.getClass().getMethods()) {
             	// comprovem si el mètode està anotat amb {@link EventListener}
-            	EventListener listenerAnnotation = method.getAnnotation(EventListener.class);            	
+            	EventListenerAnnotation listenerAnnotation = method.getAnnotation(EventListenerAnnotation.class);            	
                 
             	if (listenerAnnotation == null) {
                     continue;

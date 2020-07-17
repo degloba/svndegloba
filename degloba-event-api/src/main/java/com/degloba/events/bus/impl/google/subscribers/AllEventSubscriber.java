@@ -1,4 +1,4 @@
-package com.degloba.events.bus.subscribers.google;
+package com.degloba.events.bus.impl.google.subscribers;
 
 import com.google.common.eventbus.Subscribe;
 
@@ -7,7 +7,7 @@ import com.google.common.eventbus.Subscribe;
  * 
  * @author degloba
  */
-public class AllEventSubscriber extends EventSubscriber<Object> {
+public class AllEventSubscriber extends EventsSubscriber<Object> {
 
     private AllEventSubscriber() {
     }

@@ -29,6 +29,9 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class DomainEventPublisher<T extends IEvent> implements IDomainEventPublisher<IDomainEvent<T>>, IApplicationEventPublisher<T> {
     
+	/**
+	 * 
+	 */
     private Set<IEventHandler<T>> eventHandlers = new HashSet<IEventHandler<T>>();
 
     /**
@@ -66,7 +69,6 @@ public class DomainEventPublisher<T extends IEvent> implements IDomainEventPubli
      */
 	@Override
 	public void publica(T event) {
-		// TODO Auto-generated method stub
 		doPublica(event);
 	}
 

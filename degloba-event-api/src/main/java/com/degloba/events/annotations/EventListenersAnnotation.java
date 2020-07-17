@@ -13,6 +13,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Target(ElementType.TYPE)
-public @interface EventListeners {
+public @interface EventListenersAnnotation {
 
 }

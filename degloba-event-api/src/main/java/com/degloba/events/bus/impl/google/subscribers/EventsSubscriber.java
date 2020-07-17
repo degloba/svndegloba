@@ -1,4 +1,4 @@
-package com.degloba.events.bus.subscribers.google;
+package com.degloba.events.bus.impl.google.subscribers;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -8,11 +8,11 @@ import java.util.List;
 import com.google.common.eventbus.EventBus;
 
 /**
- * @category Subscriptor d'events amb un bus d'events implementat amb Google
+ * @category Subscriptor d'events d'un tipus d'un bus d'events implementat amb Google
  * 
  * @author degloba
  */
-public abstract class EventSubscriber<T> {
+public abstract class EventsSubscriber<T> {
 
     protected List<T> events = new ArrayList<T>();
 
@@ -22,12 +22,13 @@ public abstract class EventSubscriber<T> {
 
 
     /**
-     * @category registra un {@link EventSubscriber} d'un tipus de classe en el {@link EventBus}
+     * @category registra un {@link EventsSubscriber} d'un tipus de classe en el {@link EventBus}
+     * 
      * @param clazz
      * @param eventBus
      * @return
      */
-    public static <E extends EventSubscriber<?>> E factory(Class<E> clazz, EventBus eventBus) {
+    public static <E extends EventsSubscriber<?>> E factory(Class<E> clazz, EventBus eventBus) {
         E subscriber = null;
         try {
             Constructor<?> constructor = clazz.getDeclaredConstructors()[0];

@@ -6,6 +6,7 @@ package com.degloba.events.publishers;
  * @author degloba
  */
 public interface IApplicationEventPublisher<T> {
+	
 	/**
 	 * @category publica un event
 	 * 
@@ -13,7 +14,5 @@ public interface IApplicationEventPublisher<T> {
 	 */
     void publica(T event);
 }   
-    
-/*public interface IApplicationEventPublisher {
-    void publish(Serializable applicationEvent);
-}*/
+   
+

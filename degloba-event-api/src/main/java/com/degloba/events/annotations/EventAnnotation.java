@@ -6,6 +6,6 @@ package com.degloba.events.annotations;
  * @author degloba
  * 
  */
-public @interface Event {
+public @interface EventAnnotation {
 
 }

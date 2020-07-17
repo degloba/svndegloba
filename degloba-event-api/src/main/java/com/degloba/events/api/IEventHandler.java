@@ -1,7 +1,7 @@
 package com.degloba.events.api;
 
 /**
- * @category Handler d'events de tipus {@link IEvent}
+ * @category Event handler d'events de tipus {@link IEvent}
  * 
  * @author degloba
  */

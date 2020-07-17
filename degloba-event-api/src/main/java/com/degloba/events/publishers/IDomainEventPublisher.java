@@ -15,5 +15,4 @@ public interface IDomainEventPublisher<T extends IDomainEvent<?>> {
 	 * @param event
 	 */
 	void publica(T event);
-	
 }

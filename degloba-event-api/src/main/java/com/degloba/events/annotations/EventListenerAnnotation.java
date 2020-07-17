@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface EventListener {
+public @interface EventListenerAnnotation {
 
     boolean asynchronous() default false;
 

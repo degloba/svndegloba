@@ -1,42 +1,29 @@
-package com.degloba.events.domain.spring;
+package com.degloba.events.impl.spring.domain;
 
 import org.springframework.context.ApplicationEvent;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author degloba
  *
  * @category tipus d'event genèric implementat amb Spring
  */
-public class GenericSpringEvent<T> extends ApplicationEvent{
-    /**
-	 * 
-	 */
+public class Event<T> extends ApplicationEvent {
+
 	private static final long serialVersionUID = 1L;
-	private T what;
-    protected boolean success;
- 
-    public GenericSpringEvent(T what, boolean success) {
-    	super(what);
-    	
-        this.what = what;
-        this.success = success;
-    }
-    // ... standard getters
+	
+	@Getter @Setter	private T what;
+	
+	@Getter @Setter	 protected boolean success;
 
-	public T getWhat() {
-		return what;
-	}
-
-	public void setWhat(T what) {
+	public Event(Object source, T what, boolean success) {
+		super(source);
 		this.what = what;
-	}
-
-	public boolean isSuccess() {
-		return success;
-	}
-
-	public void setSuccess(boolean success) {
 		this.success = success;
 	}
+ 
+
     
 }

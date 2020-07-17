@@ -1,4 +1,4 @@
-package com.degloba.events.bus.subscribers.google;
+package com.degloba.events.bus.impl.google.subscribers;
 
 
 import com.google.common.eventbus.EventBus;
@@ -11,9 +11,9 @@ import com.google.common.eventbus.Subscribe;
  * @category implementat amb Google
  *
  */
-public class InvalidSubscriberNoParameters {
+public class InvalidSubscriberNoParametersSubscriber {
 
-    private InvalidSubscriberNoParameters() {
+    private InvalidSubscriberNoParametersSubscriber() {
     }
 
     @Subscribe
@@ -21,8 +21,8 @@ public class InvalidSubscriberNoParameters {
         //DO nothing will not work
     }
 
-    public static InvalidSubscriberNoParameters instance(EventBus eventBus) {
-        InvalidSubscriberNoParameters subscriber = new InvalidSubscriberNoParameters();
+    public static InvalidSubscriberNoParametersSubscriber instance(EventBus eventBus) {
+        InvalidSubscriberNoParametersSubscriber subscriber = new InvalidSubscriberNoParametersSubscriber();
         eventBus.register(subscriber);
         return subscriber;
     }

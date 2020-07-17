@@ -11,7 +11,12 @@ import com.degloba.events.api.IEvent;
  */
 public interface IEventBus<T extends IEvent> {
 
-	void registra(AbstractEventListener<?> newInstance);
+	/**
+	 * @apiNote Registra un {@link AbstractEventListener}
+	 * 
+	 * @param eventListener
+	 */
+	void registra(AbstractEventListener<?> eventListener);
 
 
 }
