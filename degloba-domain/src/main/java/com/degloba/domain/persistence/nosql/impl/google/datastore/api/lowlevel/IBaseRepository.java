@@ -1,4 +1,4 @@
-package com.degloba.domain.persistence.nosql.google.datastore.api.lowlevel;
+package com.degloba.domain.persistence.nosql.impl.google.datastore.api.lowlevel;
 
 import java.util.ArrayList;
 import java.util.List;

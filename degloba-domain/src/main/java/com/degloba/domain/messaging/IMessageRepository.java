@@ -3,7 +3,7 @@ package com.degloba.domain.messaging;
 import java.util.List;
 
 import com.degloba.domain.Message;
-import com.degloba.domain.persistence.nosql.google.datastore.api.lowlevel.IBaseRepository;
+import com.degloba.domain.persistence.nosql.impl.google.datastore.api.lowlevel.IBaseRepository;
 
 
 
