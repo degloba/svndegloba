@@ -1,8 +1,0 @@
-${name},
-
-Your Reserva for the hotel ${hotelName} from ${ReservaCheckin} - ${ReservaCheckout} has been confirmed.
-
-Thanks for using Spring Travel, and we hope you'll consider us for your next reservation.
-
-Sincerely,
-the Spring Travel team
