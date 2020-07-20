@@ -28,7 +28,7 @@ import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException
 
 
 /**
- * Casos d'ùs de les comandes<br>
+ * @category Casos d'ùs de les comandes<br>
  * Cal tenir en compte que el llenguatge de l’aplicació és diferent (més simple) que el llenguatge del domini,</br>
  * per exemple: no volem exposar conceptes de domini com ara la {@link Compra} i la {@link Reserva} a les capes superiors, 
  * que les amagem sota el terme {@link Order}.  

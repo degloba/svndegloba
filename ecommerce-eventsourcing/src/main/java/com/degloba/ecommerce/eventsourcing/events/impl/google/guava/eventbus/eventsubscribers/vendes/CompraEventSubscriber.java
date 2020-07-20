@@ -1,32 +1,25 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes;
+package com.degloba.ecommerce.eventsourcing.events.impl.google.guava.eventbus.eventsubscribers.vendes;
 
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
-import com.degloba.events.bus.subscribers.google.EventSubscriber;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraEvent;
+import com.degloba.events.bus.impl.google.subscribers.EventsSubscriber;
 import com.google.common.eventbus.Subscribe;
 
+import lombok.AllArgsConstructor;
+
 /**
- * @category un {@link EventSubscriber} que tracta events de tipus {@link CompraEvent}<br>.
+ * @category un {@link EventsSubscriber} que tracta events de tipus {@link CompraEvent}<br>.
  * Utilitza l'arquitectura de Google
  * 
  * @author degloba
  *
  */
-public class CompraEventSubscriber extends EventSubscriber<CompraEvent> {
-
-
-    private CompraEventSubscriber() {
-    }
+@AllArgsConstructor
+public class CompraEventSubscriber extends EventsSubscriber<CompraEvent> {
 
     @Subscribe
     public void handleEvent(CompraEvent event) {
         events.add(event);
     }
     
-    @Subscribe
-    public void handleEvent(String event) {
-        //events.add(event);
-    }
-
-
 }

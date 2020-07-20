@@ -1,9 +1,9 @@
-package com.degloba.ecommerce.vendes.application.eventlisteners.impl.spring;
+package com.degloba.hotels.eventsourcing.events.impl.spring.eventlisteners;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import com.degloba.events.domain.spring.GenericSpringEvent;
+import com.degloba.events.impl.spring.domain.Event;
 
 
 /**
@@ -16,10 +16,19 @@ import com.degloba.events.domain.spring.GenericSpringEvent;
  *
  */
 @Component
-public class AnnotationDrivenEventListener {
+public class HotelEventListeners {
 	
     @EventListener(condition = "#event.success")
-    public void handleSuccessful(GenericSpringEvent<String> event) {
+    public void handleSuccessful(Event<HotelRegistratEvent> event) {
         System.out.println("Handling generic event (conditional).");
     }
+    
+    @EventListener(condition = "#event.fail")
+    public void handleFail(Event<HotelNoRegistratEvent> event) {
+        System.out.println("Handling generic event (conditional).");
+    }
+    
+    // TODO
+    
+    
 }

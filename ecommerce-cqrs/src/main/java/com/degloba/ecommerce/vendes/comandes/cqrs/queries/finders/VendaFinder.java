@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 // Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.degloba.cqrs.query.PaginatedResult;
+import com.degloba.cqrs.queries.PaginatedResult;
 import com.degloba.domain.annotations.FinderImpl;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;

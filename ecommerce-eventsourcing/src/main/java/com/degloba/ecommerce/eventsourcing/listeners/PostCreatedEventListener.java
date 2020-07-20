@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.eventsourcing.listeners;
 
 
-import com.degloba.ecommerce.eventsourcing.events.PostCreatedEvent;
+import com.degloba.ecommerce.comandes.eventsourcing.events.PostCreatedEvent;
 import com.degloba.events.api.AbstractEventListener;
 
 public class PostCreatedEventListener extends AbstractEventListener<PostCreatedEvent> {

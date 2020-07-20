@@ -1,10 +1,10 @@
 package com.degloba.ecommerce.cqrs.commands;
 
-import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 
 import lombok.Value;
 
-@ICommand
+@ICommandAnnotation
 @Value
 public class OrderCommand   {
 

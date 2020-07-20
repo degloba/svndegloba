@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import lombok.Value;
 
-import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 import com.degloba.ecommerce.crm.domain.persistence.rdbms.jpa.Client.EstatClient;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
@@ -16,7 +16,7 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
  *
  */
 @SuppressWarnings("serial")
-@ICommand
+@ICommandAnnotation
 @Value
 public class CanviarEstatClientCommand implements Serializable {
 

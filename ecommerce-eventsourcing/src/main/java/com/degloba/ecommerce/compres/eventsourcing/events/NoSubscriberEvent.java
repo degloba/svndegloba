@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.vendes.eventsourcing.events;
+package com.degloba.ecommerce.compres.eventsourcing.events;
 
 public class NoSubscriberEvent {
 

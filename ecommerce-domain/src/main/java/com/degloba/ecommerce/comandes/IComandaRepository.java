@@ -5,7 +5,7 @@ import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 
 
 /**
- * @category Repositori entitats de persistencia {@link Enviament} implementat en JPA
+ * @category Repositori entitats de persistencia {@link Comanda} implementat en JPA
  * 
  * @author degloba
  */

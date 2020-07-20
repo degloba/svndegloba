@@ -1,7 +1,6 @@
 package com.degloba.ecommerce.cqrs.commands;
 
-import com.degloba.cqrs.command.annotations.ICommand;
-
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 
 import lombok.Value;
 
@@ -12,7 +11,7 @@ import lombok.Value;
  * @category implementat en Eventuate
  *
  */
-@ICommand
+@ICommandAnnotation
 @Value
 public class ReservaCreditCommand  {
 

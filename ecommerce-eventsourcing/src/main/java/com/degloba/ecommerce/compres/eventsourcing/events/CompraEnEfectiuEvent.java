@@ -1,6 +1,8 @@
-package com.degloba.ecommerce.vendes.eventsourcing.events;
+package com.degloba.ecommerce.compres.eventsourcing.events;
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
+
+import lombok.Getter;
+import lombok.ToString;
 
 /**
  * @category s'ha produit una compra en efectiu
@@ -8,26 +10,18 @@ import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
  * @author degloba
  *
  */
+@ToString
 public class CompraEnEfectiuEvent extends CompraEvent {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String item;
+	
+	@Getter private String item;
 
     public CompraEnEfectiuEvent(long quantitat, String item) {
         super(quantitat);
         this.item = item;
     }
 
-    public String getItem() {
-        return item;
-    }
-
-    @Override
-    public String toString() {
-        return "CompraEnEfectiuEvent{" +
-                "item='" + item + '\'' +
-                "} " + super.toString();
-    }
 }

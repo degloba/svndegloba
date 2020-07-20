@@ -58,7 +58,16 @@
 			<artifactId>axon-spring-boot-autoconfigure</artifactId>
 			<version>4.3.1</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.axonframework.extensions.amqp</groupId>
+			<artifactId>axon-amqp-spring-boot-starter</artifactId>
+			<version>4.3</version>
+		</dependency>
 	</dependencies>
 
 

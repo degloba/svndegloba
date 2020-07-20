@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.enviaments.domain.events;
 
 import com.degloba.domain.events.DomainEvent;
-import com.degloba.events.annotations.Event;
+import com.degloba.events.annotations.EventAnnotation;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  *
  */
 @SuppressWarnings("serial")
-@Event
+@EventAnnotation
 @Data
 @AllArgsConstructor
 //@NoArgsConstructor

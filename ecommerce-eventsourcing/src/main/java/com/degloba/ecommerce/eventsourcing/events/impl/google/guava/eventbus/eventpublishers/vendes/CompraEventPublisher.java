@@ -1,24 +1,23 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventpublishers.vendes;
+package com.degloba.ecommerce.eventsourcing.events.impl.google.guava.eventbus.eventpublishers.vendes;
 
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.NoSubscriberEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.NoSubscriberEvent;
 import com.google.common.eventbus.EventBus;
 
+import lombok.AllArgsConstructor;
+
 /**
- * @category publicador d'events que utilitza {@link EventBus} de Google
+ * @category Publicador d'events que utilitza {@link EventBus} de Google
  * 
  * @author degloba
  *
  */
-public class EventPublisher {
+@AllArgsConstructor
+public class CompraEventPublisher {
 
 	    EventBus eventBus;
-
-	    public EventPublisher(EventBus eventBus) {
-	        this.eventBus = eventBus;
-	    }
 
 	    public void publicaCompraEnEfectiuEvent(String description, long quantitat) {
 	        eventBus.post(new CompraEnEfectiuEvent(quantitat, description));

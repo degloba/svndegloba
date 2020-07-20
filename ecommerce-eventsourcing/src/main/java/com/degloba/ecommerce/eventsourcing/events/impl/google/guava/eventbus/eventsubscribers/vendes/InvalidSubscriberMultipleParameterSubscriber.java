@@ -1,13 +1,19 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes;
+package com.degloba.ecommerce.eventsourcing.events.impl.google.guava.eventbus.eventsubscribers.vendes;
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraAmbCreditEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
-public class InvalidSubscriberMultipleParameter {
+/**
+ * @category Eventbus
+ * 
+ * @author pere
+ *
+ */
+public class InvalidSubscriberMultipleParameterSubscriber {
 
 
-    private InvalidSubscriberMultipleParameter() {
+    private InvalidSubscriberMultipleParameterSubscriber() {
     }
 
     @Subscribe
@@ -15,8 +21,8 @@ public class InvalidSubscriberMultipleParameter {
         //DO nothing this will not work
     }
 
-    public static InvalidSubscriberMultipleParameter instance(EventBus eventBus) {
-        InvalidSubscriberMultipleParameter subscriber = new InvalidSubscriberMultipleParameter();
+    public static InvalidSubscriberMultipleParameterSubscriber instance(EventBus eventBus) {
+        InvalidSubscriberMultipleParameterSubscriber subscriber = new InvalidSubscriberMultipleParameterSubscriber();
         eventBus.register(subscriber);
         return subscriber;
     }

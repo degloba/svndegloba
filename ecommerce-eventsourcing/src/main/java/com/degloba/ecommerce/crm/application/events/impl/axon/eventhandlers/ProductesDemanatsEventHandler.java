@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.crm.application.eventhandlers.impl.axon;
+package com.degloba.ecommerce.crm.application.events.impl.axon.eventhandlers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.Map;
 import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.queryhandling.QueryHandler;
 
+import com.degloba.ecommerce.comandes.eventsourcing.events.ComandaFetaEvent;
 import com.degloba.ecommerce.crm.facade.dtos.ProducteDemanatDto;
 import com.degloba.ecommerce.crm.facade.dtos.TrobarTotsProductesDemanatsDto;
-import com.degloba.ecommerce.eventsourcing.events.ComandaFetaEvent;
 
 /**
  * 

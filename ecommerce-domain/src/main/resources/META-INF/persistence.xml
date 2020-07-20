@@ -19,14 +19,14 @@
 		<!-- *************** -->
 		
 		<!-- Travel  https://github.com/cloudfoundry-samples/spring-travel -->
-		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.User</class>
+<!-- 		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.User</class>
 		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.Hotel</class>
-		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva</class> 
+		<class>com.degloba.viatges.domain.persistence.rdbms.jpa.Reserva</class>  -->
 		 
 		
 		
 		<!-- Organisation    https://github.com/dayatang/dddlib/tree/master/dddlib-examples -->
-		 <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
+		<!--  <class>com.degloba.organisation.domain.persistence.rdbms.jpa.PersonName</class>
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Address</class>
 		
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.Person</class>	
@@ -48,11 +48,11 @@
 		<class>com.degloba.organisation.domain.persistence.rdbms.jpa.PostHolding</class>   		
 		
 		
-		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.AggregateId</class>   -->
 		
 		
 		<!-- Sales/Bottega   https://github.com/BottegaIT/ddd-leaven-v2 -->
-		 <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
+		<!--  <class>com.degloba.ecommerce.sales.client.domain.persistence.rdbms.jpa.Client</class>
 		
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.Product</class>
 		<class>com.degloba.ecommerce.sales.productscatalog.domain.persistence.rdbms.jpa.ProductData</class>
@@ -61,10 +61,10 @@
 		 <class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.InvoiceLine</class>
 		<class>com.degloba.ecommerce.sales.invoicing.domain.persistence.rdbms.jpa.Invoice</class>
 	 	
-		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class>
+		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.Purchase</class> -->
 		
 		<!-- ValueObject/Entity -->
-		<class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem</class>
+		<!-- <class>com.degloba.ecommerce.sales.purchase.domain.persistence.rdbms.jpa.PurchaseItem</class>
 				
 		<class>com.degloba.ecommerce.shipping.domain.persistence.rdbms.jpa.Shipment</class>
 		
@@ -74,7 +74,7 @@
 		<class>com.degloba.ecommerce.sales.reservation.domain.persistence.rdbms.jpa.ReservationItem</class>		
 		
 		<class>com.degloba.domain.sharedkernel.Money</class>
-		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class> 
+		<class>com.degloba.domain.persistence.rdbms.jpa.canonicalmodel.publishedlanguage.ClientData</class>  -->
 		 
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

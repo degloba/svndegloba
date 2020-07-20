@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.eventsourcing.listeners;
 
 
-import com.degloba.ecommerce.eventsourcing.events.EmployeeRetiredEvent;
+import com.degloba.ecommerce.comandes.eventsourcing.events.EmployeeRetiredEvent;
 import com.degloba.events.api.AbstractEventListener;
 
 public class EmployeeRetiredEventListener extends AbstractEventListener<EmployeeRetiredEvent> {

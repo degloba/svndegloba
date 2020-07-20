@@ -4,7 +4,6 @@ import javax.inject.Inject;
 
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.domain.events.DomainEvent;
-import com.degloba.ecommerce.vendes.domain.events.PagatClientEvent;
 import com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa.Pagament;
 import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.publishers.IDomainEventPublisher;

@@ -3,8 +3,8 @@ package com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders;
 
 import java.util.List;
 
-import com.degloba.cqrs.query.PaginatedResult;
-import com.degloba.cqrs.query.annotations.Finder;
+import com.degloba.cqrs.queries.PaginatedResult;
+import com.degloba.cqrs.queries.annotations.FinderAnnotation;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
 import com.degloba.ecommerce.vendes.ofertes.cqrs.queries.OfertaQuery;
@@ -19,7 +19,7 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
  * @author degloba
  *
  */
-@Finder
+@FinderAnnotation
 public interface IVendaFinder {
 
 	/**

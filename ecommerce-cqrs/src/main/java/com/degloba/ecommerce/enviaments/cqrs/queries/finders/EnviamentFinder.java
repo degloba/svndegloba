@@ -2,26 +2,25 @@ package com.degloba.ecommerce.enviaments.cqrs.queries.finders;
 
 import java.util.List;
 
-// JPA
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-// Spring
 import org.springframework.beans.factory.annotation.Qualifier;
 
-// CQRS (ecommerce)
-
-import com.degloba.cqrs.query.annotations.Finder;
+import com.degloba.cqrs.queries.annotations.FinderAnnotation;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 
 /**
  * @author degloba
  *
- * @category {@link Finder} de {@link Enviament}
+ * @category es {@link FinderAnnotation} de {@link Enviament}
+ * 
+ * @implNote JPA
+ * 
  */
-@Finder
+@FinderAnnotation
 public class EnviamentFinder implements IEnviamentFinder {
 
     @PersistenceContext(name="transactions-optional")

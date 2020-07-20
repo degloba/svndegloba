@@ -2,17 +2,17 @@ package com.degloba.ecommerce.enviaments.cqrs.queries.finders;
 
 import java.util.List;
 
-import com.degloba.cqrs.query.annotations.Finder;
+import com.degloba.cqrs.queries.annotations.FinderAnnotation;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 
 /**
- * @category un {@link Finder} d'{@link Enviament}
+ * @category un {@link FinderAnnotation} d'{@link Enviament}
  * 
  * @author degloba
  *
  */
-@Finder
+@FinderAnnotation
 public interface IEnviamentFinder {
 
     List<EnviamentDto> buscaEnviaments();

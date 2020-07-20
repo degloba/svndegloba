@@ -1,6 +1,8 @@
-package com.degloba.ecommerce.vendes.eventsourcing.events;
+package com.degloba.ecommerce.compres.eventsourcing.impl.spring.events;
 
 import org.springframework.context.ApplicationEvent;
+
+import com.degloba.events.impl.spring.domain.Event;
 
 import lombok.Value;
 
@@ -12,7 +14,7 @@ import lombok.Value;
  *
  */
 @Value
-public class CompraRebutjadaEvent extends ApplicationEvent {
+public class CompraRebutjadaEvent extends Event {
     /**
 	 * 
 	 */

@@ -1,14 +1,8 @@
 package com.degloba.ecommerce.sales.application.events.guava.eventbus;
 
-
-import com.degloba.ecommerce.application.events.eventbus.impl.guava.eventpublishers.vendes.EventPublisher;
-import com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes.*;
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.NoSubscriberEvent;
-import com.degloba.events.bus.subscribers.google.AllEventSubscriber;
-import com.degloba.events.bus.subscribers.google.EventSubscriber;
-import com.degloba.events.bus.subscribers.google.InvalidSubscriberNoParameters;
+mport com.degloba.events.bus.impl.google.subscribers.AllEventSubscriber;
+import com.degloba.events.bus.impl.google.subscribers.EventsSubscriber;
+import com.degloba.events.bus.impl.google.subscribers.InvalidSubscriberNoParametersSubscriber;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.DeadEvent;
 import com.google.common.eventbus.EventBus;
@@ -30,10 +24,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * 
+ * @author pere
+ * 
+ * @category Test d'un Bus d'events implementat amb Google
+ *
+ */
 public class EventBusTest {
 
-    private EventPublisher eventPublisher;
+    private CompraEventPublisher eventPublisher;
     private CompraEnEfectiuEventSubscriber compraEnEfectiuEventSubscriber;
     private CompraAmbCreditEventSubscriber compraAmbCreditEventSubscriber;
     private CompraEventSubscriber compraEventSubscriber;
@@ -42,7 +42,7 @@ public class EventBusTest {
     private LongProcessSubscriber longProcessSubscriber;
     private DeadEventSubscriber deadEventSubscriber;
     private AllEventSubscriber allEventSubscriber;
-    private MultiHandlerSubscriber multiHandlerSubscriber;
+    private CompraHandlerSubscriber multiHandlerSubscriber;
     private CountDownLatch doneSignal;
     private int numberLongEvents = 10;
 
@@ -52,11 +52,12 @@ public class EventBusTest {
         eventBus = new EventBus();
         deadEventSubscriber = new DeadEventSubscriber();
         eventBus.register(deadEventSubscriber);
-        eventPublisher = new EventPublisher(eventBus);
-        compraEnEfectiuEventSubscriber = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
-        compraAmbCreditEventSubscriber = EventSubscriber.factory(CompraAmbCreditEventSubscriber.class, eventBus);
-        compraEventSubscriber = EventSubscriber.factory(CompraEventSubscriber.class, eventBus);
-        multiHandlerSubscriber = MultiHandlerSubscriber.instance(eventBus);
+        eventPublisher = new CompraEventPublisher(eventBus);
+        
+        compraEnEfectiuEventSubscriber = EventsSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
+        compraAmbCreditEventSubscriber = EventsSubscriber.factory(CompraAmbCreditEventSubscriber.class, eventBus);
+        compraEventSubscriber = EventsSubscriber.factory(CompraEventSubscriber.class, eventBus);
+        multiHandlerSubscriber = CompraHandlerSubscriber.instance(eventBus);
     }
 
     @Test
@@ -97,8 +98,8 @@ public class EventBusTest {
     @Test
     public void testUnregisterForEvents() {
         eventBus.unregister(compraEnEfectiuEventSubscriber);
-        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber1 = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
-        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber2 = EventSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
+        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber1 = EventsSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
+        CompraEnEfectiuEventSubscriber cashPurchaseEventSubscriber2 = EventsSubscriber.factory(CompraEnEfectiuEventSubscriber.class, eventBus);
         eventBus.register(cashPurchaseEventSubscriber1);
         eventBus.register(cashPurchaseEventSubscriber2);
 
@@ -150,7 +151,7 @@ public class EventBusTest {
 
     @Test
     public void testHandleAllEvents() {
-        allEventSubscriber = EventSubscriber.factory(AllEventSubscriber.class, eventBus);
+        allEventSubscriber = EventsSubscriber.factory(AllEventSubscriber.class, eventBus);
         generateAllPurchaseEvents();
        // generateSimpleEvent();
         assertThat(allEventSubscriber.getHandledEvents().size(), is(3));
@@ -168,13 +169,13 @@ public class EventBusTest {
 
     @Test      //(expected = IllegalArgumentException.class)
     public void testMultipleParametersInHandler() {
-        InvalidSubscriberMultipleParameter invalidSubscriber = InvalidSubscriberMultipleParameter.instance(eventBus);
+        InvalidSubscriberMultipleParameterSubscriber invalidSubscriber = InvalidSubscriberMultipleParameterSubscriber.instance(eventBus);
         generateCreditPurchaseEvent();
     }
 
     @Test   ///(expected = IllegalArgumentException.class)
     public void testNoParametersInHandler() {
-        InvalidSubscriberNoParameters invalidSubscriber = InvalidSubscriberNoParameters.instance(eventBus);
+        InvalidSubscriberNoParametersSubscriber invalidSubscriber = InvalidSubscriberNoParametersSubscriber.instance(eventBus);
         generateCreditPurchaseEvent();
     }
 
@@ -197,6 +198,13 @@ public class EventBusTest {
     }
 
 
+    /**
+     * 
+     * @author pere
+     * 
+     * @category Subscriber d'events {@link DeadEvent}
+     *
+     */
     private class DeadEventSubscriber {
         List<DeadEvent> deadEvents = new ArrayList<DeadEvent>();
 

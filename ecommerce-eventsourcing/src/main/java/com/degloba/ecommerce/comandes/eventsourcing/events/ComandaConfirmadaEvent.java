@@ -1,5 +1,6 @@
-package com.degloba.ecommerce.eventsourcing.events;
+package com.degloba.ecommerce.comandes.eventsourcing.events;
 
+import lombok.AllArgsConstructor;
 import lombok.Value;
 
 /**
@@ -9,10 +10,9 @@ import lombok.Value;
  *
  */
 @Value
+@AllArgsConstructor
 public class ComandaConfirmadaEvent {
-
-	public ComandaConfirmadaEvent(String comandaId) {
-		// TODO Auto-generated constructor stub
-	}
-
+	
+	String comandaId; 
+	
 }

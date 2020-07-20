@@ -1,41 +1,26 @@
-package com.degloba.ecommerce.vendes.eventsourcing.events;
+package com.degloba.ecommerce.compres.eventsourcing.events;
 
-import java.util.Date;
-
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEvent;
+import lombok.Getter;
+import lombok.ToString;
 
 /**
- * @category s'ha produit una compra amb targeta de crèdit
+ * @category Event produit en una compra amb targeta de crèdit
  * 
  * @author degloba
  *
  */
+@ToString
 public class CompraAmbCreditEvent extends CompraEvent {
 
 	private static final long serialVersionUID = 1L;
-	private String numeroTargetaCredit;
-    private String item;
+	
+	@Getter private String numeroTargetaCredit;
+	@Getter private String item;
 
     public CompraAmbCreditEvent(long quantitat, String item, String numeroTargetaCredit) {
         super(quantitat);
         this.item = item;
         this.numeroTargetaCredit = numeroTargetaCredit;
     }
-
-    public String getNumeroTargetaCredit() {
-        return numeroTargetaCredit;
-    }
-
-    public String getItem() {
-        return item;
-    }
-
-    @Override
-    public String toString() {
-        return "CompraAmbCreditEvent{" +
-                "creditCardNumber='" + numeroTargetaCredit + '\'' +
-                ", item='" + item + '\'' +
-                "} " + super.toString();
-    }
-    
+ 
 }

@@ -1,11 +1,11 @@
 package com.degloba.ecommerce.vendes.comandes.cqrs.commands;
 
-import com.degloba.cqrs.command.annotations.ICommand;
+import com.degloba.cqrs.commands.annotations.ICommandAnnotation;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@ICommand
+@ICommandAnnotation
 public class UtilitzarAdrecaEnviamentPerCompraCommand {
 
 	@Getter @Setter private Long comandaId;

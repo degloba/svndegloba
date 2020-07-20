@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.eventsourcing.events;
+package com.degloba.ecommerce.comandes.eventsourcing.events;
 
 import lombok.Value;
 

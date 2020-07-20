@@ -1,17 +1,14 @@
-package com.degloba.ecommerce.vendes.application.eventlisteners;
+package com.degloba.ecommerce.vendes.eventsourcing.events.eventlisteners;
 
 import javax.inject.Inject;
 
-
-
-import com.degloba.cqrs.query.PaginatedResult;
 import com.degloba.ecommerce.crm.domain.events.EstatClientCanviatEvent;
 import com.degloba.ecommerce.vendes.application.services.DescompteService;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.ComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.IVendaFinder;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.events.annotations.EventListener;
-import com.degloba.events.annotations.EventListeners;
+import com.degloba.events.annotations.EventListenerAnnotation;
+import com.degloba.events.annotations.EventListenersAnnotation;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
@@ -24,7 +21,7 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
  * @author degloba
  *
  */
-@EventListeners
+@EventListenersAnnotation
 public class EstatClientCanviatListener {
 
 	@Inject
@@ -33,7 +30,7 @@ public class EstatClientCanviatListener {
 	@Inject
 	private IVendaFinder vendesFinder;
 	
-	@EventListener
+	@EventListenerAnnotation
 	public void handle(EstatClientCanviatEvent event){
 
 		ComandaQuery comandaQuery = new ComandaQuery(null,null, null);	

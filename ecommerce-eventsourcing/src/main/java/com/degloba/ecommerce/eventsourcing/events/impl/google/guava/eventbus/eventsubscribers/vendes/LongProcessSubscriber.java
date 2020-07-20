@@ -1,20 +1,20 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes;
+package com.degloba.ecommerce.eventsourcing.events.impl.google.guava.eventbus.eventsubscribers.vendes;
 
 import java.util.concurrent.CountDownLatch;
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraEnEfectiuEvent;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.Subscribe;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class LongProcessSubscriber {
 
     private CountDownLatch doneSignal;
 
-    private LongProcessSubscriber(CountDownLatch doneSignal) {
-        this.doneSignal = doneSignal;
-    }
 
     @Subscribe
     @AllowConcurrentEvents

@@ -2,8 +2,8 @@ package com.degloba.ecommerce.enviaments.comandes.cqrs.commands.handlers;
 
 import javax.inject.Inject;
 
-import com.degloba.cqrs.command.annotations.CommandHandler;
-import com.degloba.cqrs.command.handler.ICommandHandler;
+import com.degloba.cqrs.commands.annotations.CommandHandlerAnnotation;
+import com.degloba.cqrs.commands.handlers.ICommandHandler;
 import com.degloba.ecommerce.enviaments.comandes.cqrs.commands.EntregarEnviamentCommand;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
@@ -15,7 +15,7 @@ import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviaments
  * @author degloba
  *
  */
-@CommandHandler
+@CommandHandlerAnnotation
 public class EntregarEnviamentCommandHandler implements ICommandHandler<EntregarEnviamentCommand, Void> {
 
     @Inject

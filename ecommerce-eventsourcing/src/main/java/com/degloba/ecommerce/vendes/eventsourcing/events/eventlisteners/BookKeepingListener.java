@@ -1,9 +1,10 @@
-package com.degloba.ecommerce.vendes.application.eventlisteners;
+package com.degloba.ecommerce.vendes.eventsourcing.events.eventlisteners;
 
 import javax.inject.Inject;
 
+import com.degloba.ecommerce.comandes.eventsourcing.events.ComandaEnviadaEvent;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
-import com.degloba.ecommerce.enviaments.domain.events.ComandaEnviadaEvent;
+
 import com.degloba.ecommerce.facturacio.vendes.domain.services.AssesorFiscalService;
 import com.degloba.ecommerce.facturacio.vendes.domain.services.BookKeeperService;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
@@ -11,8 +12,8 @@ import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
 import com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticionsFacturaFactory;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
 import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.PeticioFactura;
-import com.degloba.events.annotations.EventListener;
-import com.degloba.events.annotations.EventListeners;
+import com.degloba.events.annotations.EventListenerAnnotation;
+import com.degloba.events.annotations.EventListenersAnnotation;
 
 /**
  * @category Listener d'events implementat amb la implementació d'events degloba/Spring
@@ -20,7 +21,7 @@ import com.degloba.events.annotations.EventListeners;
  * @author degloba
  *
  */
-@EventListeners
+@EventListenersAnnotation
 public class BookKeepingListener {
 
 	@Inject
@@ -36,7 +37,7 @@ public class BookKeepingListener {
 	@Inject
 	private PeticionsFacturaFactory peticionsFacturaFactory;
 	
-	@EventListener
+	@EventListenerAnnotation
 	public void handle(ComandaEnviadaEvent event){
 		// recuperem la compra a partir de l'Id de l'ordre
 		Compra compra = vendaRepository.get(Compra.class, event.getComandaId());

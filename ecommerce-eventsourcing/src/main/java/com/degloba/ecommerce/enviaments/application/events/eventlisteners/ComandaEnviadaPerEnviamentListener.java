@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.application.eventlisteners;
+package com.degloba.ecommerce.enviaments.application.events.eventlisteners;
 
 import javax.inject.Inject;
 
@@ -8,8 +8,8 @@ import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.IEnviamentsRepository;
 import com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.IVendaFinder;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.events.annotations.EventListener;
-import com.degloba.events.annotations.EventListeners;
+import com.degloba.events.annotations.EventListenerAnnotation;
+import com.degloba.events.annotations.EventListenersAnnotation;
 
 
 /**
@@ -22,7 +22,7 @@ import com.degloba.events.annotations.EventListeners;
  * @author degloba
  * 
  */
-@EventListeners
+@EventListenersAnnotation
 public class ComandaEnviadaPerEnviamentListener {
 
     @Inject
@@ -34,7 +34,7 @@ public class ComandaEnviadaPerEnviamentListener {
     @Inject
     private IEnviamentsRepository enviamentsRepository;
 
-    @EventListener(asynchronous = true)
+    @EventListenerAnnotation(asynchronous = true)
     public void handle(ComandaEnviadaEvent event) {
         ComandaDto comandaDto = vendesFinder.find(event.getComandaId());
         Enviament enviament = enviamentsFactory.creaEnviament(comandaDto.getComandaId());

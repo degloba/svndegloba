@@ -1,59 +1,52 @@
-package com.degloba.ecommerce.application.events.eventbus.impl.guava.eventsubscribers.vendes;
+package com.degloba.ecommerce.eventsourcing.events.impl.google.guava.eventbus.eventsubscribers.vendes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraAmbCreditEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.vendes.eventsourcing.events.SimpleEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraAmbCreditEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.CompraEnEfectiuEvent;
+import com.degloba.ecommerce.compres.eventsourcing.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
+import lombok.NoArgsConstructor;
+
 /**
- * @category subscriptor que està subscrit a diferents tipus d'events a la vegada.<br>
- * Implementació amb Google
+ * @category Subscriptor que està subscrit a diferents tipus d'events a la vegada.<br>
+ * 
+ * @implNote Google
  * 
  * @author degloba
  *
  */
-public class MultiHandlerSubscriber {
+@NoArgsConstructor
+public class CompraHandlerSubscriber {
 
-    private List<CompraEnEfectiuEvent> cashEvents = new ArrayList<CompraEnEfectiuEvent>();
-    private List<CompraAmbCreditEvent> creditEvents = new ArrayList<CompraAmbCreditEvent>();
-    private List<SimpleEvent> simpleEvents = new ArrayList<SimpleEvent>();
+    private List<CompraEnEfectiuEvent> compraEnEfectiuEvents = new ArrayList<CompraEnEfectiuEvent>();
+    private List<CompraAmbCreditEvent> compraAmbCreditEvents = new ArrayList<CompraAmbCreditEvent>();
 
-    private MultiHandlerSubscriber() {
+
+    @Subscribe
+    public void handleCompraEnEfectiuEvents(CompraEnEfectiuEvent event) {
+    	compraEnEfectiuEvents.add(event);
     }
 
     @Subscribe
-    public void handleCashEvents(CompraEnEfectiuEvent event) {
-        cashEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleCreditEvents(CompraAmbCreditEvent event) {
-        creditEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleSimpleEvents(SimpleEvent event) {
-        simpleEvents.add(event);
+    public void handleCompraAmbCreditEvents(CompraAmbCreditEvent event) {
+    	compraAmbCreditEvents.add(event);
     }
 
     public List<CompraEnEfectiuEvent> getCashEvents() {
-        return cashEvents;
+        return compraEnEfectiuEvents;
     }
 
     public List<CompraAmbCreditEvent> getCreditEvents() {
-        return creditEvents;
+        return compraAmbCreditEvents;
     }
 
-    public List<SimpleEvent> getSimpleEvents() {
-        return simpleEvents;
-    }
 
-    public static MultiHandlerSubscriber instance(EventBus eventBus) {
-        MultiHandlerSubscriber subscriber = new MultiHandlerSubscriber();
+    public static CompraHandlerSubscriber instance(EventBus eventBus) {
+        CompraHandlerSubscriber subscriber = new CompraHandlerSubscriber();
         eventBus.register(subscriber);
         return subscriber;
     }
