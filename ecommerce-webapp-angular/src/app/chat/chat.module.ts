@@ -61,7 +61,7 @@ if (!environment.firebase) {
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    /////AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

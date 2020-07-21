@@ -173,15 +173,15 @@ const MY_DATE_FORMATS = {
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+	AgGridModule.withComponents([]
   ],
-  providers: [AuthService, ActiveStateService, EventService, ApiService  //TodoDataService, 
-              ],
+  providers: [AuthService, ActiveStateService, EventService, ApiService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-// Mòdul root de l'aplicacio
+// Modul root de l'aplicacio
 export class AppModule { }
 
 

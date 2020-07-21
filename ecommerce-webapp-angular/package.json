@@ -30,6 +30,8 @@
     "@google-cloud/pubsub": "^2.1.0",
     "@material/dialog": "^6.0.0",
     "@material/snackbar": "^6.0.0",
+    "ag-grid-angular": "^23.2.1",
+    "ag-grid-community": "^23.2.1",
     "ajv": "^6.12.2",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",

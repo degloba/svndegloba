@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {HotelDataService} from './providers/hotel-data.service';
 import { Hotel } from './model/hotel';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 /**
-// * <div class="descripcio">Pàgina principal</div>
+// * <div class="descripcio">Pagina principal</div>
  */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['app.component.css'],
-  providers: [HotelDataService]
+  providers: []
 })
 export class AppComponent implements OnInit {
   title = 'Casino';

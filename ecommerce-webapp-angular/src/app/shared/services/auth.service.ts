@@ -65,54 +65,55 @@ export class AuthService {
    * <div class="descripcio">Inicia sessió amb email/passw</div>
    * 
    */
-  SignIn(email, password) {
-     return firebase.auth().signInWithEmailAndPassword(email, password)    
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']); // si no hi ha hagut error, "navego" al "path" dashboard
-        });
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message);
-      });
+  async SignIn(email: string, password: string) {
+     try {
+          const result = await firebase.auth().signInWithEmailAndPassword(email, password);
+          this.ngZone.run(() => {
+              this.router.navigate(['dashboard']); // si no hi ha hagut error, "navego" al "path" dashboard
+          });
+          this.SetUserData(result.user);
+      }
+      catch (error) {
+          window.alert(error.message);
+      }
   }
 
   /**
    * <div class="descripcio">Registra amb email/password</div>   
    */
-  SignUp(email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message);
-      });
+  async SignUp(email: string, password: string) {
+    try {
+          const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+          /* Call the SendVerificaitonMail() function when new user sign
+          up and returns promise */
+          this.SendVerificationMail();
+          this.SetUserData(result.user);
+      }
+      catch (error) {
+          window.alert(error.message);
+      }
   }
 
   /** 
    * <div class="descripcio">Envia un email de verificació quan un nou usuari entra a una sessió</div>
    * 
    */
-  SendVerificationMail() {
-    return firebase.auth().currentUser.sendEmailVerification()
-    .then(() => {
+  async SendVerificationMail() {
+    await firebase.auth().currentUser.sendEmailVerification();
       this.router.navigate(['verify-email-address']);
-    });
   }
 
   /** 
    * <div class="descripcio">Reset Forggot passw</div>
    */
-  ForgotPassword(passwordResetEmail) {
-    return firebase.auth().sendPasswordResetEmail(passwordResetEmail)
-    .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
-    }).catch((error) => {
-      window.alert(error);
-    });
+  async ForgotPassword(passwordResetEmail: string) {
+    try {
+          await firebase.auth().sendPasswordResetEmail(passwordResetEmail);
+          window.alert('Password reset email sent, check your inbox.');
+      }
+      catch (error) {
+          window.alert(error);
+      }
   }
 
   /** 
@@ -147,16 +148,17 @@ export class AuthService {
   /** 
    * <div class="descripcio">Lògica de autentificació per executar proveidors d'autentificació</div>
   */
-  AuthLogin(provider) {
-    return firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error);
-    });
+  async AuthLogin(provider: auth.GoogleAuthProvider | auth.FacebookAuthProvider | auth.EmailAuthProvider) {
+    try {
+          const result = await firebase.auth().signInWithPopup(provider);
+          this.ngZone.run(() => {
+              this.router.navigate(['dashboard']);
+          });
+          this.SetUserData(result.user);
+      }
+      catch (error) {
+          window.alert(error);
+      }
   }
 
 
@@ -165,7 +167,7 @@ export class AuthService {
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service</div> 
   */
-  SetUserData(user) {
+  SetUserData(user: firebase.User) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
@@ -182,11 +184,10 @@ export class AuthService {
   /** 
    * <div class="descripcio">Tanca sessió</div>
    */
-  SignOut() {
-    return firebase.auth().signOut().then(() => {
+  async SignOut() {
+    await firebase.auth().signOut();
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
-    });
   }
   
   // A PARTIR D'AQUI FOOD!!!!!
@@ -233,13 +234,13 @@ export class AuthService {
         this.fireUser = JSON.parse(localStorage.getItem('fireUser'));
         return this.database.ref('/dietDays/' + this.fireUser.uid).once('value');
       }
-      setUserDietDays(userId, dietDays: DietDays[]) {
+      setUserDietDays(userId: string, dietDays: DietDays[]) {
         this.database.ref('dietDays/' + userId).set({
           dietDays: dietDays
         });
       }
 
-      getFoodById(id): Promise<Food> {
+      getFoodById(id: number): Promise<Food> {
         return new Promise((resolve, reject) => {
           this.getFoods().then(snapshot => {
             snapshot.forEach(child => {
