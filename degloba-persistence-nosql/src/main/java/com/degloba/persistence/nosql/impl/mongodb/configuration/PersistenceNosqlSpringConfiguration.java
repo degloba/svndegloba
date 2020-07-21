@@ -6,13 +6,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.mapping.event.LoggingEventListener;
 
 /**
- * Simple configuration that registers a {@link LoggingEventListener} to demonstrate mapping behaviour when Java 8
- * Streams are used.
+ * @category Configuració Spring  per MongoDB que registra un {@link LoggingEventListener} 
+ * per demostrar el comportament quan s'utilitza Java 8 Streams.
+ * 
+ * Registra {@link MongoMappingEvent} que es publiquen en l'infraestructura 
+ * {@link ApplicationContextEvent}
+ * 
+ * @implNote Spring
  *
- * @author Thomas Darimont
+ * @author degloba
+ * @param <MongoMappingEvent>
  */
 @SpringBootApplication
-class PersistenceNosqlSpringConfiguration {
+class PersistenceNosqlSpringConfiguration<MongoMappingEvent> {
 
 	public @Bean LoggingEventListener mongoEventListener() {
 		return new LoggingEventListener();

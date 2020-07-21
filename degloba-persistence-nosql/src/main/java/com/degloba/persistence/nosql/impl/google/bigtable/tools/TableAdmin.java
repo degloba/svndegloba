@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.google.bigtable.tools;
+package com.degloba.persistence.nosql.impl.google.bigtable.tools;
 
 
 import static com.google.cloud.bigtable.admin.v2.models.GCRules.GCRULES;

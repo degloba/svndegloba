@@ -1,4 +1,4 @@
-package com.degloba.persistence.nosql.google.bigtable;
+package com.degloba.persistence.nosql.impl.google.bigtable;
 
 import com.google.cloud.bigtable.hbase.BigtableConfiguration;
 import com.google.cloud.bigtable.hbase.BigtableOptionsFactory;

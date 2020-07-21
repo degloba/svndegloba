@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class HotelDataService {
 
   
-//Placeholder for last id so we can simulate
+  //Placeholder for last id so we can simulate
   // automatic incrementing of ids
   lastId: number = 0;
 
@@ -26,12 +26,12 @@ export class HotelDataService {
   }
 
   // Simulate DELETE /hotels/:id
-  deleteTodoById(hotelId: number): Observable<Hotel> {
+  deleteHotelById(hotelId: number): Observable<Hotel> {
     return this.api.deleteHotelById(hotelId);
   }
 
   // Simulate PUT /hotels/:id
-  updateTodo(hotel: Hotel): Observable<Hotel> {
+  updateHotel(hotel: Hotel): Observable<Hotel> {
     return this.api.updateHotel(hotel);
   }
 
