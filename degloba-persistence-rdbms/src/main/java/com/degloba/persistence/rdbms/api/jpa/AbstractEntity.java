@@ -2,6 +2,9 @@ package com.degloba.persistence.rdbms.api.jpa;
 
 import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @category Una classe d'entitat abstracta que proporciona atributs d'identificació i versió, 
  * així com mètodes bàsics de persistència
@@ -17,29 +20,10 @@ public abstract class AbstractEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long id;
+    @Getter @Setter private Long id;
 
     @Version
     @Column(name = "version")
-    private int version;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
+    @Getter @Setter private int version;
 
 }
