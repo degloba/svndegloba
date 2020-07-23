@@ -6,7 +6,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import com.degloba.utils.Assert;
 
 /**
  * Paging object that contains the current page data and paging information such as the total number of records.

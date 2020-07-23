@@ -1,9 +1,5 @@
 package com.degloba.billing;
 
-import com.degloba.billing.IBillingService;
-import com.degloba.billing.ICreditCardProcessor;
-
-
 // logs - degloba
 import com.degloba.logs.ITransactionLog;
 
