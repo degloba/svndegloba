@@ -1,3 +1,4 @@
+/** Classe Hotel */
 export class Hotel {
   id: number;
   title = '';

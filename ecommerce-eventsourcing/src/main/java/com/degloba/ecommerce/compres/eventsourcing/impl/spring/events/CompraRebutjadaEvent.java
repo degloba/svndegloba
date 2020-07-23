@@ -13,17 +13,16 @@ import lombok.Value;
  * @author degloba
  *
  */
-@Value
 public class CompraRebutjadaEvent extends Event {
-    /**
+	
+    public CompraRebutjadaEvent(Object source, Object what, boolean success) {
+		super(source, what, success);
+		// TODO Auto-generated constructor stub
+	}
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private String message;
  
-    public CompraRebutjadaEvent(Object source, String message) {
-        super(source);
-        this.message = message;
-    }
-
 }

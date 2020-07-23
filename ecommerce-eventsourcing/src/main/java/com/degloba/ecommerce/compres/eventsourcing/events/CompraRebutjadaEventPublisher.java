@@ -23,7 +23,7 @@ public class CompraRebutjadaEventPublisher {
  
     public void publicaEvent(final String message) {
         System.out.println("Publishing custom event. ");
-        CompraRebutjadaEvent compraRebutjadaEvent = new CompraRebutjadaEvent(this, message);
+        CompraRebutjadaEvent compraRebutjadaEvent = new CompraRebutjadaEvent(this, message,true);
         applicationEventPublisher.publishEvent(compraRebutjadaEvent);
     }
 }

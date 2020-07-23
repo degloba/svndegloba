@@ -26,6 +26,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+// ag-grid
+import { AgGridModule } from "ag-grid-angular";
+
 import { environment } from '../environments/environment';
 
 // Auth service
@@ -91,17 +94,28 @@ import { PolicyListComponent } from './policy-list/policy-list.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
 // API Rest
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
-import { TodoListFooterComponent } from './todo/todo-list-footer/todo-list-footer.component';
-import { TodoListHeaderComponent } from './todo/todo-list-header/todo-list-header.component';
+//////////import { TodoListComponent } from './todo/todo-list/todo-list.component';
+//////////import { TodoListFooterComponent } from './todo/todo-list-footer/todo-list-footer.component';
+//////////import { TodoListHeaderComponent } from './todo/todo-list-header/todo-list-header.component';
 //////////import { TodoDataService } from './providers/todo-data.service';
-import { TodoListItemComponent } from './todo/todo-list-item/todo-list-item.component';
+//////////import { TodoListItemComponent } from './todo/todo-list-item/todo-list-item.component';
+
 import { ApiService } from './providers/api.service';
 import { HotelsComponent } from './hotels/hotels.component';
 import { HotelsListHeaderComponent } from './hotels/hotels-list-header/hotels-list-header.component';
 import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component';
 import { HotelsListFooterComponent } from './hotels/hotels-list-footer/hotels-list-footer.component';
 import { HotelsListItemComponent } from './hotels/hotels-list-item/hotels-list-item.component';
+
+
+// rich grid
+import { RichGridComponent } from "./grid/rich-grid-example/rich-grid.component";
+import { DateComponent } from "./grid/date-component/date.component";
+import { SortableHeaderComponent } from "./grid/header-component/sortable-header.component";
+import { HeaderGroupComponent } from "./grid/header-group-component/header-group.component";
+import { RendererComponent } from './grid/renderer-component/renderer.component';
+import {ProficiencyFilter} from "./grid/filters/proficiency.component.filter";
+import {SkillFilter} from "./grid/filters/skill.component.filter";
 
 
 const MY_DATE_FORMATS = {
@@ -135,15 +149,22 @@ const MY_DATE_FORMATS = {
     ReportComponent,
     ProfilePageComponent,
     PolicyListComponent,    
-    TodoListComponent,
+    /*TodoListComponent,
     TodoListFooterComponent,
     TodoListHeaderComponent,
-    TodoListItemComponent,
+    TodoListItemComponent,*/
     HotelsComponent,
     HotelsListHeaderComponent,
     HotelsListComponent,
     HotelsListFooterComponent,
-    HotelsListItemComponent
+    HotelsListItemComponent,
+	RichGridComponent,
+    DateComponent,
+    SortableHeaderComponent,
+    HeaderGroupComponent,
+    RendererComponent,
+    ProficiencyFilter,
+    SkillFilter
   ],
   exports: [
     AppComponent,
@@ -155,7 +176,8 @@ const MY_DATE_FORMATS = {
     MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule, MatMenuModule, MatSliderModule,
     MatToolbarModule, MatIconModule, MatTabsModule, MatDialogModule, MatSelectModule, MatRadioModule,
     MatProgressSpinnerModule, LongPressDirective, MatDatepickerModule, MatNativeDateModule, ChartsModule,
-    MatProgressBarModule, MatSidenavModule
+    MatProgressBarModule, MatSidenavModule,
+	AgGridModule
   ],
   imports: [
     BrowserModule,    
@@ -174,7 +196,16 @@ const MY_DATE_FORMATS = {
     LayoutModule,
     FormsModule,
     HttpClientModule,
-	AgGridModule.withComponents([]
+	AgGridModule.withComponents(
+            [
+                DateComponent,
+                SortableHeaderComponent,
+                HeaderGroupComponent,
+                RendererComponent,
+                ProficiencyFilter,
+                SkillFilter
+            ]
+        )
   ],
   providers: [AuthService, ActiveStateService, EventService, ApiService],
   bootstrap: [AppComponent],
@@ -183,9 +214,6 @@ const MY_DATE_FORMATS = {
 
 // Modul root de l'aplicacio
 export class AppModule { }
-
-
-
 
 
 

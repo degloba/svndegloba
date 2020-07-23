@@ -21,7 +21,7 @@ export class HotelDataService {
   }
 
 //Simulate POST /hotels
-  addTodo(hotel: Hotel): Observable<Hotel> {
+  addHotel(hotel: Hotel): Observable<Hotel> {
     return this.api.createHotel(hotel);
   }
 

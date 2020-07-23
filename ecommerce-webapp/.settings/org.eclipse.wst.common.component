@@ -9,6 +9,9 @@
         <dependent-module archiveName="ecommerce-facade-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-facade/ecommerce-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="degloba-facade-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-facade/degloba-facade">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -19,9 +22,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-event-api-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-event-api/degloba-event-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="degloba-utilitats-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-utilitats/degloba-utilitats">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-infrastructure-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-infrastructure/degloba-infrastructure">
