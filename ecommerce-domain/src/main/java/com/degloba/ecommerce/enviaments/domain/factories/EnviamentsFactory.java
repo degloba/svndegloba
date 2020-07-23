@@ -1,7 +1,5 @@
 package com.degloba.ecommerce.enviaments.domain.factories;
 
-import java.util.UUID;
-
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -9,7 +7,6 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
-import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 /**
  * @category Fàbrica de {@link Enviament}

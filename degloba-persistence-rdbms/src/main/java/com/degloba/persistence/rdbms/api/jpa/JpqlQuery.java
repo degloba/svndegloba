@@ -2,7 +2,6 @@ package com.degloba.persistence.rdbms.api.jpa;
 
 import java.util.List;
 
-import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**

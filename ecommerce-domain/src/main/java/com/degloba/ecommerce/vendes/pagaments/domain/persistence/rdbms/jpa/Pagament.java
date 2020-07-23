@@ -3,20 +3,14 @@ package com.degloba.ecommerce.vendes.pagaments.domain.persistence.rdbms.jpa;
 import java.io.Serializable;
 
 import javax.inject.Inject;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
-import com.degloba.ecommerce.vendes.eventsourcing.events.PagamentRolledBackEvent;
 import com.degloba.ecommerce.vendes.pagaments.domain.factories.PagamentsFactory;
 import com.degloba.persistence.domain.sharedkernel.Money;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
-import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 import com.degloba.persistence.rdbms.api.jpa.ClientData;
 
 import lombok.AllArgsConstructor;

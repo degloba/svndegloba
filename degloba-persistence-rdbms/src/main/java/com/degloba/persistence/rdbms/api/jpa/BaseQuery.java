@@ -3,7 +3,6 @@ package com.degloba.persistence.rdbms.api.jpa;
 import java.util.List;
 import java.util.Map;
 
-import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 import com.degloba.utils.Assert;
 
 /**
@@ -11,6 +10,7 @@ import com.degloba.utils.Assert;
  * @param <E> Tipus de consulta
  */
 public abstract class BaseQuery<E extends BaseQuery<?>> {
+	
     private final IEntityRepository repository;
     private IQueryParameters parameters = PositionalParameters.create();
     private final NamedParameters mapParameters = NamedParameters.create();

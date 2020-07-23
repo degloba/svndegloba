@@ -4,8 +4,6 @@ import com.degloba.events.api.AbstractEventListener;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.api.IEventListener;
 import com.degloba.events.persistence.IEventStore;
-import com.degloba.utils.Assert;
-
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;

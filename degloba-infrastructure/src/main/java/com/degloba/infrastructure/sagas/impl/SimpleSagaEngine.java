@@ -1,12 +1,8 @@
 package com.degloba.infrastructure.sagas.impl;
 
-// Reflection
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-
-import java.util.Collection;
 
 // is used on a method that needs to be executed after dependency injection is done to perform any initialization
 import javax.annotation.PostConstruct;

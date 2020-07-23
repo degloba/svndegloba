@@ -9,9 +9,9 @@ import javax.persistence.EntityManagerFactory;
 
 
 /**
- * @category
- * JPA EntityManagerProvider. Si el thread actual de entityManager encara no existeix,
- * obté un thread des del contenidor i botiga IoC,
+ * @category JPA EntityManagerProvider. 
+ * Si el thread actual de entityManager encara no existeix,
+ * obté un thread des del contenidor IoC,
  * Si el thread actual ja existeix les variables de subjunt entityManager, el retorna.
  *
  * This class exists primarily to the current thread, return the same entityManager objects on each request. 

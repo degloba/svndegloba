@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 import com.degloba.events.api.IDomainEvent;
 import com.degloba.events.api.IEvent;
 import com.degloba.events.api.IEventHandler;
-import com.degloba.events.handlers.EventListenerLoader;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -12,6 +12,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.degloba.utils.BeanUtils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 
 /**
@@ -34,36 +37,16 @@ public abstract class BaseEntity implements IEntity {
 	   }*/
 
 
+	   @Getter @Setter
 	   @Id  
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)  
 	   private Long id;
 	   
-	   
+	   @Getter @Setter
 	   @Version
 	   @Column(name = "version")
 	   private int version;
 	   
-	   	          
-	   // getters - setters
-	   
-		public void setId(Long id) {
-			this.id = id;
-		}
-	 	
-		public Long getId() {
-			return id;
-		}
-		
-		   public int getVersion() {
-		       return version;
-		   }
-
-		public void setVersion(int version) {
-		       this.version = version;
-		   }
-		
-
-		   
    
    /**
     * Get Natural key. Natural key is to determine the two entities of the same type on the basis of operational equivalence. If the same type of two

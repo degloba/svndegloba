@@ -3,12 +3,11 @@ package com.degloba.persistence.rdbms.api.jpa;
 import java.io.Serializable;
 import java.util.List;
 
-import com.degloba.persistence.rdbms.api.jpa.IQueryCriterion;
-import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
-
 
 /**
- * @category Repositori d'entitats rdbms implementat amb JPA 
+ * @category Repositori d'entitats rdbms
+ * 
+ * @implNote JPA
  */
 public interface IEntityRepository {   
 	

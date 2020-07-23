@@ -4,15 +4,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.data.jpa.domain.Specification;
-
 import com.degloba.ecommerce.comandes.IComandaRepository;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.Comanda;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.IVendaRepository;
 import com.degloba.ecommerce.vendes.domain.services.SuggerimentService;
-import com.degloba.persistence.rdbms.api.jpa.AggregateId;
-
 import lombok.Value;
 
 /**

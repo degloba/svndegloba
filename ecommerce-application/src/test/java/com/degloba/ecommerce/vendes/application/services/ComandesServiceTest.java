@@ -5,7 +5,10 @@ import com.sivalabs.myservice.exception.UserRegistrationException;
 import com.sivalabs.myservice.repositories.UserRepository;*/
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
+import com.degloba.ecommerce.comandes.IComandaRepository;
 
 import java.util.Optional;
 
@@ -24,11 +27,11 @@ import static org.mockito.Mockito.*;
 
 public class ComandesServiceTest {
 
-/*	@Mock
-    private ComandaRepository userRepository;
+	@Mock
+    private IComandaRepository comandaRepository;
 
     @InjectMocks
     private UserService userService;
 
-*/
+
 	}

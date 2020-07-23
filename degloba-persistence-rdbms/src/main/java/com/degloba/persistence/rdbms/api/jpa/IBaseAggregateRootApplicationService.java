@@ -1,7 +1,5 @@
 package com.degloba.persistence.rdbms.api.jpa;
 
-import com.degloba.persistence.rdbms.api.jpa.BaseAggregateRoot;
-
 
 /**
  * @author degloba

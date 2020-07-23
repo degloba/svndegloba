@@ -1,7 +1,5 @@
 package com.degloba.ecommerce.vendes.domain.specifications;
 
-import javax.persistence.criteria.ListJoin;
-
 import org.springframework.data.jpa.domain.Specification;
 
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.User;

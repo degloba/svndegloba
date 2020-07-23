@@ -143,6 +143,8 @@
 		<module>../degloba-ioc-test</module>
 		<module>../degloba-event-api</module>
 
+		<module>../degloba-facade</module>
+		<module>../degloba-webapp</module>
 	</modules>
 
 	<dependencyManagement>

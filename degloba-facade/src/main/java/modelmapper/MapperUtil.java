@@ -7,6 +7,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @category Utilitat que utilitzem per mapejar una llista de DTOs en una llista d'entitats
+ * 
+ * @author pere
+ *
+ */
 @NoArgsConstructor
 public class MapperUtil {
 	

@@ -3,7 +3,6 @@ package com.degloba.ecommerce.comandes.eventsourcing.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.Value;
 
 /**

@@ -8,11 +8,9 @@ import java.util.Map;
 
 import javax.persistence.MappedSuperclass;
 
-import com.degloba.persistence.rdbms.api.jpa.AggregateId;
-import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
-
 /**
- * Abstract entity class legacy. Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
+ * Abstract entity class legacy. 
+ * Applies to those objects exist in the database prior to the program. It's the type of ID is unknown, but may not be the version attribute.
  */
 @MappedSuperclass
 public abstract class LegacyEntity extends BaseAggregateRoot {

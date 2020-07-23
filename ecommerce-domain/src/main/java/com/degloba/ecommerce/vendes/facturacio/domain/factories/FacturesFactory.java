@@ -1,7 +1,5 @@
 package com.degloba.ecommerce.vendes.facturacio.domain.factories;
 
-import java.util.UUID;
-
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;

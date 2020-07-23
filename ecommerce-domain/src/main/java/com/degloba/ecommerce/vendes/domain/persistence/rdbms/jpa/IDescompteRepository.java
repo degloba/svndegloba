@@ -1,7 +1,5 @@
 package com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa;
 
-import java.util.List;
-
 import com.degloba.domain.annotations.DomainRepository;
 import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.degloba.ecommerce.compres.eventsourcing.events.CompraAmbCreditEvent;
 import com.degloba.ecommerce.compres.eventsourcing.events.CompraEnEfectiuEvent;
-import com.degloba.ecommerce.compres.eventsourcing.events.SimpleEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 

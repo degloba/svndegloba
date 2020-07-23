@@ -1,4 +1,4 @@
-package com.degloba.cqrs;
+package com.degloba.ecommerce.cqrs.impl.axon;
 
 import org.axonframework.commandhandling.CommandBus;
 import org.axonframework.commandhandling.SimpleCommandBus;
@@ -17,19 +17,22 @@ import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+/**
+ * @category Test Cqrs d'Ecommerce
+ * 
+ * @author pere
+ *
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class AxonSimpleApplicationTests {
+public class CqrsEcommerceAxonTests {
 
 
 	@Autowired(required = false)

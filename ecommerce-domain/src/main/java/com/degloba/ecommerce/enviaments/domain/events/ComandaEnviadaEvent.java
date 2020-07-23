@@ -6,7 +6,6 @@ import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @category S'ha enviat una {@link Comanda}

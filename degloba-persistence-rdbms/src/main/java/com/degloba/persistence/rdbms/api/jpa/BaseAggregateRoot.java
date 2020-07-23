@@ -34,6 +34,9 @@ import com.degloba.ioc.spring.factories.InstanceFactory;
 import com.degloba.persistence.rdbms.api.jpa.exceptions.DomainOperationException;
 import com.degloba.utils.BeanUtils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 /**
  * @author degloba
@@ -51,6 +54,7 @@ import com.degloba.utils.BeanUtils;
 		
 		private boolean disabled;
 		
+		@Getter @Setter
 		@EmbeddedId		
 		@AttributeOverrides({
 			  @AttributeOverride(name = "aggregateId", column = @Column(name = "aggregateId", nullable = false))})  
@@ -60,6 +64,7 @@ import com.degloba.utils.BeanUtils;
 		/**
 		 * control de concurrencia
 		 */
+		@Getter @Setter
 		@Version
 		private Long version;
 		
@@ -82,15 +87,17 @@ import com.degloba.utils.BeanUtils;
 		@Inject
 		protected IDomainEventBus<IEvent> domainEventBus;
 				
-				
+		@Getter @Setter	
 		private Boolean actiu; //esborrat logic
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date expired;
 		   
+		@Getter @Setter
 		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaIni;
 		
+		@Getter @Setter
 		@Temporal(TemporalType.DATE)
 		private Date DataVigenciaFi;
 		
@@ -109,49 +116,6 @@ import com.degloba.utils.BeanUtils;
 		}
 			
 
-		// getters - setters
-	
-		public AggregateId getAggregateId() {
-			return aggregateId;
-		}
-
-		public void setAggregateId(AggregateId aggregateId) {
-			this.aggregateId = aggregateId;
-		}
-
-		public Boolean getActiu() {
-			return actiu;
-		}
-
-		public void setActiu(Boolean actiu) {
-			this.actiu = actiu;
-		}
-
-		public Long getVersion() {
-			return version;
-		}
-	
-		public void setVersion(Long version) {
-			this.version = version;
-		}
-	
-		public Date getDataVigenciaIni() {
-			return DataVigenciaIni;
-		}
-
-		public void setDataVigenciaIni(Date dataVigenciaIni) {
-			DataVigenciaIni = dataVigenciaIni;
-		}
-	
-		public Date getDataVigenciaFi() {
-			return DataVigenciaFi;
-		}
-
-		public void setDataVigenciaFi(Date dataVigenciaFi) {
-			DataVigenciaFi = dataVigenciaFi;
-		}
-	
-		
 	  
 		public AggregateStatus getAggregateStatus() {
 			return aggregateStatus;
@@ -268,9 +232,6 @@ import com.degloba.utils.BeanUtils;
 		 public boolean isDisabled() {
 		        return disabled;
 		    }
-		    
-
-	
 		    
 		    public void disable(Date date) {
 		        disabled = true;

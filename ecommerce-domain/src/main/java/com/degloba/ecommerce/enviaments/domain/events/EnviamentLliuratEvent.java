@@ -1,11 +1,8 @@
 package com.degloba.ecommerce.enviaments.domain.events;
 
-import java.io.Serializable;
-
 import com.degloba.domain.events.DomainEvent;
 import com.degloba.events.annotations.EventAnnotation;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
-import com.degloba.persistence.rdbms.api.jpa.BaseEntity;
 
 /**
  * @category s'ha produit una entrega d'un enviament

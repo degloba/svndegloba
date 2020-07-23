@@ -3,7 +3,7 @@ package com.degloba.persistence.rdbms.api.jpa;
 import java.util.Collection;
 
 /**
- * A utility class, as a variety of query conditions factory
+ * @category Condicions d'una consulta
  */
 public interface CriterionBuilder {
 

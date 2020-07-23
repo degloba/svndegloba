@@ -4,10 +4,9 @@ package com.degloba.persistence.rdbms.api.jpa;
 import com.degloba.domain.KeyValue;
 import com.degloba.domain.OrderSettings;
 import com.degloba.ioc.spring.factories.InstanceFactory;
-import com.degloba.persistence.rdbms.api.jpa.IEntityRepository;
-import com.degloba.persistence.rdbms.api.jpa.IQueryCriterion;
-import com.degloba.persistence.rdbms.api.jpa.NamedParameters;
 import com.degloba.utils.Assert;
+
+import lombok.Getter;
 
 import java.util.*;
 
@@ -25,8 +24,8 @@ public class CriteriaQuery {
     private final IEntityRepository repository;
     private final CriterionBuilder criterionBuilder = InstanceFactory.getInstance(CriterionBuilder.class);
     private final Class<? extends BaseAggregateRoot> entityClass;
-    private int firstResult;
-    private int maxResults;
+    @Getter private int firstResult;
+    @Getter private int maxResults;
     private IQueryCriterion criterion = criterionBuilder.empty();
     private final OrderSettings orderSettings = new OrderSettings();
 
@@ -46,14 +45,6 @@ public class CriteriaQuery {
         return entityClass;
     }
 
-    /**
-     * Retorna el primer element del resultat
-     *
-     * @return A number that represents a large result set from the first few records began to select a subset of
-     */
-    public int getFirstResult() {
-        return firstResult;
-    }
 
     /**
      * For centralized choose from a large part of the query result, the initial set of data sets to obtain the position (0 represents the first record)
@@ -64,15 +55,6 @@ public class CriteriaQuery {
     public CriteriaQuery setFirstResult(int firstResult) {
         this.firstResult = firstResult;
         return this;
-    }
-
-    /**
-     * For centralized choose from a large part of the query result, this query returns the maximum number of records
-     *
-     * @return A number that represents the number of records selected from a large data set up to
-     */
-    public int getMaxResults() {
-        return maxResults;
     }
 
     /**

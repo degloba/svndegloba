@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * Totes les classes d'entitat han d'implementar aquesta interfície sigui directa o indirectament.</br>
+ * @category Totes les classes d'entitat han d'implementar aquesta interfície sigui directa o indirectament
  * It is mainly from the tag role, in order to unify the processing system Entity like.
  */
 public interface IEntity extends Serializable {

@@ -4,7 +4,6 @@ import org.reflections.Reflections;
 
 import com.degloba.events.api.AbstractEventListener;
 import com.degloba.events.api.IEvent;
-import com.degloba.events.bus.EventBus;
 import com.degloba.events.bus.IEventBus;
 
 import lombok.extern.slf4j.Slf4j;

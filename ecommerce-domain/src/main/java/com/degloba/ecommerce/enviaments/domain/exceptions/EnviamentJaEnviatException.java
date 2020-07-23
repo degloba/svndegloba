@@ -1,8 +1,6 @@
 package com.degloba.ecommerce.enviaments.domain.exceptions;
 
 import com.degloba.domain.annotations.BusinessException;
-import com.degloba.ecommerce.enviaments.domain.persistence.rdbms.jpa.Enviament;
-//import com.degloba.organitzacio.domain.persistence.rdbms.jpa.security.Usuari;
 
 @BusinessException
 public class EnviamentJaEnviatException {

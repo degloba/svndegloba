@@ -1,11 +1,7 @@
 package com.degloba.ecommerce.compres.eventsourcing.events;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.degloba.domain.events.DomainEvent;
 import com.degloba.events.annotations.EventAnnotation;
-import com.degloba.events.api.IDomainEvent;
 import com.degloba.persistence.rdbms.api.jpa.AggregateId;
 
 

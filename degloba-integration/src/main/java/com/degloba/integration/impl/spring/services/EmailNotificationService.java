@@ -19,13 +19,7 @@ import org.springframework.messaging.MessageHandler;
 
 
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-
-
 import org.springframework.integration.mail.MailHeaders;
-
-import javax.annotation.PostConstruct;
-
 
 import java.io.StringWriter;
 import java.util.Map;

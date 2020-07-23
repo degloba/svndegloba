@@ -1,10 +1,7 @@
 package com.degloba.ecommerce.crm.facade.dtos;
 
-import com.degloba.persistence.rdbms.api.jpa.AggregateId;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 

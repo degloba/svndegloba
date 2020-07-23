@@ -12,7 +12,6 @@ import com.degloba.domain.annotations.DomainFactory;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.Compra;
 import com.degloba.ecommerce.compres.domain.persistence.rdbms.jpa.CompraArticle;
 import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.client.Client;
-import com.degloba.ecommerce.vendes.facturacio.domain.persistence.rdbms.jpa.Factura;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.Oferta;
 import com.degloba.ecommerce.vendes.ofertes.domain.persistence.rdbms.jpa.OfertaItem;
 import com.degloba.persistence.domain.sharedkernel.Money;
