@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import com.degloba.domain.annotations.ValueObject;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class ClientData {
 	
 	@Getter

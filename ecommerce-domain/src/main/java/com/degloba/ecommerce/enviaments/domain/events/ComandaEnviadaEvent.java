@@ -24,9 +24,4 @@ public class ComandaEnviadaEvent extends DomainEvent {
     private final AggregateId enviamentId;
 
 
-	public AggregateId getComandaId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

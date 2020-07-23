@@ -26,8 +26,6 @@ import lombok.Setter;
 @AggregateRoot
 public class Client extends BaseAggregateRoot{
 
-	private static final long serialVersionUID = 1L;
-
 	public enum EstatClient{
 		STANDARD, VIP, PLATINUM
 	}

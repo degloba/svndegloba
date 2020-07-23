@@ -41,12 +41,6 @@ import lombok.Setter;
 @AggregateRoot
 public class Compra extends BaseAggregateRoot{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 //	@Fetch(FetchMode.JOIN)
 	@OrderColumn(name = "itemNumber")

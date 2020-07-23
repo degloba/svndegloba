@@ -40,12 +40,6 @@ import lombok.Setter;
 @Entity
 public class Factura extends BaseAggregateRoot {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
 	@Embedded
 	private ClientData client;
 
