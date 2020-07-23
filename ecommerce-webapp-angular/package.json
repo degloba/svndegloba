@@ -1,6 +1,11 @@
 {
   "name": "ecommerce-webapp-angular",
   "version": "0.0.0",
+  "description": "degloba",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/degloba/svndegloba/tree/master/ecommerce-webapp-angular"
+  },
   "scripts": {
     "ng": "ng",
     "start": "npm run shell",

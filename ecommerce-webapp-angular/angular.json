@@ -21,14 +21,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/images",
               "src/manifest.json"
             ],
             "styles": [
-                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/assets/css/todomvc-common.css",
-              "src/assets/css/todomvc-app.css",   
-              "src/styles.css"
+              "styles.css"
             ],
             "scripts": []
           },
@@ -84,13 +83,14 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",			  
+              "./styles.css"
             ],
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/images"
             ]
           }
         },
@@ -137,5 +137,10 @@
       }
     }
   },
-  "defaultProject": "ecommerce-webapp-angular"
+  "defaultProject": "ecommerce-webapp-angular",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
+  }
 }
