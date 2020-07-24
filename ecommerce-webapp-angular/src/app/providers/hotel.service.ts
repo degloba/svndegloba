@@ -19,12 +19,8 @@ const API_URL = environment.apiUrl;
  * 
  */
 @Injectable()
-export class ApiService {
+export class HotelService {
     
-   /** 
-    * Definicio d'una Property
-    */  
-    propietat: string;
 
   constructor(private http: HttpClient) { }
   
@@ -74,6 +70,32 @@ export class ApiService {
         .catch(this.handleError);
     }
 
+  // API: GET /hotels/:id
+  public getHotelById(hotelId: number): Observable<Hotel> {
+      return this.http
+        .get(API_URL + '/hotels/' + hotelId)
+        .map(response => {
+          return new Hotel(response);
+        })
+        .catch(this.handleError);
+    }
 
+  // API: PUT /hotels/:id
+  public updateHotel(hotel: Hotel): Observable<Hotel> {
+      return this.http
+        .put(API_URL + '/hotels/' + hotel.id, hotel)
+        .map(response => {
+          return new Hotel(response);
+        })
+        .catch(this.handleError);
+    }
+
+  // DELETE /hotels/:id
+  public deleteHotelById(hotelId: number): Observable<null> {
+      return this.http
+        .delete(API_URL + '/hotels/' + hotelId)
+        .map(response => null)
+        .catch(this.handleError);
+    }
 
 }

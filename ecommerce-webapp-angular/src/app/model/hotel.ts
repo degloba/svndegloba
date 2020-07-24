@@ -1,9 +1,10 @@
 /** Classe Hotel */
 export class Hotel {
   id: number;
-  title = '';
-  complete = false;
-
+  nom = '';
+  email = "";
+     
+   
   constructor(values: Object = {}) {
     Object.assign(this, values);
   }

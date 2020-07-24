@@ -2,67 +2,76 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 
-//import {TodoDataService} from '../../providers/todo-data.service';
-import { Todo } from '../model/todo';
 
+import {HotelService} from '../providers/hotel.service';
 
+import { Hotel } from '../model/hotel';
+
+import {MockServerService} from "../providers/rxjs-component/mock-server-service/mockServer.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  //providers: [TodoDataService]
+  styleUrls: ['dashboard.component.scss'],
+  providers: [HotelService, MockServerService]
 })
 export class DashboardComponent implements OnInit {
 
-    todos: Todo[] = [];
+    hotels: Hotel[] = [];
+
 
   constructor(
     public authService: AuthService,
-    //private todoDataService: TodoDataService,
+    private hotelService: HotelService,
     public router: Router,
     public ngZone: NgZone
   ) { }
 
   public ngOnInit() {
-      //this.todoDataService
-      //  .getAllTodos()
-      //  .subscribe(
-      //    (todos) => {
-      //      this.todos = todos;
-      //    }
-      //  );
+      this.hotelService
+        .getAllHotels()
+        .subscribe(
+          (hotels) => {
+            this.hotels = hotels;
+		
+          }
+        );
     }
   
-  onAddTodo(todo) {
-      //this.todoDataService
-      //  .addTodo(todo)
-      //  .subscribe(
-      //   (newTodo) => {
-      //      this.todos = this.todos.concat(newTodo);
-      //    }
-      //  );
+  onAddHotel(hotel) {
+      this.hotelService
+        .createHotel(hotel)
+        .subscribe(
+         (newHotel) => {
+            this.hotels = this.hotels.concat(newHotel);
+          }
+        );
     }
 
-  onToggleTodoComplete(todo) {
-      // this.todoDataService
-      //  .toggleTodoComplete(todo)
-      //  .subscribe(
-      //    (updatedTodo) => {
-      //      todo = updatedTodo;
-      //   }
-      //  );
+  onToggleHotelComplete(hotel) {
+       this.hotelService
+        .updateHotel(hotel)
+        .subscribe(
+          (updatedHotel) => {
+            hotel = updatedHotel;
+         }
+        );
     }
 
-  onRemoveTodo(todo) {
-      //this.todoDataService
-      //  .deleteTodoById(todo.id)
-      //  .subscribe(
-      //    (_) => {
-      //     this.todos = this.todos.filter((t) => t.id !== todo.id);
-      //   }
-      // );
+  onRemoveHotel(hotel) {
+      this.hotelService
+        .deleteHotelById(hotel.id)
+        .subscribe(
+          (_) => {
+           this.hotels = this.hotels.filter((t) => t.id !== hotel.id);
+         }
+      );
     }
+
+
+	goHotels() {
+		this.router.navigate(['/hotel']);
+	}
 
 }
 
