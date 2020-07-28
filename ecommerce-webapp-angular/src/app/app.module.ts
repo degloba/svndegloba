@@ -31,8 +31,6 @@ import { AgGridModule } from "ag-grid-angular";
 
 import { environment } from '../environments/environment';
 
-// Auth service
-import { AuthService } from './shared/services/auth.service';
 
 // BigFood
 import { ProfilePageComponent } from './food/profile-page/profile-page.component';
@@ -87,9 +85,6 @@ import { ReportComponent } from './report/report.component';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { ActiveStateService } from './providers/active-state.service';
-import { EventService } from './providers/event.service';
-
 import { PolicyListComponent } from './policy-list/policy-list.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -100,7 +95,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 //////////import { TodoDataService } from './providers/todo-data.service';
 //////////import { TodoListItemComponent } from './todo/todo-list-item/todo-list-item.component';
 
+
+import { ActiveStateService } from './providers/active-state.service';
+import { EventService } from './providers/event.service';
+
+// Auth service
+import { AuthService } from './shared/services/auth.service';
+
 import { ApiService } from './providers/api.service';
+
 import { HotelsComponent } from './hotels/hotels.component';
 import { HotelsListHeaderComponent } from './hotels/hotels-list-header/hotels-list-header.component';
 import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component';
@@ -116,6 +119,8 @@ import { HeaderGroupComponent } from "./grid/header-group-component/header-group
 import { RendererComponent } from './grid/renderer-component/renderer.component';
 import {ProficiencyFilter} from "./grid/filters/proficiency.component.filter";
 import {SkillFilter} from "./grid/filters/skill.component.filter";
+
+
 
 
 const MY_DATE_FORMATS = {
@@ -164,7 +169,7 @@ const MY_DATE_FORMATS = {
     HeaderGroupComponent,
     RendererComponent,
     ProficiencyFilter,
-    SkillFilter
+    SkillFilter,
   ],
   exports: [
     AppComponent,

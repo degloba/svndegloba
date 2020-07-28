@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['app.component.css'],
+  styleUrls: ['app.component.scss'],
   providers: []
 })
 export class AppComponent implements OnInit {
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   angForm: FormGroup;
   
   hotels: Hotel[] = [];
+
   
   constructor(private fb: FormBuilder) {
       this.createForm();
