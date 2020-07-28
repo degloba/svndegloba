@@ -7,13 +7,12 @@ import {HotelService} from '../providers/hotel.service';
 
 import { Hotel } from '../model/hotel';
 
-import {MockServerService} from "../providers/rxjs-component/mock-server-service/mockServer.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['dashboard.component.scss'],
-  providers: [HotelService, MockServerService]
+  styleUrls: ['dashboard.component.css'],
+  providers: [HotelService]
 })
 export class DashboardComponent implements OnInit {
 
