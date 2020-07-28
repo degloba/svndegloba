@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from "@angular/core";
 
-import { Observable } from "rxjs";
 
 import { AllModules, ColumnApi, GridApi, Module } from '@ag-grid-enterprise/all-modules';
 import "@ag-grid-enterprise/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-enterprise/all-modules/dist/styles/ag-theme-alpine.css";
 
-import {cloneDeep} from "lodash";
+
+import {MockServer} from '../grid/mock-server';
+
+
+//import {Utils} from '../utils'
 
 @Component({
   selector: 'ricdh-grid',
-  template: 
-		`<ag-grid-angular
+  template: `<ag-grid-angular
 			#agGrid 
 			style="width: 1000px; height: 500px;"
 			id="myGrid" 
@@ -25,6 +27,8 @@ import {cloneDeep} from "lodash";
 		</ag-grid-angular>`,
 })
 export class HotelsComponent {
+   
+
 	private gridApi: any;
 	private gridColumnApi: any;
 	
@@ -34,9 +38,9 @@ export class HotelsComponent {
 	public getRowNodeId: any;
 	public rowData: any[];
 
+
   constructor() { 
-	
-	
+		
 	this.columnDefs = [
 		{
 			field: 'code',
@@ -77,26 +81,39 @@ export class HotelsComponent {
 		resizable: true,
 	};
 	
+	
+	/* Una clau única per fila: ho fem aprofitant la devolució de getRowNodeId */
 	this.getRowNodeId = function(data: { code: any; }) {
 		return data.code;
 	};
 }
 
-onGridReady(params) {
+
+onGridReady(params)  {
 	this.gridApi = params.api;
 	this.gridColumnApi = params.columnApi;
-	
-	var mockServer = createMockServer(); 
+
+			/* Observable */
+	var mockServer = new MockServer();		
+	alert("si");	
 	var	initialLoad$ = mockServer.initialLoad();
+	alert("sis67");
 	var updates$ = mockServer.byRowUpdates();
 	
+	
 		initialLoad$.subscribe(function(rowData) {
-			params.api.setRowData(rowData);
-			updates$.subscribe(function(updates) {
-				
-				return params.api.applyTransaction({ update: updates});
-			});
+			
+			params.api.setRowData(this.rowData);
+		
+			
 		});
+		
+		updates$.subscribe(function(updates: any) {
+				
+				/* Una manera de donar a conèixer a Ag-Grid el tipus d’actualització que fem - 
+				per a això fem servir el mètode Transaction: */ 
+				return params.api.applyTransaction({ update: updates});
+			});	
 	}	
 }
 	
@@ -107,101 +124,3 @@ function numberFormatter(params) {
 	return params.value;
 }
 
-function createMockServer() {
-	function MockServer() {
-		'use strict';
-		this.rowData = [];
-	}
-	MockServer.prototype.initialLoad = function() {
-		return Observable.fromPromise(new Promise((resolve, reject) => {
-			let httpRequest = new XMLHttpRequest();
-			httpRequest.open('GET',
-			'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/stocks.json');
-			httpRequest.send();
-			httpRequest.onreadystatechange = () => {
-				if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-					
-					let dataSet = JSON.parse(httpRequest.responseText);
-					let reducedDataSet = dataSet.slice(0,200);
-					this.rowData = this.backfillData(reducedDataSet);
-					resolve(cloneDeep(this.rowData));
-				}
-			};
-		})
-		);
-	};
-	
-	MockServer.prototype.byRowUpdates = function() {
-		var that = Object(this);
-		return Observable.create(function(observer) {
-			var interval = window.setInterval(function() {
-				var changes = [];
-				that.makeSomePriceChanges(changes);
-				that.makeSomeVolumeChanges(changes);
-				observer.next(changes);
-				}, 1000);
-				return function() {
-					window.clearInterval(interval);
-				};
-			});
-		};
-		
-	MockServer.prototype.allDataUpdates = function() {
-		var that = Object(this);
-		return Observable.create(function(observer) {
-			var interval = window.setInterval(function() {
-				var changes = [];
-				that.makeSomePriceChanges(changes);
-				this.makeSomeVolumeChanges(changes);
-				observer.next(cloneDeep(that.rowData));
-				}, 1000);
-				alert("all");
-				return function() {
-					window.clearInterval(interval);
-				};
-			});
-		};
-	
-	MockServer.prototype.backfillData = function(rowData) {
-		var that = Object(this);
-		rowData.forEach(function(dataItem) {
-			dataItem.volume = Math.floor(Math.random() * 10000 + 100);
-			dataItem.mid = Math.random() * 300 + 20;
-			that.setBidAndAsk(dataItem);
-		});
-		return rowData;
-	};		
-	
-	
-	MockServer.prototype.makeSomeVolumeChanges = function(changes) {
-		for (var i=0; i < 10; i++) {
-			var index = Math.floor(this.rowData.length * Math.random()),
-				currentRowData = this.rowData[index],
-				move = Math.floor(10 * Math.random()) - 5,
-				newValue = currentRowData.volume + move;
-			currentRowData.volume = newValue;
-			changes.push(currentRowData);
-			
-		}
-	};
-	
-	MockServer.prototype.makeSomePriceChanges = function(changes) {
-		for (var i=0; i < 10; i++) {
-			var index = Math.floor(this.rowData.length * Math.random()),
-				currentRowData = this.rowData[index],
-				move = Math.floor(30 * Math.random()) / 10 - 1,
-				newValue = currentRowData.volume + move;
-			currentRowData.mid = newValue;
-			this.setBidAndAsk(currentRowData)
-			changes.push(currentRowData);
-	}
-	};
-
-	MockServer.prototype.setBidAndAsk = function(dataItem) {
-		dataItem.bid = dataItem.mid * 0.98;
-		dataItem.ask = dataItem.mid * 1.02;
-	};
-
-	return new MockServer();
-
-}
