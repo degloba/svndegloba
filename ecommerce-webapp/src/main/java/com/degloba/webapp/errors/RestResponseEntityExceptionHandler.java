@@ -1,8 +1,8 @@
 package com.degloba.webapp.errors;
 
-import javax.persistence.EntityNotFoundException;
+/////import javax.persistence.EntityNotFoundException;
 
-import org.hibernate.exception.ConstraintViolationException;
+/////import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.baeldung.web.exception.MyResourceNotFoundException;
+//////import com.baeldung.web.exception.MyResourceNotFoundException;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
@@ -29,12 +29,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     // 400
 
-    @ExceptionHandler({ ConstraintViolationException.class })
-    public ResponseEntity<Object> handleBadRequest(final ConstraintViolationException ex, final WebRequest request) {
-        final String bodyOfResponse = "This should be application specific";
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-    }
-
+	/*
+	 * @ExceptionHandler({ ConstraintViolationException.class }) public
+	 * ResponseEntity<Object> handleBadRequest(final ConstraintViolationException
+	 * ex, final WebRequest request) { final String bodyOfResponse =
+	 * "This should be application specific"; return handleExceptionInternal(ex,
+	 * bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request); }
+	 */
     @ExceptionHandler({ DataIntegrityViolationException.class })
     public ResponseEntity<Object> handleBadRequest(final DataIntegrityViolationException ex, final WebRequest request) {
         final String bodyOfResponse = "This should be application specific";
@@ -57,12 +58,14 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     // 404
 
-    @ExceptionHandler(value = { EntityNotFoundException.class, MyResourceNotFoundException.class })
-    protected ResponseEntity<Object> handleNotFound(final RuntimeException ex, final WebRequest request) {
-        final String bodyOfResponse = "This should be application specific";
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
-    }
-
+	/*
+	 * @ExceptionHandler(value = { EntityNotFoundException.class,
+	 * MyResourceNotFoundException.class }) protected ResponseEntity<Object>
+	 * handleNotFound(final RuntimeException ex, final WebRequest request) { final
+	 * String bodyOfResponse = "This should be application specific"; return
+	 * handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(),
+	 * HttpStatus.NOT_FOUND, request); }
+	 */
     // 409
 
     @ExceptionHandler({ InvalidDataAccessApiUsageException.class, DataAccessException.class })

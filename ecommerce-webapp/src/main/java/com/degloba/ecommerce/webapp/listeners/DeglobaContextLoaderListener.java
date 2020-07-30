@@ -1,7 +1,7 @@
 package com.degloba.ecommerce.webapp.listeners;
 
-import com.degloba.ioc.InstanceFactory;
-import com.degloba.ioc.spring.factory.SpringInstanceProvider;
+import com.degloba.ioc.spring.factories.InstanceFactory;
+import com.degloba.ioc.spring.providers.SpringInstanceProvider;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;

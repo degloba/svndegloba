@@ -17,7 +17,7 @@ public abstract class AbstractEntity extends BaseEntity {
 
     private static final long serialVersionUID = 8882145540383345037L;
 
-    @Id
+    
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     @Getter @Setter private Long id;

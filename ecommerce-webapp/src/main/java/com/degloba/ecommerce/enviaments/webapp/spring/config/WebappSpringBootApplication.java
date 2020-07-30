@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.webapp.configuration;
+package com.degloba.ecommerce.enviaments.webapp.spring.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

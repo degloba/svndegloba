@@ -26,22 +26,20 @@
 	<!-- ********************* -->
 	<!-- EntityManagerFactoryS -->
 	<!-- ********************* -->
-	<bean id="entityManagerFactoryDatastore"
+	<!-- <bean id="entityManagerFactoryDatastore"
 		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName"
-			value="transactions-optional" />
+		<property name="persistenceUnitName" value="transactions-optional" />
 	</bean>
 
-	<!-- TransactionManagerS -->
+	TransactionManagerS
 	<bean id="transactionManager"
 		class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory"
-			ref="entityManagerFactoryDatastore" />
+		<property name="entityManagerFactory" ref="entityManagerFactoryDatastore" />
 	</bean>
 
 	<tx:annotation-driven
 		transaction-manager="transactionManager" />
-
+ -->
 
 
 	<!-- ********************* -->
@@ -75,13 +73,21 @@
 
 	<!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
 
-	<!-- <mongo: host="localhost" port="27017" /> -->
+	<mongo:mongo-client id="mongoClient" host="localhost" />
+	<mongo:db-factory id="mongoDbFactory" dbname="test" mongo-ref="mongoClient" />
 
-	<bean id="mongoTemplate"
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
+	    <constructor-arg ref="mongoDbFactory"/> 
+	</bean>
+	
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+	
+
+<!-- 	<bean id="mongoTemplate"
 		class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongo" ref="mongo" />
 		<constructor-arg name="databaseName" value="casino" />
-	</bean>
+	</bean> -->
 
 <!-- 	<bean id="topicRepository"
 		class="com.degloba.messaging.infrastructure.persistence.nosql.impl.mongo.repositories.FCMTopicRepository">
@@ -116,12 +122,12 @@
 	<!-- REPOSITORIS -->
 	<!-- ************ -->
 
-	<bean id="repository" class="com.degloba.persistence.rdbms.jpa.EntityRepository" />
+	<!-- <bean id="repository" class="com.degloba.persistence.rdbms.api.jpa.EntityRepository" /> -->
 
 	<!-- <bean id="organisationRepository"
 		class="com.degloba.organisation.infrastructure.persistence.rdbms.jpa.repositories.OrganisationRepository" />
  -->
-	<bean id="crmRepository"
+	<!-- <bean id="crmRepository"
 		class="com.degloba.ecommerce.crm.infrastructure.persistence.rdbms.api.jpa.repositories.CrmRepository" />
 
 	<bean id="clientRepository"
@@ -129,7 +135,7 @@
 
 	<bean id="shipmentRepository"
 		class="com.degloba.ecommerce.enviaments.infrastructure.persistence.rdbms.api.jpa.repositories.EnviamentRepository" />
-
+ -->
 	<!-- <bean id="rentRepositoryObjectify"
 		class="com.degloba.lloguers.infrastructure.persistence.nosql.googleDatastore.api.objectify.repositories.LloguerRepository" />
  -->

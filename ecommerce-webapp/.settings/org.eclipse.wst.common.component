@@ -12,12 +12,6 @@
         <dependent-module archiveName="degloba-facade-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-facade/degloba-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ecommerce-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-cqrs/ecommerce-cqrs">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="degloba-ioc-spring-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-ioc-spring/degloba-ioc-spring">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -34,6 +28,18 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="degloba-security-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-security/degloba-security">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecommerce-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-cqrs/ecommerce-cqrs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-cqrs-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-cqrs/degloba-cqrs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="degloba-persistence-rdbms-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/degloba-persistence-rdbms/degloba-persistence-rdbms">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecommerce-infrastructure-4.4.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ecommerce-infrastructure/ecommerce-infrastructure">
             <dependency-type>uses</dependency-type>
         </dependent-module>
 		<property name="java-output-path" value="/boundedContext1-webapp/target/classes"/>

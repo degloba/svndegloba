@@ -1,1 +1,1 @@
-com.degloba.domain.InstanceLocatorFactoryImpl
+com.degloba.ioc.spring.factories.InstanceLocatorFactoryImpl

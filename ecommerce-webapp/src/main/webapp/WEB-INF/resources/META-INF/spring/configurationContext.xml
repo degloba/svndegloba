@@ -41,21 +41,22 @@
 	<!-- *********************** -->
 	<!-- GATE - COMMANDS/CQRS -->
 	<!-- *********************** -->
-	<bean id="handlersProvider"	class="com.degloba.cqrs.command.handler.spring.SpringHandlersProvider" />
+	<!--<bean id="handlersProvider"	class="com.degloba.cqrs.commands.handlers.impl.spring.SpringHandlersProvider" />-->
+									   
 	
-	<bean id="runEnvironment" class="com.degloba.cqrs.command.impl.RunEnvironment">
+<!--	<bean id="runEnvironment" class="com.degloba.cqrs.commands.impl.RunEnvironment">
 		<property name="handlersProvider" ref="handlersProvider"></property>
 	</bean>
-	<bean id="gate" class="com.degloba.cqrs.command.impl.StandardGate">
+	<bean id="gate" class="com.degloba.cqrs.commands.impl.StandardGate">
 		<property name="runEnvironment" ref="runEnvironment"></property>
-	</bean>
+	</bean>-->
 	
 	<!-- *************** -->
 	<!-- FINDERS/CQRS -->
 	<!-- *************** -->
 
-	<bean id="enviamentsFinder" class="com.degloba.ecommerce.enviaments.cqrs.queries.finders.EnviamentFinder" />
-	<bean id="vendesFinder" class="com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.VendaFinder" />
+<!--	<bean id="enviamentsFinder" class="com.degloba.ecommerce.enviaments.cqrs.queries.finders.EnviamentFinder" />
+	<bean id="vendesFinder" class="com.degloba.ecommerce.vendes.comandes.cqrs.queries.finders.VendaFinder" />-->
 
 
 	<!-- **************** -->
@@ -68,9 +69,9 @@
 	<!-- ********************************************** -->
 	<!-- HANDLERS/LISTENERS D'EVENTS (EventListeners) -->
 	<!-- ********************************************** -->
-	<bean class="com.degloba.ecommerce.enviaments.application.eventlisteners.ComandaEnviadaPerEnviamentListener" />
-	<bean class="com.degloba.ecommerce.vendes.application.eventlisteners.BookKeepingListener" />
-	<bean class="com.degloba.ecommerce.vendes.application.eventlisteners.EstatClientCanviatListener" />
+	<!--<bean class="com.degloba.ecommerce.enviaments.application.events.eventlisteners.ComandaEnviadaPerEnviamentListener" />
+	<bean class="com.degloba.ecommerce.vendes.eventsourcing.events..eventlisteners.BookKeepingListener" />
+	<bean class="com.degloba.ecommerce.vendes.application.eventlisteners.EstatClientCanviatListener" />-->
 
 	<!-- ********* -->
 	<!-- SAGAS -->
@@ -121,7 +122,7 @@
 		<property name="userRegistry" ref="userRegistry" />
 	</bean>
 
-	<bean id="userRegistry"	class="com.degloba.security.spring.gae.users.GaeDatastoreUserRegistry" /> 
+	<bean id="userRegistry"	class="com.degloba.security.impl.spring.users.GaeDatastoreUserRegistry" /> 
 
 
 	<!-- ****************** -->
@@ -136,7 +137,7 @@
 	<!-- **************************** -->
 	<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.BookKeeperService" />
 	<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.AssesorFiscalService" />
-	<bean class="com.degloba.ecommerce.vendes.application.services.DescompteService" />
+	<!--<bean class="com.degloba.ecommerce.vendes.application.services.DescompteService" />-->
 
 
 <!-- 	<bean id="com.degloba.utils.IObjectSerializer"

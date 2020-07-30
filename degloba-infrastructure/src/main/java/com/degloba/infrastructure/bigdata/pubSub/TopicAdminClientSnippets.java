@@ -31,7 +31,8 @@ public class TopicAdminClientSnippets {
   }
 
   /** crea un topic a partir del seu nom */
-  public Topic createTopic(String topicId) throws Exception {
+  @SuppressWarnings("deprecation")
+public Topic createTopic(String topicId) throws Exception {
     // [START pubsub_create_topic]
     try (TopicAdminClient topicAdminClient = TopicAdminClient.create()) {
       // projectId <=  unique project identifier, eg. "my-project-id"
@@ -127,7 +128,8 @@ public class TopicAdminClientSnippets {
    * Example of testing whether the caller has the provided permissions on a topic. Only viewer,
    * editor or admin/owner can view results of pubsub.topics.get
    */
-  public TestIamPermissionsResponse testTopicPermissions(String topicId) throws Exception {
+  @SuppressWarnings("deprecation")
+public TestIamPermissionsResponse testTopicPermissions(String topicId) throws Exception {
     // [START pubsub_test_topic_permissions]
     try (TopicAdminClient topicAdminClient = TopicAdminClient.create()) {
       List<String> permissions = new LinkedList<>();

@@ -69,7 +69,8 @@ public class SubscriptionAdminClientSnippets {
    * 
    * @category crea una subscripció amb un push endpoint.
    */
-  public Subscription createSubscriptionWithPushEndpoint(String topicId, String subscriptionId, String endpoint) throws Exception {
+  @SuppressWarnings("deprecation")
+public Subscription createSubscriptionWithPushEndpoint(String topicId, String subscriptionId, String endpoint) throws Exception {
     // [START pubsub_create_push_subscription]
     try (SubscriptionAdminClient subscriptionAdminClient = SubscriptionAdminClient.create()) {
       ProjectTopicName topicName = ProjectTopicName.of(projectId, topicId);

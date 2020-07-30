@@ -26,7 +26,7 @@ public class PagamentsFactory {
 
 	public Pagament creaPagament(ClientData clientData, Money quantitat){
 		
-		publisher.publica((IDomainEvent<?>) new PagatClientEvent(AggregateId.generate(), clientData, quantitat));
+		///////publisher.publica((IDomainEvent<?>) new PagatClientEvent(AggregateId.generate(), clientData, quantitat));
 		
 		return new Pagament(AggregateId.generate(), clientData, quantitat);
 	}
