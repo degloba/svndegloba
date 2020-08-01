@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring.ServerController;
 
 import lombok.extern.slf4j.Slf4j;
 
