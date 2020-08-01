@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.webapp.spring.config;
+package com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 //@ComponentScan({ "com.degloba.ecommerce.enviaments.webapp.spring.config" })
-public class HotelsSpringBootApplication {
+public class EnviamentsSpringBootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HotelsSpringBootApplication.class, args);
+        SpringApplication.run(EnviamentsSpringBootApplication.class, args);
     }
 }

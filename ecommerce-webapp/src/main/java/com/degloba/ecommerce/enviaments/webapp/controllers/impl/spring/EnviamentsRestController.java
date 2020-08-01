@@ -1,4 +1,4 @@
-package com.degloba.ecommerce.enviaments.webapp.spring.config;
+package com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring;
 
 import java.util.List;
 import java.util.Map;
@@ -20,18 +20,18 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-public class HotelsRestController {
+public class EnviamentsRestController {
 	
 	
 	 @RequestMapping("/")
 	    @ResponseBody
 	    public String home() {
-	        return "Hello World23WWW!";
+	        return "Hello World23WWWhhhh11111hhhhhhhhhhhhh!";
 	    }
 	
 	
 	/////@GetMapping("")
-	@RequestMapping("/hotels/")
+	@RequestMapping("/enviaments/")
 	@ResponseBody
 	public ResponseEntity<String> getHotels(@RequestParam(required = false) String queryParam) {
 ////		log.debug("Received request at getExample:" + queryParam);
