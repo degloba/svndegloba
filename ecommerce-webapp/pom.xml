@@ -118,10 +118,6 @@
 			<version>1.0.12</version>
 		</dependency>
 		<!-- [END api_management] -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -283,7 +279,9 @@
 					<artifactId>google-cloud-datastore</artifactId>
 				</exclusion>
 			</exclusions>
-					
+				
+				
+
 			
 </dependency>
 
@@ -306,6 +304,23 @@
 			</exclusions>
 		</dependency> 
 
+
+				 <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+        </dependency>
+				 <dependency>
+				 	<groupId>org.springframework.security</groupId>
+				 	<artifactId>spring-security-core</artifactId>
+				 </dependency>
+				 <dependency>
+				 	<groupId>org.mongodb</groupId>
+				 	<artifactId>mongodb-driver-sync</artifactId>
+				 </dependency>
+				 <dependency>
+				 	<groupId>com.google.cloud</groupId>
+				 	<artifactId>google-cloud-datastore</artifactId>
+				 </dependency>
 	</dependencies>
 
 

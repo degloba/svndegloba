@@ -27,7 +27,7 @@ public class HotelsRestController {
 	 @RequestMapping("/")
 	    @ResponseBody
 	    public String home() {
-	        return "Hello World23!";
+	        return "Hello World23WWW!";
 	    }
 	
 	

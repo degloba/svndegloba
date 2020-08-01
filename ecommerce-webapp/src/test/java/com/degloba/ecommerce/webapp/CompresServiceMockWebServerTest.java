@@ -23,7 +23,7 @@ import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.degloba.ecommerce.enviaments.webapp.reactive.service.CompresService;
+/////////import com.degloba.ecommerce.enviaments.webapp.reactive.service.CompresService;
 import com.degloba.ecommerce.vendes.compres.facade.dtos.CompraDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -59,15 +59,14 @@ public class CompresServiceMockWebServerTest {
         mockBackEnd.shutdown();
     }
 
-	private CompresService compresService;
+	/////////private CompresService compresService;
     
     //assignem el port de la crida del servei REST real al port de MockWebServer.
-    @BeforeEach
-    void initialize() {
-    	baseUrl = String.format("http://localhost:%s", mockBackEnd.getPort());
-    	compresService = new CompresService(baseUrl);
-    }
-    
+	/*
+	 * @BeforeEach void initialize() { baseUrl =
+	 * String.format("http://localhost:%s", mockBackEnd.getPort()); compresService =
+	 * new CompresService(baseUrl); }
+	 */
 
     @Test
     void getCompraById() throws Exception {
@@ -90,7 +89,7 @@ public class CompresServiceMockWebServerTest {
           .setBody(objectMapper.writeValueAsString(mockCompra))
           .addHeader("Content-Type", "application/json"));
      
-        Mono<CompraDto> enviamentMono = compresService.getCompraById(compraId);
+       ///////// Mono<CompraDto> enviamentMono = compresService.getCompraById(compraId);
      
         /*StepVerifier.create(enviamentMono)
           .expectNextMatches(enviament -> enviament.getComandaId()
