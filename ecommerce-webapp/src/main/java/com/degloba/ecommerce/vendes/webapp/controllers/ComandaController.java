@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /////import com.degloba.ecommerce.vendes.comandes.cqrs.queries.IComandaQuery;
 import com.degloba.ecommerce.vendes.comandes.facade.dtos.ComandaDto;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.Comanda;
-import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.User;
+/*import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.Comanda;
+import com.degloba.ecommerce.vendes.domain.persistence.rdbms.jpa.User;*/
 
 /**
  * 

@@ -16,7 +16,7 @@
 
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<import resource="controllers.xml" />
-	<import resource="webflow.xml" />
+	<!-- <import resource="webflow.xml" /> -->
 
 
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -42,14 +42,14 @@
 	<!-- Resolves views selected for rendering by @Controllers to .xhtml resources 
 		in the /WEB-INF/views directory -->
 	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-	<bean id="viewResolver"
+<!-- 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="cache" value="false" />
 		<property name="viewClass"
 			value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
-	</bean>
+	</bean> -->
 
 	<!-- (Travel) <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" 
