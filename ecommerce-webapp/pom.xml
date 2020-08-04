@@ -40,7 +40,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		
+
 		<!-- used to convert the response data into JSON string. Necessari per 
 			la classe/bean jsonMessageConverter -->
 		<dependency>
@@ -53,7 +53,7 @@
 
 
 
-	
+
 		<dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
@@ -61,12 +61,12 @@
 		</dependency>
 
 
-			
-				<dependency>
-				<groupId>javax.persistence</groupId>
-				<artifactId>javax.persistence-api</artifactId>
-			</dependency> 
-		
+
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+		</dependency>
+
 
 
 		<!-- Gson: Java to Json conversion -->
@@ -79,17 +79,11 @@
 			<artifactId>appengine-endpoints</artifactId>
 			<version>${google.appengine.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 		</dependency>
-
-	<!-- 	<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency> -->
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -105,14 +99,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-					</dependency>
+		</dependency>
 
 
 
 		<!-- Compile/runtime dependencies -->
 		<!-- [START api_management] -->
 		<!-- [END api_management] -->
-				<dependency>
+		<dependency>
 			<groupId>com.google.endpoints</groupId>
 			<artifactId>endpoints-management-control-appengine-all</artifactId>
 			<version>1.0.12</version>
@@ -134,12 +128,11 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- per fer servir anotacions que permeten crear mocks d'0bjectes
-			i poder injectar en un altra objecte.
-			Exemple : crear un Mock de UserRepository i	injectar aquest Mock
-			a un objecte UserService, -->
-		 <dependency>
+
+		<!-- per fer servir anotacions que permeten crear mocks d'0bjectes i poder 
+			injectar en un altra objecte. Exemple : crear un Mock de UserRepository i 
+			injectar aquest Mock a un objecte UserService, -->
+		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
 			<scope>test</scope>
@@ -150,9 +143,9 @@
 			<artifactId>mockwebserver</artifactId>
 			<scope>test</scope>
 		</dependency>
- 
 
-		 <dependency>
+
+		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>ecommerce-facade</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
@@ -162,7 +155,7 @@
 					<artifactId>ecommerce-domain</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-ioc-spring</artifactId>
@@ -178,25 +171,6 @@
 			<artifactId>degloba-event-api</artifactId>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>ecommerce-domain</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.data</groupId>
-					<artifactId>spring-data-commons</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.data</groupId>
-					<artifactId>spring-data-jpa</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.degloba</groupId>
-					<artifactId>degloba-persistence-rdbms</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency> -->
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-security</artifactId>
@@ -216,7 +190,7 @@
 		</dependency>
 
 
- 
+
 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>ecommerce-cqrs</artifactId>
@@ -240,35 +214,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-		
-		
-		
-		
-		
-	<!-- 	<dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-cqrs</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-		</dependency> -->
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<scope>runtime</scope>
-		</dependency> -->
-		<!-- <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>degloba-persistence-rdbms</artifactId>
-			<scope>runtime</scope>
-		</dependency> -->
-		<!-- <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>ecommerce-infrastructure</artifactId>
-			<version>4.4.3-SNAPSHOT</version>
-			<scope>runtime</scope>
-		</dependency> -->
 
-		
+
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
@@ -279,14 +226,11 @@
 					<artifactId>google-cloud-datastore</artifactId>
 				</exclusion>
 			</exclusions>
-				
-				
 
-			
-</dependency>
+		</dependency>
 
 
-		 <dependency>
+		<dependency>
 			<groupId>com.google.endpoints</groupId>
 			<artifactId>endpoints-framework</artifactId>
 			<version>2.2.1</version>
@@ -302,29 +246,35 @@
 					</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency> 
+		</dependency>
 
 
-				 <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-        </dependency>
-				 <dependency>
-				 	<groupId>org.springframework.security</groupId>
-				 	<artifactId>spring-security-core</artifactId>
-				 </dependency>
-				 <dependency>
-				 	<groupId>org.mongodb</groupId>
-				 	<artifactId>mongodb-driver-sync</artifactId>
-				 </dependency>
-				 <dependency>
-				 	<groupId>com.google.cloud</groupId>
-				 	<artifactId>google-cloud-datastore</artifactId>
-				 </dependency>
-				 <dependency>
-				 	<groupId>org.springframework.boot</groupId>
-				 	<artifactId>spring-boot-devtools</artifactId>
-				 </dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-datastore</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.auth</groupId>
+			<artifactId>
+				 		google-auth-library-appengine
+				 	</artifactId>
+		</dependency>     
 	</dependencies>
 
 
@@ -335,36 +285,29 @@
 		<!-- for hot reload of the web application -->
 
 		<plugins>
-		
-					<plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-		
-				<plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
 			</plugin>
-		
-		
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>${maven.war.plugin.version}</version>
-				<configuration>
-					<webResources>
-						<resources>
-							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
-							<filtering>true</filtering>
-							<targetPath>WEB-INF</targetPath>
-						</resources>
-					</webResources>
-				</configuration>
-			</plugin> -->
+
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
+				<version>${maven.war.plugin.version}</version> <configuration> <webResources> 
+				<resources> <directory>${basedir}/src/main/webapp/WEB-INF</directory> <filtering>true</filtering> 
+				<targetPath>WEB-INF</targetPath> </resources> </webResources> </configuration> 
+				</plugin> -->
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<configuration>
+					<version>1</version>
+          			<projectId>wwwdegloba-1350</projectId>
 					<!-- deploy configuration -->
 				</configuration>
 			</plugin>
@@ -398,12 +341,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-							</plugin>
+			</plugin>
 
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				
+
 				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
@@ -419,6 +362,20 @@
 
 	</build>
 
+	<profiles>
+	<!--  https://www.baeldung.com/spring-boot-google-app-engine -->
+		<profile>
+			<id>cloud-gcp</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-gcp-starter</artifactId>
+				</dependency>
+			</dependencies>
+
+		</profile>
+
+	</profiles>
 
 	<dependencyManagement>
 		<dependencies>
