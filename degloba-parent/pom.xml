@@ -149,6 +149,16 @@
 	<dependencyManagement>
 
 		<dependencies>
+		
+		<!--  https://cloud.google.com/storage/docs/reference/libraries -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>libraries-bom</artifactId>
+      <version>7.0.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -460,8 +470,6 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
 	</dependencies>
 
 
@@ -478,14 +486,11 @@
 				<version>${maven.install.plugin.version}</version>
 			</plugin>
 
-
 		</plugins>
 
 		<!-- Plugins que poden o no ser utilitzats pels projectes que hereden d'aquest 
 			S'han de definir TAMBÉ en el projecte fill -->
 		<pluginManagement>
-
-
 
 			<plugins>
 				<!-- This plugin's configuration is used to store Eclipse m2e settings 
@@ -508,7 +513,7 @@
 				</plugin>
 
 				<plugin>
-					<groupId>org.apache.maven.plugins </groupId>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven.deploy.plugin.version}</version>
 				</plugin>
@@ -673,6 +678,7 @@
 					<artifactId>appengine-maven-plugin</artifactId>
 					<version>${appengine.maven.plugin.version}</version>
 					<configuration>
+					
 						<deploy.promote>true</deploy.promote>
 						<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
 					</configuration>
@@ -686,14 +692,14 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${spring.boot.maven.plugin}</version>
-					<executions>
+					<version>${spring.boot.dependencies.version}</version>
+					<!-- <executions>
 						<execution>
 							<goals>
 								<goal>repackage</goal>
 							</goals>
 						</execution>
-					</executions>
+					</executions> -->
 				</plugin>
 
 				<!-- The Failsafe Plugin is designed to run integration tests while the 
@@ -702,14 +708,11 @@
 					<artifactId>maven-failsafe-plugin</artifactId>
 				</plugin>
 
-
-
 			</plugins>
 
 		</pluginManagement>
 
 	</build>
-
 
 
 	<name>(degloba-parent)</name>
