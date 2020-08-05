@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * 
- * @author deglobassss
+ * @author deglobassss1111
  * 
  * @category gestior d'excepcions i estats de resposta http dels controladors d'Spring MVC
  *
