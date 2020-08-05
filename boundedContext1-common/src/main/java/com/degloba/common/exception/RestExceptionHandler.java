@@ -9,32 +9,26 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * 
- * @author deglobassss1111
- * 
- * @category gestior d'excepcions i estats de resposta http dels controladors d'Spring MVC
- *
- */
+
 @ControllerAdvice
 @Slf4j
 public class RestExceptionHandler {
 
     @Value
     public static class RestError {
-        public RestError(String message2, String rootCauseMessage) {
-			// TODO Auto-generated constructor stub
-        	message = message2;
-        	cause = rootCauseMessage;
-		}
-		private final String message;
+        public RestError(final String message2, final String rootCauseMessage) {
+            message = message2;
+            cause = rootCauseMessage;
+        }
+
+        private final String message;
         private final String cause;
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
-    public RestError handleError(Exception ex){
+    public RestError handleError(final Exception ex) {
         log.error("[Rest Error] Error: " + ex.getCause());
         ex.printStackTrace();
         return new RestError(ex.getMessage(), ExceptionUtils.getRootCauseMessage(ex));
