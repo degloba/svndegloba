@@ -6,6 +6,7 @@
   	<groupId>com.degloba</groupId>
   	<artifactId>degloba-parent</artifactId>
   	<version>4.4.3-SNAPSHOT</version>
+    <relativePath>../degloba-parent/pom.xml</relativePath>
   </parent>
   <dependencies>
   	<dependency>
