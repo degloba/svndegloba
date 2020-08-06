@@ -2,8 +2,6 @@ package com.degloba.ecommerce.enviaments.facade.dtos;
 
 import java.io.Serializable;
 
-import com.degloba.ecommerce.enviaments.domain.enums.EstatEnviament;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Value;
@@ -21,8 +19,8 @@ import lombok.Value;
 //@NoArgsConstructor
 public class EnviamentDto implements Serializable {
 
-    private long enviamentId;
-    private long comandaId;
+    private int enviamentId;
+    private int comandaId;
     private EstatEnviament estatEnviament;
 
 }

@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEvent;
 
 import com.degloba.events.impl.spring.domain.Event;
 
-import lombok.Value;
+import lombok.Data;
 
 /**
  * @category  s'ha produit un rebuig d'una compra<br> 
@@ -13,7 +13,8 @@ import lombok.Value;
  * @author degloba
  *
  */
-public class CompraRebutjadaEvent extends Event {
+@Data
+public class CompraRebutjadaEvent extends Event<Object> {
 	
     public CompraRebutjadaEvent(Object source, Object what, boolean success) {
 		super(source, what, success);
