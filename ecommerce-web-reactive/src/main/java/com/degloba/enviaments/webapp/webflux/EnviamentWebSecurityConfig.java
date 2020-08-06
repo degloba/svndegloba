@@ -1,6 +1,5 @@
-package com.degloba.hotels.webapp.webflux;
+package com.degloba.enviaments.webapp.webflux;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -13,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @EnableWebFluxSecurity
-public class HotelWebSecurityConfig {
+public class EnviamentWebSecurityConfig {
 
 	
     @Bean

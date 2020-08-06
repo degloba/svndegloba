@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.webflux;
+package com.degloba.enviaments.webapp.webflux;
 
 import static java.time.LocalDateTime.now;
 import static java.util.UUID.randomUUID;
@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
  *
  */
 @Component("HotelWebSocketHandler")
-public class HotelWebSocketHandler implements WebSocketHandler {
+public class EnviamentWebSocketHandler implements WebSocketHandler {
 
     ObjectMapper om = new ObjectMapper();
 
@@ -30,7 +30,7 @@ public class HotelWebSocketHandler implements WebSocketHandler {
     public Mono<Void> handle(WebSocketSession webSocketSession) {
 
         Flux<String> hotelCreationEvent = Flux.generate(sink -> {
-            HotelCreationEvent event = new HotelCreationEvent(randomUUID().toString(), now().toString());
+            EnviamentCreationEvent event = new EnviamentCreationEvent(randomUUID().toString(), now().toString());
             try {
                 sink.next(om.writeValueAsString(event));
             } catch (JsonProcessingException e) {

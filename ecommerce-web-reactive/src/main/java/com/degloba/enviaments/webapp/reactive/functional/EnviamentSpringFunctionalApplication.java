@@ -1,13 +1,13 @@
-package com.degloba.hotels.webapp.reactive.functional;
+package com.degloba.enviaments.webapp.reactive.functional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HotelSpringFunctionalApplication {
+public class EnviamentSpringFunctionalApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HotelSpringFunctionalApplication.class, args);
+        SpringApplication.run(EnviamentSpringFunctionalApplication.class, args);
     }
 
 }

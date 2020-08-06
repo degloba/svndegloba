@@ -1,29 +1,34 @@
-package com.degloba.hotels.webapp.webflux;
+package com.degloba.enviaments.webapp.webflux;
 
 
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public class HotelWebClient {
+public class EnviamentWebClient {
 
 	   WebClient client = WebClient.create("http://localhost:8080");
 	    
 	    public void consume() {
 
-	        Mono<Hotel> employeeMono = client.get()
-	            .uri("/employees/{id}", "1")
-	            .retrieve()
-	            .bodyToMono(Hotel.class);
-
-	        employeeMono.subscribe(System.out::println);
+			/*
+			 * Mono<EnviamentDto> enviamentMono = client.get() .uri("/enviaments/{id}", "1")
+			 * .accept(MediaType.APPLICATION_JSON) .retrieve()
+			 * .bodyToMono(EnviamentDto.class);
+			 * 
+			 * enviamentMono.subscribe(System.out::println);
+			 */
 	        
-	        Flux<Hotel> employeeFlux = client.get()
-	            .uri("/employees")
+	        Flux<EnviamentDto> enviamentFlux = client.get()
+	            .uri("/enviaments/")
+	            .accept(MediaType.APPLICATION_JSON)
 	            .retrieve()
-	            .bodyToFlux(Hotel.class);
+	            .bodyToFlux(EnviamentDto.class);
 	        
-	        employeeFlux.subscribe(System.out::println);
+	        enviamentFlux.subscribe(System.out::println);
 	    }
 }

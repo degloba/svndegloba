@@ -1,22 +1,27 @@
-package com.degloba.hotels.webapp.webflux;
+package com.degloba.enviaments.webapp.webflux;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.HandlerMapping;
-import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.server.support.WebSocketHandlerAdapter;
 
-public class HotelConfig {
+/**
+ * 
+ * @author pere
+ * 
+ * @category configura els beans Spring necessaris pel suport reactive
+ *
+ */
+public class EnviamentReactiveConfig {
 
     @Bean
     public HandlerMapping handlerMapping() {
         Map<String, WebSocketHandler> map = new HashMap<>();
-        map.put("/employee-feed", new HotelWebSocketHandler());
+        map.put("/enviament-feed", new EnviamentWebSocketHandler());
 
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         mapping.setUrlMap(map);
@@ -30,8 +35,8 @@ public class HotelConfig {
     }
     
     
-    @Bean
-    public HotelRepository hotelRepository() {
-        return new HotelRepository();
-    }
+	/*
+	 * @Bean public EnviamentRepository enviamentRepository() { return new
+	 * EnviamentRepository(); }
+	 */
 }

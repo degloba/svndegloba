@@ -1,16 +1,23 @@
-package com.degloba.hotels.webapp.webflux;
+package com.degloba.enviaments.webapp.webflux;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 
+ * @author degloba
+ * 
+ * @category test per provar un {@link org.springframework.web.reactive.function.client.WebClient}
+ *
+ */
 @SpringBootApplication
-public class HotelSpringApplication {
+public class EnviamentReactiveSpringApplication {
 
 	   public static void main(String[] args) {
 	        
-	        SpringApplication.run(HotelSpringApplication.class, args);
+	        SpringApplication.run(EnviamentReactiveSpringApplication.class, args);
 
-	        HotelWebClient employeeWebClient = new HotelWebClient();
-	        employeeWebClient.consume();
+	        EnviamentWebClient enviamentWebClient = new EnviamentWebClient();
+	        enviamentWebClient.consume();
 	    }
 }
