@@ -13,11 +13,6 @@
 		<relativePath>../ecommerce-boundedContext/pom.xml</relativePath>
 	</parent>
 
-
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 
 		<dependency>
@@ -48,27 +43,6 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
-
-		<!-- Spring Security -->
-
-
-
-
-		<dependency>
-			<groupId>com.sun.el</groupId>
-			<artifactId>el-ri</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-
-
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-		</dependency>
-
-
-
 		<!-- Gson: Java to Json conversion -->
 
 		<!-- *********** -->
@@ -97,10 +71,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		</dependency>
+		
+<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 
 
 		<!-- Compile/runtime dependencies -->
@@ -171,7 +154,7 @@
 			<artifactId>degloba-event-api</artifactId>
 		</dependency>
 
-		<dependency>
+ 		<dependency>
 			<groupId>com.degloba</groupId>
 			<artifactId>degloba-security</artifactId>
 			<version>4.4.3-SNAPSHOT</version>
@@ -248,18 +231,9 @@
 			</exclusions>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver-sync</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.cloud</groupId>
@@ -274,7 +248,7 @@
 			<artifactId>
 				 		google-auth-library-appengine
 				 	</artifactId>
-		</dependency>     
+		</dependency>
 	</dependencies>
 
 
@@ -307,7 +281,7 @@
 				<artifactId>appengine-maven-plugin</artifactId>
 				<configuration>
 					<version>1</version>
-          			<projectId>wwwdegloba-1350</projectId>
+					<projectId>wwwdegloba-1350</projectId>
 					<!-- deploy configuration -->
 				</configuration>
 			</plugin>
@@ -363,7 +337,7 @@
 	</build>
 
 	<profiles>
-	<!--  https://www.baeldung.com/spring-boot-google-app-engine -->
+		<!-- https://www.baeldung.com/spring-boot-google-app-engine -->
 		<profile>
 			<id>cloud-gcp</id>
 			<dependencies>

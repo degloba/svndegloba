@@ -26,14 +26,14 @@ public class EnviamentsRestController {
 	 @RequestMapping("/")
 	    @ResponseBody
 	    public String home() {
-	        return "Hello World23WWWhhhh11111hhhhhhhhhhhhh!";
+	        return "Hola Web";
 	    }
 	
 	
 	/////@GetMapping("")
 	@RequestMapping("/enviaments/")
 	@ResponseBody
-	public ResponseEntity<String> getHotels(@RequestParam(required = false) String queryParam) {
+	public ResponseEntity<String> getEnviaments(@RequestParam(required = false) String queryParam) {
 ////		log.debug("Received request at getExample:" + queryParam);
 		
 		
@@ -48,7 +48,7 @@ public class EnviamentsRestController {
 	}
 	
 	@PostMapping("post")
-	public ResponseEntity<String> postHotel(@RequestBody Map<String,String> body,ServerHttpRequest  request) {
+	public ResponseEntity<String> postEnviament(@RequestBody Map<String,String> body,ServerHttpRequest  request) {
 		
 		String s="the server said: "+body+"\n";
 		for (Entry<String, List<String>> map : request.getHeaders().entrySet())
