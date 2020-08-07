@@ -3,19 +3,19 @@
 This project was generated with :
 <ul>
 	<li>
-		<b><a href = "https://github.com/angular/angular-cli">AngularCLI</a></b> : version 9.1.7.
+		<b><a href = "https://github.com/angular/angular-cli">AngularCLI</a></b> : version 10.0.5.
 	</li>
 	<li>
 		<b><a href="https://nodejs.org/en/">Node</a></b> : version 12.16.3.
 	</li>
 	<li>
-		<b><a href="https://angular.io/">Angular</a></b> : version 9.1.9.
+		<b><a href="https://angular.io/">Angular</a></b> : version 10.0.8.
 	</li>
 	<li>
-		<b><a href="https://material.angular.io/">Material</a></b> : version 9.2.4.
+		<b><a href="https://material.angular.io/">Material</a></b> : version 10.1.2.
 	</li>
 	<li>
-		<b><a href="https://www.typescriptlang.org/docs/handbook/angular.html">TypeScript</a></b> version 3.8.3.
+		<b><a href="https://www.typescriptlang.org/docs/handbook/angular.html">TypeScript</a></b> version 3.9.7.
 	</li>
 	<li>
 		<b><a href="https://compodoc.app/guides/jsdoc-tags.html">Compodoc</a></b> version 1.1.11.
