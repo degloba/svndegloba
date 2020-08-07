@@ -140,7 +140,7 @@
   "defaultProject": "ecommerce-webapp-angular",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "css"
+      "style": "css"
     }
   }
 }
