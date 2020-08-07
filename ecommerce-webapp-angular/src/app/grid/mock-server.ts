@@ -5,22 +5,14 @@ import { cloneDeep } from "lodash";
 
 /* Classe MOCK pel AgGrid + RxJs */
 export class MockServer {
-	
-	   rowData:any;
 
-/*initialLoad(): Observable<any> {
-	return Observable.create(function(observer) {
-  observer.next('Hello');
-  observer.next('World');
-  observer.complete();
-});
-}*/
+	   rowData:any;
+   
 		
 		/* Observable de la carrega de tot el grid */
-	  initialLoad() {
+	  initialLoad(): Observable<any> {
 		
- 
-		var promesa  = new Promise((resolve, _reject) => {
+ 		var promesa  = new Promise((resolve, _reject) => {
 			
 			let httpRequest = new XMLHttpRequest();
 			httpRequest.open('GET',
@@ -33,34 +25,36 @@ export class MockServer {
 					let reducedDataSet = dataSet.slice(0, 200);
 
 					this.rowData = this.backfillData(reducedDataSet);
-					
+				
 					resolve(cloneDeep(this.rowData));	
-					alert(this.rowData);			
 				}
 			};  
 		})
 			
+		// convertim un Promise a un Observable
 		return fromPromise(promesa)
 	}
 	
 	/* Observable de la carrega només de les files modificades */
-	   byRowUpdates() {
-		
+	   byRowUpdates(): Observable<any> {
+							
 		return Observable.create(function(observer) {
-			var interval = window.setInterval(function() {
-				var changes = [];
+				let interval = window.setInterval(function() {
+				let changes = [];
 
+this.allDataUpdates();
 				this.makeSomePriceChanges(changes);
+				
+				alert("kk");
 				this.makeSomeVolumeChanges(changes);
 				observer.next(changes);
 			}, 1000);
 			return function() {
 				window.clearInterval(interval);
 			};
-		});
+		})
 	}
 	
-
 
 	
 	 backfillData(reducedDataSet: any): any {
@@ -79,8 +73,8 @@ export class MockServer {
 	}
 
 	/* simula modificacions */
-	/* makeSomeVolumeChanges(changes: any[]) {
-
+	makeSomeVolumeChanges(changes: any[]): any {
+alert("mm2");
 		for (var i = 0; i < 10; i++) {
 			var index = Math.floor(this.rowData.length * Math.random()),
 				currentRowData = this.rowData[index],
@@ -89,28 +83,29 @@ export class MockServer {
 			currentRowData.volume = newValue;
 			changes.push(currentRowData);
 
-		}
-	}*/
+		};
+	}
 
 	/* simula modificacions */
-	 /*makeSomePriceChanges(changes: any[]) {
-
+	 makeSomePriceChanges(changes) {
+alert("mm2");
 		for (var i = 0; i < 10; i++) {
+			
 			var index = Math.floor(this.rowData.length * Math.random()),
 				currentRowData = this.rowData[index],
 				move = Math.floor(30 * Math.random()) / 10 - 1,
 				newValue = currentRowData.volume + move;
 			currentRowData.mid = newValue;
-			this.setBidAndAsk(currentRowData)
+			this.setBidAndAsk(currentRowData)			
 			changes.push(currentRowData);
 
 		}
 
-	}*/
+	}
 
 	 allDataUpdates() {
 		
-		return Observable.create(function(observer: { next: (arg0: any) => void; }) {
+		return Observable.create(function(observer) {
 			var interval = window.setInterval(function() {
 				var changes = [];
 				this.makeSomePriceChanges(changes);

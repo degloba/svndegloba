@@ -4,7 +4,7 @@ import { AllModules, ColumnApi, GridApi, Module } from '@ag-grid-enterprise/all-
 
 import { ProficiencyFilter } from '../filters/proficiency.component.filter';
 import { SkillFilter } from '../filters/skill.component.filter';
-import RefData from '../../data/refData';
+import RefData from '../../model/refData';
 import { HeaderGroupComponent } from '../header-group-component/header-group.component';
 import { DateComponent } from '../date-component/date.component';
 import { SortableHeaderComponent } from '../header-component/sortable-header.component';

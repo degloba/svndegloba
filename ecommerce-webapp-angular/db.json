@@ -1,8 +1,19 @@
 {
-  "items": [
+  "hotels": [
     {
-      "id": "12",
-      "title": "es el titol que ve de degloba222"
+      "id": 1,
+      "nom": "Tarifa hotel",
+      "email": "tarifa@tarifa.com"
+    },
+    {
+      "id": 2,
+      "nom": "NewYork hotel",
+      "email": "newyork@newyork.com"
+    },
+    {
+      "id": 3,
+      "nom": "Singapur hotel",
+      "email": "singapur@singapur.com"
     }
   ]
 }

@@ -29,19 +29,14 @@ export class HotelService {
       return Observable.throw(error);
     }
   
-
   
   /**
-   * @example
    * 
    * {@link getAllHotels}</param>
    * [Todo]{@link Todo}
    * {@link Todo|TodoClass}
    * Anchors are supported : [Todo]{@link Todo#myproperty}
 //for an external link
-    * [Google]{@link http://www.google.com}
-    * {@link http://www.apple.com|Apple
-    * {@link https://github.com GitHub}
    *
    * @param {string} target  The target to process see {@link Todo}
    * @returns The processed target number

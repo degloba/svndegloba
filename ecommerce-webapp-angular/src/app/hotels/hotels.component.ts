@@ -7,12 +7,12 @@ import "@ag-grid-enterprise/all-modules/dist/styles/ag-theme-alpine.css";
 
 
 import {MockServer} from '../grid/mock-server';
+import { MockServerService } from "app/providers/rxjs-component/mock-server-service/mockServer.service";
 
-
-//import {Utils} from '../utils'
+import Utils from '../utils'
 
 @Component({
-  selector: 'ricdh-grid',
+  selector: 'rich-grid-hotel',
   template: `<ag-grid-angular
 			#agGrid 
 			style="width: 1000px; height: 500px;"
@@ -41,6 +41,7 @@ export class HotelsComponent {
 
   constructor() { 
 		
+	
 	this.columnDefs = [
 		{
 			field: 'code',
@@ -84,6 +85,7 @@ export class HotelsComponent {
 	
 	/* Una clau única per fila: ho fem aprofitant la devolució de getRowNodeId */
 	this.getRowNodeId = function(data: { code: any; }) {
+	
 		return data.code;
 	};
 }
@@ -93,18 +95,21 @@ onGridReady(params)  {
 	this.gridApi = params.api;
 	this.gridColumnApi = params.columnApi;
 
-			/* Observable */
+alert(Utils.doSomething("test"));
+
+
+
+	/* Observable */
 	var mockServer = new MockServer();		
-	alert("si");	
+
 	var	initialLoad$ = mockServer.initialLoad();
-	alert("sis67");
+
 	var updates$ = mockServer.byRowUpdates();
-	
 	
 		initialLoad$.subscribe(function(rowData) {
 			
-			params.api.setRowData(this.rowData);
-		
+			params.api.setRowData(rowData);
+				
 			
 		});
 		
@@ -114,6 +119,7 @@ onGridReady(params)  {
 				per a això fem servir el mètode Transaction: */ 
 				return params.api.applyTransaction({ update: updates});
 			});	
+		
 	}	
 }
 	

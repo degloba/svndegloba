@@ -1,9 +1,18 @@
+@import "~@ag-grid-enterprise/all-modules/dist/styles/ag-grid.css";
+@import "~@ag-grid-enterprise/all-modules/dist/styles/ag-theme-alpine.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import 'https://use.fontawesome.com/releases/v5.5.0/css/all.css';
+
+
+
+
 html {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 12px!important;
-  background-color: #FBFBFB;
+  background-color: #FBFBFB; 
 }
 body{
   margin: 0!important;
@@ -848,6 +857,7 @@ body .table thead th {
     display: none;
   }
 }
+ 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
