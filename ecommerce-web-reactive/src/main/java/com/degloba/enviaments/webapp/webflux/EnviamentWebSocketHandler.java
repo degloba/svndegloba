@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
  * @author pere
  *
  */
-@Component("HotelWebSocketHandler")
+@Component("EnviamentWebSocketHandler")
 public class EnviamentWebSocketHandler implements WebSocketHandler {
 
     ObjectMapper om = new ObjectMapper();
@@ -29,7 +29,7 @@ public class EnviamentWebSocketHandler implements WebSocketHandler {
     @Override
     public Mono<Void> handle(WebSocketSession webSocketSession) {
 
-        Flux<String> hotelCreationEvent = Flux.generate(sink -> {
+        Flux<String> enviamentCreationEvent = Flux.generate(sink -> {
             EnviamentCreationEvent event = new EnviamentCreationEvent(randomUUID().toString(), now().toString());
             try {
                 sink.next(om.writeValueAsString(event));
@@ -38,7 +38,7 @@ public class EnviamentWebSocketHandler implements WebSocketHandler {
             }
         });
 
-        return webSocketSession.send(hotelCreationEvent
+        return webSocketSession.send(enviamentCreationEvent
             .map(webSocketSession::textMessage)
             .delayElements(Duration.ofSeconds(1)));
     }

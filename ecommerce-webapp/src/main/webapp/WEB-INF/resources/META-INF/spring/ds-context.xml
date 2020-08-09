@@ -64,14 +64,14 @@
 
 	<!-- Use this post processor to translate any MongoExceptions thrown in 
 		@Repository annotated classes -->
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<!--<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />-->
 
 	<!-- Convert the given runtime exception to an appropriate exception from 
 		the org.springframework.dao hierarchy -->
-	<bean
+	<!--<bean
 		class="org.springframework.data.mongodb.core.MongoExceptionTranslator" />
-
+-->
 	<!-- Mongo cross-store aspect config <bean class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking" 
 		factory-method="aspectOf"> <property name="changeSetPersister" ref="mongoChangeSetPersister"/> 
 		</bean> <bean id="mongoChangeSetPersister" class="org.springframework.data.mongodb.crossstore.MongoChangeSetPersister"> 
@@ -81,7 +81,7 @@
 
 	<!-- A PARTIR D'AQUI ES COMENTA A PROD ********************* -->
 
-	<mongo:mongo-client id="mongoClient" host="localhost" />
+<!-- 	<mongo:mongo-client id="mongoClient" host="localhost" />
 	
 	 <mongo:db-factory id="mongoDbFactory" dbname="test" mongo-client-ref="mongoClient" /> 
 
@@ -90,7 +90,7 @@
 	</bean>
 	
 	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-	
+	 -->
 
 <!-- 	<bean id="mongoTemplate"
 		class="org.springframework.data.mongodb.core.MongoTemplate">

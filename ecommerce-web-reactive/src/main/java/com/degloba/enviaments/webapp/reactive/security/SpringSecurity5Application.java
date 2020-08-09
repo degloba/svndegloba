@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.security;
+package com.degloba.enviaments.webapp.reactive.security;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

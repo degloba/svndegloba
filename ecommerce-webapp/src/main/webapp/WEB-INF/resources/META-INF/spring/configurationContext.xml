@@ -75,10 +75,9 @@
 
 	<!-- ********* -->
 	<!-- SAGAS -->
-	<!-- ********* -->
+	<!-- ********* 
 	<bean id="springSagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />
-	<!-- <bean id="sagaRegistry" class="com.degloba.infrastructure.sagas.impl.SpringSagaRegistry" />   -->
-	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />
+	<bean class="com.degloba.infrastructure.sagas.impl.SimpleSagaEngine" />  -->
 
 	
 
@@ -106,12 +105,12 @@
 	<!-- ******************* -->
 	<!-- FACTORIES -->
 	<!-- ******************* -->
-	<bean id="shipmentFactory"
+	<!--<bean id="shipmentFactory"
 		class="com.degloba.ecommerce.enviaments.domain.factories.EnviamentsFactory" />
 	<bean id="invoiceRequestFactory"
 		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.PeticionsFacturaFactory" />
 	<bean id="invoiceFactory"
-		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturesFactory" />
+		class="com.degloba.ecommerce.vendes.facturacio.domain.factories.FacturesFactory" />-->
 
 
 	<!-- ******************* -->
@@ -135,8 +134,8 @@
 	<!-- **************************** -->
 	<!-- DOMAIN/APPLICATION SERVICES -->
 	<!-- **************************** -->
-	<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.BookKeeperService" />
-	<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.AssesorFiscalService" />
+	<!--<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.BookKeeperService" />
+	<bean class="com.degloba.ecommerce.facturacio.vendes.domain.services.AssesorFiscalService" />-->
 	<!--<bean class="com.degloba.ecommerce.vendes.application.services.DescompteService" />-->
 
 

@@ -13,9 +13,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.web.server.WebFilterChainProxy;
+/*import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
-import org.springframework.security.web.server.WebFilterChainProxy;
+import org.springframework.security.web.server.WebFilterChainProxy;*/
 import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
@@ -33,9 +35,10 @@ import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
  *
  */
 @Configuration
-@ConditionalOnClass({ EnableWebFluxSecurity.class, WebFilterChainProxy.class })
-@ConditionalOnMissingBean(WebFilterChainProxy.class)
-@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
+  @ConditionalOnClass({ EnableWebFluxSecurity.class, WebFilterChainProxy.class })  
+  @ConditionalOnMissingBean(WebFilterChainProxy.class)  
+  @ConditionalOnWebApplication(type =
+  ConditionalOnWebApplication.Type.REACTIVE) 
 ////////@Order(1000)
 public class EnviamentFunctionalConfig {
 
@@ -95,13 +98,9 @@ public class EnviamentFunctionalConfig {
                       .then(ok().build())));
     }
 
-    @Bean
-    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http.csrf()
-            .disable()
-            .authorizeExchange()
-            .anyExchange()
-            .permitAll();
-        return http.build();
-    }
+	/*
+	 * @Bean public SecurityWebFilterChain
+	 * springSecurityFilterChain(ServerHttpSecurity http) { http.csrf() .disable()
+	 * .authorizeExchange() .anyExchange() .permitAll(); return http.build(); }
+	 */
 }

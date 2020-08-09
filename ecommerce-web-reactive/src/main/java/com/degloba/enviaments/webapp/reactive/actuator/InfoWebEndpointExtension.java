@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.actuator;
+package com.degloba.enviaments.webapp.reactive.actuator;
 
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.web.WebEndpointResponse;

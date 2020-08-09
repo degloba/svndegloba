@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.degloba.ecommerce.enviaments.webapp.endpoints.Email;
-import com.degloba.ecommerce.enviaments.webapp.endpoints.Message;
-import com.degloba.ecommerce.enviaments.webapp.endpoints.Todo;
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.AnnotationBoolean;
@@ -55,10 +53,10 @@ public class Endpoint {
    * depenent del nom del mètode de l'API. En aquest cas, el mètode HTTP serà per defecte POST.
    */
   // [START endpoint_method]
-  @ApiMethod(name = "echo")
-  public Message echo(Message message, @Named("n") @Nullable Integer n) {
-    return doEcho(message, n);
-  }
+	/*
+	 * @ApiMethod(name = "echo") public Message echo(Message
+	 * message, @Named("n") @Nullable Integer n) { return doEcho(message, n); }
+	 */
   // [END echo_method]
 
   /**
@@ -72,10 +70,11 @@ public class Endpoint {
    * depenent del nom del mètode de l'API. En aquest cas, el mètode HTTP serà per defecte POST.
    */
   // [START echo_path]
-  @ApiMethod(name = "echo_path_parameter", path = "endpoint/{n}")
-  public Message echoPathParameter(Message message, @Named("n") int n) {
-    return doEcho(message, n);
-  }
+	/*
+	 * @ApiMethod(name = "echo_path_parameter", path = "endpoint/{n}") public
+	 * Message echoPathParameter(Message message, @Named("n") int n) { return
+	 * doEcho(message, n); }
+	 */
   // [END echo_path]
 
   /**
@@ -89,25 +88,17 @@ public class Endpoint {
    * depending on the API method name. In this case, the HTTP method will default to POST.
    */
   // [START echo_api_key]
-  @ApiMethod(name = "echo_api_key", path = "endpoint_api_key")   //, apiKeyRequired = AnnotationBoolean.TRUE)
-  public Message echoApiKey(Message message, @Named("n") @Nullable Integer n) {
-    return doEcho(message, n);
-  }
-  // [END echo_api_key]
-
-  private Message doEcho(Message message, Integer n) {
-    if (n != null && n >= 0) {
-      StringBuilder sb = new StringBuilder();
-      for (int i = 0; i < n; i++) {
-        if (i > 0) {
-          sb.append(" ");
-        }
-        sb.append(message.getMessage() + "adeu");
-      }
-      message.setMessage(sb.toString() + "hola");
-    }
-    return message;
-  }
+	/*
+	 * @ApiMethod(name = "echo_api_key", path = "endpoint_api_key") //,
+	 * apiKeyRequired = AnnotationBoolean.TRUE) public Message echoApiKey(Message
+	 * message, @Named("n") @Nullable Integer n) { return doEcho(message, n); } //
+	 * [END echo_api_key]
+	 * 
+	 * private Message doEcho(Message message, Integer n) { if (n != null && n >= 0)
+	 * { StringBuilder sb = new StringBuilder(); for (int i = 0; i < n; i++) { if (i
+	 * > 0) { sb.append(" "); } sb.append(message.getMessage() + "adeu"); }
+	 * message.setMessage(sb.toString() + "hola"); } return message; }
+	 */
 
   /**
    * Obté el correu electrònic de l’usuari autenticat. Si l’usuari no està autenticat, retornarà un HTTP
@@ -171,18 +162,14 @@ public class Endpoint {
   // [END firebase_auth]
   
   
-  @ApiMethod(
-	      httpMethod = ApiMethod.HttpMethod.GET,
-	      authenticators = {EspAuthenticator.class}
-	  )
-	  public List<Todo> getTodo() {
-	  List<Todo> llista = new ArrayList<>(); 
-	  
-	    Todo todo = new Todo();
-	    todo.setId("12");
-	    todo.setTitle("es el titol que ve de degloba produccio GCP");
-	    
-	    llista.add(todo);
-	    return llista;
-	  }
+	/*
+	 * @ApiMethod( httpMethod = ApiMethod.HttpMethod.GET, authenticators =
+	 * {EspAuthenticator.class} ) public List<Envia> getEnviament() { List<Todo>
+	 * llista = new ArrayList<>();
+	 * 
+	 * Todo todo = new Todo(); todo.setId("12");
+	 * todo.setTitle("es el titol que ve de degloba produccio GCP");
+	 * 
+	 * llista.add(todo); return llista; }
+	 */
 }

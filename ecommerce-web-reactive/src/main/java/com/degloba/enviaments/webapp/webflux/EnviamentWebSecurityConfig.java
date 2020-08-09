@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-@EnableWebFluxSecurity
+////////@EnableWebFluxSecurity
 public class EnviamentWebSecurityConfig {
 
 	

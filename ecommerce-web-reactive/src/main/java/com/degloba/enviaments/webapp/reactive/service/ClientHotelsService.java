@@ -1,4 +1,4 @@
-package com.degloba.hotels.webapp.reactive.service;
+package com.degloba.enviaments.webapp.reactive.service;
 
 
 import org.springframework.stereotype.Service;

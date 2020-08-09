@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
 
 @RestController
 public class EnviamentsRestController {
 	
+	EnviamentRepository enviamentRepository = new EnviamentRepository();
 	
 	 @RequestMapping("/")
 	    @ResponseBody
@@ -33,17 +36,19 @@ public class EnviamentsRestController {
 	/////@GetMapping("")
 	@RequestMapping("/enviaments/")
 	@ResponseBody
-	public ResponseEntity<String> getEnviaments(@RequestParam(required = false) String queryParam) {
+	public Flux<EnviamentDto> getEnviaments(@RequestParam(required = false) String queryParam) {
 ////		log.debug("Received request at getExample:" + queryParam);
 		
+		return enviamentRepository.findAllEnviaments();
 		
-		  if (queryParam == null || "NULL".equals(queryParam)) 
-			  throw new	RuntimeException("Give me a Param!"); if (queryParam.equals("STOP")) { 
-			  try {
-				  Thread.sleep(5000); 
-		  } catch (Exception k) {k.printStackTrace();} }
-		  
-		 return ResponseEntity.ok().body(queryParam);
+		
+		/*
+		 * if (queryParam == null || "NULL".equals(queryParam)) throw new
+		 * RuntimeException("Give me a Param!"); if (queryParam.equals("STOP")) { try {
+		 * Thread.sleep(5000); } catch (Exception k) {k.printStackTrace();} }
+		 * 
+		 * return ResponseEntity.ok().body(queryParam);
+		 */
 		 
 	}
 	
