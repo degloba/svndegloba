@@ -68,6 +68,12 @@
 				<version>3.1.0</version>
 				<!-- <scope>provided</scope> -->
 			</dependency>
+			
+			<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>3.0.2.RELEASE</version>
+		</dependency>
 
 		</dependencies>
 
@@ -189,6 +195,19 @@
 							<phase>site</phase>
 						</execution>
 					</executions>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.dependencies.version}</version>
+					<!-- <executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions> -->
 				</plugin>
 
 				<!-- proporciona objectius per controlar algunes restriccions de l'entorn com la versió Maven, 
@@ -405,6 +424,7 @@
 		<module>../ecommerce-facade</module>
 		<module>../ecommerce-facade-impl</module>
 		<module>../ecommerce-webapp</module>
+		<module>../ecommerce-web-reactive</module>
 	</modules>
 	<url>www.degloba.com</url>
 </project>

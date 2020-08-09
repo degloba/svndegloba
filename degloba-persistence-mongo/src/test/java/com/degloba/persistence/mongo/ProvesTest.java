@@ -1,7 +1,8 @@
 package com.degloba.persistence.mongo;
 
-//
 import com.degloba.persistence.mongo.config.SpringMongoConfig;
+
+//
 
 // Entitats de domini de test
 
