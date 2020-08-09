@@ -1,6 +1,5 @@
 package com.degloba.hotels.domain.persistence.nosql.mongo;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 

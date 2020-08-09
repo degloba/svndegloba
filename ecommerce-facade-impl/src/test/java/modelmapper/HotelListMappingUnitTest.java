@@ -46,17 +46,11 @@ public class HotelListMappingUnitTest {
 
         modelMapper = new ModelMapper();
         
-        
-        
         modelMapper.getConfiguration()
         .setFieldMatchingEnabled(true)
         .setFieldAccessLevel(AccessLevel.PRIVATE);
 
         
-        
-        
-        
-
         TypeMap<HotelList, HotelListDto> typeMap = modelMapper.createTypeMap(HotelList.class, HotelListDto.class);
 
         typeMap.addMappings(mapper -> mapper.using(new HotelListConverter())
@@ -87,34 +81,38 @@ public class HotelListMappingUnitTest {
     }
 
 
-	@Test
-	@DisplayName("Should contain a correct element")
-    public void givenUsersList_whenUseGenericType_thenMapToUserDTO() {
+	/*
+	 * @Test
+	 * 
+	 * @DisplayName("Should contain a correct element") public void
+	 * givenUsersList_whenUseGenericType_thenMapToUserDTO() {
+	 * 
+	 * // Mapping lists using custom (generic) type mapping
+	 * 
+	 * List<HotelDto> userDtoList = MapperUtil.mapList(hotels, HotelDto.class);
+	 * 
+	 * assertThat(userDtoList, Matchers.<HotelDto>hasItem(
+	 * Matchers.both(hasProperty("userId", equalTo("b100")))
+	 * .and(hasProperty("email", equalTo("user1@baeldung.com")))
+	 * .and(hasProperty("username", equalTo("user1")))));
+	 * 
+	 * 
+	 * }
+	 */
 
-        // Mapping lists using custom (generic) type mapping
-
-        List<HotelDto> userDtoList = MapperUtil.mapList(hotels, HotelDto.class);
-
-        assertThat(userDtoList, Matchers.<HotelDto>hasItem(
-                Matchers.both(hasProperty("userId", equalTo("b100")))
-                        .and(hasProperty("email", equalTo("user1@baeldung.com")))
-                        .and(hasProperty("username", equalTo("user1")))));
-
-
-    }
-
-    @Test
-    @DisplayName("Should contain a correct element")
-    public void givenUsersList_whenUseConverter_thenMapToUsernames() {
-
-        // Mapping lists using property mapping and converter
-
-        HotelList userList = new HotelList();
-        userList.setHotels(hotels);
-        HotelListDto dtos = new HotelListDto();
-        modelMapper.map(userList, dtos);
-
-        assertThat(dtos.getHotels(), hasItems("user1", "user2", "user3"));
-
-    }
+	/*
+	 * @Test
+	 * 
+	 * @DisplayName("Should contain a correct element") public void
+	 * givenUsersList_whenUseConverter_thenMapToUsernames() {
+	 * 
+	 * // Mapping lists using property mapping and converter
+	 * 
+	 * HotelList userList = new HotelList(); userList.setHotels(hotels);
+	 * HotelListDto dtos = new HotelListDto(); modelMapper.map(userList, dtos);
+	 * 
+	 * assertThat(dtos.getHotels(), hasItems("user1", "user2", "user3"));
+	 * 
+	 * }
+	 */
 }

@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * 
@@ -19,8 +17,12 @@ import org.springframework.context.annotation.Configuration;
  * @category 
  * 
  */
-@Configuration
-@ComponentScan(basePackages = {"com.degloba.cqrs" , "com.degloba.eventsourcing"})
+/*
+ * @Configuration
+ * 
+ * @ComponentScan(basePackages = {"com.degloba.cqrs" ,
+ * "com.degloba.eventsourcing"})
+ */
 public class CqrsAxonConfig {
 
 	// Copied from excluded org.axonframework.springboot.autoconfig.JpaAutoConfiguration
