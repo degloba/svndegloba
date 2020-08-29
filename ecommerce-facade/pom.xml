@@ -36,7 +36,7 @@
 	<build>
 
 		<plugins>
-		
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -56,17 +56,12 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 			</plugin>
-			
-					<plugin>
-    <artifactId>maven-clean-plugin</artifactId>
-    <version>3.1.0</version>
-    </plugin>
-			
+
 			<!-- comentar si no te classe SpringBoot -->
 					<!-- <plugin>
 					<groupId>org.springframework.boot</groupId>

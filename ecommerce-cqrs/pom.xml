@@ -78,8 +78,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-			
-						<plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
@@ -87,7 +87,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				 <configuration>
+				<configuration>
 					<mainClass>com.degloba.ecommerce.cqrs.CqrsSpringBootApplication</mainClass>
 				</configuration>
 				<executions>
@@ -113,11 +113,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 			</plugin>
-			
-					<plugin>
-    <artifactId>maven-clean-plugin</artifactId>
-    <version>3.1.0</version>
-    </plugin>
 
 		</plugins>
 	</build>
