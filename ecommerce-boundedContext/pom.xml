@@ -160,7 +160,7 @@
 						<dependency>
 							<groupId>org.apache.maven.wagon</groupId>
 							<artifactId>wagon-webdav-jackrabbit</artifactId>
-							<version>2.6</version>
+							<version>${wagon.webdav.jackrabbit.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -210,10 +210,29 @@
 					</executions> -->
 				</plugin>
 
-				<!-- proporciona objectius per controlar algunes restriccions de l'entorn com la versió Maven, 
+				
+				
+				<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>endpoints-framework-maven-plugin</artifactId>
+				<version>${endpoints.framework.maven.plugin.version}</version>
+				<configuration>
+					<!-- plugin configuration -->
+					<hostname>${endpoints.project.id}.appspot.com</hostname>
+				</configuration>
+			</plugin>
+				
+				
+			</plugins>
+		</pluginManagement>
+
+
+		<plugins>
+		
+			<!-- proporciona objectius per controlar algunes restriccions de l'entorn com la versió Maven, 
 					 la versió JDK i la família del sistema operatiu, juntament amb moltes altres regles integrades 
 					 i regles creades per l'usuari. -->
-				<!-- <plugin>
+				 <plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-enforcer-plugin</artifactId>
 					<version>${maven.enforcer.plugin.version}</version>
@@ -226,27 +245,28 @@
 							<configuration>
 								<rules>
 									<requireMavenVersion>
-										<version>3.0.5</version>
+										<version>3.5.4</version>
 									</requireMavenVersion>
 									<requireJavaVersion>
-										<version>1.8</version>
+										<version>${jdk.version}</version>
 									</requireJavaVersion>
-									<requireOS> <family>unix</family> </requireOS> <requireReleaseVersion> 
-										<message>No se permite una versión Snapshot</message> </requireReleaseVersion>
+									<!-- <requireOS> 
+										<family>unix</family> 
+									</requireOS> 
+									<requireReleaseVersion> 
+										<message>No se permite una versión Snapshot</message> 
+									</requireReleaseVersion> -->
 								</rules>
 							</configuration>
 						</execution>
 					</executions>
-				</plugin> -->
-			</plugins>
-		</pluginManagement>
-
-
-		<plugins>
-<!-- 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-			</plugin> -->
+				</plugin>
+				
+						<plugin>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>3.1.0</version>
+    </plugin>
+				
 		</plugins>
 
 
@@ -270,7 +290,7 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-webdav-jackrabbit</artifactId>
-				<version>2.6</version>
+				<version>${wagon.webdav.jackrabbit.version}</version>
 			</extension>
 		</extensions>
 
@@ -315,7 +335,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.16</version>
+				<version>${maven.surefire.report.plugin.version}</version>
 			</plugin>
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clover-plugin</artifactId> 
 				<version>2.4</version> </plugin> -->
@@ -371,6 +391,11 @@
 		<hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
 		<hibernate.show_sql>true</hibernate.show_sql>
 		<hibernate.format_sql>true</hibernate.format_sql>
+		
+		
+		<endpoints.framework.maven.plugin.version>1.0.2</endpoints.framework.maven.plugin.version>
+		
+		<endpoints.project.id>wwwdegloba-1350</endpoints.project.id>
 
 	</properties>
 

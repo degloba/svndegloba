@@ -32,7 +32,6 @@
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>${objectify.version}</version>
 		</dependency>
 
 		<dependency>
