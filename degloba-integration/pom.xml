@@ -94,9 +94,15 @@
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-mongodb</artifactId>
-			<version>5.3.0.M4</version>
+			<version>${spring.integration.mongodb.version}</version>
 			<type>module</type>
 		</dependency>
+		
+		
+		<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+</dependency>
 
 	</dependencies>
 

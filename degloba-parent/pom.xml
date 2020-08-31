@@ -18,6 +18,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<jdk.version>1.8</jdk.version>
+		
+		<requireMavenVersion>3.5.4</requireMavenVersion>
 
 		<servlet.version>4.0.0</servlet.version>
 
@@ -26,9 +28,10 @@
 		<springframework.security.version>5.1.0.RELEASE</springframework.security.version>
 		<springframework.ws.version>3.0.4.RELEASE</springframework.ws.version>
 		<springframework.webflow.version>2.5.1.RELEASE</springframework.webflow.version>
-		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		<spring.boot.version>2.3.0.M4</spring.boot.version>
-		<spring.boot.dependencies.version>2.3.2.RELEASE</spring.boot.dependencies.version>
+		<spring.boot.dependencies.version>2.3.3.RELEASE</spring.boot.dependencies.version>
+		<spring.integration.mongodb.version>5.3.0.M4</spring.integration.mongodb.version>
 
 		<springfox.swagger2.version>2.9.2</springfox.swagger2.version>
 		<doxia.module.markdown.version>1.9.1</doxia.module.markdown.version>
@@ -56,8 +59,10 @@
 		<uel.version>2.2</uel.version>
 		<poi.version>4.1.2</poi.version>
 
-		<!-- Google Appengine -->
-		<google.appengine.version>1.9.79</google.appengine.version>
+		<!-- Google Appengine 
+			https://cloud.google.com/appengine/docs/standard/java/release-notes#june_28_2017-->
+		<google.appengine.version>1.9.82</google.appengine.version>
+		
 		<google-cloud-pubsub.version>1.89.0</google-cloud-pubsub.version>
 
 
@@ -79,6 +84,7 @@
 		<!-- https://github.com/objectify/objectify -->
 		<googleCloud.objectify.version>6.0.6</googleCloud.objectify.version>
 		<googleCloud.version>1.65.0</googleCloud.version>
+		<libraries.bom.version>9.1.0</libraries.bom.version>
 
 
 		<commons.version>3.10</commons.version>
@@ -88,35 +94,40 @@
 		<javassist.version>3.12.1.GA</javassist.version>
 
 		<modelmapper.version>2.3.7</modelmapper.version>
-		
+
 		<wagon.webdav.jackrabbit.version>3.4.0</wagon.webdav.jackrabbit.version>
-		
+
 		<objectify.version>6.0.6</objectify.version>
 		
+		
+
 
 		<!-- PLUGINS -->
 
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
 		<maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
-		<maven.surefire.plugin.version>3.0.0-M4</maven.surefire.plugin.version>
-		<maven.surefire.report.plugin.version>3.0.0-M1</maven.surefire.report.plugin.version>
-		
-		<appengine.maven.plugin.version>2.2.0</appengine.maven.plugin.version>
-		<maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+		<maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+		<maven.surefire.report.plugin.version>3.0.0-M5</maven.surefire.report.plugin.version>
+
+		<appengine.maven.plugin.version>2.3.0</appengine.maven.plugin.version>
+		<maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
 		<maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
-		<maven.assembly.plugin.version>3.2.0</maven.assembly.plugin.version>
+		<maven.assembly.plugin.version>3.3.0</maven.assembly.plugin.version>
 		<maven.bundle.plugin.version>4.2.1</maven.bundle.plugin.version>
 		<maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
 		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
 		<maven.release.plugin.version>3.0.0-M1</maven.release.plugin.version>
-		<maven.site.plugin.version>3.9.0</maven.site.plugin.version>
+		<maven.site.plugin.version>3.9.1</maven.site.plugin.version>
 		<maven.bundle.plugin.version>4.2.1</maven.bundle.plugin.version>
-		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-		
+		<maven.deploy.plugin.version>3.0.0-M1</maven.deploy.plugin.version>
+
 		<versions.maven.plugin.version>2.8.1</versions.maven.plugin.version>
 		<maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
-		
+		<maven.failsafe.plugin.version>3.0.0-M5</maven.failsafe.plugin.version>
 
+		<maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+		<maven.war.plugin.version>3.3.1</maven.war.plugin.version>
+		<exec.maven.plugin.version>3.0.0</exec.maven.plugin.version>
 
 	</properties>
 
@@ -160,11 +171,12 @@
 
 		<dependencies>
 
-			<!-- https://cloud.google.com/storage/docs/reference/libraries -->
+			<!-- https://cloud.google.com/storage/docs/reference/libraries 
+				https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM -->
 			<dependency>
 				<groupId>com.google.cloud</groupId>
 				<artifactId>libraries-bom</artifactId>
-				<version>7.0.0</version>
+				<version>${libraries.bom.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -174,6 +186,14 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -306,13 +326,7 @@
 				<version>${poi.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+
 
 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
@@ -412,12 +426,12 @@
 				<artifactId>modelmapper</artifactId>
 				<version>${modelmapper.version}</version>
 			</dependency>
-			
-					<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>${objectify.version}</version>
-		</dependency>
+
+			<dependency>
+				<groupId>com.googlecode.objectify</groupId>
+				<artifactId>objectify</artifactId>
+				<version>${objectify.version}</version>
+			</dependency>
 
 		</dependencies>
 
@@ -429,7 +443,7 @@
 	<!-- **************************************************** -->
 
 	<dependencies>
-
+	
 		<!-- The Simple Logging Facade for Java (SLF4J) serves as a simple facade 
 			or abstraction for various logging frameworks (e.g. java.util.logging, logback, 
 			log4j) allowing the end user to plug in the desired logging framework at 
@@ -496,7 +510,34 @@
 			projectes que hereden d'aquest -->
 		<plugins>
 
-
+			<!-- proporciona objectius per controlar algunes restriccions de l'entorn 
+				com la versió Maven, la versió JDK i la família del sistema operatiu, juntament 
+				amb moltes altres regles integrades i regles creades per l'usuari. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven.enforcer.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>${requireMavenVersion}</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>${jdk.version}</version>
+								</requireJavaVersion>
+								<!-- <requireOS> <family>unix</family> </requireOS> <requireReleaseVersion> 
+									<message>No se permite una versión Snapshot</message> </requireReleaseVersion> -->
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 
@@ -506,7 +547,7 @@
 
 			<plugins>
 
-				<!--  https://www.mojohaus.org/versions-maven-plugin/usage.html -->
+				<!-- https://www.mojohaus.org/versions-maven-plugin/usage.html -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
@@ -520,6 +561,9 @@
 							</goals>
 						</execution>
 					</executions>
+					<configuration>
+						<generateBackupPoms>false</generateBackupPoms>
+					</configuration>
 				</plugin>
 
 				<plugin>
@@ -588,6 +632,15 @@
 						</archive>
 					</configuration>
 				</plugin>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven.clean.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven.war.plugin.version}</version>
+				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
@@ -705,7 +758,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-report-plugin</artifactId>
-					<version>2.16</version>
+					<version>${maven.surefire.report.plugin.version}</version>
 				</plugin>
 				<!-- for hot reload of the web application -->
 				<plugin>
@@ -736,6 +789,7 @@
 					Surefire Plugin is designed to run unit tests -->
 				<plugin>
 					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven.failsafe.plugin.version}</version>
 				</plugin>
 
 			</plugins>
@@ -743,6 +797,87 @@
 		</pluginManagement>
 
 	</build>
+
+
+
+	<profiles>
+		<!-- https://www.baeldung.com/maven-profiles -->
+		<profile>
+			<id>no-tests</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>java11</id>
+			<activation>
+        <property>
+          <name>env</name>
+          <value>dev</value>
+        </property>
+      </activation>
+
+			<properties>
+				<jdk.version>11</jdk.version>
+			</properties>
+			
+			<build>
+				<plugins>
+				
+				<!-- This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<compilerVersion>${jdk.version}</compilerVersion>
+						<fork>true</fork>
+						<meminitial>128m</meminitial>
+						<maxmem>768m</maxmem>
+						<useIncrementalCompilation>false</useIncrementalCompilation>
+						<!-- <sourceDirectory>${project.build.directory}/generated-sources/java8</sourceDirectory> -->
+						<outputDirectory>${basedir}/target/classes</outputDirectory>
+					</configuration>
+				</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<version>${maven.enforcer.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>enforce-versions</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireMavenVersion>
+											<version>${requireMavenVersion}</version>
+										</requireMavenVersion>
+										<requireJavaVersion>
+											<version>${jdk.version}</version>
+										</requireJavaVersion>
+										<!-- <requireOS> <family>unix</family> </requireOS> <requireReleaseVersion> 
+											<message>No se permite una versión Snapshot</message> </requireReleaseVersion> -->
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+			</build>
+		</profile>
+
+	</profiles>
+
+
 
 
 	<name>(degloba-parent)</name>
