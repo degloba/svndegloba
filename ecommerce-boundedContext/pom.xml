@@ -65,15 +65,15 @@
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
-				<version>3.1.0</version>
-				<!-- <scope>provided</scope> -->
+				<!-- <version>3.1.0</version> -->
+				<scope>provided</scope>
 			</dependency>
-			
+
 			<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>3.0.2.RELEASE</version>
-		</dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-mongodb</artifactId>
+				<version>3.0.2.RELEASE</version>
+			</dependency>
 
 		</dependencies>
 
@@ -98,7 +98,7 @@
 							<artifactId>commons-logging</artifactId>
 							<version>1.2</version>
 						</dependency>
-						</dependencies>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -196,77 +196,68 @@
 						</execution>
 					</executions>
 				</plugin>
-				
+
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring.boot.dependencies.version}</version>
-					<!-- <executions>
-						<execution>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-						</execution>
-					</executions> -->
+					<executions> 
+						<execution> 
+							<goals> 
+								<goal>repackage</goal> 
+							</goals> 
+						</execution> 
+					</executions>
 				</plugin>
 
-				
-				
+
+				<!--  https://cloud.google.com/endpoints/docs/frameworks/java/maven-endpoints-frameworks-plugin -->
 				<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>endpoints-framework-maven-plugin</artifactId>
-				<version>${endpoints.framework.maven.plugin.version}</version>
-				<configuration>
-					<!-- plugin configuration -->
-					<hostname>${endpoints.project.id}.appspot.com</hostname>
-				</configuration>
-			</plugin>
-				
-				
+					<groupId>com.google.cloud.tools</groupId>
+					<artifactId>endpoints-framework-maven-plugin</artifactId>
+					<version>${endpoints.framework.maven.plugin.version}</version>
+					<configuration>
+						<!-- plugin configuration -->
+						<hostname>${endpoints.project.id}.appspot.com</hostname>
+					</configuration>
+				</plugin>
+
+
 			</plugins>
 		</pluginManagement>
 
 
 		<plugins>
-		
-			<!-- proporciona objectius per controlar algunes restriccions de l'entorn com la versió Maven, 
-					 la versió JDK i la família del sistema operatiu, juntament amb moltes altres regles integrades 
-					 i regles creades per l'usuari. -->
-				 <plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>${maven.enforcer.plugin.version}</version>
-					<executions>
-						<execution>
-							<id>enforce-versions</id>
-							<goals>
-								<goal>enforce</goal>
-							</goals>
-							<configuration>
-								<rules>
-									<requireMavenVersion>
-										<version>3.5.4</version>
-									</requireMavenVersion>
-									<requireJavaVersion>
-										<version>${jdk.version}</version>
-									</requireJavaVersion>
-									<!-- <requireOS> 
-										<family>unix</family> 
-									</requireOS> 
-									<requireReleaseVersion> 
-										<message>No se permite una versión Snapshot</message> 
-									</requireReleaseVersion> -->
-								</rules>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				
-						<plugin>
-    <artifactId>maven-clean-plugin</artifactId>
-    <version>3.1.0</version>
-    </plugin>
-				
+
+			<!-- proporciona objectius per controlar algunes restriccions de l'entorn 
+				com la versió Maven, la versió JDK i la família del sistema operatiu, juntament 
+				amb moltes altres regles integrades i regles creades per l'usuari. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven.enforcer.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>${requireMavenVersion}</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>${jdk.version}</version>
+								</requireJavaVersion>
+								<!-- <requireOS> <family>unix</family> </requireOS> <requireReleaseVersion> 
+									<message>No se permite una versión Snapshot</message> </requireReleaseVersion> -->
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 
 
@@ -309,6 +300,7 @@
 	</build>
 
 	<reporting>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -332,11 +324,11 @@
 				<artifactId>maven-jxr-plugin</artifactId>
 				<version>2.3</version>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>${maven.surefire.report.plugin.version}</version>
-			</plugin>
+			</plugin> -->
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clover-plugin</artifactId> 
 				<version>2.4</version> </plugin> -->
 			<plugin>
@@ -349,7 +341,7 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.0.1</version>
 				<configuration>
-					<targetJdk>1.8</targetJdk>
+					<targetJdk>${jdk.version}</targetJdk>
 					<format>xml</format>
 					<linkXRef>true</linkXRef>
 					<minimumTokens>100</minimumTokens>
@@ -391,10 +383,10 @@
 		<hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
 		<hibernate.show_sql>true</hibernate.show_sql>
 		<hibernate.format_sql>true</hibernate.format_sql>
-		
-		
+
+
 		<endpoints.framework.maven.plugin.version>1.0.2</endpoints.framework.maven.plugin.version>
-		
+
 		<endpoints.project.id>wwwdegloba-1350</endpoints.project.id>
 
 	</properties>
@@ -430,7 +422,7 @@
 				<jdbc.password />
 			</properties>
 		</profile>
-		
+
 		<profile>
 			<id>jdk7</id>
 			<properties>
@@ -438,7 +430,7 @@
 			</properties>
 		</profile>
 	</profiles>
-	
+
 	<modules>
 		<module>../ecommerce-eventsourcing</module>
 		<module>../ecommerce-domain</module>
