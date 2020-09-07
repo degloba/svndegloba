@@ -1,14 +1,3 @@
 # https://cloud.google.com/appengine/docs/standard/java11/config/appref
 
-runtime: java
-env: flex
-runtime_config:
-  jdk: openjdk8
-env_variables:
-  SPRING_PROFILES_ACTIVE: "gcp"
-  MY_VAR_COLOR: 'blue'
-handlers:
-- url: /.*
-  script: this field is required, but ignored
-manual_scaling: 
-  instances: 1
+runtime: java11

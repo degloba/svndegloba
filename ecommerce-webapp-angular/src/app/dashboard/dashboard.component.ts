@@ -3,73 +3,73 @@ import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 
 
-import {HotelService} from '../providers/hotel.service';
+import {EnviamentsService} from '../providers/enviaments.service';
 
-import { Hotel } from '../model/hotel';
+import { Enviament } from '../model/enviament';
 
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  providers: [HotelService]
+  providers: [EnviamentsService]
 })
 export class DashboardComponent implements OnInit {
 
-    hotels: Hotel[] = [];
+    enviaments: Enviament[] = [];
 
 
   constructor(
     public authService: AuthService,
-    private hotelService: HotelService,
+    private enviamentsService: EnviamentsService,
     public router: Router,
     public ngZone: NgZone
   ) { }
 
   public ngOnInit() {
-      this.hotelService
-        .getAllHotels()
+      this.enviamentsService
+        .getAllEnviaments()
         .subscribe(
-          (hotels) => {
-            this.hotels = hotels;
+          (enviaments) => {
+            this.enviaments = enviaments;
 		
           }
         );
     }
   
-  onAddHotel(hotel) {
-      this.hotelService
-        .createHotel(hotel)
+  onAddEnviament(enviament) {
+      this.enviamentsService
+        .createEnviament(enviament)
         .subscribe(
-         (newHotel) => {
-            this.hotels = this.hotels.concat(newHotel);
+         (newEnviament) => {
+            this.enviaments = this.enviaments.concat(newEnviament);
           }
         );
     }
 
-  onToggleHotelComplete(hotel) {
-       this.hotelService
-        .updateHotel(hotel)
+  onToggleHotelComplete(enviament) {
+       this.enviamentsService
+        .updateEnviament(enviament)
         .subscribe(
-          (updatedHotel) => {
-            hotel = updatedHotel;
+          (updateEnviament) => {
+            enviament = updateEnviament;
          }
         );
     }
 
-  onRemoveHotel(hotel) {
-      this.hotelService
-        .deleteHotelById(hotel.id)
+  onRemoveEnviament(enviament) {
+      this.enviamentsService
+        .deleteEnviamentById(enviament.id)
         .subscribe(
           (_) => {
-           this.hotels = this.hotels.filter((t) => t.id !== hotel.id);
+           this.enviaments = this.enviaments.filter((t) => t.id !== enviament.id);
          }
       );
     }
 
 
-	goHotels() {
-		this.router.navigate(['/hotel']);
+	goEnviaments() {
+		this.router.navigate(['/enviament']);
 	}
 
 }
