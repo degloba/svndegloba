@@ -25,7 +25,7 @@ public class EnviamentWebClient {
 	        
 	        Flux<EnviamentDto> enviamentFlux = client.get()
 	            .uri("/enviaments/")
-	            ///////.accept(MediaType.APPLICATION_JSON)
+	            .accept(MediaType.APPLICATION_JSON)
 	            .retrieve()	           
 	            .bodyToFlux(EnviamentDto.class);
 	        
