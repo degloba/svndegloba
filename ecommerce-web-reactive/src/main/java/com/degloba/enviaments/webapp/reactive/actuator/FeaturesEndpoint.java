@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Endpoint(id = "features", enableByDefault = true)
 public class FeaturesEndpoint {
 
-    private Map<String, Feature> features = new ConcurrentHashMap<>();
+	private Map<String, Feature> features = new ConcurrentHashMap<>();
 
     @ReadOperation
     public Map<String, Feature> features() {
@@ -43,5 +43,4 @@ public class FeaturesEndpoint {
             this.enabled = enabled;
         }
     }
-
 }

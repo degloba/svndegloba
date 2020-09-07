@@ -1,4 +1,4 @@
-package com.degloba.enviaments.webapp.webflux;
+package com.degloba.enviaments.webapp.reactive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +17,9 @@ public class EnviamentReactiveSpringApplication {
 	        
 	        SpringApplication.run(EnviamentReactiveSpringApplication.class, args);
 
-	        EnviamentWebClient enviamentWebClient = new EnviamentWebClient();
-	        enviamentWebClient.consume();
+			/*
+			 * EnviamentWebClient enviamentWebClient = new EnviamentWebClient();
+			 * enviamentWebClient.consume();
+			 */
 	    }
 }

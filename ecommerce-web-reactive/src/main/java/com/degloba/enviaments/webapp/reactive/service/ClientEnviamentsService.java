@@ -1,16 +1,18 @@
 package com.degloba.enviaments.webapp.reactive.service;
 
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
 import com.degloba.hotels.HotelDto;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- * @category client del {@link HotelsRestController} que utilitza {@link WebClient} per poder fer requests HTTP
+ * @category client del {@link EnviamentsRestController} que utilitza {@link WebClient} per poder fer requests HTTP
  * no-bloquejants (s'executen en paralel!!!!)
  * 
  * @category encapsula l'execució de peticions http/Rest en paralel
@@ -19,37 +21,36 @@ import reactor.core.publisher.Mono;
  *
  */
 @Service
-public class ClientHotelsService {
+public class ClientEnviamentsService {
 
-	public Flux<HotelDto> buscarTotsHotels() {
+	public Flux<EnviamentDto> buscarTotsEnviaments() {
 		  
-	    WebClient webclient = WebClient.create("http://localhost:8080/hotels");
+	    WebClient webclient = WebClient.create("http://localhost:8080/enviaments/");
 	    
 	    // simulem una lògica de negoci en la part web (front-End)
 	    // accedint a diferents RestControllers (en aquest cas d'exemple es el mateix Rest)
-	    Flux<HotelDto> fluxHotel1 = webclient.get().retrieve().bodyToFlux(HotelDto.class);
-	    Flux<HotelDto> fluxHotel2 = webclient.get().retrieve().bodyToFlux(HotelDto.class);
-	    Flux<HotelDto> fluxHotel3 = webclient.get().retrieve().bodyToFlux(HotelDto.class);
+	    Flux<EnviamentDto> fluxEnviament1 = webclient.get().accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(EnviamentDto.class);
+	    Flux<EnviamentDto> fluxEnviament2 = webclient.get().accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(EnviamentDto.class);
+	    Flux<EnviamentDto> fluxEnviament3 = webclient.get().accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(EnviamentDto.class);
 	    
 	    
-	    Flux<HotelDto> fluxHotels = Flux.merge(fluxHotel1,fluxHotel2,fluxHotel3);
-	    System.out.println(fluxHotels);
+	    Flux<EnviamentDto> fluxEnviaments = Flux.merge(fluxEnviament1,fluxEnviament2,fluxEnviament3);
+	    System.out.println(fluxEnviaments);
 	    
-	    return fluxHotels;
+	    return fluxEnviaments;
 	   }
 
-	public Mono<HotelDto> buscarHotelById(String id) {
-		WebClient webclient = WebClient.create("http://localhost:8080/hotels/" + id);
+	public Mono<EnviamentDto> buscarEnviamentById(String id) {
+		WebClient webclient = WebClient.create("http://localhost:8080/enviaments/" + id);
 		
-		return webclient.get().retrieve().bodyToMono(HotelDto.class);	
+		return webclient.get().retrieve().bodyToMono(EnviamentDto.class);	
 	}
 	
-	public Mono<HotelDto> updateHotel(HotelDto hotel)
+	public Mono<EnviamentDto> updateEnviament(EnviamentDto enviament)
     {
-		WebClient webclient = WebClient.create("http://localhost:8080/hotels/1");
+		WebClient webclient = WebClient.create("http://localhost:8080/enviaments/1");
 		
-		Mono<HotelDto> hotelData = webclient.get().retrieve().bodyToMono(HotelDto.class);
-		
+		Mono<EnviamentDto> enviamentData = webclient.get().retrieve().bodyToMono(EnviamentDto.class);
 		
 		/*CompraDto existingCompra = hotelData.get(compra.getAggregateId());
         if(existingCompra!=null)
