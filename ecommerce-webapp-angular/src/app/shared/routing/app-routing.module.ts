@@ -14,6 +14,7 @@ import { LoginPageComponent } from '../../autenticacio/login-page/login-page.com
 import {HomePageComponent } from '../../food/home-page/home-page.component'
 
 import {HotelsComponent } from '../../hotels/hotels.component'
+import {EnviamentsComponent } from '../../enviaments/enviaments.component'
 
 // Import canActivate guard services
 import { AuthGuard } from '../../shared/guard/auth.guard';
@@ -29,7 +30,8 @@ const APP_ROUTES: Routes = [
     { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
     { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
     { path: 'food', component: HomePageComponent, canActivate: [AuthGuard]},
-	{ path: 'hotel', component: HotelsComponent},
+		    	{ path: 'hotel', component: HotelsComponent},
+    	{ path: 'enviament', component: EnviamentsComponent},
 ];
 
 @NgModule({
