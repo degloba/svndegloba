@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit {
         .deleteEnviamentById(enviament.id)
         .subscribe(
           (_) => {
-           this.enviaments = this.enviaments.filter((t) => t.id !== enviament.id);
+           this.enviaments = this.enviaments.filter((t) => t.enviamentId !== enviament.id);
          }
       );
     }

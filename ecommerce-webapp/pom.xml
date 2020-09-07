@@ -288,11 +288,7 @@
 					</exclusion> -->
 			</exclusions>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.degloba</groupId>
-			<artifactId>springboot-helloworld-j11</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>

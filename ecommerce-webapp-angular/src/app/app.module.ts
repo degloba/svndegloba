@@ -119,6 +119,7 @@ import { HeaderGroupComponent } from "./grid/header-group-component/header-group
 import { RendererComponent } from './grid/renderer-component/renderer.component';
 import {ProficiencyFilter} from "./grid/filters/proficiency.component.filter";
 import {SkillFilter} from "./grid/filters/skill.component.filter";
+import { EnviamentsComponent } from 'app/enviaments/enviaments.component'
 
 
 
@@ -170,6 +171,7 @@ const MY_DATE_FORMATS = {
     RendererComponent,
     ProficiencyFilter,
     SkillFilter,
+    EnviamentsComponent,
   ],
   exports: [
     AppComponent,

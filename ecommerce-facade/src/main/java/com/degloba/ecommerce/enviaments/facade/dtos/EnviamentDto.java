@@ -19,8 +19,19 @@ import lombok.Value;
 //@NoArgsConstructor
 public class EnviamentDto implements Serializable {
 
-    private int enviamentId;
-    private int comandaId;
-    private EstatEnviament estatEnviament;
+    private String enviamentId;
+    private String comandaId;
+    private String estatEnviament;
+    
+	public EnviamentDto() {
+		super();
+		this.comandaId = "";
+		this.estatEnviament = "";
+		this.enviamentId = "";
+		
+		// TODO Auto-generated constructor stub
+	}
+    
+    
 
 }
