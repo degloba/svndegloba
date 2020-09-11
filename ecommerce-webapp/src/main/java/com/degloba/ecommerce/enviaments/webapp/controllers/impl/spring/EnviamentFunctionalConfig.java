@@ -6,14 +6,14 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+/*import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;*/
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
-import org.springframework.security.web.server.WebFilterChainProxy;
+//////////////import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+//////////////import org.springframework.security.web.server.WebFilterChainProxy;
 /*import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -34,11 +34,17 @@ import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
  * @category defineix les rutes
  *
  */
-@Configuration
-  @ConditionalOnClass({ EnableWebFluxSecurity.class, WebFilterChainProxy.class })  
-  @ConditionalOnMissingBean(WebFilterChainProxy.class)  
-  @ConditionalOnWebApplication(type =
-  ConditionalOnWebApplication.Type.REACTIVE) 
+/*
+ * @Configuration
+ * 
+ * @ConditionalOnClass({ EnableWebFluxSecurity.class, WebFilterChainProxy.class
+ * })
+ * 
+ * @ConditionalOnMissingBean(WebFilterChainProxy.class)
+ * 
+ * @ConditionalOnWebApplication(type =
+ * ConditionalOnWebApplication.Type.REACTIVE)
+ */
 ////////@Order(1000)
 public class EnviamentFunctionalConfig {
 

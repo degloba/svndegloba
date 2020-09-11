@@ -17,8 +17,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<jdk.version>1.8</jdk.version>
-		
+		<jdk.version>[11,)</jdk.version>
+
 		<requireMavenVersion>3.5.4</requireMavenVersion>
 
 		<servlet.version>4.0.0</servlet.version>
@@ -59,10 +59,9 @@
 		<uel.version>2.2</uel.version>
 		<poi.version>4.1.2</poi.version>
 
-		<!-- Google Appengine 
-			https://cloud.google.com/appengine/docs/standard/java/release-notes#june_28_2017-->
+		<!-- Google Appengine https://cloud.google.com/appengine/docs/standard/java/release-notes#june_28_2017 -->
 		<google.appengine.version>1.9.82</google.appengine.version>
-		
+
 		<google-cloud-pubsub.version>1.89.0</google-cloud-pubsub.version>
 
 
@@ -98,8 +97,8 @@
 		<wagon.webdav.jackrabbit.version>3.4.0</wagon.webdav.jackrabbit.version>
 
 		<objectify.version>6.0.6</objectify.version>
-		
-		
+
+
 
 
 		<!-- PLUGINS -->
@@ -171,8 +170,7 @@
 
 		<dependencies>
 
-			<!-- https://cloud.google.com/storage/docs/reference/libraries 
-				https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM -->
+			<!-- https://cloud.google.com/storage/docs/reference/libraries https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM -->
 			<dependency>
 				<groupId>com.google.cloud</groupId>
 				<artifactId>libraries-bom</artifactId>
@@ -189,7 +187,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
@@ -344,6 +342,8 @@
 				<version>${springframework.webflow.version}</version>
 			</dependency>
 
+
+
 			<dependency>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-api-labs</artifactId>
@@ -443,19 +443,20 @@
 	<!-- **************************************************** -->
 
 	<dependencies>
-	
+
 		<!-- The Simple Logging Facade for Java (SLF4J) serves as a simple facade 
 			or abstraction for various logging frameworks (e.g. java.util.logging, logback, 
 			log4j) allowing the end user to plug in the desired logging framework at 
 			deployment time. -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
+		</dependency> -->
+		
 
 
 		<dependency>
@@ -579,8 +580,10 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${maven.compiler.plugin.version}</version>
 					<configuration>
-						<source>${jdk.version}</source>
-						<target>${jdk.version}</target>
+					<release>11</release>
+<!-- 					els seguents parametres son substituits pel parametre release en Java11	
+						<source>${jdk.version}</source>   
+						<target>${jdk.version}</target> -->
 						<compilerVersion>${jdk.version}</compilerVersion>
 						<fork>true</fork>
 						<meminitial>128m</meminitial>
@@ -611,6 +614,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven.surefire.plugin.version}</version>
 					<configuration>
+						<argLine>--illegal-access=permit</argLine>
 						<includes>
 							<include>**/*Test.java</include>
 						</includes>
@@ -781,8 +785,13 @@
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring.boot.dependencies.version}</version>
-					<!-- <executions> <execution> <goals> <goal>repackage</goal> </goals> 
-						</execution> </executions> -->
+					<!-- <executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions> -->
 				</plugin>
 
 				<!-- The Failsafe Plugin is designed to run integration tests while the 
@@ -790,7 +799,11 @@
 				<plugin>
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<version>${maven.failsafe.plugin.version}</version>
+					<configuration>
+						<argLine>--illegal-access=permit</argLine>
+					</configuration>
 				</plugin>
+
 
 			</plugins>
 
@@ -813,37 +826,37 @@
 		<profile>
 			<id>java11</id>
 			<activation>
-        <property>
-          <name>env</name>
-          <value>dev</value>
-        </property>
-      </activation>
+				<property>
+					<name>env</name>
+					<value>dev</value>
+				</property>
+			</activation>
 
 			<properties>
 				<jdk.version>11</jdk.version>
 			</properties>
-			
+
 			<build>
 				<plugins>
-				
-				<!-- This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven.compiler.plugin.version}</version>
-					<configuration>
-						<source>${jdk.version}</source>
-						<target>${jdk.version}</target>
-						<compilerVersion>${jdk.version}</compilerVersion>
-						<fork>true</fork>
-						<meminitial>128m</meminitial>
-						<maxmem>768m</maxmem>
-						<useIncrementalCompilation>false</useIncrementalCompilation>
-						<!-- <sourceDirectory>${project.build.directory}/generated-sources/java8</sourceDirectory> -->
-						<outputDirectory>${basedir}/target/classes</outputDirectory>
-					</configuration>
-				</plugin>
+
+					<!-- This plugin's configuration is used to store Eclipse m2e settings 
+						only. It has no influence on the Maven build itself. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>${maven.compiler.plugin.version}</version>
+						<configuration>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+							<compilerVersion>${jdk.version}</compilerVersion>
+							<fork>true</fork>
+							<meminitial>128m</meminitial>
+							<maxmem>768m</maxmem>
+							<useIncrementalCompilation>false</useIncrementalCompilation>
+							<!-- <sourceDirectory>${project.build.directory}/generated-sources/java8</sourceDirectory> -->
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+						</configuration>
+					</plugin>
 
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>

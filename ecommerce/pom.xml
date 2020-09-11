@@ -7,7 +7,7 @@
 		<artifactId>degloba-parent</artifactId>
 		<version>4.4.3-SNAPSHOT</version>
 	</parent>
-	
+		
     <artifactId>ecommerce</artifactId>
     <packaging>pom</packaging>
     <name>Ecommerce</name>
@@ -16,13 +16,5 @@
          <module>../ecommerce-boundedContext</module> 
     </modules>
 
-	<properties>
-		<ecommerce.webapp.version>4.4.3-SNAPSHOT</ecommerce.webapp.version>
-		<ecommerce.domain.version>4.4.3-SNAPSHOT</ecommerce.domain.version>
-		<ecommerce.infrastructure.version>4.4.3-SNAPSHOT</ecommerce.infrastructure.version>
-		<ecommerce.webapp.version>4.4.3-SNAPSHOT</ecommerce.webapp.version>
-		<ecommerce.webapp.version>4.4.3-SNAPSHOT</ecommerce.webapp.version>
-	
-	</properties>
-     
+    
 </project>

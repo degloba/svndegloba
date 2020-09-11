@@ -125,7 +125,7 @@ If you want to save the state on the server (which is the default in the JavaSer
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 
-	<!--******************* Spring MVC Servlet ******************* -->
+	<!--******************* Spring MVC Servlet ******************* 
 
 	<servlet>
 		<description>Spring MVC Servlet</description>
@@ -137,7 +137,7 @@ If you want to save the state on the server (which is the default in the JavaSer
 		</init-param>
 		<load-on-startup>2</load-on-startup>
 			<async-supported>true</async-supported>
-	</servlet>
+	</servlet>  -->
 	<!-- <servlet> <servlet-name>Faces Servlet</servlet-name> <servlet-class>javax.faces.webapp.FacesServlet</servlet-class> 
 		<load-on-startup>1</load-on-startup> </servlet> -->
 

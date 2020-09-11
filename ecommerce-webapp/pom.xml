@@ -6,6 +6,8 @@
 	<packaging>jar</packaging>
 	<artifactId>ecommerce-webapp</artifactId>
 	<name>Ecommerce - Webapp</name>
+	
+	
 	<parent>
 		<artifactId>ecommerce-boundedContext</artifactId>
 		<groupId>com.degloba</groupId>

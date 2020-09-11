@@ -19,14 +19,14 @@ public class EnviamentRepository {
     {
     	
 		  enviamentData = new HashMap<>(); 
-		  enviamentData.put((long) 1,new EnviamentDto(1, 1, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 2,new EnviamentDto(1, 2, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 3,new EnviamentDto(1, 3, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 4,new EnviamentDto(1, 4, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 5,new EnviamentDto(1, 5, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 6,new EnviamentDto(1, 6, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 7,new EnviamentDto(1, 7, EstatEnviament.SENT)); 
-		  enviamentData.put((long) 8,new EnviamentDto(1, 8, EstatEnviament.SENT)); 
+		  enviamentData.put((long) 1,new EnviamentDto("1", "1", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 2,new EnviamentDto("1", "2", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 3,new EnviamentDto("1", "3", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 4,new EnviamentDto("1", "4", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 5,new EnviamentDto("1", "5", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 6,new EnviamentDto("1", "6", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 7,new EnviamentDto("1", "7", "EstatEnviament.SENT")); 
+		  enviamentData.put((long) 8,new EnviamentDto("1", "8", "EstatEnviament.SENT")); 
 	 
     }
     

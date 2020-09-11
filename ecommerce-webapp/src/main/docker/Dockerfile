@@ -12,8 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/google_appengine/jetty9
+FROM adoptopenjdk/openjdk11:latest
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8888
 
-ADD endpoints-1.0-SNAPSHOT.war $JETTY_BASE/webapps/root.war
-ADD . /app
-RUN chown jetty:jetty $JETTY_BASE/webapps/root.war
+#ecommerce-webapp-4.4.3-SNAPSHOT.jar
