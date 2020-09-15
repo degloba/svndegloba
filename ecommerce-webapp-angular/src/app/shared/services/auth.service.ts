@@ -10,9 +10,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 
 import { Food, Meal, Units, Goals, DietDays, Persona } from '../../model/data-model';
-import { Observable } from "rxjs";
 
-import * as firebase from 'firebase/app';
+//import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +41,7 @@ export class AuthService {
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
       
-      this.database = firebase.database();
+      this.database = afDatabase;
       
       
     /**
@@ -67,7 +66,7 @@ export class AuthService {
    */
   async SignIn(email: string, password: string) {
      try {
-          const result = await firebase.auth().signInWithEmailAndPassword(email, password);
+          const result = await auth().signInWithEmailAndPassword(email, password);
           this.ngZone.run(() => {
               this.router.navigate(['dashboard']); // si no hi ha hagut error, "navego" al "path" dashboard
           });
@@ -83,7 +82,7 @@ export class AuthService {
    */
   async SignUp(email: string, password: string) {
     try {
-          const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+          const result = await auth().createUserWithEmailAndPassword(email, password);
           /* Call the SendVerificaitonMail() function when new user sign
           up and returns promise */
           this.SendVerificationMail();
@@ -99,7 +98,7 @@ export class AuthService {
    * 
    */
   async SendVerificationMail() {
-    await firebase.auth().currentUser.sendEmailVerification();
+    await auth().currentUser.sendEmailVerification();
       this.router.navigate(['verify-email-address']);
   }
 
@@ -108,7 +107,7 @@ export class AuthService {
    */
   async ForgotPassword(passwordResetEmail: string) {
     try {
-          await firebase.auth().sendPasswordResetEmail(passwordResetEmail);
+          await auth().sendPasswordResetEmail(passwordResetEmail);
           window.alert('Password reset email sent, check your inbox.');
       }
       catch (error) {
@@ -150,7 +149,7 @@ export class AuthService {
   */
   async AuthLogin(provider: auth.GoogleAuthProvider | auth.FacebookAuthProvider | auth.EmailAuthProvider) {
     try {
-          const result = await firebase.auth().signInWithPopup(provider);
+          const result = await auth().signInWithPopup(provider);
           this.ngZone.run(() => {
               this.router.navigate(['dashboard']);
           });
@@ -185,7 +184,7 @@ export class AuthService {
    * <div class="descripcio">Tanca sessió</div>
    */
   async SignOut() {
-    await firebase.auth().signOut();
+    await auth().signOut();
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
   }
@@ -195,11 +194,11 @@ export class AuthService {
    * <div class="descripcio">Retorn l'usuari</div>
    */
   getUser() {
-      const database = firebase.database;
+      const database = this.database;
       return this.database.ref('/users/' + this.fireUser.uid).once('value');
     };
     getUserData() {
-        const database = firebase.database();
+        const database = this.database();
         return this.database.ref('/profiles/' + this.fireUser.uid).once('value');
       }
       setUserData(fireUser: firebase.User, user: Persona) {
