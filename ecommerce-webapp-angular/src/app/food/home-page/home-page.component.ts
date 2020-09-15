@@ -1,5 +1,4 @@
 import { AfterViewChecked, AfterViewInit, Component, OnChanges, OnInit, Pipe } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { ChangeDetectorRef, PipeTransform } from '@angular/core';
 import {
   DietDays,
@@ -14,10 +13,9 @@ import { EventService } from '../../providers/event.service';
 import { AngularFireList } from '@angular/fire/database';
 import { AuthService } from '../../shared/services/auth.service';
 // import { forEach } from '@angular/router/src/utils/collection';
-import { NavigationEnd, Route, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import {  Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { User } from "app/model/user";
+
 
 
 @Component({

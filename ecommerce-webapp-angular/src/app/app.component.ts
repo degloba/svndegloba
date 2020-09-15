@@ -15,8 +15,6 @@ export class AppComponent implements OnInit {
   title = 'Casino';
   angForm: FormGroup;
   
-  hotels: Hotel[] = [];
-
   
   constructor(private fb: FormBuilder) {
       this.createForm();

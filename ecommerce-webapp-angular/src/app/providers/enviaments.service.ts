@@ -8,10 +8,6 @@ import { Enviament } from '../model/enviament';
 
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-
 //we can now access environment.apiUrl
 const API_URL = environment.apiUrl;
 
@@ -65,8 +61,8 @@ export class EnviamentsService {
         .catch(this.handleError);
     }
 
-  // API: GET /hotels/:id
-  public getEnviamwentById(enviamentId: number): Observable<Enviament> {
+  // API: GET /enviaments/:id
+  public getEnviamentById(enviamentId: number): Observable<Enviament> {
       return this.http
         .get(API_URL + '/enviaments/' + enviamentId)
         .map(response => {
@@ -75,7 +71,7 @@ export class EnviamentsService {
         .catch(this.handleError);
     }
 
-  // API: PUT /hotels/:id
+  // API: PUT /enviaments/:id
   public updateEnviament(enviament: Enviament): Observable<Enviament> {
       return this.http
         .put(API_URL + '/enviaments/' + enviament.enviamentId, enviament)
@@ -85,7 +81,7 @@ export class EnviamentsService {
         .catch(this.handleError);
     }
 
-  // DELETE /hotels/:id
+  // DELETE /enviaments/:id
   public deleteEnviamentById(enviamentId: number): Observable<null> {
       return this.http
         .delete(API_URL + '/enviaments/' + enviamentId)

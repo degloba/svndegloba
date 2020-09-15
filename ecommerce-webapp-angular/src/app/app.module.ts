@@ -104,12 +104,6 @@ import { AuthService } from './shared/services/auth.service';
 
 import { ApiService } from './providers/api.service';
 
-import { HotelsComponent } from './hotels/hotels.component';
-import { HotelsListHeaderComponent } from './hotels/hotels-list-header/hotels-list-header.component';
-import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component';
-import { HotelsListFooterComponent } from './hotels/hotels-list-footer/hotels-list-footer.component';
-import { HotelsListItemComponent } from './hotels/hotels-list-item/hotels-list-item.component';
-
 
 // rich grid
 import { RichGridComponent } from "./grid/rich-grid-example/rich-grid.component";
@@ -159,11 +153,6 @@ const MY_DATE_FORMATS = {
     TodoListFooterComponent,
     TodoListHeaderComponent,
     TodoListItemComponent,*/
-    HotelsComponent,
-    HotelsListHeaderComponent,
-    HotelsListComponent,
-    HotelsListFooterComponent,
-    HotelsListItemComponent,
 	RichGridComponent,
     DateComponent,
     SortableHeaderComponent,
