@@ -12,10 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM adoptopenjdk/openjdk11:latest
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+#FROM adoptopenjdk/openjdk11:latest
+#ARG JAR_FILE=target/*.jar
+#COPY ${JAR_FILE} app.jar
+#ENTRYPOINT ["java","-jar","/app.jar"]
+#EXPOSE 8888
+
+
+# https://springframework.guru/manage-docker-containers-with-docker-compose/
+FROM openjdk:11
+ADD ./target/ecommerce-webapp-4.4.3-SNAPSHOT.jar /usr/src/ecommerce-webapp-4.4.3-SNAPSHOT.jar
+WORKDIR usr/src
+ENTRYPOINT ["java","-jar", "ecommerce-webapp-4.4.3-SNAPSHOT.jar"]
 EXPOSE 8888
+
 
 #ecommerce-webapp-4.4.3-SNAPSHOT.jar
