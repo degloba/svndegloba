@@ -6,8 +6,8 @@
     "types": ["node"]
   },
   "files": [
-    "main.ts",
-    "polyfills.ts"
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "exclude": [
     "src/test.ts",
