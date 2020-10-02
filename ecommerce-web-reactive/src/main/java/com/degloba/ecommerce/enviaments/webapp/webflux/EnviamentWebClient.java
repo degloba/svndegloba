@@ -1,4 +1,4 @@
-package com.degloba.enviaments.webapp.webflux;
+package com.degloba.ecommerce.enviaments.webapp.webflux;
 
 
 import org.springframework.http.MediaType;
@@ -11,7 +11,8 @@ import reactor.core.publisher.Mono;
 
 public class EnviamentWebClient {
 
-	   WebClient client = WebClient.create("http://localhost:8080");
+	   //WebClient client = WebClient.create("http://localhost:8080");   // port intern
+	   WebClient client = WebClient.create("http://localhost:8888");   // port extern (Docker)
 	    
 	    public void consume() {
 

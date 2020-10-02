@@ -1,12 +1,12 @@
-package com.degloba.enviaments.webapp.reactive.service;
+package com.degloba.ecommerce.enviaments.webapp.reactive.service;
 
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+//////import com.degloba.ecommerce.enviaments.domain.persistence.nosql.mongo.Enviament;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
-import com.degloba.hotels.HotelDto;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -23,9 +23,11 @@ import reactor.core.publisher.Mono;
 @Service
 public class ClientEnviamentsService {
 
+	
 	public Flux<EnviamentDto> buscarTotsEnviaments() {
 		  
-	    WebClient webclient = WebClient.create("http://localhost:8080/enviaments/");
+	    WebClient webclient = WebClient.create("http://localhost:8080/enviaments/");  // port intern (no Docker) , ecommerce-webapp
+		//WebClient webclient = WebClient.create("http://localhost:8888/enviaments/");  // port extern (Docker) , ecommerce-webapp
 	    
 	    // simulem una lògica de negoci en la part web (front-End)
 	    // accedint a diferents RestControllers (en aquest cas d'exemple es el mateix Rest)
@@ -33,11 +35,14 @@ public class ClientEnviamentsService {
 	    Flux<EnviamentDto> fluxEnviament2 = webclient.get().accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(EnviamentDto.class);
 	    Flux<EnviamentDto> fluxEnviament3 = webclient.get().accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(EnviamentDto.class);
 	    
-	    
+	  	    
+	    // ************  aqui convertim EntitatS a DTOs
+	    	    
 	    Flux<EnviamentDto> fluxEnviaments = Flux.merge(fluxEnviament1,fluxEnviament2,fluxEnviament3);
-	    System.out.println(fluxEnviaments);
 	    
-	    return fluxEnviaments;
+	    return fluxEnviaments;    // si els diferents webservices ens tornen DTOs
+	    /////return fluxEnviaments.flatMap(UserrService::covertUserDAOToBUserBO);
+	    
 	   }
 
 	public Mono<EnviamentDto> buscarEnviamentById(String id) {

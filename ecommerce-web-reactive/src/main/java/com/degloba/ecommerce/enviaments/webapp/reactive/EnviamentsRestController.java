@@ -1,4 +1,4 @@
-package com.degloba.enviaments.webapp.reactive;
+package com.degloba.ecommerce.enviaments.webapp.reactive;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
-import com.degloba.enviaments.webapp.reactive.service.ClientEnviamentsService;
+import com.degloba.ecommerce.enviaments.webapp.reactive.service.ClientEnviamentsService;
 
 
 @RestController
@@ -21,6 +21,7 @@ public class EnviamentsRestController {
 		@RequestMapping("/enviaments/")
 		@ResponseBody
 		public List<EnviamentDto> getEnviaments(@RequestParam(required = false) String queryParam) {
+									
 			return clientEnviamentsService.buscarTotsEnviaments().collectList().block();
 		}
 

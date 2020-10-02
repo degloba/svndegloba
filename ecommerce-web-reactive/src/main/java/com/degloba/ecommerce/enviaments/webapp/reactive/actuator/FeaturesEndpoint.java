@@ -1,23 +1,23 @@
-package com.degloba.enviaments.webapp.reactive.actuator;
+package com.degloba.ecommerce.enviaments.webapp.reactive.actuator;
 
-import org.springframework.boot.actuate.endpoint.annotation.*;
+/////////import org.springframework.boot.actuate.endpoint.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@Endpoint(id = "features", enableByDefault = true)
+//////@Endpoint(id = "features", enableByDefault = true)
 public class FeaturesEndpoint {
 
-	private Map<String, Feature> features = new ConcurrentHashMap<>();
+	/*
+	 * private Map<String, Feature> features = new ConcurrentHashMap<>();
+	 * 
+	 * ////@ReadOperation public Map<String, Feature> features() { return features;
+	 * }
+	 */
 
-    @ReadOperation
-    public Map<String, Feature> features() {
-        return features;
-    }
-
-    @ReadOperation
+   /* @ReadOperation
     public Feature feature(@Selector String name) {
         return features.get(name);
     }
@@ -42,5 +42,5 @@ public class FeaturesEndpoint {
         public void setEnabled(Boolean enabled) {
             this.enabled = enabled;
         }
-    }
+    } */
 }

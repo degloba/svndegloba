@@ -1,4 +1,4 @@
-package com.degloba.enviaments.webapp.webflux;
+package com.degloba.ecommerce.enviaments.webapp.webflux;
 
 import java.net.URI;
 
