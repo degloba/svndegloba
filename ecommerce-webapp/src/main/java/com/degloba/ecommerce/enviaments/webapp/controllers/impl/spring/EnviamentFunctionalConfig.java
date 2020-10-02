@@ -23,7 +23,10 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import com.degloba.ecommerce.enviaments.domain.persistence.nosql.mongo.Enviament;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
+import com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring.EnviamentRepository2;
+import com.degloba.ecommerce.enviaments.webapp.controllers.impl.spring.EnviamentWebFluxHandler;
 
 
 
@@ -61,48 +64,43 @@ public class EnviamentFunctionalConfig {
 	  }
 	  
     @Bean
-    EnviamentRepository enviamentRepository() {
-        return new EnviamentRepository();
+    EnviamentRepository2 enviamentRepository() {
+        return new EnviamentRepository2();
     }
 
     @Bean
     RouterFunction<ServerResponse> getAllEnviamentsRoute() {
       return RouterFunctions.route(GET("/enviaments"), 
         req -> ok().body(
-        		enviamentRepository().findAllEnviaments(), EnviamentDto.class));
+        		enviamentRepository().findAll(), EnviamentDto.class));
     }
 
     @Bean
     RouterFunction<ServerResponse> getEnviamentByIdRoute() {
       return RouterFunctions.route(GET("/enviaments/{id}"), 
         req -> ok().body(
-        		enviamentRepository().findEnviamentById(req.pathVariable("id")), EnviamentDto.class));
+        		enviamentRepository().findById(req.pathVariable("id")), EnviamentDto.class));
     }
 
-    @Bean
-    RouterFunction<ServerResponse> updateEnviamentRoute() {
-      return RouterFunctions.route(POST("/enviaments/update"), 
-        req -> req.body(toMono(EnviamentDto.class))
-                  .doOnNext(enviamentRepository()::updateEnviament)
-                  .then(ok().build()));
-    }
+	/*
+	 * @Bean RouterFunction<ServerResponse> updateEnviamentRoute() { return
+	 * RouterFunctions.route(POST("/enviaments/update"), req ->
+	 * req.body(toMono(EnviamentDto.class))
+	 * .doOnNext(enviamentRepository2()::updateEnviament) .then(ok().build())); }
+	 */
 
-    @Bean
-    RouterFunction<ServerResponse> composedRoutes() {
-      return 
-    		  RouterFunctions.route(GET("/enviaments"), 
-            req -> ok().body(
-            		enviamentRepository().findAllEnviaments(), EnviamentDto.class))
-            
-          .and(RouterFunctions.route(GET("/enviaments/{id}"), 
-            req -> ok().body(
-            		enviamentRepository().findEnviamentById(req.pathVariable("id")), EnviamentDto.class)))
-            
-          .and(RouterFunctions.route(POST("/enviaments/update"), 
-            req -> req.body(toMono(EnviamentDto.class))
-                      .doOnNext(enviamentRepository()::updateEnviament)
-                      .then(ok().build())));
-    }
+	/*
+	 * @Bean RouterFunction<ServerResponse> composedRoutes() { return
+	 * RouterFunctions.route(GET("/enviaments"), req -> ok().body(
+	 * enviamentRepository().findAll(), Enviament.class))
+	 * 
+	 * .and(RouterFunctions.route(GET("/enviaments/{id}"), req -> ok().body(
+	 * enviamentRepository().findById(req.pathVariable("id")), EnviamentDto.class)))
+	 * 
+	 * .and(RouterFunctions.route(POST("/enviaments/update"), req ->
+	 * req.body(toMono(EnviamentDto.class))
+	 * .doOnNext(enviamentRepository()::updateEnviament) .then(ok().build()))); }
+	 */
 
 	/*
 	 * @Bean public SecurityWebFilterChain

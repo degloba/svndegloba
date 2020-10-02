@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 
 ////import org.apache.log4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,16 +18,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.degloba.ecommerce.enviaments.domain.persistence.nosql.mongo.Enviament;
+import com.degloba.ecommerce.enviaments.domain.persistence.nosql.mongo.EnviamentTemplateOperations;
+import com.degloba.ecommerce.enviaments.domain.persistence.nosql.mongo.IEnviamentReactiveRepository;
 import com.degloba.ecommerce.enviaments.facade.dtos.EnviamentDto;
+import com.degloba.ecommerce.enviaments.webapp.services.UserrService;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8083")
+//@CrossOrigin(origins = "http://localhost:8083")    // port intern (No Docker)
+@CrossOrigin(origins = "http://localhost:8887")    // port extern (Docker)
 public class EnviamentsRestController {
 	
-	  EnviamentRepository enviamentRepository = new EnviamentRepository();
+	 @Autowired
+	 IEnviamentReactiveRepository enviamentRepository;
+	 
+	 
+	 @Autowired
+	 EnviamentTemplateOperations enviamentTemplate;
+			
+	  //////EnviamentRepository enviamentRepository = new EnviamentRepository();
 		
 		 @RequestMapping("/")
 		    @ResponseBody
@@ -41,7 +54,12 @@ public class EnviamentsRestController {
 		public Flux<EnviamentDto> getEnviaments(@RequestParam(required = false) String queryParam) {
 ////			log.debug("Received request at getExample:" + queryParam);
 			
-			return enviamentRepository.findAllEnviaments();
+			
+			return enviamentTemplate.findAll().flatMap(UserrService::covertUserDAOToBUserBO);
+			
+			////////return enviamentTemplate.findAll();   // si retorna Flux<Entity>
+			
+			//////return enviamentRepository.findAllEnviaments();
 			
 			
 			/*
