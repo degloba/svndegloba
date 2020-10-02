@@ -25,17 +25,6 @@ export class EnviamentsService {
     }
   
   
-  /**
-   * 
-   * {@link getAllHotels}</param>
-   * [Todo]{@link Todo}
-   * {@link Todo|TodoClass}
-   * Anchors are supported : [Todo]{@link Todo#myproperty}
-//for an external link
-   *
-   * @param {string} target  The target to process see {@link Todo}
-   * @returns The processed target number
-   */
   public getAllEnviaments(): Observable<Enviament[]> {
 	  return this.http
         .get<Enviament[]>(API_URL + '/enviaments/', {responseType: 'json'})
@@ -47,11 +36,7 @@ export class EnviamentsService {
 
     }
 
-  /**
-   * Example of usage:
-   * <example-url>http://localhost/demo/mysample.component.html</example-url>
-   * <example-url>/demo/mysample.component.html</example-url>
-   */
+
     public createEnviament(enviament: Enviament): Observable<Enviament> {
       return this.http
         .post(API_URL + '/enviaments', enviament)
